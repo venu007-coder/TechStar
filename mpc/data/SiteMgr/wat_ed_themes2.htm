@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+	winName = "ed_theme_popup";
+	baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+</SCRIPT>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" bgcolor="#CCCCCC"  
+background="/cgi-docs/Mercantec/PC_F_6.6.1/images/stripeback2.gif" onLoad="closeChildWin();">
+<table width="95%" cellpadding="2" cellspacing="0" border="0" height="312" bgcolor="#CCCCCC" class="table-bkgrd-main" align="center">
+  <tr valign="top"> 
+    <td> 
+<p><span class="page-title">Themes</span></p></td>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<td align="right"> <a href="javasc
+		ript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_THEMES+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help on Themes" align="right"></a></td><!--END HELP WINDOW LINK-->
+</tr>
+
+
+  <tr valign="top"> 
+    <td colspan="2">
+      <table width="53%" border="1" align="center" cellspacing="2" cellpadding="4">
+        <tr> 
+          <td height="84"> 
+            
+<div align="center"> 
+              
+<p><font size="2"><b><font face="Arial, Helvetica, sans-serif">Current 
+        Base Theme</font></b></font><br>
+<br>
+	<SCRIPT RUNAT="merc_server">
+		var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+				    'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+		var seObj = generateSEObjects ('');
+		write (generateBaseThemeHeaderHTML (seObj.pageObjArray[gBASE_PAGE].Theme, 'wat_ed_themes2.htm'));
+	</SCRIPT>
+			</div>  
+          </td>
+        </tr>
+      </table>
+      <br>
+      <center>
+        <b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        Themes Used</font></b> 
+        <a href="javascript:parent.SubmitForm ('L', 'wat_ed_themes.htm', 'mainFrame', '');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btn_listbytheme_sm.gif" border="0" width="106" height="27" alt="List themes used and corresponding page(s)" align="absmiddle"></a>
+      </center><br>
+
+      <table width="59%" border="1" align="center" cellpadding="2">
+        <tr class="table-header"> 
+          <td width="31%" class="field-label" height="19"> 
+            <div align="center">Page </div>
+          </td>
+          <td colspan="2" class="field-label" height="19"> 
+            <div align="center">Theme</div>
+          </td>
+          <td width="17%" class="field-label" height="19"> 
+            <div align="center">Custom </div>
+          </td>
+        </tr>
+        <SCRIPT RUNAT="merc_server">
+			for (var n = 0; n < seObj.pageList.length; n++)
+			{
+				var myTheme = seObj.pageObjArray[seObj.pageList[n]].Theme;
+				write ("<tr><td width='31%' height='15'><div align='left'>");
+				write (seObj.pageList[n]);
+				write ("</div></td><td width='25%' height='37'>");
+				write (generateThemeThumb (myTheme, seObj.pageObjArray[seObj.pageList[n]]));
+				write ("</td>");
+				if ((bCustom = myTheme.indexOf("TC_") == 0) || (myTheme.indexOf("TS_") == 0))
+					myTheme = myTheme.slice (3);
+				write ("<td width='27%' height='15' nowrap>" + myTheme.substr (0, myTheme.lastIndexOf('.')) + "</td>");
+				write ("<td width='17%' height='15' nowrap><div align='center'>");
+				if (bCustom)
+					write ("<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif' width='12' height='12'>");
+				else
+					write("&nbsp;");
+				write ("</div></td></tr>");
+			}
+        </SCRIPT>
+      </table>
+
+      <p>&nbsp; </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

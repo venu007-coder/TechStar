@@ -1,0 +1,1 @@
+PictureFile	ID=long	Key	Type=long	DescriptionID=long	Price=double	PricePrecision=long	PriceType=long	TAX_CATEGORY_NODE_ID=long	NameID=long	FractQty=long	OutOfStock=long	OutOfStockMsg	PriceDuration=long	PriceExpiration=date

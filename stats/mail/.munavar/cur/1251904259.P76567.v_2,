@@ -1,0 +1,636 @@
+Return-Path: reply-484fa00317-87af3b50b7-3aff@u.cts.vresp.com
+Received: from mx42.stngva01.us.mxservers.net (204.202.242.44)
+	by mail19e.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0503874258
+	for <ms@altechstar.com>; Wed,  2 Sep 2009 11:10:58 -0400 (EDT)
+Received: from unknown [204.202.242.137] (HELO mail19l.g19.rapidsite.net)
+	by va1-mx42.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 20b8e9a4.2517076896.1233474.00-006.va1-mx42.stngva01.us.mxservers.net (envelope-from <bounces-484fa00317-87af3b50b7@b.cts.vresp.com>);
+	Wed, 02 Sep 2009 11:10:58 -0400 (EDT)
+Received: from mx84.stngva01.us.mxservers.net (204.202.242.113)
+	by mail19l.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-0937334257
+	for <anand@altechstar.com>; Wed,  2 Sep 2009 11:10:57 -0400 (EDT)
+Received: from unknown [206.57.6.143] (EHLO gc-mkt86.verticalresponse.com)
+	by va1-mx84.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 10b8e9a4.2644450208.85363.00-009.va1-mx84.stngva01.us.mxservers.net (envelope-from <bounces-484fa00317-87af3b50b7@b.cts.vresp.com>);
+	Wed, 02 Sep 2009 11:10:57 -0400 (EDT)
+Return-Path: <bounces-484fa00317-87af3b50b7@b.cts.vresp.com>
+DKIM-Signature: v=1; a=rsa-sha1; d=vresp.com; s=dkim; c=simple/simple;
+	q=dns/txt; i=@vresp.com; t=1251904256;
+	h=From:Subject:Date:To:MIME-Version:Content-Type;
+	bh=DBywG7TNDaLtFbRZwle+HO1Jfps=;
+	b=AVTrapyt1bHyCYXC9ToKwsB86FqUGP+H4dLgiW2H90Pg8AwZXnl5w2+LRmssAnIk
+	z2C8Aj6jpbiM+MR4o3A2smBlJYtZq6Lj4Rq2q32qw3+3VuoLYY/sfCxD2sQ/pgJd
+	BnvEYDcl/bOwClQZHochpkouayRfGcQHlNUvE7x0dgw=;
+DomainKey-Signature: q=dns; a=rsa-sha1; c=nofws;
+	s=mkt; d=vresp.com;
+	h=Received:From:Reply-To:To:Subject:Date:Message-ID:List-Unsubscribe:MIME-Version:X-Company_ID:X-vrfbldomain:X-vrpod:X-CTS-Enabled:X-Campaign:Content-Type;
+	b=BPpC7ZCriCywe58JZyKaH0Ebw6hKCV70EIMQaS0B2abHSJlzv8AgAZQSh/J5NnH/
+	qHw74c+Tqa/k+bnaYxN/toVPULGtjEqcis79G3W3+y69AJq4R75pOmy3sAZ/beGJ
+	AEuiHJxLm2ZgsD6sf5VcYJRrQOhJOMO/AdgMrYgzUng=
+Received: from [10.4.7.55] ([10.4.7.55:59119] helo=mailer01.sf.verticalresponse.com)
+	by pacifica.sf.verticalresponse.com (envelope-from <bounces-484fa00317-87af3b50b7@b.cts.vresp.com>)
+	(ecelerity 2.2.2.43 r(32041/32179)) with ESMTP
+	id 79/61-25248-00B8E9A4; Wed, 02 Sep 2009 08:10:56 -0700
+From: "Trendsmedia" <Trendsmedia@mail.vresp.com>
+Reply-To: "Trendsmedia" <reply-484fa00317-87af3b50b7-3aff@u.cts.vresp.com>
+To: anand@altechstar.com
+Subject: Just Published: Harnessing the Mobile Internet - ORDER NOW
+Date: Wed, 02 Sep 2009 15:10:56 +0000
+Message-ID: <484fa00317-anand=altechstar.com@mail.vresp.com>
+List-Unsubscribe: <mailto:reply-484fa00317-87af3b50b7-3aff@u.cts.vresp.com?subject=unsubscribe>
+MIME-Version: 1.0
+X-Company_ID: 65249
+X-vrfbldomain: fbl.p0.verticalresponse.com
+X-vrpod: p0
+X-CTS-Enabled: 484fa00317-87af3b50b7
+X-Campaign: 484fa00317
+Content-Type: multipart/alternative;
+    boundary="=_reb-r5F936191-t4A9E8B01";
+    charset="UTF-8"
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009090218)]
+X-MAIL-FROM: <bounces-484fa00317-87af3b50b7@b.cts.vresp.com>
+X-SOURCE-IP: [206.57.6.143]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009090218)]
+X-MAIL-FROM: <bounces-484fa00317-87af3b50b7@b.cts.vresp.com>
+X-SOURCE-IP: [204.202.242.137]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r5F936191-t4A9E8B01
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+View the online version here.=20
+http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/552322f4ff
+
+
+HARNESSING THE MOBILE INTERNET
+Published By Yankee Group
+http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/ff965dd484
+
+
+ORDER TODAY!
+http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/314e1a37d6/C=3D70=
+000042&M=3D50000228
+
+
+Learn how to profit from the $55B untapped market potential of the
+mobile Internet. An executive guide to the new world of mobile
+communications.
+http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/eb1b5c3c38
+
+
+HARNESSING THE MOBILE INTERNET
+Harnessing the Mobile Internet is an executive guide written to help
+you understand the market dynamics, trends and technology ecosystem
+that is shaping the rapidly expanding global mobile Internet industry.
+
+
+Read Harnessing the Mobile Internet and find out the answers to these
+questions and more:
+
+- What has been the evolution of the mobile Internet?=20
+
+- What are the components of the mobile Internet?=20
+
+- What are the major trends that are accelerating the growth of the
+mobile Internet market?=20
+
+- Who are the key stakeholders of the mobile Internet ecosystem and
+how can you identify and evaluate the likely winners and losers?=20
+
+- How do participants build viable business models to profit from the
+expansion of the mobile Internet?=20
+
+- What will be the evolution of the mobile Internet over the next five
+years?=20
+
+Learn more
+http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/1ebc27e5c6
+
+
+Learn how Mobile Internet market dynamics will effect your business
+and your career! Yankee Group has estimated that the global consumer
+mobile Internet services market has an untapped potential of $55
+billion. The size of the market today and forecasts for how it will
+grow, have been constrained by a myriad of obstacles. These include
+regulatory factors, network capacity and performance limitations,
+restrictive usage tariffs, expensive devices, a lack of open
+development platforms, and several other challenges. The question is
+what would happen if these and other barriers are overcome? Harnessing
+the Mobile Internet explains who the players are, how the mobile
+Internet ecosystem is evolving, and how market trends are breaking
+down these barriers to enable future revenues to far exceed even
+today=E2=80=99s forecasts.
+
+Much of what is being written today about the expanding mobile
+Internet market comes in the form of expensive, industry research
+reports and market intelligence studies. The ultimate growth of the
+mobile Internet will be driven by millions of business executives, IT
+professionals and users, many of whom today do not have a basic
+understanding of the mobile Internet ecosystem, where it came from,
+and how it is evolving. Harnessing the Mobile Internet is an executive
+guide written to help these professionals and consumers understand the
+market dynamics, trends and technology ecosystem that is shaping the
+rapidly expanding global mobile Internet industry.
+
+WHO SHOULD READ THIS BOOK, AND WHY? DOWNLOAD INTRODUCTION
+http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/1065513321
+
+
+ABOUT THE AUTHOR
+Harnessing the Mobile Internet was written and edited by Eliot
+Weinman, president, the events and publishing division of Yankee
+Group, and conference co-chair of 4G World and Mobile Internet World.
+
+ORDER TODAY!
+http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/4efc827147/C=3D70=
+000042&M=3D50000228
+
+
+______________________________________________________________________
+If you no longer wish to receive these emails, please reply to this
+message with "Unsubscribe" in the subject line or simply click on the
+following link:
+http://cts.vresp.com/u?484fa00317/87af3b50b7/mlpftw
+
+______________________________________________________________________
+Click below to forward this email to a friend:
+http://oi.vresp.com/f2af/v4/send_to_friend.html?ch=3D484fa00317&lid=3D34700=
+0311&ldh=3D87af3b50b7
+
+______________________________________________________________________
+This message was sent by Trendsmedia using VerticalResponse
+
+Trendsmedia
+18 Lyman Street
+Suite 250
+Westboro, Massachusetts 01581
+US
+
+Read the VerticalResponse marketing policy:
+http://www.verticalresponse.com/content/pm_policy.html
+--=_reb-r5F936191-t4A9E8B01
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Harnessing the Mobile Internet</title>
+
+<style type=3D"text/css">
+<!--
+.style1 {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+}
+.style2 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.style3 {
+	color: #EF8700;
+	font-weight: bold;
+}
+.style4 {font-size: 12px}
+.style12 {font-size: 9}
+.style13 {font-size: 9pt}
+-->
+</style>
+</head>
+<body bgcolor=3D"#e9e6d8" leftmargin=3D"0" topmargin=3D"0" marginwidth=3D"0=
+" marginheight=3D"0">
+<table bgcolor=3D"#e9e6d8" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ height=3D"100%" width=3D"100%">
+	<tr>
+		<td align=3D"center" valign=3D"top">
+      <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"594">
+        <tr>
+          <td style=3D"padding:10px 0 15px 40px; font-family:Arial, Helveti=
+ca, sans-serif; font-size:11px; color:#a58e7e;" align=3D"left">
+            <p align=3D"center">Images not displaying properly?
+			<a href=3D"http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/1a9=
+42c215d" style=3D"color: #7e6655" target=3D"_blank">
+			View the online version here.</a>          </td>
+        </tr>
+        <tr>
+          <td align=3D"left">
+              <table bgcolor=3D"#ffffff" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" width=3D"594">
+                <tr>
+                  <td><img height=3D"8" width=3D"594" src=3D"http://proxy.p=
+cdn.vresp.com/27f47b482/www.trendsmedia2.com/Harnessing/email-temp/i/i-01.g=
+if"></td>
+                </tr>
+                <tr>
+                	<td>
+                  	<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+width=3D"100%">
+                      <tr>
+                        <td height=3D"76" width=3D"27"><img height=3D"76" w=
+idth=3D"27" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/25e6c1e8d/www.tren=
+dsmedia2.com/Harnessing/email-temp/i/i-02.gif"></td>
+                        <td bgcolor=3D"#51382c" style=3D"background-color:#=
+51382c;">
+                        	<table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%">
+                            <tr>
+                              <td style=3D"padding:0 0 0 16px;">
+								<span class=3D"style1"><span class=3D"style2">
+								<font size=3D"2">Just Published!</font><font style=3D"font-size: 20=
+pt" color=3D"#EF8700"><br>
+								</font><font size=3D"5" color=3D"#EF8700">
+								Harnessing </font></span><span class=3D"style3">=20
+								<font size=3D"5">the <br>
+								Mobile Internet</font></span></span></td>
+                              <td style=3D"padding:0 16px 0 0;" align=3D"ri=
+ght">
+                              	<table cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+                                  <tr>
+                                    <td height=3D"29" width=3D"2"><img heig=
+ht=3D"29" width=3D"2" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/cc17ff1d=
+4/www.trendsmedia2.com/Harnessing/email-temp/i/i-10.gif"></td>
+                                    <td>
+                                    	<table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" width=3D"100%">
+                                        <tr>
+                                          <td height=3D"2" width=3D"76"><im=
+g height=3D"2" width=3D"76" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/ff=
+4c53b39/www.trendsmedia2.com/Harnessing/email-temp/i/i-13.gif"></td>
+                                        </tr>
+                                        <tr>
+                                          <td style=3D"font-family: Arial, =
+Helvetica, sans-serif; font-size:11px;" valign=3D"middle" align=3D"center" =
+height=3D"25" width=3D"76">
+											<a href=3D"http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b=
+50b7/e8b3e7341f" style=3D"color: #e3e0df" target=3D"_blank">
+											Learn More</a></td>
+                                        </tr>
+                                        <tr>
+                                          <td height=3D"2" width=3D"76"><im=
+g height=3D"2" width=3D"76" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/5f=
+fc857d4/www.trendsmedia2.com/Harnessing/email-temp/i/i-14.gif"></td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                    <td height=3D"29" width=3D"14"><img hei=
+ght=3D"29" width=3D"14" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/d4aadd=
+578/www.trendsmedia2.com/Harnessing/email-temp/i/i-11.gif"></td>
+                                    <td>
+                                    	<table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" width=3D"100%">
+                                        <tr>
+                                          <td height=3D"2" width=3D"76"><im=
+g height=3D"2" width=3D"76" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/ff=
+4c53b39/www.trendsmedia2.com/Harnessing/email-temp/i/i-13.gif"></td>
+                                        </tr>
+                                        <tr>
+                                          <td style=3D"font-family: Arial, =
+Helvetica, sans-serif; font-size:11px;" valign=3D"middle" align=3D"center" =
+height=3D"25" width=3D"76">
+											<a href=3D"http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b=
+50b7/d285a6e1d6/C=3D70000042&M=3D50000228" style=3D"color: #e3e0df" target=
+=3D"_blank">
+											Order Today</a></td>
+                                        </tr>
+                                        <tr>
+                                          <td height=3D"2" width=3D"76"><im=
+g height=3D"2" width=3D"76" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/5f=
+fc857d4/www.trendsmedia2.com/Harnessing/email-temp/i/i-14.gif"></td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                    <td height=3D"29" width=3D"2"><img heig=
+ht=3D"29" width=3D"2" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/ed15bba8=
+e/www.trendsmedia2.com/Harnessing/email-temp/i/i-12.gif"></td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td height=3D"76" width=3D"32"><img height=3D"76" w=
+idth=3D"32" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/dfb131a52/www.tren=
+dsmedia2.com/Harnessing/email-temp/i/i-03.gif"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                	<td><img height=3D"38" width=3D"594" alt=3D" " src=3D"http=
+://proxy.pcdn.vresp.com/6e44638db/www.trendsmedia2.com/Harnessing/email-tem=
+p/i/i-04.gif"></td>
+                </tr>
+                <tr>
+                	<td>
+                  	<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+width=3D"100%">
+                      <tr>
+                        <td height=3D"200" width=3D"8"><img height=3D"200" =
+width=3D"8" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/bc9126dd2/www.tren=
+dsmedia2.com/Harnessing/email-temp/i/i-05.gif"></td>
+                        <td bgcolor=3D"#ef8700" style=3D"background-color:#=
+ef8700;" width=3D"234">
+                        	<table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%">
+                            <tr>
+                              <td style=3D"color:#ffffff; padding:0 15px 0 =
+15px; font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height=
+:17px;" height=3D"187" valign=3D"top">
+                              	<div style=3D"margin:0 0 10px 0; font-size:1=
+8px; color:#0165ab;"><a style=3D"color:#fff;" href=3D"http://cts.vresp.com/=
+c/?Trendsmedia/484fa00317/87af3b50b7/876b2bbe98">
+									Learn how to profit from the $55B untapped=20
+									market potential of the mobile Internet</a></div>
+                                <div style=3D"margin:0;">
+                                  We are now in the early phase of a mobile=
+=20
+									Internet tsunami, the impact of which may=20
+									change our lives even more than the Internet=20
+									itself did a decade ago.</div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height=3D"13" width=3D"234"><img height=
+=3D"13" width=3D"234" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/7eb4873f=
+3/www.trendsmedia2.com/Harnessing/email-temp/i/i-09.gif"></td>
+                            </tr>
+                          </table>
+
+                        </td>
+                        <td height=3D"200" width=3D"8"><img height=3D"200" =
+width=3D"8" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/54e3a8ed7/www.tren=
+dsmedia2.com/Harnessing/email-temp/i/i-06.gif"></td>
+                        <td>
+						<a href=3D"http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/=
+a0e10c7da3">
+						<img border=3D"0" height=3D"200" width=3D"336" alt=3D" " src=3D"http:=
+//proxy.pcdn.vresp.com/b99efd9b4/www.trendsmedia2.com/Harnessing/email-temp=
+/i/poster.jpg"></a></td>
+                        <td height=3D"200" width=3D"8"><img height=3D"200" =
+width=3D"8" alt=3D" " src=3D"http://proxy.pcdn.vresp.com/ebe88c597/www.tren=
+dsmedia2.com/Harnessing/email-temp/i/i-07.gif"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                	<td><img height=3D"32" width=3D"594" alt=3D" " src=3D"http=
+://proxy.pcdn.vresp.com/d3c857736/www.trendsmedia2.com/Harnessing/email-tem=
+p/i/i-08.gif"></td>
+                </tr>
+                <tr>
+                  <td bgcolor=3D"#e9e6d8" style=3D"background-color:#e9e6d8=
+;">
+                  =09
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ width=3D"100%">
+                      <tr>
+                        <td width=3D"20">&nbsp;</td>
+                        <td>
+                        	<table bgcolor=3D"#ffffff" style=3D"background-col=
+or:#ffffff;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"`00%=
+">
+                            <tr>
+                              <td style=3D"padding:20px 40px 20px 20px; bor=
+der-left:1px solid #c9c1b3; border-right:1px solid #c9c1b3; border-bottom:1=
+px solid #c9c1b3;">
+                                <table width=3D"488" cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0">
+                                  <tr>
+                                    <td valign=3D"top" style=3D"font-family=
+:Arial, Helvetica, sans-serif; font-size:14px; color:#000000; line-height:2=
+0px;">
+                                      <div style=3D"margin:0 0 10px 0; font=
+-size:18px;">
+										<a target=3D"_blank" href=3D"http://cts.vresp.com/c/?Trendsmedia/=
+484fa00317/87af3b50b7/419b72c58f">
+										<font color=3D"#000000">Harnessing the=20
+										Mobile Internet</font></a></div>
+                                      <div style=3D"margin:0 0 25px 0;" cla=
+ss=3D"style4">
+                                        <b>Harnessing the Mobile Internet <=
+/b>is=20
+										an executive guide written to help you=20
+										understand the market dynamics, trends=20
+										and technology ecosystem that is shaping=20
+										the rapidly expanding global mobile=20
+										Internet industry.  </div>
+                                      <div style=3D"margin:0 0 10px 0; font=
+-size:18px;">
+										<font size=3D"3"><a style=3D"color:#333333;" href=3D"http://cts.v=
+resp.com/c/?Trendsmedia/484fa00317/87af3b50b7/ab74fb8209">
+										Read Harnessing the Mobile Internet and=20
+										find out the </a><br>
+										<a style=3D"color:#333333;" target=3D"_blank" href=3D"http://cts.=
+vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/465fc1003c">
+										answers to these questions and more:</a></font></div>
+                                      <div style=3D"margin:0 0 10px 0;">
+                                        <ul>
+                                          <li class=3D"style4">
+											<a href=3D"http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b=
+50b7/cb98c6a49a/C=3D70000042&M=3D50000228" target=3D"_blank">
+									<img height=3D"30" width=3D"156" hspace=3D"3" align=3D"right" src=
+=3D"http://proxy.pcdn.vresp.com/5cc6ef582/www.trendsmedia2.com/Harnessing/e=
+mail-temp/i/ORDER-NOW.jpg" border=3D"0"></a>What has been the=20
+											evolution of the mobile Internet? </li>
+                                          <li class=3D"style4"> What are th=
+e=20
+											components of the mobile Internet? </li>
+                                          <li class=3D"style4">What are the=
+ major=20
+											trends that are accelerating the=20
+											growth of the mobile Internet=20
+											market? </li>
+                                          <li class=3D"style4">Who are the =
+key=20
+											stakeholders of the mobile Internet=20
+											ecosystem and how can you identify=20
+											and evaluate the likely winners and=20
+											losers? </li>
+                                          <li class=3D"style4">How do parti=
+cipants=20
+											build viable business models to=20
+											profit from the expansion of the=20
+											mobile Internet? </li>
+                                          <li class=3D"style4"> What will b=
+e the=20
+											evolution of the mobile Internet=20
+											over the next five years? </li>
+                                        </ul>
+                                      </div>                               =
+     </td>
+                                  </tr>
+                                  <tr>
+                                    <td valign=3D"top" style=3D"font-family=
+:Arial, Helvetica, sans-serif; font-size:14px; color:#000000; line-height:2=
+0px;"><div style=3D"margin:0 0 10px 0; font-size:18px;">
+										<span style=3D"font-size: 9pt; font-weight: 700">
+										Learn how Mobile Internet market=20
+										dynamics will effect your business and=20
+										your career!</span><p>
+										<span style=3D"font-size: 9pt">Yankee=20
+										Group has estimated that the global=20
+										consumer mobile Internet services market=20
+										has an untapped potential of $55=20
+										billion. The size of the market today=20
+										and forecasts for how it will grow, have=20
+										been constrained by a myriad of=20
+										obstacles.&nbsp; These include regulatory=20
+										factors, network capacity and=20
+										performance limitations, restrictive=20
+										usage tariffs, expensive devices, a lack=20
+										of open development platforms, and=20
+										several other challenges. </span>
+									    <a target=3D"_blank" href=3D"http://cts.vresp.com/c/?Trendsmed=
+ia/484fa00317/87af3b50b7/7037a33bcb"><img height=3D"220" width=3D"262" hspa=
+ce=3D"3" align=3D"right" src=3D"http://proxy.pcdn.vresp.com/663d9b04f/www.t=
+rendsmedia2.com/Harnessing/Img/bild-download.jpg" border=3D"0"></a><span st=
+yle=3D"font-size: 9pt">The question=20
+										is what would happen if these and other=20
+										barriers are overcome? Harnessing the=20
+										Mobile Internet explains who the players=20
+										are, how the mobile Internet ecosystem=20
+										is evolving, and how market trends are=20
+										breaking down these barriers to enable=20
+										future revenues to far exceed even=20
+										today&#8217;s forecasts.</span></p>
+									  <p><span style=3D"font-size: 9pt">Much of=20
+										what is being written today about the=20
+										expanding mobile Internet market comes=20
+										in the form of expensive, industry=20
+										research reports and market intelligence=20
+										studies. The ultimate growth of the=20
+										mobile Internet will be driven by=20
+										millions of business executives, IT=20
+										professionals and users, many of whom=20
+										today do not have a basic understanding=20
+										of the mobile Internet ecosystem, where=20
+										it came from, and how it is evolving.=20
+										Harnessing the Mobile Internet is an=20
+										executive guide written to help these=20
+										professionals and consumers understand=20
+										the market dynamics, trends and=20
+										technology ecosystem that is shaping the=20
+										rapidly expanding global mobile Internet=20
+										industry.</span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td bgcolor=3D"#EF8700" height=3D"27" s=
+tyle=3D"font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#00=
+0000; line-height:20px;">
+									<p align=3D"center"><b><font size=3D"2">
+									<a style=3D"text-decoration: none" target=3D"_blank" href=3D"http:=
+//cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50b7/d36501bd00">
+									<font color=3D"#800000">Click here to learn=20
+									more.</font></a></font></b></td>
+                                  </tr>
+                                  <tr>
+                                    <td height=3D"20" style=3D"font-family:=
+Arial, Helvetica, sans-serif; font-size:14px; color:#000000; line-height:20=
+px;">
+									<p align=3D"center">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td valign=3D"top" style=3D"font-family=
+:Arial, Helvetica, sans-serif; font-size:14px; color:#000000; line-height:2=
+0px;">
+									<b><font size=3D"2">About the Author</font></b></td>
+                                  </tr>
+                                  <tr>
+                                    <td style=3D"font-family:Arial, Helveti=
+ca, sans-serif; font-size:14px; color:#000000; line-height:20px;" valign=3D=
+"top" align=3D"left">
+									<img align=3D"left" border=3D"0" vspace=3D"3" hspace=3D"3" src=3D"=
+http://proxy.pcdn.vresp.com/bc6a7a5b1/www.trendsmedia2.com/harnessing/email=
+-temp/i/eliot60.jpg">
+									  <span class=3D"style12"><span class=3D"style13"><b>Harnessing th=
+e Mobile=20
+									Internet </b>was written and edited by Eliot=20
+									Weinman, president, the events and=20
+									publishing division of Yankee Group, and=20
+									conference co-chair of
+									<a target=3D"_blank" href=3D"http://cts.vresp.com/c/?Trendsmedia/4=
+84fa00317/87af3b50b7/b100ecf287"><i>
+									<font color=3D"#333333">4G World</font></i> </a>and <i><a target=
+=3D"_blank" href=3D"http://cts.vresp.com/c/?Trendsmedia/484fa00317/87af3b50=
+b7/5bba20a5e6">
+									<font color=3D"#333333">Mobile Internet World.</font><font color=
+=3D"#333333"></font></a></i></span></span></td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style=3D"font-family:Arial, Helvetica, sa=
+ns-serif; font-size:12px; color:#51382c; line-height:17px; background-color=
+:#dfeef9; padding:15px 0 10px 20px; border-bottom:1px solid #c3baad;" bgcol=
+or=3D"#dfeef9" bordercolor=3D"#E9E6D8" valign=3D"top">
+                                <p align=3D"center">
+                                <b><font size=3D"1">Trendsmedia, the events=
+ and=20
+								publishing division of Yankee Group</font></b><font size=3D"1">=20
+								Research<br>
+                                18 Lyman St. Suite 250, Westborough MA, 015=
+81<br>
+                                Tel: +1 (617) 259-2300 -=20
+								<a href=3D"mailto:info@trendsmedia.com?subject=3DHarnessing the Mob=
+ile Internet Inquiry" style=3D"color: #333333">
+								info@trendsmedia.com</a></font></td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width=3D"24">&nbsp;</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+          </td>
+        </tr>
+        <tr>
+          <td style=3D"padding:10px 0 10px 40px; font-family:Arial, Helveti=
+ca, sans-serif; font-size:11px; color:#a58e7e;" align=3D"left">
+            <div align=3D"center">Copyright &copy; 2009 &middot; All Rights=
+ Reserved &middot; Yankee=20
+				Group Research, Inc<br>
+            </div></td>
+        </tr>
+      </table>
+    </td>
+	</tr>
+</table>
+
+</body>
+</html><br><br style=3D"clear: both;"><hr color=3D"#e0e0e0"><table cellpadd=
+ing=3D"5" width=3D"100%" cellspacing=3D"0" border=3D"0"><tr><td><font size=
+=3D"1" face=3D"arial,verdana">If you no longer wish to receive these emails=
+, please reply to this message with "Unsubscribe" in the subject line or si=
+mply click on the following link: <a href=3D"http://cts.vresp.com/u?484fa00=
+317/87af3b50b7/mlpftw">
+Unsubscribe</a></font></td></tr></table><hr color=3D"#e0e0e0"><br><table wi=
+dth=3D"100%" cellspacing=3D"0" cellpadding=3D"5" border=3D"0"><tr><td><font=
+ size=3D"1" face=3D"Verdana,Helvetica,Geneva,Swiss,SunSans-Regular"><span s=
+tyle=3D"border: 1px solid #999; padding: 5px; font-weight: bold"><a href=3D=
+"http://oi.vresp.com/f2af/v4/send_to_friend.html?ch=3D484fa00317&amp;lid=3D=
+347000311&amp;ldh=3D87af3b50b7">
+Click here</a>
+ to forward this email to a friend</span></font></td></tr></table><br><tabl=
+e width=3D"100%" cellspacing=3D"0" cellpadding=3D"5" border=3D"0"><tr><td><=
+font size=3D"1" face=3D"arial,verdana">Trendsmedia<br>18 Lyman Street<br>Su=
+ite 250<br>Westboro, Massachusetts 01581<br>US<p><a href=3D"http://www.vert=
+icalresponse.com/content/pm_policy.html">
+Read</a>
+ the VerticalResponse marketing policy.</p></font></td><td align=3D"right">=
+<a href=3D"http://www.verticalresponse.com/landing/?mm/484fa00317"><img alt=
+=3D"Try Email Marketing with VerticalResponse!" src=3D"http://img.pcdn.vres=
+p.com/pwrby_vr_logo_120.gif" border=3D"0"></a></td></tr></table><img src=3D=
+"http://portal.mxlogic.com/images/transparent.gif" alt=3D"">
+--=_reb-r5F936191-t4A9E8B01--
+

@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>-Blank-</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+
+
+		<STYLE type = "text/css">
+		</STYLE>
+		<SCRIPT language="JavaScript1.2">
+			var barLength = 30, width = barLength, intervalName, widthMax = 0;
+			function begin ()
+			{
+				if (document.layers)
+					widthMax = document.barPos.document.barBg.clip.width;
+				else
+				{
+					widthMax = barBg.style.pixelWidth;
+					document.all.bar.style.clip = "rect(auto 10 auto 0)";
+					document.all.bar.style.overflow = 'hidden';
+				}
+				
+				intervalName = setInterval("expand()", 10);
+			}
+			function expand ()
+			{
+				
+				if (width == widthMax)
+					sign = '-';
+				else if (width == barLength)
+					sign = '+';
+					
+				eval("width " + sign + "= 2");
+					
+				if (document.layers)
+				{
+					document.barPos.document.bar.clip.right = width;
+					document.barPos.document.bar.clip.left = (width - barLength);
+				}
+				else
+				{
+					document.all.bar.style.clip = "rect(auto " + width + " auto " + (width - barLength) + ")";
+				}
+				
+				
+			}
+			setTimeout(redirect, 120000);
+			function redirect()
+			{
+				if (self != top && parent.gPWRMGR_FRAMESET)
+					parent.SubmitForm('L', 'desktop_wat_frameset.htm','_top', new Array('DrawerSelected', 'drw_site.gif'));	
+			}
+		</SCRIPT>
+	</head>
+
+	<body bgcolor="#ffffff" onLoad="if (self != top){parent.focusChild();} begin();"
+							 onFocus = "if (self != top){parent.focusChild();}">				
+		<DIV ID = "barPos" style="LEFT: 50%; POSITION: relative">
+			<DIV ID="bar" style="FONT-SIZE: 20px; Z-INDEX:2; LEFT: -100px; WIDTH: 200px; clip: 0,25; 
+								COLOR: #0066cc; POSITION: absolute; TOP: 0px; HEIGHT: 25px; 
+								BACKGROUND-COLOR: #66ccff; TEXT-ALIGN: center; 
+								layer-background-color: #66CCFF">
+			<b>Please Wait</b></DIV>
+			<DIV ID="barBg" style="FONT-SIZE: 20px; Z-INDEX:1; LEFT: -100px; WIDTH: 200px; clip: 200,25; 
+									COLOR: #66ccff; POSITION: absolute; TOP: 0px; HEIGHT: 25px; 
+									BACKGROUND-COLOR: #0066cc; TEXT-ALIGN: center; 
+									layer-background-color: #0066cc">
+			<b>Please Wait</b></DIV>
+		</DIV>		
+	</body>
+</html>

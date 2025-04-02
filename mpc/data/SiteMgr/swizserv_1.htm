@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" class="penda-bkgrd" 
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg1), 
+		new Array (parent.topFrame.document.images.wizimg2, 
+					parent.topFrame.document.images.wizimg3, 
+					parent.topFrame.document.images.wizimg4, 
+					parent.topFrame.document.images.wizimg5, 
+					parent.topFrame.document.images.wizimg6));">
+
+<form name="intro" action="javascript:void(0);">
+	<input type="hidden" name="WizState" value="1">
+
+<table width="625" border="0" cellpadding="4" cellspacing="0" height="152" align="center">
+  <tr bgcolor="#FFFFCC">
+<td width="29%" height="25"><span class="page-title">Introduction</span></td>
+<td width="71%" height="25">
+<div align="right"><!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_SRV_INTRO+SoftCart+{helpversion}+en-us', 'Alane'));"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a>
+<!--END HELP WINDOW LINK-->
+
+<a href="javascript:window.print();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Print_This_Page_Nbtn_base_lg2.gif" width="115" height="30" border="0" alt="Print This Page"></a>
+
+<a href="javascript:parent.SubmitForm ('WIZ_WizardNext', 'swizserv_2.htm','mainFrame', document.intro);">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Next_Nbtn_base.gif" width="86" height="30" border="0" alt="Next"></a>
+</div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFCC" valign="top">
+
+<td colspan="2" class="table-bkgrd-main">
+<center>
+<!--'directories=no, height=400, width=400, location=no, menubar=no, resizable=no, scrollbars=yes, status=no, toolbar=no'-->
+
+<p align="left"><font size="2" face="Arial, Helvetica, sans-serif">Welcome to PowerService Wizard. This is where you'll customize your website to fit your service based business.</font></p>
+<p align="left"><font size="2" face="Arial, Helvetica, sans-serif"><b><i><font color="#000099">What you'll need...</font></i></b><br>
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif" width="12" height="12" alt=""> Your company's business information</font><font size="2" face="Arial, Helvetica, sans-serif"><br>
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif" width="12" height="12" alt=""> Your company's business hours</font><font size="2" face="Arial, Helvetica, sans-serif"></font><font size="2" face="Arial, Helvetica, sans-serif">
+<br>
+        </font><font size="2" face="Arial, Helvetica, sans-serif"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif" width="12" height="12" alt=""> 
+        The services you plan to offer</font><br>
+        </p>
+<p align="left"><font face="Arial, Helvetica, sans-serif" size="2"><b><i><font color="#000099">What 
+        you'll do...</font></i></b><br>
+Follow steps 1 - 6 of the PowerService Wizard.<br>
+</font><font face="Arial, Helvetica, sans-serif" size="2">Enter information and properties (how things 
+        appear) into your site.<br>
+        
+        Use the buttons above to navigate. The "Next" button will take you to your next screen and saves the information as you go.<br>
+        </font></p>
+<p align="left"><font face="Arial, Helvetica, sans-serif" size="2"><b><i><font color="#000099">You control the results...</font></i></b><br>
+        <font face="Arial, Helvetica, sans-serif" size="2">Your site is not set up for services, or made public, 
+        until you are done with all steps of this wizard. If you need to exit the wizard before you are done, you 
+        will re-enter the wizard the next time you log in. Once you are done with this wizard, 
+        you will not enter the wizard again at login.</font></p>
+<p align="left"><font face="Arial, Helvetica, sans-serif" size="2"><b><i><font color="#000099">After you publish...</font></i></b></font><br>
+<font face="Arial, Helvetica, sans-serif" size="2">You will be able to edit and add to these settings through the Schedule drawer.</font></p>
+</center>
+</td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

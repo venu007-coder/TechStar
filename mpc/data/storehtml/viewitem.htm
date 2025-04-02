@@ -1,0 +1,393 @@
+<merc_dynamic noshow=true name=storeLogo action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreLogo>
+<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+
+<html>
+<head>
+<title><merc_dynamic name=whichItem action=REQ_GET_FORMVALUE return=Result ItemKey=ItemKey></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.linkcolor {  font-family: Arial, Helvetica, sans-serif; color: #000099; font-weight: bold}
+-->
+</style></head>
+
+<body bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="5" height="75">
+  <tr bgcolor="#CC0O00" align="right">
+    <td height="29"><font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3">
+      </font>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><center><font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3"><font face="Verdana, Arial, Helvetica, sans-serif"><merc_dynamic name=storeName action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreName></font></font></center></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+  <tr bgcolor="#FF9933">
+    <td height="46">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" name="topnav">
+        <tr>
+          <td><center><a href="&AppID={appID}&action=search"><img src="/mpc/docs/images/TopNav1.gif" BORDER="0" width="61" height="28" name="Search"></a><a href="&AppID={appID}&action=entry"><img src="/mpc/docs/images/TopNav2.gif" BORDER="0" width="85" height="28" name="products"></a><a href="&AppID={appID}&action=contactPage"><img src="/mpc/docs/images/TopNav5.gif" width="93" height="28" BORDER="0" name="contactus"></a></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+<table width="693" border="0" cellspacing="0" cellpadding="0" height="90%">
+  <tr>
+    <td valign="top" width="18%" height="291" bgcolor="#0033FF">
+      <p>&nbsp;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" name="logo">
+        <tr align="center" valign="middle">
+          <td height="62"><img src="/mpc/docs/images/{storeLogo}"></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+      <p><a href="&AppID={appID}&action=displayBillToShipTo"><img src="/mpc/docs/images/SideNav1.gif" width="110" height="25" name="changelocation" alt="Change Location Zone" border="0"></A><br>
+        <a href="&AppID={appID}&action=modifyCart"><img src="/mpc/docs/images/SideNav3.gif" width="110" height="24" name="viewcart" alt="View Cart" border="0"></A><br>
+        <a href="&AppID={appID}&action=checkOut"><img src="/mpc/docs/images/SideNav5.gif" width="110" height="26" name="checkout" alt="Checkout" border="0"></A></p>
+          </td>
+    <td height="291" width="82%" align="left" valign="top"> <P>
+      </p><table width="100%" border="0" cellspacing="0" cellpadding="10" name="copy">
+        <tr valign="top">
+          <td width="10%"> </td><td width="90%"><P><p>&nbsp;</p>
+      <p>
+      <table align="left" width="500">
+        <tr>
+        	<td align="left">
+
+			<merc_dynamic noshow=true name=titlePic action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreTitlePicture>
+			<center><b>
+
+<script runat=merc_server>
+
+
+//include Formatting Library
+var cs_inc = doActionEx('DATA_READFILE', 'FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+eval (cs_inc)
+
+var LOCALE_STRING = getBrowserLocale();
+var PRECISION = getDefaultPrecision();
+
+function PadLeft(prefix,number)
+{
+	var temp = "";
+	if (number < 10)
+		temp = prefix + "000" + number;
+	else if (number < 100)
+		temp = prefix + "00" + number;
+	else if (number < 1000)
+		temp = prefix + "0" + number;
+	else
+		temp = prefix + number;
+	return temp;
+}
+
+var itemKey = doAction("REQ_GET_FORMVALUE","ItemKey","ItemKey");
+var itemID = doAction("REQ_GET_FORMVALUE","ItemID","ItemID");
+var ItemType = doAction("REQ_GET_FORMVALUE","ItemType","ItemType");
+var updateItem = doActionEx("REQ_GET_FORMVALUE","Result","UpdateItem","UpdateItem");
+
+if (ItemType == 'service')
+{
+
+}
+
+if (itemKey != undefined)
+{
+	MERC_ITEMCACHE.Reset();
+	MERC_ITEMCACHE.LoadItem(itemKey);
+}
+else if (itemID != undefined)
+{
+	MERC_ITEMCACHE.Reset();
+	doAction('IC_ITEM_LOAD','ItemID',parseInt(itemID));
+}
+
+if (updateItem != undefined)
+{
+	var attrBDO = doActionBDO("IC_ATTRIBUTES_GET","RowName",updateItem);
+
+	var i = 1;
+	while (true)
+	{
+		var attrID = attrBDO[PadLeft("ID",i)];
+		if (attrID == undefined)
+			break;
+
+		var attrDataBDO = doActionBDO("IC_ATTRIBUTE_DATA_GET", "RowName", updateItem, "AttrID", attrID);
+
+		if (attrDataBDO != undefined)
+		{
+			var newdata = doActionEx("REQ_GET_FORMVALUE","Result",attrID.toString(),attrID.toString());
+
+			if (newdata != undefined)
+			{
+				if (attrDataBDO.InputType == 0)
+					doAction('IC_ATTRIBUTE_SET','AttrID',attrID,'RowName',updateItem,'Text',newdata);
+				else if (attrDataBDO.InputType == 1)
+					doAction('IC_ATTRIBUTE_SET','AttrID',attrID,'RowName',updateItem,'YESNO',newdata);
+				else if (attrDataBDO.InputType == 2)
+					doAction("IC_ATTRIBUTE_CHOICE_SET","RowName",updateItem,"AttrID",attrID,"ChoiceID",parseInt(newdata));
+			}
+		}
+		i++;
+	}
+}
+
+var urlpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","urlfile");
+var picpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","imagepath");
+var sessionid = doActionEx("ST_GET_STATEDATA","Result","SessionID","SessionID");
+var siteid = doActionEx("REQ_GET_FORMVALUE","Result","SiteID","SiteID");
+var appid = doActionEx("REQ_GET_FORMVALUE","Result","AppID","AppID");
+
+var mainItem = "";
+var formString = "";
+
+for (var rowName = MERC_ITEMCACHE.GetFirstItem(); rowName != "END_OF_TABLE"; rowName = MERC_ITEMCACHE.GetNextItem(rowName))
+{
+	var Type4Attr = MERC_ITEMCACHE.GetItemData(rowName,"Type4Attr");
+
+	if (Type4Attr == "MAIN")
+	{
+		formString = "";
+
+		var nameid = MERC_ITEMCACHE.GetItemData(rowName,"NameID");
+		var name = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",nameid,"Locale","en");
+		writeln(name + "<p>");
+
+		var pictureFile = MERC_ITEMCACHE.GetItemData(rowName,"PictureFile");
+		writeln('<img src="/mpc/docs/images/' + pictureFile + '"><p>');
+
+		var descid = MERC_ITEMCACHE.GetItemData(rowName,"DescriptionID");
+		var description = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",descid,"Locale","en");
+		writeln(description + "<p>");
+
+		var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "CAT_Services", "Filter", "ItemID=" + MERC_ITEMCACHE.GetItemData(rowName,"ID"));
+		if (!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "CAT_Services"))
+		{
+			var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "CAT_Services", "QueryID",qID);
+			if (resultset != undefined && resultset.Duration != undefined)
+			{
+				write('Time duration: ' + resultset.Duration);
+				if (parseFloat(resultset.Duration) != 1.0)
+					write('s<p>');
+				else
+					write('<p>');
+			}
+		}
+
+		var baseprice = MERC_ITEMCACHE.GetItemData(rowName,"Price");
+		var formattedbaseprice = formatCurrency(baseprice,LOCALE_STRING,PRECISION);
+		var discount = MERC_ITEMCACHE.GetItemData(rowName,"Discount");
+		writeln("Base Price: " + formattedbaseprice + "<br>");
+		if (discount != undefined && discount != 0)
+		{
+			var formatteddiscount = formatCurrency(discount,LOCALE_STRING,PRECISION);
+			writeln("Base Discount: " + formatteddiscount + "<br>");
+		}
+
+		var attrBDO = doActionBDO("IC_ATTRIBUTES_GET","RowName",rowName);
+		if (attrBDO != undefined)
+		{
+			formString += '<form action=' + urlpath + '>';
+			formString += '<input type=hidden name=action value=viewitem>';
+			formString += '<input type=hidden name=SessionID value=' + sessionid + '>';
+			formString += '<input type=hidden name=AppID value=' + appid + '>';
+			formString += '<input type=hidden name=SiteID value=' + siteid + '>';
+			formString += '<input type=hidden name=UpdateItem value=' + rowName + '>';
+			formString += '<input type=hidden name=ItemType value=' + ItemType + '>';
+			formString += '<table border=0>';
+
+			var i = 1;
+			while (true)
+			{
+				var attrID = attrBDO[PadLeft("ID",i)];
+				var attrName = attrBDO[PadLeft("Attr",i)];
+				if (attrID == undefined || attrName == undefined)
+					break;
+
+				var attrDataBDO = doActionBDO("IC_ATTRIBUTE_DATA_GET", "RowName", rowName, "AttrID", attrID);
+
+				if (attrDataBDO != undefined)
+				{
+					formString += '<tr>';
+
+					var choicePrice = MERC_ITEMCACHE.GetItemData(attrDataBDO.Row,"Price");
+					var formattedchoicePrice = formatCurrency(choicePrice,LOCALE_STRING,PRECISION);
+					var choiceDiscount = MERC_ITEMCACHE.GetItemData(attrDataBDO.Row,"Discount");
+
+					selectedAItemID = -1;
+
+					if (choicePrice != undefined)
+					{
+						selectedAItemID = MERC_ITEMCACHE.GetItemData(attrDataBDO.Row,"ID");
+						write("Price for ");
+						if (attrDataBDO.InputType == 2)
+							write('the chosen ');
+						writebr(attrName + " option: " + formattedchoicePrice);
+						if (choiceDiscount != undefined && choiceDiscount != 0)
+						{
+							var formattedchoiceDiscount = formatCurrency(choiceDiscount,LOCALE_STRING,PRECISION);
+							writebr("Discount for the chosen " + attrName + " option: " + formattedchoiceDiscount);
+						}
+					}
+					else
+						writebr("<i>" + attrName + " option not chosen</i>");
+
+					if (attrDataBDO.InputType == 0)
+					{
+						formString += '<td align=right>' + attrDataBDO.Prompt2 + '</td><td align=left>' + ' <input type=text name=' + attrID;
+						if (attrDataBDO.AttributeText != undefined)
+							formString += ' value="' + attrDataBDO.AttributeText + '"';
+						formString += '></td>';
+					}
+					else if (attrDataBDO.InputType == 1)
+					{
+						formString += '<td align=right>' + attrDataBDO.Prompt2 + '</td><td align=left>' + ' <input type=radio name=' + attrID + ' value="YES"';
+						if (attrDataBDO.YESNO == true)
+							formString += ' checked';
+						formString += '>Yes <input type=radio name=' + attrID + ' value="NO"';
+						if (attrDataBDO.YESNO == false)
+							formString += ' checked';
+						formString += '>No</td>';
+					}
+					else if (attrDataBDO.InputType == 2)
+					{
+						formString += '<td align=right>' + attrDataBDO.Prompt2 + '</td><td align=left>';
+						formString += ' <select name=' + attrID + '><option value=none>--------</option>';
+
+						var choicesBDO = doActionBDO("IC_ATTRIBUTE_CHOICE_GET", "RowName", rowName, "AttrID", attrID);
+
+						if (choicesBDO != undefined)
+						{
+							var j = 1;
+							var notSelected = true;
+							while (true)
+							{
+								var choiceID = choicesBDO[PadLeft("Choice",j)];
+								var aItemID = choicesBDO[PadLeft("AItem",j)];
+
+								if (choiceID == undefined || aItemID == undefined)
+									break;
+
+								var choiceDataBDO = doActionBDO("IC_ATTRIBUTE_CHOICE_DATA_GET", "RowName", rowName, "AttrID", attrID, "ChoiceID", choiceID);
+
+								if (choiceDataBDO != undefined)
+								{
+									formString += '<option value=' + choiceID;
+									if (selectedAItemID == aItemID)
+									{
+										formString += ' selected';
+										notSelected = false;
+									}
+									var cname = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",choiceDataBDO.NameID,"Locale","en");
+									formString += '>' + cname + '</option>';
+								}
+
+								j++;
+							}
+						}
+
+						formString += '</select></td>';
+					}
+
+					formString += '</tr>';
+				}
+				i++;
+			}
+			formString += '</table>';
+			formString += '<input type="submit" value="Update Option Choices">';
+			formString += '</form>';
+		}
+		else
+			break;
+		mainItem = rowName;
+	}
+	else if (Type4Attr == "TOTAL")
+	{
+		var totalPrice = MERC_ITEMCACHE.GetItemData(rowName,"Total");
+		if (totalPrice != undefined)
+		{
+			var formattedtotalPrice = formatCurrency(totalPrice,LOCALE_STRING,PRECISION);
+			writeln("Total Price: ",formattedtotalPrice,"<p>");
+		}
+		else
+		{
+			writeln("Total price: <i>cannot be calculated until all options have been chosen.</i><p>");
+		}
+		writeln(formString);
+
+		writeln('<a href=' + urlpath + '?action=addtocart&ItemType=' + ItemType + '&SessionID=' + sessionid + '&SiteID=' + siteid + '&AppID=' + appid + '&ItemKey=' + mainItem + '><img src="/mpc/docs/images/cb-addtocart.gif" width=104 height=25></a><p>');
+	}
+	else if (Type4Attr == "NORMAL")
+	{
+		var nameid = MERC_ITEMCACHE.GetItemData(rowName,"NameID");
+		var name = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",nameid,"Locale","en");
+		writeln(name + "<p>");
+
+		var pictureFile = MERC_ITEMCACHE.GetItemData(rowName,"PictureFile");
+		writeln('<img src="/mpc/docs/images/' + pictureFile + '"><p>');
+
+		var descid = MERC_ITEMCACHE.GetItemData(rowName,"DescriptionID");
+		var description = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",descid,"Locale","en");
+		writeln(description + "<p>");
+
+		var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "CAT_Services", "Filter", "ItemID=" + MERC_ITEMCACHE.GetItemData(rowName,"ID"));
+		if (!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "CAT_Services"))
+		{
+			var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "CAT_Services", "QueryID",qID);
+			if (resultset != undefined && resultset.Duration != undefined)
+			{
+				write('Time duration: ' + resultset.Duration);
+				if (parseFloat(resultset.Duration) != 1.0)
+					write('s<p>');
+				else
+					write('<p>');
+			}
+		}
+
+		var baseprice = MERC_ITEMCACHE.GetItemData(rowName,"Price");
+		var formattedbaseprice = formatCurrency(baseprice,LOCALE_STRING,PRECISION);
+		var discount = MERC_ITEMCACHE.GetItemData(rowName,"Discount");
+		var total = MERC_ITEMCACHE.GetItemData(rowName,"Total");
+		var formattedtotal = formatCurrency(total,LOCALE_STRING,PRECISION);
+		if (discount != undefined && discount != 0)
+		{
+			var formatteddiscount = formatCurrency(discount,LOCALE_STRING,PRECISION);
+			writeln("Normal Price: " + formattedbaseprice + "<br>");
+			writeln("Discount: " + formatteddiscount + "<br>");
+			writeln("Sale Price: " + formattedtotal + "<p>");
+		}
+		else
+			writeln("Price: " + formattedtotal + "<p>");
+
+		writeln('<a href=' + urlpath + '?action=addtocart&ItemType=' + ItemType + '&SessionID=' + sessionid + '&SiteID=' + siteid + '&AppID=' + appid + '&ItemKey=' + rowName + '><img src="/mpc/docs/images/cb-addtocart.gif" width=104 height=25></a><p>');
+	}
+}
+
+</script>
+</b>
+            </center>
+
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+</body>
+<!--COMMENT="This site was generated by SoftCart 1998-2000, Mercantec, Inc. Mercantec, SoftCart, and StateTrack are trademarks of Mercantec, Inc."-->
+</html>
+

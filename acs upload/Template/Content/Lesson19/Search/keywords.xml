@@ -1,0 +1,32 @@
+<?xml version='1.0'?>
+<data>
+	<page>
+		<keywords value="decimal places,round off" />
+	</page>
+	<page subpages="8">
+		<keywords no="1" value="significant figure,non-zero digit,decimal point,integer"/>
+		<keywords no="2" value="significant figure,number more than 1"/>
+		<keywords no="3" value="significant figure,number more than 1"/>
+		<keywords no="4" value="significant figure,number more than 1"/>
+		<keywords no="5" value="significant figure,number less than 1"/>
+		<keywords no="6" value="significant figure,number less than 1"/>
+		<keywords no="7" value="significant figure"/>
+		<keywords no="8" value="significant figure"/>
+		<keywords no="9" value="significant figure,polya's method"/>
+		<keywords no="10" value=""/>
+		<keywords no="11" value=""/>
+		<keywords no="12" value="significant figure"/>
+	</page>
+	<page>
+		<keywords value=""/>
+	</page>
+	<page subpages="4">
+		<keywords no="1" value="significant figure,integer"/>
+		<keywords no="2" value="significant figure,integer"/>
+		<keywords no="3" value="significant figure,integer"/>
+		<keywords no="4" value="significant figure,integer"/>
+	</page>
+	<page>
+		<keywords value="round off,significant figure,non-zero digit"/>
+	</page>
+</data>

@@ -1,0 +1,78 @@
+Return-Path: CXO@iqmailer.net
+Received: from mx86.stngva01.us.mxservers.net (198.173.112.3)
+	by mail19d.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0489519618
+	for <ms@altechstar.com>; Tue, 25 Aug 2009 13:00:18 -0400 (EDT)
+Received: from unknown [204.202.242.57] (HELO mail19h.g19.rapidsite.net)
+	by va1-mx86.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 2a8149a4.2596354976.978563.00-001.va1-mx86.stngva01.us.mxservers.net (envelope-from <cxo@iqmailer.net>);
+	Tue, 25 Aug 2009 13:00:18 -0400 (EDT)
+Received: from mx83.stngva01.us.mxservers.net (204.202.242.49)
+	by mail19h.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 0-0145909615
+	for <anand@altechstar.com>; Tue, 25 Aug 2009 13:00:15 -0400 (EDT)
+Received: from unknown [64.238.212.107] (EHLO mail4.iqmailer.net)
+	by va1-mx83.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id f98149a4.2578873248.367792.00-010.va1-mx83.stngva01.us.mxservers.net (envelope-from <cxo@iqmailer.net>);
+	Tue, 25 Aug 2009 13:00:15 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=key1; d=iqmailer.net;
+ h=From:To:Subject:Mime-Version:List-Unsubscribe:Content-Type:Content-Transfer-Encoding:Message-ID:Date; i=CXO@iqmailer.net;
+ bh=SQdZ/agdgoBxhuwVOV6F7IaNAiw=;
+ b=sMpMMtbiNq1DRzvEPSmq0pRfy1qLfRdSKFqQpua5O5gj/if2TsNcrxlldnsL3pmgxG/F0q/z+48s
+   jrfPjDSVNVxadK955LQfkVWc/EfQJ5Rj70A13Sjr4kQ/fRIAfKVn
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=key1; d=iqmailer.net;
+ b=EniBoTR+LULH+OeqytDJeZIE7eVaBGcFaSH7I4u1uPYqMg6so/JXRf2MFAd6N02RUsz/BtxJh9EF
+   48KrWXlRhsyAyViyEU3UIqQefhpPODAJd70kZVqxOnK1+RJsOCb7;
+Received: by mail4.iqmailer.net id higbso0ik98r for <ANAND@ALTECHSTAR.COM>; Tue, 25 Aug 2009 12:56:34 -0400 (envelope-from <CXO@iqmailer.net>)
+Return-Path: J201645-R777@iqmailer.net
+From: "CIO Magazine "<CXO@iqmailer.net>
+To: <ANAND@ALTECHSTAR.COM>
+Subject: CIO Renewal - Time is Running Out
+Mime-Version: 1.0
+List-Unsubscribe: <mailto:oo-J201645-R777@iqmailer.net>
+Content-Type: text/plain; charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <0.0.1.2CD.1CA25A5009A80BC.0@mail4.iqmailer.net>
+Date: Tue, 25 Aug 2009 12:56:34 -0400
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082524)]
+X-MAIL-FROM: <cxo@iqmailer.net>
+X-SOURCE-IP: [64.238.212.107]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082524)]
+X-MAIL-FROM: <cxo@iqmailer.net>
+X-SOURCE-IP: [204.202.242.57]
+X-Loop-Detect:1
+
+Dear ANAND NATARAJAN:
+
+CIO Renewal - Time is running out. Make it a Priority to renew your CIO =
+subscription today!
+
+It's even easier with our NEW shorter renewal form. Online renewal is the =
+fastest way to avoid future renewal notices and to ensure uninterrupted =
+service.
+
+Please complete the renewal form to continue receiving CIO magazine.
+
+
+Select Here:
+http://www.omeda.com/cgi-win/cio.cgi?mode=3Doffer&r=3D6123B0680701F5P&p=
+=3DR99E89SFA
+
+
+
+
+For your success,
+CIO
+Subscription Services
+
+
+P.S.  If you have difficulty renewing online please contact us at =
+cio@omeda.com or call 866-354-1125.
+
+This message is being brought to you as a subscriber of CIO. This email is =
+an effort to simplify the renewal process for you and keep your free =
+subscription coming.  If you do not wish to be contacted for future =
+renewals via email, please click here:
+http://www.iqmailer.net/CIO_Renewal.asp?id=3D313ADX309X2
+
+
+CXO Media, 492 Old Connecticut Path, Framingham, MA 01701

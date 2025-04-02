@@ -1,0 +1,412 @@
+Return-Path: reply-93b53cae47-87af3b50b7-ee24@u.cts.vresp.com
+Received: from mx45.stngva01.us.mxservers.net (204.202.242.77)
+	by mail19e.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0256287328
+	for <ms@altechstar.com>; Fri, 21 Aug 2009 11:08:48 -0400 (EDT)
+Received: from unknown [204.202.242.121] (HELO mail19i.g19.rapidsite.net)
+	by va1-mx45.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 088be8a4.2709998496.762211.00-001.va1-mx45.stngva01.us.mxservers.net (envelope-from <bounces-93b53cae47-87af3b50b7@b.cts.vresp.com>);
+	Fri, 21 Aug 2009 11:08:48 -0400 (EDT)
+Received: from mx93.stngva01.us.mxservers.net (198.173.112.10)
+	by mail19i.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-0750977327
+	for <anand@altechstar.com>; Fri, 21 Aug 2009 11:08:47 -0400 (EDT)
+Received: from unknown [206.57.6.62] (EHLO gc-mkt7.verticalresponse.com)
+	by va1-mx93.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id f78be8a4.2659085216.822881.00-010.va1-mx93.stngva01.us.mxservers.net (envelope-from <bounces-93b53cae47-87af3b50b7@b.cts.vresp.com>);
+	Fri, 21 Aug 2009 11:08:47 -0400 (EDT)
+Return-Path: <bounces-93b53cae47-87af3b50b7@b.cts.vresp.com>
+DKIM-Signature: v=1; a=rsa-sha1; d=vresp.com; s=dkim; c=simple/simple;
+	q=dns/txt; i=@vresp.com; t=1250867326;
+	h=From:Subject:Date:To:MIME-Version:Content-Type;
+	bh=ePX3wayXLQWTYjjIPqb47MXaDgg=;
+	b=lqjDe5mX9Gb2hXUitGK3Fui1/poGGzlKYaDyXxfQPAtrwgPxRbZLIVqssVzlMItu
+	JhNvvo3yXn/s8eFA68id2b+7B+5HNhcB3muW4AWEO6HW49OII9kcZVGEYQm/SiIG
+	7HdLDNMS7J8i5dWLleUfHg3do6gehAAhjwU+0Yq3HqI=;
+DomainKey-Signature: q=dns; a=rsa-sha1; c=nofws;
+	s=mkt; d=vresp.com;
+	h=Received:From:Reply-To:To:Subject:Date:Message-ID:List-Unsubscribe:MIME-Version:X-Company_ID:X-vrfbldomain:X-vrpod:X-CTS-Enabled:X-Campaign:Content-Type;
+	b=PbLsQxd86iBktH47VUgTf2/8ZT+ZzU7hG29yMMVANxxv0SRFWbGU/iHQQupTrG8C
+	jsO6oaQnr/fmZh84mXrdVanjQcY5AdToByxXPITQVzpA6PzCl70EaOTNu16JyPcz
+	8CnLrwSbiWTK5v+73CO/HfXnb2/RkVRie2ButRbrv+w=
+Received: from [10.4.7.56] ([10.4.7.56:55799] helo=mailer02.sf.verticalresponse.com)
+	by hollister.sf.verticalresponse.com (envelope-from <bounces-93b53cae47-87af3b50b7@b.cts.vresp.com>)
+	(ecelerity 2.2.2.43 r(32041/32179)) with ESMTP
+	id 07/C0-26728-E78BE8A4; Fri, 21 Aug 2009 08:08:46 -0700
+From: "4G World 2009" <4G_World_2009@mail.vresp.com>
+Reply-To: "4G World 2009" <reply-93b53cae47-87af3b50b7-ee24@u.cts.vresp.com>
+To: anand@altechstar.com
+Subject: Mobile Excellence Awards Submission Deadline August 31, 2009
+Date: Fri, 21 Aug 2009 15:08:46 +0000
+Message-ID: <93b53cae47-anand=altechstar.com@mail.vresp.com>
+List-Unsubscribe: <mailto:reply-93b53cae47-87af3b50b7-ee24@u.cts.vresp.com?subject=unsubscribe>
+MIME-Version: 1.0
+X-Company_ID: 65249
+X-vrfbldomain: fbl.p0.verticalresponse.com
+X-vrpod: p0
+X-CTS-Enabled: 93b53cae47-87af3b50b7
+X-Campaign: 93b53cae47
+Content-Type: multipart/alternative;
+    boundary="=_reb-r65B4233F-t4A8EB87F";
+    charset="UTF-8"
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082119)]
+X-MAIL-FROM: <bounces-93b53cae47-87af3b50b7@b.cts.vresp.com>
+X-SOURCE-IP: [206.57.6.62]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082119)]
+X-MAIL-FROM: <bounces-93b53cae47-87af3b50b7@b.cts.vresp.com>
+X-SOURCE-IP: [204.202.242.121]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r65B4233F-t4A8EB87F
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+view the online version here:=20
+http://cts.vresp.com/c/?Trendsmedia/93b53cae47/87af3b50b7/2827209e51
+
+
+Mobile Excellence Awards Submission Deadline August 31, 2009
+http://cts.vresp.com/c/?Trendsmedia/93b53cae47/87af3b50b7/e947362796
+
+
+The 2009 Mobile Excellence Awards at 4G World 2009 profiles the latest
+in mobile entertainment, including media, marketing, and technology.
+This prestigious event celebrates the achievements of mobile
+entertainment from start-ups to applications, to studios.
+
+Join industry leaders from all walks of the mobile and entertainment
+industry, including interactive media, film, television, music, games,
+agencies, and high-tech for an exclusive VIP event and exciting
+evening celebrating the industry=E2=80=99s future rising stars and Best of =
+the
+Best in mobile entertainment.
+
+The MEAs will  announce  this year's finalists at 4G World 2009
+Conference and Expo, September	15th-18th, at a special press
+conference in Chicago, produced by Trendsmedia, The Events and
+Publishing Division of Yankee Group.   The MEAs will choose companies
+from the  pool of MEA finalists to  sit on the mobile entertainment
+panel so be sure to get your submissions in on time!
+
+View the 2009 MEA Sponsors and Supporters:
+http://cts.vresp.com/c/?Trendsmedia/93b53cae47/87af3b50b7/f4aa4b57fd
+
+
+The 2009 Mobile Excellence Award Categories:
+
+MOBILE BUSINESS
+- Best Start-up
+- Best Mobile Innovator
+- Best Mobile International
+
+MOBILE TECHNOLOGY
+- Best Mobile Advertising
+- Best Mobile Social Network
+- Best Mobile Product or Service
+- Best Mobile Technology Breakthrough
+- Best Mobile Delivery Platform
+
+MOBILE MARKETING
+- Best Advertiser
+- Best Mobile Brand/Marketing Campaign
+- Best Mobile Viral Campaign
+
+MOBILE ENTERTAINMENT
+- Best Mobile Video Programming
+-Best Mobile Game
+- Best Mobile Music Application
+- Best Original Content for Mobile Entertainment
+- Best Mobile Original Program For Film
+- Best Community/Fan Content
+- Best Mobile Content Development
+
+The MEAs are produced by Little Monster Media and  sponsored in part
+by GoTV Networks, Saffron Digital,  Azuki Systems, and supported by
+industry-leading companies such as The Yankee Group, ShowStoppers, ITV
+Alliance, 4G World, Billboard, Axis PR,  Mobile Monday LA, Mobile
+Marketer, Wireless Week, MobiAdNews, MobilizedTV,  DigitMobJobs,
+FoneArena, Telemedia, and   4G Trends, amongst others.
+
+Submissions for the MEAs are now being accepted at:
+http://cts.vresp.com/c/?Trendsmedia/93b53cae47/87af3b50b7/82a2d7dfcc
+
+
+Contact the Mobile Excellence Awards Team at info@mobilexawards.com or
+310.276.2220
+
+Sarah Miller
+CEO,  Axis  Marketing &  PR
+Chair, Mobile Monday LA/ Chair, Mobile Excellence Awards
+smiller@axismarketingpr.com=20
+
+Allison Dollar, CEO, ITA
+Co-chair, Mobile Excellence Awards
+
+Chris Petrovic,
+Executive Director, Mobile Excellence Awards
+
+Tel:  310 276-2220
+Fax: 310-861-0958
+
+www.axismarketingpr.com=20
+
+Axis Marketing & PR works with a network of the industries=E2=80=99 best &
+brightest marketers collaborating together to bring you the value and
+results you are looking for.
+
+
+______________________________________________________________________
+If you no longer wish to receive these emails, please reply to this
+message with "Unsubscribe" in the subject line or simply click on the
+following link:
+http://cts.vresp.com/u?93b53cae47/87af3b50b7/mlpftw
+
+______________________________________________________________________
+Click below to forward this email to a friend:
+http://oi.vresp.com/f2af/v4/send_to_friend.html?ch=3D93b53cae47&lid=3D34700=
+0311&ldh=3D87af3b50b7
+
+______________________________________________________________________
+This message was sent by 4G World 2009 using VerticalResponse
+
+Trendsmedia
+18 Lyman Street
+Suite 250
+Westboro, Massachusetts 01581
+US
+
+Read the VerticalResponse marketing policy:
+http://www.verticalresponse.com/content/pm_policy.html
+--=_reb-r65B4233F-t4A8EB87F
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>2009 Mobile Excellence Awards Call For Submissions</title>
+
+<style type=3D"text/css">
+<!--
+.style1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.style3 {
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.style4 {color: #666666}
+-->
+</style>
+</head>
+<body bgcolor=3D"#f2f2f2" leftmargin=3D"0" topmargin=3D"0" marginwidth=3D"0=
+" marginheight=3D"0">
+<table bgcolor=3D"#f2f2f2" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ height=3D"100%" width=3D"102%">
+<tr>
+		<td align=3D"center" valign=3D"top">
+			<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"551">
+				<tr>
+					<td style=3D"padding:10px 0 10px 10px; font-family:Arial, Helvetica, s=
+ans-serif; font-size:11px; color:#888888;" align=3D"left">
+						Images not displaying properly?  <a style=3D"color:#545454;" href=3D"=
+http://cts.vresp.com/c/?Trendsmedia/93b53cae47/87af3b50b7/0bdefca880">view =
+the online version here</a>.					</td>
+			  </tr>
+				<tr>
+					<td style=3D"border:1px solid #9c9c9c; padding:5px;" bgcolor=3D"#fffff=
+f" align=3D"left">
+						<div style=3D"border:7px solid #424242;">
+							<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"525=
+">
+								<tr>
+									<td style=3D"padding:5px 5px 5px 5px;" valign=3D"top" align=3D"lef=
+t"><p class=3D"style3"><span class=3D"style4">Produced by</span>:<img align=
+=3D"top" height=3D"68" width=3D"60" alt=3D"Little Monster" src=3D"http://pr=
+oxy.pcdn.vresp.com/febc458af/www.trendsmedia2.com/MEA/little-monster.jpg"><=
+/p></td>
+							  </tr>
+								<tr>
+									<td>
+										<div style=3D"border-bottom:1px solid #d6d6d6; border-top:1px sol=
+id #d6d6d6; padding-bottom:3px; padding-top:3px;">
+											<div style=3D"background-color:#424242;">
+											  <p class=3D"style1" align=3D"center">Mobile Excellence Awards =
+Submission Deadline August 31, 2009</p>
+										  </div>
+									  </div>									</td>
+								</tr>
+								<tr>
+									<td>
+										<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"=
+525">
+											<tr>
+												<td style=3D"border-bottom:1px solid #d6d6d6; padding-bottom:3p=
+x;">
+													<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"525">
+														<tr>
+															<td style=3D"padding:1px 1px 0 1px;" valign=3D"top" width=3D=
+"342"><a target=3D"_blank" href=3D"http://cts.vresp.com/c/?Trendsmedia/93b5=
+3cae47/87af3b50b7/7c844a3d2a"><img border=3D"0" height=3D"280" width=3D"336=
+" alt=3D"" src=3D"http://proxy.pcdn.vresp.com/e327b3538/www.trendsmedia2.co=
+m/MEA/biggest.jpg"></a></td>
+							  <td bgcolor=3D"#f6f6f6" valign=3D"top" style=3D"font-family:Arial,=
+ Helvetica, sans-serif; font-size:12px; color:#666666; padding:20px 20px 0 =
+20px; line-height:17px;" width=3D"183">
+								<p style=3D"font-size:13px; margin:0 0 8px 0; color:#555555;"><b>Th=
+e 2009 Mobile Excellence Awards at 4G World 2009 </b></p>
+																<p style=3D"margin:0 0 20px 0;">
+																	profiles the latest in mobile entertainment, including med=
+ia, marketing, and technology. This prestigious event celebrates the achiev=
+ements of mobile entertainment from start-ups to applications, to studios. =
+<br>
+																</p>														  </td>
+													  </tr>
+													</table>												</td>
+											</tr>
+											<tr>
+												<td style=3D"font-family:Arial, Helvetica, sans-serif; font-siz=
+e:14px; color:#333333; padding:20px; line-height:20px;">
+													<p style=3D"margin:0 0 10px 0; font-size:18px; color:#0165ab;"=
+><a style=3D"color:#0165ab;" href=3D"#">Mobile Excellence Awards is now off=
+icially accepting submissions for 2009 - deadline to submit is August 31st<=
+/a></p>
+													<p style=3D"margin:0 0 15px 0;">
+														Join industry leaders from all walks of the mobile and entert=
+ainment industry, including interactive media, film, television, music, gam=
+es, agencies, and high-tech for an exclusive VIP event and exciting evening=
+ celebrating the industry&rsquo;s future rising stars and Best of the Best =
+in mobile entertainment.</p>
+													<p style=3D"margin:0 0 15px 0;">The MEAs will  announce  this =
+year's finalists at   <a target=3D"_blank" href=3D"http://cts.vresp.com/c/?=
+Trendsmedia/93b53cae47/87af3b50b7/07219dc2d8"><strong>4G World 2009 Confere=
+nce and Expo, September  15th-18th</strong></a>,  at a special press confer=
+ence in Chicago, produced by Trendsmedia, The Events and Publishing Divisio=
+n of Yankee Group.   The MEAs will choose companies from the  pool of MEA f=
+inalists to  sit on the mobile entertainment panel so be sure to get your s=
+ubmissions in on time! </p>
+												  <p style=3D"margin:0 0 15px 0;">View the 2009 MEA Sponsors an=
+d Supporters: <a href=3D"http://cts.vresp.com/c/?Trendsmedia/93b53cae47/87a=
+f3b50b7/7f2729430b">www.mobilexawards.com</a></p>
+												  <p><strong>The 2009 Mobile Excellence Award Categories: </str=
+ong></p>
+												  <p><strong>MOBILE BUSINESS</strong><br></p>
+												      <ul>
+												        <li>Best Start-up</li>
+												        <li>Best Mobile Innovator</li>
+												        <li>Best Mobile International</li>
+											      </ul>
+										          <p><strong>MOBILE TECHNOLOGY</strong></p>
+													<ul>
+													  <li>Best Mobile Advertising</li>
+												      <li>Best Mobile Social Network</li>
+												      <li>Best Mobile Product or Service</li>
+												      <li>Best Mobile Technology Breakthrough</li>
+												      <li>Best Mobile Delivery Platform</li>
+												  </ul>
+												  <p><strong>MOBILE MARKETING</strong></p>
+													<ul>
+													  <li>Best Advertiser</li>
+												      <li>Best Mobile Brand/Marketing Campaign</li>
+												      <li>Best Mobile Viral Campaign</li>
+												  </ul>
+												  <p><strong>MOBILE ENTERTAINMENT</strong></p>
+													<ul>
+													  <li>Best Mobile Video Programming</li>
+												      <li>Best Mobile Game</li>
+												      <li>Best Mobile Music Application </li>
+												      <li>Best Original Content for Mobile Entertainment</li>
+												      <li>Best Mobile Original Program For Film</li>
+												      <li>Best Community/Fan Content</li>
+												      <li>Best Mobile Content Development</li>
+												  </ul>
+									  <p>The MEAs are produced by Little Monster Media and  sponsored =
+in part by GoTV Networks, Saffron Digital,  Azuki Systems, and supported by=
+ industry-leading companies such as The Yankee Group, ShowStoppers, ITV All=
+iance, 4G World, Billboard, Axis PR,  Mobile Monday LA, Mobile Marketer, Wi=
+reless Week, MobiAdNews, MobilizedTV,  DigitMobJobs, FoneArena, Telemedia, =
+and   4G Trends, amongst others.<br>
+                                                        <br>
+													  Submissions for the MEAs are now being accepted at: <a href=
+=3D"http://cts.vresp.com/c/?Trendsmedia/93b53cae47/87af3b50b7/9aa98e0cf1">w=
+ww.mobilexawards.com</a></p>
+												  <p>Contact the Mobile Excellence Awards Team at <a href=3D"ma=
+ilto:info@mobilexawards.com">info@mobilexawards.com</a> or 310.276.2220</p>
+													<p><em>Sarah Miller</em><br>
+													  CEO,  Axis  Marketing &amp;  PR<br>
+													  Chair, Mobile Monday LA/ Chair, Mobile Excellence Awards<br>
+													  <a href=3D"mailto:smiller@axismarketingpr.com">smiller@axism=
+arketingpr.com</a></p>
+													<p><em>Allison Dollar, CEO, ITA</em><br>
+													  Co-chair, Mobile Excellence Awards</p>
+													<p><em>Chris Petrovic, </em><br>
+												  Executive Director, Mobile Excellence Awards</p>											  =
+</td>
+										  </tr>
+										</table>									</td>
+								</tr>
+								<tr>
+									<td style=3D"border-top:1px solid #d6d6d6; background-color:#f6f6f=
+6; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#666666;=
+ line-height:17px;  padding:15px 0 15px 20px;">
+								    <b><span style=3D"padding:5px 5px 5px 5px;"><a target=3D"_blank=
+" href=3D"http://cts.vresp.com/c/?Trendsmedia/93b53cae47/87af3b50b7/5f9631e=
+9b3"><img align=3D"right" border=3D"0" height=3D"79" width=3D"142" src=3D"h=
+ttp://proxy.pcdn.vresp.com/487d4a3d3/www.trendsmedia2.com/MEA/axis.jpg"></a=
+></span>Axis  PR</b><br>
+										Tel:  310 276-2220<br>
+Fax: 310-861-0958<br>
+<a href=3D"http://cts.vresp.com/c/?Trendsmedia/93b53cae47/87af3b50b7/ed6ac7=
+a0f6">www.axismarketingpr.com</a><br></td>
+							  </tr>
+							</table>
+
+					  </div>
+					</td>
+				</tr>
+				<tr>
+					<td style=3D"padding:20px 0 10px 10px; font-family:Arial, Helvetica, s=
+ans-serif; font-size:11px; color:#888888;" align=3D"left">
+						Axis Marketing & PR works with a network of the industries&rsquo; bes=
+t & brightest marketers collaborating together to bring you the value and r=
+esults you are looking for.
+<br></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html><br><br style=3D"clear: both;"><hr color=3D"#e0e0e0"><table cellpadd=
+ing=3D"5" width=3D"100%" cellspacing=3D"0" border=3D"0"><tr><td><font size=
+=3D"1" face=3D"arial,verdana">If you no longer wish to receive these emails=
+, please reply to this message with "Unsubscribe" in the subject line or si=
+mply click on the following link: <a href=3D"http://cts.vresp.com/u?93b53ca=
+e47/87af3b50b7/mlpftw">
+Unsubscribe</a></font></td></tr></table><hr color=3D"#e0e0e0"><br><table wi=
+dth=3D"100%" cellspacing=3D"0" cellpadding=3D"5" border=3D"0"><tr><td><font=
+ size=3D"1" face=3D"Verdana,Helvetica,Geneva,Swiss,SunSans-Regular"><span s=
+tyle=3D"border: 1px solid #999; padding: 5px; font-weight: bold"><a href=3D=
+"http://oi.vresp.com/f2af/v4/send_to_friend.html?ch=3D93b53cae47&amp;lid=3D=
+347000311&amp;ldh=3D87af3b50b7">
+Click here</a>
+ to forward this email to a friend</span></font></td></tr></table><br><tabl=
+e width=3D"100%" cellspacing=3D"0" cellpadding=3D"5" border=3D"0"><tr><td><=
+font size=3D"1" face=3D"arial,verdana">Trendsmedia<br>18 Lyman Street<br>Su=
+ite 250<br>Westboro, Massachusetts 01581<br>US<p><a href=3D"http://www.vert=
+icalresponse.com/content/pm_policy.html">
+Read</a>
+ the VerticalResponse marketing policy.</p></font></td><td align=3D"right">=
+<a href=3D"http://www.verticalresponse.com/landing/?mm/93b53cae47"><img alt=
+=3D"Try Email Marketing with VerticalResponse!" src=3D"http://img.pcdn.vres=
+p.com/pwrby_vr_logo_120.gif" border=3D"0"></a></td></tr></table><img src=3D=
+"http://portal.mxlogic.com/images/transparent.gif" alt=3D"">
+--=_reb-r65B4233F-t4A8EB87F--
+

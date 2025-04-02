@@ -1,0 +1,7 @@
+NodeID=long	ParentID=long	Sequence=long	Picture	TopID=long	ShortName	DescriptionID=long
+3	9000	1	none	9000	unassigned	3
+200	0	1	none	0	ZoneTax	-1
+201	200	1	none	200	Basic	-1
+202	200	2	none	200	Shipping	-1
+0	9999	1	none	0	Root	1
+9000	0	3	none	9000	Items	2

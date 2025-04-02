@@ -1,0 +1,365 @@
+<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+<html>
+<head>
+<title>Merchant Store Online Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.linkcolor {  font-family: Arial, Helvetica, sans-serif; color: #000099; font-weight: bold}
+.formtext {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; color: #000000}
+.formheader {  font-family: Arial, Helvetica, sans-serif; font-size: 12pt; color: #000000}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="5" height="75">
+  <tr bgcolor="#CC0O00" align="right">
+    <td height="29"><font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3">
+      </font>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><center><font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3"><font face="Verdana, Arial, Helvetica, sans-serif">Merchant Store</font></font></center></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+  <tr bgcolor="#FF9933">
+    <td height="46">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" name="topnav">
+        <tr>
+          <td><center>WHAT'S UP WITH "softcart.exe" IN THIS HTML?<a href="NOPARSE#/cgi-bin3/SoftCart.exe/Store/scstore.html?L+scstore+%%softcart.sessionid%%"><img src="/mpc/docs/images/TopNav1.gif" BORDER="0" width="61" height="28" name="Search"></a><a href="NOPARSE#/cgi-bin3/SoftCart.exe/Store/shophome.html?L+scstore+%%softcart.sessionid%%"><img src="/mpc/docs/images/TopNav2.gif" BORDER="0" width="85" height="28" name="products"></a><a href="NOPARSE#/cgi-bin3/SoftCart.exe/Store/sitepages/contact.html?L+scstore+%%softcart.sessionid%%"><img src="/mpc/docs/images/TopNav5.gif" width="93" height="28" BORDER="0" name="contactus"></a></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+<table width="693" border="0" cellspacing="0" cellpadding="0" height="90%">
+  <tr>
+    <td valign="top" width="18%" height="291" bgcolor="#0033FF">
+      <p>&nbsp;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" name="logo">
+        <tr align="center" valign="middle">
+          <td height="62"><img src="/mpc/docs/images/CIlogotext.gif"></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+      <p><a href="NOPARSE#/cgi-bin3/SoftCart.exe/Store/scpages/showcart.html?R+scstore+%%softcart.sessionid%%"><img src="/mpc/docs/images/SideNav1.gif" width="110" height="25" name="changelocation" alt="Change Location Zone" border="0"></A><br>
+        <a href="NOPARSE#/cgi-bin3/SoftCart.exe/Store/scpages/showcart.html?L+scstore+%%softcart.sessionid%%"><img src="/mpc/docs/images/SideNav3.gif" width="110" height="24" name="viewcart" alt="View Cart" border="0"></A><br>
+        <a href="NOPARSE#/cgi-bin3/SoftCart.exe/Store/scpages/modcart.html?L+scstore+%%softcart.sessionid%%"><img src="/mpc/docs/images/SideNav4.gif" width="110" height="24" name="modifycart" alt="Modify Cart" border="0"></A><br>
+        <a href="NOPARSE#/cgi-bin3/SoftCart.exe/Store/scpages/onoff.html?L+scstore+%%softcart.sessionid%%"><img src="/mpc/docs/images/SideNav5.gif" width="110" height="26" name="checkout" alt="Checkout" border="0"></A></p>
+          </td>
+    <td height="291" width="82%" align="left" valign="top"> <P>
+      </p><table width="100%" border="0" cellspacing="0" cellpadding="10" name="copy">
+        <tr valign="top">
+          <td width="10%"> </td><td width="90%"><P><p>&nbsp;</p>
+<!-- PUT STUFF HERE -->
+
+      <p><font face="Arial, Helvetica, sans-serif"><b><font face="Arial, Helvetica, sans-serif"><b><font size="4" color="#000099">Online
+        Order Form</font></b></font><font size="6"><br>
+        </font></b></font> </p>
+<display CART>
+      <table width="500" border="0" cellspacing="0" cellpadding="0" name="copy">
+        <tr valign="top">
+          <td>
+            <p><font face="Arial, Helvetica, sans-serif"><b><font size="2" face="Arial, Helvetica, sans-serif"><b><font size="3"><span class="formheader">Billing
+              Address</span></font></b></font><font size="6"> </font></b></font>
+            </p>
+            <table width="450" border="0" cellspacing="0" cellpadding="0" name="copy">
+              <tr valign="top" align="left">
+                <td>
+                  <form action="TAKEORDER#postordr.html" method="GET" name="onlineform">
+
+
+                    <table border="0" cellpadding="0" cellspacing="0" width="500">
+                      <tr>
+
+                        <td align="right" valign="top" width="150"><font size="2" face="Arial, Helvetica, sans-serif" class="formtext"><span class="formtext">Full
+                          Name: </span></font></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="bill_to_name" value="" size="35">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" class="formtext" valign="top" width="150"><font face="Arial" class="formtext">Address:
+                          </font></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="bill_to_street1" value="" size="35">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="150"></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="bill_to_street2" value="" size="35">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="150"><font face="Arial" class="formtext">City:
+                          </font></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="bill_to_city" value="" size="20">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="150"><font face="Arial" class="formtext">State:
+                          </font></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="bill_to_state" value="" size="12">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="150"><font face="Arial" class="formtext">Zip:
+                          </font></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="bill_to_zip" value="" size="12">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="150"><font face="Arial" class="formtext">Country:</font></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="bill_to_country" value="" size="20">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="150"><font face="Arial" class="formtext">Daytime
+                          Phone: </font></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="bill_to_phone" value="" size="16">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="150"><font face="Arial" class="formtext">Evening
+                          Phone: </font></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="NitePhone" value="" size="16">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="150"><font face="Arial" class="formtext">E-mail
+                          address: </font></td>
+
+                        <td width="350"><font face="Arial">
+                          <input name="bill_to_email" value="" size="35">
+                              </font></td>
+                          </tr>
+                        </table>
+                      <p>&nbsp;</p>
+
+
+                    <table border="0" cellpadding="0" cellspacing="0" width="500">
+                      <tr>
+
+                        <td colspan="2"><font size="2" face="Arial, Helvetica, sans-serif"><b><font size="3">Shipping
+                          Address</font></b><font size="3"> (If different than
+                          above)</font></font> <br>
+                              <br>
+                              <font face="Arial"> </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="141"><font face="Arial" class="formtext">Full
+                          Name: </font></td>
+
+                        <td width="334"><font face="Arial">
+                          <input name="ShipName" value="" size="35">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="141"><font face="Arial" class="formtext">Address:
+                          </font></td>
+
+                        <td width="334"><font face="Arial">
+                          <input name="ShipAddress1" value="" size="35">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="141"></td>
+
+                        <td width="334"><font face="Arial">
+                          <input name="ShipAddress2" value="" size="35">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="141"><font face="Arial" class="formtext">City:
+                          </font></td>
+
+                        <td width="334"><font face="Arial">
+                          <input name="ShipCity" value="" size="20">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="141"><font face="Arial" class="formtext">State:
+                          </font></td>
+
+                        <td width="334"><font face="Arial">
+                          <input name="ShipState" value="" size="12">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="141"><font face="Arial" class="formtext">Zip:
+                          </font></td>
+
+                        <td width="334"><font face="Arial">
+                          <input name="ShipZIP" value="" size="12">
+                              </font></td>
+                          </tr>
+                          <tr>
+
+                        <td align="right" valign="top" width="141"><font face="Arial" class="formtext">Country:
+                          </font></td>
+
+                        <td width="334"><font face="Arial">
+                          <input name="ShipCountry" value="" size="20">
+                              </font></td>
+                          </tr>
+                        </table>
+                      <p>&nbsp;</p>
+                    <table border="0" cellpadding="0" cellspacing="0" width="500">
+                      <tr>
+                        <td colspan="2"><font size="2" face="Arial, Helvetica, sans-serif"><b><font size="3">Credit
+                          Card Information</font><font size="2" face="Arial, Helvetica, sans-serif"><font size="3">
+                          </font></font></b><font size="2" face="Arial, Helvetica, sans-serif"><font size="3"></font></font></font><br>
+                          <br>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top" width="140"><font face="Arial" class="formtext">Name
+                          on Card: </font></td>
+                        <td width="335"><font face="Arial">
+                          <input name="cc_name" type="TEXT" value="" size="35">
+                          </font></td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top" width="140">
+                          <p><font face="Arial" class="formtext">Type: </font>
+                          </p>
+                        </td>
+                        <td width="335"> <font face="Arial">
+                            </font></p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top" width="140"><font face="Arial" class="formtext">Number:
+                          </font></td>
+                        <td width="335">
+                          <p><font face="Arial">
+                            <input name="_cc_number" type="TEXT" size="20">
+                            </font><br>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top" width="140"><font face="Arial" class="formtext">Expires:
+                          </font></td>
+                        <td width="335"><font face="Arial">
+                          <select name="_cc_expmonth" size="1">
+                            <option value="">Month </option>
+                            <option value="01">January </option>
+                            <option value="02">February </option>
+                            <option value="03">March </option>
+                            <option value="04">April </option>
+                            <option value="05">May </option>
+                            <option value="06">June </option>
+                            <option value="07">July </option>
+                            <option value="08">August </option>
+                            <option value="09">September </option>
+                            <option value="10">October </option>
+                            <option value="11">November </option>
+                            <option value="12">December </option>
+                          </select>
+                          <select name="_cc_expyear" size="1">
+                            <option value="">Year </option>
+				        <option VALUE="2000">2000 </option>
+				        <option VALUE="2001">2001 </option>
+				        <option VALUE="2002">2002 </option>
+				        <option VALUE="2003">2003 </option>
+				        <option VALUE="2004">2004 </option>
+				        <option VALUE="2005">2005 </option>
+				        <option VALUE="2006">2006 </option>
+				        <option VALUE="2007">2007 </option>
+				        <option VALUE="2008">2008 </option>
+				        <option VALUE="2009">2009 </option>
+				        <option VALUE="2010">2010 </option>
+                          </select>
+                          </font></td>
+                      </tr>
+                    </table>
+                    <p>&nbsp;</p>
+                    <p><font size="2" face="Arial, Helvetica, sans-serif"><b><font size="3">Shipping
+                      Instructions </font><font size="2" face="Arial, Helvetica, sans-serif"><font size="3">
+                      </font></font></b><font size="2" face="Arial, Helvetica, sans-serif"><font size="3">(Specify
+                      any special shipping instructions below)</font></font></font><font face="Arial"><br>
+                      <br>
+                      <textarea name="ShippingInstructions" cols="50" rows="5" wrap="VIRTUAL"></textarea>
+                      </font></p>
+                    <table width="452" border="0" cellspacing="0" cellpadding="0">
+                      <tr align="left" valign="top">
+                        <td width="298" height="32">
+                          <p><font size="2" face="Arial, Helvetica, sans-serif"><b><font size="3"><br>
+                            Click button to submit your online order now.<br>
+                            </font></b></font></p>
+                          <p><font size="2" face="Arial, Helvetica, sans-serif"><b><font size="3">
+                          	<input type=hidden name=AppID value=appID>
+                            <input type="image" border="0" name="submitOrder" src="/Store/images/cb-submit.gif" width="138" height="25">
+                            </font></b></font></p>
+                          </td>
+                      </tr>
+                    </table>
+                    <center>
+                      <p><font face="Arial"> </font></p>
+                      <p><br>
+                    </center>
+                  </form>
+                  <br>
+                  <p>&nbsp; </p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+</body>
+<!--COMMENT="This site was generated by SoftCart © 1998-2000, Mercantec, Inc. Mercantec, SoftCart, and StateTrack are trademarks of Mercantec, Inc."-->
+</html>
+

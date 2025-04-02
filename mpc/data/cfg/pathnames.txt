@@ -1,0 +1,17 @@
+$$SYSTEM=../..
+$$PRIVATE=/u/web/altec2/mpc/data
+$$COMMONDOCS=/u/httpd/cgi-docs/Mercantec/PC_F_6.6.1
+$$CFG=/u/web/altec2/mpc/data/cfg
+$$USR=..
+$$PRIVATEHTDOCS=/u/web/altec2/mpc/docs
+$$CGIBIN=/u/web/altec2/cgi-local/mpc
+$$SCRIPT=/u/web/altec2/mpc/data/scripts
+$$SESSION=/u/web/altec2/mpc/data/session
+$$DATA=/u/web/altec2/mpc/data/data
+$$DB=/u/web/altec2/mpc/data/data
+$$WATSITE=/u/web/altec2/mpc/data/SiteMgr
+$$WATSITEPUBLIC=/u/web/altec2/mpc/docs/SiteMgr
+$$CONFIGFILE=/u/web/altec2/mpc/data/cfg/DataAPI.cfg
+$$PUBLISHROOT=/u/web/altec2/mpc/docs/Site
+$$SITEPRIVATEHTDOCS=/u/web/altec2/mpc/docs
+$$DEFAULTDOC=/u/web/altec2/

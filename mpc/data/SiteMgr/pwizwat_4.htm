@@ -1,0 +1,208 @@
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<script runat="merc_server">
+	var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+			    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+
+	// Set the state for the image selection window
+	doAction('ST_SET_STATEDATA', 'WizardSelectImage', 'true');
+
+	var pageList = generatePageList();
+	var found = 0;
+	for (var i=0; i < pageList.length; i++)
+	{
+		if (pageList[i] == gHOME_PAGE)
+		{
+			found = 1;
+			break;
+		}
+	}
+	if (found == 0)
+	{
+		// Page not found, create it
+		CreatePage();
+		setSiteEditorCfgField (gHOME_PAGE, gPAGE_TYPE, 'HomePage', '');
+		setSiteEditorCfgField (gHOME_PAGE, gTITLE, gHOME_PAGE, '');
+		setCurrentWorkingPage (gHOME_PAGE);
+		addUpdateGenericCfg ('WATWizardPages', gHOME_PAGE);
+	}
+	else
+		LoadPageByName(gHOME_PAGE);
+	var pageElements = generateObjectsFromCfg('WATWizardPages');
+
+</script>
+<script language="JavaScript">
+	var imageName = 'Your image';
+	var childWin;
+	if (!document.all)
+	{
+		document.onkeyup=Key_Up;
+		document.captureEvents(Event.KEYUP);
+	}	
+
+
+	function Key_Up(e)
+	{
+		document.homepage.imgtext.value = imageName;
+	}
+	function submitImageChange(url, secureUrl, imgrow)
+	{
+		if (childWin)
+			childWin.close();
+		if (document.homepage.imgurl)
+			document.homepage.imgurl.value = url;
+		if (document.homepage.secureimgurl)
+			document.homepage.secureimgurl.value = secureUrl;
+		slash = url.lastIndexOf('/');
+		if (slash == -1)
+			slash = url.lastIndexOf('\\');
+		if (slash == -1)
+			imageName = url;
+		else
+			imageName = url.substr(slash+1);
+		document.homepage.imgtext.value = imageName;
+		document.homepage.imgrow.value = imgrow;
+	}
+	function editWindow ()
+	{
+		var editWinName = 'editWin';
+		var winObj = parent.createSimpleSubmitWindow ('425', '750');
+		childWin = window.open ('', editWinName, winObj.createOutput());
+		parent.SubmitForm ('L', 'ed_selectimage_frameset.htm', editWinName, '');
+		return false;
+	}
+	function SetImageURL()
+	{
+<script runat="merc_server">
+	var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[gHOME_PAGE].Image);
+	var img = '', secImg = '';
+	var row = '';
+	if (properties && properties['source'])
+		img = properties['source'];
+	if (properties && properties['secure_source'])
+		secImg = properties['secure_source'];
+	write("var imageURL = '"+img+"';");
+	write("var secureUrl = '"+secImg+"';");
+	if (properties && properties['cfgrow'])
+		row = properties['cfgrow'];
+	write("var imageRow = '"+row+"';");
+</script>
+		submitImageChange(imageURL, secureUrl, imageRow);
+	}
+
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body class="penda-bkgrd" 
+onLoad="SetImageURL();
+		changeWizImage(new Array(parent.topFrame.document.images.wizimg4), 
+		new Array (parent.topFrame.document.images.wizimg1, 
+					parent.topFrame.document.images.wizimg2, 
+					parent.topFrame.document.images.wizimg3, 
+					parent.topFrame.document.images.wizimg5, 
+					parent.topFrame.document.images.wizimg6));">
+<form name="homepage" action="javascript:void(0);">
+<input type="hidden" name="WizState" value="4">
+<table width="625" border="0" cellpadding="4" cellspacing="0" height="152" align="center">
+  <tr bgcolor="#FFFFCC"> 
+    <td width="300" height="25" valign="top"> <span class="page-title">Create Your Home Page</span></td>
+    <td height="25" align="right">
+      <!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_WAT_HOMEPAGE+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a><!--END HELP WINDOW LINK--><a href="javascript:parent.SubmitForm ('WIZ_WizardBack', 'pwizwat_3.htm','mainFrame', document.homepage);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border=0 alt="Back"></a><a href="javascript:parent.SubmitForm ('WIZ_WizardNext', 'pwizwat_5.htm','mainFrame', document.homepage);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Next_Nbtn_base.gif" width="86" height="30" border=0 alt="Next"></a>&nbsp;
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFCC" valign="top"> 
+    <td height="147" colspan="2" class="table-bkgrd-main"> 
+<div align="left"><font face="Arial, Helvetica, sans-serif" size="2">
+<p>
+Your home page is the first page people will see when coming to your site. Let your customers know what your web site is all about!<br>
+Note - if you select an image to be displayed on your home page, select images in either .gif or .jpg format.
+</p>
+<p>
+<b>Remember:</b><br>
+Additional text and images may be inserted and edited using the PowerWebBuilder Editor once your site is published in Step 6.
+</p>
+</font></div>
+<table width="96%" border="0" cellpadding="2" cellspacing="2" align="center">
+        
+<tr>
+          
+<td width="20%" height="15" class="field-label">
+            
+<div align="right">Image:</div>
+</td>
+<td colspan="2" height="15" nowrap><input type="text" size="30" name="imgtext" value="" onKeyUp="this.value=imageName;"><input type="hidden" name="imgurl" value=""><input type="hidden" name="secureimgurl" value=""><input type="hidden" name="imgrow" value="">&nbsp;
+<a href="javascript:void(0);" onClick="editWindow();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Select____Nbtn_base2.gif" border="0" align="absmiddle"></a>
+</td>
+</tr>
+
+<tr> 
+          
+<td width="20%" height="26"> 
+            
+<div align="right"><b class="field-label">Page Title:</b></div>
+</td>
+<td width="50%" height="26"> 
+<script runat="merc_server">
+	var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[gHOME_PAGE].HeaderText);
+	var text = '';
+	if (properties && properties['text'])
+		text = properties['text'];
+	text = text.replace (/<br>/g, '\n');
+	text = escape(text);
+	write("<input type=text name=\"HeaderText\" size=30 value=\""+text+"\">");
+</script>
+          </td>
+</tr>
+        
+<tr> 
+          
+<td width="20%" height="15"> 
+            
+<div align="right"><b><font face="Arial, Helvetica, sans-serif" size="2" class="field-label">Text:</font></b></div>
+</td>
+<td width="50%" height="15"> 
+            
+<script runat="merc_server">
+	writeln ('<input type="hidden" name="PageName" value="'+gHOME_PAGE+'">');
+	var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[gHOME_PAGE].BodyText);
+	var text = '';
+	if (properties && properties['text'])
+		text = properties['text'];
+	text = text.replace (/<br>/g, '\n');
+	text = escape(text);
+	write("<textarea name=\"BodyText\" rows=\"6\" cols=\"35\" wrap=\"soft\">"+text+"</textarea>");
+</script>
+             
+          </td>
+</tr>
+        
+
+</table>
+      <div align="center"><br>
+<input type="hidden" name="TemplateScript" value="home.js">
+      </div>
+    </td>
+  </tr>
+</table>
+</form>
+<SCRIPT language=javascript>
+document.homepage.HeaderText.value = unescape(document.homepage.HeaderText.value);
+document.homepage.BodyText.value = unescape(document.homepage.BodyText.value);
+</SCRIPT>
+</body>
+</html>

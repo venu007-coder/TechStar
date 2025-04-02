@@ -1,0 +1,262 @@
+<!--catView.htm v. 1.0 -->
+<script runat=merc_server>
+
+catAction = doAction("REQ_GET_FORMVALUE","catAction","catAction");
+if (catAction != undefined)
+{
+	cur = doActionEx("REQ_GET_FORMVALUE","Result","currentNode","currentNode");
+	if (catAction == "Add Item")
+	{
+		newItem = doAction("REQ_GET_FORMVALUE","productItem","productItem");
+		if (newItem != undefined)
+		{
+			newItem = eval(newItem);
+			cur = eval(cur);
+			doAction("CAT_SETNODEITEMS","NodeID",cur,"Item0001",newItem);
+			writebr(cur);
+		}
+	}
+	else if (catAction == "Delete Item")
+	{
+		deleteItem = doAction("REQ_GET_FORMVALUE","deleteThis","deleteThis");
+		if (deleteItem != undefined)
+		{
+			deleteItem = eval(deleteItem);
+			cur = eval(cur);
+			doAction("CAT_DELETENODEITEMS","NodeID",cur,"Item0001",deleteItem);
+		}
+	}
+	else if (catAction == "Insert Node")
+	{
+		theParent = doAction("REQ_GET_FORMVALUE","theParent","theParent");
+		shortName = doAction("REQ_GET_FORMVALUE","shortName","shortName");
+		description = doAction("REQ_GET_FORMVALUE","description","description");
+		picFile = doAction("REQ_GET_FORMVALUE","picFile","picFile");
+		locale = doAction("REQ_GET_FORMVALUE","locale","locale");
+
+		if (theParent != undefined && shortName != undefined && description != undefined && picFile != undefined && locale != undefined)
+		{
+			theParent = eval(theParent);
+			newnewID = doAction("CAT_INSERTNODE","ParentNode",theParent,"Picture",picFile,"Name",shortName,"Desc",description,"Locale",locale,"BeforeIndex",2);
+		}
+	}
+}
+
+</script>
+
+
+<html>
+<head>
+<title>Catalog View</title>
+</head>
+<body bgcolor=bbbbbb text=000000 vlink=000000 link=000000>
+
+<script runat=merc_server>
+var urlpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","urlfile");
+//var picpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","imagepath");
+var sessionid = doActionEx("ST_GET_STATEDATA","Result","SessionID","SessionID");
+crossover = currentNode = doActionEx("REQ_GET_FORMVALUE","Result","currentNode","currentNode");
+var onexpand = doActionEx("REQ_GET_FORMVALUE","Result","onexpand","onexpand");
+var parentlist = new Array();
+
+function DisplayChildren(nodeID)
+{
+	var bdo = doActionBDO("CAT_GETDATA","NodeID",nodeID,"Locale","en");
+	if (bdo != undefined)
+	{
+		write("<a href=" + urlpath + "?AppID=merchant&sm_action=ProductCategories&currentNode=" + nodeID + "><img src=\"/mpc/docs/images/minus.gif\"  border=0> ");
+		if (nodeID == currentNode)
+			writebr("<span style=\"background-color: #777799\"><b>" + bdo.Desc + "</b></span></a>");
+		else
+			writebr("<b>" + bdo.Desc + "</b></a>");
+		writeln("<ul>");
+		bdo = doActionBDO("CAT_GETCHILDREN","NodeID",nodeID);
+		var labels = bdo.GetLabels();
+		var i = 0;
+		for (; i < labels.length; i++)
+		{
+			var tempNode = eval("bdo." + labels[i]);
+			var tempNodeData = doActionBDO("CAT_GETDATA","NodeID",tempNode,"Locale","en");
+			var branchtest = false;
+			var j = 0;
+			for (; j < parentlist.length; j++)
+			{
+				if (tempNode == parentlist[j])
+				{
+					DisplayChildren(tempNode);
+					branchtest = true;
+				}
+			}
+			if (!branchtest)
+			{
+				var bdotemp = doActionBDO("CAT_GETCHILDREN","NodeID",tempNode);
+				if (bdotemp != undefined)
+				{
+					var templabels = bdotemp.GetLabels();
+					if (tempNode == currentNode)
+					{
+						if (templabels.length > 0)
+							writebr("<a href=" + urlpath + "?AppID=merchant&sm_action=ProductCategories&currentNode=" + tempNode + "&onexpand=true><img src=\"/mpc/docs/images/plus.gif\"  border=0></a><b> " + "<a href=" + urlpath + "?AppID=merchant&sm_action=ProductCategories&currentNode=" + tempNode + "><span style=\"background-color: #777799\">" + tempNodeData.Desc + "</span></a></b>");
+						else
+							writebr("<img src=\"/mpc/docs/images/blank.gif\" border=0><b><a href=" + urlpath + "?AppID=merchant&sm_action=ProductCategories&currentNode=" + tempNode + "><span style=\"background-color: #777799\">" + tempNodeData.Desc + "</span></a></b>");
+					}
+					else
+					{
+						if (templabels.length > 0)
+							writebr("<a href=" + urlpath + "?AppID=merchant&sm_action=ProductCategories&currentNode=" + tempNode + "&onexpand=true><img src=\"/mpc/docs/images/plus.gif\"  border=0></a><b> " + "<a href=" + urlpath + "?AppID=merchant&sm_action=ProductCategories&currentNode=" + tempNode + ">" + tempNodeData.Desc + "</a></b>");
+						else
+							writebr("<img src=\"/mpc/docs/images/blank.gif\" border=0><b><a href=" + urlpath + "?AppID=merchant&sm_action=ProductCategories&currentNode=" + tempNode + ">" + tempNodeData.Desc + "</a></b>");
+					}
+				}
+				else
+				{
+					if (tempNode == currentNode)
+						writebr("<img src=\"/mpc/docs/images/blank.gif\" border=0><b> " + "<a href=" + urlpath + "?AppID=merchant&sm_action=ProductCategories&currentNode=" + tempNode + "><span style=\"background-color: #777799\">" + tempNodeData.Desc + "</span></a></b>");
+					else
+						writebr("<img src=\"/mpc/docs/images/blank.gif\" border=0><b> " + "<a href=" + urlpath + "?AppID=merchant&sm_action=ProductCategories&currentNode=" + tempNode + ">" + tempNodeData.Desc + "</a></b>");
+				}
+			}
+		}
+		write("</ul>");
+	}
+	else
+		writebr("No data found for node " + nodeID);
+}
+
+if (currentNode == undefined)
+	currentNode = 9000;
+doAction("ST_SET_STATEDATA","CatCurrentNode",currentNode);
+var tempNode = currentNode = eval(currentNode);
+currentParent = doActionEx("CAT_GETPARENT","ParentID","NodeID",currentNode);
+if (onexpand == "true")
+{
+	var bdotemp = doActionBDO("CAT_GETCHILDREN","NodeID",currentNode);
+	if (bdotemp != undefined)
+	{
+		var templabels = bdotemp.GetLabels();
+		tempNode = eval("bdotemp." + templabels[0]);
+	}
+}
+var i = 0;
+while(true)
+{
+	parentID = doActionEx("CAT_GETPARENT","ParentID","NodeID",tempNode);
+	if (parentID != 0)
+		parentlist[i] = tempNode = parentID;
+	else
+		break;
+	i++;
+	if (i > 300)
+	{
+		writebr("INFITINE LOOP");
+		break;
+	}
+}
+
+writeln("<table border=1 width=100% height=100%>");
+
+writeln("<tr valign=top>");
+writeln("<td rowspan=2 width=60%>");
+
+writeln("<ul>");
+DisplayChildren(9000);
+writeln("</ul><p>");
+writeln("Currently selected category is highlighted <span style=\"color: #777799\">blue</span>.");
+
+</script>
+
+<merc_dynamic noshow=true name=curNode action=ST_GET_STATEDATA return=Result CatCurrentNode=CatCurrentNode>
+
+</td>
+<td align=center>
+<h3>Item to Category Association</h3><p>
+<table border=1 cellpadding=15>
+<tr>
+<td align=center>
+<form action="/cgi-local/mpc/PowerCommerce.cgi" method=get>
+<input type=hidden name="sm_action" value="ProductCategories">
+<input type=hidden name=currentNode value=curNode>
+<input type="hidden" name="AppID" value="merchant">
+Items in selected category<p>
+
+<select name="deleteThis">
+<script runat=merc_server>
+var bdo = doActionBDO("CAT_GETNODEITEMS","NodeID",currentNode);
+if (bdo != undefined)
+{
+	var nodeItems = bdo.GetLabels();
+	for (var k = 0; k < nodeItems.length; k++)
+	{
+		writeln("<option>" + eval("bdo." + nodeItems[k]) + "</option>");
+	}
+}
+</script>
+</select><p>
+<input type=submit name="catAction" value="Delete Item">
+</form>
+</td>
+<td align=center>
+
+<form action="/cgi-local/mpc/PowerCommerce.cgi" method=get>
+<input type=hidden name="sm_action" value="ProductCategories">
+<input type=hidden name=currentNode value=curNode>
+<input type="hidden" name="AppID" value="merchant">
+Items in product database<p>
+
+<select name="productItem">
+<script runat=merc_server>
+var bdo = doActionBDO("CAT_GETNODEITEMS");
+if (bdo != undefined)
+{
+	var nodeItems = bdo.GetLabels();
+	for (var k = 0; k < nodeItems.length; k++)
+	{
+		writeln("<option>" + eval("bdo." + nodeItems[k]) + "</option>");
+	}
+}
+</script>
+</select><p>
+<input type=submit name="catAction" value="Add Item">
+</form>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr valign=top>
+<td align=center>
+
+<h3>Category Management</h3><p>
+
+<form action=/cgi-local/mpc/PowerCommerce.cgi method=get>
+<input type=hidden name="sm_action" value="ProductCategories">
+<input type="hidden" name="AppID" value="merchant">
+<input type=hidden name=currentNode value=curNode>
+<table border=1>
+<tr>
+<td align=center>
+<b>Insert</b><p>
+<script runat=merc_server>
+writeln("<input type=hidden name=theParent value=" + currentParent + ">");
+</script>
+Short Name: <input type=text name=shortName><br>
+Description: <input type=text name=description><br>
+Locale for Description: <input type=text name=locale><br>
+Picture Filename: <input type=text name=picFile><br>
+<input type=submit name="catAction" value="Insert Node">
+</td>
+</tr>
+<tr>
+<td align=center>
+<input type=submit name="catAction" value="Delete Current Node">
+</td>
+</tr>
+</form>
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>

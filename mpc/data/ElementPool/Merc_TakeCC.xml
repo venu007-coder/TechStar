@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/u/web/altec2/mpc/data/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_TakeCC</TYPE>
+	<GLOBAL TYPE="never"></GLOBAL>
+	<UIGRAPHIC></UIGRAPHIC>
+	<UITEXT></UITEXT>
+	<!-- No delete -->
+	<PERMISSIONS>666</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="width">
+			<VALUE>400</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE>275</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="style">
+			<VALUE>text-body</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="btnstyle">
+			<VALUE>btn-shopperbackground</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="securebtnstyle">
+			<VALUE>secure-btn-shopperbackground</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="btntextstyle">
+			<VALUE>btn-shoppertext</VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+		var commonScriptFile = doActionEx('DATA_READFILE', 'common.js', 'FileName', 
+					'common.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+		eval (commonScriptFile);
+
+		if (type == "text/html")
+		{
+			var mode = doAction('ST_GET_STATEDATA', 'PE_OutputMode', 'PE_OutputMode');
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('z-index:'+merc_zindex+';">');
+
+			writeln('<merc_dynamic noshow=true name=mySession action=ST_GET_STATEDATA return=Result SessionID=SessionID>');
+			writeln('<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>');
+			writeln('<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>');
+
+	var urlpath = doActionEx("DATA_GETLITERAL", "Result", "ObjectName", "storecfg", "LiteralID", "SecureSiteUrl");
+			writeln('<form name=takecc METHOD=POST action="'+urlpath+'">');
+
+			if (mode == "PE_PreviewMode")
+				writeln('<input type=hidden name=Preview value=1>');
+			writeln('<input type=hidden name=SessionID value={mySession}>')
+			writeln('<input type=hidden name=sh_action value=takeorder>');
+			writeln('<input type=hidden name=SiteID value={siteID}>');
+			writeln('<input type=hidden name=AppID value={appID}>');
+			writeln('<input type=hidden name=paymentType value=0>'); //Credit Card
+
+			write('<scr');
+				writeln('ipt runat=merc_server>');
+			writeln('toresult = doAction("ST_GET_STATEDATA","TakeOrderResult","TakeOrderResult");');
+			writeln('if (toresult && toresult != "Succeeded")');
+			writeln('{');
+			writeln('	errstr = doAction("ST_GET_STATEDATA","TakeOrderError","TakeOrderError");');
+			writeln('	writebr("Your purchase has been declined for the following reason: ");');
+			writeln("	writeln('<b>'+errstr+'</b>');");
+			writeln('}');
+			write('</scr');
+				writeln('ipt>');
+
+			writeln('<p align="center"><b><font size="4">Credit Card Information</font></b></p>');
+			writeln('<table width="475" border="0" align="center" height="163">');
+			writeln('<tr>');
+			writeln('	<td height="139">');
+			writeln('	  <table width="98%" border="0" cellpadding="2" cellspacing="0" align="center" height="96">');
+			writeln('		<tr bgcolor="#CCCCCC">');
+			writeln('		  <td class="general-label" width="30%" nowrap height="24">');
+			writeln('		  <div align="center"><b>Please enter your credit card information:</b></div>');
+			writeln('		  </td>');
+			writeln('		</tr>');
+			writeln('		<tr>');
+			writeln('		  <td class="general-label" width="30%" nowrap height="24">');
+			writeln('		  <b>Name (as it appears on card):</b>');
+			writeln('		  <merc_dynamic noshow=true name=sel_billName action=REQ_GET_FORMVALUE return=Result nameOnCard=nameOnCard>');
+			writeln('		  <merc_dynamic name=firstBillTo noshow=true action=SC_GET_FIRST_ROW TableName=BillTo>');
+			writeln('		  <merc_dynamic name=BillToName noshow=true action=SC_GET_FIELD TableName=BillTo RowName={firstBillTo} FieldName=BillToName>');
+			writeln('		  <br><input type="text" name="nameOnCard" value="{sel_billName}" size="40" maxlength="40">');
+			writeln('		  <b><br>Card Type: <select name="cardType">');
+			writeln('		  <option value="">None</option>');
+
+			write('<scr');
+				writeln('ipt runat=merc_server>');
+			writeln("var sel_cardtype=doActionEx('REQ_GET_FORMVALUE', 'Result','cardType','cardType');");
+			writeln("var cctypes = doAction('DATA_GETCONFIGDATA','ObjectName','PAYMENT','RowName','default_credit_card_types_selected','ColName','value');");
+			writeln('if (cctypes)');
+			writeln('{');
+			writeln("	cctypes = cctypes.split(',');");
+			writeln('	for (var k = 0; k < cctypes.length; k++)');
+			writeln('	{');
+			writeln('		if(sel_cardtype == cctypes[k])');
+			writeln("			writeln('<option selected>' + cctypes[k] + '</option>');");
+			writeln('		else');
+			writeln("			writeln('<option>' + cctypes[k] + '</option>');");		
+			writeln('	}');
+			writeln('}');
+			write('</scr');
+				writeln('ipt>');
+
+			writeln('		  </select>');
+			writeln('		  <merc_dynamic noshow=true name=sel_ccnum action=REQ_GET_FORMVALUE return=Result ccnum=ccnum>');
+			writeln('		  Number: <input type="text" name="ccnum" value="{sel_ccnum}" size="17">');
+			writeln('		  <br>Expires: </b>');
+			writeln('		  <b> Month: </b>');
+			writeln('		  <select name="expireMonth">');
+			writeln('		  <option value="">None</option>');
+			write('<scr');
+			writeln('ipt runat=merc_server>');
+			writeln('var sel_expmonth=doActionEx("REQ_GET_FORMVALUE", "Result","expireMonth","expireMonth");');
+			writeln('for(var i=1; i <= 12 ; i++)');
+			writeln('{');
+			writeln('	if(parseInt(i) == parseInt(sel_expmonth))');
+			writeln('		writeln("<option selected value="+i+">"+i+"</option>");');
+			writeln('	else');
+			writeln('		writeln("<option value="+i+">"+i+"</option>");');
+			writeln('}');
+			write('</scr');
+				writeln('ipt>');
+			writeln('		</select>');
+			writeln('		  <b>Year: </b>');
+			writeln('		  <select name="expireYear">');
+			writeln('		  <option value="">None</option>');
+
+			write('<scr');
+				writeln('ipt runat=merc_server>');
+			writeln('var yr;');
+			writeln('Today = new Date();');
+			writeln('yr = parseInt(Today.getFullYear());');
+			writeln('var sel_year=doActionEx("REQ_GET_FORMVALUE","Result","expireYear","expireYear");');
+			writeln('for (var i=0; i < 10; i++)');
+			writeln('{');
+			writeln('	if(sel_year == yr)');
+			writeln('		writeln("<option selected value="+yr+">"+yr+"</option>");');
+			writeln('	else');
+			writeln('		writeln("<option value="+yr+">"+yr+"</option>");');
+			writeln('        yr++;');
+			writeln('}');
+			write('</scr');
+				writeln('ipt>');
+
+			writeln('		  </select>');
+			writeln('		  <span class="general-label"> </span></td>');
+			writeln('		</tr>');
+			writeln('	  </table>');
+			writeln('	  <div align="center">');
+
+			writeln('	<br>');
+			writeln('	<table border=0 cellspacing=0 cellpadding=0><tr>');
+
+			var currentPage = doAction('ST_GET_STATEDATA', 'CurrentPageName', 'CurrentPageName');
+			var seObj = generateSEObjects (currentPage);
+			var pageObj = seObj.pageObjArray[currentPage];
+			if (mode != "PE_EditMode" && pageObj.SecureBaseHref.toLowerCase() == "yes")
+				writeln('	<td align=right valign=middle width=120 height=22 class=\''+securebtnstyle+'\'>');
+			else
+				writeln('	<td align=right valign=middle width=120 height=22 class=\''+btnstyle+'\'>');
+			writeln('	<a href="#" onClick="document.takecc.submit();return false;">');
+			writeln('	<center><span class="'+btntextstyle+'">Submit Order</span></center></a>');
+			writeln("	</td></tr></table>");
+
+			writeln('	  </div>');
+			writeln('	</td>');
+			writeln('  </tr>');
+			writeln('</table>');
+			writeln('</form>');
+
+
+
+			writeln("</div>");
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('z-index:'+merc_zindex+';">');
+
+			writeln('<form><p align="center"><b><font size="4">Credit Card Information</font></b></p>');
+			writeln('<table width="475" border="0" align="center" height="163">');
+			writeln('<tr>');
+			writeln('	<td height="139">');
+			writeln('	  <table width="98%" border="0" cellpadding="2" cellspacing="0" align="center" height="96">');
+			writeln('		<tr bgcolor="#CCCCCC">');
+			writeln('		  <td class="general-label" width="30%" nowrap height="24">');
+			writeln('		  <div align="center"><b>Please enter your credit card information:</b></div>');
+			writeln('		  </td>');
+			writeln('		</tr>');
+			writeln('		<tr>');
+			writeln('		  <td class="general-label" width="30%" nowrap height="24">');
+			writeln('		  <b>Name (as it appears on card):</b>');
+			writeln('		  <br><input type="text" name="nameOnCard" value="" size="40" maxlength="40">');
+			writeln('		  <b><br>Card Type: <select name="cardType">');
+
+			var cctypes = doAction('DATA_GETCONFIGDATA','ObjectName','PAYMENT','RowName','default_credit_card_types_selected','ColName','value');
+			if (cctypes)
+			{
+				cctypes = cctypes.split(',');
+				for (var k = 0; k < cctypes.length; k++)
+					writeln('<option>' + cctypes[k] + '</option>');
+			}
+			writeln('		  </select>');
+			writeln('		  Number: <input type="text" name="ccnum" size="17">');
+			writeln('		  <br>Expires: </b>');
+			writeln('		  <b> Month: </b>');
+			writeln('		  <select name="expireMonth">');
+//Should we make this configurable for number vs. month name???
+			writeln('		  <option value="01" selected>01</option>');
+			writeln('		  <option value="02">02</option>');
+			writeln('		  <option value="03">03</option>');
+			writeln('		  <option value="04">04</option>');
+			writeln('		  <option value="05">05</option>');
+			writeln('		  <option value="06">06</option>');
+			writeln('		  <option value="07">07</option>');
+			writeln('		  <option value="08">08</option>');
+			writeln('		  <option value="09">09</option>');
+			writeln('		  <option value="10">10</option>');
+			writeln('		  <option value="11">11</option>');
+			writeln('		  <option value="12">12</option>');
+			writeln('		  </select>');
+			writeln('		  <b>Year: </b>');
+			writeln('		  <select name="expireYear">');
+
+			var yr;
+			Today = new Date();
+			yr = parseInt(Today.getFullYear());
+			for (var i=0; i < 10; i++)
+			{
+			        writeln("<option value="+yr+">"+yr+"</option>");
+			        yr++;
+			}
+
+			writeln('		  </select>');
+			writeln('		  <span class="general-label"> </span></td>');
+			writeln('		</tr>');
+			writeln('	  </table>');
+			writeln('	</td>');
+			writeln('  </tr>');
+			writeln('</table></form>');
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	function edit_properties()
+	{
+		//write out html for EditProperties dialog box
+		write('<form name="saveprop">');
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		writeln('<input type=hidden name="ElementAddEdit" value="'+addEditMode+'">');
+
+		writeln('<p align="center"><span class="dialog-title">Take Credit Card</span></p>');
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr valign="top"><td colspan="2" class="field-label"><center>');
+
+		writeln('<table width="75%" border="0" cellspacing="0" cellpadding="0">');
+		writeln('<tr valign="top"><td colspan="2">');
+		writeln('<br>This element does not contain any modifiable properties</td>');
+		writeln('</td></tr></table>');
+
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr><td><center>');
+<!--BEGIN HELP WINDOW LINK-->
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_RTL_ELMT_TAKEORDERCC+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_Cancel\', \'Layout1.htm\', \'mainFrame\', document.saveprop);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel" border="0"></a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_SaveProperties\', \'Layout1.htm\', \'mainFrame\', document.saveprop);">');
+		writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Ok" border="0"></a>');
+		writeln('</td></tr></table>');
+		writeln('</td></tr></table>');
+		write('</form>');
+		writeln ("<SCRIPT language=javascript>");+
+		writeln('self.resizeTo(500, 200);');
+		writeln('</script>');
+
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	// May not need to do anything in all cases
+	// Save things to Prod DB on price/desc? - automatic based on dbentry
+	// if there is a reason not to dismiss the properties dialog, return false
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

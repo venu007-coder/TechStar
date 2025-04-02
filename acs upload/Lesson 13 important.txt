@@ -1,0 +1,6 @@
+F4AM - Lesson 13.
+
+1. dummy Vo not embed. Pls embed VO recorded in malaysia.
+2. Instead of doing excel or spreadsheet, we create  a button called "Generate", to display the x series and f(x) series.
+3. In Lesson 13, there is no content and summary part. Pls remove this button from the template.
+4. Pls put screen shot of the lesson 13 in the main menu.

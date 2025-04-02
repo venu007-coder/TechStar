@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/u/web/altec2/mpc/data/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_ItemWeight</TYPE>
+	<GLOBAL TYPE="never"></GLOBAL>
+	<UIGRAPHIC></UIGRAPHIC>
+	<UITEXT></UITEXT>
+	<!-- Can't be deleted -->
+	<PERMISSIONS>666</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="width">
+			<VALUE>200</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE>20</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="style">
+			<VALUE>text-body</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="unittext">
+			<VALUE></VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="visible">
+			<VALUE>Yes</VALUE><VALUE>No</VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+		if (visible.selectedIndex == -1 || visible[visible.selectedIndex] == "No")
+			return true;
+
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('z-index:'+merc_zindex+';">');
+
+			write('<scr');
+				writeln('ipt runat="merc_server">');
+			writeln('//include Formatting Library');
+			writeln("var cs_inc = doActionEx('DATA_READFILE', 'FormattingLib.js', 'FileName', 'FormattingLib.js', 'ObjectName', 'JS_SRC', 'FileType', 'txt');");
+			writeln('eval(cs_inc);');
+
+			writeln('key = doActionEx("REQ_GET_FORMVALUE","Result","ItemKey","ItemKey");');
+			writeln('if (key && key != "")');
+			writeln('{');
+			writeln('	var gPRECISION = 2;');
+			writeln('	var rowName = MERC_ITEMCACHE.GetFirstItem();');
+			writeln('	var weight= MERC_ITEMCACHE.GetItemData(rowName,"Weight");');
+			writeln('	if (weight != undefined)');
+			writeln('		write(formatDouble(weight, gPRECISION)'+'+" '+unittext+'");');
+			writeln('}');
+
+			write('</scr');
+				writeln('ipt>');
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('z-index:'+merc_zindex+';">');
+
+			if (visible.selectedIndex == -1 || visible[visible.selectedIndex] == "No")
+			{
+				write('<table border=0><tr><td ');
+				write(' background="/cgi-docs/Mercantec/PC_F_6.6.1/images/highlite_inactive_sm.gif">');
+				write('<font color="#999999">');
+			}
+			writeln("(Item Weight) "+unittext);
+			if (visible.selectedIndex == -1 || visible[visible.selectedIndex] == "No")
+				writeln('</font></td></tr></table>');
+
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	function edit_properties()
+	{
+		//write out html for EditProperties dialog box
+		// The input "names" have to match the <name> tags above.
+		write('<form name="saveprop">');
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		writeln('<input type=hidden name="ElementAddEdit" value="'+addEditMode+'">');
+		writeln('<input type=hidden name="ElementID" value="'+merc_elementid+'">');
+
+		writeln('<p align="center"><span class="dialog-title">Item Weight</span></p>');
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr valign="top"><td colspan="2" class="field-label"><center>');
+
+		writeln('<table width="344" border="0" cellspacing="0" cellpadding="0">');
+		writeln('<tr valign="top"><td colspan="2">&nbsp;');
+		writeln('</td></tr></table>');
+
+		writeln('<table width="344" border="1" cellspacing="0" cellpadding="0">');
+		writeln('<tr class="table-bkgrd-main">');
+		writeln('<td width="96" class="table-header2">');
+		writeln('<span class="field-label">Weight Units: </span>');
+		writeln('</td><td width="212" class="table-bkgrd-main">');
+		writeln('<input type=text name=unittext value="'+unittext+'">');
+		writeln('</td></tr>');
+
+		writeln('<tr class="table-bkgrd-main"><td width="96" class="table-header2"><span class="field-label">Visible:</span></td>');
+		writeln('<td colspan="2" width="212">');
+		var visSelect = (visible.selectedIndex == -1 ? 1 : visible.selectedIndex);
+		for (i=0; i < visible.length; i++)
+		{
+			write('<input type="radio" class="table-bkgrd-main" name="visible" value="'+visible[i]+'"');
+			if (i == visSelect)
+				write(' CHECKED');
+			writeln('>'+visible[i]);
+		}
+		writeln('</td></tr></table>');
+		writeln('<table width="75%" border="0" cellspacing="0" cellpadding="0">');
+		writeln('<tr valign="top"><td colspan="2">');
+		writeln('<span class="instr-note">If you do not want this element to appear on your product pages, select \"No\" for \"Visible\"</span>');
+		writeln('</td></tr></table>');
+
+		writeln('</center></td></tr>');
+		writeln('</table>');
+
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr><td><center>');
+<!--BEGIN HELP WINDOW LINK-->
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_RTL_ELMT_ITMWEIGHT+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_Cancel\', \'Layout1.htm\', \'mainFrame\', document.saveprop);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel" border="0"></a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_SaveProperties\', \'Layout1.htm\', \'mainFrame\', document.saveprop);">');
+		writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Ok" border="0"></a>');
+		writeln('</td></tr></table>');
+		write('</form>');
+		writeln ("<SCRIPT language=javascript>");+
+		writeln('self.resizeTo(500, 300);');
+		writeln('</script>');
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

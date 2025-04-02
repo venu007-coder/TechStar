@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+</head>
+
+<body bgcolor="#FFFFFF" class="pop-up-bkgrd">
+<center>
+<script runat="merc_server">
+	<merc_embed>
+		<p class="dialog-title">Preview</p>
+		<p><span class="pop-up-bkgrd">
+	</merc_embed>
+	
+	var imageSource = doAction('REQ_GET_FORMVALUE', "imageSource", "imageSource");
+	if (imageSource)
+		write ('<img name="sampleImage" src="'+imageSource+'" width= "225" alt="sample image">');
+	else
+		write ('<img name="sampleImage" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/image200x150.jpg" width="225"'+
+			   ' alt="sample image">');
+	<merc_embed>
+		</span>
+		<br>
+	</merc_embed>
+</script>
+</p>
+</center>
+</body>
+</html>

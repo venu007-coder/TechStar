@@ -1,0 +1,144 @@
+<script runat="merc_server">
+	//set Locale string
+	var g_prefBrowserLocale="en";
+	var g_PRICEPRECISION = 2;
+	
+	//Load ServicesLib.js
+		var cs_inc = doActionEx ('DATA_READFILE','ServicesLib.js', 'FileName', 'ServicesLib.js','ObjectName',
+				    'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+	//end Load
+	/********************************************************************************
+	IT IS IMPORTANT TO NOTE THAT MOST OF THESE FUNCTIONS ARE LOCATED IN ServicesLib.js
+	*********************************************************************************/
+ 
+	var mode= doAction('REQ_GET_FORMVALUE', "mode", "mode");
+	
+	var items = readServiceItems(); // this is the items array w/no fields
+	
+	
+	if ((mode =='save') || (mode=='addNew')) 
+	{
+		//writebr("Saving values...", items.length);
+		var status = saveRowChanges(items);
+		
+		var tmp ="newName";
+		var serviceName= doAction('REQ_GET_FORMVALUE',tmp,tmp);
+			
+		if (serviceName && (serviceName!='')) 
+			var status = saveNewRow(serviceName);
+	} 
+	else if (mode=='delete')
+	{
+		//Read in deleteID passed in and perform delete if it was a positive number
+		//NOTE: this deleteID only has a value if the delete button was clicked and the
+		//user clicked "OK"
+		
+		var deleteID= parseInt(doAction('REQ_GET_FORMVALUE', "deleteID", "deleteID"));
+		//writebr("Deleting service (ID=", deleteID,")");
+		var status = deleteServiceRow(deleteID);
+	}
+
+	//need to reread the items to reflect the added/deleted row.
+	var items = readServiceItems(''); // this is the items array w/no fields
+</script>
+
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+<script language="javascript">
+function saveServices(mode)
+{
+	if (mode == 'addNew')
+		document.Services.mode.value=mode;
+	parent.SubmitForm('L','bm_schedule-services.htm','mainFrame',document.Services);
+
+}
+
+function deleteService(serviceID, Name)
+{
+	if (confirm('Are you sure you want to delete the service: '+Name))
+	{
+		document.Services.mode.value='delete';
+		document.Services.deleteID.value=serviceID;
+		parent.SubmitForm('L','bm_schedule-services.htm','mainFrame',document.Services);
+
+	}
+	else
+		return false;
+}
+function setFocus()
+{
+	for (var n = 0; n < document.Services.elements.length ; n++)
+	{
+		if (document.Services.elements[n].type.toLowerCase() != "hidden")
+		{
+			document.Services.elements[n].focus();
+			break;
+		}
+	}
+}
+</script>
+</head>
+
+
+<body class="bkgrd-main-items" onLoad="javascript:setFocus();">
+
+<table width="100%" border="0">
+<tr> <td align="left"><span class="header">Schedule - Service Types</span></td>
+<td align="right"><!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SCHD_SERVICES+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK-->
+</td></tr>
+</table>
+
+<div align="center"> 
+<form name="Services" action="">
+<input type="hidden" name="mode" value="save">
+<input type="hidden" name="deleteID" value="">
+  <table width="515" border="1" cellspacing="0" cellpadding="2">
+    <tr class="table-header"> 
+      <td width="26%" class="table-header"> 
+        <div align="center">Name</div>
+      </td>
+      <td width="26%" class="table-header"> 
+        <div align="center">Description</div>
+      </td>
+      <td width="18%" nowrap class="table-header"> 
+        <div align="center">Duration (hrs)</div>
+      </td>
+      <td width="11%" class="table-header"> 
+        <div align="center">Price</div>
+      </td>
+      <td width="19%" nowrap class="table-header">&nbsp;</td>
+    </tr>
+<SCRIPT runat="merc_server">
+    
+	if (items.length)
+		generateServiceHTML(items);
+	else
+		mode='addNew';
+		
+	//else writebr('No items in the database');
+	if (mode == 'addNew')
+		addNewRowHTML();
+
+</SCRIPT>    
+    
+  </table>
+  <p><a href="javascript:saveServices('addNew')"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_new.gif" width="90" height="21" align="bottom" alt="New Service" border="0"></a>&nbsp;
+  <a href="javascript:saveServices('save')"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" width="90" height="21" alt="Save" border="0"></a></p>
+  <p class="dialog-title" align="left"><i><font color="#990099"> </font></i></p>
+
+</form>
+</div>
+<div align="center"></div>
+</body>
+</html>

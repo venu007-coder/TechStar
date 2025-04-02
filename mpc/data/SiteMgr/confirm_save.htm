@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+	<TITLE>Page Saved</TITLE>
+	<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+	<BASE href="{SC_BaseUrl}">
+	<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+</HEAD>
+
+<script runat="merc_server">
+			write ('<body class="pop-up-bkgrd" ');
+			var onLoad = doAction('REQ_GET_FORMVALUE', "onLoad", "onLoad");
+			if (onLoad)
+				write (onLoad);
+			write ('>');
+</script>
+<FONT CLASS='dialog-title'>
+	<center>
+		Page Saved<br>
+		<script runat="merc_server">
+			var aTag = doAction('REQ_GET_FORMVALUE', "aTag", "aTag");
+			if (aTag)
+				write (aTag);
+		</script>
+	</center>
+</FONT>
+</HTML>

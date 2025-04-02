@@ -1,0 +1,60 @@
+<merc_dynamic noshow=true name=mySession action=ST_GET_STATEDATA return=Result SessionID=SessionID>
+<p><font size="4" face="Times New Roman, Times, serif"><br><font size="3">Your Shopping Cart currently contains the following items:</font></font></p><p>&nbsp;</p>
+
+<script runat=merc_server>
+
+var description;
+for (var currentShipTo = MERC_SHOPCART.GetFirstRow("ShipTo"); currentShipTo != "END_OF_TABLE"; currentShipTo = MERC_SHOPCART.GetNextRow("ShipTo",currentShipTo))
+{
+	writeln("<TABLE BORDER>");
+	writeln("<TR>");
+	writeln("<TH ALIGN=CENTER>Product</TH>");
+	writeln("<TH ALIGN=CENTER>Quantity</TH>");
+	writeln("<TH ALIGN=CENTER>Price Per Unit</TH>");
+	writeln("<TH ALIGN=CENTER>Discount</TH>");
+	writeln("<TH ALIGN=CENTER>Total</TH>");
+	writeln("</TR>");
+
+	for (var itemID = MERC_SHOPCART.GetFirstRow("Items","ShipTo",currentShipTo); itemID != "END_OF_TABLE"; itemID = MERC_SHOPCART.GetNextRow("Items",itemID,"ShipTo",currentShipTo))
+	{
+		writeln("<tr>");
+		write("<td align=left nowrap>");
+		descid = MERC_SHOPCART.GetField("Items",itemID,"DescriptionID");
+		if (descid != undefined)
+			description = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",descid,"Locale","en");
+		writeln(description + "</td>");
+		writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("Items",itemID,"Quantity") + "</td>");
+		writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("Items",itemID,"Price") + "</td>");
+		writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("Items",itemID,"Discount") + "</td>");
+		writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("Items",itemID,"Total") + "</td>");
+		writeln("</tr>");
+	}
+
+	writeln("<tr>");
+	writeln("<td colspan=4 align=left>Sub Total</td>");
+	writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("TotalItems") + "</td>");
+	writeln("</tr>");
+
+	writeln("<tr>");
+	writeln("<td colspan=4 align=left>Shipping</td>");
+	writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("TotalShipping") + "</td>");
+	writeln("</tr>");
+
+	writeln("<tr>");
+	writeln("<td colspan=4 align=left>Sales Tax</td>");
+	writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("TotalTax") + "</td>");
+	writeln("</tr>");
+
+	writeln("<tr>");
+	writeln("<td colspan=4 align=left>Grand Total</td>");
+	writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("GrandTotal") + "</td>");
+	writeln("</tr>");
+
+	writeln("</table>");
+
+}
+
+</script>
+
+</CENTER>
+

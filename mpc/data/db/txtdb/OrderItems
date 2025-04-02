@@ -1,0 +1,1 @@
+OrderID=long	Sequence=long	DescriptionID=long	Discount=double	Key	DiscountType=long	Price=double	Quantity=long	Total=double	DiscountAmount=double	Tax=double	AttributeOf=long	NameID=long

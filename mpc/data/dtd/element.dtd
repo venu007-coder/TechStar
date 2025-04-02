@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!ENTITY % external_js SYSTEM "external_js.dtd">
+%external_js;
+<!ELEMENT ELEMENT (VERSION, TYPE, GLOBAL, UIGRAPHIC, UITEXT, PERMISSIONS, OWNER?, GROUP?, PROPERTIES, SCRIPT+)>
+<!--version for future compatibility-->
+<!ELEMENT VERSION (#PCDATA)>
+<!-- type string defines the element (image, text) -->
+<!ELEMENT TYPE (#PCDATA)>
+<!-- Is this element a global element or not -->
+<!-- NOTE: not sure if optional is a good idea -->
+<!ELEMENT GLOBAL EMPTY>
+<!ATTLIST GLOBAL
+	TYPE (never | always) "never"
+>
+<!-- Displayed in UI for user -->
+<!ELEMENT UIGRAPHIC (#PCDATA)>
+<!ELEMENT UITEXT (#PCDATA)>
+<!--owner, group, world (move 4/edit 2/delete 1 instead of read/write/execute)-->
+<!ELEMENT PERMISSIONS (#PCDATA)>
+<!-- default owner and group will be "nobody" if these optional tags are missing -->
+<!ELEMENT OWNER (#PCDATA)>
+<!ELEMENT GROUP (#PCDATA)>
+<!-- Properties of an element, each property has a name and one or more values -->
+<!-- A dbentry will be saved to the named table on a page save -->
+<!ELEMENT PROPERTIES (PROPERTY | DBENTRY)+>
+<!ELEMENT PROPERTY (VALUE+)>
+<!ATTLIST PROPERTY
+	NAME CDATA #IMPLIED
+>
+<!-- only one value per dbentry -->
+<!ELEMENT DBENTRY (VALUE)>
+<!ATTLIST DBENTRY
+	TABLENAME CDATA #IMPLIED
+	FIELDNAME CDATA #IMPLIED
+	INDEX CDATA #IMPLIED
+	NAME CDATA #IMPLIED
+>
+<!ELEMENT VALUE (#PCDATA)>

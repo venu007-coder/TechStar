@@ -1,0 +1,388 @@
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT SRC="SiteEditor.js" LANGUAGE="JavaScript"></SCRIPT>
+<script runat="merc_server">
+	var test = doActionEx	('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+								'JS_SRC', 'FileType', 'txt');
+	eval (test);
+	<merc_embed>
+		<SCRIPT LANGUAGE="JavaScript">
+	</merc_embed>
+	write ("var empty = '"+gEMPTY+"';");
+	// limit the upload object
+	write ("var objectName = '"+gPUBLIC+"';");
+	<merc_embed>
+		</SCRIPT>
+	</merc_embed>
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript">
+	var winName = 'ed_image_popup';
+	var winName2 = 'ed_image_popup2';
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	var master_js = parent;
+	var childWin = "";
+	function deleteImage ()
+	{
+		var dirObj = document.imageList.directory;
+		var imageFileObj = document.imageList.imageFile;
+		var selectedItems = new Array();
+
+		for (var n = 0; n < imageFileObj.options.length; n++)
+		{
+			if (imageFileObj.options[n].text == empty)
+			{
+				alert (master_js.gINVALID_SELECTION);
+				return false;
+			}
+			if (imageFileObj.options[n].selected)
+				selectedItems[selectedItems.length] = dirObj.options[dirObj.selectedIndex].value +
+													imageFileObj.options[n].value;
+		}
+		if (selectedItems.length <= 0)
+			alert (master_js.gINVALID_SELECTION);
+		else if (confirm (master_js.gARE_YOU_SURE))
+		{
+			var args = new Array ('ObjectName', objectName, 'FileName',
+								selectedItems.join("\t"), 'ImageDirName',
+									dirObj.options[dirObj.selectedIndex].text);
+			master_js.createAndWriteToPopUp ("150", "300", winName, baseUrl,
+										master_js.gDELETING_PAGE, master_js.gWINDOW_WILL_CLOSE);
+			master_js.SubmitForm ("SE_DeleteFile", "wat_ed_images.htm", "mainFrame", args);
+		}
+	}
+
+
+	function uploadImagePrompt ()
+	{
+		var dirObj = document.imageList.directory;
+		var imageFileObj = document.imageList.imageFile;
+
+		var selectedItems = new Array();
+		for (var n = 0; n < imageFileObj.options.length; n++)
+			selectedItems[selectedItems.length] = imageFileObj.options[n].value;
+
+		var WinObj = master_js.createSimpleSubmitWindow ("210", "460");
+		var args = new Array ("Action", "UploadFile",
+								"Target", "mainFrame", "LinkToPage", "wat_ed_images.htm",
+								"TargetDir", dirObj.options[dirObj.selectedIndex].value,
+								"ExistingFiles", selectedItems.join("\t"),
+								"CallBack",
+								"master_js.createAndWriteToPopUp ('150', '300', '"+winName2+"', '"+baseUrl+"', master_js.gUPLOADING, master_js.gWINDOW_WILL_CLOSE)",
+								"ObjectName", objectName,
+								"ImageDirName", dirObj.options[dirObj.selectedIndex].text,
+								"FileExtensions", ".jpg\t.gif");
+		master_js.OpenWinSubmitForm ('', 'L', 'ed_uploadimage.htm', winName, args, WinObj);
+		return false;
+	}
+
+	function createDirPrompt ()
+	{
+		var dirObj = document.imageList.directory;
+		var selectedItems = new Array();
+		for (var n = 0; n < dirObj.options.length; n++)
+			selectedItems[selectedItems.length] = dirObj.options[n].text;
+
+		var WinObj = master_js.createSimpleSubmitWindow ("235", "450");
+		var args = new Array ("Action", "SE_CreateDir",
+								"Target", "mainFrame", "LinkToPage", "wat_ed_images.htm",
+								"ExistingFiles", selectedItems.join("\t"),
+								"CallBack",
+								"master_js.createAndWriteToPopUp ('150', '300', '"+winName2+"', '"+baseUrl+"', master_js.gCREATING, master_js.gWINDOW_WILL_CLOSE)",
+								"ObjectName", objectName);
+		master_js.OpenWinSubmitForm ('', 'L', 'ed_newdirectory.htm', winName, args, WinObj);
+		return false;
+	}
+
+	function deleteDirPrompt ()
+	{
+		var dirObj = document.imageList.directory;
+		var imageFileObj = document.imageList.imageFile;
+		var selectedItems = new Array();
+
+		for (var n = 0; n < imageFileObj.options.length; n++)
+		{
+			if (imageFileObj.options[n].text != empty)
+				selectedItems[selectedItems.length] = dirObj.options[dirObj.selectedIndex].value +
+													imageFileObj.options[n].value;
+		}
+		if (dirObj.options[dirObj.selectedIndex].text.indexOf("*") == 0)
+			alert (master_js.gCANNOT_DELETE_DIR);
+		else if (confirm (master_js.gARE_YOU_SURE+"\n"+master_js.gALL_FILE_DELETE))
+		{
+			var args = new Array ('ObjectName', objectName, 'FileName',
+								selectedItems.join("\t"), 'DirName',
+									dirObj.options[dirObj.selectedIndex].text);
+			master_js.createAndWriteToPopUp ("150", "300", winName, baseUrl,
+										master_js.gDELETING_PAGE, master_js.gWINDOW_WILL_CLOSE);
+			master_js.SubmitForm ("SE_DeleteDir",
+									"wat_ed_images.htm", "mainFrame", args);
+		}
+	}
+
+	function renamePrompt ()
+	{
+		var dirObj = document.imageList.directory;
+		var imageFileObj = document.imageList.imageFile;
+		var selectedItems = new Array();
+		var totalItems = new Array();
+		for (var n = 0; n < imageFileObj.options.length; n++)
+			totalItems[totalItems.length] = imageFileObj.options[n].value;
+
+		for (var n = 0; n < imageFileObj.options.length; n++)
+		{
+			if (imageFileObj.options[n].text == empty)
+			{
+				alert (master_js.gINVALID_SELECTION);
+				return false;
+			}
+			if (imageFileObj.options[n].selected)
+				selectedItems[selectedItems.length] = imageFileObj.options[n].value;
+		}
+		if (selectedItems.length <= 0 || selectedItems.length > 1)
+			alert (master_js.gINVALID_SELECTION);
+		else
+		{
+			var WinObj = master_js.createSimpleSubmitWindow ("210", "460");
+			var args = new Array ("Action", "SE_RenameFile", "OldFileName", selectedItems[0],
+									"Target", "mainFrame", "LinkToPage", "wat_ed_images.htm",
+									"TargetDir", dirObj.options[dirObj.selectedIndex].value,
+									"ExistingFiles", totalItems.join("\t"),
+									"CallBack",
+									"master_js.createAndWriteToPopUp ('150', '300', '"+winName2+"', '"+baseUrl+"', master_js.gRENAMING_PAGE, master_js.gWINDOW_WILL_CLOSE)",
+									"ObjectName", objectName,
+									"ImageDirName", dirObj.options[dirObj.selectedIndex].text);
+			master_js.OpenWinSubmitForm ('', 'L', 'ed_name.htm', winName, args, WinObj);
+		}
+		return false;
+	}
+
+
+	function movePrompt ()
+	{
+		var dirObj = document.imageList.directory;
+		var imageFileObj = document.imageList.imageFile;
+		var selectedItems = new Array();
+		var totalItems = new Array();
+		var dirNames = new Array();
+		for (var n = 0; n < dirObj.options.length; n++)
+		{
+			/* don't send the directory we're copying from */
+			if (dirObj[dirObj.selectedIndex].text != dirObj.options[n].text)
+			{
+				totalItems[totalItems.length] = dirObj.options[n].value;
+				dirNames[dirNames.length] = dirObj.options[n].text;
+			}
+		}
+
+		for (var n = 0; n < imageFileObj.options.length; n++)
+		{
+			if (imageFileObj.options[n].text == empty)
+			{
+				alert (master_js.gINVALID_SELECTION);
+				return false;
+			}
+			if (imageFileObj.options[n].selected)
+				selectedItems[selectedItems.length] = imageFileObj.options[n].value;
+		}
+		if (selectedItems.length <= 0)
+			alert (master_js.gINVALID_SELECTION);
+		else
+		{
+			var WinObj = master_js.createSimpleSubmitWindow ("210", "460");
+			var args = new Array ("Action", "SE_MoveFile", "OldFileName", selectedItems.join("\t"),
+									"Target", "mainFrame", "LinkToPage", "wat_ed_images.htm",
+									"TargetDir", dirObj.options[dirObj.selectedIndex].value,
+									"ExistingFiles", totalItems.join("\t"),
+									"DirNames", dirNames.join("\t"),
+									"CallBack",
+									"master_js.createAndWriteToPopUp ('150', '300', '"+winName2+"', '"+baseUrl+"', master_js.gMOVING_PAGE, master_js.gWINDOW_WILL_CLOSE)",
+									"ObjectName", objectName,
+									"ImageDirName", dirObj.options[dirObj.selectedIndex].text);
+			master_js.OpenWinSubmitForm ('', 'L', 'ed_move.html', winName, args, WinObj);
+		}
+		return false;
+	}
+
+	function closeLocalChildWin ()
+	{
+		closeChildWin ();
+		if (master_js.WindowID)
+			if (!master_js.WindowID.closed)
+				if (master_js.WindowID.name == winName2)
+					master_js.CloseWin ();
+	}
+
+	function loadNewDir (dirName)
+	{
+		var args = new Array("ImageDirName", dirName);
+		master_js.SubmitForm ("L", "wat_ed_images.htm",
+												"mainFrame", args);
+	}
+
+</SCRIPT>
+</head>
+
+<body topmargin="4" marginheight="0" leftmargin="13" bgcolor="#CCCCCC"
+ background="/cgi-docs/Mercantec/PC_F_6.6.1/images/stripeback2.gif" onLoad="closeLocalChildWin();">
+
+<form name="imageList">
+<table width="95%" cellpadding="2" cellspacing="0" border="0" height="312" bgcolor="#CCCCCC" class="table-bkgrd-main" align="center">
+<tr>
+     <td align="left">
+        <p class="page-title">Images</p></td>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<td align="right"> <a href="javasc
+		ript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_IMAGES+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help on the Image Library" align="right"></a></td><!--END HELP WINDOW LINK-->
+</tr>
+
+ <tr valign="top">
+    <td colspan="2" height="296">
+      <table width="359" border="1" cellspacing="2" cellpadding="2" align="center" class="table-bkgrd-main">
+        <tr>
+          <td colspan="3" class="table-header">
+            <div class="field-label">
+              <div align="center">Image Library</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <p class="instr-note" align="center">Click on a file or directory
+              name to select it.<br>
+              To select more than one image, use &lt;Ctrl&gt;+click.</p>
+            </td>
+        </tr>
+        <tr valign="top">
+          <td colspan="2" class="field-label" height="150">
+            <div align="left" class="instr-note">
+              <br>
+<script runat="merc_server">
+	var cfgObj = generateObjectsFromCfg (gIMAGES_CFG);
+	var imageDirName = doAction('REQ_GET_FORMVALUE', "ImageDirName", "ImageDirName");
+	var useDefault = "";
+	var bImageDirNameFound = false;
+	for (var n = 0; n < cfgObj.rowNames.length; n++)
+	{
+		if (cfgObj.ObjArray[cfgObj.rowNames[n]].Local.toLowerCase() == "yes" &&
+			useDefault.length <= 0)
+			useDefault = cfgObj.rowNames[n];
+		if (imageDirName && imageDirName == cfgObj.rowNames[n])
+			bImageDirNameFound = true;
+	}
+	if (!imageDirName || !bImageDirNameFound)
+		imageDirName = useDefault;
+
+	<merc_embed>
+		<select name="directory" onChange="loadNewDir(this.options[this.selectedIndex].text)">
+	</merc_embed>
+	for (var n = 0; n < cfgObj.rowNames.length; n++)
+	{
+		if (cfgObj.ObjArray[cfgObj.rowNames[n]].Local.toLowerCase() == "yes")
+		{
+			write ('<option '+(imageDirName == cfgObj.rowNames[n] ? 'selected' : '' )+
+					' value ="'+cfgObj.ObjArray[cfgObj.rowNames[n]].DiskPath+'">'+cfgObj.rowNames[n]+'</option>');
+		}
+	}
+	<merc_embed>
+		</select>
+		<br><br>
+	</merc_embed>
+	var labels = "";
+	var masks = new Array();
+	var masks = cfgObj.ObjArray[imageDirName].Mask.replace(/ /g, '').split(',');
+	var srchDir = cfgObj.ObjArray[imageDirName].DiskPath +
+				'*.*';
+	var dirTemp = doActionBDO ("DATA_DIRECTORYLIST", "ObjectName",
+								cfgObj.ObjArray[imageDirName].ObjectName,
+								"SubDirectoryPath", srchDir);
+	labels = dirTemp.GetLabels();
+
+	var dirList = new Array();
+	var bDir = false;
+	for (var n = 0; n < labels.length; n++)
+	{
+		if (dirTemp[labels[n]] != "." && dirTemp[labels[n]] != "..")
+		{
+			for (var x = 0, bDir = false; x < cfgObj.rowNames.length && !bDir; x++)
+				if (dirTemp[labels[n]] == cfgObj.rowNames[x])
+					bDir = true;
+			if (!bDir)
+			{
+				for (var z = 0; z < masks.length; z++)
+				{
+					/* convert the standard mask into a regular expression */
+					var useMask = masks[z].replace (/\./g, '\\.');
+					useMask = useMask.replace (/\*/g, '.*');
+					var reMask = new RegExp (useMask+'$', 'i');
+					if (reMask.test(dirTemp[labels[n]]))
+					{
+						dirList.push(dirTemp[labels[n]]);
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	write ('<select name="imageFile" multiple size="6">');
+	if (dirList.length <= 0)
+		write ("<option value=''>"+gEMPTY+"</option>");
+	else
+	{
+		/* added so that uploaded image is on top of list, originally just had it
+		** seletced, but in a multiple list, a value can be selected without being in the
+		** visible window, so we had selected images the user couldn't see */
+		var uploadedFileName = doAction('REQ_GET_FORMVALUE', "UploadedFileNameOnly", "UploadedFileNameOnly");
+		if (uploadedFileName && dirList.length > 1)
+		{
+			var tmpArray = new Array();
+			for (var y = 0; y < dirList.length; y++)
+			{
+				if (dirList[y] == uploadedFileName)
+					tmpArray.unshift(dirList[y]);
+				else
+					tmpArray.push (dirList[y]);
+			}
+			dirList = tmpArray;
+		}
+		for (var n = 0; n < dirList.length; n++)
+		{
+			if (n == 0)
+				write ("<option selected value='"+dirList[n]+"'>"+dirList[n]+"</option>");
+			else
+				write ("<option value='"+dirList[n]+"'>"+dirList[n]+"</option>");
+		}
+	}
+	write ("</select>");
+</script>
+            </div>
+            <center>
+            </center>
+          </td>
+          <td width="171" height="150">
+
+<div align="center"><a href="javascript:void(deleteImage())"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Delete_Nbtn_base.gif" width="86" height="30" border="0" alt="Delete"></a><br>
+              <a href="javascript:void(0)" onclick="renamePrompt()"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Edit_Name_Nbtn_base2.gif" width="86" height="30" border="0" alt="Edit Name"></a><br>
+              <a href="javascript:void(0)" onclick="movePrompt()"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Move_Nbtn_base2.gif" width="86" height="30" border="0" alt="Move"></a><br>
+              <a href="javascript:void(0)" onclick="createDirPrompt()"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Create_New_Directory_Nbtn_base_slg3.gif" width="150" height="30" border="0" alt="Create New Directory"></a><br>
+              <a href="javascript:void(deleteDirPrompt())"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Delete_Directory_Nbtn_base_lg2.gif" width="115" height="30" border="0" alt="Delete Directory"></a><br>
+              <a href="javascript:void(0)" onclick="uploadImagePrompt()"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Upload_Nbtn_base2.gif" width="86" height="30" border="0" alt="Upload"></a>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p class="instr-note">&nbsp; </p>
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

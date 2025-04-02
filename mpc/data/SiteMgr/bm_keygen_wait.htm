@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>Please Wait</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script runat="merc_server">
+  //
+  // Find out if we're doing SSL switching
+  //
+  var secure = doAction ('REQ_GET_FORMVALUE', 'SecureMode', 'SecureMode');
+  var baseHrf = "", mercCommon = "";
+  if (secure)
+    doAction('ST_SET_STATEDATA', 'SecureMode', secure);
+  else
+    secure = doAction('ST_GET_STATEDATA', 'SecureMode', 'SecureMode');
+
+  if (secure && secure.toLowerCase() == "yes")
+  {
+    mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTPS_SHARED_HTDOCS_ALIAS');
+  }
+  else
+  {
+    mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTP_SHARED_HTDOCS_ALIAS');
+  }
+
+  write('<link rel="stylesheet" href="'+mercCommon+'styles/master.css">');
+
+</script>
+</head>
+
+<script runat="merc_server">
+  //
+  // This gets a bit involved.
+  // We set a state value called "ReloadValue" the first time around,
+  // and then write an "onLoad" statement in the body tag.
+  // This is how the "Please Wait" message page is displayed.
+  // Since there is an "onLoad" action, the page reloads, but this time
+  // we delete the "ReloadValue" state data.  Then we parse the keygen upload
+  // page template and write it out for the keygen client to parse.
+  //
+  // So basically, this page gets loaded exactly twice.  The reload behavior
+  // controlled by "ReloadValue", which is stored in the state data.
+  //
+  var BrowserName = doAction('REQ_GET_FORMVALUE', 'BrowserName', 'BrowserName');
+  var BrowserTitle = doAction('REQ_GET_FORMVALUE', 'BrowserTitle', 'BrowserTitle');
+  var theTabSelected = doAction('REQ_GET_FORMVALUE', 'TabSelected', 'TabSelected');
+  doAction('ST_SET_STATEDATA', 'TabSelected', theTabSelected);
+
+  var reloadIt = doAction('ST_GET_STATEDATA', 'ReloadValue', 'ReloadValue');
+
+  if (reloadIt && reloadIt.toLowerCase() == "yes")
+  {
+    //
+    // Set the proper mime type to launch the Mercantec Key Generator Client.
+    //
+    doAction('REQ_SET_HEADERS', 'Content-Type', 'application/x-mercantec-keygen', 'Content-Disposition', 'filename=PowerCommerce.keygen');
+    doAction('ST_DELETE_STATEDATA', 'ReloadValue', 'ReloadValue');
+    writeln('<body class="bkgrd-main-items">'); 
+
+    //
+    // Read the upload key template file.
+    // This requires the template file to be located in the "cfg" directory.
+    //
+    var TemplateFile = doActionEx('DATA_READFILE', 'bm_keygen_upload.htm', 'FileName', 'bm_keygen_upload.htm', 'ObjectName', 'CfgDir', 'FileType', 'txt');
+    var KeyDate = new Date();
+    var KeyName = 'PowerCommerce_' + KeyDate.getTime();
+
+    //
+    // Write out the proper keygen header data.
+    //
+    writeln('-----Begin KeyGenHeader');
+    writeln('Function=Generate');
+    writeln('GenKeyName=' + KeyName);
+    writeln('BrowserName=' + BrowserName);
+    writeln('BrowserTitle=' + BrowserTitle);
+    writeln('-----End KeyGenHeader');
+
+    //
+    // Parse the template file.
+    //
+    writeln(doAction('PAR_PARSE_BUFFER', 'document', TemplateFile));
+  }
+  else
+  {
+    //
+    // Simply display the "Please Wait" page.
+    //
+    writeln('<body class=\'bkgrd-main-items\' onLoad=\'parent.SubmitForm("L", "bm_keygen_wait.htm", "mainFrame", new Array("BrowserName", "' + BrowserName + '", "BrowserTitle", "' + BrowserTitle + '"));\' >'); 
+    doAction('ST_SET_STATEDATA', 'ReloadValue', 'yes');
+
+    writeln('<p align="center"><span class="dialog-title">Please Wait</span><br>');
+    writeln('</p>');
+    writeln('<form name="form1" >');
+    writeln('  <div align="center">');
+    writeln('    <p><span class="general-label">while we we generate your new security key.</span>');
+    writeln('    <br>');
+    writeln('    </p>');
+    writeln('    </div>');
+    writeln('</form>');
+  } //end if
+
+</script>
+
+</body>
+</html>

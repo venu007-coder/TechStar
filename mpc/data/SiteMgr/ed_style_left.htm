@@ -1,0 +1,300 @@
+<html>
+<head>
+<title>Style Editor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+<SCRIPT LANGUAGE="JavaScript">
+	var master_js = parent.opener;
+	var winName = "ed_style_popup";
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	var nextPage = '<merc_dynamic noshow=false name=SC_NextPage action=REQ_GET_FORMVALUE LinkToPage=LinkToPage>';
+	var childWin = "";
+	
+	function closeLocalWin()
+	{
+		if (childWin)
+			if (!childWin.closed)
+				childWin.close();
+	}
+
+	function saveCustomStyle ()
+	{
+		var winObj = master_js.createSimpleSubmitWindow ("235", "450");
+		childWin = window.open (baseUrl+'ed_newstyle.htm', 'selectStyle', 
+								winObj.createOutput());
+		return false;
+	}
+	
+	function saveStyle (styleName)
+	{
+		if (styleName)
+			document.CustomStyle.StyleName.value = styleName;
+
+		master_js.SubmitForm ('SE_SaveStyle', nextPage, 
+									'mainFrame', document.CustomStyle);
+		saveWindow ();
+		closeLocalWin(); 
+	}
+	
+	function saveWindow ()
+	{
+		master_js.createAndWriteToPopUp ("150", "300", winName, baseUrl, 
+										master_js.gSAVING_PAGE, 
+										master_js.gWINDOW_WILL_CLOSE);
+	}
+	
+	function previewFrame()
+	{
+		closeLocalWin();
+		parent.frames.styleRightFrame.document.open("text/html","replace");
+		parent.frames.styleRightFrame.document.writeln ("<html><head><BASE href='"+baseUrl+"'>"+
+				"<link rel='stylesheet' type='text/css' href='/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css'>"+
+				"</head><body class='pop-up-bkgrd'>"+
+				"<p align='center'><span class='dialog-title'>Preview</span><br>"+
+				"<p class='instr-note' align='center'>&nbsp;<br>&nbsp;</p>"+
+				"<span class='pop-up-bkgrd'></span>"+
+				"<table width='180' border='1' align='center' cellpadding='2' class='table-bkgrd-main'>");
+		for (var n = 0; n < previewObj.formNameKey.length; n++)
+		{
+			var bold = eval ("document.CustomStyle."+previewObj.formNameKey[n]+"Bold.checked");
+			var italic = eval ("document.CustomStyle."+previewObj.formNameKey[n]+"Italic.checked");
+			var fontSzObj = eval ("document.CustomStyle."+previewObj.formNameKey[n]+"FontSize");
+			for (var i=0; i < fontSzObj.length; i++)
+			{
+				if (fontSzObj[i].selected == true)
+					break;
+			}
+			var fontSize = fontSzObj[i].value;
+			var fontFmObj = eval ("document.CustomStyle."+previewObj.formNameKey[n]+"FontFamily");
+			for (var j=0; j < fontFmObj.length; j++)
+			{
+				if (fontFmObj[j].selected == true)
+					break;
+			}
+			var fontFamily = fontFmObj[j].value;
+			var sampleText = "\n<div name='"+previewObj.formNameKey[n]+"Sample' id='"+
+						previewObj.formNameKey[n]+"Sample' style='"+
+						"background-color : #ffffff;"+
+						"font-family:"+
+						fontFamily+";"+
+						"font-weight:"+
+						(bold ? "bold" : "normal")+";"+
+						"font-style:"+
+						(italic ? "italic" : "normal")+";"+
+						"font-size:"+
+						fontSize+";"+
+						"'>"+
+						previewObj.header[n]+
+						"</div>\n";
+			parent.frames.styleRightFrame.document.writeln ("<tr>"+
+						"<td height='66' bgcolor='#ffffff'>"+sampleText+
+						"</td></tr>");
+		}
+		parent.frames.styleRightFrame.document.writeln ("</table></body></html>");
+		
+		parent.frames.styleRightFrame.document.close();	
+	}
+
+</SCRIPT>
+</head>
+
+<body class="pop-up-bkgrd" onLoad='previewFrame();'>
+
+<p align="center"><span class="dialog-title">Edit Style</span><br>
+<p class="instr-note" align="center">Edit theme to change text colors. 
+Note that it is not recommended to mix font families 
+on a page nor throughout your site.</p>
+<span class="pop-up-bkgrd"></span>
+<form name="CustomStyle">
+	<table width='450' border='1' align='center' cellpadding='2' class='table-bkgrd-main'>
+		
+<SCRIPT RUNAT="merc_server">
+	var useStyle = doAction('REQ_GET_FORMVALUE', "UseStyle", "UseStyle");
+	var test = doActionEx	('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+								'JS_SRC', 'FileType', 'txt');
+	eval (test);
+	var cssObj = generateCSSObject (useStyle);
+
+	write ('<input type="hidden" name="StyleName" value="' + useStyle + '">');
+	var seObj = getThemeStyleList (true, false, true);
+			
+	<merc_embed>
+		<SCRIPT LANGUAGE='JavaScript'>
+			var previewObj = new Array('formNameKey', 'header');
+			previewObj.formNameKey = new Array();
+			previewObj.header = new Array();
+	</merc_embed>
+			write ("var customStyle = new Array ('"+seObj.styles.customStyles.join('\', \'')+"');");
+	<merc_embed>
+		</SCRIPT>
+	</merc_embed>
+	// generate output based on whether the store is commerce enabled or not
+	for (var n = 0; n < gSTYLE_CLASS.length; n++)
+	{
+		if (IsCommerceEnabled() || !gSTYLE_CLASS[n].commerceSpecific)
+		{
+			write ("<SCRIPT LANGUAGE='JavaScript'>"+
+						"previewObj.formNameKey["+n+"] = '"+gSTYLE_CLASS[n].formNameKey+"';"+
+						"previewObj.header["+n+"] = '"+gSTYLE_CLASS[n].header+"';"+
+				 "</SCRIPT>");
+			generateStyleSelect (gSTYLE_CLASS[n].header, gSTYLE_CLASS[n].note, gSTYLE_CLASS[n].className, 
+								gSTYLE_CLASS[n].formNameKey);
+		}
+		else
+		{
+			write ("<input type='hidden' name='"+gSTYLE_CLASS[n].formNameKey+
+					"FontFamily' value='"+cssObj[gSTYLE_CLASS[n].className]['font-family'].join(', ')+
+					"'>");
+			write ("<input type='hidden' name='"+gSTYLE_CLASS[n].formNameKey+
+					"FontSize' value='"+cssObj[gSTYLE_CLASS[n].className]['font-size'].join(', ')+
+					"'>");
+			write ("<input type='hidden' name='"+gSTYLE_CLASS[n].formNameKey+
+					"Bold' value='"+cssObj[gSTYLE_CLASS[n].className]['font-weight'][0]+
+					"'>");
+			write ("<input type='hidden' name='"+gSTYLE_CLASS[n].formNameKey+
+					"Italic' value='"+cssObj[gSTYLE_CLASS[n].className]['font-style'][0]+
+					"'>");
+		}
+	}
+	function generateStyleSelect (header, note, className, formNameKey)
+	{
+		var fontFamily = new Array("Arial, Helvetica, sans-serif", "Times New Roman, Times, serif", 
+									"Courier New, Courier, Mono", "Georgia, Times New Roman, Times", "Verdana, Arial, Helvetica");
+		var fontSize = new Array("8pt", "10pt", "12pt", "14pt", "16pt", "18pt", "22pt", "24pt", "36pt");
+		<merc_embed>
+			<tr>
+				<td width='25%' class='table-header2' height="66">
+					<div class='field-label'>
+		</merc_embed>	        
+			write ("<div align='right' class='table-header2'>"+header+":<br>"+
+					(note.length > 0 ? "<span class='instr-note'>("+note+")</span>" : ""));
+		<merc_embed>
+						</div>
+					</div>
+				</td>
+				<td width='75%' height="66">
+					<table width='99%' border='0' align='center' bordercolorlight='#CCCC99' bordercolordark='#666600' cellpadding='2' cellspacing='0'>    
+						<tr>          
+							<td width='19%' nowrap  colspan='4'>          
+								
+									<font face='Arial, Helvetica, sans-serif' size='2'>Text Family:</font>
+								
+							
+							
+		</merc_embed>
+				writeln ("<select name='"+formNameKey+"FontFamily' onChange='previewFrame()' "+
+						"alt='"+formNameKey+"FontFamily'>"+
+						"<option value='"+cssObj[className]['font-family'].join(', ')+"' selected>"+
+						cssObj[className]['font-family'].join(', ') + "</option>");
+				for (var x = 0; x < fontFamily.length; x++)
+				{
+					if (cssObj[className]['font-family'].join(', ').toLowerCase()!=fontFamily[x].toLowerCase())
+						writeln ("<option value='"+fontFamily[x]+"'>"+fontFamily[x]+"</option>");
+				}
+		<merc_embed>
+								</select>
+								
+							</td>
+							
+						</tr>      
+						<tr>
+						<td width='19%' nowrap>          
+							
+								<font face='Arial, Helvetica, sans-serif' size='2'>
+									Text Size:
+								</font>
+							
+						
+						         
+		</merc_embed>
+				writeln ("<select name='"+formNameKey+"FontSize' onChange='previewFrame()' "+
+						"alt='"+formNameKey+"FontSize'>"+
+						"<option value='"+cssObj[className]['font-size'][0]+"' selected>"+
+						cssObj[className]['font-size'][0] + "</option>");
+				for (var x = 0; x < fontSize.length; x++)
+				{
+					if (cssObj[className]['font-size'][0].toLowerCase()!=fontSize[x].toLowerCase())
+						writeln ("<option value='"+fontSize[x]+"'>"+fontSize[x]+"</option>");
+				}
+		<merc_embed>         
+							</select>
+							
+						</td>
+						       
+						<td width='19%' nowrap height='18'>       
+							<div align='right' class='table-bkgrd-main'>
+								<font face='Arial, Helvetica, sans-serif' size='2'>
+									Text Style:
+								</font>
+							</div>
+						</td>
+						<td width='15%' nowrap height='18'>
+							<font face='Arial, Helvetica, sans-serif' size='2' class='table-bkgrd-main'>
+			</merc_embed>
+				write ("<input type='checkbox' name='"+formNameKey+"Bold' "+
+						"value='bold' "+
+						(cssObj[className]['font-weight'][0].toLowerCase()=='bold' ? "checked":"")+
+						" onClick='previewFrame()'>");
+			<merc_embed>
+							</font> 
+							<font face='Arial, Helvetica, sans-serif' size='2'>
+								<b>bold</b>								
+							</font>
+						</td>
+						<td width='11%' nowrap height='18'>
+							<font face='Arial, Helvetica, sans-serif' size='2' class='table-bkgrd-main'>
+								<i>
+			</merc_embed>
+				writeln ("<input type='checkbox' name='"+formNameKey+"Italic' "+
+						"value='italic' "+
+						(cssObj[className]['font-style'][0].toLowerCase()=='italic' ? "checked":"")+
+						" onClick='previewFrame()'>");
+			<merc_embed>
+								</i>
+							
+								<i>italics</i>
+							</font>
+						</td>
+					</tr>
+			
+				</table>
+			</td>
+		</tr>
+		</merc_embed>
+	}
+               
+	<merc_embed>
+		<tr>
+		<td colspan="2" class="table-bkgrd-main">
+		<center>
+	</merc_embed>
+</script>
+
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<a href="javascript:void(master_js.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_STYLEEDIT+SoftCart+{helpversion}+en-us', 'Alane'));"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help on Styles"></a>
+<!--HELP WINDOW LINK-->
+
+	
+<script runat="merc_server">
+		// don't have any newlines in image tags or background color will seep through
+		write ("<a href=\"javascript:void(0)\" onClick=\"parent.self.close()\">" +
+				"<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif' width='86' height='30' border='0' "+
+				"alt='Cancel'></a>");
+		if (useStyle.indexOf ("SC_") == 0)
+			write ("<a href=javascript:void(0) onClick='saveStyle(\"\")'>"+
+					"<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif' width='86' height='30' border='0' "+
+					"alt='Save'></a>");
+		write ("<a href=javascript:void(0) onClick='saveCustomStyle()'>"+
+			  "<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_As_New_Custom_Style_Nbtn_base_slg4.gif' width='200'"+
+			  " height='30' border='0' alt='Save As New Custom Style'></a></center></td></tr>");
+
+</SCRIPT>
+</table>
+</form>
+</body>
+</html>

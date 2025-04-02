@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Create New Directory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT SRC="SiteEditor.js" LANGUAGE="JavaScript"></SCRIPT>
+<SCRIPT RUNAT="merc_server">
+	<merc_embed>
+		<SCRIPT LANGUAGE="JavaScript">
+		var master_js = opener;
+		var action = "", target = "", nextPage = "";
+		var objectName = "", inputLabel = "selectedFile";
+		var callBack = "";
+		var exisitingFiles = new Array();
+		var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	</merc_embed>
+	var objectName = doAction('REQ_GET_FORMVALUE', "ObjectName", "ObjectName");
+	if (objectName)
+		writeln ("objectName = '"+objectName+"';");
+	var master_js = doAction('REQ_GET_FORMVALUE', "MasterJs", "MasterJs");
+	if (master_js)
+		writeln ("master_js = "+master_js+";");
+	var action = doAction('REQ_GET_FORMVALUE', "Action", "Action");
+	if (action)
+		writeln ("action = '"+action+"';");
+	var target = doAction('REQ_GET_FORMVALUE', "Target", "Target");
+	if (target)
+		writeln ("target = '"+target+"';");
+	var nextPage = doAction('REQ_GET_FORMVALUE', "LinkToPage", "LinkToPage");
+	if (nextPage)
+		writeln ("nextPage = '"+nextPage+"';");
+	var callBack = doAction('REQ_GET_FORMVALUE', "CallBack", "CallBack");
+	if (callBack)
+		writeln ("callBack = '"+escape (callBack)+"';");
+	var exisitingFiles = doAction('REQ_GET_FORMVALUE', "ExistingFiles", "ExistingFiles");
+	if (exisitingFiles)
+	{
+		var temp = new Array();
+		temp = exisitingFiles.split("\t");
+		writeln ("exisitingFiles = new Array('"+temp.join('\',\'')+"');");
+	}
+	
+	<merc_embed>
+		function createDir ()
+		{
+			var dirName = document.selectDir.dirName.value;
+		
+			if (validateDirectory (dirName, 15, dirName, exisitingFiles, self, master_js))
+			{
+				var args = new Array ("DirName", dirName, "ObjectName", objectName,
+									 "ImageDirName", dirName);
+				master_js.SubmitForm(action, nextPage, target, args);
+				if (callBack.length > 0)
+					eval (unescape (callBack));
+
+				self.close();
+			}
+		}
+		</SCRIPT>
+	</merc_embed>
+</SCRIPT>
+</head>
+
+<body class="pop-up-bkgrd" onLoad="document.selectDir.dirName.focus();">
+<p align="center" class="dialog-title">Create New Directory</p>
+<form action="javascript:void(0);" name="selectDir">
+<table width="400" border="0" cellspacing="2" cellpadding="2" align="center" class="table-bkgrd-main">
+<tr>
+<td colspan="2" class="field-label">
+<center>
+<p>Name:
+<input type="text" name="dirName" size="15" maxlength="15">
+<br><span class="instr-note">15 character maximum;<br>Do not use the following characters in your directory name;<br><font color="#FF0000"><b> \ / : ; * ? &quot; &lt; &gt; ' |</b></font></span>
+</p>
+<p>
+<a href="javascript:void(0)" onclick="self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a>
+<a href="javascript:void(0)" onclick="createDir();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Create_Nbtn_base2.gif" width="86" height="30" border="0" alt="Create"></a>
+</p>
+</center>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

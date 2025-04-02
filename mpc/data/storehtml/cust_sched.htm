@@ -1,0 +1,729 @@
+<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+<merc_dynamic noshow=true name=mySession action=ST_GET_STATEDATA return=Result SessionID=SessionID>
+
+<form name="Form1" action="/cgi-local/mpc/PowerCommerce.cgi" method=POST>
+<input type="hidden" name="sh_action" value="sched">
+<input type="hidden" name="AppID" value=appID>
+<input type="hidden" name="SiteID" value=siteID>
+<input type="hidden" name="SessionID" value=mySession>
+
+<table width="545" border="1" align="center" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <table height="8" border="0"><td></td></table>
+      <table width="518" border="1" cellspacing="0" cellpadding="2" align="center">
+        <tr>
+          <td width="74%" bgcolor="#CCCC99" nowrap><b>Select type of service:
+<script runat=merc_server>
+
+function Country(id, shortname, longname)
+{
+	this.ID = id;
+	this.ShortName = shortname;
+	this.LongName = longname;
+}
+
+function Region(id, shortname, longname)
+{
+	this.ID = id;
+	this.ShortName = shortname;
+	this.LongName = longname;
+}
+
+// Get list of allowed Regions (States)
+var RegionList = new Array();
+var numRegions = 0;
+
+var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_REGION", "Sort", "ID ASC");
+while(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "TAX_REGION"))
+{
+	var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "TAX_REGION", "QueryID",qID);
+
+	RegionList[numRegions] = new Region(resultset.ID, resultset.SHORTNAME, resultset.LONGNAME);
+	numRegions++;
+
+	var movednext=doActionEx("DATA_MOVENEXT","Result","ObjectName","TAX_REGION","QueryID",qID);
+
+
+	if (numRegions > 99)
+	{
+		writeln("<br> FORCED BREAK FROM LOOP!<p>");
+		break;
+	}
+}
+
+var urlpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","urlfile");
+var sessionid = doActionEx("ST_GET_STATEDATA","Result","SessionID","SessionID");
+var siteid = doActionEx("REQ_GET_FORMVALUE","Result","SiteID","SiteID");
+var appid = doActionEx("REQ_GET_FORMVALUE","Result","AppID","AppID");
+var ItemID = doAction("REQ_GET_FORMVALUE", "ItemID", "ItemID");
+
+var incJsFile = doActionEx('DATA_READFILE','ServicesLib.js', 'FileName', 'ServicesLib.js','ObjectName','Site','FileType','txt');
+eval (incJsFile);
+GetDailyHours();
+GetSpecialDays();
+
+var serviceData = new Object();
+
+var allServBDO = doActionBDO('SVC_GET_ALL_SERVICES', 'Locale', 'en');
+if (allServBDO != undefined && allServBDO.GetSize() != 0)
+{
+	for (var k in allServBDO)
+	{
+		if (k == 'RowCount')
+			continue;
+		var tempid = allServBDO[k].ID;
+		var tempobject = new Object();
+		tempobject.ID = allServBDO[k].ID;
+		tempobject.Name = allServBDO[k].Name;
+		tempobject.Description = allServBDO[k].Description;
+		serviceData['ID' + tempid] = tempobject;
+	}
+}
+
+var durations = new Object();
+
+var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "CAT_Services");
+while (!doActionEx('DATA_ISEOF', 'Result', 'QueryID', qID, 'ObjectName', 'CAT_Services'))
+{
+	var resultset = doActionBDO('DATA_GETROWDATA', 'ObjectName', 'CAT_Services', 'QueryID', qID);
+	if (resultset != undefined && resultset.Duration != undefined && resultset.ItemID != undefined)
+		durations['ID' + resultset.ItemID] = resultset.Duration;
+	if (!doActionEx('DATA_MOVENEXT', 'Success', 'ObjectName', 'CAT_Services', 'QueryID', qID))
+		break;
+}
+
+if (qID > 0)
+	doAction('DATA_CLOSEQUERY', 'QueryID', qID, 'ObjectName', "CAT_Services");
+
+var submitReason = doActionEx("REQ_GET_FORMVALUE", "Result", "submit", "submit");
+
+var gErrMsg = "";
+if (submitReason == 'Make Appointment Request')
+{
+	var addedItemID = parseInt(doAction('REQ_GET_FORMVALUE', 'ItemID', 'ItemID'));
+	var dur = new String(durations['ID' + addedItemID]);
+	var nDate = doAction("REQ_GET_FORMVALUE", "SelectedDay", "SelectedDay");
+	var nMonth = doAction("REQ_GET_FORMVALUE", "SelectedMonth", "SelectedMonth");
+	var nYear = doAction("REQ_GET_FORMVALUE", "SelectedYear", "SelectedYear");
+	var startHour = doAction("REQ_GET_FORMVALUE", "SelectedHour", "SelectedHour");
+	var startMin = doAction("REQ_GET_FORMVALUE", "SelectedMinute", "SelectedMinute");
+	var startAMPM = doAction("REQ_GET_FORMVALUE", "SelectedAMPM", "SelectedAMPM");
+
+	var useHour = parseInt(startHour);
+	var useMinute = parseInt(startMin);
+	var useDuration = parseFloat(dur);
+	if(isNaN(useDuration))
+		useDuration = 0;
+	if (useHour == 12)
+		useHour = 0;
+	if (startAMPM.toLowerCase() == "pm")
+		useHour += 12;
+		
+	var startApptDate = new Date(nYear, nMonth, nDate, useHour, useMinute, 0);
+	var endApptDate = new Date(startApptDate.getTime() + (useDuration * 3600000));
+	gErrMsg = validateAppt (startApptDate, endApptDate);
+	if (gErrMsg.length > 0)
+		gErrMsg =  ("Appointment Rejected:  Reason = " + gErrMsg);
+	else
+	{
+		if (doAction('ST_GET_STATEDATA', 'COLS_ADDED', 'COLS_ADDED') != 'YES')
+		{
+			MERC_SHOPCART.AddColumn('Items', 'ApptDay', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptMonth', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptYear', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptHour', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptMinute', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptAMPM', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'Duration', 'NONE', 'MERC_STRING', -1);
+			doAction('ST_SET_STATEDATA', 'COLS_ADDED', 'YES');
+		}
+
+		doActionEx('SC_ADD_ROW', 'RowName', 'TableName', 'Items',
+								'ID', addedItemID,
+								'ApptDay', doAction("REQ_GET_FORMVALUE", "SelectedDay", "SelectedDay"),
+								'ApptMonth', doAction("REQ_GET_FORMVALUE", "SelectedMonth", "SelectedMonth"),
+								'ApptYear', doAction("REQ_GET_FORMVALUE", "SelectedYear", "SelectedYear"),
+								'ApptHour', doAction("REQ_GET_FORMVALUE", "SelectedHour", "SelectedHour"),
+								'ApptMinute', doAction("REQ_GET_FORMVALUE", "SelectedMinute", "SelectedMinute"),
+								'ApptAMPM', doAction("REQ_GET_FORMVALUE", "SelectedAMPM", "SelectedAMPM"),
+								'Duration', dur,'Type4Attr','NORMAL');
+	}
+}
+
+var ItemID = doAction('REQ_GET_FORMVALUE', 'ItemID', 'ItemID');
+
+writeln('<select name="ItemID">');
+for (var k in serviceData)
+{
+	write('<option');
+	if (('ID' + ItemID) == k)
+		write(' selected');
+	writeln(' value="' + k.substr(2) + '">' + serviceData[k].Name + '</option>');
+}
+writeln('</select>');
+
+<merc_embed>
+            </b></td>
+          <td width="5%" bgcolor="#CC6666" nowrap>
+
+<div align="center"><font size="2"><b><font color="#FFFFFF">Red</font></b></font></div>
+          </td>
+          <td width="21%" bgcolor="#CCCC99" nowrap><font size="2"><b>=not available</b></font></td>
+        </tr>
+        <tr>
+          <td bgcolor="#CCCC99" nowrap colspan="3">
+            <div align="center">
+              <table border="0"><tr><td>
+</merc_embed>
+
+var g_prefBrowserLocale = "en";
+
+Array.prototype.addlink = addlink;
+//var linkdays = new Array();
+
+// Check Today's values
+var bClosedToday = true;
+var todayDate=new Date();
+var TodaysMonth= todayDate.getMonth();
+var TodaysDate = todayDate.getDate();
+var TodaysYear = todayDate.getYear();
+TodaysYear = TodaysYear % 100;
+TodaysYear = ((TodaysYear < 50) ? (2000 + TodaysYear) : (1900 + TodaysYear));
+var TodaysDayofWeek=todayDate.getDay();
+var TodaysDateString = days[TodaysDayofWeek] + ", " + months[TodaysMonth] + " " + TodaysDate+", " + TodaysYear;
+
+var DisplayYear = doAction('REQ_GET_FORMVALUE', "val1", "val1");
+var DisplayMonth = doAction('REQ_GET_FORMVALUE', "val2", "val2");
+var DisplayDay = doAction('REQ_GET_FORMVALUE', "val3", "val3");
+var DisplayDayofWeek = doAction('REQ_GET_FORMVALUE', "val4", "val4");
+
+if (DisplayYear) {}
+else
+	var DisplayYear = TodaysYear;
+
+if (DisplayMonth) {}
+else
+	var DisplayMonth = TodaysMonth;
+
+if (DisplayDay) {}
+else
+	var DisplayDay = TodaysDate;
+
+if (DisplayDayofWeek) {}
+else
+	var DisplayDayofWeek = TodaysDayofWeek;
+
+//writebr("DisplayYear=", DisplayYear, " DisplayMonth=", DisplayMonth, " DisplayDay=", DisplayDay, "DisplayDayofWeek=", DisplayDayofWeek);
+//writebr("TodaysYear=", TodaysYear, " TodaysMonth=", TodaysMonth, " TodaysDate=", TodaysDate, "TodaysDayofWeek=", TodaysDayofWeek);
+
+var DisplayDateString = days[DisplayDayofWeek] + ", " + months[DisplayMonth] + " " + DisplayDay+", " + DisplayYear;
+
+function addlink(month, day, href)
+{
+	var entry = new Array(3);
+	entry[0] = month;
+	entry[1] = day;
+	entry[2] = href;
+	this[count++] = entry;
+}
+
+function Appointment(id, serviceID, status, apptDate, startHour, startMin, startAMPM, duration, name, address1, address2, city, state, zip, email, phone, comments)
+{
+	this.ID = id;
+	this.ServiceID = serviceID;
+	this.Status = status;
+	this.ApptDate = apptDate;
+	this.StartHour = startHour;
+	this.StartMin = startMin;
+	this.StartAMPM = startAMPM;
+	this.Duration = duration;
+	this.Name = name;
+	this.Address1 = address1;
+	this.Address2 =	address2;
+	this.City = city;
+	this.State = state;
+	this.Zip = zip;
+	this.Email = email;
+	this.Phone = phone;
+	this.Comments = comments;
+}
+
+var resultBDO = doActionBDO('SVC_GET_APPOINTMENTS', 'Date', DisplayDateString);
+//writebr("resultBDO.Count=" + resultBDO.Count);
+
+// Initialize Schedule
+var AppointmentList = new Array();
+var AppointmentCount= resultBDO.Count;
+for (var i=0; i < AppointmentCount; i++)
+	AppointmentList[i] = new Appointment(i, "-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-");
+
+// Now set needed values
+if (resultBDO.Count)
+{
+	var BDORows = resultBDO.GetLabels('APPT');
+	BDORows.sort();
+
+	for (var i = 0; i < BDORows.length; i++)
+	{
+		var apptBDO = eval("resultBDO." + PadLeft('APPT',i+1));
+		if (apptBDO)
+		{
+			AppointmentList[i].ID = apptBDO.ID;
+			AppointmentList[i].ServiceID = apptBDO.ServiceID;
+			AppointmentList[i].Status = apptBDO.Status;
+			AppointmentList[i].ApptDate = apptBDO.ApptDate;
+			AppointmentList[i].StartHour = apptBDO.StartHour;
+			AppointmentList[i].StartMin = apptBDO.StartMin;
+			AppointmentList[i].StartAMPM = apptBDO.StartAMPM;
+			AppointmentList[i].Duration = apptBDO.Duration;
+			AppointmentList[i].Name = apptBDO.Name;
+			AppointmentList[i].Address1 = apptBDO.Address1;
+			AppointmentList[i].Address2 = apptBDO.Address2;
+			AppointmentList[i].City = apptBDO.City;
+			AppointmentList[i].State = apptBDO.State;
+			AppointmentList[i].Zip = apptBDO.Zip;
+			AppointmentList[i].Email = apptBDO.Email;
+			AppointmentList[i].Phone = apptBDO.Phone;
+			AppointmentList[i].Comments = apptBDO.Comments;
+
+//write("id=",apptBDO.ID," ServiceID=",apptBDO.ServiceID," Status=",apptBDO.Status," Date=",apptBDO.ApptDate," StartHour=",apptBDO.StartHour,":",apptBDO.StartMin,apptBDO.StartAMPM," Dur=",apptBDO.Duration);
+//writebr("  Name=",apptBDO.Name," Ad1=",apptBDO.Address1," 2=",apptBDO.Address2," City=",apptBDO.City," state=",apptBDO.State," zip=",apptBDO.Zip);
+
+		}
+	}
+}
+
+function weeklyTimeSlot(closed)
+{
+	this.Closed = closed
+}
+
+var resultBDO = doActionBDO('SVC_GET_DAILY_HOURS');
+//writebr("Closed Days resultBDO.Count=" + resultBDO.Count);
+
+// Initialize Schedule
+var ClosedDays = new Array();
+var ClosedDaysCount=0;
+
+for (var i=0; i < shortDays.length; i++)
+	ClosedDays[shortDays[i]] = new weeklyTimeSlot('NO');
+
+// Now set needed values
+if (resultBDO.Count)
+{
+	var BDORows = resultBDO.GetLabels('TIMESLOT');
+	BDORows.sort();
+
+	for (var i = 0; i < BDORows.length; i++)
+	{
+		var timeSlotBDO = eval("resultBDO." + PadLeft('TIMESLOT',i+1));
+		if (timeSlotBDO && timeSlotBDO.Day && timeSlotBDO.OpenState != 'U')
+			ClosedDays[timeSlotBDO.Day].Closed = timeSlotBDO.Allday;
+	}
+}
+
+function GetCalendar(nMonth, nYear)
+{
+	var output="";
+	var count=0;
+	var thisday = 1;
+
+	if (((nYear % 4 == 0) && !(nYear % 100 == 0)) || (nYear % 400 == 0))
+		daysinmonth[1]++;
+
+	// Set up the month to display
+	var date = new Date(); // date
+	date.setYear(nYear);
+	date.setMonth(nMonth);
+	date.setDate(thisday);
+
+
+	var bFlagTodaysDate = (TodaysYear == nYear && TodaysMonth == nMonth);
+	var bFlagDisplayDate = (DisplayYear == nYear && DisplayMonth == nMonth);
+
+	//writebr("TodaysYear=" + TodaysYear + ", Month=" + TodaysMonth + ", today=" + TodaysDate + ", bFlagTodaysDate=" + bFlagTodaysDate);
+
+	startspaces=date.getDay();
+
+	output = output + "<table border=3 bgcolor=#ffffcc bordercolor=darkgreen>\n";
+	output = output + "<tr><td colspan=7><center><b>" + months[nMonth] + " " + nYear + "</b></center></td></tr>\n";
+	output = output + "<tr bgcolor='cccccc'>\n";
+	output = output + "<td align=center><font face='Arial' size=2>Su</font></td>\n";
+	output = output + "<td align=center><font face='Arial' size=2>M</font></td>\n";
+
+	output = output + "<td align=center><font face='Arial' size=2>Tu</font></td>\n";
+	output = output + "<td align=center><font face='Arial' size=2>W</font></td>\n";
+	output = output + "<td align=center><font face='Arial' size=2>Th</font></td>\n";
+	output = output + "<td align=center><font face='Arial' size=2>F</font></td>\n";
+	output = output + "<td align=center><font face='Arial' size=2>Sa</font></td>\n";
+	output = output + "</tr>\n";
+
+	var bClosed=false;
+	var rowcount=0;
+	count=1;
+	while (count <= daysinmonth[nMonth])
+	{
+		output = output + "<tr>\n";
+		if (count == 1)
+		{
+			for (var s=0; s < startspaces; s++)
+				output = output + "<td> </td>\n";
+		}
+
+		for (var b = startspaces; b < 7; b++)
+		{
+			//linktrue=false;
+			bClosed=false;
+			if ((ClosedDays[shortDays[b]].Closed == 'Y') && count <= daysinmonth[nMonth])
+				bClosed=true;
+			else
+				bClosed=false;
+
+			// Check for special closed days if day isn't already a closed weekly day
+			if (!bClosed)
+			{
+				var tmp = days[b] + ", " + months[nMonth] + " " + count + ", " + nYear;
+				for (var c=0; c < ScheduleCount && !bClosed; c++)
+					bClosed = (theSchedule[c].AllDay == "Y" && tmp == theSchedule[c].ClosedDate);
+			}
+
+
+			if (bClosed)
+				output = output + "<td align='center' bgcolor='#CC6666'>";
+			else
+			if (bFlagDisplayDate && count==DisplayDay && count <= daysinmonth[nMonth])
+			{
+				output = output + "<td align='center' bgcolor='#33FF00'>";
+				bClosedToday = false;
+			}
+			else
+			if (count <= daysinmonth[nMonth])
+				output = output + "<td align='center' bgcolor='#FFFFFF'>";
+			else
+				output = output + "<td align='center'>";
+
+			if (count <= daysinmonth[nMonth])
+				output = output + "<a CLASS='service-calendar' href='" + urlpath + "?sh_action=sched&SessionID=" + sessionid + "&SiteID=" + siteid + "&AppID=" + appid + "&SelectedDay=" + count + "&CurrentMonth=" + nMonth + "&CurrentYear=" + nYear + "&SelectedMonth=" + nMonth + "&SelectedYear=" + nYear + "&ItemID=" + ItemID + "' >" + count + "</a>";
+			else
+				output = output + " ";
+
+			output = output + "</td>\n";
+			count++;
+		}
+
+		output = output + "</tr>\n";
+		startspaces=0;
+		rowcount++;
+	}
+
+	if (rowcount < 6)
+		output = output + "<tr><td colspan=7> &nbsp </td></tr>\n";
+
+	output = output + "</table>\n";
+	return output;
+}
+
+function PadLeftMinute(number)
+{
+	var temp = new String(number);
+	var zerotemp = '';
+	for (var i = temp.length; i < 2; ++i)
+		zerotemp += "0";
+	return zerotemp + temp;
+}
+
+function FormatDuration(dur)
+{
+	var tempdur = dur;
+	if (tempdur == undefined)
+		return '';
+	var hours = 0;
+	while (tempdur >= 1)
+	{
+		++hours;
+		tempdur -= 1;
+	}
+	var result = '';
+	if (hours > 0)
+		result = hours + ' hours';
+	if (tempdur > 0)
+		result += ' ' + parseInt(tempdur * 60) + ' minutes';
+	return result;
+}
+
+var SelectedDay = doAction("REQ_GET_FORMVALUE", "SelectedDay", "SelectedDay");
+var SelectedMonth = doAction("REQ_GET_FORMVALUE", "SelectedMonth", "SelectedMonth");
+var SelectedYear = doAction("REQ_GET_FORMVALUE", "SelectedYear", "SelectedYear");
+var SelectedHour = doAction("REQ_GET_FORMVALUE", "SelectedHour", "SelectedHour");
+var SelectedMinute = doAction("REQ_GET_FORMVALUE", "SelectedMinute", "SelectedMinute");
+var SelectedAMPM = doAction("REQ_GET_FORMVALUE", "SelectedAMPM", "SelectedAMPM");
+
+if (SelectedHour != undefined)
+	SelectedHour = parseInt(SelectedHour);
+else
+	SelectedHour = 9;
+
+if (SelectedMinute != undefined)
+	SelectedMinute = parseInt(SelectedMinute);
+else
+	SelectedMinute = 0;
+
+if (SelectedAMPM == undefined)
+	SelectedAMPM = 'AM';
+
+var CurrentMonth = doAction("REQ_GET_FORMVALUE", "CurrentMonth", "CurrentMonth");
+var CurrentYear = doAction("REQ_GET_FORMVALUE", "CurrentYear", "CurrentYear");
+
+var thisistoday = new Date();
+
+if (SelectedDay != undefined)
+	DisplayDay = parseInt(SelectedDay);
+else
+	DisplayDay = SelectedDay = thisistoday.getDate();
+
+if (SelectedMonth != undefined)
+	DisplayMonth = parseInt(SelectedMonth);
+else
+	DisplayMonth = SelectedMonth = thisistoday.getMonth();
+
+if (SelectedYear != undefined)
+	DisplayYear = parseInt(SelectedYear);
+else
+	DisplayYear = SelectedYear = thisistoday.getFullYear();
+
+if (CurrentMonth != undefined)
+	CurrentMonth = parseInt(CurrentMonth);
+else
+	CurrentMonth = thisistoday.getMonth();
+
+if (CurrentYear != undefined)
+	CurrentYear = parseInt(CurrentYear);
+else
+	CurrentYear = thisistoday.getFullYear();
+
+var BackMonth;
+var BackYear = CurrentYear;
+var ForwardMonth;
+var ForwardYear = CurrentYear;
+
+if (CurrentMonth < 2)
+{
+	BackMonth = CurrentMonth + 10;
+	--BackYear;
+}
+else
+	BackMonth = CurrentMonth - 2;
+
+if (CurrentMonth > 9)
+{
+	ForwardMonth = CurrentMonth - 10;
+	++ForwardYear;
+}
+else
+	ForwardMonth = CurrentMonth + 2;
+
+var prevMonth = ((CurrentMonth + 11) % 12) ;
+var prevYear = ( prevMonth == 11 ? (CurrentYear - 1) : CurrentYear);
+
+writeln ("<a href='" + urlpath + "?sh_action=sched&SessionID="+sessionid+"&SiteID="+siteid+"&AppID="+
+									appid+"&SelectedDay="+DisplayDay+"&SelectedMonth="+SelectedMonth+
+									"&SelectedYear="+SelectedYear + "&CurrentMonth="+prevMonth+
+									"&CurrentYear="+prevYear+"&ItemID="+ItemID+"'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/last.gif' border=0></a>&nbsp;");
+
+writeln('</td><td>');
+write(GetCalendar(CurrentMonth, CurrentYear));
+writeln('</td><td>');
+var nextMonth = (CurrentMonth + 1) % 12;
+var nextYear = (nextMonth == 0 ? (CurrentYear + 1) : CurrentYear);
+write(GetCalendar(nextMonth, nextYear));
+writeln('</td><td>');
+writeln ("&nbsp;<a href='" + urlpath + "?sh_action=sched&SessionID="+sessionid+"&SiteID="+siteid+"&AppID="+
+									appid+"&SelectedDay="+DisplayDay+"&SelectedMonth="+SelectedMonth+
+									"&SelectedYear="+SelectedYear + "&CurrentMonth="+nextMonth+
+									"&CurrentYear="+nextYear+"&ItemID="+ItemID+"'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/next.gif' border=0></a>");
+
+<merc_embed>
+              </td></tr></table>
+              <br>
+<!--Merc_SchedSvcs_StoreHoursHere-->
+              <br><b>Select Time:</b> <b>
+              <select name="SelectedHour">
+</merc_embed>
+for (var i = 1; i <= 12; ++i)
+{
+	write('<option');
+	if (SelectedHour == i)
+		write(' selected');
+	writeln('>' + i + '</option>');
+}
+<merc_embed>
+              </select>
+              <select name="SelectedMinute">
+</merc_embed>
+for (var i = 0; i < 60; i += 5)
+{
+	write('<option');
+	if (SelectedMinute == i)
+		write(' selected');
+	writeln('>' + PadLeftMinute(i) + '</option>');
+}
+<merc_embed>
+              </select>
+              <select name="SelectedAMPM">
+</merc_embed>
+writeln('<option' + ((SelectedAMPM == 'AM') ? ' selected' : '') + '>AM</option>');
+writeln('<option' + ((SelectedAMPM == 'PM') ? ' selected' : '') + '>PM</option>');
+
+writeln('<input type="hidden" name="SelectedDay" value="' + SelectedDay + '">');
+writeln('<input type="hidden" name="SelectedMonth" value="' + SelectedMonth + '">');
+writeln('<input type="hidden" name="SelectedYear" value="' + SelectedYear + '">');
+
+</script>
+              </select>
+              </b></div>
+          </td>
+        </tr>
+      </table>
+      <div align="center">
+
+<p>
+          <input type="submit" name="submit" value="Services">
+
+<!--Merc_SchedSvcs_MakeAppointmentRequest-->
+
+          <font size="2"><br><i>To cancel an appointment, please phone or email us</i></font><br>
+        </p>
+
+<script runat=merc_server>
+
+if (submitReason == 'Remove')
+{
+	var rmItem = doActionEx("REQ_GET_FORMVALUE","Result","rmItem","rmItem");
+	doAction('SC_DELETE_ROW', 'TableName', 'Items', 'RowName', rmItem);
+}
+
+if (gErrMsg.length > 0)
+{
+<merc_embed>
+	<table width="522" border="1" align="center" cellpadding="4" cellspacing="0">
+	  <tr bgcolor="#CCCC99">
+		<td colspan="3" height="15" nowrap>
+		  <div align="center"><b>
+</merc_embed>
+write(gErrMsg);
+<merc_embed> 
+		  </b> </div>
+		</td>
+	  </tr>
+	 </table>
+</merc_embed>
+}
+
+var curRow = MERC_SHOPCART.GetFirstRow("Items");
+if (curRow != "END_OF_TABLE")
+{
+	<merc_embed>
+	<table width="522" border="1" align="center" cellpadding="4" cellspacing="0">
+	  <tr bgcolor="#CCCC99">
+		<td colspan="3" height="15" nowrap>
+		  <div align="center"><b>My Current Appointment Requests</b> </div>
+		</td>
+	  </tr>
+	  <tr bgcolor="#CCCC99">
+		<td width="12%" height="17" nowrap>
+
+<div align="center">&nbsp;</div>
+		</td>
+		<td width="35%" height="17" nowrap>
+		  <div align="center"><b>Type</b></div>
+		</td>
+		<td width="53%" height="17" nowrap>
+		  <div align="center"><b> Time</b></div>
+		</td>
+      </tr>
+	</merc_embed>
+}
+
+var displayDone = false;
+
+for (; curRow != "END_OF_TABLE"; curRow = MERC_SHOPCART.GetNextRow("Items",curRow) )
+{
+	displayDone = true;
+	var tempid = MERC_SHOPCART.GetField('Items', curRow, 'ID');
+	writeln('<tr bgcolor="#FFFFFF"><td width="12%" height="22">');
+	writeln('<form action="/cgi-local/mpc/PowerCommerce.cgi" method=POST>');
+	writeln('<input type=hidden name=sh_action value=sched>');
+	writeln('<input type=hidden name=SessionID value=' + sessionid + '>');
+	writeln('<input type=hidden name=AppID value=' + appid + '>');
+	writeln('<input type=hidden name=SiteID value=' + siteid + '>');
+	writeln('<input type=hidden name=rmItem value=' + curRow + '>');
+	writeln('<input type="submit" name="submit" value="Remove">');
+	writeln('</form>');
+	writeln('</td>');
+	writeln('<td width="35%" height="22">');
+	writeln('<div align="left">' + serviceData['ID' + tempid].Name + '</div>');
+	writeln('</td>');
+	writeln('<td width="53%" height="22">');
+	writeln('<div align="left">');
+
+	var tempMonth = MERC_SHOPCART.GetField('Items', curRow, 'ApptMonth');
+
+	if (tempMonth == '0')
+		writeln('January ');
+	else if (tempMonth == '1')
+		writeln('February ');
+	else if (tempMonth == '2')
+		writeln('March ');
+	else if (tempMonth == '3')
+		writeln('April ');
+	else if (tempMonth == '4')
+		writeln('May ');
+	else if (tempMonth == '5')
+		writeln('June ');
+	else if (tempMonth == '6')
+		writeln('July ');
+	else if (tempMonth == '7')
+		writeln('August ');
+	else if (tempMonth == '8')
+		writeln('September ');
+	else if (tempMonth == '9')
+		writeln('October ');
+	else if (tempMonth == '10')
+		writeln('November ');
+	else if (tempMonth == '11')
+		writeln('December ');
+
+	write(MERC_SHOPCART.GetField('Items', curRow, 'ApptDay') + ', ');
+	write(MERC_SHOPCART.GetField('Items', curRow, 'ApptYear') + ' - ');
+	write(MERC_SHOPCART.GetField('Items', curRow, 'ApptHour') + ':');
+	write(PadLeftMinute(MERC_SHOPCART.GetField('Items', curRow, 'ApptMinute')) + ' ');
+	write(MERC_SHOPCART.GetField('Items', curRow, 'ApptAMPM'));
+	writeln(' for ' + FormatDuration(durations['ID' + tempid]));
+
+	writeln('</div>');
+	writeln('</td></tr>');
+}
+
+if (displayDone)
+{
+	writeln('</table>');
+	writeln('<form action="/cgi-local/mpc/PowerCommerce.cgi" method=POST>');
+	writeln('<input type=hidden name=sh_action value=sched>');
+	writeln('<input type=hidden name=SessionID value=' + sessionid + '>');
+	writeln('<input type=hidden name=AppID value=' + appid + '>');
+	writeln('<input type=hidden name=SiteID value=' + siteid + '>');
+	writeln('<input type=hidden name=rmItem value=' + curRow + '>');
+	writeln('<input type="submit" name="submit" value="Done - Send Request">');
+	writeln('</form>');
+}
+
+</script>
+      </div>
+      <table height="8" border="0"><td></td></table>
+    </td>
+  </tr>
+</table>
+</form>
+

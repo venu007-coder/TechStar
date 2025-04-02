@@ -1,0 +1,262 @@
+<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+<merc_dynamic noshow=true name=mySession action=ST_GET_STATEDATA return=Result SessionID=SessionID>
+
+<center>
+
+<script runat=merc_server>
+
+function PadLeftMinute(number)
+{
+	var temp = new String(number);
+	var zerotemp = '';
+	for (var i = temp.length; i < 2; ++i)
+		zerotemp += "0";
+	return zerotemp + temp;
+}
+
+function FormatDuration(dur)
+{
+	var tempdur = dur;
+	if (tempdur == undefined)
+		return '';
+	var hours = 0;
+	while (tempdur >= 1)
+	{
+		++hours;
+		tempdur -= 1;
+	}
+	var result = '';
+	if (hours > 0)
+		result = hours + ' hours';
+	if (tempdur > 0)
+		result += ' ' + parseInt(tempdur * 60) + ' minutes';
+	return result;
+}
+
+function Country(id, shortname, longname)
+{
+	this.ID = id;
+	this.ShortName = shortname;
+	this.LongName = longname;
+}
+
+function Region(id, shortname, longname)
+{
+	this.ID = id;
+	this.ShortName = shortname;
+	this.LongName = longname;
+}
+
+// Get list of allowed Regions (States)
+var RegionList = new Array();
+var numRegions = 0;
+
+var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_REGION", "Sort", "ID ASC");
+while(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "TAX_REGION"))
+{
+	var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "TAX_REGION", "QueryID",qID);
+
+	RegionList[numRegions] = new Region(resultset.ID, resultset.SHORTNAME, resultset.LONGNAME);
+	numRegions++;
+
+	var movednext=doActionEx("DATA_MOVENEXT","Result","ObjectName","TAX_REGION","QueryID",qID);
+
+
+	if (numRegions > 99)
+	{
+		writeln("<br> FORCED BREAK FROM LOOP!<p>");
+		break;
+	}
+}
+
+var durations = new Object();
+
+var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "CAT_Services");
+while (!doActionEx('DATA_ISEOF', 'Result', 'QueryID', qID, 'ObjectName', 'CAT_Services'))
+{
+	var resultset = doActionBDO('DATA_GETROWDATA', 'ObjectName', 'CAT_Services', 'QueryID', qID);
+	if (resultset != undefined && resultset.Duration != undefined && resultset.ItemID != undefined)
+		durations['ID' + resultset.ItemID] = resultset.Duration;
+	if (!doActionEx('DATA_MOVENEXT', 'Success', 'ObjectName', 'CAT_Services', 'QueryID', qID))
+		break;
+}
+
+if (qID > 0)
+	doAction('DATA_CLOSEQUERY', 'QueryID', qID, 'ObjectName', "CAT_Services");
+
+var serviceData = new Object();
+
+var allServBDO = doActionBDO('SVC_GET_ALL_SERVICES', 'Locale', 'en');
+if (allServBDO != undefined && allServBDO.GetSize() != 0)
+{
+	for (var k in allServBDO)
+	{
+		if (k == 'RowCount')
+			continue;
+		var tempid = allServBDO[k].ID;
+		var tempobject = new Object();
+		tempobject.ID = allServBDO[k].ID;
+		tempobject.Name = allServBDO[k].Name;
+		tempobject.Description = allServBDO[k].Description;
+		serviceData['ID' + tempid] = tempobject;
+	}
+}
+
+var storeEmail = doActionEx('BIZ_GETDATA', 'FieldValue', 'FieldName', 'Email');
+writebr('<h3>Thank you</h3><p> You appointment(s) will be approved by a store representative.');
+writebr('To cancel an appointment, please phone or email us at <a href="mailto:' + storeEmail + '">' + storeEmail + '</a><br>');
+
+var urlpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","urlfile");
+var sessionid = doActionEx("ST_GET_STATEDATA","Result","SessionID","SessionID");
+var siteid = doActionEx("REQ_GET_FORMVALUE","Result","SiteID","SiteID");
+var appid = doActionEx("REQ_GET_FORMVALUE","Result","AppID","AppID");
+
+writebr('<a href="' + urlpath + '?sh_action=sched_svcs&SessionID=' + sessionid + '&SiteID=' + siteid + '&AppID=' + appid + '">Back To Services Home</a>');
+
+var BillToRow = MERC_SHOPCART.GetFirstRow("BillTo");
+var Name = MERC_SHOPCART.GetField("BillTo", BillToRow, "BillToName");
+var Address1 = MERC_SHOPCART.GetField("BillTo", BillToRow, "Address1");
+var Address2 = MERC_SHOPCART.GetField("BillTo", BillToRow, "Address2");
+var SubRegion = MERC_SHOPCART.GetField("BillTo", BillToRow, "SubRegion");
+var Region = MERC_SHOPCART.GetField("BillTo", BillToRow, "Region");
+Region = RegionList[Region].ShortName;
+var PostalCode = MERC_SHOPCART.GetField("BillTo", BillToRow, "PostalCode");
+var DaytimePhone = MERC_SHOPCART.GetField("BillTo", BillToRow, "DaytimePhone");
+var EmailAddress = MERC_SHOPCART.GetField("BillTo", BillToRow, "EmailAddress");
+var Comments = MERC_SHOPCART.GetField("BillTo", BillToRow, "Comments");
+
+if (Comments == undefined || Comments == '')
+	Comments = '-';
+
+if (Address2 == undefined || Address2 == '')
+	Address2 = '-';
+
+var rowNames = new Array();
+
+<merc_embed>
+	<table width="522" border="1" align="center" cellpadding="4" cellspacing="0">
+	  <tr bgcolor="#CCCC99">
+		<td colspan="3" height="15" nowrap>
+		  <div align="center"><b>Appointment Requests</b> </div>
+		</td>
+	  </tr>
+	  <tr bgcolor="#CCCC99">
+		<td width="47%" height="17" nowrap>
+		  <div align="center"><b>Type</b></div>
+		</td>
+		<td width="53%" height="17" nowrap>
+		  <div align="center"><b> Time</b></div>
+		</td>
+      </tr>
+</merc_embed>
+
+for (curRow = MERC_SHOPCART.GetFirstRow("Items"); curRow && curRow != "END_OF_TABLE"; curRow = MERC_SHOPCART.GetNextRow("Items") )
+{
+	writebr();
+	var tempid = MERC_SHOPCART.GetField("Items", curRow, "ID");
+	var ApptDay = MERC_SHOPCART.GetField("Items", curRow, "ApptDay");
+	var ApptMonth = MERC_SHOPCART.GetField("Items", curRow, "ApptMonth");
+	var ApptYear = MERC_SHOPCART.GetField("Items", curRow, "ApptYear");
+	var ApptHour = MERC_SHOPCART.GetField("Items", curRow, "ApptHour");
+	var ApptMinute = MERC_SHOPCART.GetField("Items", curRow, "ApptMinute");
+	var ApptAMPM = MERC_SHOPCART.GetField("Items", curRow, "ApptAMPM");
+
+	var tempDate = new Date(parseInt(ApptYear), parseInt(ApptMonth), parseInt(ApptDay));
+	var dayOfWeek = tempDate.getDay();
+
+	if (dayOfWeek == 0)
+		dayOfWeek = 'Sunday';
+	else if (dayOfWeek == 1)
+		dayOfWeek = 'Monday';
+	else if (dayOfWeek == 2)
+		dayOfWeek = 'Tuesday';
+	else if (dayOfWeek == 3)
+		dayOfWeek = 'Wednesday';
+	else if (dayOfWeek == 4)
+		dayOfWeek = 'Thursday';
+	else if (dayOfWeek == 5)
+		dayOfWeek = 'Friday';
+	else if (dayOfWeek == 6)
+		dayOfWeek = 'Saturday';
+
+	if (ApptMonth == 0)
+		ApptMonth = 'January';
+	else if (ApptMonth == 1)
+		ApptMonth = 'February';
+	else if (ApptMonth == 2)
+		ApptMonth = 'March';
+	else if (ApptMonth == 3)
+		ApptMonth = 'April';
+	else if (ApptMonth == 4)
+		ApptMonth = 'May';
+	else if (ApptMonth == 5)
+		ApptMonth = 'June';
+	else if (ApptMonth == 6)
+		ApptMonth = 'July';
+	else if (ApptMonth == 7)
+		ApptMonth = 'August';
+	else if (ApptMonth == 8)
+		ApptMonth = 'September';
+	else if (ApptMonth == 9)
+		ApptMonth = 'October';
+	else if (ApptMonth == 10)
+		ApptMonth = 'November';
+	else if (ApptMonth == 11)
+		ApptMonth = 'December';
+
+	// get a Date in seconds since 1970
+        var date_ss = tempDate.getTime() / 1000;
+
+	doAction('SVC_SET_APPOINTMENTS', 'ServiceID', tempid,
+		'Status', '1',
+		'ApptDate', dayOfWeek + ',+' + ApptMonth + '+' + ApptDay + ',+' + ApptYear,
+		'StartHour', ApptHour,
+		'StartMin', ApptMinute,
+		'StartAMPM', ApptAMPM,
+		'Duration', String(durations['ID' + tempid]),
+		'Name', Name,
+		'Address1', Address1,
+		'Address2', Address2,
+		'City', SubRegion,
+		'State', Region,
+		'Zip', PostalCode,
+		'Email', EmailAddress,
+		'Phone', DaytimePhone,
+		'Comments', Comments,
+		'Mode', 'Insert',
+		'Date_ss', date_ss.toString());
+	
+
+	rowNames.push(curRow);
+
+	writeln('<tr bgcolor="#FFFFFF">');
+	writeln('<td width="47%" height="22">');
+	writeln('<div align="left">' + serviceData['ID' + tempid].Name + '</div>');
+	writeln('</td>');
+	writeln('<td width="53%" height="22">');
+	writeln('<div align="left">');
+
+	write(ApptMonth + ' ');
+
+	write(ApptDay + ', ');
+	write(ApptYear + ' - ');
+	write(ApptHour + ':');
+	write(PadLeftMinute(ApptMinute) + ' ');
+	write(ApptAMPM);
+	writeln(' for ' + FormatDuration(durations['ID' + tempid]));
+
+	writeln('</div>');
+	writeln('</td></tr>');
+}
+
+write('</table>');
+
+doAction('ON_SERVICE_REQUEST', 'OrderID', 1);
+
+for (var i = 0; i < rowNames.length; ++i)
+	doAction('SC_DELETE_ROW', 'TableName', 'Items', 'RowName', rowNames[i]);
+
+</script>
+
+</center>

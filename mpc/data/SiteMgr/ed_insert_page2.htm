@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>New Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+
+<script language="JavaScript" src="SiteEditor.js"></script>
+
+<script runat="merc_server">
+	var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+							'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+	var pageList = generatePageList();
+	writeln ('<script language="JavaScript">var pageList = new Array("'+pageList.join("\",\"")+'");</script>');
+</script>
+<script language="JavaScript">
+var master_js = opener.opener.parent;
+var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+function checkEntry()
+{
+	var selectedName = document.newpage.PageTypeDropDown.value;
+	var WinObj = master_js.createSimpleSubmitWindow ("500", "670");
+	var ret = validateEdit(selectedName, 12, selectedName, pageList, self, master_js);
+	if (ret.basics && !ret.fileExist)
+	{
+		master_js.OpenWinSubmitForm ('', 'SE_SelectNewPageType', 'ed_insert_page.htm', 'ReOpenEditPageWin', document.newpage, WinObj);
+		window.close();
+	}
+	else if (ret.basics && ret.fileExist && ret.editFile)
+	{
+		var args = new Array ("PageName", ret.fileExistName);
+		master_js.SubmitForm ('PE_EditPageByName', '', 'mainFrame', args);
+		opener.close();
+		master_js.createAndWriteToPopUp ("150", "300", 'Reloading', baseUrl, 
+										master_js.gRELOADING, master_js.gWINDOW_WILL_CLOSE);
+		self.close();
+	}
+	else if (ret.basics && ret.fileExist && !ret.editFile)
+		self.close();
+}
+</script>
+</head>
+
+<body class="pop-up-bkgrd" onLoad="document.newpage.PageTypeDropDown.focus();">
+<form name="newpage" action="javascript:void(0);">
+<div align="center"><span class="dialog-title">&nbsp;New Page</span><br><br>
+  <table width="90%" border="0" cellspacing="2" cellpadding="2" align="center" class="table-bkgrd-main">
+<tr><td>
+  <center><span class="field-label">New Page Title: 
+  <input type="text" name="PageTypeDropDown" size="16" maxlength="12">
+  <span class="instr-note"><br>
+  Max 12 characters.</span> 
+  <span class="instr-note"><br>Do not use the following characters:&nbsp;<font color="#FF0000"><b> 
+  \ / : ; * ? &quot; &lt; &gt; ' |</b></font></span> <br>
+  <br>
+</div>
+<div align="center"><a href="javascript:void(0)" onclick="self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a><a href="javascript:void();"  onClick="checkEntry();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Create_Nbtn_base.gif" width="86" height="30" align="top" border="0"></a> 
+</center></td></tr></table>
+</div>
+</form>
+</body>
+</html>

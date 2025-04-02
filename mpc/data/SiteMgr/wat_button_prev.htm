@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+</HEAD>
+<BODY CLASS="pop-up-bkgrd">
+
+<script runat="merc_server">
+	var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+			    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+	var onLoad = doAction('REQ_GET_FORMVALUE', "buttonList", "buttonList").split('\t');
+	var align = doAction('REQ_GET_FORMVALUE', "align", "align").split('\t');
+	for (var n = 0, zIndex = 1; n < onLoad.length; n++, zIndex+=2)
+	{
+		// Netscape doesn't like spaces in the id, so cretae a unique ID with no spaces
+		var divId = onLoad[n].replace (/ /g, "") + n;
+		if (align == "LeftVertical")
+		{
+			var top = ((n*25) + 10).toString();
+			writeln (generatePageButtonsHTML ('', onLoad[n], '', '10px', top+'px', '100px', 
+										'25px', 'btn-background', 'btn-text', zIndex,divId,''));
+		}
+		else
+		{
+			var left = ((n*100) + 10).toString();
+			writeln (generatePageButtonsHTML ('', onLoad[n], '', left+'px', '25px', '100px', 
+										'25px', 'btn-background', 'btn-text', zIndex, divId,''));
+		}
+	}
+			
+</script>
+</BODY>
+</HTML>

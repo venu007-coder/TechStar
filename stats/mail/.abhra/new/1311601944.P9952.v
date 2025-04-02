@@ -1,0 +1,432 @@
+Return-Path: ssagili@bartronicsamerica.com
+Received: from mx20.stngva01.us.mxservers.net (204.202.242.7)
+	by mail19j.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-0939761942
+	for <abhra@altechstar.com>; Mon, 25 Jul 2011 09:52:23 -0400 (EDT)
+Received: from unknown [146.145.42.86] (EHLO bartronicsamerica.com)
+	by va1-mx20.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 6157d2e4.2910469024.35478.00-013.va1-mx20.stngva01.us.mxservers.net (envelope-from <ssagili@bartronicsamerica.com>);
+	Mon, 25 Jul 2011 09:52:22 -0400 (EDT)
+Received: from SRGPC ([121.241.49.226]) by bartronicsamerica.com with Microsoft SMTPSVC(6.0.3790.3959);
+	 Mon, 25 Jul 2011 09:49:58 -0400
+From: "Sunitha" <ssagili@bartronicsamerica.com>
+To: "Sunitha" <ssagili@bartronicsamerica.com>
+Subject: Req : C# developer -wpf exp - Houston,TX
+Date: Mon, 25 Jul 2011 09:52:38 -0400
+Message-ID: <003a01cc4ad2$866eaed0$934c0c70$@com>
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="=_reb-r21755696-t4E2D7516"
+X-Mailer: Microsoft Office Outlook 12.0
+Thread-Index: AcxK0h0lkKEzFSFZTDiq4ug8bTziuQ==
+Content-Language: en-us
+Return-Path: ssagili@bartronicsamerica.com
+X-OriginalArrivalTime: 25 Jul 2011 13:49:59.0133 (UTC) FILETIME=[BE7C28D0:01CC4AD1]
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2727272727; B=0.500(0); S=0.200(2010122901); MH=0.600(2011072517)]
+X-MAIL-FROM: <ssagili@bartronicsamerica.com>
+X-SOURCE-IP: [146.145.42.86]
+X-SF-Loop: 1
+
+This is a multi-part MIME message.
+
+--=_reb-r21755696-t4E2D7516
+Content-Type: multipart/alternative;
+	boundary="=_reb-r04C64EF6-t4E2D7516"
+
+This is a multi-part MIME message.
+
+--=_reb-r04C64EF6-t4E2D7516
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Hi,
+
+ 
+
+Please find the requirement attached below and let me know me if you have
+any consultants ASAP.
+
+ 
+
+Requirement : 
+
+Job title: C# developer -wpf exp
+
+Location :  Houston,TX
+
+Duration : 6 Months 
+
+ 
+
+Job description:
+
+ 
+
+. 3+ years WPF development experience for desktop applications. Exposure to
+MVVM, client-server architectures
+
+ . 5+ years C# development experience and expert working knowledge of
+Microsoft .NET platform 
+
+. 5+ years experience with common development tools and techniques (Visual
+Studio v2010, NUnit, XML, UML, SVN, Mantis)
+
+ . Strong design and development skills in framework, GUI components and
+widgets in WPF are required
+
+ . Candidate should be comfortable
+
+    3+yras of wpf exp, 7yrs+ exp need to be 100% match
+
+ 
+
+ 
+
+Regards,
+
+Sunitha Sagili
+
+Bartronics America, Inc 
+
+cid:image003.jpg@01CC2AA7.CB4B5A80
+
+485 US Highway 1 South, Bldg. E
+
+Suite 240, Iselin, NJ 08830 
+Phone: 732-623-9870 
+
+second line: 732-791-2955
+
+Email:  <mailto:ssagili@bartronicsamerica.com> ssagili@bartronicsamerica.com
+
+Web:  <http://www.bartronicsamerica.com/> http://www.bartronicsamerica.com
+
+ 
+
+ 
+
+ 
+
+
+--=_reb-r04C64EF6-t4E2D7516
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns=3D"http://www.w3.org/TR/REC-html40" xmlns:m=3D"http://schemas.m=
+icrosoft.com/office/2004/12/omml" xmlns:w=3D"urn:schemas-microsoft-com:offi=
+ce:word" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml">
+
+<head>
+
+
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext=3D"edit" spidmax=3D"2050" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext=3D"edit">
+  <o:idmap v:ext=3D"edit" data=3D"1" />
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body vlink=3D"purple" link=3D"blue" lang=3D"EN-US">
+
+<div class=3D"Section1">
+
+<p class=3D"MsoNormal">Hi,<o:p></o:p></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal">Please find the requirement attached below and let m=
+e know
+me if you have any consultants ASAP.<o:p></o:p></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal"><b>Requirement : <o:p></o:p></b></p>
+
+<p class=3D"MsoNormal">Job title: C# developer -wpf exp<o:p></o:p></p>
+
+<p class=3D"MsoNormal">Location : &nbsp;Houston,TX<o:p></o:p></p>
+
+<p class=3D"MsoNormal">Duration : 6 Months <o:p></o:p></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal"><b>Job description:<o:p></o:p></b></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal">&#8226; 3+ years WPF development experience for desk=
+top
+applications. Exposure to MVVM, client-server architectures<o:p></o:p></p>
+
+<p class=3D"MsoNormal">&nbsp;&#8226; 5+ years C# development experience and=
+ expert
+working knowledge of Microsoft .NET platform <o:p></o:p></p>
+
+<p class=3D"MsoNormal">&#8226; 5+ years experience with common development =
+tools
+and techniques (Visual Studio v2010, NUnit, XML, UML, SVN, Mantis)<o:p></o:=
+p></p>
+
+<p class=3D"MsoNormal">&nbsp;&#8226; Strong design and development skills in
+framework, GUI components and widgets in WPF are required<o:p></o:p></p>
+
+<p class=3D"MsoNormal">&nbsp;&#8226; Candidate should be comfortable<o:p></=
+o:p></p>
+
+<p class=3D"MsoNormal">&nbsp;&nbsp;&nbsp; 3+yras of wpf exp, 7yrs+ exp need=
+ to be
+100% match<o:p></o:p></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:"Times N=
+ew Roman","serif"">Regards,</span><span style=3D"font-size:10.0pt;font-fami=
+ly:"Verdana","sans-serif";color:black"><o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:"Times N=
+ew Roman","serif"" lang=3D"EN-IN">Sunitha
+Sagili</span><span style=3D"font-size:10.0pt;font-family:"Verdana","sans-se=
+rif";
+color:black" lang=3D"EN-IN"><o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:"Times N=
+ew Roman","serif"" lang=3D"EN-IN">Bartronics
+America, Inc </span><b><span style=3D"font-size:10.0pt;font-family:
+"Verdana","sans-serif";color:black" lang=3D"EN-IN"><o:p></o:p></span></b></=
+p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:"Arial",=
+"sans-serif""><img alt=3D"cid:image003.jpg@01CC2AA7.CB4B5A80" src=3D"cid:im=
+age001.jpg@01CC4AB0.960AC710" id=3D"Picture_x0020_1" height=3D"69" width=3D=
+"197"></span><span style=3D"font-size:10.0pt;font-family:"Verdana","sans-se=
+rif";color:black" lang=3D"EN-IN"><o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:"Times N=
+ew Roman","serif"" lang=3D"EN-IN">485
+US Highway 1 South, Bldg. E<o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:"Times N=
+ew Roman","serif"" lang=3D"EN-IN">Suite
+240, Iselin, NJ 08830 <br>
+Phone: </span><span style=3D"font-size:12.0pt;font-family:"Times New Roman"=
+,"serif"">732-623-9870
+</span><span style=3D"font-size:12.0pt;font-family:"Times New Roman","serif=
+";
+color:black" lang=3D"EN-IN"><o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:"Times N=
+ew Roman","serif"">second
+line: 732-791-2955</span><span style=3D"font-size:12.0pt;font-family:
+"Times New Roman","serif";color:black" lang=3D"EN-IN"><o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:"Times N=
+ew Roman","serif"" lang=3D"EN-IN">Email:&nbsp;<a href=3D"mailto:ssagili@bar=
+tronicsamerica.com"><span style=3D"color:blue">ssagili@bartronicsamerica.co=
+m</span></a><span style=3D"color:black"><o:p></o:p></span></span></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:"Times N=
+ew Roman","serif"" lang=3D"EN-IN">Web:
+</span><span style=3D"font-size:12.0pt;font-family:"Times New Roman","serif=
+""><a title=3D"blocked::http://www.bartronicsamerica.com/" href=3D"http://w=
+ww.bartronicsamerica.com/"><span style=3D"color:black" lang=3D"EN-IN">http:=
+//www.bartronicsamerica.com</span></a><span style=3D"color:black"><o:p></o:=
+p></span></span></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
+
+--=_reb-r04C64EF6-t4E2D7516--
+
+
+--=_reb-r21755696-t4E2D7516
+Content-Type: image/jpeg;
+	name="image001.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <image001.jpg@01CC4AB0.960AC710>
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8l
+JCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIo
+Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAAR
+CABFAMUDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAA
+AgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkK
+FhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWG
+h4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl
+5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREA
+AgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYk
+NOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk
+5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDtPhve3d7p2rNd3M1w0eqTohlcsVUHgDPQ
+D0oS9uz8X5LI3M32UaSHEG87N28fNt6Z96h+Fv8AyDNZ/wCwvcfzoT/ktkn/AGBx/wChigDh
+Ide1k/GAWR1a9Nr/AGuY/I+0Ns27j8u3OMe1M8V6/rNv8UJ7SDV76K3F7CohS4cIAduRjOMV
+Uh/5LaP+w03/AKEaj8Yf8lbuP+v+H/2WgD1N727/AOFvx2QuZvsp0kyGDedm7f8Ae29M+9Vf
+Bt/e3Ph/xNJcXc8rw31ysTSSFigC8AE9APapJP8AktkX/YGP/odU/A3/ACLfiz/sIXf/AKDQ
+ByXwv13WL/X7qO81a9uUXT5HCzXDOAwxg4J616L8M7u5vvAen3F5cS3Ez790krl2PzHqTXlf
+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
+vDmoW1pbXelxSxWaGOAHPyL6UUUUAf/Z
+
+--=_reb-r21755696-t4E2D7516--
+

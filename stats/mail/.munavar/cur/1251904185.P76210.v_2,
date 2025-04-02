@@ -1,0 +1,409 @@
+Return-Path: reply@value.sears.com
+Received: from mx82.stngva01.us.mxservers.net (204.202.242.81)
+	by mail19f.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 4-0233114184
+	for <ms@altechstar.com>; Wed,  2 Sep 2009 11:09:44 -0400 (EDT)
+Received: from unknown [204.202.242.83] (HELO mail19g.g19.rapidsite.net)
+	by va1-mx82.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 8ba8e9a4.2628610976.226070.00-009.va1-mx82.stngva01.us.mxservers.net (envelope-from <sears@value.sears.com>);
+	Wed, 02 Sep 2009 11:09:44 -0400 (EDT)
+Received: from mx96.stngva01.us.mxservers.net (198.173.112.13)
+	by mail19g.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0734874183
+	for <anand@altechstar.com>; Wed,  2 Sep 2009 11:09:43 -0400 (EDT)
+Received: from unknown [12.130.139.20] (EHLO omp.value.sears.com)
+	by va1-mx96.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 6ba8e9a4.2507226016.127854.00-006.va1-mx96.stngva01.us.mxservers.net (envelope-from <sears@value.sears.com>);
+	Wed, 02 Sep 2009 11:09:42 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=sears; d=value.sears.com;
+ h=MIME-Version:Content-Type:Date:From:Reply-To:Subject:List-Unsubscribe:To:Message-Id; i=sears@value.sears.com;
+ bh=bw8+I0FHiebdhhzmmmtzQop4u7Y=;
+ b=qYn+ITbKhxY6I9iEFjY6EMUR/VNs5vc8L071pOruVmv5JL3Vlg2eyaV0McWYEvEHecU808V5GBCc
+   N1sPm3NF2pRv0zeui0ldMi/Iw8lYz5lO9AW+ggpX8Du4lOrWUZBvZTSi7nQ2UeUBUkQbKyKuxzEq
+   c74Da8fnBtSAIiBAq80=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=sears; d=value.sears.com;
+ b=zUH5uG9beSQtUxi60CqoAUnv5kPisJtZFuCcXx6zehLfyvaGTkti3Qu9NBo2bT6XnEb+kx/ZFyl6
+   ZH8KfE8IkSpvyMNWOJyJAYXoTLzlc9cDnta3ee/QlU32KlrHFbUap24nHxvu7UGCbZ+V9RRc6VLA
+   MJAdCoVko4leU3GELvE=;
+Received: by omp.value.sears.com (PowerMTA(TM) v3.5r10) id hjq5bc0morc3 for <ANAND@altechstar.com>; Wed, 2 Sep 2009 08:09:41 -0700 (envelope-from <sears@value.sears.com>)
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=_reb-r1CBB60A7-t4A9E8AB7"
+Date: Wed, 2 Sep 2009 08:09:41 -0700
+From: "Sears" <sears@value.sears.com>
+Reply-To: "Sears" <reply@value.sears.com>
+Subject: Earn 3% in Rewards with the Sears and Kmart Christmas Club Card
+List-Unsubscribe: http://value.sears.com/servlet/optout?lLHklDXXADAE7u7u.2eFHsmLJolmHkDJhtEf
+X-cid: sears.447.7
+X-sgxh1: 6v6v9xHtlLJoklHjQJhu
+To: ANAND@altechstar.com
+X-valueof-CUSTOMER_ID: 46696202
+X-valueof-OPT_TYPE_CODE: SC
+Message-Id: <4A9E8AB5.00000796@omp.value.sears.com>
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009090218)]
+X-MAIL-FROM: <sears@value.sears.com>
+X-SOURCE-IP: [12.130.139.20]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009090218)]
+X-MAIL-FROM: <sears@value.sears.com>
+X-SOURCE-IP: [204.202.242.83]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r1CBB60A7-t4A9E8AB7
+Date: Wed, 2 Sep 2009 08:09:41 -0700
+Content-Type: multipart/alternative; boundary="=_reb-r21621284-t4A9E8AB7"
+
+This is a multi-part MIME message.
+
+--=_reb-r21621284-t4A9E8AB7
+Content-Type: text/plain;
+	charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+START SAVING NOW FOR CHRISTMAS AND EARN A 3% REWARD.
+
+It's as easy as:
+
+1. Get your Christmas Club card.
+
+2. Add value to your card any time - in-store or online.
+
+3. Earn a 3% reward on your card.*
+
+4. Shop with your card at Sears, Kmart or Lands' End.
+
+YOU GET THE CARD, WE'LL ADD THE JINGLE.
+
+Sign Up Now >
+https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuV2VRVJm=
+klhuLjXpKVWAADATRTVhilXlPiLXJhKLV18
+
+
+MySears Community
+Join an exciting Community dedicated to Sears customers=20
+called MySears Community
+https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuV2VSVJm=
+klhuLjXpKVWAADATRTVhilXlPiLXJhKLV18
+
+
+View the web version of this email
+https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuV2VTVup=
+jjhj30eV%0D%0Aollik%3A%2F%2FkLHjkQjkPkWQgLl%2FkLjNtLl%2FOLIkplL%2FyLjkhgHtp=
+FLKzghju%3FteastGze228282zeXFPFXFokoXDhsitulatGPQTADIOIQTAmRIQTLXG56zc43GNO=
+RXRYOQTAXDNQTLQTAGFDVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18
+
+
+-------------------------------------------------------------------
+
+*Reward offer valid for Christmas Club Cards activated from 8/16/09
+through 10/31/09.
+Christmas Club card has no expiration date and no fees.  Only
+Christmas Club cards which have been purchased and activated on or
+before 10/31/09 will be eligible to receive the 3% reward.  3%
+reward will be calculated based upon card balance as of 11:59 pm
+EST on 11/14/09.  Reward value will be added to card by 11/25/09.=20
+Maximum reward value is $100.  Christmas club gift card cannot be
+used to purchase third party prepaid or debit cards.  Christmas
+Club card is a gift card that does not allow cash or credit refund
+except where required by law.  See store associate and card back
+for additional details and restrictions.
+
+Please add sears@value.sears.com to your address book to
+ensure our emails reach your inbox.
+
+This is an a d v e r t i s e m e n t. Sears shall not be held
+liable for errors or omissions in pricing. In the event of an
+error, we will make every effort to accommodate our customers.
+
+Unsubscribe
+https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuV2VUVup=
+jjhj30eV%0D%0Aollik%3A%2F%2FkLHjkQjkPkWQgLl%2FkLjNtLl%2FOLIkplL%2FyLjkhgHtp=
+FLKzghju%3FteastGOsefesenceDenuesXQWRoslGQTAMBILXBQTLQTLPQTAFFGBmBmQTLzgaku=
+echtuas9colGcalpidGteast9zczc696Gltgu0peGRGcalpaignGze228282zeXFPFXFokoXDhs=
+itulatGNORXRYOQTAXDNQTLQTAGFDVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18
+
+
+(c) 2009 Sears Brands LLC,
+3333 Beverly Road, Hoffman Estates, IL 60179
+
+
+
+--=_reb-r21621284-t4A9E8AB7
+Content-Type: text/html;
+	charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<title>Sears.com</title>
+
+</head>
+<body bgcolor=3D"#FFFFFF">
+ <center>=20
+
+<!-- header is here... this code should never need to be changed -->
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"633">
+	<tr>
+		<td valign=3D"top" align=3D"left" width=3D"633"><div><font style=3D"font-=
+size: 11px; line-height: 13px; font-family: Arial, helvetica, verdana, sans=
+-serif;" size=3D"1" face=3D"Arial, helvetica, verdana, sans-serif"><a style=
+=3D"color:#111111; text-decoration: underline;" target=3D"_blank" rilt=3D"S=
+nippet" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJ=
+oklHjQJhuVaVWVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><font color=3D"#111111=
+">Start Saving Now For Christmas And Earn 3% In Rewards</font></a> &nbsp;&n=
+bsp;&nbsp; <a style=3D"color:#111111; text-decoration: underline;" target=
+=3D"_blank" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xH=
+tlLJoklHjQJhuVaVTVupjjhj30eVollik%3A%2F%2FkLHjkQjkPkWQgLl%2FkLjNtLl%2FOLIkp=
+lL%2FyLjkhgHtpFLKzghju%3FteastGze228282zeXFPFXFokoXDhsitulatGPQTADIOIQTAmRI=
+QTLXG56zc43GNORXRYOQTAXDNQTLQTAGFDVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><=
+font color=3D"#111111">View the web version of this email.</font></a></font=
+></div></td>
+	</tr>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"633">
+  <tr>
+    <td width=3D"269"><div><a target=3D"_blank" rilt=3D"SearsLOGO" href=3D"=
+https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuVaVYVJm=
+klhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"0" height=3D"64" width=
+=3D"270" alt=3D"Sears. Life. Well spent." src=3D"https://a248.e.akamai.net/=
+f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_Week1/200=
+90902_SRS_Solo_Christmas/newlogo2_sears.jpg" align=3D"absbottom"></a></div>=
+</td>
+    <td width=3D"364"><div><a target=3D"_blank" rilt=3D"SearchBox" href=3D"=
+https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuVaVAVJm=
+klhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"0" height=3D"64" width=
+=3D"365" alt=3D"Can't find what you're looking for? SEARCH NOW" src=3D"http=
+s://a248.e.akamai.net/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/20=
+09_September_Week1/20090902_SRS_Solo_Christmas/head_search.jpg" align=3D"ab=
+sbottom"></a></div></td>
+  </tr>
+</table>
+<!-- nav section -->
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"633">
+  <tr>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" rilt=3D"NAV=
+_Appliances" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9x=
+HtlLJoklHjQJhuVaVBVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"0"=
+ alt=3D"Appliances" height=3D"26" width=3D"69" src=3D"https://a248.e.akamai=
+.net/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_Week=
+1/20090902_SRS_Solo_Christmas/topnav_blue_01.jpg"></a></div></td>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" rilt=3D"NAV=
+_Clearance" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xH=
+tlLJoklHjQJhuVaVCVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"0" =
+alt=3D"Clearance" height=3D"26" width=3D"57" src=3D"https://a248.e.akamai.n=
+et/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_Week1/=
+20090902_SRS_Solo_Christmas/topnav_blue_02.jpg"></a></div></td>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" rilt=3D"NAV=
+_Clothing" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHt=
+lLJoklHjQJhuVaVDVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"0" a=
+lt=3D"Clothing" height=3D"26" width=3D"49" src=3D"https://a248.e.akamai.net=
+/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_Week1/20=
+090902_SRS_Solo_Christmas/topnav_blue_03.jpg"></a></div></td>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" rilt=3D"NAV=
+_Electronics" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9=
+xHtlLJoklHjQJhuVaVSRVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"=
+0" alt=3D"Electronics" height=3D"26" width=3D"61" src=3D"https://a248.e.aka=
+mai.net/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_W=
+eek1/20090902_SRS_Solo_Christmas/topnav_blue_04.jpg"></a></div></td>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" rilt=3D"NAV=
+_Home" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJo=
+klHjQJhuVaVSSVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"0" alt=
+=3D"Home" height=3D"26" width=3D"38" src=3D"https://a248.e.akamai.net/f/248=
+/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_Week1/20090902=
+_SRS_Solo_Christmas/topnav_blue_05.jpg"></a></div></td>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" rilt=3D"NAV=
+_Lawn" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJo=
+klHjQJhuVaVSTVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"0" alt=
+=3D"Lawn &amp; Garden" height=3D"26" width=3D"80" src=3D"https://a248.e.aka=
+mai.net/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_W=
+eek1/20090902_SRS_Solo_Christmas/topnav_blue_06.jpg"></a></div></td>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" rilt=3D"NAV=
+_Tools" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJ=
+oklHjQJhuVaVSUVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"0" alt=
+=3D"Tools" height=3D"26" width=3D"36" src=3D"https://a248.e.akamai.net/f/24=
+8/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_Week1/2009090=
+2_SRS_Solo_Christmas/topnav_blue_07.jpg"></a></div></td>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" rilt=3D"NAV=
+_SearsMORE" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xH=
+tlLJoklHjQJhuVaVSWVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img border=3D"0"=
+ alt=3D"More..." height=3D"26" width=3D"50" src=3D"https://a248.e.akamai.ne=
+t/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_Week1/2=
+0090902_SRS_Solo_Christmas/topnav_blue_08.jpg"></a></div></td>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" href=3D"htt=
+ps://sears.rsys4.net/servlet/ff/c?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuVaVgVYBWU=
+SVzgjpLgK"><img border=3D"0" alt=3D"Forward To A Friend" height=3D"26" widt=
+h=3D"103" src=3D"https://a248.e.akamai.net/f/248/47562/14d/ig.rsys4.net/res=
+ponsysimages/sears/2009_September_Week1/20090902_SRS_Solo_Christmas/topnav_=
+blue_09.jpg"></a></div></td>
+    <td valign=3D"top" align=3D"left"><div><a target=3D"_blank" href=3D"htt=
+ps://sears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuVaVSYVupjj=
+hj30eVollik%3A%2F%2FkLHjkQjkPkWQgLl%2FkLjNtLl%2FOLIkplL%2FyLjkhgHtpFLKzghju=
+%3FteastGze228282zeXFPFXFokoXDhsitulatGQTAMBILXBQTLQTLPQTAFFGBmBmQTLzgakuec=
+htuas9colGpsinuOageGusveGNORXRYOQTAXDNQTLQTAGFDVJmklhuLjXpKVWAADATRTVhilXlP=
+iLXJhKLV18"><img border=3D"0" alt=3D"Print This Page" height=3D"26" width=
+=3D"90" src=3D"https://a248.e.akamai.net/f/248/47562/14d/ig.rsys4.net/respo=
+nsysimages/sears/2009_September_Week1/20090902_SRS_Solo_Christmas/topnav_bl=
+ue_10.jpg"></a></div></td>
+  </tr>
+</table>
+<!-- end menu section -->
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"633">
+	<tr>
+		<td valign=3D"top" align=3D"left" width=3D"633">
+			<div><a target=3D"_blank" rilt=3D"CC_SignUp" href=3D"https://sears.rsys4=
+.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuVaVRVJmklhuLjXpKVWAADATRTV=
+hilXlPiLXJhKLV18"><img border=3D"0" align=3D"absbottom" alt=3D"start saving=
+ for Christmas & earn a 3% Reward. It's as easy as:   1. Get your Christmas=
+ Club card.  2. Add value to your card any time - in-store or online. 3. Ge=
+t a 3% reward on your card.*  4. Shop with your card at Sears, Kmart or Lan=
+ds' End. You get the card, we'll add the jingle. SIGN UP NOW. Kmart\Sears C=
+hristmas Club card" height=3D"555" width=3D"633" src=3D"https://a248.e.akam=
+ai.net/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_We=
+ek1/20090902_SRS_Solo_Christmas/SRS_Announce_hero.gif"></a></div></td>
+	</tr>
+</table>
+
+<!-- Bottom Banners -->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"633">
+  <tr>
+    <td align=3D"left" valign=3D"top" width=3D"633"><div><a target=3D"_blan=
+k" rilt=3D"ShopYourWay" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQW=
+WBQBV6v6v9xHtlLJoklHjQJhuVaVSAVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img =
+border=3D"0" align=3D"absbottom" height=3D"67" width=3D"633" alt=3D"Shop Yo=
+ur Way. Where Shopping Revolves Around You 24/7 | sears.com | web2store | 1=
+.800.MY.SEARS* | sears2go | stores | home services" src=3D"https://a248.e.a=
+kamai.net/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September=
+_Week1/20090902_SRS_Solo_Christmas/SRS_082109_Reg_ShopYourWay.jpg"></a></di=
+v></td>
+  </tr>
+</table>
+<!-- legal copy-->
+<table align=3D"center" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" wi=
+dth=3D"633">
+  <tr>
+    <td valign=3D"top" align=3D"left" width=3D"633"><div style=3D"padding:0=
+ 0 0 0px;"><font style=3D"font-size: 11px; line-height: 13px; font-family: =
+Arial, helvetica, verdana, sans-serif; color:#999999;" color=3D"#999999" si=
+ze=3D"1" face=3D"Arial, helvetica, verdana, sans-serif"><br>*Reward offer v=
+alid for Christmas Club Cards activated from 8/16/09 through 10/31/09.<br>
+	Christmas Club card has no expiration date and no fees.  Only Christmas Cl=
+ub cards which have been purchased and activated on or before 10/31/09 will=
+ be eligible to receive the 3% reward.  3% reward will be calculated based =
+upon card balance as of 11:59 pm EST on 11/14/09.  Reward value will be add=
+ed to card by 11/25/09.  Maximum reward value is $100.  Christmas club gift=
+ card cannot be used to purchase third party prepaid or debit cards.  Chris=
+tmas Club card is a gift card that does not allow cash or credit refund exc=
+ept where required by law.  See store associate and card back for additiona=
+l details and restrictions.
+	<br><br>
+      Please add <font color=3D"#354e8c"><strong>sears@value.sears.com</str=
+ong></font> to your address book to ensure our emails reach your inbox. <br>
+      <br>
+      This is an a d v e r t i s e m e n t. Sears shall not be held liable =
+for errors or omissions in pricing. In the event of an error, we will make =
+every effort to accommodate our customers.<br>
+      &nbsp;</font></div></td>
+  </tr>
+</table>
+
+        <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"63=
+3">
+          <tr>
+            <td valign=3D"top" width=3D"88"><div><a target=3D"_blank" rilt=
+=3D"EnergyStarlogo" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQB=
+V6v6v9xHtlLJoklHjQJhuVaVSBVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img alt=
+=3D"Energy Star" align=3D"absbottom" border=3D"0" height=3D"43" width=3D"88=
+" src=3D"https://a248.e.akamai.net/f/248/47562/14d/ig.rsys4.net/responsysim=
+ages/sears/2009_September_Week1/20090902_SRS_Solo_Christmas/SRS_033009_Reg_=
+LogoNrgStar.jpg"></a></div></td>
+            <td valign=3D"top" align=3D"center" width=3D"455"><div><font st=
+yle=3D"font-size: 11px; line-height: 18px; font-family: Arial, helvetica, v=
+erdana, sans-serif; color:#999999;" color=3D"#999999" size=3D"1" face=3D"Ar=
+ial, helvetica, verdana, sans-serif"><a rilt=3D"GiftCard" href=3D"https://s=
+ears.rsys4.net/servlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuVaVSCVJmklhuLjXp=
+KVWAADATRTVhilXlPiLXJhKLV18" target=3D"_blank" style=3D"text-decoration: un=
+derline;"><font color=3D"#354E8C">Give A Gift Card</font></a>
+			| <a href=3D"https://sears.rsys4.net/servlet/ff/c?kLHjkQWWBQBV6v6v9xHtlL=
+JoklHjQJhuVaVgVYBWUSVzgjpLgK" target=3D"_blank" style=3D"text-decoration: u=
+nderline;"><font color=3D"#354E8C">Forward to a Friend</font></a>
+			| <a rilt=3D"FindStore" href=3D"https://sears.rsys4.net/servlet/cc6?kLHj=
+kQWWBQBV6v6v9xHtlLJoklHjQJhuVaVSDVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18" ta=
+rget=3D"_blank" style=3D"text-decoration: underline;"><font color=3D"#354E8=
+C">Find A Store</font></a>
+			| <a rilt=3D"Sears" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWW=
+BQBV6v6v9xHtlLJoklHjQJhuVaVTRVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18" target=
+=3D"_blank" style=3D"text-decoration: underline;"><font color=3D"#354E8C">S=
+hop Sears.com</font></a><br>
+                      <a style=3D"color:#354e8c; text-decoration: underline=
+;" target=3D"_blank" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQ=
+BV6v6v9xHtlLJoklHjQJhuVaVUVupjjhj30eVollik%3A%2F%2FkLHjkQjkPkWQgLl%2FkLjNtL=
+l%2FOLIkplL%2FyLjkhgHtpFLKzghju%3FteastGOsefesenceDenuesXQWRoslGQTAMBILXBQT=
+LQTLPQTAFFGBmBmQTLzgakuechtuas9colGcalpidGteast9zczc696Gltgu0peGHGcalpaignG=
+ze228282zeXFPFXFokoXDhsitulatGNORXRYOQTAXDNQTLQTAGFDVJmklhuLjXpKVWAADATRTVh=
+ilXlPiLXJhKLV18"><font color=3D"#354E8C">Unsubscribe</font></a>
+					  | <a style=3D"color:#354e8c; text-decoration: underline;" target=3D"=
+_blank" rilt=3D"UpdateAccount" href=3D"https://sears.rsys4.net/servlet/cc6?=
+kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuVaVTSVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18=
+"><font color=3D"#354E8C">Update Your Account</font></a>
+					  | <a style=3D"color:#354e8c; text-decoration: underline;" target=3D"=
+_blank" rilt=3D"PrivacyPolicy" href=3D"https://sears.rsys4.net/servlet/cc6?=
+kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuVaVTTVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18=
+"><font color=3D"#354E8C">Privacy Policy</font></a> |=20
+                      <a style=3D"color:#354e8c; text-decoration: underline=
+;" target=3D"_blank" rilt=3D"HaveQuestion" href=3D"mailto:webcenter@custome=
+rservice.sears.com"><font color=3D"#354E8C">Have a Question?</font></a></fo=
+nt></div>
+                <div><img border=3D"0" align=3D"absbottom" alt=3D"" height=
+=3D"15" width=3D"1" src=3D"https://a248.e.akamai.net/f/248/47562/14d/ig.rsy=
+s4.net/responsysimages/sears/2009_September_Week1/20090902_SRS_Solo_Christm=
+as/spacer.gif"></div>
+              <div><font style=3D"font-size: 11px; line-height: 18px; font-=
+family: Arial, helvetica, verdana, sans-serif; color:#999999;" color=3D"#99=
+9999" size=3D"1" face=3D"Arial, helvetica, verdana, sans-serif"><a target=
+=3D"_blank" rilt=3D"MySearsCommunitylogo" href=3D"https://sears.rsys4.net/s=
+ervlet/cc6?kLHjkQWWBQBV6v6v9xHtlLJoklHjQJhuVaVSVJmklhuLjXpKVWAADATRTVhilXlP=
+iLXJhKLV18"><img align=3D"absbottom" border=3D"0" height=3D"30" width=3D"25=
+0" alt=3D"MySears Community&trade;." src=3D"https://a248.e.akamai.net/f/248=
+/47562/14d/ig.rsys4.net/responsysimages/sears/2009_September_Week1/20090902=
+_SRS_Solo_Christmas/MySearsCommunitiLogo.jpg"></a></font></div>
+              <div><img border=3D"0" align=3D"absbottom" alt=3D"" height=3D=
+"6" width=3D"1" src=3D"https://a248.e.akamai.net/f/248/47562/14d/ig.rsys4.n=
+et/responsysimages/sears/2009_September_Week1/20090902_SRS_Solo_Christmas/s=
+pacer.gif"></div>
+              <div><font style=3D"font-size: 11px; line-height: 13px; font-=
+family: Arial, helvetica, verdana, sans-serif; color:#000000;" color=3D"#99=
+9999" size=3D"1" face=3D"Arial, helvetica, verdana, sans-serif">Join an exc=
+iting Community dedicated to Sears customers called MySears Community<br>
+                    <br>
+              </font></div>
+              <div><font style=3D"font-size: 11px; line-height: 18px; font-=
+family: Arial, helvetica, verdana, sans-serif; color:#999999;" color=3D"#99=
+9999" size=3D"1" face=3D"Arial, helvetica, verdana, sans-serif"><img align=
+=3D"absbottom" border=3D"0" height=3D"9" width=3D"1" src=3D"https://a248.e.=
+akamai.net/f/248/47562/14d/ig.rsys4.net/responsysimages/sears/2009_Septembe=
+r_Week1/20090902_SRS_Solo_Christmas/spacer.gif">&copy; 2009 Sears Brands LL=
+C, 3333 Beverly Road, Hoffman Estates, IL 60179<br>
+                      <br>
+                <br>
+              </font></div></td>
+            <td valign=3D"top" width=3D"90"><div><a target=3D"_blank" rilt=
+=3D"LiveGreenerlogo" href=3D"https://sears.rsys4.net/servlet/cc6?kLHjkQWWBQ=
+BV6v6v9xHtlLJoklHjQJhuVaVTUVJmklhuLjXpKVWAADATRTVhilXlPiLXJhKLV18"><img alt=
+=3D"Live Greener" align=3D"absbottom" border=3D"0" height=3D"56" width=3D"9=
+0" src=3D"https://a248.e.akamai.net/f/248/47562/14d/ig.rsys4.net/responsysi=
+mages/sears/2009_September_Week1/20090902_SRS_Solo_Christmas/livegreener_lo=
+go.gif"></a></div></td>
+          </tr>
+        </table>
+
+</center>
+<br><br><img src=3D"http://portal.mxlogic.com/images/transparent.gif" heigh=
+t=3D"3" width=3D"3" border=3D"0">
+</body>
+</html>
+
+--=_reb-r21621284-t4A9E8AB7--
+
+
+--=_reb-r1CBB60A7-t4A9E8AB7--
+

@@ -1,0 +1,85 @@
+<script runat=merc_server>
+
+function readFile(oldFile)
+{
+	// read the file based on the given page name - oldFile will be displayed
+	// to support the old demo store (this is temporary)
+	var pageName = doAction('REQ_GET_FORMVALUE', 'PageName', 'PageName');
+	var pageObj = 'WATPublishDir';
+	var preview = doAction('REQ_GET_FORMVALUE', 'Preview', 'Preview');
+	if (preview && preview == '1')
+		pageObj = 'WATPreviewDir';
+	if (!pageName || pageName == '')
+	{
+		// Remove this once we have WAT fully integrated, this is the old demo
+		pageName = oldFile;
+		pageObj = 'StoreHTML';
+	}
+	var whichFile = doActionEx('DATA_READFILE', pageName, 'FileName', pageName,'ObjectName', pageObj,'FileType','txt');
+	return whichFile;
+}
+
+var hasProducts = false;
+var hasServices = false;
+var allServBDO = doActionBDO('ITEM_GETALLITEMS', 'Locale', 'en');
+if (allServBDO != undefined && allServBDO.GetSize() != 0)
+{
+	for (var k in allServBDO)
+	{
+		if (k == 'RowCount')
+			continue;
+		if (allServBDO[k].Type == 0)
+			hasProducts = true;
+		else if (allServBDO[k].Type == 1)
+			hasServices = true;
+		if (hasProducts == true && hasServices == true)
+			break;
+	}
+}
+
+if (hasProducts == true && hasServices == false)
+{
+	doAction('ST_SET_STATEDATA', 'currentNode', 9000);
+	var theFile = readFile('viewcatalog.htm');
+	var theResult = doActionEx('PAR_PARSE_BUFFER', 'Result', 'document', theFile)
+	write(theResult);
+}
+else if (hasProducts == false && hasServices == true)
+{
+	var theFile = readFile('cust_sched_svcs.htm');
+	var theResult = doActionEx('PAR_PARSE_BUFFER','Result', 'document', theFile)
+	write(theResult);
+}
+else if (hasProducts == true && hasServices == true)
+{
+	<merc_embed>
+	<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+	<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+	<merc_dynamic noshow=true name=mySession action=ST_GET_STATEDATA return=Result SessionID=SessionID>
+	<html>
+	<head>
+	<title>Products or Services?</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	</head>
+
+	<body bgcolor="#FFFFFF">
+	<center>
+	</merc_embed>
+
+	var urlpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","urlfile");
+	var siteid = doActionEx("REQ_GET_FORMVALUE","Result","SiteID","SiteID");
+	var appid = doActionEx("REQ_GET_FORMVALUE","Result","AppID","AppID");
+
+	writebr('<a href="' + urlpath + '?action=viewcatalog&SiteID=' + siteid + '&AppID=shop" target=_new>Products</a>');
+	writebr('<a href="' + urlpath + '?action=sched_svcs&SiteID=' + siteid + '&AppID=shop" target=_new>Services</a>');
+
+	<merc_embed>
+	</center>
+	</body>
+	</html>
+	</merc_embed>
+}
+else
+	writebr('This site does not have any products of a known type.');
+
+</script>

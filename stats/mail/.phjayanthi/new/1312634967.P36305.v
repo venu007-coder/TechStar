@@ -1,0 +1,147 @@
+Return-Path: scottysmith4u@gmail.com
+Received: from mx29.stngva01.us.mxservers.net (204.202.242.73)
+	by mail19b.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 1-0375904966
+	for <jayanthi@altechstar.com>; Sat,  6 Aug 2011 08:49:26 -0400 (EDT)
+Received: from unknown [202.104.149.238] (EHLO mail.topoyo.com)
+	by va1-mx29.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 6583d3e4.546073504.1405427.00-002.va1-mx29.stngva01.us.mxservers.net (envelope-from <test@bta.net.cn>);
+	Sat, 06 Aug 2011 08:49:26 -0400 (EDT)
+X-Spam-Status: Yes, hits=6.4 required=5.0
+	tests=DEAR_FRIEND: 0.858,FORGED_MUA_OUTLOOK: 3.36,MISSING_HEADERS: 0.189,
+	TO_CC_NONE: 0.134,UNCLAIMED_MONEY: 1.92,TOTAL_SCORE: 6.461
+X-Spam-Flag: YES
+X-Spam-Level: ******
+Received: from User ([75.146.223.154])
+	(authenticated user service@topoyo.com)
+	by mail.topoyo.com (Kerio MailServer 6.3.1);
+	Sat, 6 Aug 2011 20:05:04 +0800
+Reply-To: <scottysmith4u@gmail.com>
+From: "Mr. Scott C. Smith"<test@bta.net.cn>
+X-Original-Subject: Dear Friend (UNCLAIMED TWO TRUNK BOXES IN YOUR NAME AT THE AIRPORT) 202.104.149.238
+Subject: **SPAM**  Dear Friend (UNCLAIMED TWO TRUNK BOXES IN YOUR NAME AT THE AIRPORT) 202.104.149.238
+Date: Sat, 6 Aug 2011 09:24:03 -0400
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_011B_01C2A9A6.07B552D6"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2600.0000
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2600.0000
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011080604)]
+X-MAIL-FROM: <test@bta.net.cn>
+X-SOURCE-IP: [202.104.149.238]
+To:undisclosed-recipients:;
+Message-ID:<20110806084926.GA37590@mail19b.g19.rapidsite.net>
+X-SF-Loop: 1
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_011B_01C2A9A6.07B552D6
+Content-Type: text/plain;
+	charset="Windows-1251"
+Content-Transfer-Encoding: 7bit
+
+Dear Friend,
+
+ Please kindly read the attached letter which contains information regarding your unclaimed funds in two trunk boxes at the airport. Thanks
+
+Mr. Scott Carlso Smith
+Assistant Inspection Director
+Hartsfield-Jackson Atlanta International Airport
+
+------=_NextPart_000_011B_01C2A9A6.07B552D6
+Content-Type: application/octet-stream;
+	name="Hi.txt"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+	filename="Hi.txt"
+
+SGksDQogDQpJIGFtIE1yLiBTY290dCBDYXJsc29uIFNtaXRoIHRoZSBBc3Np
+c3RhbnQgRGlyZWN0b3IgSW5zcGVjdGlvbiBVbml0L1VuaXRlZCBOYXRpb25z
+IEluc3BlY3Rpb24gQWdlbnQgaW4gSGFydHNmaWVsZCBBdGxhbnRhIEludGVy
+bmF0aW9uYWwgQWlycG9ydCBHZW9yZ2lhIFVTQS4gRHVyaW5nIG91ciByZWNl
+bnQgd2l0aGhlbGQgcGFja2FnZSByb3V0aW5lIGNoZWNrIGF0IHRoZSBBaXJw
+b3J0IFN0b3JhZ2UgVmF1bHQsIEkgZGlzY292ZXJlZCBhbiBhYmFuZG9uZWQg
+c2hpcG1lbnQgZnJvbSBhIERpcGxvbWF0IGZyb20gTG9uZG9uLCBVbml0ZWQg
+S2luZ2RvbSB1bmRlciBzaGlwIGZvcndhcmRlciBmcm9tIEouRiBLZW5uZWR5
+IEludCBBaXJwb3J0IHRvIG91ciBmYWNpbGl0eSBoZXJlIGluIEF0bGFudGEg
+YW5kIHdoZW4gc2Nhbm5lZCBpdCByZXZlYWxlZCBhbiB1bmRpc2Nsb3NlZCBz
+dW0gb2YgbW9uZXkgaW4gdHdvIE1ldGFsIFRydW5rIEJveGVzIHdlaWdoaW5n
+IGFwcHJveGltYXRlbHkgMjVrZyBlYWNoLiBUaGUgY29uc2lnbm1lbnQgd2Fz
+IGFiYW5kb25lZCBiZWNhdXNlIHRoZSBDb250ZW50cyBvZiB0aGUgY29uc2ln
+bm1lbnQgd2FzIG5vdCBwcm9wZXJseSBkZWNsYXJlZCBieSB0aGUgY29uc2ln
+bmVlIGFzIJNNT05FWZQgcmF0aGVyIGl0IHdhcyBkZWNsYXJlZCBhcyBwZXJz
+b25hbCBlZmZlY3QgdG8gYXZvaWQgZGl2ZXJzaW9uIGJ5IHRoZSBTaGlwcGlu
+ZyBBZ2VudCBhbmQgYWxzbyB0aGUgaW5hYmlsaXR5IG9mIHRoZSBkaXBsb21h
+dCB0byBwYXkgZm9yIHRoZSBVbml0ZWQgU3RhdGVzIE5vbiBJbnNwZWN0aW9u
+IENoYXJnZXMgd2hpY2ggaXMgYWJvdXQgJDMsODAwIFVTRC4NCiANCk9uIG15
+IGFzc3VtcHRpb24sIGVhY2ggb2YgdGhlIGJveGVzIHdpbGwgY29udGFpbiBt
+b3JlIHRoYW4gJDEgTWlsbGlvbiB0byAkMS41IE1pbGxpb24gZWFjaCBhbmQg
+dGhlIGNvbnNpZ25tZW50IGlzIHN0aWxsIGxlZnQgaW4gb3VyIFN0b3JhZ2Ug
+SG91c2UgaGVyZSBhdCB0aGUgQXRsYW50YSBJbnQgQWlycG9ydCB0aWxsIGRh
+dGUgd2hpY2ggd2FzIGRlbGl2ZXJlZCB0aHJvdWdoIGEgcmVnaXN0ZXJlZCBz
+aGlwcGluZyBDb21wYW55IGtub3duIENvdXJpZXIgRGlzcGF0Y2ggU2Vydmlj
+ZSBMaW1pdGVkIGEgZGl2aXNpb24gb2YgVHJhbiBndWFyZCBMVEQuIFBsZWFz
+ZSBiZSBpbmZvcm1lZCB0aGF0IHRoZSBDb25zaWdubWVudCBhcmUgdHdvIG1l
+dGFsIGJveGVzIHdpdGggd2VpZ2h0IG9mIGFib3V0IDI1a2cgZWFjaCAoSW50
+ZXJuYWwgZGltZW5zaW9uOiBXNjEgeCBIMTU2IHggRDczIChjbSkuIEVmZmVj
+dGl2ZSBjYXBhY2l0eTogMTgwIEwuKSBBcHByb3hpbWF0ZWx5LCB0aGUgZGV0
+YWlscyBvZiB0aGUgY29uc2lnbm1lbnQgaW5jbHVkaW5nIHlvdXIgbmFtZSwg
+eW91ciBlbWFpbCBhZGRyZXNzIGFuZCB0aGUgb2ZmaWNpYWwgZG9jdW1lbnQg
+ZnJvbSB0aGUgVW5pdGVkIE5hdGlvbnMgb2ZmaWNlIGluIEdlbmV2YSBhcmUg
+dGFnZ2VkIG9uIHRoZSBNZXRhbCBUcnVuayBib3hlcy4NCiANCkhvd2V2ZXIs
+IHRvIGVuYWJsZSBtZSBjb25maXJtIGlmIHlvdSBhcmUgdGhlIGFjdHVhbCBy
+ZWNpcGllbnQgb2YgdGhpcyBjb25zaWdubWVudCBhcyB0aGUgYXNzaXN0YW50
+IGRpcmVjdG9yIG9mIHRoZSBJbnNwZWN0aW9uIFVuaXQsIEkgd2lsbCBhZHZp
+c2UgeW91IHByb3ZpZGUgeW91ciBjdXJyZW50IFBob25lIE51bWJlciBhbmQg
+RnVsbCBBZGRyZXNzLCB0byBlbmFibGUgbWUgY3Jvc3MgY2hlY2sgaWYgaXQg
+Y29ycmVzcG9uZHMgd2l0aCB0aGUgYWRkcmVzcyBvbiB0aGUgb2ZmaWNpYWwg
+ZG9jdW1lbnRzIGluY2x1ZGluZyB0aGUgbmFtZSBvZiBuZWFyZXN0IEFpcnBv
+cnQgYXJvdW5kIHlvdXIgY2l0eSBhbmQgb3RoZXIgZGV0YWlscy4gUGxlYXNl
+IG5vdGUgdGhhdCB0aGlzIGNvbnNpZ25tZW50IGlzIHN1cHBvc2VkIHRvIGhh
+dmUgYmVlbiByZXR1cm5lZCB0byB0aGUgVW5pdGVkIFN0YXRlcyBUcmVhc3Vy
+eSBEZXBhcnRtZW50IGFzIHVuY2xhaW1lZCBkZWxpdmVyeSBkdWUgdG8gdGhl
+IGRlbGF5cyBpbiBjb25jbHVkaW5nIHRoZSBjbGVhcmFuY2UgcHJvY2Vzc2Vz
+IHNvIGFzIGEgcmVzdWx0IG9mIHRoaXMsIEkgd2lsbCBub3QgYmUgYWJsZSB0
+byByZWNlaXZlIHlvdXIgZGV0YWlscyBvbiBteSBvZmZpY2lhbCBlbWFpbCBh
+Y2NvdW50LiBTbyBpbiBvcmRlciB3b3JkcyB0byBlbmFibGUgbWUgY3Jvc3Mg
+Y2hlY2sgeW91ciBkZXRhaWxzLCBJIHdpbGwgYWR2aXNlIHlvdSBzZW5kIHRo
+ZSByZXF1aXJlZCBkZXRhaWxzIHRvIG15ICJTRUNVUkVEIiBlbWFpbCBhZGRy
+ZXNzIHdoaWNoIGlzICggc2NvdHR5c21pdGg0dUBnbWFpbC5jb20gKSBmb3Ig
+cXVpY2sgcHJvY2Vzc2luZyBhbmQgcmVzcG9uc2UuIE9uY2UgSSBjb25maXJt
+IHlvdSBhcyB0aGUgYWN0dWFsIHJlY2lwaWVudCBvZiB0aGUgdHJ1bmsgYm94
+ZXMsIEkgY2FuIGdldCBldmVyeXRoaW5nIGNvbmNsdWRlZCB3aXRoaW4gMy02
+IGhvdXJzIHVwb24geW91ciBhY2NlcHRhbmNlIGFuZCBwcm9jZWVkIHRvIHlv
+dXIgYWRkcmVzcyBmb3IgZGVsaXZlcnkuDQoNCkxhc3RseSwgYmUgaW5mb3Jt
+ZWQgdGhhdCB0aGUgcmVhc29uIEkgaGF2ZSB0YWtlbiBpdCB1cG9uIG15c2Vs
+ZiB0byBjb250YWN0IHlvdSBwZXJzb25hbGx5IGFib3V0IHRoaXMgYWJhbmRv
+bmVkIHNoaXBtZW50IGlzIGJlY2F1c2UgSSB3YW50IHVzIHRvIHRyYW5zYWN0
+IHRoaXMgYnVzaW5lc3MgYW5kIHNoYXJlIHRoZSBtb25leSBlcXVhbGx5IHNp
+bmNlIHRoZSBjb25zaWdubWVudCBoYXMgbm90IHlldCBiZWVuIHJldHVybmVk
+IHRvIHRoZSBVbml0ZWQgc3RhdGVzIFRyZWFzdXJ5IERlcGFydG1lbnQgYWZ0
+ZXIgYmVpbmcgYWJhbmRvbmVkIGJ5IHRoZSBzaGlwcGVyIHNvIGltbWVkaWF0
+ZWx5IHRoZSBjb25maXJtYXRpb24gaXMgbWFkZSwgSSB3aWxsIHBheSBmb3Ig
+dGhlIFVuaXRlZCBTdGF0ZXMgTm9uIEluc3BlY3Rpb24gRmVlIGFuZCBhcnJh
+bmdlIGZvciB0aGUgYm94ZXMgdG8gYmUgbW92ZWQgb3V0IG9mIHRoaXMgQWly
+cG9ydCB0byB5b3VyIGFkZHJlc3MuIE9uY2Ugd2UgYXJlIHRocm91Z2ggd2l0
+aCB0aGlzIHByb2Nlc3MsIEkgd2lsbCBkZXBsb3kgdGhlIHNlcnZpY2VzIG9m
+IGEgc2VjdXJlZCBzaGlwcGluZyBDb21wYW55IGdlYXJlZCB0b3dhcmRzIHBy
+b3ZpZGluZyB0aGUgc2VjdXJpdHkgaXQgbmVlZHMgdG8geW91ciBkb29yc3Rl
+cC4gT3IgSSBjYW4gYnJpbmcgaXQgYnkgbXlzZWxmIHRvIGF2b2lkIGFueSBt
+b3JlIHRyb3VibGUuIEJ1dCBJIHdpbGwgc2hhcmUgaXQgNTAlLzUwJSB3aXRo
+IHlvdS4gQnV0IHlvdSBoYXZlIHRvIGFzc3VyZSBtZSBvZiBteSA1MCUgc2hh
+cmUuDQogDQpCZWxvdyBhcmUgbXkgZGlyZWN0IHRlbGVwaG9uZSBudW1iZXJz
+IGFzIEkgd2FpdCB0byBoZWFyIGZyb20geW91IHVyZ2VudGx5IGlmIHlvdSBh
+cmUgc3RpbGwgYWxpdmUuDQogDQpNci4gU2NvdHQgQ2FybHNvbiBTbWl0aA0K
+QXNzaXN0YW50IEluc3BlY3Rpb24gRGlyZWN0b3INCkhhcnRzZmllbGQgQXRs
+YW50YSBJbnRlcm5hdGlvbmFsIEFpcnBvcnQNCkF0bGFudGEsIEdBIDMwMzQ5
+LTg2NDINClRlbDogKDQwNCkgODY1LTMyMjUsICg2NzgpIDU5MC0wNzcyDQpQ
+cml2YXRlIEVtYWlsOiAoIHNjb3R0eXNtaXRoNHVAZ21haWwuY29tICkNCg0K
+Ti5COyBUSEUgVVMgQ1VTVE9NUyBVTFRSQSBTQ0FOIFJFUE9SVCBPTiBUSEUg
+VFJVTksgQk9YRVMgRlJPTSBKRiBLRU5FRFkgQUlSUE9SVCBORVcgWU9SSyBX
+SUxMIEJFIFNFTlQgVE8gWU9VIElOIE1ZIE5FWFQgUkVTUE9OU0UgSU1NRURJ
+QVRFTFkgSSBIQVZFIENPTkZJUk1FRCBZT1UgQVMgVEhFIEFDVFVBTCBSRUNJ
+UElFTlQgT0YgVEhFIENPTlNJR05NRU5ULiBUSEFOS1M=
+
+------=_NextPart_000_011B_01C2A9A6.07B552D6--
+

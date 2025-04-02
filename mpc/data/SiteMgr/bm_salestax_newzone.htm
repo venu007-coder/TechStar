@@ -1,0 +1,207 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Begin
+
+function validateForm() 
+{
+	var validCountry = (document.editTaxZone.country && document.editTaxZone.country[document.editTaxZone.country.selectedIndex].value != "");
+	var validRegion = (document.editTaxZone.region && document.editTaxZone.region[document.editTaxZone.region.selectedIndex].value != "" );
+	var validSubRegion = (document.editTaxZone.subregion && document.editTaxZone.subregion.value != "");
+	var result = true;
+	//alert(" validCountry="+validCountry+ "\n validRegion="+validRegion+ "\n validSubRegion="+validSubRegion);
+
+	if (validSubRegion && (!validRegion || !validCountry)){
+		alert("You must have a valid Country and Region if you enter a Sub-region.");
+		result = false;
+	}
+	else
+	if (validRegion && !validCountry)
+	{
+		alert("You must have a valid Country if you select a Region.");
+		result = false;
+	}
+	else
+	if (!validCountry)
+	{
+		alert("You must select a Country.");
+		result = false;
+	}
+
+	if (result == true) 
+	{
+		//alert("Submitting now... ");
+		opener.parent.CloseWinSubmitForm('L','bm_salestax.htm','mainFrame', document.editTaxZone );
+		
+	}
+
+}
+// End -->
+</SCRIPT>
+
+</head>
+
+
+<body class="bkgrd-main-items" onLoad=document.editTaxZone.country.focus()>
+
+<div align="center"> 
+<p>
+<form action="" method="post" name="editTaxZone" onSubmit="javascript:void(opener.parent.CloseWinSubmitForm('L','bm_salestax.htm','mainFrame', document.editTaxZone ))">
+
+<SCRIPT runat="merc_server">
+
+// INITIALIZE THE LANGUAGE LOCALE TO ENGLISH, FOR NOW. WE WILL NEED TO READ 
+// THE DEFAULT LOCALE FROM A CONFIG FILE LATER, BUT FOR NOW IT WILL BE HARD-CODED.
+var default_locale = "en";
+
+
+	var theRowID= doAction('REQ_GET_FORMVALUE', "main_id", "main_id");
+	var country= doAction('REQ_GET_FORMVALUE', "main_name", "main_name");
+	var region= doAction('REQ_GET_FORMVALUE', "region", "region");
+	var subRegion= doAction('REQ_GET_FORMVALUE', "subregion", "subregion");
+	var shippingTaxFlag= doAction('REQ_GET_FORMVALUE', "shipping_tax", "shipping_tax");
+	
+	var incJsFile = doActionEx('DATA_READFILE','tax_pr.js', 'FileName', 'tax_pr.js','ObjectName','Site','FileType','txt');
+	eval (incJsFile);
+	
+	loadTaxCountryAndRegion();
+
+	if (theRowID)
+	{
+		writeln("<p><span class=\"dialog-title\">Edit Sales Tax Zone</span></p>")
+		writeln("	  <INPUT TYPE=\"HIDDEN\" NAME=\"main_id\" VALUE=\"" + theRowID + "\">");
+		writeln("	  <INPUT TYPE=\"HIDDEN\" NAME=\"tax_zone_action\" VALUE=\"UPDATE_TAX_ZONE\">");
+
+	}
+	else
+	{
+		writeln("<p><span class=\"dialog-title\">New Sales Tax Zone</span></p>")
+		writeln(" <INPUT TYPE=\"HIDDEN\" NAME=\"tax_zone_action\" VALUE=\"NEW_TAX_ZONE\">");
+	}
+</SCRIPT>
+<script language=javascript>
+	function reloadList(selectedOption)
+	{
+		if(!selectedOption.value)
+			document.editTaxZone.noneSelected.value = selectedOption.text
+			
+		opener.parent.SubmitForm ('L', 'bm_salestax_newzone.htm',self.name, document.editTaxZone);
+	}
+</script>
+<input type="hidden" name="noneSelected" value="">
+<table width="400" border="1" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td width="43%" nowrap class="table-header">Country:</td>
+      <td width="57%"> 
+        <div align="right"><span class="general-label">&nbsp;Select: </span> 
+
+		<SCRIPT runat="merc_server">
+		var countrySelected = doAction('REQ_GET_FORMVALUE', 'country', 'country');
+		var noneSelected = doAction('REQ_GET_FORMVALUE', 'noneSelected', 'noneSelected');
+		if (!countrySelected)
+			countrySelected = country;
+		writeln("<SELECT NAME=\"country\" onchange=\"reloadList(this.options[this.selectedIndex]);\">");
+		writeln("<OPTION VALUE=\"\">None</OPTION>");
+		var SelectedFlag="";
+		for (var i=0; i < numCountries; i++)
+		{
+			if ((countrySelected && countrySelected == CountryList[i].ShortName) ||
+				(noneSelected && noneSelected == CountryList[i].LongName))
+				SelectedFlag=" SELECTED ";
+			else
+				SelectedFlag=" ";
+				
+			writeln("<OPTION VALUE=\"" + CountryList[i].ShortName + "\"" + SelectedFlag + ">" + CountryList[i].LongName + "</OPTION>");
+		}
+
+		if (noneSelected && noneSelected == "__________________")
+			SelectedFlag=" SELECTED ";
+		else
+			SelectedFlag=" ";
+		writeln("<OPTION VALUE=\"\"" + SelectedFlag + ">__________________</OPTION>\n</SELECT>");
+
+		</SCRIPT>		   
+
+		</div>
+      </td>
+    </tr>
+    <tr> 
+      <td width="43%" nowrap class="table-header">Region (state, province...):<br>
+        <span class="instr-note"><font color="#FFFFFF">(Requires country above)</font></span></td>
+      <td width="57%"> 
+        <div align="right"><span class="general-label">&nbsp;Select: </span>
+        
+<SCRIPT runat="merc_server">
+	write("<SELECT NAME=\"region\">\n<OPTION VALUE=\"\">None</OPTION>");
+	
+	var useRegion = "";
+	if (countrySelected)
+	{
+		for (var i=0; i < numCountries && useRegion.length <= 0; i++)
+		{
+			if (CountryList[i].ShortName == countrySelected)
+				useRegion = CountryList[i].ID;
+		}
+	}
+	for (var i=0; i < numRegions; i++)
+	{
+		if (region == RegionList[i].ShortName)
+			SelectedFlag=" SELECTED ";
+		else
+			SelectedFlag=" ";
+
+		if (useRegion.length <= 0 || useRegion == RegionList[i].CountryId)
+			writeln("<OPTION VALUE=\"" + RegionList[i].ShortName + "\"" + SelectedFlag + ">" + RegionList[i].LongName + "</OPTION>");
+	}
+
+	writeln("<OPTION VALUE=\"\">__________________</OPTION>\n</SELECT>");
+
+</SCRIPT>
+
+		</div>
+      </td>
+    </tr>
+    <tr> 
+      <td width="43%" nowrap class="table-header" height="17">Sub-region (city...):<br>
+        <span class="instr-note"><font color="#FFFFFF">(Requires country &amp; 
+        region above)</font></span></td>
+      <td width="57%"> 
+        <div align="right">
+		<SCRIPT runat="merc_server">
+		if (subRegion && subRegion != "--")
+		{
+			writeln("<input type=\"text\" name=\"subregion\" value=\"" + subRegion + "\"> ");
+		}
+		else
+		{
+			writeln("<input type=\"text\" name=\"subregion\" >");
+		}
+		</SCRIPT>
+
+		</div>
+      </td>
+    </tr>
+  </table>
+  
+
+  <p><span class="general-label">
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<a href="javascript:void(opener.parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SALESTAX_ADDZONE+SoftCart+{helpversion}+en-us', 'Alane'));"> 
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" name="help" alt="Help" ></a>&nbsp;&nbsp;
+<!--END HELP WINDOW LINK-->  
+  <a href="javascript:void(0);" onClick="javascript:window.close()"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_cancel.gif" width="90" height="21" border=0></a>&nbsp;&nbsp; 
+    <a href="javascript:validateForm()" ><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" width="90" height="21" border=0></a></span> </p>
+  </form>
+  </p>
+</div>
+</body>
+</html>

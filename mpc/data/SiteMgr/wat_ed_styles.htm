@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT SRC="SiteEditor.js" LANGUAGE="JavaScript"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+	var winName = 'ed_style_popup';
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+</SCRIPT>
+
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" bgcolor="#CCCCCC"  
+	background="/cgi-docs/Mercantec/PC_F_6.6.1/images/stripeback2.gif" onLoad="closeChildWin();">
+<table width="95%" cellpadding="2" cellspacing="0" border="0" height="312" bgcolor="#CCCCCC" class="table-bkgrd-main" align="center">
+ <tr>
+     <td align="left"> 
+        <p class="page-title">Styles</p></td>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<td align="right"> <a href="javasc
+		ript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_STYLES+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help on Styles" align="right"></a></td><!--END HELP WINDOW LINK-->
+</tr>
+
+  <tr valign="top"> 
+    <td colspan="2"> 
+      
+<p><span class="page-title"></span></p>     <table width="53%" border="1" align="center" cellspacing="2" cellpadding="4">
+        <tr> 
+          <td height="114"> 
+            
+<div align="center"><font size="2"><b><font face="Arial, Helvetica, sans-serif">Current 
+        Base Style:</font></b></font><br>
+<br>
+ 
+	<SCRIPT RUNAT="merc_server">
+		var cs_inc = doActionEx	('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+								'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+		var seObj = generateSEObjects ('');
+		write (generateBaseStyleHeaderHTML (seObj.pageObjArray[gBASE_PAGE].Style, 'wat_ed_styles.htm'));
+	</SCRIPT>
+	<p></div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <center>
+        <b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        Styles Used</font></b> 
+        <a href="javascript:parent.SubmitForm ('L', 'wat_ed_styles2.htm', 'mainFrame', '');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btn_listbypage_sm.gif" border="0" width="106" height="27" alt="Show style used on each page" align="absmiddle"></a> 
+      </center><br>
+      <table width="86%" border="1" align="center" cellpadding="2">
+        <tr class="table-header"> 
+          <td width="24%" class="field-label" height="15"> 
+            <div align="center">Select</div>
+          </td>
+          <td colspan="2" class="field-label" height="15"> 
+            <div align="center">Style</div>
+          </td>
+          <td width="14%" class="field-label" height="15"> 
+            <div align="center">Custom</div>
+          </td>
+          <td width="32%" class="field-label" height="15"> 
+            <div align="center">Pages </div>
+          </td>
+        </tr>
+        <SCRIPT RUNAT="merc_server">
+			var stylesList = new Array(), stylesKey = new Array();
+			for (var n = 0; n < seObj.pageList.length; n++)
+			{
+				if (!stylesList [seObj.pageObjArray[seObj.pageList[n]].Style])
+				{
+					stylesList [seObj.pageObjArray[seObj.pageList[n]].Style] = "";
+					stylesKey.push (seObj.pageObjArray[seObj.pageList[n]].Style);
+				}
+				stylesList [seObj.pageObjArray[seObj.pageList[n]].Style] += seObj.pageList[n] + "<br>";
+			}
+			
+			// get a list of all custom styles, and compare it against the
+			// list of used styles to display unused custom styles
+			var custStyles = getThemeStyleList (true, false, true);
+			for (var n = 0; n < custStyles.styles.customStyles.length; n++)
+			{
+				if (!stylesList [custStyles.styles.customStyles[n]])
+				{
+					stylesList [custStyles.styles.customStyles[n]] = gNONE + "<br>";
+					stylesKey.push (custStyles.styles.customStyles[n]);
+				}
+			}
+   
+			for (var n = 0; n < stylesKey.length; n++)
+			{
+				stylesList [stylesKey[n]] = stylesList [stylesKey[n]].substr (0, stylesList [stylesKey[n]].lastIndexOf('<br>'))
+				write ("<tr><td width='24%' height='15'><div align='center'>");
+				write ("<a href='javascri"+
+						"pt:void(0)' onClick = \"submitToWindow('wat_ed_styles.htm', '"+stylesKey[n]+"', '', '"+
+						stylesList [stylesKey[n]]+"', '"+gSTYLE_EDIT_PAGE+"', '495', '700');\">"+
+						"<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/edit_sm.gif' border='0' width='60' height='19' alt='Edit this style'></a><br>");
+				if (stylesList [stylesKey[n]] != gNONE)	
+					write ("<a href='javascri"+
+							"pt:void(0)' onClick = \"submitToWindow('wat_ed_styles.htm', '"+stylesKey[n]+"', '', '"+
+							stylesList [stylesKey[n]]+"', '"+gSTYLE_SELECT_PAGE+"', '570', '670');\">"+
+							"<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/replace_sm.gif' border='0' width='60' height='19' alt='Replace this style'></a><br>");
+				else
+					write ("<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/replace_smbw.gif' border='0' width='60' height='19' alt='Disabled'><br>");
+				if (stylesKey[n].indexOf("SC_") == 0 && stylesList [stylesKey[n]].indexOf(gBASE_PAGE) < 0)
+					write ("<a href=\"javascri"+
+						"pt:void(deleteItem('wat_ed_styles.htm', '"+stylesKey[n]+"', '', '', '"+
+						stylesList [stylesKey[n]]+"'))\">"+
+						"<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/delete_sm.gif' border='0' width='60' height='19' alt='Delete this style'></a>");
+				else
+					write ("<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/delete_smbw.gif' border='0' width='60' height='19' alt='Disabled'>");
+				write ("</div></td><td width='40%' height='37'>");
+				write (generateStyleHTML (stylesKey[n]));
+				myStyle = stylesKey[n]
+				if ((bCustom = myStyle.indexOf("SC_") == 0) || (myStyle.indexOf("SS_") == 0))
+					myStyle = myStyle.slice (3);
+				write ("</td><td width='20%' height='15' nowrap>" + myStyle.substr (0, myStyle.lastIndexOf('.')) + "</td>"+
+					  "<td width='14%' height='15'> <div align='center'>");
+				if (bCustom)
+					write ("<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif' width='12' height='12'>");
+				else
+					write("&nbsp;");
+				write ("</div></td>"+
+					  "<td width='32%' height='15' nowrap><p>"+stylesList [stylesKey[n]]+"</p></td></tr>");
+			}
+        </SCRIPT>
+      </table>
+      <p>&nbsp; </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

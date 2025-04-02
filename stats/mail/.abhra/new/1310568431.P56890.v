@@ -1,0 +1,68 @@
+Return-Path: jobs@iapposite.com
+Received: from mx25.stngva01.us.mxservers.net (204.202.242.72)
+	by mail19a.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 0-0453748430
+	for <abhra@altechstar.com>; Wed, 13 Jul 2011 10:47:10 -0400 (EDT)
+Received: from unknown [24.249.248.181] (EHLO mail.appositesolutions.com)
+	by va1-mx25.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id eefad1e4.673176480.614548.00-004.va1-mx25.stngva01.us.mxservers.net (envelope-from <apposite.bounce@gmail.com>);
+	Wed, 13 Jul 2011 10:47:10 -0400 (EDT)
+Received: by mail.appositesolutions.com (Postfix, from userid 30)
+	id A799ACEDF1; Wed, 13 Jul 2011 08:53:22 +0000 (UCT)
+Date: Wed, 13 Jul 2011 09:53:22 +0100
+To: abhra@altechstar.com
+From: Apposite Solutions <jobs@iapposite.com>
+Subject: Oracle OMS( Outage Management System) Consultant
+Message-ID: <e7658f05c34cd3317073a21e4603a7f3@www.appositesolutions.com>
+X-Priority: 3
+X-Mailer: PHPMailer [version 1.72]
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011071322)]
+X-MAIL-FROM: <apposite.bounce@gmail.com>
+X-SOURCE-IP: [24.249.248.181]
+X-SF-Loop: 1
+
+<p><font class=3D"Apple-style-span" face=3D"Tahoma"><span class=3D"Apple-=
+style-span" style=3D"border-collapse: collapse;"> </span></font></p>
+<p><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-span"=
+>Greetings!!</font></span></p>
+<p><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-span"=
+> </font></span><font class=3D"Apple-style-span" face=3D"Tahoma">
+<p><span style=3D"font-family: Tahoma; ">Warm regards to you.</span></p>
+<p><span style=3D"font-family: Tahoma; ">We have an immediate job opening=
+ with our direct client. Kindly send resume along with contact informatio=
+n.</span></p>
+</font><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-s=
+pan"> </font></span><font class=3D"Apple-style-span" face=3D"Tahoma">
+<p><span style=3D"font-family: Tahoma; ">Location : Connecticut</span></p=
+>
+</font><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-s=
+pan">  </font></span><font class=3D"Apple-style-span" face=3D"Tahoma">
+<p><span style=3D"font-family: Tahoma; ">Duration : Long Term</span></p>
+<p><span style=3D"font-family: Tahoma; ">Rate : Open</span></p>
+<p>&nbsp;</p>
+</font><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-s=
+pan">
+<p><u><b>Description</b></u></p>
+</font></span></p>
+<div><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-spa=
+n">Oracle OMS( Outage Management System) expert with Upgrade experience&n=
+bsp;</font><font class=3D"Apple-style-span">from v1.7.10 to NMS v1.10 or =
+1.11.</font></span></div>
+<div><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-spa=
+n">Mid- level resource.</font></span></div>
+<p><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-span"=
+>Upgrade experience</font><span class=3D"Apple-style-span">&nbsp;</span><=
+font class=3D"Apple-style-span"> </font></span><font class=3D"Apple-style=
+-span" face=3D"Tahoma">
+<p><span style=3D"font-family: Tahoma; ">send response to jobs@iapposite.=
+com</span></p>
+<p><span style=3D"font-family: Tahoma; ">&nbsp;</span></p>
+<p><span style=3D"font-family: Tahoma; ">Thanks,</span></p>
+<p><span style=3D"font-family: Tahoma; ">Apposite Solutions Inc(An Idhaso=
+ft Company)</span></p>
+<p><span style=3D"font-family: Tahoma; ">To unsubscribe or update your re=
+cords, Click here</span><font class=3D"Apple-style-span">&nbsp;</font></p=
+>
+</font></p>

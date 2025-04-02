@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Wizard - Publish</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" class="penda-bkgrd" 
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg9), 
+		new Array (parent.topFrame.document.images.wizimg1, 
+					parent.topFrame.document.images.wizimg2, 
+					parent.topFrame.document.images.wizimg3, 
+					parent.topFrame.document.images.wizimg4, 
+					parent.topFrame.document.images.wizimg5,
+					parent.topFrame.document.images.wizimg6,
+					parent.topFrame.document.images.wizimg7,
+					parent.topFrame.document.images.wizimg8));">
+
+<form name="commerce" action="javascript:void(0);">
+<script runat="merc_server">
+	var drawer = doAction('ST_GET_STATEDATA', 'DrawerSelected', 'DrawerSelected');
+	if (drawer)
+		write('<input type="hidden" name="DrawerSelected" value="'+drawer+'">');
+</script>
+	<input type="hidden" name="WizState" value="9">
+	<input type="hidden" name="LastPage" value="comwiz_9">
+</form>
+
+<table width="625" border="0" cellpadding="4" cellspacing="0" height="152" align="center">
+  <tr bgcolor="#FFFFCC"> 
+    <td width="21%" height="25" ><span class="page-title">&nbsp;Finished</span></td>
+    <td width="79%" height="25" > 
+ 
+	<div align="right">
+	<!--HELP WINDOW LINK-->
+	<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+	<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_RTL_DONE+SoftCart+{helpversion}+en-us', 'Alane'));">
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a>
+	<!--END HELP WINDOW LINK-->
+
+	<a href="javascript:parent.SubmitForm ('WIZ_WizardBack', 'comwiz_8.htm','mainFrame', document.commerce);">
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border="0" alt="Back"></a>
+
+	<a href="javascript:parent.SubmitForm ('WIZ_WizardNext', 'desktop_wat_frameset.htm','', document.commerce);">
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Exit_Nbtn_base2.gif" width="86" height="30" border="0" alt="Exit"></a>
+	
+	<a href="javascript:parent.SubmitForm ('WIZ_Publish', 'desktop_frameset.htm','', document.commerce);">
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Publish_Nbtn_base.gif" width="86" height="30" border="0" alt="Publish site to world wide web"></a>
+
+	</div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFCC" valign="top"> 
+    <td height="147" colspan="2" class="table-bkgrd-main"> 
+      <div align="left"></div>
+      <blockquote>
+        <div align="left"><br>
+          <font size="2" face="Arial, Helvetica, sans-serif"><P><b>Congratulations!</b> You have completed the PowerRetail Wizard and set up your store to display items, accept purchases, and handle tax and shipping.  Now, to take your store live and enable shoppers to begin purchasing items from your store, you will need to publish your website.  To publish your store, please click on the "Publish" button above.</p>
+<p>Once your store has been generated you will be returned to the PowerManager page where you can begin to maintain your newly created store.</p>
+<p>NOTE:  If you choose to publish your store later (clicking on the Exit button), you will need to enter the PowerWebBuilder editor to complete the retail set up process.</p></font></div>
+</blockquote>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

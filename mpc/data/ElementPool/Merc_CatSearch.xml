@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/u/web/altec2/mpc/data/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_CatSearch</TYPE>
+	<GLOBAL TYPE="never"></GLOBAL>
+	<UIGRAPHIC></UIGRAPHIC>
+	<UITEXT></UITEXT>
+	<!-- No delete -->
+	<PERMISSIONS>666</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="width">
+			<VALUE>400</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE>600</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="style">
+			<VALUE>text-body</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="btnstyle">
+			<VALUE>btn-shopperbackground</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="securebtnstyle">
+			<VALUE>secure-btn-shopperbackground</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="btntextstyle">
+			<VALUE>btn-shoppertext</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="maxitemsperpage">
+			<VALUE>5</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="images">
+			<VALUE>Yes</VALUE><VALUE>No</VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+		var commonScriptFile = doActionEx('DATA_READFILE', 'common.js', 'FileName', 
+					'common.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+		eval (commonScriptFile);
+
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('z-index:'+merc_zindex+';">');
+
+			var mode = doAction("ST_GET_STATEDATA", "PE_OutputMode", "PE_OutputMode");
+			write('<scr');
+				writeln('ipt runat="merc_server">');
+			writeln("var urlpath = doAction('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SiteUrl');");
+			writeln("var sessionID = doAction('ST_GET_STATEDATA', 'SessionID', 'SessionID');");
+			writeln("var siteID = doAction('REQ_GET_FORMVALUE', 'SiteID', 'SiteID');");
+			writeln("var appID = doAction('REQ_GET_FORMVALUE', 'AppID', 'AppID');");
+			writeln("var searchText = doAction('REQ_GET_FORMVALUE', 'SearchText', 'SearchText');");
+			writeln('var itemstart = doActionEx("REQ_GET_FORMVALUE", "Result", "ItemStart", "ItemStart");');
+			writeln('if (!itemstart)');
+			writeln('	itemstart = 0;');
+			writeln('else');
+			writeln('	itemstart = parseInt(itemstart);');
+
+			writeln('var more=false;');
+
+			writeln('//include Formatting Library');
+			writeln("var cs_inc = doActionEx('DATA_READFILE', 'FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName', 'JS_SRC', 'FileType', 'txt');");
+			writeln('eval (cs_inc);');
+
+			writeln('function I18N_Format(val, loc, actionName)');
+			writeln('{');
+			writeln('	if (actionName == undefined)');
+			writeln("		actionName = 'I18_FORMATCURRENCY';");
+			writeln("	var ret = doAction(actionName, 'Locale', loc, 'Max_fraction_digits', 3, 'Data', parseFloat(val));");
+			writeln('	if (ret == undefined)');
+			writeln('		 return val;');
+			writeln('	return ret;');
+			writeln('}');
+
+			writeln('function showMatch(itemInfo, matchNum, urlInfo)');
+			writeln('{');
+			writeln('	if (itemInfo.Key == undefined || itemInfo.Name == undefined)');
+			writeln('		return false;');
+
+			writeln("	writeln('<table border=0 width=531><tr valign=\"top\"><td>', matchNum, '. </td><td width=\"100%\">');");
+			if (images.selectedIndex == -1 || images[images.selectedIndex] == "Yes")
+			{
+				writeln('if (itemInfo.PictureFile && itemInfo.PictureFile != undefined)');
+				writeln("	writeln('<img align=right height=65 width=85 src=\"', itemInfo.PictureFile, '\">');");
+			}
+			writeln("	writebr('<a href=\"', urlInfo, '&ItemKey=', itemInfo.Key, '\">', itemInfo.Name, '</a>');");
+			writeln('	if (itemInfo.Price != undefined)');
+			writeln("		writebr('<b>Price:</b> ', formatCurrency(itemInfo.Price, 'en_US',itemInfo.PricePrecision));");
+			
+			writeln("	writebr('</td></tr></table>');");
+			writeln('	return true;');
+			writeln('}');
+			
+			writeln('function removeDups (itemsArray)');
+			writeln('{');
+			writeln('	var tmp = new Array(), tmpOut = new Array();');
+			writeln('	for (var i = 0; i < itemsArray.length; i++)');
+			writeln('	{');
+			writeln('		if (!tmp[itemsArray[i]])');
+			writeln('		{');
+			writeln('			tmpOut.push (itemsArray[i]);');
+			writeln('			tmp[itemsArray[i]] = "Found";');
+			writeln('		}');
+			writeln('	}');
+			writeln('	return tmpOut;');
+			writeln('}');
+
+			writeln("function doTask(whichTask)");
+			writeln('{');
+			writeln("	var partialURL = urlpath + '?sh_action=viewitem&SessionID='+sessionID+'&SiteID='+siteID+'&AppID='+ appID;");
+			if (mode == "PE_PreviewMode")
+				writeln('	partialURL += "&Preview=1"');
+
+			writeln('	if (searchText == undefined || searchText.length == 0)');
+			writeln('	{');
+			writeln("		writep('You need to give at least one word to search for. Please try again.');");
+			writeln('		return true;');
+			writeln('	}');
+
+			writeln("	var searchLocale = doAction('REQ_GET_FORMVALUE', 'SearchLocale', 'SearchLocale');");
+			writeln('	if (searchLocale == undefined || searchLocale.length == 0)');
+			writeln("		searchLocale = 'en';");
+
+			writeln("	var input = GetBDO('SearchType', 3, 'SearchText', searchText, 'Locale', searchLocale);");
+			writeln('	var output = GetBDO();');
+
+			writeln("	var status = ProcessRequest('SRCH_WORDSEARCH', input, output);");
+			writeln('	if (status != MCERR_NOERROR)');
+			writeln('	{');
+			writeln("		writep('There was a problem performing the search. Error code ' + status);");
+			writeln('		return false;');
+			writeln('	}');
+
+			writeln('	if (output.GetSize() == 0)');
+			writeln('	{');
+			writeln("		writep('<b>Your search found no items.</b>');");
+			writeln('		return true;');
+			writeln('	}');
+
+			writeln("	var items = output.GetValues(output.GetLabels('ItemID'));");
+			writeln("	items = removeDups(items);");
+			writeln("	writep('<b>Found ', items.length, ' match', items.length == 1 ? '' : 'es', ' for <i>', searchText.toUpperCase(), '</i>:</b>');");
+
+			writeln('	for (var i = 0; i < items.length; i++)');
+			writeln('	{');
+			writeln('		if (isNaN(items[i]))');
+			writeln('			continue;');
+			writeln('		if (i < itemstart)');
+			writeln('			continue;');
+	// This is awful, there needs to be a way to 'page' the search results in the CatSearch component.
+			writeln('		if (i-itemstart >= '+maxitemsperpage+')');
+			writeln('		{');
+			writeln('			more=true');
+			writeln('			break;');
+			writeln('		}');
+			writeln("		var info_in = GetBDO('Locale', searchLocale, 'ItemID', parseInt(items[i], 10));");
+			writeln('		var info_out = GetBDO();');
+			writeln("		var status = ProcessRequest('ITEM_GETALLFIELDS', info_in, info_out);");
+			writeln('		if (status != MCERR_NOERROR)');
+			writeln('			continue;');
+			writeln('		showMatch(info_out, i + 1, partialURL);');
+			writeln('	}');
+			writeln('	return true;');
+			writeln('}');
+
+			writeln("var task = doAction('REQ_GET_FORMVALUE', 'task', 'task');");
+			writeln('if (task != undefined)');
+			writeln('{');
+			writeln('	doTask(task);');
+			writeln('writeln("<table border=0 width='+width+'><tr><td align=left>");');
+			writeln('if (itemstart > 0)')
+			writeln('{');
+			writeln('	write("<form name=slist1 action=\\"" + urlpath + "\\">");');
+			writeln('	writeln("<input type=hidden name=sh_action value=search>");');
+			writeln('	writeln("<input type=hidden name=SessionID value=" + sessionID + ">");');
+			writeln('	writeln("<input type=hidden name=SiteID value=" + siteID + ">");');
+			writeln('	writeln("<input type=hidden name=AppID value=" + appID + ">");');
+			writeln('	writeln("<input type=hidden name=task value=show>");')
+			writeln('	writeln("<input type=hidden name=SearchText value="+searchText+">");')
+					if (mode == "PE_PreviewMode")
+			writeln('		write("<input type=hidden name=Preview value=1>");');
+			writeln('	write("<input type=hidden name=ItemStart value="+parseInt(itemstart-'+maxitemsperpage+')+">");');
+
+			writeln('	writeln("<table border=0 cellspacing=0 cellpadding=0><tr>");');
+
+			var currentPage = doAction('ST_GET_STATEDATA', 'CurrentPageName', 'CurrentPageName');
+			var seObj = generateSEObjects (currentPage);
+			var pageObj = seObj.pageObjArray[currentPage];
+			if (mode != "PE_EditMode" && pageObj.SecureBaseHref.toLowerCase() == "yes")
+				writeln('	writeln("<td align=right valign=middle width=120 height=22 class=\''+securebtnstyle+'\'>");');
+			else
+				writeln('	writeln("<td align=right valign=middle width=120 height=22 class=\''+btnstyle+'\'>");');
+			writeln('	writeln(\'<a href="#" onClick="document.slist1.submit();return false;">\');');
+			writeln('	writeln(\'<center><span class="'+btntextstyle+'">Previous</span></center></a>\');');
+			writeln("	writeln('</td></tr></table></form>');");
+			writeln('}');
+			writeln('writeln("</td><td align=right>");');
+			writeln('if (more)');
+			writeln('{');
+			writeln('	write("<form name=slist2 action=\\"" + urlpath + "\\">");');
+			writeln('	writeln("<input type=hidden name=sh_action value=search>");');
+			writeln('	writeln("<input type=hidden name=SessionID value=" + sessionID + ">");');
+			writeln('	writeln("<input type=hidden name=SiteID value=" + siteID + ">");');
+			writeln('	writeln("<input type=hidden name=AppID value=" + appID + ">");');
+			writeln('	writeln("<input type=hidden name=task value=show>");')
+			writeln('	writeln("<input type=hidden name=SearchText value="+searchText+">");')
+					if (mode == "PE_PreviewMode")
+			writeln('		write("<input type=hidden name=Preview value=1>");');
+			writeln('	write("<input type=hidden name=ItemStart value="+parseInt(itemstart+'+maxitemsperpage+')+">");');
+
+			writeln('	writeln("<table border=0 cellspacing=0 cellpadding=0><tr>");');
+			if (mode != "PE_EditMode" && pageObj.SecureBaseHref.toLowerCase() == "yes")
+				writeln('	writeln("<td align=right valign=middle width=120 height=22 class=\''+securebtnstyle+'\'>");');
+			else
+				writeln('	writeln("<td align=right valign=middle width=120 height=22 class=\''+btnstyle+'\'>");');
+			writeln('	writeln(\'<a href="#" onClick="document.slist2.submit();return false;">\');');
+			writeln('	writeln(\'<center><span class="'+btntextstyle+'">Next</span></center></a>\');');
+			writeln("	writeln('</td></tr></table></form>');");
+			writeln('}');
+			writeln('writeln("</td></tr></table>");');
+
+			writeln("	write('<hr>');");
+			writeln('}');
+
+			writeln('	write("<form name=search action=\\"" + urlpath + "\\">");');
+			writeln('	writeln("<input type=hidden name=sh_action value=search>");');
+			writeln('	writeln("<input type=hidden name=SessionID value=" + sessionID + ">");');
+			writeln('	writeln("<input type=hidden name=SiteID value=" + siteID + ">");');
+			writeln('	writeln("<input type=hidden name=AppID value=" + appID + ">");');
+			if (mode == "PE_PreviewMode")
+				writeln('	write("<input type=hidden name=Preview value=1>");');
+			writeln('	writeln("<input type=hidden name=task value=show>");')
+			writeln('	writeln("<input type=hidden name=SearchLocale value=en>");');
+
+			write('</scr');
+				writeln('ipt>');
+
+			writeln('<b>Search For: <input size=30 type="text" name="SearchText"></b><br>');
+			writeln('	<div align=center>');
+			writeln('	<table border=0 cellspacing=0 cellpadding=0><tr>');
+			if (mode != "PE_EditMode" && pageObj.SecureBaseHref.toLowerCase() == "yes")
+				writeln('	<td align=right valign=middle width=120 height=22 class="'+securebtnstyle+'">');
+			else
+				writeln('	<td align=right valign=middle width=120 height=22 class="'+btnstyle+'">');
+			writeln('	<a href="#" onClick="document.search.submit();return false;">');
+			writeln('	<center><span class="'+btntextstyle+'">Search</span></center></a>');
+			writeln("	</td></tr></table>");
+			writeln('	</div>');
+			writeln('</form>');
+
+			writeln('<script language="javascript">');
+			writeln('	document.search.SearchText.focus();');
+			writeln('</script>');
+
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('z-index:'+merc_zindex+';">');
+
+			writeln("Search Results");
+
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	function edit_properties()
+	{
+		//write out html for EditProperties dialog box
+		// The input "names" have to match the <name> tags above.
+		write('<form name="saveprop">');
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		writeln('<input type=hidden name="ElementAddEdit" value="'+addEditMode+'">');
+		writeln('<input type=hidden name="ElementID" value="'+merc_elementid+'">');
+
+		writeln('<p align="center"><span class="dialog-title">Catalog Search</span></p>');
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr valign="top"><td colspan="2" class="field-label"><center>');
+
+		writeln('<table border=0 width="344">');
+		writeln('<tr valign="top"><td colspan="2">&nbsp;');
+		writeln('</td></tr>');
+		writeln('</table>');
+
+		writeln('<table width="344" border="1" cellspacing="0" cellpadding="0">');
+		writeln('<tr><td width="125" class="table-header2"><span class="field-label">Display image with results:</span></td>');
+		writeln('<td colspan="2" width="212">');
+		var visSelect = (images.selectedIndex == -1 ? 0 : images.selectedIndex);
+		for (i=0; i < images.length; i++)
+		{
+			write('<input type="radio" class="table-bkgrd-main" name="images" value="'+images[i]+'"');
+			if (i == visSelect)
+				write(' CHECKED');
+			writeln('>'+images[i]);
+		}
+		writeln('</td></tr>');
+
+/*		writeln('<tr class="table-bkgrd-main">');
+		writeln('<td width="106" class="table-header2">');
+		writeln('<span class="field-label">Maximum Items Per Page: </span>');
+		writeln('</td><td width="212" class="table-bkgrd-main">');
+		writeln('&nbsp;<input type=text size=5 name=maxitemsperpage value="'+maxitemsperpage+'">');
+		writeln('</td></tr>');
+*/
+		writeln('</table>');
+
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr><td><center>');
+<!--BEGIN HELP WINDOW LINK-->
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_RTL_ELMT_CATSEARCH+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_Cancel\', \'Layout1.htm\', \'mainFrame\', document.saveprop);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel" border="0"></a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_SaveProperties\', \'Layout1.htm\', \'mainFrame\', document.saveprop);">');
+		writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Ok" border="0"></a>');
+		writeln('</td></tr></table>');
+		writeln('</td></tr></table>');
+		write('</form>');
+		writeln ("<SCRIPT language=javascript>");+
+		writeln('self.resizeTo(500, 250);');
+		writeln('</script>');
+
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

@@ -1,0 +1,69 @@
+Return-Path: nzhegedus@yahoo.com
+Received: from mx10.stngva01.us.mxservers.net (204.202.242.36)
+	by mail19i.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-012721387
+	for <ms@altechstar.com>; Thu, 20 Aug 2009 11:16:27 -0400 (EDT)
+Received: from unknown [204.202.242.121] (HELO mail19i.g19.rapidsite.net)
+	by va1-mx10.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id bc86d8a4.2521688992.1036963.00-013.va1-mx10.stngva01.us.mxservers.net (envelope-from <nzhegedus@yahoo.com>);
+	Thu, 20 Aug 2009 11:16:27 -0400 (EDT)
+Received: from mx65.stngva01.us.mxservers.net (204.202.242.135)
+	by mail19i.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 0-012511385
+	for <anand@altechstar.com>; Thu, 20 Aug 2009 11:16:25 -0400 (EDT)
+Received: from unknown [206.190.38.84] (HELO web50508.mail.re2.yahoo.com)
+	by va1-mx65.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 9c86d8a4.2711112608.253274.00-003.va1-mx65.stngva01.us.mxservers.net (envelope-from <nzhegedus@yahoo.com>);
+	Thu, 20 Aug 2009 11:16:25 -0400 (EDT)
+Received: (qmail 90477 invoked by uid 60001); 20 Aug 2009 15:16:25 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s1024; t=1250781385; bh=mwIuc0ij52sOnahF+9HHZJkedxxkvQV3OF2k7c2arJA=; h=Message-ID:X-YMail-OSG:Received:X-Mailer:Date:From:Subject:To:MIME-Version:Content-Type; b=dy/AO7qFpUL06pkIjyCoimOb0U5c3XftlSbWIt4Y+9sN11IfX21gWgZXCXSUtBGYcV3yW/SWuRJ7cwggBC1NyfYs+WBFE9+Az7JkD/Orkb3jt1xtj/jI3mNQYOvL01cajNyeoG1EFthjm0ReisSeqG+eK3CUpcvMsNuObbHWbRU=
+DomainKey-Signature:a=rsa-sha1; q=dns; c=nofws;
+  s=s1024; d=yahoo.com;
+  h=Message-ID:X-YMail-OSG:Received:X-Mailer:Date:From:Subject:To:MIME-Version:Content-Type;
+  b=CP6wyy+BQySHXGw5gyZ1fNkDpklglgsh7AnLGODRpKTVJdPyEvE8UVBHqpkwzt67RMMqsK0qGuBDVggPilbtUd8MSyDd8ikWgXgsygCaOshi/HwW3i9NXY69D+nhLtlXmE4iiPHDfIGzlKZ6SljN6eCST9Ihy1Ex0FH2lV9Gn2g=;
+Message-ID: <618175.88848.qm@web50508.mail.re2.yahoo.com>
+X-YMail-OSG: _Yk6VvQVM1kRE9ZkH0FyQ7vTnobzfNxB_pmBPQogoPkGt5LDqSvgbOohZX42tdZFMRDPNLKkOP7OfAg1gbCz7b1l7nQ3IRX_6PkudbNdrpasQ_ax0cem.fmPvnI1CWhCm_vjNwHT9lJ6BuLz6ReZOGkFljuY20jWMYzlf9pbvwo9IE3rdkqtGdHgb1x8oiuHo02QTJtnuvbInaJIy8OEgGHRZnpTnfsVw_KlEoATSqIvVhB47mogT3sgiBJyLYeljlxhebM.pj1nqFVn6L8sH1SKf_iq5SuR2qyWmzFz.O2omFDepdfF7IxuiYgX5t3wXinhDsezaseyCEK91WGUHk1n
+Received: from [71.169.86.153] by web50508.mail.re2.yahoo.com via HTTP; Thu, 20 Aug 2009 08:16:25 PDT
+X-Mailer: YahooMailRC/1358.27 YahooMailWebService/0.7.338.2
+Date: Thu, 20 Aug 2009 08:16:25 -0700 (PDT)
+From: "Nicholas Z. Hegedus" <nzhegedus@yahoo.com>
+Subject: Billing
+To: Anand Natarajan <anand@altechstar.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="0-423619595-1250781385=:88848"
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082016)]
+X-MAIL-FROM: <nzhegedus@yahoo.com>
+X-SOURCE-IP: [206.190.38.84]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082016)]
+X-MAIL-FROM: <nzhegedus@yahoo.com>
+X-SOURCE-IP: [204.202.242.121]
+X-Loop-Detect:1
+
+--0-423619595-1250781385=:88848
+Content-Type: text/plain; charset=us-ascii
+
+Anand,
+
+If you have not already done so I would very much appreciate your taking care of my long overdue invoice dated 5/5/09 for $339.56 and my invoice dated 7/21/09 for $1,707.43.
+
+Thank you.  
+
+ 
+Nicholas Z. Hegedus, Esq.
+Suite B102, 65 South Main Street
+Pennington, NJ 08534
+Tel:  (609) 818-1816   Fax: (609) 818-1817
+nzhegedus@yahoo.com
+www.hegeduslawoffice.com
+
+
+
+      
+--0-423619595-1250781385=:88848
+Content-Type: text/html; charset=us-ascii
+
+<html><head><style type="text/css"><!-- DIV {margin:0px;} --></style></head><body><div style="font-family:arial, helvetica, sans-serif;font-size:12pt;color:#000000;">Anand,<div><br></div><div>If you have not already done so I would very much appreciate your taking care of my long overdue invoice dated 5/5/09 for $339.56 and my invoice dated 7/21/09 for $1,707.43.</div><div><br></div><div>Thank you. &nbsp;<br><div>&nbsp;</div><div><div><div><div>Nicholas Z. Hegedus, Esq.</div>  <div>Suite B102, 65&nbsp;South Main Street</div>  <div>Pennington, NJ 08534</div>  <div>Tel:&nbsp; (609) 818-1816&nbsp;&nbsp;&nbsp;Fax: (609) 818-1817</div>  <div><a rel="nofollow" target="_blank" href="mailto:818-1817nzhegedus@yahoo.com">nzhegedus@yahoo.com</a></div>  <div><a rel="nofollow" target="_blank" href="http://www.hegeduslawoffice.com/">www.hegeduslawoffice.com</a></div></div></div></div><div><br></div><div style="position:fixed"></div></div></div><br>
+
+
+
+      </body></html>
+--0-423619595-1250781385=:88848--

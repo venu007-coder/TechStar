@@ -1,0 +1,433 @@
+Return-Path: aruntr.usa@gmail.com
+Received: from mx41.stngva01.us.mxservers.net (204.202.242.76)
+	by mail19l.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-0179217172
+	for <abhra@altechstar.com>; Fri, 19 Nov 2010 15:06:12 -0500 (EST)
+Received: from unknown [74.125.82.184] (EHLO mail-wy0-f184.google.com)
+	by va1-mx41.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 4b8d6ec4.2766154656.1232706.00-001.va1-mx41.stngva01.us.mxservers.net (envelope-from <aruntrusa+bncciz01rylbxckszvnbboebviscw@googlegroups.com>);
+	Fri, 19 Nov 2010 15:06:12 -0500 (EST)
+Received: by wye20 with SMTP id 20sf2252848wye.21
+        for <abhra@altechstar.com>; Fri, 19 Nov 2010 12:06:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=beta;
+        h=domainkey-signature:received:x-beenthere:received:received:received
+         :received:received-spf:received:mime-version:received:received:date
+         :message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=xUMB1IaLMc0MKaDzhJ5XWwcFpx9WX+Wp3nO1q3q20qM=;
+        b=mZtBt1wRTffGyIip9rxLfEkG+HFQeVV5biLq3utXje1t6Ok3px9DkiO71quKNQDfQM
+         QCMhH0OqZSScqxrEQTA6hMuSWJg5PKjeA8r1X//zAquTu5nr5EPczZLXPoy0qT53xxJN
+         p7VvJi5FHkI36ag+ShOvamv/tiv2A42f5Vijk=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=googlegroups.com; s=beta;
+        h=x-beenthere:received-spf:mime-version:date:message-id:subject:from
+         :to:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :sender:list-subscribe:list-unsubscribe:content-type;
+        b=4L1ZU6aEbSGkKi/BGZmPWT2pJC92YYaKU+l+k21Bzt4rErg2/CZnfxepzqow1v03Ni
+         xAHvcnoTctR4zkLYYoN14ji6y+UzBnbz10HI+kCVo9vXwQ4YiAt9BXE3z95VqFhRXvat
+         qGhaKeoACVJ+8A9kBD+2AH39AnXBmEEUMWwB8=
+Received: by 10.216.54.213 with SMTP id i63mr1186886wec.1.1290197130568;
+        Fri, 19 Nov 2010 12:05:30 -0800 (PST)
+X-BeenThere: aruntrusa@googlegroups.com
+Received: by 10.216.79.7 with SMTP id h7ls1235608wee.1.p; Fri, 19 Nov 2010
+ 12:05:17 -0800 (PST)
+Received: by 10.216.239.7 with SMTP id b7mr257597wer.2.1290197117340;
+        Fri, 19 Nov 2010 12:05:17 -0800 (PST)
+Received: by 10.216.239.7 with SMTP id b7mr257596wer.2.1290197117278;
+        Fri, 19 Nov 2010 12:05:17 -0800 (PST)
+Received: from mail-ww0-f53.google.com (mail-ww0-f53.google.com [74.125.82.53])
+        by gmr-mx.google.com with ESMTP id l5si213350weq.15.2010.11.19.12.05.16;
+        Fri, 19 Nov 2010 12:05:16 -0800 (PST)
+Received-SPF: pass (google.com: domain of aruntr.usa@gmail.com designates 74.125.82.53 as permitted sender) client-ip=74.125.82.53;
+Received: by wwb31 with SMTP id 31so338421wwb.10
+        for <aruntrusa@googlegroups.com>; Fri, 19 Nov 2010 12:05:16 -0800 (PST)
+MIME-Version: 1.0
+Received: by 10.227.127.199 with SMTP id h7mr2752454wbs.187.1290197109140;
+ Fri, 19 Nov 2010 12:05:09 -0800 (PST)
+Received: by 10.227.9.142 with HTTP; Fri, 19 Nov 2010 12:05:09 -0800 (PST)
+Date: Sat, 20 Nov 2010 01:35:09 +0530
+Message-ID: <AANLkTimNm34e0hY65ojEKW6pLdE1uSMyk6uuaN9kbTOp@mail.gmail.com>
+Subject: Arun Chandupatla Need : Sr .Net Technical lead / architect
+From: Arun TR <aruntr.usa@gmail.com>
+To: aruntrusa@googlegroups.com
+X-Original-Sender: aruntr.usa@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of aruntr.usa@gmail.com designates 74.125.82.53 as permitted sender)
+ smtp.mail=aruntr.usa@gmail.com; dkim=pass (test mode) header.i=@gmail.com
+Reply-To: aruntr.usa@gmail.com
+Precedence: list
+Mailing-list: list aruntrusa@googlegroups.com; contact aruntrusa+owners@googlegroups.com
+List-ID: <aruntrusa.googlegroups.com>
+List-Post: <http://groups.google.com/group/aruntrusa/post?hl=en-GB_IN>, <mailto:aruntrusa@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en-GB_IN>, <mailto:aruntrusa+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/aruntrusa?hl=en-GB_IN>
+Sender: aruntrusa@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/aruntrusa/subscribe?hl=en-GB_IN>,
+ <mailto:aruntrusa+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/aruntrusa/subscribe?hl=en-GB_IN>,
+ <mailto:aruntrusa+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=0016364ef702618d3704956d6c2b
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010111701); MH=0.500(2010111939)]
+X-MAIL-FROM: <aruntrusa+bncciz01rylbxckszvnbboebviscw@googlegroups.com>
+X-SOURCE-IP: [74.125.82.184]
+X-SF-Loop: 1
+
+--0016364ef702618d3704956d6c2b
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+*Sr .Net Technical lead / architect*
+
+El Segundo (Near LA), CA
+
+6 months
+
+
+Required Skills:
+
+
+
+=B7         Senior .Net Technical lead / architect
+
+=B7         8-10 years of experience
+
+=B7       Strong experience in Dot Net , Oracle , Web Services
+
+=B7         Experience in Windows Communication Framework (WCF)
+
+ Thanks & Regards,
+
+*Arun Chandupatla *
+
+*carun@hgtechinc.net* <carun@hgtechinc.net>
+
+*302-525-4228** |* * **302-355-2324** **|*
+
+*Hallmark Global Technologies Inc*.* **|*
+
+*|* www.hgtechinc.net *|*
+
+262 Chapman Rd, Suite # 101,  Newark, DE- 19702.
+
+*
+___________________________________________________________________________=
+___________________________________________________________________________=
+_______________________________________________
+***
+
+ *NOTE*:* *We respect your Online Privacy. This is not an unsolicited mail.
+Under Bill s.1618 Title III passed by the 105th U.S. Congress this mail
+cannot be considered Spam as long as we include Contact information and a
+method to be *removed* from our mailing list. If you are not interested in
+receiving our e-mails then please reply with a *remove* in the subject line
+and mention all the e-mail addresses to be *removed* with any e-mail
+addresses which might be diverting the e-mails to you. We are sorry for the
+inconvenience
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+ArunTR.USA" group.
+To post to this group, send an email to aruntrusa@googlegroups.com.
+To unsubscribe from this group, send email to aruntrusa+unsubscribe@googleg=
+roups.com.
+For more options, visit this group at http://groups.google.com/group/aruntr=
+usa?hl=3Den-GB.
+
+
+--0016364ef702618d3704956d6c2b
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<p class=3D"MsoNormal"><font class=3D"Apple-style-span" face=3D"Arial, sans=
+-serif"><span class=3D"Apple-style-span" style=3D"font-size: 13px; "><b><fo=
+nt class=3D"Apple-style-span" color=3D"#990000">Sr=A0.Net=A0Technical lead =
+/ architect</font></b></span></font></p>
+
+
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ar=
+ial&quot;,&quot;sans-serif&quot;">El Segundo (Near LA), CA</span></p><p cla=
+ss=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Arial&qu=
+ot;,&quot;sans-serif&quot;">6 months=A0</span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ar=
+ial&quot;,&quot;sans-serif&quot;"><br></span></p><p class=3D"MsoNormal"><sp=
+an style=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif=
+&quot;">Required Skills:</span></p>
+
+
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ar=
+ial&quot;,&quot;sans-serif&quot;">=A0</span></p>
+
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><span style=3D"font-size:10.0pt;font-family:Symbol;mso-fareast-font=
+-family:Symbol;
+mso-bidi-font-family:Symbol"><span style=3D"mso-list:Ignore">=B7<span style=
+=3D"font:7.0pt &quot;Times New Roman&quot;">=A0=A0=A0=A0=A0=A0=A0=A0
+</span></span></span><span style=3D"font-size:10.0pt;font-family:&quot;Aria=
+l&quot;,&quot;sans-serif&quot;">Senior
+<span style=3D"color:black">.Net </span>Technical lead / architect</span></=
+p>
+
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><span style=3D"font-size:10.0pt;font-family:Symbol;mso-fareast-font=
+-family:Symbol;
+mso-bidi-font-family:Symbol"><span style=3D"mso-list:Ignore">=B7<span style=
+=3D"font:7.0pt &quot;Times New Roman&quot;">=A0=A0=A0=A0=A0=A0=A0=A0
+</span></span></span><span style=3D"font-size:10.0pt;font-family:&quot;Aria=
+l&quot;,&quot;sans-serif&quot;">8-10
+years of experience</span></p>
+
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><span style=3D"font-size:10.0pt;font-family:Symbol;mso-fareast-font=
+-family:Symbol;
+mso-bidi-font-family:Symbol;background:yellow;mso-highlight:yellow"><span s=
+tyle=3D"mso-list:Ignore">=B7<span style=3D"font:7.0pt &quot;Times New Roman=
+&quot;">=A0=A0 =A0 =A0=A0</span></span></span><span style=3D"font-size:10.0=
+pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">Strong
+experience in <span style=3D"background:yellow;mso-highlight:yellow">Dot Ne=
+t ,
+Oracle , Web Services </span></span></p>
+
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><span style=3D"font-family:Symbol;mso-fareast-font-family:Symbol;ms=
+o-bidi-font-family:
+Symbol;background:yellow;mso-highlight:yellow"><span style=3D"mso-list:Igno=
+re">=B7<span style=3D"font:7.0pt &quot;Times New Roman&quot;">=A0=A0=A0=A0=
+=A0=A0=A0=A0
+</span></span></span><span style=3D"font-size:10.0pt;font-family:&quot;Aria=
+l&quot;,&quot;sans-serif&quot;">Experience
+in <span style=3D"background:yellow;mso-highlight:yellow">Windows Communica=
+tion
+Framework (WCF)</span></span><span style=3D"background:yellow;mso-highlight=
+:yellow"></span></p>
+
+<p class=3D"MsoListParagraph" style=3D"margin-left:0in"><span style=3D"font=
+-size:10.0pt;
+font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">=A0</span><a name=3D"=
+_MailAutoSig"><span style=3D"font-size:9.0pt;font-family:&quot;Cambria Math=
+&quot;,&quot;serif&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:=
+minor-fareast;
+color:#7F7F7F;mso-themecolor:text1;mso-themetint:128;mso-no-proof:yes">Than=
+ks
+&amp; Regards,</span></a></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"mso-bookma=
+rk:_MailAutoSig"><b><span style=3D"font-size:10.0pt;line-height:115%;font-f=
+amily:&quot;Cambria&quot;,&quot;serif&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:=
+minor-fareast;
+color:#0070C0;mso-no-proof:yes">Arun Chandupatla </span></b></span><span st=
+yle=3D"mso-bookmark:_MailAutoSig"><span style=3D"mso-ascii-font-family:Cali=
+bri;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:=
+minor-fareast;
+mso-hansi-font-family:Calibri;color:#0070C0;mso-no-proof:yes"></span></span=
+></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"mso-bookma=
+rk:_MailAutoSig"></span><a href=3D"mailto:carun@hgtechinc.net" target=3D"_b=
+lank"><span style=3D"mso-bookmark:
+_MailAutoSig"><b><span style=3D"font-size:10.0pt;mso-bidi-font-size:11.0pt;
+line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fare=
+ast-font-family:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#0070C0;mso-no-proof:yes;text-de=
+coration:
+none;text-underline:none">carun@hgtechinc.net</span></b></span><span style=
+=3D"mso-bookmark:_MailAutoSig"></span></a><span style=3D"mso-bookmark:_Mail=
+AutoSig"><span style=3D"mso-fareast-font-family:&quot;Times New Roman&quot;=
+;mso-fareast-theme-font:minor-fareast;
+color:#0070C0;mso-no-proof:yes"></span></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"mso-bookma=
+rk:_MailAutoSig"><b><span style=3D"font-size:10.0pt;line-height:115%;font-f=
+amily:&quot;Cambria&quot;,&quot;serif&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:=
+minor-fareast;
+color:#0070C0;mso-no-proof:yes">302-525-4228</span></b></span><span style=
+=3D"mso-bookmark:_MailAutoSig"><b><span style=3D"font-size:10.0pt;line-heig=
+ht:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#C00000;mso-no-proof:yes"> |</sp=
+an></b></span><span style=3D"mso-bookmark:_MailAutoSig"><span style=3D"font=
+-size:10.0pt;line-height:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#C00000;mso-no-proof:yes"> <b><s=
+pan style=3D"mso-spacerun:yes">=A0</span></b></span></span><span style=3D"m=
+so-bookmark:
+_MailAutoSig"><b><span style=3D"font-size:10.0pt;line-height:115%;font-fami=
+ly:
+&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times N=
+ew Roman&quot;;mso-fareast-theme-font:
+minor-fareast;color:#0070C0;mso-no-proof:yes">302-355-2324</span></b></span=
+><span style=3D"mso-bookmark:_MailAutoSig"><b><span style=3D"font-size:10.0=
+pt;line-height:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#1F497D;mso-themecolor:dark2;
+mso-no-proof:yes"> </span></b></span><span style=3D"mso-bookmark:_MailAutoS=
+ig"><b><span style=3D"font-size:10.0pt;line-height:115%;font-family:&quot;C=
+ambria&quot;,&quot;serif&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:=
+minor-fareast;
+color:#C00000;mso-no-proof:yes">|</span></b></span><span style=3D"mso-bookm=
+ark:
+_MailAutoSig"><span style=3D"mso-fareast-font-family:&quot;Times New Roman&=
+quot;;
+mso-fareast-theme-font:minor-fareast;color:#0070C0;mso-no-proof:yes"></span=
+></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"mso-bookma=
+rk:_MailAutoSig"><b><span style=3D"font-size:10.0pt;line-height:115%;font-f=
+amily:&quot;Cambria&quot;,&quot;serif&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:=
+minor-fareast;
+color:#0070C0;mso-no-proof:yes">Hallmark Global Technologies Inc</span></b>=
+</span><span style=3D"mso-bookmark:_MailAutoSig"><span style=3D"font-size:1=
+0.0pt;line-height:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#0070C0;mso-no-proof:yes">.</spa=
+n></span><span style=3D"mso-bookmark:_MailAutoSig"><b><span style=3D"font-s=
+ize:10.0pt;line-height:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#17365D;mso-no-proof:yes"> </spa=
+n></b></span><span style=3D"mso-bookmark:_MailAutoSig"><b><span style=3D"fo=
+nt-size:10.0pt;line-height:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#C00000;mso-no-proof:yes">|</spa=
+n></b></span><span style=3D"mso-bookmark:_MailAutoSig"><span style=3D"font-=
+size:10.0pt;line-height:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#C00000;mso-no-proof:yes"> </spa=
+n></span><span style=3D"mso-bookmark:_MailAutoSig"><span style=3D"font-size=
+:10.0pt;line-height:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#1F497D;mso-themecolor:dark2;
+mso-no-proof:yes"></span></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"mso-bookma=
+rk:_MailAutoSig"><b><span style=3D"font-size:10.0pt;line-height:115%;font-f=
+amily:&quot;Cambria&quot;,&quot;serif&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:=
+minor-fareast;
+color:#C00000;mso-no-proof:yes">|</span></b></span><span style=3D"mso-bookm=
+ark:
+_MailAutoSig"><span style=3D"font-size:10.0pt;line-height:115%;font-family:=
+&quot;Cambria&quot;,&quot;serif&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:=
+minor-fareast;
+color:#17365D;mso-no-proof:yes"> </span></span><span style=3D"mso-bookmark:=
+_MailAutoSig"></span><a href=3D"http://www.hgtechinc.net/" target=3D"_blank=
+"><span style=3D"mso-bookmark:
+_MailAutoSig"><span style=3D"font-size:10.0pt;mso-bidi-font-size:11.0pt;
+line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fare=
+ast-font-family:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#0070C0;mso-no-proof:yes">www.hg=
+techinc.net</span></span><span style=3D"mso-bookmark:_MailAutoSig"></span><=
+/a><span style=3D"mso-bookmark:_MailAutoSig"><span style=3D"mso-fareast-fon=
+t-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;
+color:#1F497D;mso-themecolor:dark2;mso-no-proof:yes"> </span></span><span s=
+tyle=3D"mso-bookmark:_MailAutoSig"><b><span style=3D"font-size:10.0pt;line-=
+height:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#C00000;mso-no-proof:yes">|</spa=
+n></b></span><span style=3D"mso-bookmark:_MailAutoSig"><span style=3D"mso-f=
+areast-font-family:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#17365D;mso-no-proof:yes"></span=
+></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"mso-bookma=
+rk:_MailAutoSig"><span style=3D"font-size:10.0pt;line-height:115%;font-fami=
+ly:&quot;Cambria&quot;,&quot;serif&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:=
+minor-fareast;
+color:gray;mso-themecolor:background1;mso-themeshade:128;mso-no-proof:yes">=
+262
+Chapman=A0Rd, Suite # 101, =A0Newark, DE- 19702.</span></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"mso-bookma=
+rk:_MailAutoSig"><b style=3D"mso-bidi-font-weight:normal"><span style=3D"fo=
+nt-size:10.0pt;line-height:
+115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;mso-fareast-font-fam=
+ily:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:red;mso-no-proof:yes">__________=
+___________________________________________________________________________=
+___________________________________________________________________________=
+_____________________________________</span></b></span><span style=3D"mso-b=
+ookmark:_MailAutoSig"><b style=3D"mso-bidi-font-weight:normal"><span style=
+=3D"mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-f=
+ont:minor-fareast;
+color:red;mso-no-proof:yes"></span></b></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"mso-bookma=
+rk:_MailAutoSig"><span style=3D"mso-fareast-font-family:&quot;Times New Rom=
+an&quot;;mso-fareast-theme-font:minor-fareast;
+color:#17365D;mso-no-proof:yes">=A0</span></span><span style=3D"mso-bookmar=
+k:
+_MailAutoSig"><b><span style=3D"font-size:8.0pt;line-height:115%;mso-fareas=
+t-font-family:
+&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;color:red;=
+mso-no-proof:
+yes">NOTE</span></b></span><span style=3D"mso-bookmark:_MailAutoSig"><span =
+style=3D"font-size:8.0pt;line-height:115%;mso-fareast-font-family:&quot;Tim=
+es New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:red;mso-bidi-font-weight:bold;
+mso-no-proof:yes">:</span></span><span style=3D"mso-bookmark:_MailAutoSig">=
+<b><span style=3D"font-size:8.0pt;line-height:115%;mso-fareast-font-family:=
+&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#A6A6A6;mso-themecolor:backgroun=
+d1;
+mso-themeshade:166;mso-no-proof:yes"> </span></b></span><span style=3D"mso-=
+bookmark:
+_MailAutoSig"><span style=3D"font-size:8.0pt;line-height:115%;mso-fareast-f=
+ont-family:
+&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;color:#A6A=
+6A6;
+mso-themecolor:background1;mso-themeshade:166;mso-no-proof:yes">We respect =
+your
+Online Privacy. This is not an unsolicited mail. Under Bill s.1618 Title II=
+I
+passed by the 105th U.S. Congress this mail cannot be considered Spam as lo=
+ng
+as we include Contact information and a method to be <u>removed</u> from ou=
+r
+mailing list. If you are not interested in receiving our e-mails then pleas=
+e
+reply with a=A0<u>remove</u> in the subject line and mention all the e-mail
+addresses to be <u>removed</u> with any e-mail addresses which might be
+diverting the e-mails to you. We are sorry for the inconvenience</span></sp=
+an><span style=3D"mso-bookmark:_MailAutoSig"><span style=3D"mso-fareast-fon=
+t-family:&quot;Times New Roman&quot;;
+mso-fareast-theme-font:minor-fareast;color:#A6A6A6;mso-themecolor:backgroun=
+d1;
+mso-themeshade:166;mso-no-proof:yes"></span></span></p>
+
+<span style=3D"mso-bookmark:_MailAutoSig"></span>
+
+<p class=3D"MsoNormal">=A0</p>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups "=
+ArunTR.USA" group.<br />
+To post to this group, send an email to aruntrusa@googlegroups.com.<br />
+To unsubscribe from this group, send email to aruntrusa+unsubscribe@googleg=
+roups.com.<br />
+
+For more options, visit this group at http://groups.google.com/group/aruntr=
+usa?hl=3Den-GB.<br />
+
+
+
+--0016364ef702618d3704956d6c2b--

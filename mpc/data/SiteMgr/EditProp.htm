@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href='{SC_BaseUrl}'>
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<TITLE>Edit Properties</TITLE>
+
+</HEAD>
+<body class="pop-up-bkgrd" onUnload="
+if (opener.togglePleaseWaitLayer)
+{opener.togglePleaseWaitLayer('off');}
+else if (opener.mainFrame && opener.mainFrame.togglePleaseWaitLayer)
+{opener.mainFrame.togglePleaseWaitLayer('off');}
+">
+<font class="field-label">
+<script runat="merc_server">
+var merc_elementid=doAction('ST_GET_STATEDATA', 'ElementID', 'ElementID');
+
+var result=doAction('MPEA_GET_EDITPROPOUTPUT', 'ElementID', merc_elementid);
+write(result);
+
+</script>
+</font>
+</HTML>
+

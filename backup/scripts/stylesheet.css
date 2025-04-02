@@ -1,0 +1,27 @@
+.a1 {
+	COLOR: #567200; TEXT-DECORATION: none
+}
+.a1:hover {
+	COLOR: #cc0000; TEXT-DECORATION: none
+}
+.a2 {
+	COLOR: #0000ff; TEXT-DECORATION: none
+}
+.a2:hover {
+	COLOR: #cc0000; TEXT-DECORATION: underline
+}
+.a3 {
+	COLOR: #cc0000; TEXT-DECORATION: none
+}
+.a3:hover {
+	COLOR: #0000ff; TEXT-DECORATION: none
+}
+.a4 {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.a4:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.collouts {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #777777; LINE-HEIGHT: 17pt; FONT-FAMILY: verdana,helvetica
+}

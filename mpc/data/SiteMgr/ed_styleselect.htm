@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>Select Style</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+<SCRIPT RUNAT="merc_server">
+	var moveHistoryList = doAction('REQ_GET_FORMVALUE', "moveHistoryList", "moveHistoryList");
+		if (moveHistoryList)
+			doAction('MPEA_SAVE_HISTORYLIST', 'moveHistoryList', moveHistoryList);
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript">
+	var master_js = opener;
+	var winName = "ed_style_popup";
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	var nextPage = '<merc_dynamic noshow=false name=SC_NextPage action=REQ_GET_FORMVALUE LinkToPage=LinkToPage>';
+	
+	function submitForm ()
+	{
+		master_js.SubmitForm ('SE_SetStyle', nextPage, 
+									'mainFrame', document.selectStyle);
+		saveWindow (); 
+	}
+	
+	function saveWindow ()
+	{
+		master_js.createAndWriteToPopUp ("150", "300", winName, baseUrl, 
+										master_js.gSAVING_PAGE, master_js.gWINDOW_WILL_CLOSE);
+	}
+
+</SCRIPT>
+
+</head>
+
+<body class="pop-up-bkgrd" bgcolor="#CCCCFF" onUnload="
+	if (opener.mainFrame.togglePleaseWaitLayer){
+		opener.mainFrame.togglePleaseWaitLayer('off');}">
+
+
+<p align="center"><span class="dialog-title">Select Style</span></p>
+<form name="selectStyle">
+<table width="634" border="0" cellspacing="0" cellpadding="2" align="left" hspace="6" height="262" class="table-bkgrd-main">
+<tr class="table-header2">
+<td height="40" colspan="2">
+<center>
+<font face="Arial, Helvetica, sans-serif"><b>Custom</b></font> 
+</center>
+</td>
+
+</tr>
+<tr class="table-bkgrd-main">
+	
+	<SCRIPT RUNAT="merc_server">
+		var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+				   'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+		var useStyle = doAction('REQ_GET_FORMVALUE', "UseStyle", "UseStyle");
+		var seObj = getThemeStyleList (false, false, true);
+		
+		function generateStyles (styleObj, nStart, nInc)
+		{
+			for (var n = nStart; n < styleObj.length; n += nInc)
+			{
+				myStyle = styleObj[n]
+				if ((myStyle.indexOf("SC_") == 0) || (myStyle.indexOf("SS_") == 0))
+					myStyle = myStyle.slice (3);
+				writeln ('<tr><td width="32">'+
+						'<input class="table-bkgrd-main" type="radio" name="StyleSelected"'+
+						' value="'+styleObj[n]+'"'+
+						(useStyle == styleObj[n] ? ' CHECKED>' : '>')+
+						'</td><td width="50">'+myStyle.substr (0, myStyle.lastIndexOf('.'))+'</td>'+
+						'<td width="200">');
+				writeln (generateStyleHTML (styleObj[n]));
+				writeln ('</td></tr>');
+			}
+		}
+		
+		var pageName = doAction('REQ_GET_FORMVALUE', "SetForPageName", "SetForPageName");
+		if (pageName)
+			write ('<input type="hidden" name="SetForPageName" value="' + pageName + '">');
+			
+		if (seObj.styles.customStyles.length <= 0)
+			write ('<td align="center" colspan="2">'+gEMPTY);
+		else
+		{
+			write ('<td align="center" valign="top" width="305">' +		
+					'<table width="300" border="1" cellspacing="0" cellpadding="0">');
+			generateStyles (seObj.styles.customStyles, 0, 2);
+						
+			<merc_embed>
+				</table>
+				</td> 
+    
+				<td align="center" valign="top" width="305"> 
+			  
+			</merc_embed>
+			 /* if we only have one entry put in a space for the second entry
+			 ** otherwise the cell background won't get carried across */
+				if (seObj.styles.customStyles.length == 1)
+					write ('&nbsp;');
+				else
+				{
+					write ('<table width="300" border="1" cellspacing="0" cellpadding="0">');
+					generateStyles (seObj.styles.customStyles, 1, 2);
+					write ('</table>');
+				}
+		}
+		
+	</SCRIPT>
+</td>
+</tr>
+
+<tr class="table-header2">
+<td height="40" colspan="2">
+<center>
+<font face="Arial, Helvetica, sans-serif"><b>Supplied</b></font> 
+</center>
+</td>
+
+</tr>
+<tr class="table-bkgrd-main">
+	
+	<SCRIPT RUNAT="merc_server">
+		
+		if (seObj.styles.suppliedStyles.length <= 0)
+			write ('<td align="center" colspan="2">'+gEMPTY);
+		else
+		{
+			write ('<td align="center" valign="top" width="305">' +		
+					'<table width="300" border="1" cellspacing="0" cellpadding="0">');
+			generateStyles (seObj.styles.suppliedStyles, 0, 2);
+						
+			<merc_embed>
+				</table>
+				</td> 
+    
+				<td align="center" valign="top" width="305"> 
+			</merc_embed>
+			/* if we only have one entry put in a space for the second entry
+			** otherwise the cell background won't get carried across */
+			if (seObj.styles.suppliedStyles.length == 1)
+				write ('&nbsp;');
+			else
+			{
+				write ('<table width="300" border="1" cellspacing="0" cellpadding="0">');
+				generateStyles (seObj.styles.suppliedStyles, 1, 2);
+				write ('</table>');
+			}
+		}			
+	</SCRIPT>
+</td>
+</tr>
+  
+<tr bgcolor="#FFFFCc"> 
+    
+<td colspan="2" class="field-label" height="35"> 
+      
+<div align="center"><a href="javascript:void(0)" onclick="self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a><a href="javascript:void(0)" onclick="submitForm();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Apply_Nbtn_base2.gif" width="86" height="30" border="0" alt="Apply"></a></div>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

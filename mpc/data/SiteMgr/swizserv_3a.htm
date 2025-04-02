@@ -1,0 +1,211 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" class="penda-bkgrd" 
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg3), 
+		new Array (parent.topFrame.document.images.wizimg1, 
+					parent.topFrame.document.images.wizimg2, 
+					parent.topFrame.document.images.wizimg4, 
+					parent.topFrame.document.images.wizimg5, 
+					parent.topFrame.document.images.wizimg6));">
+
+<form name="hours" action="javascript:void(0);">
+	<input type="hidden" name="WizState" value="3">
+
+<table width="660" border="0" cellpadding="4" cellspacing="0" align="center">
+  <tr bgcolor="#FFFFCC"> 
+    
+<td width="50%" height="25" > <span class="page-title">Standard Business Hours</span></td>
+<td width="50%" height="25" >
+      
+<div align="right">
+
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_SRV_BUSHOURS+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a>
+<!--END HELP WINDOW LINK-->
+
+<a href="javascript:parent.SubmitForm ('WIZ_WizardBack', 'swizserv_2.htm','mainFrame', document.hours);">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border="0" alt="Back"></a>
+
+<a href="javascript:parent.SubmitForm ('WIZ_WizardNext', 'swizserv_4.htm','mainFrame', document.hours);" onClick="return(validateTimes('hours', 'open', 'closed', ''));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Next_Nbtn_base.gif" width="86" height="30" border="0" alt="Next"></a>
+</div>
+    </td>
+  </tr>
+<tr>
+<td colspan="2" class="table-bkgrd-main">
+
+          <center><span class="instr-note">Enter your company's hours of operation at your physical location. 
+          </span></center>
+</td>
+</tr>
+
+
+  <tr bgcolor="#FFFFCC" valign="top"> 
+    
+<td height="147" colspan="2" class="table-bkgrd-main">
+
+<table width="94%" border="1" cellpadding="3" align="center">
+<tr class="table-header">
+	<td width="78"><center class="field-label">Days<br>Open</center></td>
+	<td width="250"><center class="field-label">Open</center></td>
+	<td width="258"><center class="field-label">Close</center></td>
+</tr>
+<SCRIPT runat="merc_server">
+
+	var incJsFile = doActionEx('DATA_READFILE','Services.js', 'FileName', 'Services.js','ObjectName','Site','FileType','txt');
+	eval (incJsFile);
+		
+	GetDailyHours();
+
+
+// write the array of ids into a hidden field 
+write("<input type='hidden' name='open_array' value='");
+for (var i=0; i < shortDays.length; i++)
+{
+	if ( i > 0 )
+		write(",",theOpenSchedule[shortDays[i]].ID);
+	else
+		write(theOpenSchedule[shortDays[i]].ID);
+}
+writeln("'>");
+
+write("<input type='hidden' name='unavail_array' value='");
+var printedOnce=0;
+for (var i=0; i < days.length; i++)
+{
+	if (printedOnce)
+		write(",",theUnavailSchedule[shortDays[i]].ID);
+	else
+	{
+		write(theUnavailSchedule[shortDays[i]].ID);
+		printedOnce = 1;
+	}
+}
+writeln("'>\n");
+
+for (var i=0; i < 7; i++)
+{
+	write("<tr>\n\<td width='78'><div align='left'>");
+
+	if (theOpenSchedule[shortDays[i]].State == 'C' && theOpenSchedule[shortDays[i]].AllDay == 'Y')
+		writeln("            <input type='checkbox' name='closed_24_" + shortDays[i] + "' value='Y'>");
+	else
+		writeln("            <input type='checkbox' name='closed_24_" + shortDays[i] + "' value='Y' checked>");
+
+	writeln("          <span class='field-label'>" +  shortDays[i] + " </span></div>\n</td>");
+
+	/************* OPEN HOUR ************/
+	writeln("        <td nowrap>\n\
+          <div align='center'>\n\
+            <select name='open_hours_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < 12; j++)
+	{
+		if (theOpenSchedule[shortDays[i]].OpenHour == parseInt(hours[j]))
+			writeln("              <option value='" + hours[j] + "' selected>" + hours[j] + "</option>");
+		else
+			writeln("              <option value='" + hours[j] + "'>" + hours[j] + "</option>");
+	}
+	writeln("            </select>");
+	
+	/************* OPEN MINUTES ************/
+	writeln("            <select name='open_minutes_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < 12; j++)
+	{
+		if (theOpenSchedule[shortDays[i]].OpenMin == parseInt(minutes2[j]) && theOpenSchedule[shortDays[i]].AllDay != 'Y' && theOpenSchedule[shortDays[i]].OpenHour != '0')
+			writeln("              <option value='" + minutes[j] + "' selected>" + minutes[j] + "</option>");
+		else
+			writeln("              <option value='" + minutes[j] + "'>" + minutes[j] + "</option>");
+
+	}
+	writeln("            </select>");
+
+	/************* OPEN AMPM ************/
+	writeln("            <select name='open_ampm_" + shortDays[i] + "'>");
+
+	if (theOpenSchedule[shortDays[i]].OpenAMPM == 'PM')
+	{
+		writeln("              <option value='AM'>AM</option>\n\
+              <option value='PM' selected>PM</option>");
+	}
+	else
+	{
+		writeln("              <option value='AM' selected>AM</option>\n\
+              <option value='PM'>PM</option>");
+	}
+
+	writeln("            </select>\n\
+          </div>\n\
+        </td>");
+
+	/************* CLOSED ************/
+	writeln("        <td nowrap >\n\
+          <div align='center'>\n\
+            <select name='closed_hours_" + shortDays[i] + "'>\n\
+              <option> </option>");
+             
+	for (var j=0; j < 12; j++)
+	{
+		if (theOpenSchedule[shortDays[i]].CloseHour == parseInt(hours[j]))
+			writeln("              <option value='" + hours[j] + "' selected>" + hours[j] + "</option>");
+		else
+			writeln("              <option value='" + hours[j] + "'>" + hours[j] + "</option>");
+	}
+
+	writeln("            </select>\n\
+            <select name='closed_minutes_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < 12; j++)
+	{
+		if (theOpenSchedule[shortDays[i]].CloseMin == parseInt(minutes2[j]) && theOpenSchedule[shortDays[i]].AllDay != 'Y' && theOpenSchedule[shortDays[i]].CloseHour != '0')
+			writeln("              <option value='" + minutes[j] + "' selected>" + minutes[j] + "</option>");
+		else
+			writeln("              <option value='" + minutes[j] + "' >" + minutes[j] + "</option>");
+	}
+	writeln("            </select>\n\
+            <select name='closed_ampm_" + shortDays[i] + "'>");
+
+	if (theOpenSchedule[shortDays[i]].CloseAMPM == 'PM')
+	{
+		writeln("              <option value='AM'>AM</option>\n\
+              <option value='PM' selected>PM</option>");
+	}
+	else
+	{
+		writeln("              <option value='AM' selected>AM</option>\n\
+              <option value='PM'>PM</option>");
+	}
+	writeln("            </select>\n\
+          </div>\n\
+        </td>\n\
+      </tr>");
+}
+</script>
+
+</table>
+<input type="hidden" name="reverse_closed_flag" value="Y">
+<div align="center">
+      </div>
+<!--'directories=no, height=400, width=400, location=no, menubar=no, resizable=no, scrollbars=yes, status=no, toolbar=no'-->
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

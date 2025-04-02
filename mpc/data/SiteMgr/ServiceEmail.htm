@@ -1,0 +1,272 @@
+<html>
+<head>
+<title>Send Email</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+</head>
+
+<body class="bkgrd-main-items">
+
+
+<noscript>
+<p>WARNING: This page uses JavaScript and will not function properly without it!
+Please use a browser which supports JavaScript, or enable scripting if it has been disabled.</p>
+</noscript>
+<SCRIPT LANGUAGE="JavaScript" src="Validate.js"></SCRIPT>
+<script language="JavaScript">
+<!--
+
+function getMultipleAsArray(multipleAddresses)
+{
+	multipleAddresses = multipleAddresses.replace(/\s/g, '').replace(/;/g, ',');
+	return multipleAddresses.split(',');
+}
+
+function send()
+{
+	if (document.forms['form1'].elements['MailTo'].value == '')
+	{
+		alert('Please enter a recipient\'s email address in the To field. If you would like to send mail to multiple recipients, separate their addresses with commas.');
+		return;
+	}
+
+	if (!isValidEmailAddy(document.forms['form1'].elements['MailTo'].value))
+	{
+		alert('The recipient\'s email address in the To field is invalid. Please enter a valid email address to continue.');
+		return;
+	}
+
+	if (document.forms['form1'].elements['MailFrom'].value == '')
+	{
+		alert('Please enter a return email address in the From field.');
+		return;
+	}
+
+	if (!isValidEmailAddy(document.forms['form1'].elements['MailFrom'].value))
+	{
+		alert('The return email address in the From field is invalid. Please enter a valid email address to continue.');
+		return;
+	}
+
+	if (document.forms['form1'].elements['BCC'].value != '')
+	{
+		var mult = getMultipleAsArray(document.forms['form1'].elements['BCC'].value);
+		for (var i = 0; i < mult.length; i++)
+		{
+			if (!isValidEmailAddy(mult[i]))
+			{
+				alert('The email address "' + mult[i] + '" given in the BCC field is invalid. Please fix or remove it to continue.');
+				return;
+			}
+		}
+	}
+
+	if (document.forms['form1'].elements['Subject'].value == '')
+	{
+		alert('Please enter a subject for the message.');
+		return;
+	}
+
+	// save the rejected reason for the calling page to retrieve
+	//window.opener.parent.SetRejectReason(document.forms['form1'].elements['RejectReason'].value);
+
+	document.forms['form1'].elements['task'].value = 'sendEmail';
+	opener.parent.CloseWinSubmitForm('L','bm_schedule-appts.htm', 'mainFrame', document.forms['form1']);
+}
+
+function cancel()
+{
+	window.close();
+}
+/ -->
+</script>
+
+<form name="form1" action="CGI.exe">
+<input type="hidden" name="task">
+
+<script runat="merc_server">
+
+	/*
+	** Get Store Information
+	*/
+	var incJsFile = doActionEx('DATA_READFILE','send_email.js', 'FileName', 'send_email.js','ObjectName','Site','FileType','txt');
+	eval (incJsFile);
+
+	g_storeEmail = doActionEx('BIZ_GETDATA', 'FieldValue', 'FieldName', 'Email');
+	if (g_storeEmail == undefined) g_storeEmail = '';
+
+	g_storeName = doActionEx('BIZ_GETDATA', 'FieldValue', 'FieldName', 'Name');
+	if (g_storeName == undefined) g_storeName = '';
+
+	/*
+	** Get Submitted data
+	*/
+	var theID = doAction('REQ_GET_FORMVALUE', 'appt_id', 'appt_id');
+	var theAction= doAction('REQ_GET_FORMVALUE', "action", "action");
+
+	/*
+	** PadLeft()
+	** Function to assist in dissect returning rray of BDO Labels
+	*/
+	function PadLeft(prefix, num)
+	{
+		var temp = '';
+		if (num < 10) temp = prefix + '000' + num;
+		else if (num < 100) temp = prefix + '00' + num;
+		else if (num < 1000) temp = prefix + '0' + num;
+		else if (num < 10000) temp = prefix + num;
+		return temp;
+	}
+
+	/*
+	** Get Appointment info
+	*/
+	var resultBDO = doActionBDO('SVC_GET_APPOINTMENTS', 'ID', parseInt(theID));
+	//writebr("ID=" + theID + " resultBDO.Count=" + resultBDO.Count);
+	if (resultBDO.Count)
+	{
+		var BDORows = resultBDO.GetLabels('APPT');
+		BDORows.sort();
+
+		for (var i = 0; i < BDORows.length; i++)
+		{
+			var apptBDO = eval("resultBDO." + PadLeft('APPT',i+1));
+			if (apptBDO)
+			{
+/*				writebr("ID = " + apptBDO.ID);
+				writebr("ServiceID = " + apptBDO.ServiceID);
+				writebr("Status = " + apptBDO.Status);
+				writebr("ApptDate = " + apptBDO.ApptDate);
+				writebr("StartHour = " + apptBDO.StartHour);
+				writebr("StartMin = " + apptBDO.StartMin);
+				writebr("StartAMPM = " + apptBDO.StartAMPM);
+				writebr("Duration = " + apptBDO.Duration);
+				writebr("Name = " + apptBDO.Name);
+				writebr("Address1 = " + apptBDO.Address1);
+				writebr("Address2 = " + apptBDO.Address2);
+				writebr("City = " + apptBDO.City);
+				writebr("State = " + apptBDO.State);
+				writebr("Zip = " + apptBDO.Zip);
+				writebr("Email = " + apptBDO.Email);
+				writebr("Phone = " + apptBDO.Phone);
+				writebr("Comments = " + apptBDO.Comments);
+*/
+			}
+		}
+	}
+
+
+//writebr("ID=" + theID + " and action=" + theAction);
+
+</script>
+<script runat="merc_server">
+
+
+
+if (apptBDO.Email == undefined || apptBDO.Email.length < 2)
+{
+	if (apptBDO.Phone == undefined || apptBDO.Phone.length < 7)
+	{
+		writeln('<table width="448" border="0" align="center" cellpadding="1" cellspacing="1">\
+<tr>\
+	<td width="20%" class="general-label" nowrap>The customer does not have any contact information.</td>\
+</tr>\
+</table>');
+
+	}
+	else
+	{
+		writeln('<table width="448" border="0" align="center" cellpadding="1" cellspacing="1">\
+<tr>\
+	<td width="20%" class="general-label" nowrap>Please contact this person at ' + apptBDO.Phone + '</td>\
+</tr>\
+</table>');
+
+	}
+}
+else
+{
+	if (theID)
+		writeln('<input type="hidden" name="appt_id" value="' + theID + '">');
+
+	if (theAction)
+	{
+		writeln('<input type="hidden" name="action" value="' + theAction + '">');
+		writeln('<p align="center"><span class="dialog-title">Send ' + theAction + ' Email</span></p>');
+	}
+	else
+		writeln('<p align="center"><span class="dialog-title">Send Email</span></p>');
+
+	writeln('<table width="448" border="0" align="center" cellpadding="1" cellspacing="1">\
+<tr>\
+	<td width="20%" class="general-label" nowrap>To: </td>\
+	<td width="80%" class="general-label">');
+
+
+	if (apptBDO.Email.length < 2)
+		writeln('<input size=40 type="text" name="MailTo">');
+	else
+		writeln(apptBDO.Name + '<input size=40 type="hidden" name="MailTo" value="', apptBDO.Email, '">');
+
+	writeln('	</td>\
+</tr>\
+<tr>\
+	<td width="20%" class="general-label" nowrap>BCC: </td>\
+	<td width="80%" class="general-label">');
+
+	writeln('<input size=40 type="text" name="BCC" value="', GetFormValue('BCC'), '">');
+
+	writeln('	</td>\
+</tr>\
+<tr>\
+	<td width="20%" class="general-label" nowrap>From: </td>\
+	<td width="80%" class="general-label">');
+
+	writeln('<input size=40 type="text" name="MailFrom" value="', g_storeEmail, '">');
+
+	writeln('	</td>\
+</tr>\
+<tr>\
+	<td width="20%" class="general-label" nowrap>Subject: </td>\
+	<td width="80%" class="general-label">');
+
+	subj = 'Your appointment';
+	if (theAction)
+	{
+		if (theAction=="Contact")
+		{
+			if (g_storeName != '')
+				subj = 'Your appointment at ' + g_storeName ;
+		}
+	}
+
+	writeln('<input size=40 type="text" name="Subject" value="', subj, '">');
+
+	writeln('	</td>\
+</tr>\
+<tr>\
+	<td width="20%" class="general-label" nowrap>Body: </td>\
+	<td width="80%" class="general-label">');
+
+	writeln('<textarea name="Body" cols="40" rows="3">', GetFormValue('Body'), '</textarea>');
+
+	writeln('	</td>\
+</tr>\
+</table>');
+}
+
+</script>
+
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+
+<p align="center">
+<a href="javascript:void(window.opener.parent.openHelpWindow(\'http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_CONTENTS+SoftCart+6_0+en-us\', \'Alane\'));"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" width=89 height=21 alt="Help"></a>
+<a href="javascript:cancel()"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_cancel.gif" width="90" height="21" alt="Cancel"></a>
+<a href="javascript:send()"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_send.gif" width="90" height="21" alt="Send"></a>&nbsp;
+</p>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<html>
+<head>
+<title>topFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script runat="merc_server">
+	var sndRegJs = doActionEx ('DATA_READFILE','sendreg.js', 'FileName', 'sendreg.js',
+								'ObjectName','JS_SRC', 'FileType', 'txt');
+	eval (sndRegJs);
+	var prodObj = getProdInfo();
+	var secure = doAction ('REQ_GET_FORMVALUE', 'SecureMode', 'SecureMode');
+	var baseHrf = "", mercCommon = "";
+	if (secure)
+		doAction('ST_SET_STATEDATA', 'SecureMode', secure);
+	else
+		secure = doAction('ST_GET_STATEDATA', 'SecureMode', 'SecureMode');
+		
+	if (secure && secure.toLowerCase() == "yes")
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SecureBaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTPS_SHARED_HTDOCS_ALIAS');
+	}
+	else
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'BaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTP_SHARED_HTDOCS_ALIAS');
+	}
+	writeln('<BASE href="'+baseHrf+'">');
+	writeln('<link rel="stylesheet" href="'+mercCommon+'styles/masterportal_top.css">');
+</script>
+
+</head>
+<script runat="merc_server">
+	var drawer = doAction ('REQ_GET_FORMVALUE', 'DrawerSelected', 'DrawerSelected');
+	if (drawer)
+		doAction('ST_SET_STATEDATA', 'DrawerSelected', drawer);
+	else
+		drawer = doAction('ST_GET_STATEDATA', 'DrawerSelected', 'DrawerSelected');
+		
+	writeln('<script language="javascript">var drawer = "'+drawer+'"</script>');
+
+	var rowResult = doActionBDO ('DATA_GETCONFIGROW', 'ObjectName', prodObj.CabinetObject,  'RowName', drawer);
+	function getIndex (imageName)
+	{
+		for (var a = 0;; a++)//>
+		{
+			var tempImage = "Image" + (a+1);					
+									
+			if (!rowResult[tempImage])
+				return -1;
+			else if (imageName == rowResult[tempImage])
+				return (a+1);		
+		}
+		return -1;
+	}
+
+	var DataAPIAlias = doAction('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'ColName', 'DataAPICFG', 'RowName', drawer);
+	var wizstate = doAction('DATA_GETCONFIGDATA', 'ObjectName', DataAPIAlias, 'RowName', 'WizardState', 'ColName', 'Value');
+	if (!wizstate || wizstate == 0)  
+		wizstate = 1;
+
+	var max_wizstate = doAction('DATA_GETCONFIGDATA', 'ObjectName', DataAPIAlias, 'RowName', 'WizardNumPages', 'ColName', 'Value');
+	if (max_wizstate)
+	{
+		var WizCompleted = (parseInt(wizstate) > parseInt(max_wizstate));
+		max_wizstate = parseInt(max_wizstate)+1; // numbering starts at 1 and not 0, so incrementing this value will get us what we need.
+	}
+	else
+		var WizCompleted = true;
+
+
+	if (!WizCompleted)
+	{
+		var fileName = doAction('DATA_GETCONFIGDATA', 'ObjectName', DataAPIAlias, 'ColName', 'Value', 'RowName', 'WizardFilePrefix');
+		fileName = fileName + wizstate + ".htm";
+		write('<body bgcolor="#FFFFFF" marginwidth=0 marginheight=0 ');
+		write('onLoad="if (self != top){parent.SubmitForm(\'L\', \''+fileName+'\', \'mainFrame\', \'\');}">');
+	}
+	else
+	{
+		var indexSelected = -1;
+		var Action1="", Page1="";
+		var tabSelected = doAction ('REQ_GET_FORMVALUE', 'TabSelected', 'TabSelected');
+		if (tabSelected)
+		{
+			indexSelected = getIndex (tabSelected);
+		}
+
+		if (indexSelected > 0) 
+		{
+			Action1 = doAction ('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'RowName', drawer, 'ColName', ('Action'+indexSelected.toString()));
+			Page1 = doAction ('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'RowName', drawer, 'ColName', ('Page'+indexSelected.toString()));
+		}
+		else
+		{
+			Action1 = doAction ('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'RowName', drawer, 'ColName', 'Action1');
+			tabSelected = doAction ('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'RowName', drawer, 'ColName', 'Image1');
+			Page1 = doAction ('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'RowName', drawer, 'ColName', 'Page1');
+		}
+		
+		write('<body bgcolor="#FFFFFF" marginwidth=0 marginheight=0 ');
+		write('onLoad = "if (self != top)');
+		write('{ChangeTab (\''+tabSelected.split("|")[0]+'\', \''+Page1+'\', \''+Action1+'\');');
+		write('figureFormSubmit (\''+tabSelected+'\', \''+Page1+'\', \''+Action1+'\', \'mainFrame\');}" ');
+		write('onResize="ChangeTab (lastIndex, lastDefPage, lastAction)">');
+	}
+</script>
+<script language = "javascript">
+	var im_replace = new Array("_Hon", "_Noff", "yend-l.gif", "mend-l.gif","yend-r.gif", 
+								"mend-r.gif", "ytopm-r.gif", "mm-mid.gif", "ytopm-l.gif", 
+								"mm-mid.gif");
+	// Must be same length
+	var im_replaceL = new Array("mm-mid.gif", "ytopm-l.gif", "mend-l.gif", "yend-l.gif");
+	var im_replaceR = new Array("mm-mid.gif", "ytopm-r.gif", "mend-r.gif", "yend-r.gif");
+	var lastIndex = "", lastDefPage = "", lastAction = "";
+	
+	function figureFormSubmit(index, def_page, action, target)
+	{
+		var tempIndex = index.split("|");
+		var bSecure = false, bReload = false;
+		if (tempIndex.length > 1)
+		{
+			if (tempIndex[1].toLowerCase() == "secure")
+				bSecure = true;
+		}
+		
+		if (bSecure)
+		{
+			if (location.protocol.toLowerCase() != parent.gSEC_PROTOCOL.toLowerCase())
+				bReload = true;
+		}
+		else
+		{
+			if (location.protocol.toLowerCase() != parent.gNON_SEC_PROTOCOL.toLowerCase())
+				bReload = true;
+		}
+		if (bReload)
+		{
+
+			var args = new Array('TabSelected', index,'DrawerSelected', drawer, 'SecureMode');
+			if (bSecure)
+				args[args.length] = 'Yes'
+			else
+				args[args.length] = 'No'
+			var subOb = "";
+			if (target.toLowerCase() == "mainframe")
+				subObj = new parent.submitFormObject ('L', 'desktop_wat_frameset.htm', '', args);
+			else
+				subObj = new parent.submitFormObject (action, def_page, target, args);
+			subObj.formAction = (bSecure ? parent.gSECURE_FORM_ACTION : parent.gFORM_ACTION);
+			parent.SubmitSubmitFormObject (subObj);
+		}
+		else
+			parent.SubmitForm (action, def_page, target, new Array ('TabSelected', index));
+		return false;
+	}
+	
+	function ChangeTab (index, def_page, action)
+	{
+		if (!index || !def_page || !action)
+			return void(0);
+		
+		lastIndex = index;
+		lastDefPage = def_page;
+		lastAction = action;
+	
+		if (!parent.checkForPopUp())
+		{
+			/*	Right now we just run through the list of images, turning off all that are
+			**	on, and turning on 'index' as well as those images around it necessary
+			**	for style (i.e. shadows, colors, etc.).  Eventually we may want to store
+			**	and target the specific image instead of running through the whole page
+			**	but this is more flexible for now	*/
+			index = index.replace ("_Hon", "_Noff");
+			var key = "_Noff", replace_with = "_Hon";
+			var file_temp = new Array(""), file_prev = new Array(""), file_prev2 = new Array("");
+									
+			for (var n = 0; n < document.images.length; n++)
+			{
+				file_prev2 = file_prev;
+				file_prev = file_temp;
+				//break up image path so we only have to deal with the filename
+				file_temp = document.images[n].src.split ("/");
+				var End = file_temp.length - 1, PrevEnd = file_prev.length - 1;
+				var PrevEnd2 = file_prev2.length - 1;
+				var CompWith = file_temp[End], CompPrev = file_prev[PrevEnd];
+				var CompPrev2 = file_prev2[PrevEnd2];
+				
+				//un-highlight all the tabs
+				for (var z = 1; z < im_replace.length; z+=2)
+				{
+					if (file_temp[End].indexOf (im_replace[z-1]) >= 0)
+							file_temp[End] = file_temp[End].replace (im_replace[z-1], im_replace[z]);
+				}
+				//highlight the chosen tab as well as the trailing and following images
+				if (n > 0 && file_prev[PrevEnd].indexOf (index) >= 0)
+				{
+					file_prev[PrevEnd] = file_prev[PrevEnd].replace (key, replace_with);
+					for (var x = 1; x < im_replaceL.length && x < im_replaceR.length; x+=2)
+					{
+						if (file_prev2[PrevEnd2].indexOf (im_replaceL[x-1]) >= 0)
+							file_prev2[PrevEnd2] = file_prev2[PrevEnd2].replace (im_replaceL[x-1],
+																				im_replaceL[x]);
+						if (file_temp[End].indexOf (im_replaceR[x-1]) >= 0)
+							file_temp[End] = file_temp[End].replace (im_replaceR[x-1],
+																	im_replaceR[x]);
+					}
+				}
+				// if any of the images changed re-load them
+				if (CompWith != file_temp[End])
+						document.images[n].src = file_temp.join("/");
+				if (CompPrev != file_prev[PrevEnd])
+						document.images[n-1].src = file_prev.join("/");
+				if (CompPrev2 != file_prev2[PrevEnd2])
+						document.images[n-2].src = file_prev2.join("/");
+			}
+					
+		} 
+		else 
+		{
+			return void(0);
+		}
+	}
+</script>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr height="37"> 
+<td bgcolor="#003399" class="bkgrd-topbar" width="100%" nowrap>&nbsp; 
+      <script runat="merc_server">
+
+		if (!WizCompleted)
+			var HeaderImage = doAction('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'ColName', 'WizardHeaderImage', 'RowName', drawer);
+		else
+			var HeaderImage = doAction('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'ColName', 'HeaderImage', 'RowName', drawer);
+
+		var HeaderLogo = doAction('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'ColName', 'HeaderLogo', 'RowName', drawer);
+		var HeaderAltLabel = doAction('DATA_GETCONFIGDATA', 'ObjectName', prodObj.CabinetObject, 'ColName', 'HeaderAltLabel', 'RowName', drawer);
+//width='178' height='37'
+		write("<img src='"+mercCommon+"images/" + HeaderLogo + "' align='absmiddle' alt='");
+		write(HeaderAltLabel + "'>");
+		write ("<img src='"+mercCommon+"images/" + HeaderImage + "' width='160' height='30' ");
+		write ("align='absmiddle'>");
+
+		</script>
+		
+    </td>
+    
+    <td bgcolor="#003399" class="bkgrd-topbar" colspan="7"  nowrap><div align="right">
+	<a href="javascript:void(0);" onclick="figureFormSubmit('', 'desktop_frameset.htm', 'L', '_parent');return false;"><script runat="merc_server">
+	<script runat="merc_server">
+		write('<img src="'+mercCommon+'images/powermanager.gif" border="0" alt="Return to PowerManager">');
+	</script>
+	</a>
+	&nbsp; &nbsp;
+    <a href="javascript:parent.SubmitForm ('logout', 'access_logout.html','_top', '');">
+    <script runat="merc_server">
+		write('<img src="'+mercCommon+'images/btnb_logout.gif" width="60" height="19" border="0" alt="Log Out">');
+	</script>
+</a></div></td>
+ </tr>
+ <tr> 
+    <td height="33" bgcolor="#FFFFFF" valign="top"> 
+      <table border="0" cellpadding="0" cellspacing="0" height="33">
+        <tr valign="bottom"> 
+          <td height="33">
+		
+		<script runat="merc_server">  
+		if (!WizCompleted)
+		{
+			for (var i=1; i < max_wizstate; i++)
+			{
+				var wizimg;
+				if (i == wizstate)
+					wizimg = "step" + i + "_on.gif";
+				else
+					wizimg = "step" + i + "_off.gif";
+				write("<img name='wizimg"+i+"' id='wizimg"+i+"' src='"+mercCommon+"images/"+wizimg+"'	width='30' height='30'>");
+
+				if (i < (max_wizstate - 1))
+				{
+					write("<img name='wizcnct"+i+"' id='wizcnct"+i+"' src='"+mercCommon+"images/connector.gif'	width='8' height='30'>");
+				}
+			}
+		}
+		else 
+		{
+			var tab_image = new Array(), tab_page = new Array(), tab_action = new Array();
+			var TabImage = "", TabPage = "", TabAction = "", Column = "";
+			
+			/*	problem with less than sign being seen as a tag by the parser
+			**	use the commented out greater than as a workaround for now	*/
+			for (var a = 0;; a++)//>
+			{
+				TabImage = "Image" + (a+1);
+				TabPage = "Page" + (a+1);					
+				TabAction = "Action" + (a+1);					
+									
+				if (!rowResult[TabImage] || !rowResult[TabPage] || !rowResult[TabAction])
+					break;
+					
+				tab_image[a] = rowResult[TabImage];
+				tab_page[a] = rowResult[TabPage];
+				tab_action[a] = rowResult[TabAction];		
+			}
+
+			write ("<img src='"+mercCommon+"images/yend-l.gif' width='15' height='19' align='absbottom' BORDER='0'>");
+			// only need to compare against one array, because all should be same length
+			for (var z = 0; z < tab_image.length; z++)
+			{
+				/* parser doesn't like scri-
+				** pt on same line
+				**
+				** use onClick call, and return false to prevent resizing problems */
+				write ("<a href = \"javascri"+
+						"pt:void(0);\" onClick=\""+
+						"ChangeTab ('" + tab_image[z].split("|")[0] + "', '" + tab_page[z] + "', '" + tab_action[z] + "');"+
+						"figureFormSubmit ('" + tab_image[z] + "', '" + tab_page[z] + "', '" + tab_action[z] + "', 'mainFrame');"+
+						"return false;\">");
+				write ("<img src='"+mercCommon+"images/" + tab_image[z].split("|")[0] + "' height='19' BORDER='0' align='absbottom'></a>");
+				/*	if there is only one image do nothing, the ending tag will get
+				**	put on below.  If this is the first of many images put
+				**	on the highlighted tab ending, otherwise put in a middle image	*/
+				if (z == 0)
+				{
+					if (tab_image.length > 1)
+						write ("<img src='"+mercCommon+"images/ytopm-r.gif' width='15' height='19' align='absbottom' BORDER='0'>");
+				}
+				else if ((z + 1) != tab_image.length)
+					write ("<img src='"+mercCommon+"images/mm-mid.gif' width='15' height='19' align='absbottom' BORDER='0'>");		
+			}
+			//	put on the ending tag, highlight it if there was only one image
+			if (tab_image.length > 1)
+				write ("<img src='"+mercCommon+"images/mend-r.gif' width='15' height='19' align='absbottom' BORDER='0'>");
+			else
+				write ("<img src='"+mercCommon+"images/yend-r.gif' width='15' height='19' align='absbottom' BORDER='0'>");
+		}
+		</script>
+		
+          </td>
+        </tr>
+        <tr> 
+          <td height="33">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

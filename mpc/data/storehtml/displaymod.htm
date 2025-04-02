@@ -1,0 +1,72 @@
+<CENTER>
+<form action=tester.exe>
+
+<script runat=merc_server>
+
+for (var currentShipTo = MERC_SHOPCART.GetFirstRow("ShipTo"); currentShipTo != "END_OF_TABLE"; currentShipTo = MERC_SHOPCART.GetNextRow("ShipTo",currentShipTo))
+{
+	writeln("<TABLE BORDER>");
+	writeln("<TR>");
+	writeln("<TH ALIGN=CENTER>Product</TH>");
+	writeln("<TH ALIGN=CENTER>Quantity</TH>");
+	writeln("<TH ALIGN=CENTER>Price Per Unit</TH>");
+	writeln("<TH ALIGN=CENTER>Discount</TH>");
+	writeln("<TH ALIGN=CENTER>Total</TH>");
+	writeln("</TR>");
+
+	for (var itemID = MERC_SHOPCART.GetFirstRow("Items","ShipTo",currentShipTo); itemID != "END_OF_TABLE"; itemID = MERC_SHOPCART.GetNextRow("Items",itemID,"ShipTo",currentShipTo))
+	{
+		writeln("<tr>");
+		write("<td align=left nowrap>");
+		descid = MERC_SHOPCART.GetField("Items",itemID,"DescriptionID");
+		if (descid != undefined)
+			description = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",descid,"Locale","en");
+		writeln(description + "</td>");
+		writeln("<td align=right nowrap>");
+		q = MERC_SHOPCART.GetField("Items",itemID,"Quantity");
+		if (q != undefined)
+			writeln("<input type=text size=6 name=" + itemID + " value=" + q + ">");
+		writeln("</td>");
+		writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("Items",itemID,"Price") + "</td>");
+		writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("Items",itemID,"Discount") + "</td>");
+		writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("Items",itemID,"Total") + "</td>");
+		writeln("</tr>");
+	}
+
+	writeln("<tr>");
+	writeln("<td colspan=4 align=left>Sub Total</td>");
+	writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("TotalItems") + "</td>");
+	writeln("</tr>");
+
+	writeln("<tr>");
+	writeln("<td colspan=4 align=left>Shipping</td>");
+	writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("TotalShipping") + "</td>");
+	writeln("</tr>");
+
+	writeln("<tr>");
+	writeln("<td colspan=4 align=left>Sales Tax</td>");
+	writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("TotalTax") + "</td>");
+	writeln("</tr>");
+
+	writeln("<tr>");
+	writeln("<td colspan=4 align=left>Grand Total</td>");
+	writeln("<td align=right nowrap>" + MERC_SHOPCART.GetField("GrandTotal") + "</td>");
+	writeln("</tr>");
+
+	writeln("</table>");
+}
+
+</script>
+
+<merc_dynamic noshow=true name=mySession action=ST_GET_STATEDATA return=Result SessionID=SessionID>
+<merc_dynamic noshow=true name=mySiteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+<merc_dynamic noshow=true name=myAppID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+<input type=hidden name=SessionID value=mySession>
+<input type=hidden name=action value=applyChanges>
+<input type=hidden name=SiteID value=mySiteID>
+<input type=hidden name=AppID value=myAppID>
+<br>
+<input type=submit value="Apply Changes">
+</form>
+</CENTER>
+

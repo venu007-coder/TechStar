@@ -1,0 +1,310 @@
+<script runat=merc_server>
+
+function findInArray(searchIn, searchFor)
+{
+	for (var i = 0; i < searchIn.length; i++)
+		if (searchIn[i] == searchFor) return i;
+	return -1;
+}
+
+function sendReg()
+{
+	// set this flag to indicate a user logging in and not an install
+	doAction('ST_SET_STATEDATA', 'PostInstall', 'yes');
+	executeJsFile ('sendreg.js', 'SendReg');
+	doAction('ST_DELETE_STATEDATA', 'PostInstall', 'PostInstall');
+}
+
+beginAppIdSearch();
+
+/*place in function so we can exit at any point*/
+function beginAppIdSearch ()
+{
+	var output = "";
+	var which_smAction = doAction('REQ_GET_FORMVALUE', "sm_action", "sm_action");
+	// remote scripts must be signed with a private key
+	if (which_smAction && which_smAction == 'RemoteQuery')
+	{
+		var pubKey = doActionEx	('DATA_READFILE','sendreg.key', 'FileName', 
+								'sendreg.key','ObjectName','CfgDir', 'FileType', 'txt');
+		if (pubKey && pubKey.length > 0)
+		{
+			var rmtScrpt = doAction('REQ_GET_FORMVALUE', "RemoteScript", "RemoteScript");
+			if (rmtScrpt)
+			{
+				var outScrpt = doActionBDO ("INU_WSTR_PGP_VERIFY_SIGNATURE", 
+											"INDATA", rmtScrpt, "KEY", pubKey);
+											
+				if (outScrpt && outScrpt.OUTDATA && outScrpt.OUTDATA.length > 0)
+					write(doAction('PAR_PARSE_BUFFER','document', outScrpt.OUTDATA));
+				else
+					write ("Invalid Signature On Script");
+			}
+			else
+				write ("No Script Found In Input");
+		}
+		else
+			write ("No Public Key Found On Site");
+		return 1;
+	}
+	
+	whichApp = doAction("REQ_GET_FORMVALUE", "AppID", "AppID");
+	if (whichApp == 'shop')
+	{
+		var whichFile = doActionEx('DATA_READFILE','shopmgr.htm', 'FileName', 'shopmgr.htm','ObjectName','JS_SRC','FileType','txt');
+		output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+	}
+	else if (whichApp == "merchant")
+	{
+		var quickies = new Array('BizInfoEditor', 'ItemEditor', 'ItemDiscountEditor',
+			'AttrDiscountEditor', 'AttributesAssign', 'CategoriesAssign', 'CrmEmail', 'EmailTemplateEditor',
+			'MiniCatMgr', 'CatNewDialog', 'CatMoveDialog', 'cat_editcat', 'AttributeMgr', 'attr_editattr',
+			'attr_newattrtype','attr_editattrtype',
+			'OrdersPending', 'OrdersCompleted', 'OrdersRejected', 'OrdersArchive', 'OrderView',
+			'OrderRejectEmail', 'OrdersArchivePop', 'OrdersArchiveDownload',
+			'Reports', 'ReportRevVol', 'ReportRevOrder', 'ReportRevItem', 'ReportSalesSum', 'ReportSalesTax',
+			'DownloadRevVol', 'DownloadRevOrder', 'DownloadRevItem', 'DownloadSalesSum', 'DownloadSalesTax');
+
+		/* Check password */
+		var whichFile = '';
+		var user = doAction('REQ_GET_FORMVALUE', "Username", "Username");
+		var pswd = doAction('REQ_GET_FORMVALUE', "Password", "Password");
+		var siteid = doAction('REQ_GET_FORMVALUE', "SiteID", "SiteID");
+		var access, accessDeniedReason = "";
+		
+		if (which_smAction == 'login')
+		{
+			access = doActionBDO('SEC_LOGIN', 'Username', user, 'Password', pswd,
+						'SiteID', siteid);
+			which_smAction = 'L';
+			accessDeniedReason = 'Invalid Password';
+		}
+		else
+		{
+			access = doActionBDO('SEC_CHECKACCESS', 'Username', user, 'Password', pswd,
+					'SiteID', siteid);
+			accessDeniedReason = 'Session Timeout';
+		}
+		var HTMLPassword = '';
+		if (access.Result == 'AccessOK')
+			HTMLPassword = access.Password;
+		else
+			doAction('ST_SET_STATEDATA', 'AccessDeniedReason', accessDeniedReason);
+			
+		doAction('ST_SET_STATEDATA', 'Password', HTMLPassword);
+
+		// see if the EULA has been read
+		var eulaRead = doAction('ST_GET_STATEDATA', 'EULARead', 'EULARead');
+		var bEulaRead = false;
+		if (!eulaRead)
+		{				
+			eulaRead = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'PasswordData',
+									'RowName', user, 'ColName', 'EULARead');
+			// set the state data so we don't have to go to the file each time
+			if (eulaRead)
+				doAction('ST_SET_STATEDATA', 'EULARead', eulaRead);
+		}
+		if (eulaRead && eulaRead.toLowerCase() == "y")
+			bEulaRead = true;
+
+		// send the registration if not already sent
+		var regSent = doAction('ST_GET_STATEDATA', 'RegSent', 'RegSent');
+		var bRegSent = false;
+		if (!regSent)
+		{				
+			regSent = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'SendReg',
+								'RowName', 'RegSent', 'ColName', 'Value');
+			// set the state data so we don't have to go to the file each time
+			if (regSent)
+				doAction('ST_SET_STATEDATA', 'RegSent', regSent);
+		}
+		if (regSent && regSent.toLowerCase() == "yes")
+			bRegSent = true;
+		var bSendRegExemption = bRegSent;
+		// don't send till after the EULA is read							
+		if (access.Result == 'AccessOK' && !bRegSent && bEulaRead)
+		{
+			sendReg();
+			// if the number of current attempts is less than the
+			// max number of reg attempts allowed, allow the user to proceed
+			var maxAttempts = doAction ('DATA_GETLITERAL', 'ObjectName', 'License', 'LiteralID', 'SEND_REG_MAX_ATTEMPTS');
+			var curAttempts = doAction ('DATA_GETCONFIGDATA','ObjectName','SendReg','ColName','Value','RowName','SEND_REG_ATTEMPTS');
+			if (maxAttempts && curAttempts)
+			{
+				if (parseInt(maxAttempts) > parseInt(curAttempts))
+					bSendRegExemption = true;
+				else
+					doAction('ST_SET_STATEDATA', 'AccessDeniedReason', 'Registration Failed');
+			}
+		}
+		
+		if (access.Result != 'AccessOK' || (!bSendRegExemption && bEulaRead))
+		{
+			whichFile = doActionEx	('DATA_READFILE','access_denied.html', 'FileName',
+											'access_denied.html','ObjectName','QuartzSite',
+											'FileType', 'txt');
+		}
+		else if (which_smAction == 'logout')
+		{
+			access = doActionBDO('SEC_LOGOUT', 'Username', user, 'Password', pswd,
+						'SiteID', siteid);
+			var logout_file = doAction('REQ_GET_FORMVALUE', "NextPage", "NextPage");
+			whichFile = doActionEx	('DATA_READFILE',logout_file, 'FileName', logout_file,
+									'ObjectName','QuartzSite', 'FileType', 'txt');
+		}
+		else if(!bEulaRead)
+		{
+			var eulaAccept = doAction('REQ_GET_FORMVALUE', "eulaAccept", "eulaAccept");
+			if (eulaAccept)
+			{
+				if (eulaAccept.toLowerCase() == "n")
+					whichFile = doActionEx	('DATA_READFILE','access_denied.html', 'FileName',
+											'access_denied.html','ObjectName','QuartzSite',
+											'FileType', 'txt');
+				else if (eulaAccept.toLowerCase() == "y")
+				{
+					/*	Get the values and add them to the registration file
+					**	then send the file	*/
+					var inVal = "";
+					var reqFields = new Array("Requesters_First_Name", "Requesters_Last_Name",
+											"Requesters_Position", "Requesters_Email",
+											"CompanyName_Licensee", "CompanyURL", 
+											"Address","City", "Country",
+											"ZIP_PostalCode", "State","Province", 
+											"Daytime_Telephone",
+											"Facsimile", "Industry", "LicenseActionYes");
+					for (var x = 0; x < reqFields.length; x++)
+					{
+						doAction ('DATA_DELETECONFIGROW',  'ObjectName', 'SendReg', 
+									'RowName', reqFields[x]);
+										
+						inVal = doAction('REQ_GET_FORMVALUE', reqFields[x], reqFields[x]);
+						if (inVal)
+						{
+							// get rid on any tab characters so it stores properly
+							inVal = inVal.replace(/	/g, " ");
+							doAction ('DATA_ADDCONFIGROW', 'ObjectName', 'SendReg', 'RowName', 
+									reqFields[x], 'RowData', inVal);
+						}
+					}
+
+					// send the registration
+					if (regSent && regSent.toLowerCase() == "no")
+						sendReg();
+
+					doAction ('DATA_SETCONFIGDATA',  'ObjectName', 'PasswordData',  'RowName',
+								user, 'ColName', 'EULARead', 'NewValue', 'Y');
+					doAction('ST_SET_STATEDATA', 'EULARead', 'Y');
+					var file = doAction('REQ_GET_FORMVALUE', "NextPage", "NextPage");
+					whichFile = doActionEx	('DATA_READFILE',file, 'FileName', file,'ObjectName','QuartzSite',
+											'FileType', 'txt');
+				}
+			}
+			else
+				whichFile = doActionEx	('DATA_READFILE','eula.html', 'FileName',
+											'eula.html','ObjectName','QuartzSite',
+											'FileType', 'txt');
+		}
+
+		// these are a couple of the more common actions, lets move it here instead of re-directing
+		//  to save time
+		else if (findInArray(quickies, which_smAction) != -1)
+			output = doAction('PAR_PARSE_FILE', 'FileName', which_smAction + '.htm', 'ObjectName', 'QuartzSiteViewers');
+
+		/*	WAT specific actions, not other action should use these action prefaces
+		**	WIZ_, PE_, SE_, PUB_
+		**	Non wizard, but restricted prefix
+		**	SEC_
+		*/
+		else if (which_smAction.indexOf ("WIZ_") == 0)
+		{
+			var rc = executeJsFile ('WIZ.js', which_smAction);
+			// Don't leave remnants of the password in the state data
+			doAction('ST_DELETE_STATEDATA', 'Password', 'Password');
+			return rc;
+		}
+		else if (which_smAction.indexOf ("SE_") == 0)
+		{
+			// Don't leave remnants of the password in the state data
+			doAction('ST_DELETE_STATEDATA', 'Password', 'Password');
+			return (executeJsFile ('SE.js', which_smAction));
+		}
+		else if (which_smAction.indexOf ("PE_") == 0)
+		{
+			// Don't leave remnants of the password in the state data
+			doAction('ST_DELETE_STATEDATA', 'Password', 'Password');
+			return (executeJsFile ('PE.js', which_smAction));
+		}
+		else if (which_smAction.indexOf ("PUB_") == 0)
+		{
+			// Don't leave remnants of the password in the state data
+			doAction('ST_DELETE_STATEDATA', 'Password', 'Password');
+			return (executeJsFile ('PUB.js', which_smAction));
+		}
+		else if (which_smAction.indexOf ("SEC_") == 0)
+		{
+			// Don't leave remnants of the password in the state data
+			doAction('ST_DELETE_STATEDATA', 'Password', 'Password');
+			return (executeJsFile ('SEC.js', which_smAction));
+		}
+		else if (which_smAction == "L")
+		{
+			var file = doAction('REQ_GET_FORMVALUE', "NextPage", "NextPage");
+			whichFile = doActionEx	('DATA_READFILE',file, 'FileName', file,'ObjectName','QuartzSite',
+										'FileType', 'txt');
+		}
+		else if (which_smAction == "PleaseWaitBeforeLoading")
+		{
+			var file = doAction("REQ_GET_FORMVALUE", "NextPage", "NextPage");
+			doAction('ST_SET_STATEDATA', 'NextPage', file);
+
+			whichFile = doActionEx	('DATA_READFILE','please_wait_priv.htm', 'FileName',
+										'please_wait_priv.htm', 'ObjectName','QuartzSite',
+										'FileType', 'txt');
+		}
+		else
+		{
+			whichFile = doActionEx('DATA_READFILE','sitemgr.js', 'FileName', 'sitemgr.js','ObjectName','Site','FileType','txt');
+		}
+
+		if (whichFile != '')
+			output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+		// Don't leave remnants of the password in the state data
+		doAction('ST_DELETE_STATEDATA', 'Password', 'Password');
+	}
+        else if (whichApp == "CLEARCOMMERCECONFIG")
+        {
+        // This is the application for ClearCommerce store configuration
+
+        	var   siteid = doAction('REQ_GET_FORMVALUE', "SiteID", "SiteID");
+        	var realsiteid   = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName','CLEARCOMMERCE','ColName','value','RowName','SITEID');
+         	if (realsiteid != siteid)
+         	{
+                	output += " Error: Invalid  SiteID " + siteid;
+         	}
+         	else
+         	{
+            		var whichFile = doActionEx('DATA_READFILE','sitemgr.js', 'FileName', 'sitemgr.js','ObjectName','Site','FileType','txt');
+        		output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+          	}
+        }
+	else
+	{
+		output += "Invalid Application " + whichApp;
+	}
+
+//	if(MERC_ERRORCMP.GetErrorCount() > 0)
+//		output = MERC_ERRORCMP.ProcessQueue("ehovorka@mercantec.com", "errtest.txt");
+
+	write(output);
+}
+
+function executeJsFile (executeThisfile, action)
+{
+	var incJsFile = doActionEx('DATA_READFILE',executeThisfile, 'FileName', executeThisfile,'ObjectName','Site','FileType','txt');
+	eval (incJsFile);
+	selectAction (action);
+	return;
+}
+</script>
+

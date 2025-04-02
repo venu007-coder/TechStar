@@ -1,0 +1,139 @@
+<merc_dynamic noshow=true name=storeLogo action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreLogo>
+<merc_dynamic noshow=true name=StoreEmail action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreEmail>
+<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+<merc_dynamic noshow=true name=mySession action=ST_GET_STATEDATA return=Result SessionID=SessionID>
+
+<p align="center"><b><font size="5">Services</font></b></p>
+<table width="600" border="1" align="center" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <table height="8" border="0"><td></td></table>
+      <table width="574" border="1" cellspacing="0" cellpadding="2" align="center">
+        <tr>
+          <td width="32%" bgcolor="#CCCC99" nowrap height="11">
+            <div align="center"><b>Description</b></div>
+          </td>
+          <td width="19%" bgcolor="#CCCC99" nowrap height="11">
+            <div align="center"><b>Duration</b></div>
+          </td>
+          <td width="18%" bgcolor="#CCCC99" nowrap height="11">
+            <div align="center"><b>Price</b></div>
+          </td>
+          <td width="31%" bgcolor="#CCCC99" nowrap height="11">
+            <div align="center"></div>
+          </td>
+        </tr>
+<script runat=merc_server>
+
+var urlpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","urlfile");
+var sessionid = doActionEx("ST_GET_STATEDATA","Result","SessionID","SessionID");
+var siteid = doActionEx("REQ_GET_FORMVALUE","Result","SiteID","SiteID");
+var appid = doActionEx("REQ_GET_FORMVALUE","Result","AppID","AppID");
+
+//include Formatting Library
+var cs_inc = doActionEx('DATA_READFILE', 'FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+eval (cs_inc)
+
+var LOCALE_STRING = getBrowserLocale();
+var PRECISION = getDefaultPrecision();
+
+var durations = new Object();
+
+var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "CAT_Services");
+while (!doActionEx('DATA_ISEOF', 'Result', 'QueryID', qID, 'ObjectName', 'CAT_Services'))
+{
+	var resultset = doActionBDO('DATA_GETROWDATA', 'ObjectName', 'CAT_Services', 'QueryID', qID);
+	if (resultset != undefined && resultset.Duration != undefined && resultset.ItemID != undefined)
+		durations[resultset.ItemID] = resultset.Duration;
+	if (!doActionEx('DATA_MOVENEXT', 'Success', 'ObjectName', 'CAT_Services', 'QueryID', qID))
+		break;
+}
+
+if (qID > 0)
+	doAction('DATA_CLOSEQUERY', 'QueryID', qID, 'ObjectName', "CAT_Services");
+
+function FormatDuration(dur)
+{
+	var tempdur = dur;
+	if (tempdur == undefined)
+		return '';
+	var hours = 0;
+	while (tempdur >= 1)
+	{
+		++hours;
+		tempdur -= 1;
+	}
+	var result = '';
+	if (hours > 0)
+		result = hours + ' hours';
+	if (tempdur > 0)
+		result += ' ' + parseInt(tempdur * 60) + ' minutes';
+	return result;
+}
+
+function DisplayServices()
+{
+	var allServBDO = doActionBDO('SVC_GET_ALL_SERVICES', 'Locale', 'en');
+	if (allServBDO == undefined || allServBDO.GetSize() == 0)
+		return;
+
+	for (var k in allServBDO)
+	{
+		if (k == 'RowCount')
+			continue;
+		var tempid = allServBDO[k].ID;
+		writeln('<tr bgcolor="#FFFFFF">');
+		writeln('<form action=' + urlpath + ' method=POST>');
+		writeln('<input type=hidden name=sh_action value=sched>');
+		writeln('<input type=hidden name=SessionID value=' + sessionid + '>');
+		writeln('<input type=hidden name=AppID value=' + appid + '>');
+		writeln('<input type=hidden name=SiteID value=' + siteid + '>');
+		writeln('<input type=hidden name=ItemID value=' + tempid + '>');
+		writeln('<td width="32%"><b>' + allServBDO[k].Name + '</b> - ' + allServBDO[k].Description + '</td>');
+		writeln('<td width="19%">');
+		writeln('<div align="center">' + FormatDuration(durations[tempid]) + '</div>');
+		writeln('</td>');
+		writeln('<td width="18%">');
+		var price = doActionEx('ITEM_GETFIELD', 'Price', 'FieldName', 'Price', 'ItemID', tempid);
+		var formattedprice = formatCurrency(price, LOCALE_STRING, PRECISION);
+		writeln('<div align="center">' + formattedprice + '</div>');
+		writeln('</td>');
+		writeln('<td width="31%">');
+		writeln('<div align="center">');
+		writeln('<input type="submit" name="submit" value="Request Appointment">');
+		writeln('</div>');
+		writeln('</td>');
+		writeln('</form>');
+		writeln('</tr>');
+	}
+}
+
+DisplayServices();
+
+</script>
+      </table>
+      <table height="8" border="0"><td></td></table>
+    </td>
+  </tr>
+</table>
+<p align="center">
+<table border="0">
+<tr><td>
+  <form action="mailto:{StoreEmail}">
+  <input type="submit" value="Send me more information...">
+  </form>
+</td><td>
+  <form action="/cgi-local/mpc/PowerCommerce.cgi" method=POST>
+  <input type=hidden name=sh_action value=sched>
+  <input type=hidden name=SessionID value=sessionid>
+  <input type=hidden name=AppID value=appID>
+  <input type=hidden name=SiteID value=siteID>
+  <input type=hidden name=SessionID value=mySession>
+  <input type="submit" name="submit" value="Schedule...">
+  </form>
+</td></tr>
+</table>
+  <br>
+  <br>
+</p>

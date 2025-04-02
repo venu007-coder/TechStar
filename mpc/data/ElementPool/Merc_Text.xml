@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/u/web/altec2/mpc/data/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_Text</TYPE>
+	<GLOBAL TYPE="never"></GLOBAL>
+	<UIGRAPHIC>/cgi-docs/Mercantec/PC_F_6.6.1/images/Text_Npl1.gif</UIGRAPHIC>
+	<UITEXT>Text</UITEXT>
+	<!-- Here, the owner, group and world can do anything -->
+	<PERMISSIONS>777</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="text">
+			<VALUE>Enter your custom text here!</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="style">
+			<VALUE>text-body</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="bulleted">
+			<VALUE>false</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="width">
+			<VALUE>200</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE>100</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="textalign">
+			<VALUE>left</VALUE><VALUE>center</VALUE><VALUE>right</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="html">
+			<VALUE>false</VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	function BuildOutput(type)
+	{
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			if (textalign && textalign.selectedIndex != -1)
+				write('text-align:'+textalign[textalign.selectedIndex]+';');
+			write('z-index:'+merc_zindex+';">');
+
+			if (html == "false")
+			{
+				text = text.replace (/&/g, '&amp;');
+				text = text.replace (/</g, '&lt;');
+				text = text.replace (/>/g, '&gt;');
+//				text = text.replace (/ /g, '&nbsp;');
+				if (bulleted == "false")
+					text = text.replace (/\n/g, '<br>');
+			}
+			if (bulleted == "true")
+			{
+				write('<UL type="square"><LI>');
+				text = text.replace (/\n/g, '<LI>');
+			}
+			writeln(text);
+			if (bulleted == "true")
+				write('</UL>');
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+		return BuildOutput(type);
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		return BuildOutput(type);
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	function edit_properties()
+	{
+		//write out html for EditProperties dialog box
+		// use table tags to position stuff better?
+		// The input "names" have to match the <name> tags above.
+		writeln('<form name="saveprop" action="/testcgi/testcgi.exe" method=post onSubmit = "');
+		writeln("opener.CloseWinSubmitForm	");
+		write ("('PE_SaveProperties', 'Layout1.htm', 'mainFrame', document.saveprop);");
+		writeln('return false;">');
+		writeln('<input type=hidden name="ElementID" value="'+merc_elementid+'">');
+		writeln('<input type=hidden name="bulleted" value="'+bulleted+'">');
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		writeln('<input type=hidden name="ElementAddEdit" value="'+addEditMode+'">');
+
+		text = escape(text);
+		writeln('<p align="center"><span class="dialog-title">Insert Text</span></p>');
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr valign="top"><td colspan="2" class="field-label"><center>');
+
+		writeln('<table width="75%" border="0" cellspacing="0" cellpadding="0">');
+		writeln('<tr valign="top"><td colspan="2">');
+		writeln('<br><textarea name="text" wrap="soft" rows="5" cols="45">');
+		write(text);
+		writeln('</textarea></td></tr></table>');
+
+		writeln('<br><table width="89%" border="0" cellspacing="0" cellpadding="0">');
+		writeln('<tr><td class="field-label" width="6%"> &nbsp;</td>');
+		writeln('<td class="field-label" width="94%">');
+		write('<input type="radio" class="table-bkgrd-main" name="style" value="text-header" '+(style == "text-header" ? 'CHECKED' : '')+'>');
+		writeln('Use current header style &amp; theme(color)');
+		writeln('</td></tr>');
+
+		writeln('<tr><td class="field-label" width="6%">&nbsp;</td>');
+		writeln('<td class="field-label" width="94%">');
+		write('<input type="radio" name="style" value="text-body" '+(!style || style == "text-body" ? 'CHECKED' : '')+'>');
+		writeln('Use current body style &amp; theme(color)');
+		writeln('</td></tr>');
+
+		writeln('<tr><td class="field-label" width="6%">&nbsp;</td>');
+		writeln('<td class="field-label" width="94%">');
+		write('<input type="checkbox" name="bulletcheck" value="true" '+(bulleted == "true" ? 'CHECKED' : ''));
+		writeln(' onClick="if (this.checked) {document.saveprop.bulleted.value=\'true\';} else {document.saveprop.bulleted.value=\'false\';}">');
+		writeln('Display as a bulleted list');
+		writeln('</td></tr>');
+
+		writeln('<tr><td class="field-label" colspan="2">If inserting HTML:</td></tr>');
+		writeln('<tr><td class="field-label" width="6%">&nbsp;</td>');
+		writeln('<td class="field-label" width="94%">');
+		write('<input type="radio" name="html" value="true" '+(html == "true" ? 'CHECKED' : '')+'>');
+		writeln('Interpret  HTML');
+		writeln('</td></tr>');
+
+		writeln('<tr><td class="field-label" width="6%">&nbsp;</td>');
+		writeln('<td class="field-label" width="94%">');
+		write('<input type="radio" name="html" value="false" '+(html == "false" ? 'CHECKED' : '')+'>');
+		writeln('Don\'t interpret; display code as typed');
+		writeln('</td></tr>');
+		writeln('</table><br>');
+
+		writeln('<table width="344" border="1" cellspacing="0" cellpadding="0">');
+		writeln('<tr><td width="96" class="table-header2"><span class="field-label">Text Alignment:</span></td>');
+		writeln('<td colspan="2" width="212">');
+		var alignSelect = (textalign.selectedIndex == -1 ? 0 : textalign.selectedIndex);
+		for (i=0; i < textalign.length; i++)
+		{
+			write('<input type="radio" class="table-bkgrd-main" name="textalign" value="'+textalign[i]+'"');
+			if (i == alignSelect)
+				write(' CHECKED');
+			writeln('>'+textalign[i]);
+		}
+		writeln('</td></tr>');
+
+		writeln('<tr><td class="table-header2" rowspan="2" width="96">');
+		writeln('<span class="field-label">Text Box Size:</span></td>');
+		writeln('<td width="58" class="field-label">width:</td>');
+		writeln('<td width="163">');
+		writeln('<input type="text" name="width" size="7" value="'+width+'"> pixels');
+		writeln('</td></tr><tr><td width="58" class="field-label">height:</td>');
+		writeln('<td width="163">');
+		writeln('<input type="text" name="height" size="7" value="'+height+'"> pixels');
+		writeln('</td></tr>');
+		writeln('</table>');
+		writeln('<span class="instr-note">');
+		writeln('For all text elements other than floating text, text color is handled by the <br>');
+		writeln('theme editor and all other text properties are edited through the style editor.<br>');
+		writeln('</span><br>');
+		writeln('</center></td></tr></table>');
+
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr><td><center>');
+
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_SITEPAGES_INSTEXT_POP+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_Cancel\', \'Layout1.htm\', \'mainFrame\', document.saveprop);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel" border="0"></a>');
+		writeln('<a href="javascript:fixHeight(); opener.CloseWinSubmitForm(\'PE_SaveProperties\', \'Layout1.htm\', \'mainFrame\', document.saveprop);">');
+		writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Ok" border="0"></a>');
+		writeln('</td></tr></table>');
+		writeln('</div>');
+		write('</form>');
+		writeln('<script src="SiteUtil.js"></script>');
+		writeln ("<SCRIPT language=javascript>"+
+				"document.saveprop.text.value = unescape (document.saveprop.text.value);");
+		writeln('self.resizeTo(500, 550);');
+		writeln('function fixHeight(){var h=document.saveprop.height.value; ');
+			writeln('var guess=getTextHeight(document.saveprop.text.value, document.saveprop.width.value);');
+			writeln('if (guess > h) document.saveprop.height.value = guess;');
+			writeln('}');
+		writeln("</SCRIPT>");
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	// May not need to do anything in all cases
+	// Save things to Prod DB on price/desc? - automatic based on dbentry
+	// if there is a reason not to dismiss the properties dialog, return false
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

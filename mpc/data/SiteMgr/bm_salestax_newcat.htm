@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Begin
+
+function validateForm() 
+{
+	if (document.newTaxCat.tax_cat_name.value == "")
+	{
+		alert("You must enter a tax category name");
+	}
+	else
+	{
+		//alert("Submitting now... ");
+		opener.CloseWinSubmitForm('L','bm_salestax.htm','mainFrame', document.newTaxCat );
+	}
+
+}
+// End -->
+</SCRIPT>
+
+</head>
+<body class="bkgrd-main-items" onLoad=document.newTaxCat.tax_cat_name.focus()>
+<div align="center"> 
+
+<SCRIPT runat="merc_server">
+var taxCatID= doAction('REQ_GET_FORMVALUE', "main_id", "main_id");
+var taxCatName= doAction('REQ_GET_FORMVALUE', "main_name", "main_name");
+
+if(taxCatID && taxCatID > 0)
+	writeln("<p><span class=\"general-label\">Edit Sales Tax Category</span></p>");
+else
+	writeln("<p><span class=\"general-label\">New Sales Tax Category</span></p>");
+
+<merc_embed>
+  <form action=#"" method="post" name="newTaxCat" 
+onSubmit="javascript:void(opener.CloseWinSubmitForm('L','bm_salestax.htm','mainFrame', document.newTaxCat )); return false;">
+
+  <table width="50%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td width="32%" nowrap class="general-label">Name:&nbsp </td>
+      <td width="68%"> 
+</merc_embed>        
+
+
+// Determine Edit or New mode and set appropriate hidden fields
+if(taxCatID && taxCatID > 0)
+{
+	writeln("<INPUT TYPE=\"HIDDEN\" NAME=\"tax_zone_action\" VALUE=\"EDIT_CAT_SAVE\">");
+	writeln("<INPUT TYPE=\"HIDDEN\" NAME=\"main_id\" VALUE=\"" + taxCatID + "\"> ");
+}
+else
+	writeln("<INPUT TYPE=\"HIDDEN\" NAME=\"tax_zone_action\" VALUE=\"NEW_CAT_SAVE\">");
+
+writeln("          <div align=\"center\"> ");
+write("            <input type=\"text\" name=\"tax_cat_name\" ");
+if (taxCatName && taxCatName.length > 0)
+	write(" Value=\"" + taxCatName + "\""); 
+
+writeln(">" );
+
+</SCRIPT>
+          </div>
+      </td>
+    </tr>
+  </table>
+  <p><span class="general-label">
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<a href="javascript:void(opener.parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SALESTAX_ADDCAT+SoftCart+{helpversion}+en-us', 'Alane'));"> 
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" name="help" alt="Help" ></a>&nbsp;&nbsp;
+<!--END HELP WINDOW LINK--> 
+    <a href="javascript:void(0);" onClick="javascript:window.close()"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_cancel.gif" width="90" height="21" border="0" alt="Cancel"></a>&nbsp;&nbsp; 
+  <a href="javascript:validateForm()" ><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" width="90" height="21" border="0" alt="Save"></a></span> 
+  </form>
+  </p>
+</div>
+</body>
+</html>

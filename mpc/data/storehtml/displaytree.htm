@@ -1,0 +1,51 @@
+<script runat=merc_server>
+urlpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","urlfile");
+picpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","imagepath");
+sessionid = doActionEx("ST_GET_STATEDATA","Result","SessionID","SessionID");
+siteid = doActionEx("REQ_GET_FORMVALUE","Result","SiteID","SiteID");
+var appid = doActionEx("REQ_GET_FORMVALUE","Result","AppID","AppID");
+currentNode = doActionEx("ST_GET_STATEDATA","Result","currentNode","currentNode");
+if (currentNode != undefined)
+{
+	currentNode = eval(currentNode);
+	if (currentNode != 0)
+	{
+		writeln("<h3>Subcategories of</h3><p>");
+	}
+	nodeData = doActionBDO("CAT_GETDATA","NodeID",currentNode,"Locale","en");
+	writeln("<h3>" + nodeData.Desc + "</h3><p>");
+	children = doActionBDO("CAT_GETCHILDREN","NodeID",currentNode);
+	labels = children.GetLabels();
+	writeln("<table border=0><tr><td align=left>");
+	for (var i = 0; i < labels.length; i++)
+	{
+		tempNodeID = eval("children." + labels[i]);
+		tempNodeData = doActionBDO("CAT_GETDATA","NodeID",tempNodeID,"Locale","en");
+		tempchildren = doActionBDO("CAT_GETCHILDREN","NodeID",tempNodeID);
+		if (tempchildren != undefined)
+		{
+			templabels = tempchildren.GetLabels();
+			if (templabels.length > 0)
+			{
+				write("<a href=" + urlpath + "?action=viewtree&SessionID=" + sessionid + "&SiteID=" + siteid + "&AppID=" + appid + "&currentNode=" + tempNodeID);
+				write("><img src=\"/mpc/docs/images/downarrow.gif\" align=center border=0></a>");
+			}
+		}
+		tempNodeItems = doActionBDO("CAT_GETNODEITEMS","NodeID",tempNodeID);
+		if (tempNodeItems != undefined)
+		{
+			write("<a href=" + urlpath + "?action=viewcatalog&SessionID=" + sessionid + "&SiteID=" + siteid + "&AppID=" + appid + "&catalogNode=" + tempNodeID + ">");
+			write(tempNodeData.Name + "</a><br>");
+		}
+		else
+		{
+			write(tempNodeData.Name + "<br>");
+		}
+	}
+	writeln("</td></tr></table>");
+}
+else
+{
+	writeln("No current node specified");
+}
+</script>

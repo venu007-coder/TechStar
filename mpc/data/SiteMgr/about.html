@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>About</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+
+</head>
+<body bgcolor="#3399CC">
+<div align="center">
+<p><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/logo_mercnew_tag.gif" width="262" height="102"> </p>
+<script runat="merc_server">
+	var pwb = doAction ('REQ_GET_FORMVALUE', 'PowerWebBuilder', 'PowerWebBuilder');
+	var prt = doAction ('REQ_GET_FORMVALUE', 'PowerRetail', 'PowerRetail');
+	var psv = doAction ('REQ_GET_FORMVALUE', 'PowerService', 'PowerService');
+	var version = "";
+	if (pwb && pwb.toLowerCase() == "yes")
+	{
+		version = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","POWER_WEB_BUILDER_VERSION");
+		if (!version)
+			version="?";
+		writeln('<p><font face="Arial, Helvetica, sans-serif"><b class="subheader">'+
+				'<span class="subheader">PowerWebBuilder&#153;'+ 
+				'Version '+version+'</span> <br><br></b></font></p>');
+	}
+	if (prt && prt.toLowerCase() == "yes")
+	{
+		version = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","POWER_RETAIL_VERSION");
+		if (!version)
+			version="?";
+		writeln('<p><font face="Arial, Helvetica, sans-serif"><b class="subheader">'+
+				'<span class="subheader">PowerRetail&#153;'+ 
+				'Version '+version+'</span> <br><br></b></font></p>');
+	}
+	if (psv && psv.toLowerCase() == "yes")
+	{
+		version = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","POWER_SERVICE_VERSION");
+		if (!version)
+			version="?";
+		writeln('<p><font face="Arial, Helvetica, sans-serif"><b class="subheader">'+
+				'<span class="subheader">PowerService&#153;'+ 
+				'Version '+version+'</span> <br><br></b></font></p>');
+	}
+ 
+</script>
+  <p><span class="general-label"><a href="javascript:self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_close.gif" width="90" height="21" border=0></a></span>
+</div>
+</body>
+</html>

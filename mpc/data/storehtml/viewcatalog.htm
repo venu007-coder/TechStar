@@ -1,0 +1,153 @@
+<merc_dynamic noshow=true name=storeLogo action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreLogo>
+<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+
+<html>
+<head>
+<title>Contents of Category</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+
+.linkcolor {  font-family: Arial, Helvetica, sans-serif; color: #000099; font-weight: bold}
+
+-->
+</style></head>
+
+<body bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="5" height="75">
+  <tr bgcolor="#CC0O00" align="right">
+    <td height="29"><font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3">
+      </font>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><center><font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3"><font face="Verdana, Arial, Helvetica, sans-serif"><merc_dynamic name=storeName action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreName></font></font></center></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+  <tr bgcolor="#FF9933">
+    <td height="46">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" name="topnav">
+        <tr>
+          <td><center><a href="&AppID={appID}&action=search"><img src="/mpc/docs/images/TopNav1.gif" BORDER="0" width="61" height="28" name="Search"></a><a href="&AppID={appID}&action=entry"><img src="/mpc/docs/images/TopNav2.gif" BORDER="0" width="85" height="28" name="products"></a><a href="&AppID={appID}&action=contactPage"><img src="/mpc/docs/images/TopNav5.gif" width="93" height="28" BORDER="0" name="contactus"></a></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+<table width="693" border="0" cellspacing="0" cellpadding="0" height="90%">
+  <tr>
+    <td valign="top" width="18%" height="291" bgcolor="#0033FF">
+      <p>&nbsp;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" name="logo">
+        <tr align="center" valign="middle">
+          <td height="62"><img src="/mpc/docs/images/{storeLogo}"></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+      <p><a href="&AppID={appID}&action=displayBillToShipTo"><img src="/mpc/docs/images/SideNav1.gif" width="110" height="25" name="changelocation" alt="Change Location Zone" border="0"></A><br>
+        <a href="&AppID={appID}&action=modifyCart"><img src="/mpc/docs/images/SideNav3.gif" width="110" height="24" name="viewcart" alt="View Cart" border="0"></A><br>
+        <a href="&AppID={appID}&action=checkOut"><img src="/mpc/docs/images/SideNav5.gif" width="110" height="26" name="checkout" alt="Checkout" border="0"></A></p>
+          </td>
+    <td height="291" width="82%" align="left" valign="top"> <P>
+      </p><table width="100%" border="0" cellspacing="0" cellpadding="10" name="copy">
+        <tr valign="top">
+          <td width="10%"> </td><td width="90%"><P><p>&nbsp;</p>
+      <p>
+      <table align="left" width="500">
+        <tr>
+        	<td align="left">
+
+			<merc_dynamic noshow=true name=titlePic action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreTitlePicture>
+			<center>
+<script runat=merc_server>
+
+var urlpath = doActionEx("DATA_GETLITERAL", "Result", "ObjectName", "storecfg", "LiteralID", "urlfile");
+var picpath = doActionEx("DATA_GETLITERAL", "Result", "ObjectName", "storecfg", "LiteralID", "imagepath");
+var sessionid = doActionEx("ST_GET_STATEDATA", "Result", "SessionID", "SessionID");
+var siteid = doActionEx("REQ_GET_FORMVALUE", "Result", "SiteID", "SiteID");
+var appid = doActionEx("REQ_GET_FORMVALUE", "Result", "AppID", "AppID");
+var currentNode = doActionEx("ST_GET_STATEDATA", "Result", "currentNode", "currentNode");
+
+if (currentNode != undefined)
+{
+	writeln("<table><tr><td>");
+	currentNode = parseInt(currentNode);
+	nodeData = doActionBDO("CAT_GETDATA", "NodeID", currentNode, "Locale", "en");
+	write("<h3>" + nodeData.Desc + "</h3>");
+	children = doActionBDO("CAT_GETCHILDREN", "NodeID", currentNode);
+	if (children.GetSize() > 0)
+		write("<h4>Subcategories in this group</h4>");
+	for (var k in children)
+	{
+		var childNodeData = doActionBDO("CAT_GETDATA", "NodeID", children[k], "Locale", "en");
+		writebr("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=" + urlpath + "?action=viewcatalog&SessionID=" + sessionid + "&SiteID=" + siteid + "&AppID=" + appid + "&currentNode=" + children[k] + ">" + childNodeData.Desc + "</a>");
+	}
+
+	items = doActionBDO("CAT_GETNODEITEMS","NodeID",currentNode);
+
+	var products = new Object();
+	var services = new Object();
+
+	for (var k in items)
+	{
+		var key = doActionEx("ITEM_GETFIELD", "Key", "ItemID", items[k], "FieldName", "Key");
+		var name = doActionEx("ITEM_GETFIELD", "Name", "ItemID", items[k], "FieldName", "NameID", "Locale", "en");
+		var type = doActionEx("ITEM_GETFIELD", "Type", "ItemID", items[k], "FieldName", "Type");
+		if (type == 0)
+			products[key] = name;
+		else if (type == 1)
+			services[key] = name;
+	}
+
+	var displayedHeader = false;
+	for (var k in products)
+	{
+		if (!displayedHeader)
+		{
+			write("<h4>Items in this group</h4>");
+			displayedHeader = true;
+		}
+		write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=" + urlpath + "?action=viewitem&ItemType=product&SessionID=" +  sessionid + "&SiteID=" + siteid + "&AppID=" + appid + "&ItemKey=" + k + ">" + products[k] + "<\a><br>");
+	}
+
+	displayedHeader = false;
+	for (var k in services)
+	{
+		if (!displayedHeader)
+		{
+			write("<h4>Services in this group</h4>");
+			displayedHeader = true;
+		}
+		write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=" + urlpath + "?action=viewitem&ItemType=service&SessionID=" +  sessionid + "&SiteID=" + siteid + "&AppID=" + appid + "&ItemKey=" + k + ">" + services[k] + "<\a><br>");
+	}
+
+	writeln("</td></tr></table>");
+}
+else
+{
+	writeln("No current node specified");
+}
+</script>
+			</center>
+        	</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+</body>
+<!--COMMENT="This site was generated by SoftCart © 1998-2000, Mercantec, Inc. Mercantec, SoftCart, and StateTrack are trademarks of Mercantec, Inc."-->
+</html>
+

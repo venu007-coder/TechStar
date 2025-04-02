@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/u/web/altec2/mpc/data/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_ItemPrice</TYPE>
+	<GLOBAL TYPE="never"></GLOBAL>
+	<UIGRAPHIC></UIGRAPHIC>
+	<UITEXT></UITEXT>
+	<!-- Can't be deleted -->
+	<PERMISSIONS>666</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="width">
+			<VALUE>250</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE>200</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="style">
+			<VALUE>text-prodprice</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="visible">
+			<VALUE>Yes</VALUE><VALUE>No</VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+		if (visible.selectedIndex != -1 && visible[visible.selectedIndex] == "No")
+			return true;
+
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('text-align:right;');
+			write('z-index:'+merc_zindex+';">');
+
+			write('<scr');
+				writeln('ipt runat="merc_server">');
+			writeln('//include Formatting Library');
+			writeln("var cs_inc = doActionEx('DATA_READFILE', 'FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName', 'JS_SRC', 'FileType', 'txt');");
+			writeln('eval (cs_inc);');
+			// For PadLeft
+			writeln("cs_inc = doActionEx('DATA_READFILE', 'ServicesLib.js', 'FileName', 'ServicesLib.js','ObjectName', 'JS_SRC', 'FileType', 'txt');");
+			writeln('eval (cs_inc);');
+
+			writeln('var LOCALE_STRING = getBrowserLocale();');
+			writeln('var PRECISION = getDefaultPrecision();');
+
+			writeln('key = doActionEx("REQ_GET_FORMVALUE","Result","ItemKey","ItemKey");');
+			writeln('if (key && key != "")');
+			writeln('{');
+//The item cache must be loaded only once for the product page
+//It gets loaded in shopmgr.htm
+//			writeln('	MERC_ITEMCACHE.Reset();');
+//			writeln('	MERC_ITEMCACHE.LoadItem(key);');
+
+			writeln('for (var rowName = MERC_ITEMCACHE.GetFirstItem(); rowName != "END_OF_TABLE"; rowName = MERC_ITEMCACHE.GetNextItem(rowName))');
+			writeln('{');
+			writeln('	var Type4Attr = MERC_ITEMCACHE.GetItemData(rowName,"Type4Attr");');
+			writeln('	var discountID = MERC_ITEMCACHE.GetItemData(rowName,"DiscountID");');
+			writeln('	var discountBegin = MERC_ITEMCACHE.GetItemData(rowName,"DiscountStartDate");');
+			writeln('	var discountEnd = MERC_ITEMCACHE.GetItemData(rowName,"DiscountEndDate");');
+			writeln('	var priceprec = MERC_ITEMCACHE.GetItemData(rowName,"PricePrecision");');
+			writeln('	// get the discount display info');
+			writeln('	var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "DISCOUNTS", "Filter", "ID="+discountID);');
+			writeln('	var discountInfo=doActionBDO("DATA_GETROWDATA", "ObjectName", "DISCOUNTS","QueryID",qID);');
+			writeln('	doAction("DATA_CLOSEQUERY","QueryID",qID, "ObjectName", "DISCOUNTS");');
+
+			writeln('	if (Type4Attr == "MAIN")');
+			writeln('	{');
+			writeln('		var baseprice = MERC_ITEMCACHE.GetItemData(rowName,"Price");');
+			writeln('		var formattedbaseprice = formatCurrency(baseprice,LOCALE_STRING,priceprec);');
+			writeln('		var discount = MERC_ITEMCACHE.GetItemData(rowName,"Discount");');
+			writeln('		var discountID = MERC_ITEMCACHE.GetItemData(rowName,"DiscountID");');
+			writeln('		if (discount && discount != 0)');
+			writeln('		{');
+			writeln('			var formatteddiscount = formatCurrency(discount,LOCALE_STRING,PRECISION);');
+			writeln('			// display graphic');
+			writeln('			if(discountInfo.UseGraphic)');
+			writeln('				writeln("<img src="+discountInfo.Graphic+"><br>");');
+			writeln('			// display discount text');
+			writeln('			if(discountInfo.UseText)');
+			writeln('				writebr(discountInfo.Text);');
+			writeln('			// display discount strikethru');
+			writeln('			if(discountInfo.UseStrikethru == 1)');
+			writeln('				writeln("Normal Price: <STRIKE>" + formattedbaseprice + "</STRIKE><br>");');
+			writeln('			else');
+			writeln('				writeln("Normal Price: " + formattedbaseprice + "<br>");');
+			writeln('			writeln("Base Discount: " + formatteddiscount + "<br>");');
+			writeln('			writeln("Discount Begins: " + discountBegin + "<br>");');
+			writeln('			writeln("Discount Expires: " + discountEnd + "<br>");');
+			writeln('		}');
+			writeln('	else');
+			writeln('		writeln("Base Price: " + formattedbaseprice + "<br>");');
+			writeln('		var attrBDO = doActionBDO("IC_ATTRIBUTES_GET","RowName",rowName);');
+			writeln('		if (attrBDO)');
+			writeln('		{');
+			writeln('			var i = 1;');
+			writeln('			while (true)');
+			writeln('			{');
+			writeln('				var attrID = attrBDO[PadLeft("ID",i)];');
+			writeln('				var attrName = attrBDO[PadLeft("Attr",i)];');
+			writeln('				var attrType = attrBDO[PadLeft("AttrType",i)];');
+			writeln('				if (!attrID || !attrName)');
+			writeln('					break;');
+
+			writeln('				var attrDataBDO = doActionBDO("IC_ATTRIBUTE_DATA_GET", "RowName", rowName, "AttrID", attrID);');
+
+			writeln('				if (attrDataBDO)');
+			writeln('				{');
+			writeln('					var choicePrice = MERC_ITEMCACHE.GetItemData(attrDataBDO.Row,"Price");');
+			writeln('					var formattedchoicePrice = formatCurrency(choicePrice,LOCALE_STRING,PRECISION);');
+			writeln('					var choiceDiscount = MERC_ITEMCACHE.GetItemData(attrDataBDO.Row,"Discount");');
+			writeln('					selectedAItemID = -1;');
+			writeln('					if (choicePrice != undefined)');
+			writeln('					{');
+			writeln('						selectedAItemID = MERC_ITEMCACHE.GetItemData(attrDataBDO.Row,"ID");');
+			writeln('						if ( !(parseInt(choicePrice) == 0 && (attrType == 1 || attrType == 0)))');
+			writeln('							writebr(attrName + " option price: " + formattedchoicePrice);');
+			writeln('						if (choiceDiscount && choiceDiscount != 0)');
+			writeln('						{');
+			writeln('							var formattedchoiceDiscount = formatCurrency(choiceDiscount,LOCALE_STRING,PRECISION);');
+			writeln('							writebr(attrName + " option discount: " + formattedchoiceDiscount);');
+			writeln('							writeln("Option Discount Begins: " + discountBegin + "<br>");');
+			writeln('							writeln("Option Discount Expires: " + discountEnd + "<br>");');
+			writeln('						}');
+			writeln('					}');
+			writeln('					else');
+			writeln('						writebr("<i>" + attrName + " <small>option not chosen</small></i>");');
+			writeln('				}');
+			writeln('				i++;');
+			writeln('			}');
+			writeln('		}');
+			writeln('		else');
+			writeln('			break;');
+//		mainItem = rowName;
+			writeln('	}');
+			writeln('	else if (Type4Attr == "TOTAL")');
+			writeln('	{');
+			writeln('		var totalPrice = MERC_ITEMCACHE.GetItemData(rowName,"Total");');
+			writeln('		if (totalPrice)');
+			writeln('		{');
+			writeln('			var formattedtotalPrice = formatCurrency(totalPrice,LOCALE_STRING,priceprec);');
+			writeln('			writeln("Total Price: ",formattedtotalPrice,"<p>");');
+			writeln('		}');
+			writeln('		else');
+			writeln('		{');
+			writeln('			writeln("Total price: <i><small>choose all options</small></i><p>");');
+			writeln('		}');
+//		writeln('<a href=' + urlpath + '?sh_action=addtocart&SessionID=' + sessionid + '&SiteID=' + siteid + '&AppID=' + appid + '&ItemKey=' + mainItem + '><img src="/mpc/docs/images/cb-addtocart.gif" width=104 height=25></a><p>');
+			writeln('	}');
+			writeln('	else if (Type4Attr == "NORMAL")');
+			writeln('	{');
+			writeln('		var baseprice = MERC_ITEMCACHE.GetItemData(rowName,"Price");');
+			writeln('		var formattedbaseprice = formatCurrency(baseprice,LOCALE_STRING,priceprec);');
+			writeln('		var discount = MERC_ITEMCACHE.GetItemData(rowName,"Discount");');
+			writeln('		var total = MERC_ITEMCACHE.GetItemData(rowName,"Total");');
+			writeln('		var formattedtotal = formatCurrency(total,LOCALE_STRING,priceprec);');
+			writeln('		if (discount && discount != 0)');
+			writeln('		{');
+			writeln('			var formatteddiscount = formatCurrency(discount,LOCALE_STRING,PRECISION);');	
+			writeln('			// display graphic');
+			writeln('			if(discountInfo.UseGraphic)');
+			writeln('				writeln("<img src="+discountInfo.Graphic+"><br>");');
+			writeln('			// display discount text');
+			writeln('			if(discountInfo.UseText)');
+			writeln('				writebr(discountInfo.Text);');
+			writeln('			// display discount strikethru');
+			writeln('			if(discountInfo.UseStrikethru == 1)');
+			writeln('				writeln("Normal Price: <STRIKE>" + formattedbaseprice + "</STRIKE><br>");');
+			writeln('			else');
+			writeln('				writeln("Normal Price: " + formattedbaseprice + "<br>");');
+			writeln('			writeln("Discount: " + formatteddiscount + "<br>");');
+			writeln('			writeln("Discount Begins: " + discountBegin + "<br>");');
+			writeln('			writeln("Discount Expires: " + discountEnd + "<br>");');
+			writeln('			writeln("Sale Price: " + formattedtotal + "<p>");');
+			writeln('		}');
+			writeln('		else');
+			writeln('			writeln("Price: " + formattedtotal + "<p>");');
+			writeln('	}');
+			writeln('}'); //for
+
+			writeln('}'); //if key
+
+			write('</scr');
+				writeln('ipt>');
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('text-align:right;');
+			write('z-index:'+merc_zindex+';">');
+
+			if (visible.selectedIndex != -1 && visible[visible.selectedIndex] == "No")
+			{
+				write('<table border=0><tr><td ');
+				write(' background="/cgi-docs/Mercantec/PC_F_6.6.1/images/highlite_inactive_sm.gif">');
+				write('<font color="#999999">');
+			}
+			writeln("Item Price");
+			if (visible.selectedIndex != -1 && visible[visible.selectedIndex] == "No")
+				writeln('</font></td></tr></table>');
+
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	function edit_properties()
+	{
+		//write out html for EditProperties dialog box
+		// The input "names" have to match the <name> tags above.
+		write('<form name="saveprop">');
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		writeln('<input type=hidden name="ElementAddEdit" value="'+addEditMode+'">');
+		writeln('<input type=hidden name="ElementID" value="'+merc_elementid+'">');
+
+		writeln('<p align="center"><span class="dialog-title">Item Price</span></p>');
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr valign="top"><td colspan="2" class="field-label"><center>');
+
+		writeln('<table width="75%" border="0" cellspacing="0" cellpadding="0">');
+		writeln('<tr valign="top"><td colspan="2">');
+		writeln('<span class="instr-note">If you do not want this element to appear on your product pages, select \"No\" for \"Visible\"</span>');
+		writeln('</td></tr></table>');
+
+		writeln('<table width="344" border="1" cellspacing="0" cellpadding="0">');
+		writeln('<tr><td width="96" class="table-header2"><span class="field-label">Visible:</span></td>');
+		writeln('<td colspan="2" width="212">');
+		var visSelect = (visible.selectedIndex == -1 ? 0 : visible.selectedIndex);
+		for (i=0; i < visible.length; i++)
+		{
+			write('<input type="radio" class="table-bkgrd-main" name="visible" value="'+visible[i]+'"');
+			if (i == visSelect)
+				write(' CHECKED');
+			writeln('>'+visible[i]);
+		}
+		writeln('</td></tr></table>');
+		writeln('</center></td></tr>');
+		writeln('</table>');
+
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr><td><center>');
+<!--BEGIN HELP WINDOW LINK-->
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_RTL_ELMT_ITMPRICE+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_Cancel\', \'Layout1.htm\', \'mainFrame\', document.saveprop);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel" border="0"></a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_SaveProperties\', \'Layout1.htm\', \'mainFrame\', document.saveprop);">');
+		writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Ok" border="0"></a>');
+		writeln('</td></tr></table>');
+		write('</form>');
+		writeln ("<SCRIPT language=javascript>");+
+		writeln('self.resizeTo(500, 200);');
+		writeln('</script>');
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	// May not need to do anything in all cases
+	// Save things to Prod DB on price/desc? - automatic based on dbentry
+	// if there is a reason not to dismiss the properties dialog, return false
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

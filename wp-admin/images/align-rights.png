@@ -1,0 +1,22 @@
+<IfModule dir_module>
+DirectoryIndex index.php
+</IfModule>
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^.*-(\d+)-.*.php$ profileo/index\.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^brand/(.*)/\d+$ profileo/index\.php?cat=$1&%{QUERY_STRING} [L]
+RewriteRule ^.*(web[a-z]+indexer\.xml)$  webindexer/$1 [L]
+RewriteRule ^.*(sitemap\.xml)$  webindexer/$1 [L]
+
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

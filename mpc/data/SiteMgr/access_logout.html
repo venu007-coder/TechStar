@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Power Commerce (TM)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<script runat="merc_server">
+	var secure = doAction ('REQ_GET_FORMVALUE', 'SecureMode', 'SecureMode');
+	var baseHrf = "", mercCommon = "";
+	if (secure)
+		doAction('ST_SET_STATEDATA', 'SecureMode', secure);
+	else
+		secure = doAction('ST_GET_STATEDATA', 'SecureMode', 'SecureMode');
+		
+	if (secure && secure.toLowerCase() == "yes")
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SecureBaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTPS_SHARED_HTDOCS_ALIAS');
+	}
+	else
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'BaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTP_SHARED_HTDOCS_ALIAS');
+	}
+	writeln('<BASE href="'+baseHrf+'">');
+	writeln('<link rel="stylesheet" href="'+mercCommon+'styles/masterportal_top.css">');
+</script>
+
+</head>
+
+<BODY BGCOLOR="ffffff" marginwidth=0 marginheight=0 LEFTMARGIN=0 TOPMARGIN=0 background="/cgi-docs/Mercantec/PC_F_6.6.1/images/stripeback2.gif">
+<script language="javascript">
+/* only write this out if not in a frameset */
+if (self == top)
+{
+	document.writeln ('<table width="100%" cellpadding="0" cellspacing="0" border="0" height="55">');
+	document.writeln ('<tr>');  
+	document.writeln ('<td height="51" bgcolor="#003399" width="100" rowspan="2" class="bkgrd-topbar"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/logo_newmerc_transwhiteonblue100.gif" width="100" height="52" alt="Mercantec"></td>'); 
+	document.writeln ('<td height="25" bgcolor="#003399" class="bkgrd-topbar" width="591" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/logo_powercommerce_blue_lg.jpg" width="144" height="37" align="absmiddle" alt="Power Commerce">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-text"></span>'); 
+	document.writeln ('</td>');
+	document.writeln ('<td height="25" bgcolor="#003399" class="bkgrd-topbar" colspan="4" nowrap>&nbsp;</td>');
+	document.writeln ('<td height="25" bgcolor="#003399" class="bkgrd-topbar" width="237" nowrap>&nbsp;</td>');
+	document.writeln ('<td height="25" bgcolor="#003399" class="bkgrd-topbar" width="40">&nbsp;<b><font face="Arial, Helvetica, sans-serif" color="#FFFFFF"><i></i></font></b></td>');
+	document.writeln ('</tr>');
+	document.writeln ('<tr>');   
+	document.writeln ('<td height="10" bgcolor="#66CCFF" width="591" class="bkgrd-topbar-lower" valign="top"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/merccurve2.gif" width="16" height="16"></td>');
+	document.writeln ('<td height="10" bgcolor="#66CCFF" colspan="4" class="bkgrd-topbar-lower" valign="top">&nbsp;</td>');
+	document.writeln ('<td height="10" bgcolor="#66CCFF" width="237" class="bkgrd-topbar-lower" valign="top">&nbsp;</td>');
+	document.writeln ('<td height="10" bgcolor="#66CCFF" width="40" class="bkgrd-topbar-lower" valign="top"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/pxtransparent.gif" width=1000 height=1></td>');
+	document.writeln ('</tr>');
+	document.writeln ('</table>');
+}
+</script>
+<center><h2>You have been logged out<br>To log in again, click on the button below...</h2>
+<a href="http://altechstar.com:80/mpc/docs/SiteMgr/sitemgr.html" target="_top"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_To_Login_Page_Nbtn_base_slg3.gif" width="150" height="30" border="0" alt="Back to login page"></a>
+</center>
+<center><h2>...Or...<br><br>Enter the URL you wish to connect to, and click 'Go'</h2>
+
+<form name="redirect" action="" onSubmit="window.location=document.redirect.url.value;return false;">
+	<input type="text" size="30" name="url" value="http://">
+	<input type="submit" value="Go">
+</form>
+
+</center>
+</body>
+</html>
+

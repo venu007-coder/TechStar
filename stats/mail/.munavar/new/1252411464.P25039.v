@@ -1,0 +1,51 @@
+Return-Path: noreply@cwonline.computerworld.com
+Received: from mx50.stngva01.us.mxservers.net (204.202.242.46)
+	by mail19l.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 4-0753931464
+	for <ms@altechstar.com>; Tue,  8 Sep 2009 08:04:24 -0400 (EDT)
+Received: from unknown [204.202.242.20] (HELO mail19e.g19.rapidsite.net)
+	by va1-mx50.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 84846aa4.2631130016.183681.00-008.va1-mx50.stngva01.us.mxservers.net (envelope-from <bounce-5698778-298539@cwonline.computerworld.com>);
+	Tue, 08 Sep 2009 08:04:24 -0400 (EDT)
+Received: from mx01.stngva01.us.mxservers.net (204.202.242.3)
+	by mail19e.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0686611463
+	for <anand@altechstar.com>; Tue,  8 Sep 2009 08:04:23 -0400 (EDT)
+Received: from unknown [199.92.213.69] (HELO cwonline.computerworld.com)
+	by va1-mx01.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 74846aa4.2635328416.941996.00-012.va1-mx01.stngva01.us.mxservers.net (envelope-from <bounce-5698778-298539@cwonline.computerworld.com>);
+	Tue, 08 Sep 2009 08:04:23 -0400 (EDT)
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=2008; d=cwonline.computerworld.com;
+ h=from;
+ b=eytiLzvyNcpyoPA5gv1wcNjX36dumnQXccm1myEL6d3VaOf71ff3ZPDPVFTzsY50lAepWRzv
+	  rnOJw7JaMqM4yg==
+Message-ID: <LYRIS-298539-5698778-2009.09.08-08.04.24--ANAND#ALTECHSTAR.COM@cwonline.computerworld.com>
+X-lyris-type: auto-responder
+From: "Computerworld Newsletters"<noreply@cwonline.computerworld.com>
+To: ANAND@ALTECHSTAR.COM
+Auto-Submitted: auto-replied
+Subject: Auto: Re: Computerworld Newsletters
+Date: Tue, 08 Sep 2009 08:02:56 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+	charset="ISO-8859-1"
+Content-Transfer-Encoding: 8bit
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009090401); MH=0.500(2009090803)]
+X-MAIL-FROM: <bounce-5698778-298539@cwonline.computerworld.com>
+X-SOURCE-IP: [199.92.213.69]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009090401); MH=0.500(2009090803)]
+X-MAIL-FROM: <bounce-5698778-298539@cwonline.computerworld.com>
+X-SOURCE-IP: [204.202.242.20]
+X-Loop-Detect:1
+
+
+Thank you for your comments. However, computerworld_newsletters@cwonline.computerworld.com is not a monitored e-mail address at Computerworld.
+
+If you want to submit feedback about Computerworld's e-mails, please email customer service at online@computerworld.com.
+
+To update your e-mail newsletter subscription preferences, please go to the following URL:
+http://www.computerworld.com/action/member.do?command=newsletterLogin
+
+Computerworld
+1 Speen Street
+Framingham, MA 01701
+http://www.computerworld.com/

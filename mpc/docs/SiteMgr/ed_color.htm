@@ -1,0 +1,288 @@
+<html>
+<head>
+<title>Select Color</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript">
+	var styleColor = "003333";
+	function swapImage (color)
+	{
+		styleColor = color;
+		var currentImg = document.images.imgPreview.src;
+		currentImg = currentImg.substr (0, currentImg.lastIndexOf("px"));
+		currentImg = currentImg + "px" + color + ".gif";
+		document.images.imgPreview.src = currentImg;
+	}
+</SCRIPT>
+</head>
+
+<body class="pop-up-bkgrd">
+<p align="center" class="dialog-title">Select Color</p>
+<table width="400" border="0" cellspacing="0" cellpadding="2" align="center" class="table-bkgrd-main">
+<tr>
+<td width="24" class="field-label" height="131"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/px003333.gif" name="imgPreview" width="32" height="32" border="1" alt="color preview"></td>
+<td colspan="2" class="field-label" height="131">
+<center>
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/colorpicker.gif" width="400" height="121" usemap="#colorpick" border="0" hspace="4" vspace="4">
+</center>
+</td>
+</tr>
+<tr class="table-header2">
+<td colspan="3" class="field-label" height="12">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="3" class="field-label">
+<center>
+<a href=javascript:void(0) onClick="self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a>
+<a href=javascript:void(0) onClick="opener.submitChange(styleColor);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/OK_Nbtn_base.gif" width="86" height="30" border="0" alt="Ok"></a>
+</center>
+</td>
+</tr>
+</table>
+<p align="center">&nbsp;</p>
+<map name="colorpick">
+<area shape="rect" coords="1,1,15,16" href="#" onClick="swapImage('cc66cc')" alt="cc66cc" title="cc66cc">
+<area shape="rect" coords="0,16,15,31" href="#" onClick="swapImage('cc33cc')" alt="cc33cc" title="cc33cc">
+<area shape="rect" coords="0,32,15,46" href="#" onClick="swapImage('ff33ff')" alt="ff33ff" title="ff33ff">
+<area shape="rect" coords="0,47,15,61" href="#" onClick="swapImage('ff00ff')" alt="ff00ff" title="ff00ff">
+<area shape="rect" coords="0,62,15,76" href="#" onClick="swapImage('cc00cc')" alt="cc00cc" title="cc00cc">
+<area shape="rect" coords="0,77,15,91" href="#" onClick="swapImage('cc3399')" alt="cc3399" title="cc3399">
+<area shape="rect" coords="-4,92,15,105" href="#" onClick="swapImage('993366')" alt="993366" title="993366">
+<area shape="rect" coords="-3,106,15,123" href="#" onClick="swapImage('990066')" alt="990066" title="990066">
+
+<area shape="rect" coords="16,1,30,16" href="#" onClick="swapImage('cc6699')" alt="cc6699" title="cc6699">
+<area shape="rect" coords="16,15,31,30" href="#" onClick="swapImage('ff99ff')" alt="ff99ff" title="ff99ff">
+<area shape="rect" coords="15,32,30,46" href="#" onClick="swapImage('ff66ff')" alt="ff66ff" title="ff66ff">
+<area shape="rect" coords="15,47,30,61" href="#" onClick="swapImage('ff00cc')" alt="ff00cc" title="ff00cc">
+<area shape="rect" coords="15,62,30,76" href="#" onClick="swapImage('ff33cc')" alt="ff33cc" title="ff33cc">
+<area shape="rect" coords="15,77,30,91" href="#" onClick="swapImage('cc0099')" alt="cc0099" title="cc0099">
+<area shape="rect" coords="15,91,30,105" href="#" onClick="swapImage('cc3366')" alt="cc3366" title="cc3366">
+<area shape="rect" coords="16,106,31,122" href="#" onClick="swapImage('660033')" alt="660033" title="660033">
+
+<area shape="rect" coords="30,46,45,60" href="#" onClick="swapImage('ff66cc')" alt="ff66cc" title="ff66cc">
+<area shape="rect" coords="30,31,45,45" href="#" onClick="swapImage('ff6699')" alt="ff6699" title="ff6699">
+<area shape="rect" coords="30,15,45,30" href="#" onClick="swapImage('ff99cc')" alt="ff99cc" title="ff99cc">
+<area shape="rect" coords="31,0,45,15" href="#" onClick="swapImage('ffccff')" alt="ffccff" title="ffccff">
+<area shape="rect" coords="30,61,45,75" href="#" onClick="swapImage('ff3399')" alt="ff3399" title="ff3399">
+<area shape="rect" coords="30,76,45,90" href="#" onClick="swapImage('ff0099')" alt="ff0099" title="ff0099">
+<area shape="rect" coords="30,91,45,105" href="#" onClick="swapImage('cc0066')" alt="cc0066" title="cc0066">
+<area shape="rect" coords="31,105,46,121" href="#" onClick="swapImage('990033')" alt="990033" title="990033">
+
+<area shape="rect" coords="60,47,75,61" href="#" onClick="swapImage('cc6666')" alt="cc6666" title="cc6666">
+<area shape="rect" coords="46,92,60,105" href="#" onClick="swapImage('cc0033')" alt="cc0033" title="cc0033">
+<area shape="rect" coords="45,77,60,91" href="#" onClick="swapImage('ff0066')" alt="ff0066" title="ff0066">
+<area shape="rect" coords="45,62,60,76" href="#" onClick="swapImage('ff3366')" alt="ff3366" title="ff3366">
+<area shape="rect" coords="45,47,60,61" href="#" onClick="swapImage('ff6666')" alt="ff6666" title="ff6666">
+<area shape="rect" coords="45,32,60,46" href="#" onClick="swapImage('996666')" alt="996666" title="996666">
+<area shape="rect" coords="45,16,60,31" href="#" onClick="swapImage('cc9999')" alt="cc9999" title="cc9999">
+<area shape="rect" coords="60,77,75,91" href="#" onClick="swapImage('ff0033')" alt="ff0033" title="ff0033">
+
+<area shape="rect" coords="60,91,75,105" href="#" onClick="swapImage('cc3333')" alt="cc3333" title="cc3333">
+<area shape="rect" coords="61,106,76,122" href="#" onClick="swapImage('990000')" alt="990000" title="990000">
+<area shape="rect" coords="76,105,91,121" href="#" onClick="swapImage('330000')" alt="330000" title="330000">
+<area shape="rect" coords="75,91,90,105" href="#" onClick="swapImage('cc0000')" alt="cc0000" title="cc0000">
+<area shape="rect" coords="61,1,75,16" href="#" onClick="swapImage('ffffcc')" alt="ffffcc" title="ffffcc">
+<area shape="rect" coords="46,1,60,15" href="#" onClick="swapImage('ffcccc')" alt="ffcccc" title="ffcccc">
+<area shape="rect" coords="46,106,60,123" href="#" onClick="swapImage('993333')" alt="993333" title="993333">
+<area shape="rect" coords="60,32,75,46" href="#" onClick="swapImage('ff9999')" alt="ff9999" title="ff9999">
+
+<area shape="rect" coords="75,31,90,45" href="#" onClick="swapImage('ffcc00')" alt="ffcc00" title="ffcc00">
+<area shape="rect" coords="75,46,90,60" href="#" onClick="swapImage('ff9900')" alt="ff9900" title="ff9900">
+<area shape="rect" coords="75,0,89,15" href="#" onClick="swapImage('ffff99')" alt="ffff99" title="ffff99">
+<area shape="rect" coords="75,15,90,30" href="#" onClick="swapImage('ffff00')" alt="ffff00" title="ffff00">
+<area shape="rect" coords="75,76,90,90" href="#" onClick="swapImage('ff0000')" alt="ff0000" title="ff0000">
+<area shape="rect" coords="75,61,90,75" href="#" onClick="swapImage('ff3300')" alt="ff3300" title="ff3300">
+<area shape="rect" coords="60,62,75,76" href="#" onClick="swapImage('ff3333')" alt="ff3333" title="ff3333">
+<area shape="rect" coords="60,16,75,31" href="#" onClick="swapImage('ffcc99')" alt="ffcc99" title="ffcc99">
+
+<area shape="rect" coords="119,31,134,45" href="#" onClick="swapImage('cc9933')" alt="cc9933" title="cc9933">
+<area shape="rect" coords="104,47,119,61" href="#" onClick="swapImage('ff6600')" alt="ff6600" title="ff6600">
+<area shape="rect" coords="104,32,119,46" href="#" onClick="swapImage('ff9966')" alt="ff9966" title="ff9966">
+<area shape="rect" coords="119,46,134,60" href="#" onClick="swapImage('cc9900')" alt="cc9900" title="cc9900">
+<area shape="rect" coords="104,62,119,76" href="#" onClick="swapImage('cc6633')" alt="cc6633" title="cc6633">
+<area shape="rect" coords="89,62,104,76" href="#" onClick="swapImage('ff6633')" alt="ff6633" title="ff6633">
+<area shape="rect" coords="89,77,104,91" href="#" onClick="swapImage('cc3300')" alt="cc3300" title="cc3300">
+<area shape="rect" coords="90,92,104,105" href="#" onClick="swapImage('993300')" alt="993300" title="993300">
+
+<area shape="rect" coords="89,16,104,31" href="#" onClick="swapImage('ffff33')" alt="ffff33" title="ffff33">
+<area shape="rect" coords="120,105,135,121" href="#" onClick="swapImage('666600')" alt="666600" title="666600">
+<area shape="rect" coords="90,1,104,15" href="#" onClick="swapImage('ffff66')" alt="ffff66" title="ffff66">
+<area shape="rect" coords="105,1,119,16" href="#" onClick="swapImage('ffcc66')" alt="ffcc66" title="ffcc66">
+<area shape="rect" coords="89,47,104,61" href="#" onClick="swapImage('ff9933')" alt="ff9933" title="ff9933">
+<area shape="rect" coords="90,106,104,123" href="#" onClick="swapImage('660000')" alt="660000" title="660000">
+<area shape="rect" coords="89,32,104,46" href="#" onClick="swapImage('ffcc33')" alt="ffcc33" title="ffcc33">
+<area shape="rect" coords="119,15,134,30" href="#" onClick="swapImage('cccc66')" alt="cccc66" title="cccc66">
+
+<area shape="rect" coords="104,16,119,31" href="#" onClick="swapImage('cc9966')" alt="cc9966" title="cc9966">
+<area shape="rect" coords="119,61,134,75" href="#" onClick="swapImage('cc6600')" alt="cc6600" title="cc6600">
+<area shape="rect" coords="119,76,134,90" href="#" onClick="swapImage('999966')" alt="999966" title="999966">
+<area shape="rect" coords="104,77,119,91" href="#" onClick="swapImage('996600')" alt="996600" title="996600">
+<area shape="rect" coords="104,91,119,105" href="#" onClick="swapImage('996633')" alt="996633" title="996633">
+<area shape="rect" coords="119,91,134,105" href="#" onClick="swapImage('999933')" alt="999933" title="999933">
+<area shape="rect" coords="105,106,120,122" href="#" onClick="swapImage('663300')" alt="663300" title="663300">
+<area shape="rect" coords="120,0,134,15" href="#" onClick="swapImage('cccc99')" alt="cccc99" title="cccc99"> 
+
+ <area shape="rect" coords="164,16,179,31" href="#" onClick="swapImage('66ff00')" alt="66ff00" title="66ff00">
+ <area shape="rect" coords="180,106,195,122" href="#" onClick="swapImage('009933')" alt="009933" title="009933">
+ <area shape="rect" coords="135,105,150,121" href="#" onClick="swapImage('333300')" alt="333300" title="333300">
+ <area shape="rect" coords="179,62,194,76" href="#" onClick="swapImage('33ff00')" alt="33ff00" title="33ff00">
+ <area shape="rect" coords="194,76,209,90" href="#" onClick="swapImage('66cc66')" alt="66cc66" title="66cc66">
+ <area shape="rect" coords="165,106,179,123" href="#" onClick="swapImage('009900')" alt="009900" title="009900">
+ <area shape="rect" coords="194,0,208,15" href="#" onClick="swapImage('99ff66')" alt="99ff66" title="99ff66">
+ <area shape="rect" coords="238,61,252,76" href="#" onClick="swapImage('339999')" alt="339999" title="339999">
+
+<area shape="rect" coords="224,47,239,61" href="#" onClick="swapImage('33cc99')" alt="33cc99" title="33cc99">
+<area shape="rect" coords="194,91,209,105" href="#" onClick="swapImage('339933')" alt="339933" title="339933">
+<area shape="rect" coords="194,46,209,60" href="#" onClick="swapImage('33ff33')" alt="33ff33" title="33ff33">
+<area shape="rect" coords="238,31,253,45" href="#" onClick="swapImage('33ffff')" alt="33ffff" title="33ffff">
+<area shape="rect" coords="224,106,239,122" href="#" onClick="swapImage('339966')" alt="339966" title="339966">
+<area shape="rect" coords="149,31,164,45" href="#" onClick="swapImage('99cc00')" alt="99cc00" title="99cc00">
+<area shape="rect" coords="149,91,164,105" href="#" onClick="swapImage('336600')" alt="336600" title="336600">
+<area shape="rect" coords="179,1,193,16" href="#" onClick="swapImage('ccff33')" alt="ccff33" title="ccff33">
+
+<area shape="rect" coords="238,0,252,15" href="#" onClick="swapImage('66ffcc')" alt="66ffcc" title="66ffcc">
+<area shape="rect" coords="134,62,149,76" href="#" onClick="swapImage('999900')" alt="999900" title="999900">
+<area shape="rect" coords="164,77,179,91" href="#" onClick="swapImage('33cc00')" alt="33cc00" title="33cc00">
+<area shape="rect" coords="239,15,254,30" href="#" onClick="swapImage('66ffff')" alt="66ffff" title="66ffff">
+<area shape="rect" coords="179,77,194,91" href="#" onClick="swapImage('00cc00')" alt="00cc00" title="00cc00">
+<area shape="rect" coords="150,105,165,121" href="#" onClick="swapImage('006600')" alt="006600" title="006600">
+<area shape="rect" coords="238,91,253,105" href="#" onClick="swapImage('009966')" alt="009966" title="009966">
+<area shape="rect" coords="210,106,224,123" href="#" onClick="swapImage('003300')" alt="003300" title="003300">
+
+<area shape="rect" coords="134,47,149,61" href="#" onClick="swapImage('99cc66')" alt="99cc66" title="99cc66">
+<area shape="rect" coords="223,77,238,91" href="#" onClick="swapImage('33cc66')" alt="33cc66" title="33cc66">
+<area shape="rect" coords="165,92,179,105" href="#" onClick="swapImage('339900')" alt="339900" title="339900">
+<area shape="rect" coords="208,62,223,76" href="#" onClick="swapImage('00ff99')" alt="00ff99" title="00ff99">
+<area shape="rect" coords="164,1,178,15" href="#" onClick="swapImage('ccff00')" alt="ccff00" title="ccff00">
+<area shape="rect" coords="209,16,224,31" href="#" onClick="swapImage('99ff99')" alt="99ff99" title="99ff99">
+<area shape="rect" coords="194,15,209,30" href="#" onClick="swapImage('66ff66')" alt="66ff66" title="66ff66">
+<area shape="rect" coords="179,47,194,61" href="#" onClick="swapImage('00ff00')" alt="00ff00" title="00ff00">
+
+<area shape="rect" coords="209,92,223,105" href="#" onClick="swapImage('669966')" alt="669966" title="669966">
+<area shape="rect" coords="209,47,224,61" href="#" onClick="swapImage('33ff99')" alt="33ff99" title="33ff99">
+<area shape="rect" coords="149,46,164,60" href="#" onClick="swapImage('66cc33')" alt="66cc33" title="66cc33">
+<area shape="rect" coords="238,105,253,121" href="#" onClick="swapImage('006633')" alt="006633" title="006633">
+<area shape="rect" coords="238,76,253,90" href="#" onClick="swapImage('00cc99')" alt="00cc99" title="00cc99">
+<area shape="rect" coords="135,1,149,16" href="#" onClick="swapImage('ccff66')" alt="ccff66" title="ccff66">
+<area shape="rect" coords="224,1,238,16" href="#" onClick="swapImage('99ffcc')" alt="99ffcc" title="99ffcc">
+<area shape="rect" coords="164,62,179,76" href="#" onClick="swapImage('33cc33')" alt="33cc33" title="33cc33">
+
+<area shape="rect" coords="179,15,194,30" href="#" onClick="swapImage('99ff00')" alt="99ff00" title="99ff00">
+<area shape="rect" coords="208,77,223,91" href="#" onClick="swapImage('99cc99')" alt="99cc99" title="99cc99">
+<area shape="rect" coords="193,61,208,75" href="#" onClick="swapImage('00cc33')" alt="00cc33" title="00cc33">
+<area shape="rect" coords="134,77,149,91" href="#" onClick="swapImage('669900')" alt="669900" title="669900">
+<area shape="rect" coords="164,32,179,46" href="#" onClick="swapImage('66ff33')" alt="66ff33" title="66ff33">
+<area shape="rect" coords="149,76,164,90" href="#" onClick="swapImage('66cc00')" alt="66cc00" title="66cc00">
+<area shape="rect" coords="134,91,149,105" href="#" onClick="swapImage('666633')" alt="666633" title="666633">
+<area shape="rect" coords="149,16,164,31" href="#" onClick="swapImage('99ff33')" alt="99ff33" title="99ff33">
+
+<area shape="rect" coords="149,61,164,75" href="#" onClick="swapImage('99cc33')" alt="99cc33" title="99cc33">
+<area shape="rect" coords="134,16,149,31" href="#" onClick="swapImage('cccc33')" alt="cccc33" title="cccc33">
+<area shape="rect" coords="134,32,149,46" href="#" onClick="swapImage('cccc00')" alt="cccc00" title="cccc00">
+<area shape="rect" coords="239,46,254,60" href="#" onClick="swapImage('33cccc')" alt="33cccc" title="33cccc">
+<area shape="rect" coords="209,1,223,15" href="#" onClick="swapImage('ccffcc')" alt="ccffcc" title="ccffcc">
+<area shape="rect" coords="165,47,180,61" href="#" onClick="swapImage('00ff33')" alt="00ff33" title="00ff33">
+<area shape="rect" coords="179,91,194,105" href="#" onClick="swapImage('669933')" alt="669933" title="669933">
+<area shape="rect" coords="194,31,209,45" href="#" onClick="swapImage('00ff66')" alt="00ff66" title="00ff66">
+
+<area shape="rect" coords="224,32,239,46" href="#" onClick="swapImage('33ffcc')" alt="33ffcc" title="33ffcc">
+<area shape="rect" coords="224,16,239,31" href="#" onClick="swapImage('00ffcc')" alt="00ffcc" title="00ffcc">
+<area shape="rect" coords="223,62,238,76" href="#" onClick="swapImage('66cc99')" alt="66cc99" title="66cc99">
+<area shape="rect" coords="179,32,194,46" href="#" onClick="swapImage('33ff66')" alt="33ff66" title="33ff66">
+<area shape="rect" coords="195,105,210,121" href="#" onClick="swapImage('336633')" alt="336633" title="336633">
+<area shape="rect" coords="209,32,224,46" href="#" onClick="swapImage('66ff99')" alt="66ff99" title="66ff99">
+<area shape="rect" coords="223,91,238,105" href="#" onClick="swapImage('00cc66')" alt="00cc66" title="00cc66">
+<area shape="rect" coords="149,0,163,15" href="#" onClick="swapImage('ccff99')" alt="ccff99" title="ccff99"> 
+
+<area shape="rect" coords="357,32,372,46" href="#" onClick="swapImage('cc33ff')" alt="cc33ff" title="cc33ff">
+<area shape="rect" coords="282,62,297,76" href="#" onClick="swapImage('0033ff')" alt="0033ff" title="0033ff">
+<area shape="rect" coords="385,76,400,90" href="#" onClick="swapImage('666666')" alt="666666" title="666666">
+<area shape="rect" coords="341,76,356,90" href="#" onClick="swapImage('6633cc')" alt="6633cc" title="6633cc">
+<area shape="rect" coords="296,91,311,105" href="#" onClick="swapImage('0000cc')" alt="0000cc" title="0000cc">
+<area shape="rect" coords="356,77,371,91" href="#" onClick="swapImage('660099')" alt="660099" title="660099">
+<area shape="rect" coords="385,0,399,15" href="#" onClick="swapImage('996699')" alt="996699" title="996699">
+<area shape="rect" coords="371,16,386,31" href="#" onClick="swapImage('c9966cc')" alt="9966cc" title="9966cc">
+
+<area shape="rect" coords="371,47,386,61" href="#" onClick="swapImage('663399')" alt="663399" title="663399">
+<area shape="rect" coords="311,1,325,15" href="#" onClick="swapImage('99ccff')" alt="99ccff" title="99ccff">
+<area shape="rect" coords="282,15,297,30" href="#" onClick="swapImage('33ccff')" alt="33ccff" title="33ccff">
+<area shape="rect" coords="328,62,343,76" href="#" onClick="swapImage('6633ff')" alt="6633ff" title="6633ff">
+<area shape="rect" coords="371,106,386,122" href="#" onClick="swapImage('663333')" alt="663333" title="663333">
+<area shape="rect" coords="327,16,342,31" href="#" onClick="swapImage('666699')" alt="666699" title="666699">
+<area shape="rect" coords="356,62,371,76" href="#" onClick="swapImage('9900cc')" alt="9900cc" title="9900cc">
+<area shape="rect" coords="297,0,311,15" href="#" onClick="swapImage('66ccff')" alt="66ccff" title="66ccff">
+
+<area shape="rect" coords="282,32,297,46" href="#" onClick="swapImage('0099ff')" alt="0099ff" title="0099ff">
+<area shape="rect" coords="341,0,355,15" href="#" onClick="swapImage('9999cc')" alt="9999cc" title="9999cc">
+<area shape="rect" coords="327,106,342,122" href="#" onClick="swapImage('333366')" alt="333366" title="333366">
+<area shape="rect" coords="357,16,372,31" href="#" onClick="swapImage('cc66ff')" alt="cc66ff" title="cc66ff">
+<area shape="rect" coords="371,62,386,76" href="#" onClick="swapImage('993399')" alt="993399" title="993399">
+<area shape="rect" coords="326,1,340,16" href="#" onClick="swapImage('ccccff')" alt="ccccff" title="ccccff">
+<area shape="rect" coords="356,1,370,15" href="#" onClick="swapImage('cc99cc')" alt="cc99cc" title="cc99cc">
+<area shape="rect" coords="356,106,370,123" href="#" onClick="swapImage('330033')" alt="330033" title="330033">
+
+<area shape="rect" coords="282,47,297,61" href="#" onClick="swapImage('0066ff')" alt="0066ff" title="0066ff">
+<area shape="rect" coords="297,15,312,30" href="#" onClick="swapImage('3399ff')" alt="3399ff" title="3399ff">
+<area shape="rect" coords="326,91,341,105" href="#" onClick="swapImage('333399')" alt="333399" title="333399">
+<area shape="rect" coords="281,77,296,91" href="#" onClick="swapImage('0033cc')" alt="0033cc" title="0033cc">
+<area shape="rect" coords="370,91,385,105" href="#" onClick="swapImage('660066')" alt="660066" title="660066">
+<area shape="rect" coords="385,91,400,105" href="#" onClick="swapImage('333333')" alt="333333" title="333333">
+<area shape="rect" coords="342,15,357,30" href="#" onClick="swapImage('9999ff')" alt="9999ff" title="9999ff">
+<area shape="rect" coords="312,16,327,31" href="#" onClick="swapImage('6699ff')" alt="6699ff" title="6699ff">
+
+<area shape="rect" coords="297,61,312,75" href="#" onClick="swapImage('3300ff')" alt="3300ff" title="3300ff">
+<area shape="rect" coords="342,31,357,45" href="#" onClick="swapImage('9966ff')" alt="9966ff" title="9966ff">
+<area shape="rect" coords="386,105,401,121" href="#" onClick="swapImage('000000')" alt="000000" title="000000">
+<area shape="rect" coords="281,91,296,105" href="#" onClick="swapImage('003366')" alt="003366" title="003366">
+<area shape="rect" coords="312,92,326,105" href="#" onClick="swapImage('3300cc')" alt="3300cc" title="3300cc">
+<area shape="rect" coords="386,31,401,45" href="#" onClick="swapImage('ffffff')" alt="ffffff" title="ffffff">
+<area shape="rect" coords="282,1,296,16" href="#" onClick="swapImage('00ccff')" alt="00ccff" title="00ccff">
+<area shape="rect" coords="327,32,342,46" href="#" onClick="swapImage('6666cc')" alt="6666cc" title="6666cc">
+
+<area shape="rect" coords="297,105,312,121" href="#" onClick="swapImage('000099')" alt="000099" title="000099">
+<area shape="rect" coords="371,1,385,16" href="#" onClick="swapImage('cc99ff')" alt="cc99ff" title="cc99ff">
+<area shape="rect" coords="312,62,327,76" href="#" onClick="swapImage('3333cc')" alt="3333cc" title="3333cc">
+<area shape="rect" coords="297,46,312,60" href="#" onClick="swapImage('3333ff')" alt="3333ff" title="3333ff">
+<area shape="rect" coords="312,47,327,61" href="#" onClick="swapImage('3366cc')" alt="3366cc" title="3366cc">
+<area shape="rect" coords="312,32,327,46" href="#" onClick="swapImage('0066cc')" alt="0066cc" title="0066cc">
+<area shape="rect" coords="311,77,326,91" href="#" onClick="swapImage('003399')" alt="003399" title="003399">
+<area shape="rect" coords="340,91,355,105" href="#" onClick="swapImage('6600cc')" alt="6600cc" title="6600cc">
+
+<area shape="rect" coords="372,32,387,46" href="#" onClick="swapImage('9933cc')" alt="9933cc" title="9933cc">
+<area shape="rect" coords="370,77,385,91" href="#" onClick="swapImage('990099')" alt="990099" title="990099">
+<area shape="rect" coords="356,47,371,61" href="#" onClick="swapImage('cc00ff')" alt="cc00ff" title="cc00ff">
+<area shape="rect" coords="386,61,401,75" href="#" onClick="swapImage('999999')" alt="999999" title="999999">
+<area shape="rect" coords="297,31,312,45" href="#" onClick="swapImage('3366ff')" alt="3366ff" title="3366ff">
+<area shape="rect" coords="296,76,311,90" href="#" onClick="swapImage('0000ff')" alt="0000ff" title="0000ff">
+<area shape="rect" coords="326,77,341,91" href="#" onClick="swapImage('6600ff')" alt="6600ff" title="6600ff">
+<area shape="rect" coords="356,92,370,105" href="#" onClick="swapImage('330066')" alt="330066" title="330066">
+
+<area shape="rect" coords="312,106,326,123" href="#" onClick="swapImage('000066')" alt="000066" title="000066">
+<area shape="rect" coords="342,61,357,75" href="#" onClick="swapImage('9900ff')" alt="9900ff" title="9900ff">
+<area shape="rect" coords="386,46,401,60" href="#" onClick="swapImage('cccccc')" alt="cccccc" title="cccccc">
+<area shape="rect" coords="327,47,342,61" href="#" onClick="swapImage('6666ff')" alt="6666ff" title="6666ff">
+<area shape="rect" coords="342,105,357,121" href="#" onClick="swapImage('330099')" alt="330099" title="330099">
+<area shape="rect" coords="386,15,401,30" href="#" onClick="swapImage('663366')" alt="663366" title="663366">
+<area shape="rect" coords="341,46,356,60" href="#" onClick="swapImage('9933ff')" alt="9933ff" title="9933ff">
+<area shape="rect" coords="282,106,297,122" href="#" onClick="swapImage('000033')" alt="000033" title="000033">
+
+<area shape="rect" coords="253,106,267,120" href="#" onClick="swapImage('006666')" alt="006666" title="006666">
+<area shape="rect" coords="268,106,282,120" href="#" onClick="swapImage('003333')" alt="003333" title="003333">
+<area shape="rect" coords="253,91,267,105" href="#" onClick="swapImage('336666')" alt="336666" title="336666">
+<area shape="rect" coords="267,91,281,105" href="#" onClick="swapImage('336699')" alt="336699" title="336699">
+<area shape="rect" coords="254,77,266,91" href="#" onClick="swapImage('669999')" alt="669999" title="669999">
+<area shape="rect" coords="266,77,281,90" href="#" onClick="swapImage('006699')" alt="006699" title="006699">
+<area shape="rect" coords="253,61,266,75" href="#" onClick="swapImage('009999')" alt="009999" title="009999">
+<area shape="rect" coords="266,61,281,76" href="#" onClick="swapImage('6699cc')" alt="6699cc" title="6699cc">
+<area shape="rect" coords="268,46,281,60" href="#" onClick="swapImage('0099cc')" alt="0099cc" title="0099cc">
+<area shape="rect" coords="267,31,281,45" href="#" onClick="swapImage('3399cc')" alt="3399cc" title="3399cc">
+<area shape="rect" coords="267,16,281,31" href="#" onClick="swapImage('66cccc')" alt="66cccc" title="66cccc">
+<area shape="rect" coords="267,1,281,15" href="#" onClick="swapImage('99ffff')" alt="99ffff" title="99ffff">
+<area shape="rect" coords="252,2,268,15" href="#" onClick="swapImage('ccffff')" alt="ccffff" title="ccffff">
+<area shape="rect" coords="253,16,266,30" href="#" onClick="swapImage('00ffff')" alt="00ffff" title="00ffff">
+<area shape="rect" coords="252,31,267,45" href="#" onClick="swapImage('00cccc')" alt="00cccc" title="00cccc">
+<area shape="rect" coords="254,45,268,61" href="#" onClick="swapImage('99cccc')" alt="99cccc" title="99cccc">
+<area shape="rect" coords="254,59,266,76" href="#"></map>
+</body>
+</html>

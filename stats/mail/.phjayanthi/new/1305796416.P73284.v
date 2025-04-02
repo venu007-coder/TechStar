@@ -1,0 +1,111 @@
+Return-Path: brutuski@hotmail.com
+Received: from mx41.stngva01.us.mxservers.net (204.202.242.76)
+	by mail19j.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 1-0818026416
+	for <jayanthi@altechstar.com>; Thu, 19 May 2011 05:13:36 -0400 (EDT)
+Received: from unknown [76.162.254.75] (HELO mail75.opentransfer.com)
+	by va1-mx41.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id f3fd4dd4.2379213728.46462.00-004.va1-mx41.stngva01.us.mxservers.net (envelope-from <hrs-return-3-jayanthi=altechstar.com@vtmanpower.net>);
+	Thu, 19 May 2011 05:13:35 -0400 (EDT)
+Received: (qmail 10250 invoked by uid 399); 19 May 2011 09:02:03 -0000
+Mailing-List: contact hrs-help@vtmanpower.net; run by ezmlm
+Precedence: bulk
+X-No-Archive: yes
+List-Post: <mailto:hrs@vtmanpower.net>
+List-Help: <mailto:hrs-help@vtmanpower.net>
+List-Unsubscribe: <mailto:hrs-unsubscribe@vtmanpower.net>
+List-Subscribe: <mailto:hrs-subscribe@vtmanpower.net>
+Delivered-To: mailing list hrs@vtmanpower.net
+Received: (qmail 16434 invoked by uid 399); 19 May 2011 08:41:35 -0000
+X-Virus-Scan: Scanned by clamdmail 0.15 (no viruses);
+  Thu, 19 May 2011 04:41:35 -0400
+X-Originating-IP: [110.224.78.253]
+X-Originating-Email: [brutuski@hotmail.com]
+Message-ID: <BLU0-SMTP331F09C27938C69B1B684CDA8E0@phx.gbl>
+Date: Thu, 19 May 2011 14:11:21 +0530
+Subject: Re: AN EXCELLENT JOB OPPORTUNITY FOR FRESH GRADUATE IN BLOOM
+ SOFTWARE SOLUTIONS
+From: Brutuski <brutuski@hotmail.com>
+To: Reply To <bloom21@bloomsolutions.com>, hrs@vtmanpower.net
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+X-OriginalArrivalTime: 19 May 2011 08:41:33.0602 (UTC) FILETIME=[8EA6F820:01CC1600]
+X-Spam-Checker-Version: SpamAssassin 3.0.2 (2004-11-16) on localhost
+X-Spam-Status: No, score=2.7 required=5.0 tests=FORGED_HOTMAIL_RCVD,
+	MIME_BASE64_NO_NAME,MSGID_FROM_MTA_HEADER autolearn=disabled 
+	version=3.0.2
+X-Spam-Level: **
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011051908)]
+X-MAIL-FROM: <hrs-return-3-jayanthi=altechstar.com@vtmanpower.net>
+X-SOURCE-IP: [76.162.254.75]
+X-SF-Loop: 1
+
+UGxzIGRudCBzZW5kIHN1Y2ggaXJyZWxldmFudCBtYWlscwoKQXJjaGFuYS0gQmxvb20gU29mdHdh
+cmUgU29sdXRpb25zIDxibG9vbTIxQGJsb29tc29sdXRpb25zLmNvbT4gd3JvdGU6Cgo+SWYgeW91
+IGFyZSB1bmFibGUgdG8gdmlldywgUGxlYXNlIENsaWNrIEhlcmUKPgo+Tm9ybWFsCj4wCj4KPgo+
+Cj4KPmZhbHNlCj5mYWxzZQo+ZmFsc2UKPgo+RU4tVVMKPlgtTk9ORQo+WC1OT05FCj4KPgo+Cj4K
+Pgo+Cj4KPgo+Cj4KPgo+Cj4KPk1pY3Jvc29mdEludGVybmV0RXhwbG9yZXI0Cj4KPgo+Cj4KPgo+
+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4K
+Pgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+
+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4K
+Pgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+
+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4K
+Pgo+Cj4KPgo+Cj4KPgo+LyogU3R5bGUgRGVmaW5pdGlvbnMgKi8KPnRhYmxlLk1zb05vcm1hbFRh
+YmxlCj57bXNvLXN0eWxlLW5hbWU6IlRhYmxlIE5vcm1hbCI7Cj5tc28tdHN0eWxlLXJvd2JhbmQt
+c2l6ZTowOwo+bXNvLXRzdHlsZS1jb2xiYW5kLXNpemU6MDsKPm1zby1zdHlsZS1ub3Nob3c6eWVz
+Owo+bXNvLXN0eWxlLXByaW9yaXR5Ojk5Owo+bXNvLXN0eWxlLXFmb3JtYXQ6eWVzOwo+bXNvLXN0
+eWxlLXBhcmVudDoiIjsKPm1zby1wYWRkaW5nLWFsdDowaW4gNS40cHQgMGluIDUuNHB0Owo+bXNv
+LXBhcmEtbWFyZ2luOjBpbjsKPm1zby1wYXJhLW1hcmdpbi1ib3R0b206LjAwMDFwdDsKPm1zby1w
+YWdpbmF0aW9uOndpZG93LW9ycGhhbjsKPmZvbnQtc2l6ZToxMC4wcHQ7Cj5mb250LWZhbWlseToi
+VGltZXMgTmV3IFJvbWFuIiwic2VyaWYiO30KPgo+Cj5BTiBFWENFTExFTlQgSk9CIE9QUE9SVFVO
+SVRZIEZPUiBGUkVTSCBHUkFEVUFURSBJTiBCTE9PTSBTT0ZUV0FSRSBTT0xVVElPTlMmbmJzcDsK
+PiZuYnNwOwo+V0FMSy1JTiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNw
+OyZuYnNwOyA6IDIzcmQsIDI0dGgsIDI1dGggYW5kIDI2dGggTUFZIDIwMTEgCj4mbmJzcDsKPi0g
+NCBtb250aHMgYXMgYSBUcmFpbmluZyBwZXJpb2Qgb24gLk5FVCBhbmQgcGF5bWVudHMgYXJlIGNo
+YXJnZWQuCj4tIEF0IHRoZSB0aW1lIG9mIHRyYWluaW5nIHN0aXBlbmQgd2lsbCBiZSBwcm92aWRl
+ZC4mbmJzcDsKPi0gRWFjaCBhbmQgZXZlcnkgY2FuZGlkYXRlIHdpbGwgYmUgYWJzb3JiZWQgdG8g
+b3VyIFJlc2VhcmNoICZhbXA7IERldmVsb3BtZW50IHRlYW0gYXMgZnVsbCB0aW1lIGVtcGxveWVl
+Lgo+Jm5ic3A7Cj5BYm91dCBDb21wYW55Cj5CTE9PTSBzb2Z0d2FyZSBzb2x1dGlvbnMsIFByb3Zp
+ZGVzIG9mIGNvbnN1bHRpbmcsIHRlY2hub2xvZ3kgYW5kIG91dHNvdXJjaW5nIHNlcnZpY2VzLCBh
+bmQgZW5hYmxlcyBpdHMgY2xpZW50cyB0byB0cmFuc2Zvcm0gYW5kIHBlcmZvcm0gdGhyb3VnaCB0
+ZWNobm9sb2dpZXMuIEJMT09NIHNvZnR3YXJlIHNvbHV0aW9ucyBwcm92aWRlIGl0cyBjbGllbnRz
+IHdpdGggaW5zaWdodHMgYW5kIGNhcGFiaWxpdGllcyB0aGF0IGJvb3N0IHRoZWlyIGZyZWVkb20g
+dG8gYWNoaWV2ZSBzdXBlcmlvciByZXN1bHRzIHRocm91Z2ggYSB1bmlxdWUgd2F5IG9mIHdvcmtp
+bmcsIHRoZSBDb2xsYWJvcmF0aXZlIEJ1c2luZXNzIEV4cGVyaWVuY2UuCj4mbmJzcDsKPkRlc2ln
+bmF0aW9uOiBUcmFpbmVlIFNvZnR3YXJlIEVuZ2luZWVyCj5UZWNobm9sb2dpZXMmbmJzcDsmbmJz
+cDsmbmJzcDsmbmJzcDsgOkFzcC5uZXQsIFZCLm5ldC9DIywgU1FMIFNlcnZlciwgQWpheCwgSmF2
+YVNjcmlwdCwgSFRNTAo+Jm5ic3A7Cj5Sb2xlIGFuZCBSZXNwb25zaWJpbGl0eQo+LSBQZXJmb3Jt
+cyBkZXNpZ24sIGltcGxlbWVudGF0aW9uIGFuZCBtYWludGVuYW5jZSBvZiBtdWx0aXBsZSBwcm9k
+dWN0IG1vZHVsZXMvIHN1Yi1zeXN0ZW1zLgo+LSBQYXJ0aWNpcGF0ZXMgaW4gcHJvZHVjdCBkZXNp
+Z24gbWVldGluZ3MuCj4tIFBlcmZvcm1zIGJ1ZyBmaXhlcyBiZXRhIHN1cHBvcnQgZm9yIGFzc2ln
+bmVkIHByb2R1Y3RzLgo+LSBSZXNlYXJjaGVzIHByb2JsZW1zIGRpc2NvdmVyZWQgYnkgUUEgYW5k
+IGRldmVsb3BzIHNvbHV0aW9ucyB0byB0aGUgcHJvYmxlbXMuCj4tIENvbmR1Y3RzIHVuaXQgdGVz
+dGluZyBhbmQgaW50ZWdyYXRpb24gdGVzdGluZyBmb3IgZnVuY3Rpb25hbGl0eSBhbmQgbGltaXRz
+Lgo+LSBNYXkgYXNzaXN0IGluIHBlcmZvcm1pbmcgb24tc2l0ZSBjbGllbnQgd29yayBvbiBoaWdo
+bHkgY29tcGxleCBhcHBsaWNhdGlvbnMuCj4tIEluIGFic2VuY2Ugb2Ygc2VuaW9yIGRldmVsb3Bl
+cnMsIHJlc3BvbnNpYmxlIGZvciBwcm9kdWN0IGFyY2hpdGVjdHVyZS4KPi0gRGVzaWduIGFuZCBp
+bXBsZW1lbnRhdGlvbiBpbiBvcmRlciB0byBtZWV0IHByb2plY3Qgb2JqZWN0aXZlcy4KPi0gRG9j
+dW1lbnRhdGlvbiBvZiBkZXZlbG9wbWVudCB3b3JrCj4mbmJzcDsKPkRlc2lyZWQgUHJvZmlsZTom
+bmJzcDsKPi0gTXVzdCBiZSBhYmxlIHRvIGVmZmVjdGl2ZWx5IHdvcmsgd2l0aCBhIHRlYW0KPi0g
+U2VsZiBtb3RpdmF0ZWQgd2l0aCBjb21wZXRpdGl2ZSBzcGlyaXQKPi0gU2VsZi1zdGFydGVyIHdp
+dGggZ29vZCBpbnRlcnBlcnNvbmFsIGFuZCBjb21tdW5pY2F0aW9uIHNraWxscwo+LSBTdHJvbmcg
+cHJvYmxlbSBhbmFseXNpcywgcHJvYmxlbS1zb2x2aW5nLCBhbmFseXRpY2FsIHNraWxscyByZXF1
+aXJlZAo+RXhwZXJpZW5jZSZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNw
+OyA6IEZSRVNIRVJTICgyMDA4LzIwMDkvMjAxMCBQQVNTIE9VVCBDQU5ESURBVEVTKQo+RWR1Y2F0
+aW9uJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7
+Jm5ic3A7IDogJm5ic3A7QkNBL01DQSwgQkUvQi5UZWNoLCBNRS9NLlRlY2gKPldhbGstaW4gRGF0
+ZSAmbmJzcDsmbmJzcDsmbmJzcDsgOiAyM3JkLCAyNHRoLCAyNXRoIGFuZCAyNnRoIE1BWSAyMDEx
+IAo+VGltZSZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZu
+YnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyAmbmJzcDsmbmJzcDsgOiA5
+OjMwIEFNJm5ic3A7Jm5ic3A7IC0gNDozMCBQTQo+Jm5ic3A7Cj5Mb2NhdGlvbjogQmFuZ2Fsb3Jl
+Cj5Db250YWN0IHBlcnNvbjogQXJjaGFuYQo+Q29udGFjdCBudW1iZXI6IDcyMDQxMzEzNjcKPkVt
+YWlsIElkOiBibG9vbTIxQGJsb29tc29sdXRpb25zLmNvbQo+Jm5ic3A7Cj5JbnRlcmVzdGVkIGNh
+bmRpZGF0ZXMgY2FuIFdhbGstaW4gdG8gYmVsb3cgbWVudGlvbmVkIGFkZHJlc3MKPkJsb29tIHNv
+ZnR3YXJlIHNvbHV0aW9ucwo+Tm8uMjUsIFRydXB0aGkgY29tcGxleAo+NHRoIENyb3NzLCAybmQg
+Rmxvb3IsIEFib3ZlIENvZmZlZSBEYXkKPlNhbmpheSBOYWdhciwKPkJhbmdhbG9yZS01NjAwOTQK
+PldlYjogZGV2LmJsb29tc29sdXRpb25zLmNvbSZuYnNwOyZuYnNwVGhpcyBlbWFpbCB3YXMgc2Vu
+dCB0byBbaHJzQHZ0bWFucG93ZXIubmV0XSBieSBbYmxvb20yMUBibG9vbXNvbHV0aW9ucy5jb21d
+LiBIb3dldmVyLGlmIHlvdSBkbyBub3Qgd2lzaCB0byByZWNlaXZlIGVtYWlscy4gUGxlYXNlIENs
+aWNrIGhlcmUgdG8gdW5zdWJzY3JpYmUgZnJvbSBhbnkgZnV0dXJlIG1haWxpbmdzLiB8IHN1cHBv
+cnRAYmxvb21zb2x1dGlvbnMuY29tUmVnYXJkcyAgRW1haWwgQ2FtcGFpZ24gQnkg
+

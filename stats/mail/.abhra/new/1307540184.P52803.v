@@ -1,0 +1,231 @@
+Return-Path: teju@fraank.com
+Received: from mx95.stngva01.us.mxservers.net (198.173.112.12)
+	by mail19c.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-05295183
+	for <abhra@altechstar.com>; Wed,  8 Jun 2011 09:36:23 -0400 (EDT)
+Received: from unknown [68.164.243.99] (EHLO WIN-3GUNDSI3IVT)
+	by va1-mx95.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 5da7fed4.2428124064.459586.00-001.va1-mx95.stngva01.us.mxservers.net (envelope-from <bouncemails@fraank.com>);
+	Wed, 08 Jun 2011 09:36:21 -0400 (EDT)
+Received: from WIN-3GUNDSI3IVT ([127.0.0.1]) by WIN-3GUNDSI3IVT with Microsoft SMTPSVC(7.5.7601.17514);
+	 Wed, 8 Jun 2011 06:36:05 -0700
+Subject: Websphere Administrator Available
+To: abhra@altechstar.com
+X-PHP-Originating-Script: 0:email.php
+Message-ID: <224a6c585262edcfb4c7b3017d20306d@secure.fraank.com>
+Return-Path: bouncemails@fraank.com
+Date: Wed, 08 Jun 2011 06:35:33 -0700
+From: "Fraank Systems" <teju@fraank.com>
+Reply-To: teju@fraank.com
+MIME-Version: 1.0
+X-Mailer-LID: 3
+List-Unsubscribe: <http://secure.fraank.com/unsubscribe.php?M=3268&C=38efe2d2ecef185eb67a9b81e279bc66&L=3&N=66>
+X-Mailer-RecptId: 3268
+X-Mailer-SID: 66
+X-Mailer-Sent-By: 1
+Content-Type: multipart/alternative; charset="UTF-8"; boundary="b1_a3510c24e0c247d7d1de631a098f47be"
+Content-Transfer-Encoding: 8bit
+X-OriginalArrivalTime: 08 Jun 2011 13:36:05.0657 (UTC) FILETIME=[04479090:01CC25E1]
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011060819)]
+X-MAIL-FROM: <bouncemails@fraank.com>
+X-SOURCE-IP: [68.164.243.99]
+X-SF-Loop: 1
+
+--b1_a3510c24e0c247d7d1de631a098f47be
+Content-Type: text/plain; format=flowed; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+Your email client cannot read this email.
+To view it online, please go here:
+http://secure.fraank.com/display.php?M=3268&C=38efe2d2ecef185eb67a9b81e279bc66&S=66&L=3&N=43
+
+
+To stop receiving these
+emails:http://secure.fraank.com/unsubscribe.php?M=3268&C=38efe2d2ecef185eb67a9b81e279bc66&L=3&N=66
+Powered by Interspire
+
+--b1_a3510c24e0c247d7d1de631a098f47be
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+<html><head></head><body><div>Let me present you with list of consultants
+currently available.</div>
+<p>&nbsp;</p>
+<table cellpadding="3" bordercolordark="#ffffff" bordercolorlight="#9480bc"
+bordercolor="#ffffff" cellspacing="0" border="1" class="font12">
+<tbody>
+<tr bgcolor="#ded6ed">
+<th class="font12bold" width="100">Name</th> <th class="font12bold">Primary
+Skills</th> <th class="font12bold">Total/US Exp</th> <th
+class="font12bold">Rate</th>
+</tr>
+<tr id="CS00000105">
+<td><a href="http://secure.fraank.com/#CS00000105"><span
+id="ConsultantID">Kiran K</span></a></td>
+<td><span id="PrimarySkills">installing Refresh Packs, fix packs and
+migrating  applications on to latest versions of Websphere Application
+Server  6.0.x/6.1.x/7.x.</span></td>
+<td><span id="TotalExp">7+</span></td>
+<td><span id="Rate">Open</span></td>
+</tr>
+</tbody>
+</table>
+<p>Please <b><a href="http://secure.fraank.com/#Details">scroll
+down</a></b> or click on the  consultant's name for more information.</p>
+<p>Please feel free to contact me for additional information.</p>
+<p>Tejendar Singh<br />Resource Co-ordinator<br />Ph: 408-262-6666 Ext:
+212<br />email: <a href="mailto:teju@fraank.com">teju@fraank.com</a></p>
+<p>&nbsp;</p>
+<table cellpadding="0" bordercolordark="#ffffff" bordercolorlight="#9480bc"
+bordercolor="#ffffff" cellspacing="0" border="1" class="font11">
+<tbody>
+<tr>
+<th bordercolordark="#ffffff" bordercolorlight="#9480bc"
+bordercolor="#ffffff" bgcolor="#9480bc" style="font: bold 14px/normal
+verdana; color: white; font-size-adjust: none; font-stretch: normal;"
+height="30">Websphere Administrator Available</th>
+</tr>
+<tr>
+<td align="left">
+<div id="CS00000105"><a name="CS00000105"></a> 
+<table cellpadding="3" bordercolordark="#ffffff" bordercolorlight="#9480bc"
+bordercolor="#ffffff" cellspacing="0" border="1" class="font11"
+width="100%">
+<tbody>
+<tr>
+<td class="font12bold" bgcolor="#ded6ed" width="120"
+align="right">Name:</td>
+<td class="font12bold" bgcolor="#ded6ed"><span id="ConsultantID">Kiran
+K</span> -  <span id="JobTitle">Websphere Administrator</span></td>
+</tr>
+<tr>
+<td class="font11bold" width="120" align="right">Primary Skills:</td>
+<td><span id="PrimarySkills">installing Refresh Packs, fix packs and
+migrating  applications on to latest versions of Websphere Application
+Server  6.0.x/6.1.x/7.x.</span></td>
+</tr>
+<tr>
+<td class="font11bold" width="120" align="right">Summary:</td>
+<td><span id="Summary">&bull; Over 7 years of IT experience which includes
+over 5 years  of strong experience in IBM Websphere Application Server, IBM
+Tivoli Directory  Server, IBM Tivoli Access Manager on Windows, Linux, AIX
+and Solaris  platforms.<br />&bull; Excellent expertise in installing,
+configuring, administration  and troubleshooting of IBM Websphere
+Application Server 6.0/6.1.x/7.0x Network  Deployment on various operating
+Systems like AIX, SUN Solaris, Windows  2000/2003/2008 server.<br />&bull;
+Extensive experience in installing Refresh Packs,  fix packs and migrating
+applications on to latest versions of Websphere  Application Server
+6.0.x/6.1.x/7.x.<br />&bull; Expertise in configuring Websphere  resources
+including JDBC providers, JDBC data sources and connection pooling. 
+Deployed Session and Entity EJBs in Websphere.<br />&bull; Strong
+experience in  securing applications by configuration of Websphere
+Application Server Security  with IBM Tivoli Directory Server V6.0/V6.1,
+operating systems and Federated  repositories.<br />&bull; Well versed in
+configuring Websphere Application Server for  Work Load Manager and High
+Availability.<br />&bull; Excellent skills in resolving Out  of memory,
+connection pooling, session, hung threads related issues by enabling  Java
+Virtual Machine profiler Interface (JVMPI)/PMI for more comprehensive 
+performance analysis. Strong experience at trouble shooting skills using
+Traces,  Logs and Log Analyzer.<br />&bull; Well versed in writing scripts
+to automate the  installation, configuration, administration processes by
+developing Windows  Scripting, UNIX Scripting and WSADMIN (Python, Jacl,
+and Jython) scripts.<br />&bull;  Expertise in installation, configuration
+and administration of webservers like  IBM HTTP Server(IHS), IIS, Apache
+Server, Tomcat and also experience in  configuring SSL on Websphere and
+HTTP servers using ikeyman utility and Admin  console.<br />&bull; Strong
+Knowledge of Edge Components Failover (Active/Standby),  (IHS)HTTP Server
+Failover (Active/Active), Session Affinity, Session  Persistence.<br
+/>&bull; Well versed in debugging IHS issues by analyzing  webserver/plugin
+logs and traces.<br />&bull; Expertise in installation, configuration  and
+administration of IBM Tivoli Directory Server (IDS) 6.0, 6.1, 6.2x.<br
+/>&bull;  Well versed with IBM Tivoli Directory Server (IDS) replication
+(Pear to  Peer/read only) and taking regular backups of LDIF files using
+DB2LDIF<br />&bull;  Strong expertise in installing, configuring and
+administration of Tivoli Access  Manager, Tivoli Identity Manager, Tivoli
+Directory Integrator.<br />&bull; Hands on  experience in configuring
+junctions, acls, objectspaces, pops using Tivoli  Access Manager.<br
+/>&bull; Provided production support in an on-call rotation in a  24x7
+environment. <br />&bull; Created IBM Problem Management Records (PMR) to
+report  problems and work with IBM Technical support to resolve issues.<br
+/>&bull; Excellent  communication skills, strong architectural skills,
+hardworking and a good team  player.<br /></span></td>
+</tr>
+<tr>
+<td width="120" align="left">
+<p>&nbsp;</p>
+</td>
+<td><b>Rate: </b><span id="Rate">Open</span>,  <b> Total Exp: </b><span
+id="TotalExp">7+</span>,  <b> Available: </b><span
+id="Availability">Now</span>,   <b> Relocation: </b><span
+id="Relocation">Anywhere in US</span></td>
+</tr>
+<tr>
+<td width="120" align="left"><a href="http://secure.fraank.com/#Top">Goto
+Top</a></td>
+<td>
+<p><a href="mailto:teju@fraank.com?Subject=Resume_of_Kiran%20K">Receive
+Resume  by EMail</a></p>
+<div><span style="font-size: small;"><font face="Times New Roman"
+size="3"></font></span>
+<p align="center"><span style="font-size: small;"><font size="3"><b><span
+style="font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;;">Removal 
+Instructions:</span></b><span style="font-family:
+&quot;Calibri&quot;,&quot;sans-serif&quot;;"> This  email has been sent to
+<b><span style="background: yellow; color:
+red;">'abhra@altechstar.com'</span> </b>. </span></font></span></p>
+<span style="font-size: small;"><font face="Times New Roman"
+size="3"></font></span>
+<p align="center"><span style="font-family:
+&quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: small;"><font
+size="3">If  this message has reached you in error or if you do not wish to
+receive any  emails from us in the future, please click the unsubscribe
+link below and you  will be automatically removed from our mailing list.
+<br /></font></span></p>
+<p align="center"><span style="font-family:
+&quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: small;"><font
+size="3"><strong><span style="color: blue; font-family:
+&quot;Calibri&quot;,&quot;sans-serif&quot;;"><a
+href="http://secure.fraank.com/unsubscribe.php?M=3268&C=38efe2d2ecef185eb67a9b81e279bc66&L=3&N=66">http://secure.fraank.com/unsubscribe.php?M=3268&C=38efe2d2ecef185eb67a9b81e279bc66&L=3&N=66</a></span></strong></font></span></p>
+<span style="font-size: small;"><font face="Times New Roman"
+size="3"></font></span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" class="font12" id="Footer">
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table><br/>	<br>
+
+	<table bgcolor="" cellpadding="0" width="100%" border="0">
+		<tr align="center">
+			<td>
+				<table bgcolor="white" width="450" border="0" cellpadding="5">
+					<tr>
+						<td>
+							<a href="http://secure.fraank.com/link.php?M=3268&N=66&L=2&F=H">
+								<img border="0" src="/admin/images/poweredby.gif" alt="Powered by
+Interspire" />
+							</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+<img src="http://secure.fraank.com/open.php?M=3268&L=3&N=66&F=H&image=.jpg"
+height="1" width="10"></body></html>
+
+--b1_a3510c24e0c247d7d1de631a098f47be--
+

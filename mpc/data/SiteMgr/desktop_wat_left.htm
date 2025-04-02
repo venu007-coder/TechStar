@@ -1,0 +1,176 @@
+<html>
+<head>
+<title>leftFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<script runat="merc_server">
+	var sndRegJs = doActionEx ('DATA_READFILE','sendreg.js', 'FileName', 'sendreg.js',
+								'ObjectName','JS_SRC', 'FileType', 'txt');
+	eval (sndRegJs);
+	var prodObj = getProdInfo();
+	var secure = doAction ('REQ_GET_FORMVALUE', 'SecureMode', 'SecureMode');
+	var baseHrf = "", mercCommon = "";
+	if (secure)
+		doAction('ST_SET_STATEDATA', 'SecureMode', secure);
+	else
+		secure = doAction('ST_GET_STATEDATA', 'SecureMode', 'SecureMode');
+		
+	if (secure && secure.toLowerCase() == "yes")
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SecureBaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTPS_SHARED_HTDOCS_ALIAS');
+	}
+	else
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'BaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTP_SHARED_HTDOCS_ALIAS');
+	}
+	writeln('<BASE href="'+baseHrf+'">');
+	writeln('<script language="javascript">var baseUrl = "'+baseHrf+'";</script>');
+	writeln('<link rel="stylesheet" href="'+mercCommon+'styles/masterportal.css">');
+</script>
+
+</head>
+<script runat="merc_server">
+	var NFrame = doAction ("REQ_GET_FORMVALUE", "NextFrame", "NextFrame");
+	var Trget = doAction ("REQ_GET_FORMVALUE", "NextFrameTarget", "NextFrameTarget");
+	var DefDraw = doAction ("REQ_GET_FORMVALUE", "DrawerSelected", "DrawerSelected");
+	var DefTab = doAction ("REQ_GET_FORMVALUE", "TabSelected", "TabSelected");
+
+	write ("<body bgcolor=\"#FFFFFF\" class=\"bkgrd-topbar\" onLoad=\""+
+			"if (self != top){"+
+			"	var args = new Array ('DrawerSelected', '"+DefDraw+"', 'TabSelected', '"+DefTab+"');"+
+			"	parent.SubmitForm ('L', '"+NFrame+"', '"+Trget+"', args);}\">");
+</script>
+
+	<script language = "javascript">
+		/*	might want to eventualy pre-load images, didn't want to do that yet because
+		**	the user may not use all the images	*/
+		var key = new Array ("drw_", "drwop_", "drw_", "drwshdw_","cabbot.gif","cabbotsh.gif");
+			
+		/*	Right now we just run through the list of images, turning off all that are
+		**	on, and turning on 'index' as well as those images around it necessary
+		**	for style (i.e. shadows, colors, etc.).  Eventually we may want to store
+		**	and target the specific image instead of running through the whole page
+		**	but this is more flexible for now	*/
+		
+		function ChangeCabinet (index)
+		{
+			if (baseUrl.charAt (baseUrl.length-1) != '/')
+				baseUrl += "/";
+			parent.mainFrame.location.href = baseUrl + "please_wait.htm";
+				
+			if (!parent.checkForPopUp())
+			{
+				var replace_with = index.replace (key[0], key[1]);
+				var file_temp = new Array(""), file_prev = new Array("");
+					
+				for (var n = 0; n < document.images.length; n++)
+				{
+					file_prev = file_temp;
+					//break up image path so we only have to deal with the filename
+					file_temp = document.images[n].src.split ("/");
+					var End = file_temp.length - 1, PrevEnd = file_prev.length - 1;
+					var CompWith = file_temp[End], CompPrev = file_prev[PrevEnd];
+
+					// close the open drawers
+					for (var z = 1; z < key.length; z+=2)
+					{
+						if (file_temp[End].indexOf (key[z]) >= 0)
+							file_temp[End] = file_temp[End].replace (key[z], key[z-1]);
+					}
+					// open the selected drawer
+					if (n > 0 && file_prev[PrevEnd].indexOf (index) >= 0)
+					{
+						file_prev[PrevEnd] = file_prev[PrevEnd].replace (index, replace_with);
+							
+						if (file_temp[End].indexOf (key[4]) >= 0)
+							file_temp[End] = file_temp[End].replace (key[4], key[5]);
+						else
+							file_temp[End] = file_temp[End].replace (key[2], key[3]);
+					}
+					// if the image has changed, re-load it
+					if (CompWith != file_temp[End])
+						document.images[n].src = file_temp.join("/");
+					if (CompPrev != file_prev[PrevEnd])
+						document.images[n-1].src = file_prev.join("/");
+				}
+
+			} 
+			else
+			{
+				return void(0);
+			}
+		}
+	</script>
+	<div align='center'>
+		<script runat="merc_server">
+			writeln('<img src="'+mercCommon+'images/logo_newmerc_transwhiteonblue100.gif" width="100" height="52" alt="Mercantec">');
+			writeln("<img src='"+mercCommon+"images/pxtransparent.gif' width='100px' height='4px' border='0'>");
+		
+			var file = new Array();
+			var temp = "", rowResult = "", arg1 = "";
+			var z = 0;
+			/*	used to have a dynamic tag here, but the functionality was removed
+			**	 in a new code drop	*/
+			var make_def_im = doAction ('REQ_GET_FORMVALUE', 'DrawerSelected', 
+										'DrawerSelected');
+			
+			var fileBDO = doActionBDO ('DATA_GETHEADERS',  'GetRow', true, 'ObjectName', prodObj.CabinetObject);
+			file = fileBDO.Result.split ('\t');
+			/* 1'st row = headers */
+			if (fileBDO.NumRows > 1)
+			{
+				write ("<img src='"+mercCommon+"images/cabinetperspective.gif' width='73' height='5'><br>"+
+						"<img src='"+mercCommon+"images/cabtop.gif' width='73' height='4'><br>");
+				for (z = 0; z < file.length && file[z]; z++)
+				{
+					var alt_name = new Array();
+					rowResult = doActionBDO ('DATA_GETCONFIGROW', 'ObjectName', prodObj.CabinetObject,  'RowName', file[z]);
+					/*	problem with less than sign being seen as a tag by the parser
+					**	use the commented out greater than as a workaround for now	*/
+					for (var a = 0;; a++)//> 
+					{
+						arg1 = "Alt" + (a+1);
+						if (!rowResult[arg1])
+							break;
+						alt_name[a] = rowResult[arg1];		
+					}
+							
+					var file_index = file[z];
+					if (file[z] == make_def_im)
+						file[z] = make_def_im = file[z].replace ("drw_", "drwop_");
+					else if (z > 0 && file[z-1] == make_def_im)
+						file[z] = file[z].replace ("drw_", "drwshdw_");
+					
+					/* parser doesn't like scri-
+					** pt on same line
+					**
+					** make submit form call here, do not make it in the function
+					** above due to re-sizing problems with framesets and open function
+					** calls */
+					write ("<a HREF = \"javascri"+
+							"pt:void(0);\" onClick=\""+
+							"ChangeCabinet ('" + file_index + "');"+
+							"parent.SubmitForm ('L', '"+NFrame+"','"+Trget+"', new Array ('DrawerSelected', '"+file_index+"'));"+
+							"return false;\">");
+					write ("<img src='"+mercCommon+"images/" + file[z] + "' width='73' height='50' ");
+					write (" alt = '" + (alt_name.length > 0 ? alt_name.join(', '):'Empty') + "' BORDER='0'></a><br>\n");				
+				}
+				if (file[z-1].lastIndexOf ("drwop_") > file[z-1].lastIndexOf ("/"))
+					write ("<img src='"+mercCommon+"images/cabbotsh.gif' width='73' height='7'><br>");
+				else
+					write ("<img src='"+mercCommon+"images/cabbot.gif' width='73' height='7'><br>");
+			}
+		</script>
+	</div> 
+<p align="center"><!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<td width="33%" align="right"> <a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_CPYTRDMRK+SoftCart+{helpversion}+en-us', 'Alane'));"><font family="Arial" size="-3" color="#FFFFFF">Copyright 
+© 2001 Mercantec, Inc.<br>
+Trademarks</font></a> </td></tr>
+<!--END HELP WINDOW--></p>
+</body>
+</html>

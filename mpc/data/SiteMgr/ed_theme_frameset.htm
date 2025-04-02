@@ -1,0 +1,291 @@
+<html>
+<head>
+<title>Edit Theme</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<SCRIPT LANGUAGE='JavaScript'>
+	var master_js = opener;
+	var winName = "ed_theme_popup";
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	var nextPage = '<merc_dynamic noshow=false name=SC_NextPage action=REQ_GET_FORMVALUE LinkToPage=LinkToPage>';
+	var childWin = "";
+	var className = "";
+	var textObj = new Array('className', 'header');
+	textObj.className = new Array();
+	textObj.header = new Array();
+	
+	function closeLocalWin()
+	{
+		if (childWin)
+			if (!childWin.closed)
+				childWin.close();
+	}
+
+	function saveCustomTheme ()
+	{
+		closeLocalWin();
+		var winObj = master_js.createSimpleSubmitWindow ("235", "450");
+		childWin = window.open (baseUrl+'ed_newtheme.htm', 'selectTheme', 
+								winObj.createOutput());
+		return false;
+	}
+	
+	function saveTheme (themeName)
+	{
+		if (themeName)
+			document.customTheme.ThemeName.value = themeName;
+		master_js.SubmitForm ('SE_SaveTheme', nextPage, 
+									'mainFrame', document.customTheme);
+		closeLocalWin();
+		saveWindow (); 
+	}
+	
+	function saveWindow ()
+	{
+		master_js.createAndWriteToPopUp ("150", "300", winName, baseUrl, 
+										master_js.gSAVING_PAGE, 
+										master_js.gWINDOW_WILL_CLOSE);
+	}
+	
+	function editWindow (selectedClass, bColor)
+	{
+		var popwinUrl = '';
+		var editWinName = 'editWin';
+		var winObj = master_js.createSimpleSubmitWindow ('425', '750');
+		if (bColor)
+		{
+			winObj = master_js.createSimpleSubmitWindow ('310', '500');
+			popwinUrl = baseUrl+'ed_color.htm';
+		}
+		closeLocalWin();
+		className = selectedClass;
+		childWin = window.open (popwinUrl, editWinName, winObj.createOutput());
+								
+		if (!bColor)
+		{
+			var args = new Array ('UseImageCategory', 'Themes');
+			master_js.SubmitForm ('L', 'ed_selectimage_frameset.htm', editWinName, args);
+		}
+
+		return false;
+	}
+	
+	function submitChange (classValue)
+	{
+		var styleHeader = "background-color : #";
+		for (var n = 0; n < textObj.className.length; n++)
+		{
+			if (textObj.className[n] == className)
+			{
+				styleHeader = "color : #";
+				break;
+			}
+		}
+		
+		closeLocalWin();
+		document.customTheme[className].value = styleHeader + classValue;
+		
+		// need twice to allow for all styles to be loaded properly
+		generateOutput();
+		generateOutput(); 
+	}
+	
+	function submitImageChange (classValue, secureUrl, rowName)
+	{
+		closeLocalWin();
+		document.customTheme[className].value = "background-image : url(" + classValue +
+												");";
+
+		document.customTheme["secure-"+className].value = "background-image : url(" + secureUrl +
+												");";
+
+		// need twice to allow for all styles to be loaded properly
+		generateOutput();
+		generateOutput(); 
+	}
+	
+	// rather than re-posting to a page each time, we're dynamically writing out
+	// the changes to the page...makes it much faster, make sure to keep the writes
+	// small though to prevent buffer overruns
+	function generateOutput()
+	{
+		closeLocalWin();
+		themeFrame.document.open("text/html","replace");
+		themeFrame.document.write ('<html>\n'+
+					'<head>\n'+
+					'<title>Edit Theme</title>\n');
+		themeFrame.document.write ('<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">\n' +
+					'<BASE href="'+baseUrl+'">\n' +
+					'<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">\n');
+		themeFrame.document.write ('</head>\n'+
+					'<body class="pop-up-bkgrd" bgcolor="#CCCCFF" onLoad="parent.closeLocalWin();" onUnLoad="parent.closeLocalWin();">\n'+
+					'<p align="center"><span class="dialog-title">Edit Theme</span><br><span class="instr-note">To edit navigation buttons, go to the globals page.</span></p>\n');
+		themeFrame.document.write ('<table width="550" border="0" cellspacing="2" cellpadding="2" align="center" hspace="6">\n'+
+					'<tr bgcolor="#CCCCCC"> \n');
+		themeFrame.document.write ('<td colspan="4" height="147"> \n'+
+					'<div align="right">\n'+
+					'<table width="550" border="0" cellspacing="0" cellpadding="0" hspace="4" vspace="4" align="left">');
+		themeFrame.document.write ('<tr>'+
+					'<td colspan="3" height="50" style="'+
+					document.customTheme['bkgrd-top'].value +
+					'">\n');
+		themeFrame.document.write ('<center>\n'+
+					'<a href="javascript:void(parent.editWindow(\'bkgrd-top\', true))"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/color_sm.gif" width="60" height="19" border="0" alt="Color"></a>&nbsp;<a href="javascript:void(parent.editWindow(\'bkgrd-top\', false))"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/image_sm.gif" width="60" height="19" border="0" alt="Image"></a>'+
+					'</center>\n');
+		themeFrame.document.write ('</td>\n'+
+					'</tr>\n'+
+					'<tr>\n');
+		themeFrame.document.write ('<td width="110" height="263" valign="top" style="'+
+					document.customTheme['bkgrd-left'].value +
+					'" >'+
+					// place for the sample nav button
+					'<center>\n<br><p>');
+		if (document.customTheme['navbar-vertical-start'])
+		{
+			var heightOffset = Math.round(.75 * parseInt(document.customTheme['navbar-vertical-start'].value.replace(/[^0-9]/g, '')));
+			themeFrame.document.write ('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/pxtransparent.gif" width="1" height="'+heightOffset+'">');
+		}
+		themeFrame.document.write ('<table cellspacing="0" cellpadding="0" align="center" '+(document.all ? 'width="100" height="25"' : 'width="105" height="30"')+'><tr>'+
+					'<td '+(document.customTheme['btn-background'] ? 'style="' + document.customTheme['btn-background'].value + '"': 'class="btn-background"')+'><font size="-1" '+(document.customTheme['btn-text'] ? 'style="' + document.customTheme['btn-text'].value + '"' : 'class="btn-text"')+'">');
+		themeFrame.document.write ('<center>Home</center></font></td></tr></table></p>\n'+
+					'</center>\n'+
+					'<p align="center"><a href="javascript:void(parent.editWindow(\'bkgrd-left\', true))"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/color_sm.gif" width="60" height="19" border="0" alt="Color"></a><br>');
+		themeFrame.document.write ('<br>\n'+
+					'<a href="javascript:void(parent.editWindow(\'bkgrd-left\', false))"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/image_sm.gif" width="60" height="19" border="0" alt="Image"></a></p>'+
+					'</td>\n');
+		themeFrame.document.write ('<td width="85" height="263" style="'+
+					document.customTheme['bkgrd-content'].value +
+					'" >\n');
+		themeFrame.document.write ('<a href="javascript:void(parent.editWindow(\'bkgrd-content\', true))"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/color_sm.gif" width="60" height="19" border="0" alt="Color"></a>&nbsp;<a href="javascript:void(parent.editWindow(\'bkgrd-content\', false))"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/image_sm.gif" width="60" height="19" border="0" alt="Image"></a>'+
+					'</td>\n'+
+					'<td width="355" height="263" style="'+
+					document.customTheme['bkgrd-content'].value +
+					'" >\n'+
+					'<div id="Layer1">\n');
+
+		themeFrame.document.write ('<table width="271" border="2" cellspacing="3" cellpadding="0">\n');
+					for (var n = 0; n < textObj.className.length; n++)
+					{
+						themeFrame.document.writeln ('<tr>\n'+
+								'<td width="64" valign="middle">\n'+
+								'<a href="javascript:void(parent.editWindow(\''+textObj.className[n]+'\', true))"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/color_sm.gif" width="60" height="19" border="0" alt="Color"></a>\n'+
+								'</td>\n'+
+								'<td width="207">\n'+
+								'<font face="Arial, Helvetica, sans-serif" size="-1" style="'+
+								document.customTheme[textObj.className[n]].value +
+								'" >'+
+								textObj.header[n] +
+								'</font></td>\n'+
+								'</tr>\n');
+					}
+		themeFrame.document.write ('</table>\n'+
+					'</div>\n'+
+					'&nbsp;</td>\n'+
+					'</tr>\n');
+		themeFrame.document.write ('</table>\n'+
+					'</div>'+
+					'</td>'+
+					'</tr>'+
+					'<tr bgcolor="#FFFFCc">'); 
+ 
+		themeFrame.document.write ('<td colspan="4" class="field-label" height="35"><div align="center">');
+		//<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+		themeFrame.document.write ('<a href="javascript:void(parent.opener.openHelpWindow(\'http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_THEMEEDIT+SoftCart+{helpversion}+en-us\', \'Alane\'));">'+
+					'<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help on Editing Themes"></a>');
+		//<!--END HELP WINDOW LINK-->
+		themeFrame.document.write ('<a href="javascript:void(parent.self.close())">'+
+					'<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" '+
+					'alt="Cancel"></a>');
+		if (useTheme.indexOf ("TC_") == 0)
+			themeFrame.document.write ('<a href="javascript:void(parent.saveTheme(\'\'))">'+
+					'<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" border="0" '+
+					'alt="Save"></a>');
+		themeFrame.document.write ('<a href="javascript:void(parent.saveCustomTheme())">'+
+					'<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_As_New_Custom_Theme_Nbtn_base_slg4.gif" width="200"'+
+					' height="30" border="0" alt="Save As New Custom Theme"></a></td></tr>'+
+					'</div>\n'+
+					'</td>\n');
+		themeFrame.document.write ('</tr>\n'+
+					'</table>\n'+
+					'</body>\n'+
+					'</html>\n');
+		themeFrame.document.close();
+	}
+			
+</SCRIPT>
+</head>
+<Form name = "customTheme">
+<SCRIPT runat="merc_server">
+
+	var useTheme = doAction('REQ_GET_FORMVALUE', "UseTheme", "UseTheme");
+	var test = doActionEx	('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+								'JS_SRC', 'FileType', 'txt');
+	eval (test);
+	var cssObj = generateCSSObject (useTheme);
+
+	var seObj = getThemeStyleList (true, true, false);
+	
+	<merc_embed>
+		<SCRIPT LANGUAGE='JavaScript'>
+	</merc_embed>
+	write ("var customThemesUsed = new Array ('"+seObj.themes.customThemes.join('\', \'')+"');");
+	write ("var useTheme = '"+useTheme+"';");
+	
+	<merc_embed>
+		</SCRIPT>
+	</merc_embed>
+	// the client side javascript requires certain hidden fields be present, if they are
+	// not already included make sure we put them in
+	var reqFields = new Array('bkgrd-content', 'bkgrd-top', 'bkgrd-left');
+	for (var n = 0; n < gTHEME_TXT_CLASS.length; n++)
+		reqFields.push(gTHEME_TXT_CLASS[n].className);
+		
+	function popByName (nameToPop)
+	{
+		var temp = new Array ();
+		for (var n = 0; n < reqFields.length; n++)
+			if (reqFields[n] != nameToPop)
+				temp.push (reqFields[n]);
+		reqFields = temp;
+	}
+	
+	write ("<input type='hidden' name='ThemeName' value='" + useTheme + "'>");
+	write ("<input type='hidden' name='ClassesUsed' value='" + cssObj['#className'].join(gSEPERATOR) + "'>");
+	for (var z = 0; z < cssObj['#className'].length; z++)
+	{
+		write ("<input type='hidden' name='"+cssObj['#className'][z]+"' value='");
+		for (var x = 0; x < cssObj[cssObj['#className'][z]]['#styleName'].length; x++)
+			write (cssObj[cssObj['#className'][z]]['#styleName'][x] + ': ' +
+					cssObj[cssObj['#className'][z]][(cssObj[cssObj['#className'][z]]['#styleName'][x])].join(',')+';')  
+		write ("'>");
+		popByName (cssObj['#className'][z]);
+	}
+	for (var n = 0; n < reqFields.length; n++)
+		write ("<input type='hidden' name='"+reqFields[n]+"' value=''>");
+	
+	// generate output based on whether the store is commerce enabled or not
+	for (var n = 0; n < gTHEME_TXT_CLASS.length; n++)
+	{
+		if (IsCommerceEnabled() || !gTHEME_TXT_CLASS[n].commerceSpecific)
+		{
+			write ("<SCRIPT LANGUAGE='JavaScript'>"+
+						"textObj.className["+n+"] = '"+gTHEME_TXT_CLASS[n].className+"';"+
+						"textObj.header["+n+"] = '"+gTHEME_TXT_CLASS[n].header+"';"+
+				   "</SCRIPT>");
+		}
+	}
+	
+</SCRIPT>
+
+</form>
+<frameset rows="100%,*" frameborder="NO" border="0" framespacing="0" onLoad="generateOutput();"> 
+    <frame name="themeFrame" src="blank2.htm" scrolling="NO" noresize marginwidth=0 marginheight=0>
+	 <frame name="blankFrame" src="blank2.htm" scrolling="NO" noresize marginwidth=0 marginheight=0>
+  </frameset>
+<noframes><body bgcolor="#FFFFFF">
+
+</body></noframes>
+</html>

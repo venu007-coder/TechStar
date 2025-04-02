@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" class="penda-bkgrd" 
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg1), 
+		new Array (parent.topFrame.document.images.wizimg2, 
+					parent.topFrame.document.images.wizimg3, 
+					parent.topFrame.document.images.wizimg4, 
+					parent.topFrame.document.images.wizimg5,
+					parent.topFrame.document.images.wizimg6,
+					parent.topFrame.document.images.wizimg7,
+					parent.topFrame.document.images.wizimg8));">
+
+<form name="intro" action="javascript:void(0);">
+	<input type="hidden" name="WizState" value="1">
+</form>
+<table width="625" border="0" cellpadding="4" cellspacing="0" height="172" align="center">
+  <tr bgcolor="#FFFFCC"> 
+    <td height="25" nowrap width="151" ><span class="page-title">&nbsp;Introduction</span> 
+    </td>
+<td width="474" align="right" height="25" NOWRAP>
+
+	<!--HELP WINDOW LINK-->
+	<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+	<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_RTL_INTRO+SoftCart+{helpversion}+en-us', 'Alane'));"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a>
+
+	<!--END HELP WINDOW LINK-->
+
+	<a href="javascript:window.print();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Print_This_Page_Nbtn_base_lg2.gif" width="115" height="30" border="0" alt="Print This Page"></a>
+	<a href="javascript:parent.SubmitForm ('L', 'desktop_frameset.htm','', new Array('DrawerSelected', 'drw_site.gif'));" target="_parent"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Exit_Nbtn_base2.gif" width="86" height="30" border="0" alt="Exit"></a>
+	<a href="javascript:parent.SubmitForm ('WIZ_WizardNext', 'comwiz_2.htm','mainFrame', document.intro);">
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Next_Nbtn_base.gif" width="86" height="30" border="0" alt="Next"></a>
+
+</td>
+  </tr>
+  <tr bgcolor="#FFFFFF" valign="top"> 
+<td height="243" colspan="4" class="table-bkgrd-main"> 
+<p><font face="Arial, Helvetica, sans-serif" size="2">Welcome to the PowerRetail Wizard. Here you will setup your store by inputting your item, tax, and shipping information.</font></p>      
+<p align="left"><font size="2" face="Arial, Helvetica, sans-serif"><b><i><font color="#000099">
+        What you'll need...</font></i></b><br>
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif" width="12" height="13" alt=""> Item prices</font><font size="2" face="Arial, Helvetica, sans-serif"><br>
+        </font><font size="2" face="Arial, Helvetica, sans-serif"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif" width="12" height="12" alt=""> 
+        Item descriptions.</font><br>
+        <font face="Arial, Helvetica, sans-serif" size="2"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif" width="12" height="12" alt=""> 
+        Item images. Images must be gif or jpg format. We suggest preparing 
+        your images by resizing them for your pages: roughly no more than 200 
+        pixels wide.<br>
+ 
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif" width="12" height="12" alt="">In order to <b>authorize online credit card orders</b>, you need an <b>online merchant  ID number</b> (even if you already have a non-internet merchant 
+              ID),  a <b>payment service</b>, and the <b>Mercantec Encryption Software</b>. </font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2">See <a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_RTL_GETSTART+SoftCart+{helpversion}+en-us', 'Alane'));">Getting Started in PowerRetail</a> for details.</font>
+<p align="left"><font face="Arial, Helvetica, sans-serif" size="2">
+<a href="http://www.mercantec.com/products/download/pgp/pgpdownload.htm" target="pgpdownload">Download the <b>Mercantec Encryption Software</b></a>
+<span class="warning-note">(You must download &amp; install the encryption software to continue.)</span></font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2"><b><i><font color="#000099">What 
+        you'll do...</font></i></b><br>
+        Here you will enter information and designate how things appear in your site.<br>
+        Click on the <b>Next</b> button to continue and save your work.<br>
+        </font></p>
+      
+<p align="left"><font face="Arial, Helvetica, sans-serif" size="2"><b><i><font color="#000099">You control the results...</font></i></b></font><br>
+        <font face="Arial, Helvetica, sans-serif" size="2">Your work will be saved 
+        as you go. The settings you configure here can be modified later through the PowerRetail drawers. If you need to exit the wizard before you are finished, you 
+        will re-enter the wizard where you left off. Once you have completed the PowerRetail Wizard, 
+        you will not be able to enter the wizard again. All further edits can be done through the PowerRetail pages.</font></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+<merc_dynamic noshow=true name=mySession action=ST_GET_STATEDATA return=Result SessionID=SessionID>
+
+<form name="Form1" action="/cgi-local/mpc/PowerCommerce.cgi" method=POST>
+<input type="hidden" name="sh_action" value="sched">
+<input type="hidden" name="AppID" value=appID>
+<input type="hidden" name="SiteID" value=siteID>
+<input type="hidden" name="SessionID" value=mySession>
+<center>
+<script runat=merc_server>
+
+var missingFields = doAction("ST_GET_STATEDATA", "IDENTIFY_MISSING", "IDENTIFY_MISSING");
+if (missingFields != undefined && missingFields != '')
+{
+	writeln('<font color="red">')
+	writebr('The following fields were not entered:');
+	missingFields = missingFields.split(',');
+	for (var i = 0; i < missingFields.length; ++i)
+		writebr(missingFields[i]);
+	writeln('</font>');
+}
+
+var badCharFields = doAction('ST_GET_STATEDATA','IDENTIFY_BAD','IDENTIFY_BAD');
+if (badCharFields && badCharFields.length > 0)
+{
+	writeln('<font color="red">')
+	badCharFields = badCharFields.split(',');
+	var badCharTypes = doAction('ST_GET_STATEDATA','IDENTIFY_BADCHAR_TYPES','IDENTIFY_BADCHAR_TYPES');
+	writebr('Please do not use the following characters in your entries:<br>' +
+	badCharTypes + '<br>' + 
+	'The following fields contain illegal characters:<br>');
+	for (var k = 0; k < badCharFields.length; k++)
+		writebr(badCharFields[k]);
+	writeln('</font>')
+}
+
+
+</script>
+</center>
+<table width="335" border="1" align="center" bgcolor="#FFFFFF">
+  <tr>
+    <td height="188">
+      <table width="314" border="0" align="center" cellpadding="4" cellspacing="0">
+        <tr>
+          <td height="22" nowrap colspan="2"><b>Please input the following:</b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td width="30%" height="22" nowrap><b>Name:</b></td>
+          <td width="70%" height="22" nowrap><b>
+
+<script runat=merc_server>
+
+function Country(id, shortname, longname)
+{
+	this.ID = id;
+	this.ShortName = shortname;
+	this.LongName = longname;
+}
+
+function Region(id, shortname, longname)
+{
+	this.ID = id;
+	this.ShortName = shortname;
+	this.LongName = longname;
+}
+
+// Get list of allowed Regions (States)
+var RegionList = new Array();
+var numRegions = 0;
+
+var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_REGION", "Sort", "ID ASC");
+while(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "TAX_REGION"))
+{
+	var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "TAX_REGION", "QueryID",qID);
+
+	RegionList[numRegions] = new Region(resultset.ID, resultset.SHORTNAME, resultset.LONGNAME);
+	numRegions++;
+
+	var movednext=doActionEx("DATA_MOVENEXT","Result","ObjectName","TAX_REGION","QueryID",qID);
+
+
+	if (numRegions > 99)
+	{
+		writeln("<br> FORCED BREAK FROM LOOP!<p>");
+		break;
+	}
+}
+
+var BillToRow = MERC_SHOPCART.GetFirstRow("BillTo");
+write('<input type="text" name="Name"');
+if (BillToRow != 'END_OF_TABLE')
+{
+	var Name = MERC_SHOPCART.GetField("BillTo", BillToRow, "BillToName");
+	if (Name != undefined)
+		write(' value="' + Name + '"');
+}
+writeln('>');
+<merc_embed>
+            </b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td width="30%" height="22" nowrap><b>Address:</b></td>
+          <td width="70%" height="22" nowrap><b>
+</merc_embed>
+write('<input type="text" name="Address1"');
+if (BillToRow != 'END_OF_TABLE')
+{
+	var Address1 = MERC_SHOPCART.GetField("BillTo", BillToRow, "Address1");
+	if (Address1 != undefined)
+		write(' value="' + Address1 + '"');
+}
+writeln('>');
+<merc_embed>
+            </b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td width="30%" height="22" nowrap><b>Address (cont.):</b></td>
+          <td width="70%" height="22" nowrap><b>
+</merc_embed>
+write('<input type="text" name="Address2"');
+if (BillToRow != 'END_OF_TABLE')
+{
+	var Address2 = MERC_SHOPCART.GetField("BillTo", BillToRow, "Address2");
+	if (Address2 != undefined)
+		write(' value="' + Address2 + '"');
+}
+writeln('>');
+<merc_embed>
+            </b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td width="30%" height="22" nowrap><b>City:</b></td>
+          <td width="70%" height="22" nowrap><b>
+</merc_embed>
+write('<input type="text" name="City"');
+if (BillToRow != 'END_OF_TABLE')
+{
+	var SubRegion = MERC_SHOPCART.GetField("BillTo", BillToRow, "SubRegion");
+	if (SubRegion != undefined)
+		write(' value="' + SubRegion + '"');
+}
+writeln('>');
+<merc_embed>
+            </b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td width="30%" height="22" nowrap><b>State:</b></td>
+          <td width="70%" height="22" nowrap><b>
+</merc_embed>
+write('<select name="State">');
+var Region = MERC_SHOPCART.GetField("BillTo", BillToRow, "Region");
+for (var i = 0; i < numRegions; ++i)
+{
+	write('<option value=' + i);
+	if (Region != undefined && i == Region)
+		write(' selected');
+	writeln('>' + RegionList[i].LongName + '</option>');
+}
+writeln('</select>');
+<merc_embed>
+            </b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td width="30%" height="22" nowrap><b>Zip:</b></td>
+          <td width="70%" height="22" nowrap><b>
+</merc_embed>
+write('<input type="text" name="Zip"');
+if (BillToRow != 'END_OF_TABLE')
+{
+	var PostalCode = MERC_SHOPCART.GetField("BillTo", BillToRow, "PostalCode");
+	if (PostalCode != undefined)
+		write(' value="' + PostalCode + '"');
+}
+writeln('>');
+<merc_embed>
+            </b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td width="30%" height="22" nowrap><b>Phone:</b></td>
+          <td width="70%" height="22" nowrap><b>
+</merc_embed>
+write('<input type="text" name="Phone"');
+if (BillToRow != 'END_OF_TABLE')
+{
+	var Phone = MERC_SHOPCART.GetField("BillTo", BillToRow, "DaytimePhone");
+	if (Phone != undefined)
+		write(' value="' + Phone + '"');
+}
+writeln('>');
+<merc_embed>
+            </b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td width="30%" height="22" nowrap><b>E-mail:</b></td>
+          <td width="70%" height="22" nowrap><b>
+</merc_embed>
+write('<input type="text" name="Email"');
+if (BillToRow != 'END_OF_TABLE')
+{
+	var Email = MERC_SHOPCART.GetField("BillTo", BillToRow, "EmailAddress");
+	if (Email != undefined)
+		write(' value="' + Email + '"');
+}
+writeln('>');
+
+<merc_embed>
+            </b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td height="22" colspan="2" nowrap><b>
+</merc_embed>
+	var crmPicked = MERC_SHOPCART.GetField("BillTo",BillToRow,"crmquery");
+	var checked = "";
+	if 	(crmPicked && crmPicked.toLowerCase() == "no")
+	{
+		write ('<input type="radio" name="crmquery"  value="Yes">');
+		checked = " checked";
+	}
+	else
+		write ('<input type="radio" name="crmquery"  value="Yes" checked>');
+	writebr("&nbsp;Yes, I'd like to receive special offers.");
+	write ('<input type="radio" name="crmquery"  value="No"' + checked + '>');
+	writeln ("&nbsp;No, I'd prefer not to be contacted with any special offers.");
+	
+<merc_embed>
+            </b></td>
+        </tr>
+        <tr bgcolor="#CCCC99">
+          <td width="30%" height="22" nowrap><b>Comments:</b></td>
+          <td width="70%" height="22" nowrap><b>
+</merc_embed>
+write('<textarea name="Comments">');
+if (BillToRow != 'END_OF_TABLE')
+{
+	var Comments = MERC_SHOPCART.GetField("BillTo", BillToRow, "Comments");
+	if (Comments != undefined)
+		write();
+}
+writeln('</textarea>');
+</script>
+<script language="javascript">
+	document.Form1.Name.focus();
+</script>
+
+            </b></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+<div align="center">
+  <p>
+    <input type="submit" name="submit" value="Send Request">
+    <br>
+    <br>
+  </p>
+</div>
+</form>

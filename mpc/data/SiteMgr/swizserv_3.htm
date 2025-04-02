@@ -1,0 +1,45 @@
+<script runat="merc_server">
+	/*	
+	**	This page keeps the functionality of page 3 but the content has moved to page 3a.  This
+	**	is because the timezone needs to be set then a new request needs to be fired off to pick
+	**	up the changes
+	*/
+	//Load BizInfoLib.js
+		var cs_inc = doActionEx ('DATA_READFILE','BizInfoLib.js', 'FileName', 'BizInfoLib.js','ObjectName',
+				    'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+	//end Load
+
+	task = doAction('REQ_GET_FORMVALUE', 'task', 'task');
+	if (task != undefined && task.length)
+	{
+		whatHappened = DoTask();
+		if (whatHappened != 'Success') writep('Error performing task "' + task + '": ' + whatHappened);
+	}
+
+	allfields = GetBDO();
+	allfields.bizname = GetData('Name');
+	allfields.bizstreet1 = GetData('Street1');
+	allfields.bizstreet2 = GetData('Street2');
+	allfields.bizcity = GetData('City');
+	allfields.bizstate = GetData('State');
+	allfields.bizpostal = GetData('Postal');
+	allfields.bizcountry = GetData('Country');
+	allfields.bizphone = GetData('Phone');
+	allfields.bizfax = GetData('Fax');
+	allfields.bizemail = GetData('Email');
+	allfields.bizlogo = GetData('Logo');
+	allfields.biztimezone = GetData('MerchantTimeZone');
+
+</script>
+
+<html>
+<head>
+<title>Untitled Document</title>
+
+</head>
+
+<body onLoad="javascript:parent.SubmitForm ('L', 'swizserv_3a.htm','mainFrame', '');">
+
+</body>
+</html>

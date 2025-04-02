@@ -1,0 +1,257 @@
+<SCRIPT runat="merc_server">
+
+	var DestinationHTML = "zoneshipping.html";
+	var CommerceWizPage = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'CommerceWizCfg', 'RowName', 'WizardState', 'ColName', 'Value');
+	var theHelpDomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+	var theHelpVersion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+	
+	if (CommerceWizPage < 9)
+	{
+		// MUST BE IN COMMERCE WIZARD.
+		DestinationHTML = "comwiz_" + CommerceWizPage + ".htm";
+		var masterClass = "master_layer.css";
+		var backgroundClass = "pop-up-bkgrd";
+		var helpLink = "http://" + theHelpDomain +"/cgi-bin/helpsrvr.exe?+R+helpsrvr+OH_SHIPZ_MANAGE+SoftCart+" + theHelpVersion + "+en-us";
+	}
+	else
+	{
+		// NOT IN WIZARD
+		var masterClass = "master.css";
+		var backgroundClass = "bkgrd-main-items";
+		var helpLink = "http://" + theHelpDomain +"/cgi-bin/helpsrvr.exe?+R+helpsrvr+OH_SHIPZ_MANAGE+SoftCart+" + theHelpVersion + "+en-us";
+	}
+
+//set Locale string
+	var LOCALE_STRING="en";
+	
+//The next two lines load the zoneshipping.js file
+	var cs_inc = doActionEx ('DATA_READFILE','ZoneShippingLib.js', 'FileName', 'ZoneShippingLib.js','ObjectName',
+		    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+
+
+		var mode= doAction('REQ_GET_FORMVALUE', "mode", "mode");
+		if (mode == "add_zone") {
+			var zone_text =doAction('REQ_GET_FORMVALUE', "zone_text", "zone_text");
+							
+			//Added new SHIP_ADDZONE ACTION
+			var default_msgVal="";
+			var default_basePrice=0.0;
+			var default_charge_type='F';
+			
+			if (zone_text) 
+			{
+				var addNewZone = doActionBDO("SHIP_ADD_ZONE","ZoneName", zone_text,
+					"BasePrice",default_basePrice,"Locale", LOCALE_STRING,
+					"Message",default_msgVal.toString(),"ChargeType",default_charge_type.toString());
+				if (addNewZone.Success)
+				{
+					var zoneID=addNewZone.ID;
+					
+				} else {
+					//error
+					writebr("Insert UNSUCCESSFUL-", addNewZone.Success);
+				}
+			}
+			
+		} else if ((mode == "edit_zone_name") || (mode=="delete_zone")) {
+			var zoneID=doAction('REQ_GET_FORMVALUE', "zoneID", "zoneID");
+			var filterStr="ID="+zoneID;
+			//var zone_text="MyTest";
+			var zone_text=doAction('REQ_GET_FORMVALUE', "newZoneName", "newZoneName");
+			
+			var qID2 = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_ZONE", "Filter", filterStr);
+			var litID=doActionEx("DATA_GETFIELDDATA", "NAME_LIT_ID","ObjectName", "SHIP_ZONE","QueryID",qID2, "FieldName", "NAME_LIT_ID");
+			writeln("<!--lit ID: " + litID+"-->");
+			
+			if (mode == "edit_zone_name") //editing zone name
+			{
+				if (litID) 
+				{
+					var setLit = doActionEx("DATA_SETLOCALESTRING", "LiteralID", "ObjectName", "SHIP_LITERALS","Locale",LOCALE_STRING, "LiteralValue", zone_text, "LiteralID", litID);
+				}
+			
+			} else //delete zone
+			{
+				var deleteRow=doActionEx("DATA_DELETE", "Success","ObjectName", "SHIP_ZONE","QueryID",qID2);
+				if (deleteRow) {
+					var commit=doActionEx("DATA_UPDATE", "ObjectName", "SHIP_ZONE","QueryID",qID2);
+				}
+				//delete locale string for that zone
+				var deleteLocale = 	doAction("DATA_DELETELOCALESTRING","ObjectName", "SHIP_LITERALS", "LiteralID", parseInt(litID));
+				var filterStr2="ZONE_ID="+zoneID;
+				
+				//Delete thresholds
+				var qID3 = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_THRESHOLD", "Filter", filterStr2, "Delete", true);
+				var closeConn3 = doAction("DATA_CLOSEQUERY", "QueryID",qID3,"ObjectName", "SHIP_THRESHOLD");
+				
+				//delete zone info
+				var qID4 = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_LINE_ITEM", "Filter", filterStr2, "Delete", true);
+				var closeConn4 = doAction("DATA_CLOSEQUERY", "QueryID",qID4,"ObjectName", "SHIP_LINE_ITEM");
+			
+			}
+			
+			var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID2,"ObjectName", "SHIP_ZONE");
+			
+			
+		} else
+		{
+			var zoneID=doAction('REQ_GET_FORMVALUE', "zoneID", "zoneID");
+			writeln("<!--NO MODE--><!--ZONEID:" + zoneID+"-->");
+		}
+</SCRIPT>
+
+<html>
+<head>
+<title>Manage Shipping Zones</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+
+<script runat="merc_server">
+writeln('<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/' + masterClass+ '">');
+</script>
+
+<script language="javascript">
+<!--
+function createEditNameWindow()
+{
+	var zoneList =document.modifyZone.zoneID
+	var zoneID = zoneList.options[document.modifyZone.zoneID.selectedIndex].value;
+	if (zoneID > 0) //ignore negative IDs
+	{
+		var zoneName=zoneList.options[document.modifyZone.zoneID.selectedIndex].text;
+		var winObj = opener.createSimpleSubmitWindow(150,350);
+		if (editName) 
+		{
+			editName.focus();
+		} 
+		else 
+		{
+			var editName = window.open("",'editName', winObj.createOutput());
+		}
+		var baseUrl = 'SC_BaseUrl';
+		var bodyText =	'<div align=\"center\"> <p>\n'+
+						'<span class=\"dialog-title\">Edit Zone Name:'+zoneName+'</span> </p>\n'+
+						"<form name=\"changeZoneName\" action=\"javascript:void(0);\">\n"+
+						'	<span class="general-label">New Zone Name:</span>&nbsp;&nbsp;\n'+
+						'	<input type="hidden" name="zoneID" value="'+zoneID+'">\n'+
+						'	<input type="hidden" name="mode" value="edit_zone_name">\n'+
+						'	<input type="text" name="newZoneName"><br><br>\n'+
+						'	<a href="javascript:void(0)" onclick="window.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_cancel.gif" alt="Cancel" width="90" height="21" border=0></a>&nbsp;&nbsp;&nbsp;'+
+						'	<a href="javascript:void(0)" onClick="opener.opener.SubmitForm(\'L\',\'bm_shpgzones.htm\',\'newWin\',document.changeZoneName);window.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" alt="Save" width="90" height="21" name="save" border="0"></a>\n'+
+						'</form></div>';
+		var noteText = '';
+		editName.document.writeln ("<HTML><HEAD>\n"+
+							"<link rel='stylesheet' type='text/css' href='/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css'>\n"+
+							"</HEAD><BODY CLASS='bkgrd-main-items'><FONT CLASS='dialog-title'>\n" + bodyText+
+							"</FONT><BR><FONT CLASS='instr-note'>"+noteText+"</FONT></BODY></HTML>\n");
+		editName.document.close ();
+	}
+}
+
+function deleteZone() 
+{
+	var zoneList =document.modifyZone.zoneID
+	var zoneID = zoneList.options[document.modifyZone.zoneID.selectedIndex].value;
+	if (zoneID > 0)
+	{
+		var zoneName=zoneList.options[document.modifyZone.zoneID.selectedIndex].text;
+		if (confirm('Are you sure you want to delete '+zoneName+'?\nThis will delete ALL threshold information as well.'))
+		{
+			document.modifyZone.mode.value='delete_zone';
+			//alert('delete zone:'+zoneID);
+			//document.modifyZone.submit();
+			opener.SubmitForm('L','bm_shpgzones.htm','newWin',document.modifyZone);
+			
+		}
+	}
+	return void(0);
+}	
+
+
+function closeThisWin(DestinationHTML)
+{
+	if (document.modifyZone.zoneID)
+	{
+		if (document.modifyZone.zoneID.options.length) //make sure there are options
+			void(opener.parent.CloseWinSubmitForm('L',DestinationHTML,'mainFrame',document.modifyZone));
+		else
+			void(opener.parent.CloseWinSubmitForm('L',DestinationHTML,'mainFrame',''));
+	}
+	else
+		void(opener.parent.CloseWinSubmitForm('L',DestinationHTML,'mainFrame',''));
+}
+
+function isZoneNameOkay(zoneTextForm)
+{
+	var zoneCandidate = zoneTextForm.value;
+	var selectList = document.modifyZone.zoneID;
+
+	if (zoneCandidate =='')
+	{
+		alert('Please enter a zone name.');
+		zoneTextForm.focus();
+		return false;
+	
+	}
+	if (selectList && selectList.options.length)
+	{
+		for(var i=0;i < selectList.options.length; i++)
+		{
+			if (zoneCandidate == selectList.options[i].text)
+			{
+				alert('Invalid zone name.  Zone name already exists');
+				zoneTextForm.focus();
+				return false;
+			}
+		}
+	}
+	return true;
+
+}
+//-->
+</script>
+</head>
+
+<script runat="merc_server">
+	writeln('<body class="' + backgroundClass + '" onLoad=modifyZone.zoneID.focus()>');
+</script>
+
+<div align="center"> 
+  <p> <span class="dialog-title">Manage Shipping Zones</span> </p>
+<form name="modifyZone" action="" onSubmit="javascript:void(opener.SubmitForm('L','bm_shpgzones.htm','newWin',document.modifyZone));return false;">	
+  <span class="general-label">Zone: </span> 
+
+	<script runat="merc_server">
+		buildZoneSelectList(zoneID,'','','','','','');
+	</script>
+
+    &nbsp;<a href="javascript:createEditNameWindow();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editname.gif" alt="Edit Name" width="90" height="21" align="absmiddle" border="0" onClick="javascript:document.modifyZone.mode.value='edit_zone_name';"></a>&nbsp;
+    <input type="hidden" name="mode" value="">
+    <a href="javascript:void(deleteZone());"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_delete.gif" alt="Delete Zone" width="90" height="21" align="absmiddle" border=0></a>
+</form>
+
+<form name="addZone" action="" onSubmit="javascript:if(isZoneNameOkay(document.addZone.zone_text)) void(opener.SubmitForm('L','bm_shpgzones.htm','newWin',document.addZone));return false;">
+    
+		<span class="general-label">Create New Zone:</span> 
+		<input type="text" name="zone_text" width="30">
+		<input type=hidden name="mode" value="add_zone">&nbsp;&nbsp;
+		<input type="image" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" alt="Save New Zone" width="90" height="21" name="save" border="0">
+  
+  <br>
+  <span class="instr-note">Remember you must input shipping rates<br>
+  for new zones in your shipping screen.</span><br>
+  <p>
+
+<!-- HELP LINK -->
+<script runat="merc_server">
+	writeln("<a href=\"javascript:void(opener.parent.openHelpWindow('" +  helpLink + "', 'Alane'));\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif\" border=\"0\" alt=\"Help\"></a>");
+	writeln("<!-- END HELP LINK -->");
+	writeln("&nbsp;&nbsp;<a href=\"javascript:closeThisWin('" + DestinationHTML + "');\" ><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_close.gif\" alt=\"Close Window\" width=\"90\" height=\"21\" border=0></a>&nbsp;&nbsp;");
+</script>  
+  </p>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/merc/mrupert/private_apacheuserdir_mrupert/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_SchedIdentify</TYPE>
+	<GLOBAL TYPE="never"></GLOBAL>
+	<UIGRAPHIC></UIGRAPHIC>
+	<UITEXT></UITEXT>
+	<!-- No delete -->
+	<PERMISSIONS>666</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="width">
+			<VALUE>400</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE>400</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="style">
+			<VALUE>text-body</VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+
+		var scriptFile = doActionEx('DATA_READFILE', 'common.js', 'FileName', 
+					'common.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+		eval (scriptFile);
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('z-index:'+merc_zindex+';">');
+
+			
+			write('<scr');
+			writeln('ipt runat="merc_server">');
+			writeln('var whichFile = doActionEx("DATA_READFILE", "cust_sched_identify.htm", "FileName", "cust_sched_identify.htm","ObjectName", "StoreHTML","FileType","txt");');
+			writeln('output = doActionEx("PAR_PARSE_BUFFER","Result", "document", whichFile);');
+			writeln('write(output);');
+			write('</scr');
+			writeln('ipt>');
+
+			write('</div>');
+			return true;		
+
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('z-index:'+merc_zindex+';">');
+
+			write('<table border=1 cellspacing="0" cellpadding="0"><tr>');
+			write('<td width='+width+' height='+height);
+			write('>');
+			writeln('<center>');
+			writeln("Your customer information form goes here");
+			writeln('</center>');
+			writeln('</td></tr></table>');
+
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	function edit_properties()
+	{
+		//write out html for EditProperties dialog box
+		// use table tags to position stuff better?
+		// The input "names" have to match the <name> tags above.
+		write('<form name="saveprop">');
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		writeln('<input type=hidden name="ElementAddEdit" value="'+addEditMode+'">');
+
+		writeln('<p align="center"><span class="dialog-title">Catalog List</span></p>');
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr valign="top"><td colspan="2" class="field-label"><center>');
+
+		writeln('<table width="75%" border="0" cellspacing="0" cellpadding="0">');
+		writeln('<tr valign="top"><td colspan="2">');
+		writeln('<br>This element does not contain any modifiable properties</td>');
+		writeln('</td></tr></table>');
+
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr><td><center>');
+<!--BEGIN HELP WINDOW LINK-->
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_RTL_ELMT_CATLIST+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/PrivateHtDocs_mrupert/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_Cancel\', \'Layout1.htm\', \'mainFrame\', document.saveprop);"><img src="/PrivateHtDocs_mrupert/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel" border="0"></a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_SaveProperties\', \'Layout1.htm\', \'mainFrame\', document.saveprop);">');
+		writeln('<img src="/PrivateHtDocs_mrupert/images/Save_Nbtn_base.gif" width="86" height="30" alt="Ok" border="0"></a>');
+		writeln('</td></tr></table>');
+		writeln('</td></tr></table>');
+		write('</form>');
+		writeln ("<SCRIPT language=javascript>");+
+		writeln('self.resizeTo(500, 200);');
+		writeln('</script>');
+
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	// May not need to do anything in all cases
+	// Save things to Prod DB on price/desc? - automatic based on dbentry
+	// if there is a reason not to dismiss the properties dialog, return false
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

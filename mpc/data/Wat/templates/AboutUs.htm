@@ -1,0 +1,107 @@
+<script runat="merc_server">
+	var text = '';
+	var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+			    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+	var pageName = doAction('ST_GET_STATEDATA', 'WizNewPageName', 'WizNewPageName');
+	if (!pageName)
+		pageName = '';
+	var pageElements = generateObjectsFromCfg ('WATWizardPages');
+
+</script>
+<tr>
+	<td height="15" colspan="5" width="100%" class="instr-note">
+		Fields below are optional; nothing will appear if nothing is entered
+	</td>
+</tr>
+<tr>
+<tr>
+	<td width="9%" height="15" class="field-label">Image:</td>
+	<td height="15" colspan="4" width="60%" nowrap>
+		<table border="0">
+			<tr>
+				<td><input type="text" size="30" name="imgtext" value="" onKeyUp="this.value=imageName;"><input type="hidden" name="imgurl" value=""><input type="hidden" name="secureimgurl" value=""><input type="hidden" name="imgrow" value=""></td>
+				<td>
+					<a href="javascript:void(0);" onClick="editWindow();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Select____Nbtn_base2.gif" border="0"></a>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+     <td width="19%" height="18" class="field-label">Business slogan/motto:</td>
+     <td height="18" colspan="4"> 
+	<script runat="merc_server">
+	text = '';
+	if (pageName != '' && pageElements.ObjArray[pageName])
+	{
+		var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[pageName].SloganText);
+		if (properties && properties['text'])
+			text = properties['text'];
+	}
+	write('<input type=text name="SloganText" size=30 value="'+text+'">');
+	</script>
+     </td>
+</tr>
+<tr>
+     <td width="19%" height="18" class="field-label">Business description:<br><font class="instr-note">What your business does or provides</font></td>
+     <td height="18" colspan="4"> 
+	<script runat="merc_server">
+	text = '';
+	if (pageName != '' && pageElements.ObjArray[pageName])
+	{
+		var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[pageName].DescriptionText);
+		if (properties && properties['text'])
+			text = properties['text'];
+
+		text = text.replace (/<br>/g, '\n');
+		text = escape(text);
+	}
+	write('<textarea name="DescriptionText" cols="30" rows="3" wrap="soft">'+text+'</textarea>');
+	</script>
+     </td>
+</tr>
+<tr>
+     <td width="19%" height="18" class="field-label">History:<br><font class="instr-note">History and background of your company</font></td>
+     <td height="18" colspan="4"> 
+	<script runat="merc_server">
+	text = '';
+	if (pageName != '' && pageElements.ObjArray[pageName])
+	{
+		var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[pageName].HistoryText);
+		if (properties && properties['text'])
+			text = properties['text'];
+		text = text.replace (/<br>/g, '\n');
+		text = escape(text);
+	}
+	write('<textarea name="HistoryText" cols="30" rows="5" wrap="soft">'+text+'</textarea>');
+	</script>
+     </td>
+</tr>
+<tr>
+     <td width="19%" height="18" class="field-label">Management:<br><font class="instr-note">Brief descriptions of your lead people</font></td>
+     <td height="18" colspan="4"> 
+	<script runat="merc_server">
+	text = '';
+	if (pageName != '' && pageElements.ObjArray[pageName])
+	{
+		var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[pageName].ManagementText);
+		if (properties && properties['text'])
+			text = properties['text'];
+		text = text.replace (/<br>/g, '\n');
+		text = escape(text);
+	}
+	write('<textarea name="ManagementText" cols="30" rows="5" wrap="soft">'+text+'</textarea>');
+	</script>
+		<input type="hidden" name="TemplateScript" value="AboutUs.js">
+		<SCRIPT language=javascript>
+		document.newpage.DescriptionText.value = unescape(document.newpage.DescriptionText.value);
+		document.newpage.HistoryText.value = unescape(document.newpage.HistoryText.value);
+		document.newpage.ManagementText.value = unescape(document.newpage.ManagementText.value);
+		</SCRIPT>
+     </td>
+</tr>

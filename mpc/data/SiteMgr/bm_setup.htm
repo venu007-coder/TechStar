@@ -1,0 +1,287 @@
+<SCRIPT runat="merc_server">
+	//set Locale string
+	var LOCALE_STRING="en";
+
+		//Get all precursory info
+		var mode= doAction('REQ_GET_FORMVALUE', "mode", "mode");
+
+		//Get all user defined fields.
+		var output = GetBDO();
+		var status = ProcessRequest('ITEM_LISTUSERFIELDS', GetBDO(), output);
+
+		if ((status != MCERR_NOERROR) || (output.GetSize() == 0))
+			handleErrors();
+		var fieldNames = output.GetValues(output.GetLabels('Field').sort());
+
+		var fieldTypes = output.GetValues(output.GetLabels('Type').sort());
+
+		var deletedField = "none";
+
+		if (mode == "save")
+		{
+			var taxOnShippingFlag= doAction('REQ_GET_FORMVALUE', "taxOnShippingFlag", "taxOnShippingFlag");
+			var fractQuantFlag= doAction('REQ_GET_FORMVALUE', "fractQuantFlag", "fractQuantFlag");
+			var pricePrecisionFlag= doAction('REQ_GET_FORMVALUE', "pricePrecisionFlag", "pricePrecisionFlag");
+
+			//Save all fields
+			//set shipping flag
+			if (taxOnShippingFlag == "true")
+				var TOSflag ="Y";
+			else
+				var TOSflag ="N";
+
+
+			if (fractQuantFlag == "true")
+				var FQflag =1;
+			else
+				var FQflag =0;
+
+
+			if (pricePrecisionFlag == "true")
+				var PPflag =1;
+			else
+				var PPflag =0;
+
+			//Set the flags
+			var TOSresult = doActionEx('TAXZONE_SETSHIPPINGTAXFLAG', 'Success', 'VALUE', TOSflag);
+			var FQresult = doAction('ITEM_SET_GLOBALVARIABLE', 'AllowFractionalQty', FQflag);
+			var PPresult = doAction('ITEM_SET_GLOBALVARIABLE', 'AllowPricePrecision', PPflag);
+			var FQresult = ProcessRequest('ITEM_SET_GLOBALVARIABLE', GetBDO('AllowFractionalQty', FQflag), GetBDO());
+			var PPresult = ProcessRequest('ITEM_SET_GLOBALVARIABLE', GetBDO('AllowPricePrecision', PPflag), GetBDO());
+		}
+		else if (mode=="addCustomField")
+		{
+
+			var newName=doAction('REQ_GET_FORMVALUE', "newCustomFieldName", "newCustomFieldName");
+			//add custom field
+			//Build input/output BDOs
+
+			var type = 0; //this should change when we support services.
+			var ft = 0;
+			newName=escape(newName);
+			var fn = newName;
+			var fl = newName;
+
+			var input = GetBDO("RecordType", type, "FieldType", ft, "FieldName", fn, "FieldLabel", fl,"Locale", LOCALE_STRING);
+			var output = GetBDO();
+
+			var status = ProcessRequest("ITEM_ADDFIELD", input, output);
+
+			// add new field to the list
+			fieldNames.push(newName);
+			fieldTypes.push(type);
+		}
+		else if (mode=="deleteCustomField")
+		{
+			//delete custom field
+			var customField = doAction('REQ_GET_FORMVALUE', "custfieldvalue", "custfieldvalue");
+			customField=escape(customField);
+			//writebr('Going to delete ', customField );
+			var input = GetBDO("RecordType", 0, "FieldName", customField);
+			var output = GetBDO();
+
+			var status = ProcessRequest("ITEM_DELETEFIELD", input, output);
+
+			// flag deleted so it will not be displayed even if in cache
+			deletedField = customField;
+		}
+		else if (mode=="editCustomField")
+		{
+			var oldName= doAction('REQ_GET_FORMVALUE', "oldCustomFieldName", "oldCustomFieldName");
+			var newName=doAction('REQ_GET_FORMVALUE', "newCustomFieldName", "newCustomFieldName");
+			newName=escape(newName);
+			oldName=escape(oldName);
+			if (oldName != newName)
+			{
+				//edit custom field
+				//FOR NOW, we simply remove old and insert new.
+				var input = GetBDO("RecordType", 0, "FieldName", oldName);
+				var output = GetBDO();
+
+				var status = ProcessRequest("ITEM_DELETEFIELD", input, output);
+
+				var type = 0; //this should change when we support services.
+				var ft = 0;
+				var fn = newName;
+				var fl = newName;
+
+				var input = GetBDO("RecordType", type, "FieldType", ft, "FieldName", fn, "FieldLabel", fl,"Locale", LOCALE_STRING);
+				var output = GetBDO();
+
+				var status = ProcessRequest("ITEM_ADDFIELD", input, output);
+
+				// add new field to the list
+				fieldNames.push(newName);
+				fieldTypes.push(type);
+
+				// flag deleted so it will not be displayed even if in cache
+				deletedField = oldName;
+			}
+		}
+
+		var taxOnShippingCheck = "";
+		var fractQuantCheck = "";
+		var pricePrecisionCheck = "";
+
+		var UseTaxOnShippingFlag = doActionEx('TAXZONE_GETSHIPPINGTAXFLAG', 'Value');
+		//writebr('Tax OS :',UseTaxOnShippingFlag);
+
+		var UseFractQuantFlag = doActionEx('ITEM_GET_GLOBALVARIABLE', 'AllowFractionalQty', 'AllowFractionalQty');
+		//writebr('Fract Quant :',UseFractQuantFlag);
+
+		var UsePricePrecisionFlag = doActionEx('ITEM_GET_GLOBALVARIABLE', 'AllowPricePrecision', 'AllowPricePrecision');
+		//writebr('PP :',UsePricePrecisionFlag);
+
+		if (UseTaxOnShippingFlag == 'Y')
+			taxOnShippingCheck = "CHECKED";
+		if (UseFractQuantFlag == 1)
+			fractQuantCheck = "CHECKED";
+		if (UsePricePrecisionFlag == 1)
+			pricePrecisionCheck = "CHECKED";
+
+</script>
+
+
+<html>
+<head>
+<title>mainFrame</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+<script language="javascript">
+	function editCustomField(op)
+	{
+
+		if (document.Form1.CustFldList.selectedIndex > -1)
+		{
+		}
+		else
+		{
+			alert('Please select a custom field.');
+			return(void(0));
+		}
+
+		document.Form1.custfieldvalue.value = unescape(document.Form1.CustFldList.options[document.Form1.CustFldList.selectedIndex].value);
+		if (op=='delete')
+		{
+			if (confirm('Are you sure you want to delete - ' + unescape(document.Form1.custfieldvalue.value)+'?'))
+			{
+				document.Form1.mode.value = 'deleteCustomField';
+				//change to delete field
+				parent.SubmitForm('L','bm_setup.htm','mainFrame',document.Form1);
+
+			}
+			else
+			{
+				return(void(0));
+			}
+		}
+		else
+		{
+			//mode is edit
+			parent.OpenWinSubmitForm('','L','bm_setup_newcustfield.htm','newWin',document.Form1,parent.createSimpleSubmitWindow(175,400));
+		}
+	}
+</script>
+</head>
+
+<body class="bkgrd-main-items" onLoad=document.Form1.taxOnShippingFlag.focus()>
+<p>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_OFFICE_SETUP+SoftCart+{helpversion}+
+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" name="help" alt="Help" align="right">
+
+</a>
+<!--END HELP WINDOW LINK-->
+<span class="header">Setup</span></p>
+
+<form action="#" name="Form1" method="POST">
+
+<input type="hidden" name="mode" value="save">
+<input type="hidden" name="custfieldvalue" value="">
+
+<table width="435" border="1" align="center" cellpadding="2" cellspacing="0">
+<!--
+ <tr>
+    <td colspan="2" nowrap>
+
+        <script runat="merc_server">
+			writeln('<input type="checkbox" name="fractQuantFlag" value="true" ',fractQuantCheck, '>');
+		</script>
+      <span class="general-label">Allow for enabling fractional quantities in
+      item editor tab</span></td>
+
+  </tr>
+-->
+  <tr>
+    <td colspan="2" nowrap>
+
+      <script runat="merc_server">
+		writeln('<input type="checkbox" name="taxOnShippingFlag" value="true" ',taxOnShippingCheck,">");
+      </script>
+
+      <span class="general-label"> Allow for entering tax on shipping per zone
+      in sales tax tab</span></td>
+
+  </tr>
+  <tr>
+    <td colspan="2" nowrap>
+
+      <script runat="merc_server">
+        writeln('<input type="checkbox" name="pricePrecisionFlag" value="true" ',pricePrecisionCheck , '>');
+      </script>
+      <span class="general-label"> Allow for entering price precision in item editor tab</span></td>
+
+  </tr>
+</table>
+<br>
+<table width="437" border="1" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+    <td colspan="2" class="table-header">Custom Fields</td>
+  </tr>
+  <tr>
+    <td width="194" height="83">
+      <p align="center">
+      <div align="center">
+      <span class="general-label">
+        <SCRIPT runat="merc_server">
+			//Generates select list for custom fields
+			writeln('<SELECT NAME="CustFldList" SIZE="5">');
+			for(var i=0; i< fieldNames.length; i++)
+			{
+				if(fieldNames[i] != deletedField)
+					writeln('<OPTION VALUE="',fieldNames[i],'">', unescape(fieldNames[i]), '</OPTION>');
+			}
+			writeln('</SELECT>');
+        </SCRIPT>
+        </span>
+        </div>
+        </p>
+    </td>
+    <td width="229" height="83">
+      <p align="center"><span class="general-label">
+<a href="javascript:void(parent.OpenWinSubmitForm('','L','bm_setup_newcustfield.htm','newWin','',parent.createSimpleSubmitWindow(175,400)));"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_add2.gif" alt="Add" width="90" height="21" align="absmiddle" border="0"></a><br>
+<a href="javascript:editCustomField('edit');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_edit.gif" alt="Edit" width="90" height="21" align="absmiddle" border="0"></a><br>
+<a href="javascript:editCustomField('delete');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_delete.gif" alt="Delete" width="90" height="21" align="absmiddle" border="0"></a></br>
+		</span></p>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+<div align="center">
+<a href="javascript:void(parent.SubmitForm('L','bm_setup.htm','mainFrame',document.Form1));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" border="0" alt="Save" width="90" height="21"></a>
+</div></p>
+
+</form>
+</body>
+</html>
+

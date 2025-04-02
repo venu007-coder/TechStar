@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- JavaScript functions called by the code during certain user operations -->
+<!ELEMENT SCRIPT (#PCDATA)>
+<!ATTLIST SCRIPT
+	NAME ID #REQUIRED
+	VERSION CDATA #REQUIRED
+	SRC CDATA #IMPLIED
+	LANGUAGE (javascript) "javascript"
+	RUNAT (merc_server) "merc_server"
+	TYPE (output | output_edit_mode | edit_properties | save_properties | create_element | destroy_element | import | common) #REQUIRED
+>

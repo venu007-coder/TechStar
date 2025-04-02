@@ -1,0 +1,20 @@
+Return-Path: joseph@bsmprofessionals.com
+Received: from mx99.stngva01.us.mxservers.net (198.173.112.36)
+	by mail19a.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 0-0979655695
+	for <abhra@altechstar.com>; Mon, 29 Nov 2010 16:21:36 -0500 (EST)
+Received: from unknown [173.251.33.19] (EHLO bsmprofessionals.com)
+	by va1-mx99.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id f5914fc4.2381310880.200498.00-007.va1-mx99.stngva01.us.mxservers.net (envelope-from <joseph@bsmprofessionals.com>);
+	Mon, 29 Nov 2010 16:21:35 -0500 (EST)
+Received: from [192.168.0.60] (account varun HELO IBM3)
+  by bsmprofessionals.com (CommuniGate Pro SMTP 5.2.16)
+  with ESMTPA id 5889752 for abhra@altechstar.com; Mon, 29 Nov 2010 16:23:02 -0500
+Date: Mon, 29 Nov 2010 16:23:02 -0500
+Message-ID: <auto-000005889752@bsmprofessionals.com>
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010111701); MH=0.500(2010112928)]
+X-MAIL-FROM: <joseph@bsmprofessionals.com>
+X-SOURCE-IP: [173.251.33.19]
+From:joseph@bsmprofessionals.com
+To:undisclosed-recipients:;
+X-SF-Loop: 1
+

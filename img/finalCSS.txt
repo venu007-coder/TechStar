@@ -1,0 +1,8 @@
+.banner-img { background: url(../img/about-banner.jpg) no-repeat center 0%; background-size: cover; padding: 100px 0;}
+.banner-img-medical { background: url(../img/medical-banner.jpg) 50% 94%; background-size: cover;}
+.banner-img-healthcare { background: url(../img/healthcare-banner.jpg) no-repeat 50% 41%; background-size: cover;}
+.banner-img-staffing { background: url(../img/staffing-banner.jpg) 50% 25%; background-size: cover;}
+.banner-contact { background: url(../img/contact-bg.jpg) bottom center; background-size: cover;}
+.banner-img-bpo { background: url(../img/bpo-banner.jpg) center 43%; background-size: cover;}
+.banner-img-it { background: url(../img/it-banner.jpg) center 52%; background-size: cover;}
+.banner-careers { background: url(../img/careers-banner.jpg) center 29%; background-size: cover;}

@@ -1,0 +1,49 @@
+Congratulations!
+
+Now that your Internet-compatible merchant account has been approved, your store is almost ready to submit online credit card transactions for automatic authorization. Your store is currently in test mode and is not yet configured to authorize online credit card transactions submitted to your online store. 
+
+IMPORTANT: Follow the required authorization test procedures as soon as possible to minimize the number of online orders that may need to be recreated. Online orders that were submitted during the test mode phase may not be recoverable.
+
+
+Required Authorization Test Procedures
+--------------------------------------
+
+o Verifying the communications link between your store and the        			  ClearCommerce gateway.(Required)
+
+o Testing access to your new Internet merchant account. (Required)
+
+o Switching to live credit card authorization mode. (Required)
+
+
+Starting Your Authorization Test Procedures
+-------------------------------------------
+
+Details for performing these test are described in the product help. Follow the steps below to access the ClearCommerce Online Payment screen and the product help, which describes the procedures for testing online credit card authorization.
+
+To start authorization test procedures:
+
+1. Log into your PowerCommerce back office site. 
+2. At the PowerManager page, click the Edit my site link.
+3. From the file cabinet graphic, click the Office drawer.
+4. Click the Payment tab.
+5. From the Payment Options screen, click Payment Systems. The ClearCommerce Online Payment System screen appears. 
+
+NOTE: The screen provides test credit card numbers for your use.
+
+6. Click the Help button for details about performing the required and optional authorization test procedures.
+
+Soon your store will automatically authorize orders with online credit card information through the ClearCommerce gateway!
+
+Contacting Technical Support
+----------------------------
+
+If you are having problems switching to live ClearCommerce authorization, you can submit a request for Mercantec Technical Support:
+
+http://www.mercantec.com/support/support_pc.html
+
+
+Regards,
+
+Mercantec, Inc.
+Powering Commerce Online(TM)
+

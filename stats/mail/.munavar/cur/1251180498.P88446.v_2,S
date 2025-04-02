@@ -1,0 +1,378 @@
+Return-Path: karthikeyanseo@gmail.com
+Received: from mx64.stngva01.us.mxservers.net (204.202.242.134)
+	by mail19a.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-093739497
+	for <ms@altechstar.com>; Tue, 25 Aug 2009 02:08:17 -0400 (EDT)
+Received: from unknown [204.202.242.88] (HELO mail19b.g19.rapidsite.net)
+	by va1-mx64.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 1df739a4.2807442336.1052587.00-001.va1-mx64.stngva01.us.mxservers.net (envelope-from <karthikeyanseo@gmail.com>);
+	Tue, 25 Aug 2009 02:08:17 -0400 (EDT)
+Received: from mx96.stngva01.us.mxservers.net (198.173.112.13)
+	by mail19b.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 0-065976495
+	for <sales@altechstar.com>; Tue, 25 Aug 2009 02:08:15 -0400 (EDT)
+Received: from unknown [209.85.222.191] (EHLO mail-pz0-f191.google.com)
+	by va1-mx96.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id fcf739a4.2518137760.1604700.00-001.va1-mx96.stngva01.us.mxservers.net (envelope-from <karthikeyanseo@gmail.com>);
+	Tue, 25 Aug 2009 02:08:15 -0400 (EDT)
+Received: by pzk29 with SMTP id 29so1353195pzk.1
+        for <sales@altechstar.com>; Mon, 24 Aug 2009 23:08:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:in-reply-to:references
+         :date:message-id:subject:from:to:content-type;
+        bh=Ofocaq+RJAPyRAuj4fdecB6oSWbpQwfEzN118ryHVMs=;
+        b=PSNKBSe5Ys620WQwdNCGkDx2FuteTmPZOhrKYEYDBn8nNo6DJYGXB6Xm2D0nPlLhN+
+         /IvzNywtfSqNEpMNvy6pVTcm0Ixpe5XgOV5u2SOMHER0mX2oBNYanRkUHRW1bbTyvlEP
+         bn/9wTAet8CBt8IpJf/RnoJepe/PwntVuhWdo=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        b=s132Jaj/zROIgG8PHwD0/gNFVldHt49vttMLhScB5SkBY3eG53j/ADGXyyVWNSOl0q
+         BSDqSe9pVXPDULNnIaoMjp8++RIMjzw0VOXNpQdgqOsNlbAb7hcq5kgsyioWtRCzOxcz
+         pP9lJ9wQry1fOg2pVw24iCBfhiG5tn6QlFvLM=
+MIME-Version: 1.0
+Received: by 10.142.2.11 with SMTP id 11mr301543wfb.91.1251180492015; Mon, 24 
+	Aug 2009 23:08:12 -0700 (PDT)
+In-Reply-To: <748326.1604.qm@web95203.mail.in2.yahoo.com>
+References: <748326.1604.qm@web95203.mail.in2.yahoo.com>
+Date: Tue, 25 Aug 2009 11:38:11 +0530
+Message-ID: <aca1879b0908242308h586f4f5t69847faca8bef7ad@mail.gmail.com>
+Subject: Fwd: BPO News letter
+From: karthikeyan <karthikeyanseo@gmail.com>
+To: admin@aaarinc.com, info@aeonitsolutions.com, info@aftel.biz, 
+	sales@altechstar.com, info@amaxgs.com, solutions@GlobalEdgeUsa.com, 
+	info@acsicorp.com, miami@amicorp.com, info@amidco.com, alan@blakely.com, 
+	info@alignedglobal.com, info2008@alivest.com, info@pironoutourcing.com, 
+	info@BenchmarkITsolutions.com, info@pironoutsourcing.com, info@advanceg.com, 
+	info@advantasis.com, info@acttoday.com, info@6pmplc.com, info@aabaig.com, 
+	info@chakrainfosolutions.com, sales@chakrika.com, info@allzonems.com, 
+	info@Aglobecommunications.com, info@apexcovantage.com, 
+	appcindia@appcaliber.com, info@applegreenlic.com, 
+	info@applied-optimization.com, bill.aiken@abacistgroup.com, 
+	info@telesales.com, info@abcotechnology.com, info@abiliaglobal.com, 
+	info@abisglobal.com, us-office@absoluteitsolutions.com, 
+	info@accounting-net.com, Usa@accountsnext.com, ramikhraisheh@mecmc.us, 
+	garrywilliamson@mecmc.us, support@csoutsourcing.com
+Content-Type: multipart/alternative; boundary=00504502bd70c6cb940471f12890
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082448)]
+X-MAIL-FROM: <karthikeyanseo@gmail.com>
+X-SOURCE-IP: [209.85.222.191]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082448)]
+X-MAIL-FROM: <karthikeyanseo@gmail.com>
+X-SOURCE-IP: [204.202.242.88]
+X-Loop-Detect:1
+
+--00504502bd70c6cb940471f12890
+Content-Type: text/plain; charset=windows-1252
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ----------
+From: karthi keyan <karthikeyanseo@yahoo.com>
+Date: Tue, Aug 25, 2009 at 11:27 AM
+Subject: BPO News letter
+To: bpo-usa-subscribe@yahoogroups.com
+Cc: karthikeyanseo <karthikeyanseo@gmail.com>
+
+
+   Data Entry Solutions <http://www.dataentrysolution.com/>
+
+   *Business Process Outsourcing <http://www.dataentrysolution.com/>*
+   *Hello,
+*It=92s our pleasure to introduce ourselves as an outsourcing service provi=
+der
+fulfilling the requirements of our global clients for a decade now. We, at
+Data Entry Solutions, provide similar services to various clients based out
+of the USA.
+
+We have our production center in USA and India. Ideally, we focus on BPO
+projects in the areas like Data entry, data processing, Document conversion
+, Forms Processing, Back office services, Transcription services, Logistics=
+,
+Survey, Finance, Bank statements, Health records etc., We are used to
+work at quick turnaround time thereby providing quality services to our
+clients.  Check below links about our services
+
+       *Data Entry
+Services*<http://www.dataentrysolution.com/division-2-Data-Entry-Services.h=
+tml>
+*Data Processing*<http://www.dataentrysolution.com/division-3-Data-processi=
+ng-services.html>
+*Data Conversion*<http://www.dataentrysolution.com/division-4-Data-conversi=
+on-services.html>
+*Scanning and Indexing*<http://www.dataentrysolution.com/division-5-Scannin=
+g-and-indexing.html>
+*Forms Processing*<http://www.dataentrysolution.com/division-6-Forms-proces=
+sing-services.html>
+*Database Management*<http://www.dataentrysolution.com/division-7-Database-=
+Management.html>
+*Catalog Conversion*<http://www.dataentrysolution.com/division-8-Catalog-Co=
+nversion-Services.html>
+*Transcription Services*<http://www.dataentrysolution.com/division-9-Transc=
+ription-services.html>
+*Graphic Design*<http://www.dataentrysolution.com/division-13-Graphic-desig=
+n.html>
+*Back Office Services*<http://www.dataentrysolution.com/division-18-Back-of=
+fice-services.html>
+*Desktop Publishing*<http://www.dataentrysolution.com/division-23-Desktop-P=
+ublishing.html>
+
+   * Enquiry <http://www.dataentrysolution.com/enquiry.php> *
+
+
+ We understand that your company has potential business with services we
+provide. We would be glad to work with distinguished clients like you.
+Please do visit our website   http://www.dataentrysolution.com
+/<http://www.dataentrysolution.com%20/> to know more about our
+services we offer
+
+ *Contact <http://www.dataentrysolution.com/contactus.php>
+* *Data Enry Solution
+1080 E River Parkway
+Santa Clara
+CA 95054
+Ph.No : +1-408-694-3673 *
+mail to : info@dataentrysolution.com <info@dataentrysolution.com>
+
+
+------------------------------
+Love Cricket? Check out live scores, photos, video highlights and more. Cli=
+ck
+here <http://in.rd.yahoo.com/tagline_cricket_2/*http://cricket.yahoo.com>.
+
+--00504502bd70c6cb940471f12890
+Content-Type: text/html; charset=windows-1252
+Content-Transfer-Encoding: quoted-printable
+
+<br><br><div class=3D"gmail_quote">---------- Forwarded message ----------<=
+br>From: <b class=3D"gmail_sendername">karthi keyan</b> <span dir=3D"ltr">&=
+lt;<a href=3D"mailto:karthikeyanseo@yahoo.com">karthikeyanseo@yahoo.com</a>=
+&gt;</span><br>
+Date: Tue, Aug 25, 2009 at 11:27 AM<br>Subject: BPO News letter<br>To: <a h=
+ref=3D"mailto:bpo-usa-subscribe@yahoogroups.com">bpo-usa-subscribe@yahoogro=
+ups.com</a><br>Cc: karthikeyanseo &lt;<a href=3D"mailto:karthikeyanseo@gmai=
+l.com">karthikeyanseo@gmail.com</a>&gt;<br>
+<br><br><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr>=
+<td style=3D"font-family: inherit; font-style: inherit; font-variant: inher=
+it; font-weight: inherit; font-size: inherit; line-height: inherit; font-si=
+ze-adjust: inherit; font-stretch: inherit;" valign=3D"top">
+
+<table align=3D"center" bgcolor=3D"#f2fafd" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"511">
+  <tbody>
+    <tr>
+      <td align=3D"left" bgcolor=3D"#f2fafd" height=3D"55" width=3D"511"><d=
+iv align=3D"left">
+        <h1><img width=3D"124"> <a href=3D"http://www.dataentrysolution.com=
+/" title=3D"Data Entry" style=3D"text-decoration: none;" target=3D"_blank">=
+<span>Data Entry Solutions</span></a></h1>
+      </div></td>
+    </tr>
+    <tr>
+      <td height=3D"2"><br></td>
+    </tr>
+    <tr>
+      <td><img width=3D"509"></td>
+    </tr>
+    <tr>
+      <td style=3D"color: rgb(248, 47, 41);" height=3D"20"> <div align=3D"c=
+enter"><b><span><a href=3D"http://www.dataentrysolution.com/" title=3D"BPO"=
+ style=3D"text-decoration: none;" target=3D"_blank">Business Process Outsou=
+rcing</a></span></b></div>
+</td>
+    </tr>
+    <tr>
+      <td><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"496">
+        <tbody>
+          <tr>
+            <td colspan=3D"3"><b>Hello,
+                <br>
+            </b>It=92s
+our pleasure to introduce ourselves as an outsourcing service provider
+fulfilling the requirements of our global clients for a decade now. We,
+at Data Entry Solutions, provide similar services to various clients
+based out of the USA.<br>
+                <br>
+We have our production center in USA and India. Ideally, we focus on
+BPO projects in the areas like Data entry, data processing, Document
+conversion , Forms Processing, Back office services, Transcription
+services, Logistics, Survey, Finance, Bank statements, Health records
+etc., We are used to work=A0at quick turnaround time thereby
+providing quality services to our clients.</td>
+          </tr>
+          <tr>
+            <td colspan=3D"3" height=3D"5"><div align=3D"center"><span styl=
+e=3D"color: rgb(217, 66, 28); font-weight: bold;">Check below links about o=
+ur services </span></div></td>
+          </tr>
+          <tr>
+            <td align=3D"left" valign=3D"top" width=3D"297"><table align=3D=
+"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+              <tbody>
+                <tr>
+                  <td height=3D"8"><br></td>
+                </tr>
+                <tr>
+                  <td><table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%">
+                    <tbody>
+                      <tr>
+                        <td width=3D"2%">=A0</td>
+                        <td background=3D"http://email-marketing_files/des_=
+blues.gif" valign=3D"top" width=3D"96%"><table cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%">
+                          <tbody><tr>
+                            <td width=3D"100%"><table cellpadding=3D"5" cel=
+lspacing=3D"5" width=3D"100%">
+                                <tbody>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-2-Data-Entry-Services.html" title=3D"Data Entry Services"=
+ style=3D"text-decoration: none;" target=3D"_blank"><b>Data Entry Services<=
+/b></a></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-3-Data-processing-services.html" title=3D"Data processing=
+" style=3D"text-decoration: none;" target=3D"_blank"><b>Data Processing</b>=
+</a></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-4-Data-conversion-services.html" title=3D"Data conversion=
+" style=3D"text-decoration: none;" target=3D"_blank"><b>Data Conversion</b>=
+</a></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-5-Scanning-and-indexing.html" title=3D"Scanning and index=
+ing" style=3D"text-decoration: none;" target=3D"_blank"><b>Scanning and Ind=
+exing</b></a></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-6-Forms-processing-services.html" title=3D"Forms processi=
+ng" style=3D"text-decoration: none;" target=3D"_blank"><b>Forms Processing<=
+/b></a></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-7-Database-Management.html" title=3D"Database Management"=
+ style=3D"text-decoration: none;" target=3D"_blank"><b>Database Management<=
+/b></a></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-8-Catalog-Conversion-Services.html" title=3D"Catalog Conv=
+ersion" style=3D"text-decoration: none;" target=3D"_blank"><b>Catalog Conve=
+rsion</b></a></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-9-Transcription-services.html" title=3D"Transcription ser=
+vices" style=3D"text-decoration: none;" target=3D"_blank"><b>Transcription =
+Services</b></a></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-13-Graphic-design.html" title=3D"Graphic design" style=3D=
+"text-decoration: none;" target=3D"_blank"><b>Graphic Design</b></a></td>
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-18-Back-office-services.html" title=3D"Back office servic=
+es" style=3D"text-decoration: none;" target=3D"_blank"><b>Back Office Servi=
+ces</b></a></td>
+
+                                  </tr>
+                                  <tr>
+                                    <td><a href=3D"http://www.dataentrysolu=
+tion.com/division-23-Desktop-Publishing.html" title=3D"Desktop Publishing" =
+style=3D"text-decoration: none;" target=3D"_blank"><b>Desktop Publishing</b=
+></a></td>
+
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                        </tbody></table></td>
+                        <td width=3D"2%">=A0</td>
+                      </tr>
+                      <tr>
+                        <td colspan=3D"3" height=3D"4"><br></td>
+                      </tr>
+                    </tbody>
+                  </table></td>
+                </tr>
+                <tr>
+                  <td> <div align=3D"center"><b> <a href=3D"http://www.data=
+entrysolution.com/enquiry.php" title=3D"BPO Enquiry" style=3D"text-decorati=
+on: none; color: rgb(217, 66, 28);" target=3D"_blank">Enquiry</a> </b></div=
+></td>
+
+                </tr>
+              </tbody>
+            </table></td>
+            <td align=3D"right" valign=3D"top" width=3D"4">=A0</td>
+          </tr>
+          <tr>
+            <td colspan=3D"3" height=3D"10" valign=3D"top"><br></td>
+          </tr>
+          <tr>
+            <td colspan=3D"3" valign=3D"top"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%">
+              <tbody>
+                <tr>
+                  <td height=3D"2"><br></td>
+                </tr>
+                <tr>
+                  <td><p>We
+understand that your company has potential business  with=20
+services we provide. We would be glad to work with distinguished clients li=
+ke you.
+Please do visit our website=A0 =A0<a href=3D"http://www.dataentrysolution.c=
+om%20/" target=3D"_blank">http://www.dataentrysolution.com  /</a> =A0to kno=
+w more about our services we  offer</p>                    </td>
+                </tr>
+                <tr>
+                  <td height=3D"10"><br></td>
+                </tr>
+                <tr>
+                  <td><b><a href=3D"http://www.dataentrysolution.com/contac=
+tus.php" title=3D"Contact BPO" style=3D"text-decoration: none;" target=3D"_=
+blank">Contact </a><br>
+</b>
+                    <div><b>Data Enry Solution <br>
+  1080 E River Parkway <br>
+  Santa Clara <br>
+  CA 95054 <br>
+  Ph.No : +1-408-694-3673 </b></div>
+<div><span><a href=3D"mailto:info@dataentrysolution.com" target=3D"_blank">=
+mail to : info@dataentrysolution.com</a></span></div></td>
+                </tr>
+              </tbody>
+            </table></td>
+          </tr>
+        </tbody>
+      </table></td>
+    </tr>
+    <tr>
+      <td height=3D"2"><br></td>
+    </tr>
+  </tbody>
+</table>
+</td></tr></tbody></table><br>
+      <hr size=3D"1"> Love Cricket? Check out live scores, photos, video hi=
+ghlights and more. <a href=3D"http://in.rd.yahoo.com/tagline_cricket_2/*htt=
+p://cricket.yahoo.com" target=3D"_blank"> Click here</a>.</div><br>
+
+--00504502bd70c6cb940471f12890--

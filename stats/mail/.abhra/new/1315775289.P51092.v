@@ -1,0 +1,228 @@
+Return-Path: radhika@1stobject.com
+Received: from mx108.stngva01.us.mxservers.net (198.173.112.45)
+	by mail19a.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0782115288
+	for <abhra@altechstar.com>; Sun, 11 Sep 2011 17:08:08 -0400 (EDT)
+Received: from unknown [66.165.70.222] (EHLO mail.1stobject.com)
+	by va1-mx108.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 8332d6e4.2700667808.1033183.00-003.va1-mx108.stngva01.us.mxservers.net (envelope-from <radhika@1stobject.com>);
+	Sun, 11 Sep 2011 17:08:08 -0400 (EDT)
+From: "Radhika" <radhika@1stobject.com>
+To: "Recruiter" <abhra@altechstar.com>
+Date: Sun, 11 Sep 2011 16:07:13 -0500
+Subject: Senior QA Consultants Available for Project Immediately...
+X-Mailer: Microsoft Office Outlook 11
+Reply-To: radhika@1stobject.com
+X-CBOMsgID: 84D5ACF203FABB9C3634E5AFA8335828149B8BB2CD1D58762986AA08D940367D8F
+X-CBOEMailedTo: abhra@altechstar.com
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=_reb-r73559DB0-t4E6D2338"
+X-Declude-Sender: radhika@1stobject.com [127.0.0.1]
+X-Declude-Spoolname: 130884319.eml
+X-Declude-RefID: 
+X-Declude-Note: Scanned by Declude 4.10.78 "http://www.declude.com/x-note.htm"
+X-Declude-Scan: Outgoing Score [0] at 16:08:22 on 11 Sep 2011
+X-Declude-Tests: None
+X-Country-Chain: 
+X-Declude-Code: 0
+X-HELO: Gateway1
+X-Identity: 127.0.0.1 |  | altechstar.com
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011091108)]
+X-MAIL-FROM: <radhika@1stobject.com>
+X-SOURCE-IP: [66.165.70.222]
+Message-ID:<20110911170808.GA78211@mail19a.g19.rapidsite.net>
+X-SF-Loop: 1
+
+This is a multi-part MIME message.
+
+--=_reb-r73559DB0-t4E6D2338
+Content-Type: multipart/alternative;
+ boundary="=_reb-r6FBE9B8E-t4E6D2338"
+
+This is a multi-part MIME message.
+
+--=_reb-r6FBE9B8E-t4E6D2338
+Content-Type: text/plain; charset=us-ascii
+
+Dear Partner,
+ 
+Do you have any Requirements on QA?
+ 
+Name: Sirisha
+Role: Sr. QA Analyst
+Location: W.VA | Relocation: EST Only.
+ 
+Name: Roshani
+Role: Sr. QA Analyst
+Location: NJ | Relocation: NY/NJ Only.
+ 
+Name: Bela
+Role: Sr. QA Analyst
+Location: Dallas | Relocation: Dallas Only.
+ 
+Name: Jay
+Role: Sr. QA Lead
+Location: WI | Relocation: Open.
+ 
+Name: Jomy
+Role: Sr. PeopleSoft Tester
+Location: TX | Relocation: Open.
+Please send me if you have any suitable requirements.
+Regards,
+Radhika
+First Object Inc.
+972 699 1818 Ext: 102
+
+--=_reb-r6FBE9B8E-t4E6D2338
+Content-Type: multipart/related;
+ boundary="=_reb-r3DD301C1-t4E6D2338"
+
+This is a multi-part MIME message.
+
+--=_reb-r3DD301C1-t4E6D2338
+Content-Type: text/HTML; charset=us-ascii
+
+<html xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+<head>
+
+
+
+<style type="text/css">
+  .font12 {color: black; font: 12px verdana}
+  .font12bold {color: black; font: bold 12px verdana}
+  .font14 {color: #765EAA; font: 14px verdana}
+  .font14bold {color: #765EAA; font: bold 14px verdana}
+  .font11 {color: black; font: 11px verdana}
+  .font11bold {color: black; font: bold 11px verdana}
+  P {color: black; font: 12px verdana}
+  TABLE {font: 12px verdana}
+  P#PoweredBy {color: black; font: 12px verdana; margin-right: 5px}
+  </style>
+</head>
+<body class="font12">
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><FONT face="Calibri">Dear Partner,</FONT></SPAN></B></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><FONT face="Calibri"><o:p></o:p></FONT></SPAN></B>&nbsp;</p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><o:p><FONT face="Calibri"></FONT></o:p></SPAN></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: #984806; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-themecolor: accent6; 
+mso-themeshade: 128"><FONT face="Calibri"></FONT></SPAN></B></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: #984806; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-themecolor: accent6; 
+mso-themeshade: 128"><FONT face="Calibri">Do you have any Requirements on QA?</FONT></SPAN></B></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: #984806; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-themecolor: accent6; 
+mso-themeshade: 128"><FONT face="Calibri"><o:p></o:p></FONT></SPAN></B>&nbsp;</p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><o:p><FONT face="Calibri"></FONT></o:p></SPAN></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin"></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Name: 
+</SPAN><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: red; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Sirisha</SPAN></B><SPAN style="FONT-FAMILY: 'Times New Roman','serif'; COLOR: black; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"><o:p></o:p></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Role: 
+</SPAN><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: blue; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Sr. 
+QA Analyst<o:p></o:p></SPAN></B></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri">Location: 
+<B style="mso-bidi-font-weight: normal">W.VA </B>| Relocation: <B style="mso-bidi-font-weight: normal">EST Only.</B></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri"><STRONG></STRONG></SPAN><SPAN style="FONT-FAMILY: 'Times New Roman','serif'; COLOR: black; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"><o:p></o:p></SPAN></FONT>&nbsp;</p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><SPAN style="FONT-FAMILY: 'Times New Roman','serif'; COLOR: black; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"><o:p></o:p></SPAN></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin"></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Name: 
+</SPAN><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: red; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Roshani</SPAN></B><SPAN style="FONT-FAMILY: 'Times New Roman','serif'; COLOR: black; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"><o:p></o:p></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Role: 
+</SPAN><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: blue; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Sr. 
+QA Analyst<o:p></o:p></SPAN></B></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri"><FONT face="Calibri">Location: <B style="mso-bidi-font-weight: normal">NJ </B>| 
+Relocation: <B style="mso-bidi-font-weight: normal">NY/NJ 
+Only.</B></FONT></SPAN></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri"><FONT face="Calibri"><B style="mso-bidi-font-weight: normal"><o:p></o:p></B></FONT></SPAN>&nbsp;</p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri"><o:p><FONT face="Calibri"></FONT></o:p></SPAN></B></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin"></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Name: 
+</SPAN><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: red; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Bela</SPAN></B><SPAN style="FONT-FAMILY: 'Times New Roman','serif'; COLOR: black; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"><o:p></o:p></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Role: 
+</SPAN><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: blue; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Sr. 
+QA Analyst<o:p></o:p></SPAN></B></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri">Location: 
+<B style="mso-bidi-font-weight: normal">Dallas </B>| Relocation: <B style="mso-bidi-font-weight: normal">Dallas Only.</B></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri"><STRONG></STRONG></SPAN></FONT>&nbsp;</p>
+<FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri">
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Name: 
+<STRONG><FONT color="#ff0000">Jay</FONT></STRONG></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Role: 
+</SPAN><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: blue; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Sr. 
+QA Lead</SPAN></B></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri"><FONT face="Calibri">Location:&nbsp;<STRONG>WI </STRONG>| Relocation: 
+<STRONG>Open.</STRONG></FONT></SPAN></p>
+</SPAN></FONT>
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri"><STRONG></STRONG></SPAN><SPAN style="FONT-FAMILY: 'Times New Roman','serif'; COLOR: black; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"><o:p></o:p></SPAN></FONT>&nbsp;</p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><SPAN style="FONT-FAMILY: 'Times New Roman','serif'; COLOR: black; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"><o:p></o:p></SPAN></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin"></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Name: 
+</SPAN><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: red; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Jomy</SPAN></B><SPAN style="FONT-FAMILY: 'Times New Roman','serif'; COLOR: black; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"><o:p></o:p></SPAN></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Role: 
+</SPAN><B style="mso-bidi-font-weight: normal"><SPAN style="COLOR: blue; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-theme-font: minor-latin">Sr. 
+PeopleSoft Tester<o:p></o:p></SPAN></B></FONT></p>
+
+<P class="MsoNormal" style="LINE-HEIGHT: normal; MARGIN: 0in 0in 0pt"><FONT face="Calibri"><SPAN style="COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: Calibri; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri">Location: 
+<B style="mso-bidi-font-weight: normal">TX </B>| Relocation: <B style="mso-bidi-font-weight: normal">Open.</B></SPAN><SPAN style="FONT-FAMILY: 'Times New Roman','serif'; COLOR: black; FONT-SIZE: 12pt; mso-fareast-font-family: 'Times New Roman'"><o:p></o:p></SPAN></FONT></p>
+
+<P class="MsoNormal" style="MARGIN: 0in 0in 10pt"><o:p><FONT face="Calibri" size="3"></FONT></o:p></p>
+
+<P class="MsoNormal" style="MARGIN: 0in 0in 10pt"><SPAN style="COLOR: #984806; mso-themecolor: accent6; mso-themeshade: 128"><FONT size="3"><FONT face="Calibri">Please send me if you have any suitable 
+requirements.<o:p></o:p></FONT></FONT></SPAN></p>
+
+<P class="MsoNoSpacing" style="MARGIN: 0in 0in 0pt"><FONT face="Calibri" size="3">Regards,</FONT></p>
+
+<P class="MsoNoSpacing" style="MARGIN: 0in 0in 0pt"><B style="mso-bidi-font-weight: normal"><FONT size="3"><FONT face="Calibri">Radhika<o:p></o:p></FONT></FONT></B></p>
+
+<P class="MsoNoSpacing" style="MARGIN: 0in 0in 0pt"><B style="mso-bidi-font-weight: normal"><FONT size="3"><FONT face="Calibri">First 
+Object Inc.<o:p></o:p></FONT></FONT></B></p>
+
+<P class="MsoNoSpacing" style="MARGIN: 0in 0in 0pt"><B style="mso-bidi-font-weight: normal"><FONT size="3"><FONT face="Calibri">972 699 
+1818 Ext: 102<o:p></o:p></FONT></FONT></B></p>
+
+</body>
+</html>
+
+--=_reb-r3DD301C1-t4E6D2338--
+
+
+--=_reb-r6FBE9B8E-t4E6D2338--
+
+
+--=_reb-r73559DB0-t4E6D2338
+Content-Type: application/vcf; NAME="cBizOne.vcf"
+Content-Transfer-Encoding: base64
+
+QkVHSU46VkNBUkQNClZFUlNJT046Mi4xDQpFTUFJTDtQUkVGO0lOVEVSTkVUOnJhZGhpa2FA
+MXN0b2JqZWN0LmNvbQ0KVEVMO1dPUks7RkFYOjk3Mi02OTktMTgxNw0KVEVMO0NFTEw7Vk9J
+Q0U6DQpURUw7V09SSztWT0lDRTo5NzItNjk5LTE4MTggeDEwMg0KT1JHOkZpcnN0IE9iamVj
+dCBJbmMNCkZOOlJhZGhpa2ENCk46O1JhZGhpa2E7Ow0KWC1jQml6U29mdC1SZXN1bWU6WE1M
+LVZTWmlwDQpFTkQ6VkNBUkQNCg==
+
+--=_reb-r73559DB0-t4E6D2338--
+

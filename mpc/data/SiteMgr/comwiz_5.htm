@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Items</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+<script language="JavaScript" src="SiteEditor.js"></script>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" class="penda-bkgrd"
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg5),
+		new Array (parent.topFrame.document.images.wizimg1,
+					parent.topFrame.document.images.wizimg2,
+					parent.topFrame.document.images.wizimg3,
+					parent.topFrame.document.images.wizimg4,
+					parent.topFrame.document.images.wizimg6,
+					parent.topFrame.document.images.wizimg7,
+					parent.topFrame.document.images.wizimg8));">
+
+<form name="commerce" action="javascript:void(0);">
+	<input type="hidden" name="WizState" value="5">
+
+<script language="JavaScript">
+<!--
+/* ------------------------ begin client-side javascript ------------------------ */
+
+function add_item()
+{
+	if (document.commerce.init.value == 'MAX')
+		alert("You have reached your maximum number of items allowed for this product.\nPlease request an upgrade to the next product version.");
+	else
+	{
+		var myWin = parent.createSimpleSubmitWindow(350, 500);
+		var args = new Array('task', 'add');
+		parent.OpenWinSubmitForm('', 'L', 'ed_addproduct.htm', 'ed_addproduct', args, myWin);
+	}
+}
+
+function edit_item(whichItem)
+{
+	var myWin = parent.createSimpleSubmitWindow(350, 500);
+	var args = new Array('task', 'edit', 'ItemID', whichItem);
+	parent.OpenWinSubmitForm('', 'L', 'ed_addproduct.htm', 'ed_addproduct', args, myWin);
+}
+
+/* ------------------------ end client-side javascript ------------------------ */
+//-->
+</script>
+
+<table width="625" border="0" cellpadding="4" cellspacing="0" height="152" align="center">
+<tr bgcolor="#FFFFCC">
+	<td width="50%" height="25"> <span class="page-title">Items</span></td>
+	<td width="50%" height="25">
+		<div align="right">
+
+		<!--HELP WINDOW LINK-->
+		<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+		<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_RTL_ITEMS+SoftCart+{helpversion}+en-us', 'Alane'));">
+		<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a>
+		<!--END HELP WINDOW LINK-->
+
+		<a href="javascript:parent.SubmitForm ('WIZ_WizardBack', 'comwiz_4.htm','mainFrame', document.commerce);">
+		<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border="0" alt="Back"></a>
+
+		<a href="#" onClick="javascript:parent.SubmitForm ('WIZ_WizardNext', 'comwiz_6.htm','mainFrame', document.commerce);return false;"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Next_Nbtn_base.gif" width="86" height="30" border="0" alt="Next"></a>
+		</div>
+	</td>
+</tr>
+<tr bgcolor="#FFFFCC" valign="top">
+	<td height="213" colspan="2" class="table-bkgrd-main">
+		<p class="instr-note">Add your items now and assign them to an item category, or do so later through the items drawer.</p>
+
+<script runat="merc_server" language="merc-js">
+
+var maxItems = doAction("DATA_GETLITERAL", "ObjectName", "License", "LiteralID", "MAX_ITEM_COUNT");
+var itemBDO = doActionBDO("ITEM_GETALLITEMS", "CountOnly", true, "Type", 0, "Locale", "en");
+//writebr("RowCount=" + itemBDO.RowCount + " and MaxItemCount=" + maxItems);
+
+if (parseInt(itemBDO.RowCount) >= parseInt(maxItems) && (parseInt(maxItems) != 0))
+	writeln('<input type="hidden" name="init" value="MAX">');
+else
+	writeln('<input type="hidden" name="init" value="">');
+
+writeln('</form>');
+
+var input = GetBDO('Locale', 'en', 'Sort', 'Key', 'Type', 0);
+var itemsBDO = GetBDO();
+ProcessRequest('ITEM_GETALLITEMS', input, itemsBDO);
+
+var items = itemsBDO.GetValues(itemsBDO.GetLabels('Item').sort());
+if (items.length)
+{
+	writeln('<table width="300" border="0" align="center" cellpadding="0" cellspacing="0">');
+
+	for (var i = 0; i < items.length; i++)
+	{
+		if (items[i].ID == undefined) continue;
+
+		write('<tr><td width="70" nowrap><font face="Arial, Helvetica, sans-serif" size="2">');
+		write('<a href="javascript:edit_item(', items[i].ID, ')">');
+		writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btn_edit_sm.gif" width="60" height="27" border=0 alt="Edit"></a></font></td>');
+
+		write('<td width="230"><font face="Arial, Helvetica, sans-serif" size="2">', items[i].Key);
+		if (items[i].Name != undefined) write(' &#8212; ',  items[i].Name);
+		writeln('</font></td></tr>');
+	}
+
+	writeln('</table>');
+}
+</script>
+
+		<p align="center">
+		<a href="javascript:add_item()"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Add_Item_Nbtn_base2.gif" width="86" height="30" alt="Add Item"></a>
+		</p>
+
+	</td>
+</tr>
+</table>
+
+</body>
+</html>

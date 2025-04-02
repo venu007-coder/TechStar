@@ -1,0 +1,107 @@
+<script runat=merc_server>
+	var file = "zoneshipping.html";
+	var dataOutput = doActionEx('DATA_READFILE',file, 'FileName', file,'ObjectName','QuartzSite', 
+				'FileType', 'txt');
+	var output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', dataOutput);
+</script>
+<html>
+<head>
+<title>Shipping</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" class="penda-bkgrd" 
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg6),
+		new Array (parent.topFrame.document.images.wizimg1, 
+					parent.topFrame.document.images.wizimg2, 
+					parent.topFrame.document.images.wizimg3, 
+					parent.topFrame.document.images.wizimg4,
+					parent.topFrame.document.images.wizimg5,
+					parent.topFrame.document.images.wizimg7,
+					parent.topFrame.document.images.wizimg8));">
+
+<form name="commerce" action="javascript:void(0);">
+	<input type="hidden" name="WizState" value="6">
+</form>
+
+<script runat=merc_server>
+
+	var theHelpDomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+	var theHelpVersion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+	var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_METHOD");
+	if(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "SHIP_METHOD"))
+	{
+		var resultset=doActionBDO("DATA_GETFIELDDATA", "ObjectName", "SHIP_METHOD","QueryID",qID,"FieldName","LIT_ID");
+		var LIT_ID = resultset.LIT_ID;
+	}
+	else
+		var LIT_ID=0; // error getting lit id
+	var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "SHIP_METHOD");
+	
+	switch (parseInt(LIT_ID))
+	{
+	case 1:
+		// THRESHOLD IS "bm_shpg_price.htm";
+		var helpLink = "http://" + theHelpDomain +"/cgi-bin/helpsrvr.exe?+R+helpsrvr+OH_SHIPZ+SoftCart+" + theHelpVersion + "+en-us";
+		break;
+	
+	case 2:
+		// THRESHOLD IS "bm_shpg_weight.htm";
+		var helpLink = "http://" + theHelpDomain +"/cgi-bin/helpsrvr.exe?+R+helpsrvr+OH_SHIPZ+SoftCart+" + theHelpVersion + "+en-us";
+		break;
+	case 3:
+		// THRESHOLD IS "bm_shpg_quantity.htm";
+		var helpLink = "http://" + theHelpDomain +"/cgi-bin/helpsrvr.exe?+R+helpsrvr+OH_SHIPZ+SoftCart+" + theHelpVersion + "+en-us";
+		break;
+	case 4:
+		// THRESHOLD IS "bm_shpg_lineitem.htm";
+		var helpLink = "http://" + theHelpDomain +"/cgi-bin/helpsrvr.exe?+R+helpsrvr+OH_SHIPZ+SoftCart+" + theHelpVersion + "+en-us";
+		break;
+	default:
+		// THRESHOLD IS "NONE"
+		var helpLink = "http://" + theHelpDomain +"/cgi-bin/helpsrvr.exe?+R+helpsrvr+OH_SHIPZ+SoftCart+" + theHelpVersion + "+en-us";
+		break;
+	}
+
+</script>
+
+<table width="625" border="0" cellpadding="4" cellspacing="0" height="152" align="center">
+<tr bgcolor="#FFFFCC"> 
+	<td width="39%" height="25" ><span class="page-title">&nbsp;Shipping</span></td>
+	<td width="61%" height="25" >
+
+	<div align="right">
+	<!--HELP WINDOW LINK-->
+
+<script runat=merc_server>
+	writeln("<a href=\"javascript:void(parent.openHelpWindow('" +  helpLink + "', 'Alane'));\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif\" border=\"0\" alt=\"Help\"></a>");
+</script>	
+		<!--END HELP WINDOW LINK-->
+	<a href="javascript:parent.SubmitForm ('WIZ_WizardBack', 'comwiz_5.htm','mainFrame', document.commerce);">
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border="0" alt="Back"></a>
+	<a href="#" onClick="javascript:parent.SubmitForm ('WIZ_WizardNext', 'comwiz_7.htm','mainFrame', document.commerce);return false;"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Next_Nbtn_base.gif" width="86" height="30" border="0" alt="Next"></a>
+	</div>
+   </td>
+</tr>
+<tr bgcolor="#FFFFCC"> 
+	<td height="147" colspan="2" class="table-bkgrd-main">
+<p><span class="instr-note">
+&nbsp;To select a shipping model, click the <b>Change Shipping Model</b> button.<br>
+&nbsp;To add or edit an existing zone, click the <b>Shipping Zones</b> button.<br>
+&nbsp;If you are finished adding/editing zones, click <b>Next</b>.<br>
+      </span></p>
+<br>
+<script runat=merc_server>
+	write (output);
+</script>
+</td>
+</tr>
+
+</table>
+</body>
+</html>

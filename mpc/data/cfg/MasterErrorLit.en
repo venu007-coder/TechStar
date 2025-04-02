@@ -1,0 +1,456 @@
+**EMAIL_SUBJECT**	SoftCart Error: SessionID #
+**ERRNUMTEXT**	error(s) were encountered during this request
+**ERROR_IN_ERROR**	An error occured while trying to process an error or warning. This is most likely because the given errorID is not defined in the error component literal files.
+**WARNNUMTEXT**	warning(s) were encountered during this request
+**COMP_HEADER**	Component Name
+**ERRID_HEADER**	ErrorID
+**DESC_HEADER**	Description
+ArgTest	The value of the first arg is: %FileName%... The value of the second arg is: %SecondArg%
+ParserMRA_PARSE_BUFFER	Parser: Parse Buffer Action Failed
+ParserMRA_START_ENGINE	Parser: Start Engine Action Failed
+ParserP1001	Paser: Parsing Dynamic Tag Failed
+ParserP1002	Parser: No Buffer
+ParserP1003	Parser: Parse File Content
+ParserP1004	Paser: Parsing Script Failure
+ParserP1005	Parser: No Config
+ParserP1006	Parser: Parsing Image Failed
+Parser1	Parser: Unknown Error
+Parser2	Parser: No ID
+Parser3	Parser: No Action
+Parser4	Parser: Open File
+Parser5	Parser: Action Not Supported
+Parser6	Parser: No Input
+Parser7	Parser: Invalid Data Type
+Parser8	Parser: No Data Object Found
+Parser9	Parser: Failed To Read Environment
+Parser10	Parser: Insufficient Memory
+Parser11	Parser: Failed To Set Version
+Parser12	Parser: Out Of Range Reference
+Parser13	Parser: Length Error
+Parser14	Parser: Failed To Create Object
+Parser15	Parser: Failed To Destroy Object
+Parser16	Parser: Invalid Iterator
+Parser17	Parser: Could Not Tokenize String
+Parser1000	Parser: No Broker Config File
+Parser1001	Parser: No Load Library
+Parser1002	Parser: Library Missing Functions
+Parser1003	Parser: No Matching Component ID
+Parser1004	Parser: No Component Object
+Parser1005	Parser: No Component Name
+Parser1010	Parser: No Buffer To Output
+Parser2000	Parser: Unknown State Error
+Parser2001	Parser: State Already Exists
+Parser2002	Parser: Could Not Find State ID
+Parser2003	Parser: Could Not Create State ID
+Parser2004	Parser: Could NOt Restore State
+Parser3000	Parser: Unknown Parser Error
+Parser3001	Parser: No Buffer Found
+Parser3002	Parser: Invalid Data Map
+Parser4000	Parser: Unknown Request Values Error
+Parser4001	Parser: Request Values Input Locked
+Parser5001	Parser: Password File - Read Error
+Parser5002	Parser: Password File - User Not Found
+Parser5003	Parser: Invalid Password
+Parser5004	Parser: Can't Create Password File
+Parser5005	Parser: Can't Update Password File
+Parser5006	Parser: Not Registered
+Parser5007	Parser: Access Denied
+Parser5008	Parser: Group Exists
+Parser5009	Parser: Group Not Found
+Parser5010	Parser: Invalid Input
+Parser5011	Parser: Password Timed Out
+Parser5012	Parser: Invalid Timeout
+Parser5013	Parser: User Exists
+ReqValMRA_PUT_ENVIRONMENT	Request Values: Put Environment Action Failed
+ReqValMRA_PUT_REQUEST_INPUT	Request Values: Put Input Action Failed
+ReqValMRA_GET_ENVIRONMENT	Request Values: Get Environment Action Failed
+ReqValMRA_GET_QUERY_STRING	Request Values: Get Query String Action Failed
+ReqValMRA_GET_REQUEST_INPUT	Request Values: Get Input Action Failed
+ReqValMRA_GET_ENVIRONMENT_BY_POS	Get Environment By Position Action Failed
+ReqValMRA_GET_QUERY_STRING_BY_POS	Request Values: Get Query String By Position Action Failed
+ReqValMRA_GET_REQUEST_INPUT_BY_POS	Request Values: Get Input By Position Action Failed
+ReqVal1	Request Values: Unknown Error
+ReqVal2	Request Values: No ID
+ReqVal3	Request Values: No Action
+ReqVal4	Request Values: Open File
+ReqVal5	Request Values: Action Not Supported
+ReqVal6	Request Values: No Input
+ReqVal7	Request Values: Invalid Data Type
+ReqVal8	Request Values: No Data Object Found
+ReqVal9	Request Values: Failed To Read Environment
+ReqVal10	Request Values: Insufficient Memory
+ReqVal11	Request Values: Failed To Set Version
+ReqVal12	Request Values: Out Of Range Reference
+ReqVal13	Request Values: Length Error
+ReqVal14	Request Values: Failed To Create Object
+ReqVal15	Request Values: Failed To Destroy Object
+ReqVal16	Request Values: Invalid Iterator
+ReqVal17	Request Values: Could Not Tokenize String
+ReqVal1000	Request Values: No Broker Config File
+ReqVal1001	Request Values: No Load Library
+ReqVal1002	Request Values: Library Missing Functions
+ReqVal1003	Request Values: No Matching Component ID
+ReqVal1004	Request Values: No Component Object
+ReqVal1005	Request Values: No Component Name
+ReqVal1010	Request Values: No Buffer To Output
+ReqVal2000	Request Values: Unknown State Error
+ReqVal2001	Request Values: State Already Exists
+ReqVal2002	Request Values: Could Not Find State ID
+ReqVal2003	Request Values: Could Not Create State ID
+ReqVal2004	Request Values: Could NOt Restore State
+ReqVal3000	Request Values: Unknown Parser Error
+ReqVal3001	Request Values: No Buffer Found
+ReqVal3002	Request Values: Invalid Data Map
+ReqVal4000	Request Values: Unknown Request Values Error
+ReqVal4001	Request Values: Request Values Input Locked
+ReqVal5001	Request Values: Password File - Read Error
+ReqVal5002	Request Values: Password File - User Not Found
+ReqVal5003	Request Values: Invalid Password
+ReqVal5004	Request Values: Can't Create Password File
+ReqVal5005	Request Values: Can't Update Password File
+ReqVal5006	Request Values: Not Registered
+ReqVal5007	Request Values: Access Denied
+ReqVal5008	Request Values: Group Exists
+ReqVal5009	Request Values: Group Not Found
+ReqVal5010	Request Values: Invalid Input
+ReqVal5011	Request Values: Password Timed Out
+ReqVal5012	Request Values: Invalid Timeout
+ReqVal5013	Request Values: User Exists
+SecurityMRA_SECURITY_LOGIN	Security: Login Action Failed
+SecurityMRA_SECURITY_LOGOUT	Security: Logout Action Failed
+SecurityMRA_SECURITY_CHECKACCESS	Security: Check Access Action Failed
+SecurityMRA_SECURITY_ADDUSER	Security: Add User Action Failed
+SecurityMRA_SECURITY_RMUSER	Security: Remove User Action Failed
+SecurityMRA_SECURITY_GETUSERSGROUP	Security: Get User's Group Action Failed
+SecurityMRA_SECURITY_UPDATEUSER	Security: Update User Action Failed
+SecurityMRA_SECURITY_SETTIMEOUT	Security: Set Timeout Action Failed
+SecurityMRA_SECURITY_GETTIMEOUT	Security: Get Timeout Action Failed
+SecurityMRA_SECURITY_CHECKGROUPACCESS	Security: Check Group Access Action Failed
+SecurityMRA_SECURITY_CREATEGROUP	Security: Create Group Action Failed
+SecurityMRA_SECURITY_REMOVEGROUP	Security: Remove Group Action Failed
+SecurityMRA_SECURITY_ADDUSERTOGROUP	Security: Add User To Group Action Failed
+SecurityMRA_SECURITY_RMUSERFROMGROUP	Security: Remove User From Group Action Failed
+SecurityMRA_SECURITY_GETLOGDINPSWD	Security: Get Logged In Password Action Failed
+SecurityMRA_SECURITY_GETGROUPID	Security: Get GroupID Action Failed
+Security1	Security: Unknown Error
+Security2	Security: No ID
+Security3	Security: No Action
+Security4	Security: Open File
+Security5	Security: Action Not Supported
+Security6	Security: No Input
+Security7	Security:	Invalid Data Type
+Security8	Security: No Data Object Found
+Security9	Security: Failed To Read Environment
+Security10	Security: Insufficient Memory
+Security11	Security: Failed To Set Version
+Security12	Security: Out Of Range Reference
+Security13	Security: Length Error
+Security14	Security: Failed To Create Object
+Security15	Security: Failed To Destroy Object
+Security16	Security: Invalid Iterator
+Security17	Security: Could Not Tokenize String
+Security1000	Security: No Broker Config File
+Security1001	Security: No Load Library
+Security1002	Security: Library Missing Functions
+Security1003	Security: No Matching Component ID
+Security1004	Security: No Component Object
+Security1005	Security: No Component Name
+Security1010	Security: No Buffer To Output
+Security2000	Security: Unknown State Error
+Security2001	Security: State Already Exists
+Security2002	Security: Could Not Find State ID
+Security2003	Security: Could Not Create State ID
+Security2004	Security: Could NOt Restore State
+Security3000	Security: Unknown Parser Error
+Security3001	Security: No Buffer Found
+Security3002	Security: Invalid Data Map
+Security4000	Security: Unknown Request Values Error
+Security4001	Security: Request Values Input Locked
+Security5001	Security: Password File - Read Error
+Security5002	Security: Password File - User Not Found
+Security5003	Security: Invalid Password
+Security5004	Security: Can't Create Password File
+Security5005	Security: Can't Update Password File
+Security5006	Security: Not Registered
+Security5007	Security: Access Denied
+Security5008	Security: Group Exists
+Security5009	Security: Group Not Found
+Security5010	Security: Invalid Input
+Security5011	Security: Password Timed Out
+Security5012	Security: Invalid Timeout
+Security5013	Security: User Exists
+StateTracMRA_GET_SESSION	State Tracker: Get Session Action Failed
+StateTracMRA_SAVE_SESSION	State Tracker: Save Session Action Failed
+StateTracMRA_GET_STATEDATA	State Tracker: Get State Data Action Failed
+StateTracMRA_SET_STATEDATA	State Tracker: Set State Data Action Failed
+StateTracMRA_CREATE_SESSION	State Tracker: Create Session Action Failed
+StateTracMRA_DESTROY_SESSION	State Tracker: Destroy Session Action Failed
+StateTrac1	State Tracker: Unknown Error
+StateTrac2	State Tracker: No ID
+StateTrac3	State Tracker: No Action
+StateTrac4	State Tracker: Open File
+StateTrac5	State Tracker: Action Not Supported
+StateTrac6	State Tracker: No Input
+StateTrac7	State Tracker: Invalid Data Type
+StateTrac8	State Tracker: No Data Object Found
+StateTrac9	State Tracker: Failed To Read Environment
+StateTrac10	State Tracker: Insufficient Memory
+StateTrac11	State Tracker: Failed To Set Version
+StateTrac12	State Tracker: Out Of Range Reference
+StateTrac13	State Tracker: Length Error
+StateTrac14	State Tracker: Failed To Create Object
+StateTrac15	State Tracker: Failed To Destroy Object
+StateTrac16	State Tracker: Invalid Iterator
+StateTrac17	State Tracker: Could Not Tokenize String
+StateTrac1000	State Tracker: No Broker Config File
+StateTrac1001	State Tracker: No Load Library
+StateTrac1002	State Tracker: Library Missing Functions
+StateTrac1003	State Tracker: No Matching Component ID
+StateTrac1004	State Tracker: No Component Object
+StateTrac1005	State Tracker: No Component Name
+StateTrac1010	State Tracker: No Buffer To Output
+StateTrac2000	State Tracker: Unknown State Error
+StateTrac2001	State Tracker: State Already Exists
+StateTrac2002	State Tracker: Could Not Find State ID
+StateTrac2003	State Tracker: Could Not Create State ID
+StateTrac2004	State Tracker: Could NOt Restore State
+StateTrac3000	State Tracker: Unknown Parser Error
+StateTrac3001	State Tracker: No Buffer Found
+StateTrac3002	State Tracker: Invalid Data Map
+StateTrac4000	State Tracker: Unknown Request Values Error
+StateTrac4001	State Tracker: Request Values Input Locked
+StateTrac5001	State Tracker: Password File - Read Error
+StateTrac5002	State Tracker: Password File - User Not Found
+StateTrac5003	State Tracker: Invalid Password
+StateTrac5004	State Tracker: Can't Create Password File
+StateTrac5005	State Tracker: Can't Update Password File
+StateTrac5006	State Tracker: Not Registered
+StateTrac5007	State Tracker: Access Denied
+StateTrac5008	State Tracker: Group Exists
+StateTrac5009	State Tracker: Group Not Found
+StateTrac5010	State Tracker: Invalid Input
+StateTrac5011	State Tracker: Password Timed Out
+StateTrac5012	State Tracker: Invalid Timeout
+StateTrac5013	State Tracker: User Exists
+/*added for all compponents that haven't registered their their errors */
+testcgi_ReturnCode1	testcgi_ReturnCode:	MCERR_BLOCK
+testcgi_ReturnCode2	testcgi_ReturnCode:	MCERR_UNKNOWN_ERROR
+testcgi_ReturnCode3	testcgi_ReturnCode:	MCERR_NOID
+testcgi_ReturnCode4	testcgi_ReturnCode:	MCERR_NOACTION
+testcgi_ReturnCode5	testcgi_ReturnCode:	MCERR_OPENFILE
+testcgi_ReturnCode6	testcgi_ReturnCode:	MCERR_ACTIONNOTSUPPORTED
+testcgi_ReturnCode7	testcgi_ReturnCode:	MCERR_NOINPUT
+testcgi_ReturnCode8	testcgi_ReturnCode:	MCERR_INVALID_DATA_TYPE
+testcgi_ReturnCode9	testcgi_ReturnCode:	MCERR_NO_DATA_OBJECT_FOUND
+testcgi_ReturnCode10	testcgi_ReturnCode:	MCERR_FAILED_TO_READ_ENV
+testcgi_ReturnCode11	testcgi_ReturnCode:	MCERR_INSUFFICIENT_MEM
+testcgi_ReturnCode12	testcgi_ReturnCode:	MCERR_FAILED_TO_SET_VERSION
+testcgi_ReturnCode13	testcgi_ReturnCode:	MCERR_OUT_OF_RANGE_REFERENCE
+testcgi_ReturnCode14	testcgi_ReturnCode:	MCERR_LENGTH_ERROR
+testcgi_ReturnCode15	testcgi_ReturnCode:	MCERR_FAILED_TO_CREATE_OBJECT
+testcgi_ReturnCode16	testcgi_ReturnCode:	MCERR_FAILED_TO_DESTROY_OBJECT
+testcgi_ReturnCode17	testcgi_ReturnCode:	MCERR_INVALID_ITERATOR
+testcgi_ReturnCode18	testcgi_ReturnCode:	MCERR_COULD_NOT_TOKENIZE_STR
+testcgi_ReturnCode19	testcgi_ReturnCode:	MCERR_ACTION_CALL_DEPTH
+testcgi_ReturnCode20	testcgi_ReturnCode:	MCERR_NOACTIONS
+testcgi_ReturnCode1000	testcgi_ReturnCode:	MCERR_NOBROKERCFGFILE
+testcgi_ReturnCode1001	testcgi_ReturnCode:	MCERR_NO_LOAD_LIB
+testcgi_ReturnCode1002	testcgi_ReturnCode:	MCERR_LIBMISSINGFUNCTIONS
+testcgi_ReturnCode1003	testcgi_ReturnCode:	MCERR_NO_COMP_MATCHING_ID
+testcgi_ReturnCode1004	testcgi_ReturnCode:	MCERR_NO_COMP_OBJECT
+testcgi_ReturnCode1005	testcgi_ReturnCode:	MCERR_NO_COMP_NAME
+testcgi_ReturnCode1010	testcgi_ReturnCode:	MCERR_NO_BUFFER_TO_OUTPUT
+/*state errors*/
+testcgi_ReturnCode2000	testcgi_ReturnCode:	MCERR_UNKNOWN_STATE_ERROR
+testcgi_ReturnCode2001	testcgi_ReturnCode:	MCERR_STATE_ALREADY_EXISTS
+testcgi_ReturnCode2002	testcgi_ReturnCode:	MCERR_COULD_NOT_FIND_STATEID
+testcgi_ReturnCode2003	testcgi_ReturnCode:	MCERR_NO_CREATE_ID
+testcgi_ReturnCode2004	testcgi_ReturnCode:	MCERR_NO_RESTORE_STATE
+/*parser errors*/
+testcgi_ReturnCode3000	testcgi_ReturnCode:	MCERR_UNKNOWN_PARSER_ERROR
+testcgi_ReturnCode3001	testcgi_ReturnCode:	MCERR_NO_BUFFER_FOUND
+testcgi_ReturnCode3002	testcgi_ReturnCode:	MCERR_INVALID_DATA_MAP
+/*Request Values Errors*/
+testcgi_ReturnCode4000	testcgi_ReturnCode:	MCERR_UNKNOWN_REQUEST_VALS_ERR
+testcgi_ReturnCode4001	testcgi_ReturnCode:	MCERR_REQ_VALUES_INPUT_LOCKED
+/* Security Errors */
+testcgi_ReturnCode5000	testcgi_ReturnCode:	MCERR_ACCESSOK
+testcgi_ReturnCode5001	testcgi_ReturnCode:	MCERR_PSWDFILE_READ_ERROR
+testcgi_ReturnCode5002	testcgi_ReturnCode:	MCERR_PSWDFILE_USER_NOT_FOUND
+testcgi_ReturnCode5003	testcgi_ReturnCode:	MCERR_INVALID_PSWD
+testcgi_ReturnCode5004	testcgi_ReturnCode:	MCERR_CANT_CREATE_PSWDFILE
+testcgi_ReturnCode5005	testcgi_ReturnCode:	MCERR_CANT_UPDATE_PSWDFILE
+testcgi_ReturnCode5006	testcgi_ReturnCode:	MCERR_NOT_REGISTERED
+testcgi_ReturnCode5007	testcgi_ReturnCode:	MCERR_ACCESSDENIED
+testcgi_ReturnCode5008	testcgi_ReturnCode:	MCERR_GROUP_EXISTS
+testcgi_ReturnCode5009	testcgi_ReturnCode:	MCERR_GROUP_NOT_FOUND
+testcgi_ReturnCode5010	testcgi_ReturnCode:	MCERR_INVALID_INPUT
+testcgi_ReturnCode5011	testcgi_ReturnCode:	MCERR_PSWD_TIMEOUT
+testcgi_ReturnCode5012	testcgi_ReturnCode:	MCERR_INVALID_TIMEOUT
+testcgi_ReturnCode5013	testcgi_ReturnCode:	MCERR_USER_EXISTS
+/* Shopcart Errors */
+testcgi_ReturnCode6001	testcgi_ReturnCode:	MCERR_SHOPCART_NOT_FOUND
+testcgi_ReturnCode6002	testcgi_ReturnCode:	MCERR_NO_SKU
+testcgi_ReturnCode6003	testcgi_ReturnCode:	MCERR_CART_ITEM_NOT_FOUND
+testcgi_ReturnCode6004	testcgi_ReturnCode:	MCERR_CART_HEADINGS_NOT_FOUND
+testcgi_ReturnCode6005	testcgi_ReturnCode:	MCERR_CART_TYPES_NOT_FOUND
+testcgi_ReturnCode6006	testcgi_ReturnCode:	MCERR_PRODUCT_DOES_NOT_EXIST
+testcgi_ReturnCode6007	testcgi_ReturnCode:	MCERR_CART_QUANTITY_TYPE_NOT_FOUND
+testcgi_ReturnCode6008	testcgi_ReturnCode:	MCERR_CART_PRICE_TYPE_NOT_FOUND
+testcgi_ReturnCode6009	testcgi_ReturnCode:	MCERR_CART_EXTENDED_TYPE_NOT_FOUND
+testcgi_ReturnCode6010	testcgi_ReturnCode:	MCERR_CART_TOTAL_TYPE_NOT_FOUND
+testcgi_ReturnCode6011	testcgi_ReturnCode:	MCERR_CART_SKU_TYPE_NOT_FOUND
+testcgi_ReturnCode6012	testcgi_ReturnCode:	MCERR_NO_QUANTITY
+/* DOM and JavaScript-related errors */
+testcgi_ReturnCode7000	testcgi_ReturnCode:	MCERR_JS_UNKNOWN_OBJECT
+testcgi_ReturnCode7001	testcgi_ReturnCode:	MCERR_JS_UNKNOWN_CLASS
+testcgi_ReturnCode7002	testcgi_ReturnCode:	MCERR_JS_INVALID_POINTER
+testcgi_ReturnCode7003	testcgi_ReturnCode:	MCERR_JS_CANT_CREATE_METHOD
+/* sgml_parser component */
+MERC_SGMLPARSER1	MCERR_BLOCK
+MERC_SGMLPARSER2	MCERR_UNKNOWN_ERROR
+MERC_SGMLPARSER3	MCERR_NOID
+MERC_SGMLPARSER4	MCERR_NOACTION
+MERC_SGMLPARSER5	MCERR_OPENFILE
+MERC_SGMLPARSER6	MCERR_ACTIONNOTSUPPORTED
+MERC_SGMLPARSER7	MCERR_NOINPUT
+MERC_SGMLPARSER8	MCERR_INVALID_DATA_TYPE
+MERC_SGMLPARSER9	MCERR_NO_DATA_OBJECT_FOUND
+MERC_SGMLPARSER10	MCERR_FAILED_TO_READ_ENV
+MERC_SGMLPARSER11	MCERR_INSUFFICIENT_MEM
+MERC_SGMLPARSER12	MCERR_FAILED_TO_SET_VERSION
+MERC_SGMLPARSER13	MCERR_OUT_OF_RANGE_REFERENCE
+MERC_SGMLPARSER14	MCERR_LENGTH_ERROR
+MERC_SGMLPARSER15	MCERR_FAILED_TO_CREATE_OBJECT
+MERC_SGMLPARSER16	MCERR_FAILED_TO_DESTROY_OBJECT
+MERC_SGMLPARSER17	MCERR_INVALID_ITERATOR
+MERC_SGMLPARSER18	MCERR_COULD_NOT_TOKENIZE_STR
+MERC_SGMLPARSER19	MCERR_ACTION_CALL_DEPTH
+MERC_SGMLPARSER20	MCERR_NOACTIONS
+/* DataAPI Errors */
+DataAPI00	DataAPI: Input BDO Data Not Found
+DataAPI02	DataAPI: GetGlobalInterface cannot find data object
+DataAPI03	DataAPI: Action Not Supported
+DataAPI04	DataAPI: Cannot find datamap for this store/site ID
+DataAPI05	DataAPI: GetLiteral cannot find the LiteralID
+DataAPI06	DataAPI: GetLiteral no value for [%ErrLiteralID%] in object [%ErrObject%]
+DataAPI07	DataAPI: GetHeaders received invalid input
+DataAPI08	DataAPI: GetConfigRow did not find RowName in the file
+DataAPI09	DataAPI: AddConfigRow did not receive input for RowName
+DataAPI10	DataAPI: AddConfigCol did not receive input for ColName
+DataAPI11	DataAPI: DeleteConfigRow did not receive input for RowNumber or RowName
+DataAPI12	DataAPI: GetConfigRow did not receive input for RowNumber or RowName
+DataAPI22	DataAPI: GetActionInterface cannot find data object
+DataAPI1003	DataAPI: ReadFile could not open file
+DataAPINoFile	DataAPI: File [%Filename%] not found.
+DataAPINoRow	DataAPI: No valid row for object [%ObjectName%].
+DataAPINoObject	DataAPI: Object [%Objectname%] not found.
+DataAPINoSiteEntry	DataAPI: Data map config file not found for site [%SiteID%]
+DataAPIDynLoadError	DataAPI: Dynamic Load Error for file [%Filename%]
+DataAPIDynFuncError	DataAPI: Get Dynamic Lib function Error for file [%Filename%]
+DataAPIRecSet		DataAPI: Recset error for object [%ErrObject%]
+
+/*added for all compponents that haven't registered their their errors */
+1	:	MCERR_BLOCK
+2	:	MCERR_UNKNOWN_ERROR
+3	:	MCERR_NOID
+4	:	MCERR_NOACTION
+5	:	MCERR_OPENFILE
+6	:	MCERR_ACTIONNOTSUPPORTED
+7	:	MCERR_NOINPUT
+8	:	MCERR_INVALID_DATA_TYPE
+9	:	MCERR_NO_DATA_OBJECT_FOUND
+10	:	MCERR_FAILED_TO_READ_ENV
+11	:	MCERR_INSUFFICIENT_MEM
+12	:	MCERR_FAILED_TO_SET_VERSION
+13	:	MCERR_OUT_OF_RANGE_REFERENCE
+14	:	MCERR_LENGTH_ERROR
+15	:	MCERR_FAILED_TO_CREATE_OBJECT
+16	:	MCERR_FAILED_TO_DESTROY_OBJECT
+17	:	MCERR_INVALID_ITERATOR
+18	:	MCERR_COULD_NOT_TOKENIZE_STR
+19	:	MCERR_ACTION_CALL_DEPTH
+20	:	MCERR_NOACTIONS
+1000	:	MCERR_NOBROKERCFGFILE
+1001	:	MCERR_NO_LOAD_LIB
+1002	:	MCERR_LIBMISSINGFUNCTIONS
+1003	:	MCERR_NO_COMP_MATCHING_ID
+1004	:	MCERR_NO_COMP_OBJECT
+1005	:	MCERR_NO_COMP_NAME
+1010	:	MCERR_NO_BUFFER_TO_OUTPUT
+/*state errors*/
+2000	:	MCERR_UNKNOWN_STATE_ERROR
+2001	:	MCERR_STATE_ALREADY_EXISTS
+2002	:	MCERR_COULD_NOT_FIND_STATEID
+2003	:	MCERR_NO_CREATE_ID
+2004	:	MCERR_NO_RESTORE_STATE
+/*parser errors*/
+3000	:	MCERR_UNKNOWN_PARSER_ERROR
+3001	:	MCERR_NO_BUFFER_FOUND
+3002	:	MCERR_INVALID_DATA_MAP
+/*Request Values Errors*/
+4000	:	MCERR_UNKNOWN_REQUEST_VALS_ERR
+4001	:	MCERR_REQ_VALUES_INPUT_LOCKED
+/* Security Errors */
+5000	:	MCERR_ACCESSOK
+5001	:	MCERR_PSWDFILE_READ_ERROR
+5002	:	MCERR_PSWDFILE_USER_NOT_FOUND
+5003	:	MCERR_INVALID_PSWD
+5004	:	MCERR_CANT_CREATE_PSWDFILE
+5005	:	MCERR_CANT_UPDATE_PSWDFILE
+5006	:	MCERR_NOT_REGISTERED
+5007	:	MCERR_ACCESSDENIED
+5008	:	MCERR_GROUP_EXISTS
+5009	:	MCERR_GROUP_NOT_FOUND
+5010	:	MCERR_INVALID_INPUT
+5011	:	MCERR_PSWD_TIMEOUT
+5012	:	MCERR_INVALID_TIMEOUT
+5013	:	MCERR_USER_EXISTS
+/* Shopcart Errors */
+6001	:	MCERR_SHOPCART_NOT_FOUND
+6002	:	MCERR_NO_SKU
+6003	:	MCERR_CART_ITEM_NOT_FOUND
+6004	:	MCERR_CART_HEADINGS_NOT_FOUND
+6005	:	MCERR_CART_TYPES_NOT_FOUND
+6006	:	MCERR_CART_FIELD_NOT_FOUND
+6007	:	MCERR_FIELD_EXPECTED
+6008	:	MCERR_CART_PRICE_TYPE_NOT_FOUND
+6009	:	MCERR_CART_EXTENDED_TYPE_NOT_FOUND
+6010	:	MCERR_CART_TOTAL_TYPE_NOT_FOUND
+6011	:	MCERR_CART_SKU_TYPE_NOT_FOUND
+6012	:	MCERR_NO_QUANTITY
+/* DOM and JavaScript-related errors */
+7000	:	MCERR_JS_UNKNOWN_OBJECT
+7001	:	MCERR_JS_UNKNOWN_CLASS
+7002	:	MCERR_JS_INVALID_POINTER
+7003	:	MCERR_JS_CANT_CREATE_METHOD
+
+JS-ERR-unknown	Unknown error reported from JavaScript
+JS-WARN-unknown	Unknown warning reported from JavaScript
+MCERR_JS_UNKNOWN_OBJECT	JavaScript-Unknown Object
+MCERR_JS_UNKNOWN_CLASS	JavaScript-Unknown Class
+MCERR_JS_INVALID_POINTER	JavaScript-Invalid Pointer
+MCERR_JS_CANT_CREATE_METHOD	JavaScript-Can't Create Method
+MCERR_JS_CANT_GET_CLASSNAME	JavaScript-Can't Get Classname
+MCERR_JS_STRING_CONVERSION_FAILED	JavaScript-String Conversion Failed
+MCERR_JS_PROCESSREQUEST_INTERNAL	JavaSCript-Internal Error in JS ProcessRequest
+MCERR_JS_NOT_ENOUGH_ARGUMENTS	Not enough arguments to JS method
+MCERR_JS_PROCESSREQUEST_ACTION_NAME	JavaScript-Invalid action name in JS ProcessRequest
+MCERR_JS_PROCESSREQUEST_ARGUMENT	JavaScript-Invalid argument in JS ProcessRequest
+MCERR_JS_UTF_CONVERSION_ERROR	Error converting a string from UTF-16 to UTF-8 for JavaScript engine
+MCERR_COULDNT_ALLOCATE_CONTEXT	Could not allocate new JavaScript context
+MCERR_COULDNT_INIT_GLOBAL	Could not create or initialize global or built-in JavaScript object(s)
+MCERR_METHOD_CREATION_FAILED	Failed creating one or more methods of JavaScript global object
+MCERR_PROPERTY_CREATION_FAILED	Failed creating one or more properties of JavaScript global object
+MCERR_CANT_STORE_ADDRESS	Unable to store address of system object in JavaScript global object
+MCERR_CANT_RETRIEVE_ADDRESS	Unable to retrieve address of system object from JavaScript global object
+MCERR_INVALID_JAVASCRIPT	Invalid javascript
+MCERR_JAVASCRIPT_EXECUTION_FAILED	Script execution failed
+MCERR_CANT_GET_BROKER_POINTER	Unable to retrieve pointer to broker from DOM
+MCERR_COMPONENT_LOAD_FAILED	No such component found, or it cannot be loaded
+MCERR_COULDNT_CREATE_COMPONENT_OBJ	Could not create component-level object in DOM
+MCERR_INITOBJECT_ERROR	Component reported an error in mcfn_InitObject
+MCERR_INITCLASS_ERROR	Component reported an error in mcfn_InitClass
+MCERR_INVALID_CLASS_NAME_GIVEN	Component did not give valid class name for object name
+MCERR_COULDNT_CREATE_DOM_OBJECT	Could not create object in DOM
+MCERR_COMPONENT_NOT_INITIALIZED_YET	Component not initialized yet

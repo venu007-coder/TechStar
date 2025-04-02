@@ -1,0 +1,374 @@
+<html>
+<head>
+<title>Select an Image</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+<script runat="merc_server">
+	var test = doActionEx	('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+								'JS_SRC', 'FileType', 'txt');
+	eval (test);
+	<merc_embed>
+		<SCRIPT LANGUAGE="JavaScript">
+	</merc_embed>
+	// limit the upload object
+	write ("var objectName = '"+gPUBLIC+"';");
+	<merc_embed>
+		</SCRIPT>
+	</merc_embed>
+</SCRIPT>
+
+<script language="JavaScript">
+
+	var baseUrl = "<merc_dynamic name=SC_BaseUrl>";
+	var useImageCategory = "";
+	<script runat="merc_server">
+	var useImageCategory = doAction('REQ_GET_FORMVALUE', "UseImageCategory", "UseImageCategory");
+	if (useImageCategory)
+	{
+		write ("useImageCategory = '"+escape(useImageCategory)+"';");
+		useImageCategory = useImageCategory.split(gSEPERATOR);
+	}
+	var in_wizard = doAction('ST_GET_STATEDATA', 'WizardSelectImage', 'WizardSelectImage');
+	if (in_wizard && in_wizard == 'true')
+	{
+		write('var master_js = parent.opener.parent;');
+		write('var master_js_child = "opener.parent.opener.parent";');
+		write('var in_wizard=true;');
+	}
+	else
+	{
+		write('if (parent.opener && parent.opener.gSCRIPT_FILE_NAME)'+
+			  '{var master_js = parent.opener;'+
+			  'var master_js_child = "opener.parent.opener";}'+
+			  'else if (parent.opener.parent && parent.opener.parent.gSCRIPT_FILE_NAME)'+
+			  '{var master_js = parent.opener.parent;'+
+			  'var master_js_child = "opener.parent.opener.parent";}'+
+			  'else if (parent.opener.opener && parent.opener.opener.gSCRIPT_FILE_NAME)'+
+			  '{var master_js = parent.opener.opener;'+
+			  'var master_js_child = "opener.parent.opener.opener";}'+
+			  'else if (parent.opener.opener.parent && parent.opener.opener.parent.gSCRIPT_FILE_NAME)'+
+			  '{var master_js = parent.opener.opener.parent;'+
+			  'var master_js_child = "opener.parent.opener.opener.parent";}'+
+			  'else '+
+			  '{var master_js = parent.opener.parent.opener;'+
+			  'var master_js_child = "opener.parent.opener.parent.opener";}');
+		write('var in_wizard=false;');
+	}
+	</script>
+	var winName = 'ed_image_popup';
+	var secureUrls = new Array();
+	var childWin = "";
+	function generateImageOutput()
+	{	
+		clearImage ();
+		var args = new Array("imageSource", escape (generateUrl()));
+		master_js.SubmitForm ("L", "ed_selectimage_right.htm", 
+												"selectimage_right", args);
+	}
+	
+	function loadNewDir (dirToLoad, dirName)
+	{	
+		clearImage ();
+		var args = new Array("imageDir", dirToLoad, "imageDirName", dirName);
+		if (useImageCategory)
+		{
+			args[args.length] = "UseImageCategory";
+			args[args.length] = unescape(useImageCategory);
+		}
+		master_js.SubmitForm ("L", "ed_selectimage_left.htm", 
+												"selectimage_left", args);
+	}
+	
+	function submitImage ()
+	{	
+		var temp = escape (generateUrl());
+		var secureTemp = escape(generateSecureUrl());
+		if (!in_wizard && temp.length <= 0)
+			alert (master_js.gINVALID_SELECTION);
+		else
+		{
+			if (parent.opener && parent.opener.submitImageChange)
+				parent.opener.submitImageChange (temp, secureTemp, dirObj.options[dirObj.selectedIndex].text);
+			else
+				parent.opener.mainFrame.submitImageChange (temp, secureTemp, dirObj.options[dirObj.selectedIndex].text);
+		}
+	}
+	
+	function uploadImagePrompt ()
+	{
+		if (uploadCheck.toLowerCase() == "no")
+			alert (master_js.gNO_UPLOAD_DIR);
+		else
+		{
+			var pathName = document.imageList[(dirObj.options[dirObj.selectedIndex].text + "Path")].value;
+			var selectedItems = new Array();
+			for (var n = 0; n < imageFileObj.options.length; n++)
+				selectedItems[selectedItems.length] = imageFileObj.options[n].value;
+				
+			var winObj = master_js.createSimpleSubmitWindow ("210", "460");
+			var args = new Array ("Action", "UploadFile","MasterJs", master_js_child,
+									"Target", "selectimage_left", "LinkToPage", "ed_selectimage_left.htm",
+									"TargetDir", pathName, "ExistingFiles", 
+									selectedItems.join("\t"), "CallBack", 
+									"opener.parent.openSaveWin()", "ObjectName", 
+									objectName, "ImageDirName", 
+									dirObj.options[dirObj.selectedIndex].text,
+									"FileExtensions", ".jpg\t.gif");
+
+			
+			if (useImageCategory)
+			{
+				args[args.length] = "UseImageCategory";
+				args[args.length] = unescape(useImageCategory);
+			}
+
+			childWin = window.open ('', winName, winObj.createOutput());
+			master_js.SubmitForm ('L', 'ed_uploadimage.htm', winName, args);
+		}
+		return false;
+	}
+	
+	function generateUrl ()
+	{
+		var imageVal = "";
+		if (imageFileObj.selectedIndex >= 0)
+			if (imageFileObj.options[imageFileObj.selectedIndex].value) 
+				imageVal += imageFileObj.options[imageFileObj.selectedIndex].value;
+		if (dirObj.selectedIndex >= 0 && imageVal.length > 0)
+			if (dirObj.options[dirObj.selectedIndex].value)
+				imageVal = dirObj.options[dirObj.selectedIndex].value + imageVal;
+		return (imageVal);
+	}
+
+	function generateSecureUrl ()
+	{
+		var imageVal = "";
+		if (imageFileObj.selectedIndex >= 0)
+			if (imageFileObj.options[imageFileObj.selectedIndex].value) 
+				imageVal += imageFileObj.options[imageFileObj.selectedIndex].value;
+		if (dirObj.selectedIndex >= 0 && imageVal.length > 0)
+			if (dirObj.options[dirObj.selectedIndex].text && secureUrls[dirObj.options[dirObj.selectedIndex].text])
+			{
+				imageVal = secureUrls[dirObj.options[dirObj.selectedIndex].text] + imageVal;
+			}
+		return (imageVal);
+	}
+	
+	function clearImage ()
+	{
+		/* clear the image till the new one loads */
+		if (parent.selectimage_right)
+			if (parent.selectimage_right.document.sampleImage)
+				parent.selectimage_right.document.sampleImage.src = "/cgi-docs/Mercantec/PC_F_6.6.1/images/pxtransparent.gif";
+	}
+	
+	function loadNewDir (dirName)
+	{	
+		clearImage ();
+		var args = new Array("ImageDirName", dirName);
+		if (useImageCategory)
+		{
+			args[args.length] = "UseImageCategory";
+			args[args.length] = unescape(useImageCategory);
+		}
+		master_js.SubmitForm ("L", "ed_selectimage_left.htm", 
+												"selectimage_left", args);
+	}
+	
+	function closeLocalWin ()
+	{	
+		if (childWin)
+			if (!childWin.closed)
+				childWin.close ();
+	}
+	
+</script>
+</head>
+
+<body class="pop-up-bkgrd" onLoad = "generateImageOutput('');parent.closeSaveWin();" onUnload="closeLocalWin();parent.closeSaveWin();">
+
+<p align="center"><span class="dialog-title">Select 
+  an Image</span></p>
+<form name="imageList">
+<table width="250" border="0" cellspacing="0" cellpadding="2" align="center" class="table-bkgrd-main">
+<tr class="table-header2">
+<!--
+<td width="24" class="field-label">
+<input type="radio" name="radiobutton" value="radiobutton">
+</td>
+-->
+<td colspan="3" class="field-label" width="212"> Select from Image Library</td>
+</tr>
+<tr>
+<td colspan="2" class="field-label" width="212">
+
+<div align="left">
+<script runat="merc_server">
+	var cfgObj = generateObjectsFromCfg (gIMAGES_CFG);
+	var imageDirName = doAction('REQ_GET_FORMVALUE', "ImageDirName", "ImageDirName");
+	var useDefault = "";
+	
+	function validateCat (imageRowName)
+	{
+		var bMatch = (!cfgObj.ObjArray[imageRowName].ImageCategory);
+		if (useImageCategory && cfgObj.ObjArray[imageRowName].ImageCategory)
+		{
+		
+			bMatch = false;
+			for (var z = 0; z < useImageCategory.length && !bMatch; z++)
+			{
+				if (cfgObj.ObjArray[imageRowName].ImageCategory == useImageCategory[z])
+					bMatch = true;
+			}
+		}
+		return bMatch;
+	}
+	
+	for (var n = 0; n < cfgObj.rowNames.length; n++)
+	{
+		if (validateCat (cfgObj.rowNames[n]))
+		{
+			if (useDefault.length <= 0)
+				useDefault = cfgObj.rowNames[n];
+			write ('<input type="hidden" name="'+cfgObj.rowNames[n]+
+					'Upload" value="'+cfgObj.ObjArray[cfgObj.rowNames[n]].Local+'">');
+			if (cfgObj.ObjArray[cfgObj.rowNames[n]].Local.toLowerCase() == "yes")
+			{
+				write ('<input type="hidden" name="'+cfgObj.rowNames[n]+
+						'Path" value="'+cfgObj.ObjArray[cfgObj.rowNames[n]].DiskPath+'">');
+			}
+		}
+	}
+	// need another for loop here, otherwise we generate some dozen odd js statements
+	// if we include it in the for loop above
+	writeln("<script language='javascript'>");
+	for (var n = 0; n < cfgObj.rowNames.length; n++)
+	{
+		if (validateCat (cfgObj.rowNames[n]))
+			writeln("secureUrls['"+cfgObj.rowNames[n]+"'] = '" + 
+					cfgObj.ObjArray[cfgObj.rowNames[n]].SecureRelURLPath + "';");
+	}
+	writeln("</script>");
+	if (!imageDirName)
+		imageDirName = useDefault;
+	<merc_embed>
+		<select name="directory" onChange="loadNewDir(this.options[this.selectedIndex].text)">
+	</merc_embed>
+	var nOptions = 0;
+	for (var n = 0; n < cfgObj.rowNames.length; n++)
+	{
+		if (validateCat (cfgObj.rowNames[n]))
+		{
+			write ('<option '+(imageDirName == cfgObj.rowNames[n] ? 'selected' : '' )+
+					' value ="'+cfgObj.ObjArray[cfgObj.rowNames[n]].RelURLPath+
+					'">'+cfgObj.rowNames[n]+'</option>');
+			nOptions++;
+		}
+	}
+	if (nOptions <= 0)
+		write ('<option value ="">'+gEMPTY+'</option>');
+	<merc_embed>
+		</select>
+		<br>
+	</merc_embed>
+	var labels = "";
+	var masks = new Array();
+	if (nOptions > 0)
+	{		
+		var masks = cfgObj.ObjArray[imageDirName].Mask.replace(/ /g, '').split(',');
+		var srchDir = cfgObj.ObjArray[imageDirName].DiskPath + 
+					  '*.*';
+		var dirTemp = doActionBDO ("DATA_DIRECTORYLIST", "ObjectName", 
+									cfgObj.ObjArray[imageDirName].ObjectName,
+									"SubDirectoryPath", srchDir);
+		labels = dirTemp.GetLabels();
+	}
+
+	var dirList = new Array();
+	var bDir = false;
+	
+	for (var n = 0; n < labels.length; n++)
+	{
+		if (dirTemp[labels[n]] != "." && dirTemp[labels[n]] != "..")
+		{
+			for (var x = 0, bDir = false; x < cfgObj.rowNames.length && !bDir; x++)
+				if (dirTemp[labels[n]] == cfgObj.rowNames[x])
+					bDir = true;
+			if (!bDir)
+			{
+				for (var z = 0; z < masks.length; z++)
+				{
+					/* convert the standard mask into a regular expression */
+					var useMask = masks[z].replace (/\./g, '\\.');
+					useMask = useMask.replace (/\*/g, '.*');
+					var reMask = new RegExp (useMask+'$', 'i');
+					if (reMask.test(dirTemp[labels[n]]))
+					{
+						dirList.push(dirTemp[labels[n]]);
+						break;
+					}
+				}
+			}
+		}
+	}
+	write ('<select name="imageFile" size="7" onChange="generateImageOutput();">');
+	if (dirList.length <= 0)
+		write ("<option value=''>"+gEMPTY+"</option>");
+	else if (in_wizard)
+		write ("<option value=''>"+gNONE+"</option>");
+
+	var uploadedFileName = doAction('REQ_GET_FORMVALUE', "UploadedFileNameOnly", "UploadedFileNameOnly");
+
+	for (var n = 0; n < dirList.length; n++)
+	{
+		var bSelected = (n == 0);
+		if (uploadedFileName)
+		{
+			if (dirList[n] == uploadedFileName)
+				bSelected = true;
+			else
+				bSelected = false;
+		}
+		write ("<option "+(bSelected ? "selected " : "") + "value='"+dirList[n]+"'>"+dirList[n]+"</option>");
+	}
+	write ("</select>");
+</script>
+
+</div>
+
+</td>
+<td class="field-label">
+<center>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<a href="javasc
+		ript:void(master_js.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_IMAGES_SELECT+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help3.gif" border="0" name="help" alt="Help on Image Library"></a>
+
+<!--END HELP WINDOW LINK-->
+
+
+<script language="JavaScript">
+		var dirObj = document.imageList.directory;
+		var imageFileObj = document.imageList.imageFile;
+		var uploadCheck = document.imageList[(dirObj.options[dirObj.selectedIndex].text + "Upload")].value;
+		
+		if (uploadCheck.toLowerCase() == "no")
+			document.writeln ('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Upload_Hbtn_basebw2.gif" width="86" height="30" border="0" alt="Cannot Upload To This Directory">');
+		else
+			document.writeln ('<a href="javascript:void(0)" onclick="uploadImagePrompt()"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Upload_Nbtn_base2.gif" width="86" height="30" border="0" alt="Upload"></a>');
+</script>
+<a href=javascript:void(0) onClick=parent.self.close()><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a>
+<a href=javascript:void(0) onClick="submitImage()"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Select_Nbtn_base.gif" width="86" height="30" border="0" alt="Select"></a>
+</center>
+</td>
+</form>
+</tr>
+
+
+</table>
+</body>
+</html>

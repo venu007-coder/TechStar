@@ -1,0 +1,49 @@
+$(document).ready(function()
+{
+	$('.more').click(function()
+	{
+			$('.news-info').slideDown('slow');
+			$('.moreclose').show();
+			$(this).hide();
+	});
+$('.moreclose').click(function()
+{
+			$('.news-info').slideUp('slow');
+			$('.more').show();
+			$(this).hide();
+
+});
+});
+$(document).ready(function()
+{
+	$('.more1').click(function()
+	{
+			$('.news-info1').slideDown('slow');
+			$('.moreclose1').show();
+			$(this).hide();
+	});
+$('.moreclose1').click(function()
+{
+			$('.news-info1').slideUp('slow');
+			$('.more1').show();
+			$(this).hide();
+
+});
+});
+$(document).ready(function()
+{
+	$('.more2').click(function()
+	{
+			$('.news-info2').slideDown('slow');
+			$('.moreclose2').show();
+			$(this).hide();
+	});
+$('.moreclose2').click(function()
+{
+			$('.news-info2').slideUp('slow');
+			$('.more2').show();
+			$(this).hide();
+
+});
+});
+

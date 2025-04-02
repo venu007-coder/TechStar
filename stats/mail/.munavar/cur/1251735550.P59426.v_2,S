@@ -1,0 +1,164 @@
+Return-Path: clientservice@paychex.com
+Received: from mx42.stngva01.us.mxservers.net (204.202.242.44)
+	by mail19l.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0559195548
+	for <ms@altechstar.com>; Mon, 31 Aug 2009 12:19:08 -0400 (EDT)
+Received: from unknown [204.202.242.88] (HELO mail19b.g19.rapidsite.net)
+	by va1-mx42.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id cf7fb9a4.2779323296.603484.00-008.va1-mx42.stngva01.us.mxservers.net (envelope-from <ts0025@paychex.com>);
+	Mon, 31 Aug 2009 12:19:08 -0400 (EDT)
+Received: from mx68.stngva01.us.mxservers.net (204.202.242.139)
+	by mail19b.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-0832455547
+	for <anand@altechstar.com>; Mon, 31 Aug 2009 12:19:07 -0400 (EDT)
+Received: from unknown [141.123.123.65] (EHLO paychex.com)
+	by va1-mx68.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id bf7fb9a4.2816379808.182168.00-005.va1-mx68.stngva01.us.mxservers.net (envelope-from <ts0025@paychex.com>);
+	Mon, 31 Aug 2009 12:19:07 -0400 (EDT)
+X-Server-Uuid: 201DBA26-8CDC-4A4D-9A2D-5D847247F41F
+Date: Mon, 31 Aug 2009 12:18:57 -0400 (EDT)
+Message-ID: <200908311618.n7VGIvQN001725@intweb1a.paychex.com>
+Subject: Paychex Instruction Letter
+From: Paychex <clientservice@paychex.com>
+To: anand@altechstar.com
+Return-path: ts0025@paychex.com
+X-OriginalArrivalTime: 31 Aug 2009 16:18:57.0433 (UTC)
+ FILETIME=[BDDBC090:01CA2A56]
+MIME-Version: 1.0
+X-WSS-ID: 668528780V4985292-01-01
+Content-Type: multipart/alternative;
+	boundary="------------CBA865DA35D8F027A517B467"
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009083124)]
+X-MAIL-FROM: <ts0025@paychex.com>
+X-SOURCE-IP: [141.123.123.65]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009083124)]
+X-MAIL-FROM: <ts0025@paychex.com>
+X-SOURCE-IP: [204.202.242.88]
+X-Loop-Detect:1
+
+This is a multi-part message in MIME format.
+
+
+--------------CBA865DA35D8F027A517B467
+Content-Type: text/plain;
+	charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+
+0025-10303169
+Altech Star Inc
+
+Dear altechstar1,
+
+Thank you for enrolling in Paychex Online!
+
+You recently received your Paychex Online user name and password from one of our service center representatives.
+This e-mail contains the login instructions you need when accessing services through Paychex Online.
+
+When you are ready to access Paychex Online, visit https://online.paychex.com to access the available online services.
+Be sure to bookmark this address for easy access. The first time you access Paychex Online you will be prompted to:
+
+1. Enter your user name and password.
+2. Select a security image to associate with your account.
+3. Change the password. The password must be between 8 and 32 alphanumeric characters and include at least one number.
+   No spaces are permitted, and it is case sensitive.
+4. Verify your identity by successfully answering your first challenge question.
+5. Register two additional private security keys; a personal identification number (PIN) between  and  numbers;
+   and a second challenge question that will be known only by you.
+
+You will need your security image, user name, password, and security keys for all subsequent Paychex Online sessions.
+Password and PIN formats must meet specific requirements to ensure the continued security of your account.
+These requirements and additional information on how to manage your account can be found when you click the User Account Guide
+under the User Maintenance section on the left navigation bar of the Paychex Online site.
+"https://online.paychex.com/cgi-bin/menu/framegen?form_index=2"
+
+If you forget your password, but still know your security keys, obtain a new password by clicking "I forgot my password,"
+or call Paychex at 888-246-7500 for assistance.
+
+Special Note to New Paychex Online Users
+
+After receiving this password or requesting a change in password,
+you must log in to Paychex Online within 30 days to prevent your user account from being disabled.
+
+Thank you for enrolling in Paychex Online. We appreciate the opportunity to serve you.
+
+Sincerely,
+
+The Specialists at Paychex
+
+
+
+
+-----------------------------------------
+The information contained in this message may be privileged,
+confidential, and protected from disclosure. If the reader of this
+message is not the intended recipient, or any employee or agent
+responsible for delivering this message to the intended recipient,
+you are hereby notified that any dissemination, distribution, or
+copying of this communication is strictly prohibited. If you have
+received this communication in error, please notify us immediately
+by replying to the message and deleting it from your computer. 
+
+Thank you. Paychex, Inc.
+--------------CBA865DA35D8F027A517B467
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+0025-10303169<br />
+Altech Star Inc<br />
+
+Dear altechstar1,<br />
+
+<p>Thank you for enrolling in Paychex Online!</p>
+
+<p>You recently received your Paychex Online user name and password from one of our service center representatives.
+This e-mail contains the login instructions you need when accessing services through Paychex Online.
+</p>
+
+<p>When you are ready to access Paychex Online, visit https://online.paychex.com to access the available online services.
+Be sure to bookmark this address for easy access. The first time you access Paychex Online you will be prompted to:
+</p>
+
+<ol>
+<li> Enter your user name and password.</li>
+<li> Select a security image to associate with your account.</li>
+<li> Change the password. The password must be between 8 and 32 alphanumeric characters and include at least one number.
+No spaces are permitted, and it is case sensitive.</li>
+<li> Verify your identity by successfully answering your first challenge question.</li>
+<li> Register two additional private security keys; a personal identification number (PIN) between  and  numbers;
+and a second challenge question that will be known only by you.</li>
+</ol>
+
+<p>You will need your security image, user name, password, and security keys for all subsequent Paychex Online sessions.
+Password and PIN formats must meet specific requirements to ensure the continued security of your account.
+These requirements and additional information on how to manage your account can be found when you click the <a href="https://online.paychex.com/cgi-bin/menu/framegen?form_index=2">User Account Guide</a>
+under the User Maintenance section on the left navigation bar of the Paychex Online site.
+</p>
+
+<p>If you forget your password, but still know your security keys, obtain a new password by clicking "I forgot my password,"
+or call Paychex at 888-246-7500 for assistance.
+</p>
+
+<b>Special Note to New Paychex Online Users<b/><br />
+
+<p>After receiving this password or requesting a change in password,
+you must log in to Paychex Online within 30 days to prevent your user account from being disabled.
+</p>
+
+<p>Thank you for enrolling in Paychex Online. We appreciate the opportunity to serve you.
+</p>
+
+Sincerely,<br />
+
+The Specialists at Paychex
+</html>
+<HTML><BODY><P><hr size=1></P>
+<P><STRONG>
+The information contained in this message may be privileged, confidential, and protected from disclosure. If the reader of this message is not the intended recipient, or any employee or agent responsible for delivering this message to the intended recipient, you are hereby notified that any dissemination, distribution, or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by replying to the message and deleting it from your computer. 
+
+Thank you. Paychex, Inc.
+</STRONG></P></BODY></HTML>
+--------------CBA865DA35D8F027A517B467--
+

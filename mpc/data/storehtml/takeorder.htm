@@ -1,0 +1,262 @@
+<merc_dynamic noshow=true name=storeLogo action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreLogo>
+<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+<merc_dynamic noshow=true name=mySession action=ST_GET_STATEDATA return=Result SessionID=SessionID>
+
+<html>
+<head>
+<title>Check Out</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+
+.linkcolor {  font-family: Arial, Helvetica, sans-serif; color: #000099; font-weight: bold}
+
+-->
+</style></head>
+
+<body bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="5" height="75">
+  <tr bgcolor="#CC0O00" align="right">
+    <td height="29"><font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3">
+      </font>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><center><font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3"><font face="Verdana, Arial, Helvetica, sans-serif"><merc_dynamic name=storeName action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreName></font></font></center></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+  <tr bgcolor="#FF9933">
+    <td height="46">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" name="topnav">
+        <tr>
+          <td><center><a href="&AppID={appID}&action=search"><img src="/mpc/docs/images/TopNav1.gif" BORDER="0" width="61" height="28" name="Search"></a><a href="&AppID={appID}&action=entry"><img src="/mpc/docs/images/TopNav2.gif" BORDER="0" width="85" height="28" name="products"></a><a href="&AppID={appID}&action=contactPage"><img src="/mpc/docs/images/TopNav5.gif" width="93" height="28" BORDER="0" name="contactus"></a></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+<table width="693" border="0" cellspacing="0" cellpadding="0" height="90%">
+  <tr>
+    <td valign="top" width="18%" height="291" bgcolor="#0033FF">
+      <p>&nbsp;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" name="logo">
+        <tr align="center" valign="middle">
+          <td height="62"><img src="/mpc/docs/images/{storeLogo}"></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+      <p><a href="&AppID={appID}&action=displayBillToShipTo"><img src="/mpc/docs/images/SideNav1.gif" width="110" height="25" name="changelocation" alt="Change Location Zone" border="0"></A><br>
+        <a href="&AppID={appID}&action=modifyCart"><img src="/mpc/docs/images/SideNav3.gif" width="110" height="24" name="viewcart" alt="View Cart" border="0"></A><br>
+        <a href="&AppID={appID}&action=checkOut"><img src="/mpc/docs/images/SideNav5.gif" width="110" height="26" name="checkout" alt="Checkout" border="0"></A></p>
+          </td>
+    <td height="291" width="82%" align="left" valign="top"> <P>
+      </p><table width="100%" border="0" cellspacing="0" cellpadding="10" name="copy">
+        <tr valign="top">
+          <td width="10%"> </td><td width="90%"><P><p>&nbsp;</p>
+      <p>
+      <table align="left" width="500">
+        <tr>
+        	<td align="left">
+        		<center>
+
+<b><font size="5">Check Out</font></b>
+<form action=CGI.exe>
+<input type="hidden" name="SiteID" value={siteID}>
+<input type="hidden" name="AppID" value={appID}>
+<input type="hidden" name="action" value="verifycc">
+<input type="hidden" name="SessionID" value={mySession}>
+
+<script runat=merc_server>
+
+var optionsString;
+var typesArray = new Array();
+var typeNamesArray = new Array();
+var bCC = false;
+
+if (doAction('MRA_PAYMENT_IF_ACCEPT_CREDIT_CARD_ONLINE') == 'YES')
+{
+	bCC = true;
+	typesArray[typesArray.length] = 0;
+	typeNamesArray[typeNamesArray.length] = 'Credit Card Online';
+}
+
+if (doAction('MRA_PAYMENT_IF_ACCEPT_CREDIT_CARD_OFFLINE') == 'YES')
+{
+	typesArray[typesArray.length] = 1;
+	typeNamesArray[typeNamesArray.length] = 'Credit Card Offline';
+}
+
+if (doAction('MRA_PAYMENT_IF_ACCEPT_OFFLINE_CHECK') == 'YES')
+{
+	typesArray[typesArray.length] = 2;
+	typeNamesArray[typeNamesArray.length] = 'Check Offline';
+}
+
+if (doAction('MRA_PAYMENT_IF_ACCEPT_COD_CREDIT_CARD') == 'YES')
+{
+	typesArray[typesArray.length] = 3;
+	typeNamesArray[typeNamesArray.length] = 'COD with Credit Card';
+}
+
+if (doAction('MRA_PAYMENT_IF_ACCEPT_COD_CHECK') == 'YES')
+{
+	typesArray[typesArray.length] = 4;
+	typeNamesArray[typeNamesArray.length] = 'COD with Check';
+}
+
+if (doAction('MRA_PAYMENT_IF_ACCEPT_COD_CASH') == 'YES')
+{
+	typesArray[typesArray.length] = 5;
+	typeNamesArray[typeNamesArray.length] = 'COD with Cash';
+}
+
+if (doAction('MRA_PAYMENT_IF_ACCEPT_COD_CASHIER_CHECK') == 'YES')
+{
+	typesArray[typesArray.length] = 6;
+	typeNamesArray[typeNamesArray.length] = "COD with Cashiers Check";
+}
+
+if (doAction('MRA_PAYMENT_IF_ACCEPT_COD_MONEY_ORDER') == 'YES')
+{
+	typesArray[typesArray.length] = 7;
+	typeNamesArray[typeNamesArray.length] = 'COD with Money Order';
+}
+
+if (doAction('MRA_PAYMENT_IF_ACCEPT_PURCHASE_ORDER') == 'YES')
+{
+	typesArray[typesArray.length] = 8;
+	typeNamesArray[typeNamesArray.length] = 'COD with Purchase Order';
+}
+
+if (typesArray.length > 1)
+{
+	writeln('<table width="475" border="0" align="center" bgcolor="#FFFFFF">');
+	writeln('<tr>');
+	writeln('<td>');
+	writeln('Please choose a form of payment: ');
+	writeln('<select name="paymentType">');
+	for (var i = 0; i < typesArray.length; i++)
+		writeln('<option value="' + typesArray[i] + '">' + typeNamesArray[i] + '</option>');
+	writeln('</select>');
+	writeln('</td>');
+	writeln('</tr>');
+	writeln('</table>');
+}
+else if (typesArray.length == 1)
+{
+	writeln('<input type="hidden" name="paymentType" value="' + typesArray[0] + '">');
+	writebr('Form of payment is ' + typeNamesArray[0]);
+}
+else if (typesArray.length == 0)
+	writebr('Error: No payment types for this store were found. Please contact the store administrator.');
+
+if (bCC)
+{
+	<merc_embed>
+
+	<p align="center"><b><font size="4">Credit Card Information (If Credit Card Online)</font></b></p>
+	<table width="475" border="0" align="center" height="163" bgcolor="#FFFFFF">
+	  <tr>
+		<td height="139">
+		  <table width="98%" border="0" cellpadding="2" cellspacing="0" align="center" height="96">
+			<tr bgcolor="#CCCCCC">
+			  <td class="general-label" width="30%" nowrap height="24">
+				<div align="center"><b>Please enter your credit card information:</b></div>
+			  </td>
+			</tr>
+			<tr>
+			  <td class="general-label" width="30%" nowrap height="24">
+
+			  <b>Name (as it appears on card):</b>
+				  <merc_dynamic name=firstBillTo noshow=true action=SC_GET_FIRST_ROW TableName=BillTo>
+				  <merc_dynamic name=BillToName noshow=true action=SC_GET_FIELD TableName=BillTo RowName={firstBillTo} FieldName=BillToName>
+				  <br><input type="text" name="nameOnCard" value="{BillToName}" size="40" maxlength="40">
+				<b>
+				<br>Card Type: <select name="cardType">
+	</merc_embed>
+
+var cctypes = doAction('DATA_GETCONFIGDATA','ObjectName','PAYMENT','RowName','default_credit_card_types_selected','ColName','value');
+if (cctypes != undefined)
+{
+	cctypes = cctypes.split(',');
+	for (var k = 0; k < cctypes.length; k++)
+		writeln('<option>' + cctypes[k] + '</option>');
+}
+
+	<merc_embed>
+							   </select>
+				<br>Number: <input type="text" name="ccnum" size="16" maxlength="16">
+				<br>Expires: </b></span>
+				  <b> Month: </b>
+				  <select name="expireMonth">
+					<option selected>01</option>
+					<option>02</option>
+					<option>03</option>
+					<option>04</option>
+					<option>05</option>
+					<option>06</option>
+					<option>07</option>
+					<option>08</option>
+					<option>09</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+				  </select>
+				<b>Year: </b>
+				<select name="expireYear">
+				  <option selected>2001</option>
+				  <option>2002</option>
+				  <option>2003</option>
+				  <option>2004</option>
+				  <option>2005</option>
+				  <option>2006</option>
+				  <option>2007</option>
+				  <option>2008</option>
+				  <option>2009</option>
+				  <option>2010</option>
+				</select>
+				<span class="general-label"> </span></td>
+			</tr>
+		  </table>
+		  <div align="center"><br>
+			<input type="submit" value="Continue">
+			</form>
+		  </div>
+		</td>
+	  </tr>
+	</table>
+	<p align="center">&nbsp; </p>
+
+	</merc_embed>
+}
+else
+{
+	writep('<input type="submit" value="Continue">');
+	write('</form>');
+}
+
+</script>
+
+			</center>
+        	</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+</body>
+<!--COMMENT="This site was generated by SoftCart 1998-2000, Mercantec, Inc. Mercantec, SoftCart, and StateTrack are trademarks of Mercantec, Inc."-->
+</html>
+

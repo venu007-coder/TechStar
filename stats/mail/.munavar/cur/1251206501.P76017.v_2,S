@@ -1,0 +1,890 @@
+Return-Path: nytreasury@icicibank.com
+Received: from mx80.stngva01.us.mxservers.net (204.202.242.151)
+	by mail19a.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 4-0585176499
+	for <ms@altechstar.com>; Tue, 25 Aug 2009 09:21:39 -0400 (EDT)
+Received: from unknown [204.202.242.122] (HELO mail19k.g19.rapidsite.net)
+	by va1-mx80.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 365e39a4.2727021472.276639.00-006.va1-mx80.stngva01.us.mxservers.net (envelope-from <nytreasury@icicibank.com>);
+	Tue, 25 Aug 2009 09:21:39 -0400 (EDT)
+Received: from mx105.stngva01.us.mxservers.net (198.173.112.42)
+	by mail19k.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0172716498
+	for <anand@altechstar.com>; Tue, 25 Aug 2009 09:21:38 -0400 (EDT)
+Received: from unknown [203.27.235.42] (EHLO mail9.icicibank.com)
+	by va1-mx105.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 165e39a4.2617187232.863521.00-014.va1-mx105.stngva01.us.mxservers.net (envelope-from <nytreasury@icicibank.com>);
+	Tue, 25 Aug 2009 09:21:37 -0400 (EDT)
+Received: from MLXJMSFE01.icicibank.com ()
+	by mail9.icicibank.com  with ESMTP id n7PD6Jog000306;
+	Tue, 25 Aug 2009 18:36:19 +0530 (IST)
+MIME-version: 1.0
+Content-Type: multipart/alternative;
+ boundary="=_reb-r3558BF5C-t4A93E562"
+Received: from conversion-daemon.MLXJMSFE01.icicibank.com by
+ MLXJMSFE01.icicibank.com
+ (Sun Java(tm) System Messaging Server 6.3-5.02 (built Oct 12 2007; 32bit))
+ id <0KOX00J00O6U7300@MLXJMSFE01.icicibank.com>; Tue,
+ 25 Aug 2009 18:49:41 +0530 (IST)
+Received: from IBUSD0143 ([172.24.5.143]) by MLXJMSFE01.icicibank.com
+ (Sun Java(tm) System Messaging Server 6.3-5.02 (built Oct 12 2007; 32bit))
+ with ESMTPA id <0KOX00CZUOWC2KI0@MLXJMSFE01.icicibank.com>; Tue,
+ 25 Aug 2009 18:49:38 +0530 (IST)
+Date: Tue, 25 Aug 2009 09:18:42 -0400
+From: ICICI BANK NEW YORK <nytreasury@icicibank.com>
+Subject: ICICI Bank - USD/INR rate - Aug 25, 2009
+Sender: nytreasury@icicibank.com
+To: ICICI BANK NEW YORK <nytreasury@icicibank.com>
+Message-id: <004001ca2586$ad712800$08537800$@com>
+X-Mailer: Microsoft Office Outlook 12.0
+Content-language: en-us
+Thread-index: 
+ Acl2UlpPZPYkMg+wSge7u1arwDDR8gAxzvDgADEbqLAAyajUgAAyZ2pgADLiTCAAMmHu8ACWHiRAADJGxiAAMyb6AABjG4uAAMkdAUAAMzGpUALzIS/wADE+yIAAlsanIAAyDk2gADGmArAAMtT3oAAzK8XQAJaY2sAAMV8xQAAzRtKwADFFfFAANCTlgACTgTOAAAF7vKAAMcsjcAAzgnMQAC/hhIAAMi2rgACYrxFQADIy77AAMkCxUAAyKVOgADMe/xAAlGWywAAzzkywADJF5OAAMXE9EAAypRIAAJeaSVAAMPIggABl3ryQADJ56WAAyMu6YAAygVqQADH9u5AAMgZFQACU8d1gADNhQQAAMd/7cAAzOx2gADLr9jAAx4SaMAAy6OwAADNvI1AAMnBZwACU4rtAADLWaCAANACg0AAx0BAwADJ78OAAl7yWUAAx35YAADCphbAACIgIMAAqU6jgADEHNKAAmHf10AAyW0ywADKQzMAAMft6QAAydJHQAJb9InAAMeFDcAAyY8sAADJs4OAAMtBj4ADIKSuAADMIg5AAMI9IQAA0Xv7wAJXQR+AAMnm0QAAymeaQADKSYCAAxwO14AA0O5ZAADJL8AAAMNcIAAAz1OgQAJR5GJAANMtt4AAv6OoQAAEQ7+AAZU8MQACXUuTwAGJU0QAAM/+koAAychjgAJcYllAAMjIoUAAwwySwADPhvkAAyVS7AAAx5IFgADNNI3AAMRGOoAAyMypAAJcuzUAAMpn5wAAyR6mwAPtyiEAAMXLdAAAypFZwADFrdJAAMy55UACXvZuwADBrbMAAM0HOoAAyYBkAAMmFrOAAMnfikAAyhyXgADBuTsAAM8PSwACWak9QADJFmCAAMuLbwAACPABgAC+BllAAABfUIAAyh5MwAAATfgAAluvoEAAAIEzAADIZCxAAMfI9YAAyqeegADCa9NAAAB0tIACYvCzwADJghLAA
+Sun-Java-System-SMTP-Warning: Lines longer than SMTP allows found and truncated.
+X-Brightmail-Tracker: AAAAAA==
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082515)]
+X-MAIL-FROM: <nytreasury@icicibank.com>
+X-SOURCE-IP: [203.27.235.42]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082515)]
+X-MAIL-FROM: <nytreasury@icicibank.com>
+X-SOURCE-IP: [204.202.242.122]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r3558BF5C-t4A93E562
+Content-type: text/plain; charset=us-ascii
+Content-transfer-encoding: 7BIT
+
+Good morning Friends,
+
+ 
+
+Please find our USD/INR remittance rates for today. The same is also
+available on the link -
+http://www.icicibankusa.com/popup_exchange_rate.html.  
+
+ 
+
+USD/INR Exchange Rate for Aug 25, 2009
+
+
+Amount in USD
+
+Rate
+
+
+$1 - $2500
+
+      48.17 
+
+
+$2,501 - $5000
+
+      48.30 
+
+
+$5001 - $25000
+
+      48.40 
+
+
+$25001 - $100,000
+
+      48.49 
+
+ 
+
+* Due to market volatility, for larger amounts please check with us before
+confirming the transaction.
+
+* Kindly contact us for remittance of above USD 100,000 
+
+* Applicable rate will be at the time of conversion
+
+ 
+
+Regards,
+
+Harita Shah
+
+ 
+
+---
+    "Print this mail only if absolutely necessary. Save Paper. Save Trees."  
+
+"This e-mail message may contain confidential, proprietary or legally privileged information. It 
+should not be used by anyone who is not the original intended recipient. If you have erroneously 
+received this message, please delete it immediately and notify the sender. The recipient 
+acknowledges that ICICI Bank or its subsidiaries and associated companies,  (collectively "ICICI 
+Group"), are unable to exercise control or ensure or guarantee the integrity of/over the contents
+of the information contained in e-mail transmissions and further acknowledges that any views 
+expressed in this message are those of the individual sender and no binding nature of the message
+shall be implied or assumed unless the sender does so expressly with due authority of ICICI Group.
+Before opening any attachments please check them for viruses and defects." 
+
+--=_reb-r3558BF5C-t4A93E562
+Content-type: text/html; charset=us-ascii
+Content-transfer-encoding: 7BIT
+
+<html xmlns="http://www.w3.org/TR/REC-html40" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+
+<head>
+
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Zurich BT";
+	panose-1:2 11 6 3 2 2 2 3 2 4;}
+@font-face
+	{font-family:Mistral;
+	panose-1:3 9 7 2 3 4 7 2 4 3;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Zurich BT","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Zurich BT","sans-serif";}
+span.EmailStyle18
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle19
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle20
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle21
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle22
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle23
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle24
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle25
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle26
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle27
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle28
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle29
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle30
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle31
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle32
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle33
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle34
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle35
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle36
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle37
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle38
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle39
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle40
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle41
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle42
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle43
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle44
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle45
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle46
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle47
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle48
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle49
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle50
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle51
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle52
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle53
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle54
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle55
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle56
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle57
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle58
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle59
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle60
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle61
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle62
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle63
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle64
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle65
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle66
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle67
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle68
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle69
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle70
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle71
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle72
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle73
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle74
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle75
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle76
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle77
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle78
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle79
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle80
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle81
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle82
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle83
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle84
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle85
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle86
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle87
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle88
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle89
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle90
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle91
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle92
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle93
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle94
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle95
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle96
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle97
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle98
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle99
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle100
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle101
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle102
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle103
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle104
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle105
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle106
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle107
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle108
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle109
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle110
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle111
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle112
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle113
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle114
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle115
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle116
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle117
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle118
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle119
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle120
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle121
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle122
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle123
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle124
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle125
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle126
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle127
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle128
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle129
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle130
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle131
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle132
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle133
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle134
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle135
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle136
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle137
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle138
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle139
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle140
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle141
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle142
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle143
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle144
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle145
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle146
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle147
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle148
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle149
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle150
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle151
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle152
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle153
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle154
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle155
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle156
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle157
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle158
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle159
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle160
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle161
+	{mso-style-type:personal;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+span.EmailStyle162
+	{mso-style-type:personal-reply;
+	font-family:"Zurich BT","sans-serif";
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1" />
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body vlink="purple" link="blue" lang="EN-US">
+
+<div class="Section1">
+
+<p class="MsoNormal">Good morning Friends,<o:p></o:p></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal">Please find our USD/INR remittance rates for today. The same
+is also available on the link - <span style="font-size:10.0pt;color:blue"><a href="http://www.icicibankusa.com/popup_exchange_rate.html">http://www.icicibankusa.com/popup_exchange_rate.html</a>.</span><span style="font-size:10.0pt"> </span>&nbsp;<o:p></o:p></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal"><span style="color:black">USD/INR Exchange Rate for </span>Aug
+25<span style="color:black">, 2009<o:p></o:p></span></p>
+
+<table style="width:158.5pt;margin-left:-1.1pt;border-collapse:collapse" width="211" cellpadding="0" cellspacing="0" border="0" class="MsoNormalTable">
+ <tr style="height:15.0pt">
+  <td style="width:104.2pt;border:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.0pt" valign="bottom" nowrap width="139">
+  <p class="MsoNormal"><b>Amount in USD<o:p></o:p></b></p>
+  </td>
+  <td style="width:54.3pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt" valign="bottom" nowrap width="72">
+  <p class="MsoNormal"><b><span style="color:black">Rate<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style="height:16.6pt">
+  <td style="width:104.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt;height:16.6pt" valign="bottom" nowrap width="139">
+  <p class="MsoNormal">$1 - $2500<o:p></o:p></p>
+  </td>
+  <td style="width:54.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:16.6pt" valign="bottom" nowrap width="72">
+  <p class="MsoNormal"><span style="color:black">&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;48.17 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height:15.0pt">
+  <td style="width:104.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt" valign="bottom" nowrap width="139">
+  <p class="MsoNormal">$2,501 - $5000<o:p></o:p></p>
+  </td>
+  <td style="width:54.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.0pt" valign="bottom" nowrap width="72">
+  <p class="MsoNormal"><span style="color:black">&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;48.30 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height:15.0pt">
+  <td style="width:104.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt" valign="bottom" nowrap width="139">
+  <p class="MsoNormal">$5001 - $25000<o:p></o:p></p>
+  </td>
+  <td style="width:54.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.0pt" valign="bottom" nowrap width="72">
+  <p class="MsoNormal"><span style="color:black">&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;48.40 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height:15.0pt">
+  <td style="width:104.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt" valign="bottom" nowrap width="139">
+  <p class="MsoNormal">$25001 - $100,000<o:p></o:p></p>
+  </td>
+  <td style="width:54.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.0pt" valign="bottom" nowrap width="72">
+  <p class="MsoNormal"><span style="color:black">&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;48.49 <o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class="MsoNormal"><span style="font-size:8.0pt"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:8.0pt">* Due to market volatility,
+for larger amounts please check with us before confirming the transaction.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:8.0pt">* Kindly contact us for
+remittance of above USD 100,000 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:8.0pt">* Applicable rate will be at the
+time of conversion<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:8.0pt"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal">Regards<span style="font-size:16.0pt;font-family:Mistral">,<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:16.0pt;font-family:Mistral">Harita
+Shah<o:p></o:p></span></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
+<p>
+<html>
+<body>
+<FONT COLOR="#0000ff" SIZE="1" FACE="Zurich BT">
+</p>
+<p>
+"Print this mail only if absolutely necessary. Save Paper. Save Trees." 
+<p>"This e-mail message may contain confidential, proprietary or legally privileged information. It 
+should not be used by anyone who is not the original intended recipient. If you have erroneously 
+received this message, please delete it immediately and notify the sender. The recipient 
+acknowledges that ICICI Bank or its subsidiaries and associated companies,  (collectively "ICICI 
+Group"), are unable to exercise control or ensure or guarantee the integrity of/over the contents
+of the information contained in e-mail transmissions and further acknowledges that any views 
+expressed in this message are those of the individual sender and no binding nature of the message
+shall be implied or assumed unless the sender does so expressly with due authority of ICICI Group.
+Before opening any attachments please check them for viruses and defects." </p>
+</body>
+</html>
+
+--=_reb-r3558BF5C-t4A93E562--
+

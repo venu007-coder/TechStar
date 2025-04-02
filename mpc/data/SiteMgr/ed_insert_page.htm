@@ -1,0 +1,329 @@
+<html>
+<head>
+<title>Insert Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<script runat="merc_server">
+	var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+			    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+	// Set the state for the image selection window
+	var pageName = doAction("REQ_GET_FORMVALUE", "PageTypeDropDown", "PageTypeDropDown");
+	if (!pageName)
+		pageName = '';
+	var selected = 0;
+	// Read the list of available page types out of WATWizardPageTypes cfg file
+	var pageTypes = generateObjectsFromCfg('WATWizardPageTypes');
+	var pageElements = generateObjectsFromCfg('WATWizardPages');
+	var pageList = generateSEObjects("");
+</script>
+
+<script language="JavaScript">
+	var imageName = "Your image";
+	var childWin;
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	var winName = 'WIZ_popup';
+	var master_js = opener.parent;
+	if (!document.all)
+	{
+		document.onkeyup=Key_Up;
+		document.captureEvents(Event.KEYUP);
+	}	
+
+	function Key_Up(e)
+	{
+		document.newpage.imgtext.value = imageName;
+	}
+	function submitImageChange(url, secureUrl, imgrow)
+	{
+		if (childWin)
+			childWin.close();
+		if (document.newpage.imgurl)
+			document.newpage.imgurl.value = url;
+		if (document.newpage.secureimgurl)
+			document.newpage.secureimgurl.value = secureUrl;
+		slash = url.lastIndexOf('/');
+		if (slash == -1)
+			slash = url.lastIndexOf('\\');
+		if (slash == -1)
+			imageName = url;
+		else
+			imageName = url.substr(slash+1);
+		if (document.newpage.imgtext)
+			document.newpage.imgtext.value = imageName;
+		if (document.newpage.imgrow)
+			document.newpage.imgrow.value = imgrow;
+	}
+	function editWindow ()
+	{
+		var editWinName = 'editWin';
+		var winObj = master_js.createSimpleSubmitWindow ('425', '750');
+		childWin = window.open ('', editWinName, winObj.createOutput());
+		master_js.SubmitForm ('L', 'ed_selectimage_frameset.htm', editWinName, '');
+		return false;
+	}
+	
+	function localSaveWindow ()
+	{
+		master_js.createAndWriteToPopUp ("150", "300", winName, baseUrl, 
+										master_js.gSAVING_PAGE, master_js.gWINDOW_WILL_CLOSE);
+	}
+
+
+	function SetImageURL()
+	{
+<script runat="merc_server">
+	if (pageName && pageName != '' && pageElements.ObjArray[pageName])
+	{
+		var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[pageName].Image);
+		var img = '', secImg = '';
+		var row = '';
+		if (properties && properties['source'])
+			img = properties['source'];
+		if (properties && properties['secure_source'])
+			secImg = properties['secure_source'];
+		write("var imageURL = '"+img+"';");
+		write("var secureUrl = '"+secImg+"';");
+		if (properties && properties['cfgrow'])
+			row = properties['cfgrow'];
+		write("var imageRow = '"+row+"';");
+	}
+	else
+	{
+		write("var imageURL = '';");
+		write("var imageRow = '';");
+		write("var secureUrl = '';");
+	}
+</script>
+		submitImageChange(imageURL, secureUrl, imageRow);
+	}
+
+	function hrefNewPage()
+	{
+		var index = document.newpage.PageTypeDropDown.selectedIndex;
+		var openWinName = "expandedWin";
+		if (document.newpage.PageTypeDropDown[index].value != 'New')
+		{
+			document.newpage.PageName.value = document.newpage.PageTypeDropDown[index].value;
+			var WinObj = master_js.createSimpleSubmitWindow ("500", "670");
+			/* if the wxpanded window is already open, just post to it, don't open it again */
+			if (self.name == openWinName)
+				master_js.SubmitForm ('SE_SelectNewPageType', 'ed_insert_page.htm', openWinName, document.newpage);
+			else
+				master_js.CloseWinOpenWinSubmitForm ('', 'SE_SelectNewPageType', 'ed_insert_page.htm', openWinName, document.newpage, WinObj);
+		}
+	}
+
+	function onclickNewPage()
+	{
+		if (document.newpage.PageTypeDropDown[document.newpage.PageTypeDropDown.selectedIndex].value == 'New')
+		{
+			var createWinName = 'createWin';
+			var winObj = master_js.createSimpleSubmitWindow('200', '450');
+			childWin = window.open('', createWinName, winObj.createOutput());
+			master_js.SubmitForm('L', 'ed_insert_page2.htm', createWinName, '');
+			return false;
+		}
+		return true;
+	}
+	
+
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body class="pop-up-bkgrd" onLoad="SetImageURL();
+if (opener.mainFrame.togglePleaseWaitLayer){
+		opener.mainFrame.togglePleaseWaitLayer('on');}" onUnload="
+	if (opener.mainFrame.togglePleaseWaitLayer){
+		opener.mainFrame.togglePleaseWaitLayer('off');}">
+<form name="newpage" action="javascript:void(0);">
+<input type="hidden" name="WizState" value="5">
+<table width="625" border="0" cellpadding="0" cellspacing="0" height="152" align="center">
+  <tr bgcolor="#FFFFCC"> 
+    <td width="35%" height="25" > <span class="page-title">&nbsp;Insert Page</span></td>
+    <td width="65%" height="25" >&nbsp;</td>
+      <!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<td width="33%" align="right"> <a href="javascript:void(opener.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_SITEPAGES_INSPG_POP+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" border="0" alt="Online Help" align="right"></a></td></tr>
+<!--END HELP WINDOW-->
+  <tr bgcolor="#FFFFCC" valign="top"> 
+    <td height="147" colspan="4" class="table-bkgrd-main">
+       <table width="96%" border="0" cellpadding="2" cellspacing="2" align="center">
+        <tr> 
+          <td height="25" colspan="5" align="center" valign="middle"> 
+<script runat="merc_server">
+	var maxPages = doAction ('DATA_GETLITERAL', 'ObjectName', gLICENSE_CFG, 'LiteralID', 'SITEMGR_MAX_PAGES');
+    var userPages = 0;
+    var bMaxPage = true;
+	for (var x = 0; x < pageList.pageList.length; x++)
+	{
+		if ( pageList.pageList[x] != gBASE_PAGE && pageList.pageList[x] != gCURRENT_PAGE &&
+			pageList.pageObjArray[pageList.pageList[x]][gLICENSE_FOR].toLowerCase() == "all" )
+			userPages++;
+	}
+    if (!isNaN(maxPages) && parseInt(maxPages) > 0 && userPages >= parseInt(maxPages))
+		writeln('<span class="warning-note">You have reached the maximum number of pages allowed for the package you purchased.  '+
+				'Please contact your Service Provider for information on upgrading your package.</span>');
+	else
+	{
+		bMaxPage = false;
+        writeln('<b><span class="field-label">Select page to insert:</span>'+
+				'<select name="PageTypeDropDown">');
+		writeln('<option value="New">New</option>');
+
+		for (var i=0; i < pageTypes.rowNames.length; i++)
+		{
+			var found = 0;
+			// If a page was already created by this name, it does not appear in this dropdown
+			for (var j=0; j < pageList.pageList.length; j++)
+			{
+				if (pageList.pageList[j] == pageTypes.rowNames[i])
+				{
+					found = 1;
+					break;
+				}
+			}
+			if (found == 0)
+			{
+				write('<option value="'+pageTypes.rowNames[i]+'"');
+				if (pageTypes.rowNames[i] == pageName)
+				{
+					write(' selected');
+					selected = 1;
+				}
+				write('>'+pageTypes.rowNames[i]+'</option>');
+			}
+		}
+
+        writeln('</select></b>');
+		writeln('<a href="javascript:hrefNewPage()" onClick="onclickNewPage();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Select_Nbtn_base.gif" width="86" height="30" align="absmiddle" border=0></a><span class="field-label">');
+
+<merc_embed>
+	  </td>
+        </tr>
+	<tr>
+	  <td height="16" width="9%" valign="middle">&nbsp;</td>
+	  <td height="16" width="64%" valign="middle">&nbsp;</td>
+	</tr>
+
+
+        <tr> 
+	  <td colspan="4" height="15" class="table-header2"><span class="field-label">&nbsp;Input 
+            content for this page</span>: 
+</merc_embed>
+	}
+	write('<b><input type="hidden" name="PageName" value="');
+	if (pageName && pageName != '')
+	{
+		write(pageName+'">');
+		write('"'+pageName+'"');
+	}
+	else
+		write('">');
+</script>
+		</b> 
+	  </td>
+        </tr>
+<script runat="merc_server">
+	if (pageName && pageTypes.ObjArray[pageName] &&
+		pageTypes.ObjArray[pageName].HTML && pageTypes.ObjArray[pageName].HTML != '')
+	{
+		LoadPageByName (pageName);
+
+		var file = doActionEx('DATA_READFILE', pageTypes.ObjArray[pageName].HTML,
+					'FileName', pageTypes.ObjArray[pageName].HTML,
+					'ObjectName', 'WATTemplates', 'FileType', 'txt');
+		write(doActionEx('PAR_PARSE_BUFFER', 'Result', 'document', file));
+		<merc_embed>
+<tr><td colspan="5">
+<div align="center"><a href="javascript:void(0)" onclick="self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a><a href="javascript:master_js.SubmitForm ('SE_ApplyTemplateChanges', 'layout1.htm','mainFrame', document.newpage);localSaveWindow();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" border="0"></a></div>
+</td></tr>
+		</merc_embed>
+	}
+	else if (!pageName || pageName == '')
+	{
+		if (!bMaxPage)
+			write("<tr><td colspan='5'>Select a page</td></tr>");
+		write("<tr><td colspan='5' align='center'><a href='javascript:void(0)' onclick='self.close();'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif' width='86' height='30' border='0' alt='Cancel'></a></td></tr>");
+	}
+	else
+	{
+		LoadPageByName (pageName);
+		<merc_embed>
+	<tr>
+		<td height="15" colspan="5" width="100%" class="instr-note">
+			Fields below are optional; nothing will appear if nothing is entered
+		</td>
+		</tr>
+	<tr> 
+          <td width="9%" height="15" class="field-label">Image:</td>
+          <td height="15" colspan="4" width="60%" nowrap>
+		<table border="0"><tr><td><input type="text" size="30" name="imgtext" value="" onKeyUp="this.value=imageName;"><input type="hidden" name="imgurl" value=""><input type="hidden" name="secureimgurl" value=""><input type="hidden" name="imgrow" value="">
+		</td><td>
+		<a href="javascript:void(0);" onClick="editWindow();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Select____Nbtn_base2.gif" border="0"></a>
+		</td></tr></table>
+            </td>
+        </tr>
+        <tr> 
+          <td width="9%" height="18" class="field-label">Header Text:</td>
+          <td height="18" colspan="4"> 
+		</merc_embed>
+	var text = '';
+	if (pageName && pageName != '' && pageElements.ObjArray[pageName])
+	{
+		var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[pageName].HeaderText);
+		if (properties && properties['text'])
+			text = properties['text'];
+		text = text.replace (/<br>/g, '\n');
+		text = escape(text);
+	}
+	write('<input type=text name="HeaderText" size=30 value="'+text+'">');
+		<merc_embed>
+          </td>
+        </tr>
+        
+        <tr> 
+          <td width="9%" height="15" class="field-label">Body Text:</td>
+          <td height="15" colspan="4"> 
+		</merc_embed>
+	var text = '';
+	if (pageName && pageName != '' && pageElements.ObjArray[pageName])
+	{
+		var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[pageName].BodyText);
+		if (properties && properties['text'])
+			text = properties['text'];
+		text = text.replace (/<br>/g, '\n');
+		text = escape(text);
+	}
+	write("<textarea name=\"BodyText\" cols=\"30\" wrap=\"off\">"+text+"</textarea>");
+		<merc_embed>
+          </td>
+        </tr>
+
+	<tr><td colspan="5">
+	<input type="hidden" name="TemplateScript" value="template.js">
+<div align="center"><a href="javascript:void(0)" onclick="self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a><a href="javascript:master_js.SubmitForm ('SE_ApplyTemplateChanges', 'layout1.htm','mainFrame', document.newpage);localSaveWindow();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" border="0"></a></div>
+<SCRIPT language=javascript>
+document.newpage.HeaderText.value = unescape(document.newpage.HeaderText.value);
+document.newpage.BodyText.value = unescape(document.newpage.BodyText.value);
+</SCRIPT>
+	</td></tr>
+		</merc_embed>
+	}
+</script>
+
+      </table>
+</td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

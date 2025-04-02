@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Select an Image</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<script language="JavaScript">
+
+	var useImageCategory = '';
+	<script runat="merc_server">
+	var useImageCategory = doAction('REQ_GET_FORMVALUE', "UseImageCategory", "UseImageCategory");
+	if (useImageCategory)
+		write ("useImageCategory = '"+escape(useImageCategory)+"';");
+	var in_wizard = doAction('ST_GET_STATEDATA', 'WizardSelectImage', 'WizardSelectImage');
+	if (in_wizard && in_wizard == 'true')
+		write('var master_js = opener.parent;');
+	else
+	{
+		<merc_embed>
+			if (opener && opener.gSCRIPT_FILE_NAME)
+				var master_js = opener;
+			else if (opener.opener && opener.opener.gSCRIPT_FILE_NAME)
+				var master_js = opener.opener;
+			else if (opener.parent && opener.parent.gSCRIPT_FILE_NAME)
+				var master_js = opener.parent;
+			else
+				var master_js = opener.parent.opener;
+		</merc_embed>
+	}
+	</script>
+
+	var Win = "", winName = 'ed_image_upload_save';
+	function openSaveWin ()
+	{
+		var winObj = master_js.createSimpleSubmitWindow ("150", "300");
+		Win = window.open ('', winName, winObj.createOutput());
+		Win.document.writeln ("<HTML><HEAD><TITLE>Dialog</TITLE>"+
+							"<link rel='stylesheet' type='text/css' href='/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css'>"+
+							"</HEAD><BODY CLASS='pop-up-bkgrd'><FONT CLASS='dialog-title'>" + master_js.gUPLOADING+
+							"</FONT><BR><FONT CLASS='instr-note'>"+master_js.gWINDOW_WILL_CLOSE+"</FONT></BODY></HTML>");
+		Win.document.close ();
+	}
+	function closeSaveWin ()
+	{
+		if (Win)
+			if (!Win.closed)
+				Win.close ();
+	}
+
+</script>
+</head>
+
+<frameset cols="350,400" rows="*" border="1" framespacing="0" onLoad = "
+if (useImageCategory.length > 0)
+{var args = new Array ('UseImageCategory', unescape (useImageCategory));}
+else
+{var args = new Array ();}
+master_js.SubmitForm ('L', 'ed_selectimage_left.htm', 'selectimage_left', args);">
+<frame name="selectimage_left" src="blank2.htm" frameborder="YES">
+<frame name="selectimage_right" src="blank2.htm">
+</frameset>
+<noframes><body bgcolor="#FFFFFF">
+
+</body></noframes>
+</html>

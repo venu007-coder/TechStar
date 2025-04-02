@@ -1,0 +1,308 @@
+<script runat="merc_server">
+
+	var wizPage = doAction('REQ_GET_FORMVALUE', "WizState", "WizState");
+	if (wizPage == 7)
+	{
+		//Update payment.cfg file
+		var creditcardtype = "";
+		var defaultcreditcardtypes = "";
+		var selectedcreditcardtypes="";
+		defaultcreditcardtypes   = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','default_credit_card_types');	
+		var arraydefaultcreditcardtypes    = new Array();
+		arraydefaultcreditcardtypes = defaultcreditcardtypes.split(",");
+		var len = 0;
+		var value = "NO";
+		len = arraydefaultcreditcardtypes.length;
+
+		//Update payment.cfg first 
+  		for (i=0; i < len; i++)
+  		{
+			creditcardtype = "";
+    		creditcardtype = doAction('REQ_GET_FORMVALUE', arraydefaultcreditcardtypes[i],arraydefaultcreditcardtypes[i]);
+			if (creditcardtype != "" && creditcardtype == arraydefaultcreditcardtypes[i])
+			{
+				if (selectedcreditcardtypes != "")
+				{
+					selectedcreditcardtypes = selectedcreditcardtypes + ",";
+				}
+				selectedcreditcardtypes = selectedcreditcardtypes + creditcardtype;
+			}
+   		}
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','default_credit_card_types_selected','NewValue',selectedcreditcardtypes);	
+
+		var onlineccauth = "";
+		value = "NO";
+		onlineccauth = doAction('REQ_GET_FORMVALUE', 'onlineccauth','onlineccauth');
+		if (onlineccauth != "" && onlineccauth  == "onlineccauth")
+		{
+			value = "YES";
+		}
+
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','online_credit_card_auth','NewValue',value);	
+		value = "NO";
+		var offlineccauth = "";
+		offlineccauth = doAction('REQ_GET_FORMVALUE', 'offlineccauth','offlineccauth');
+		if (offlineccauth != "" && offlineccauth  == "offlineccauth")
+		{
+			value = "YES";
+		}
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','offline_credit_card_auth','NewValue',value);	
+
+		value = "NO";
+		var offlinechecks = "";
+		offlinechecks = doAction('REQ_GET_FORMVALUE', 'offlinechecks','offlinechecks');
+		if (offlinechecks != "" && offlinechecks  == "offlinechecks")
+		{
+			value = "YES";
+		}
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','offline_checks','NewValue',value);	
+
+		value = "NO";
+		var onlinesubmission = "";
+		onlinesubmission = doAction('REQ_GET_FORMVALUE', 'onlinesubmission','onlinesubmission');
+		if (onlinesubmission != "" && onlinesubmission  == "onlinesubmission")
+		{
+			value = "YES";
+		}
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','ordertype_online_submission','NewValue',value);	
+
+		value = "NO";
+		var codcreditcard = "";
+		codcreditcard  = doAction('REQ_GET_FORMVALUE', 'COD_CREDITCARD','COD_CREDITCARD');
+		if (codcreditcard  != "" && codcreditcard   == "COD_CREDITCARD")
+		{
+			value = "YES";
+		}
+
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','cod_creditcard','NewValue',value);	
+
+		value = "NO";
+		var codcheck = "";
+		codcheck = doAction('REQ_GET_FORMVALUE', 'COD_CHECK','COD_CHECK');
+		if (codcheck != "" && codcheck == "COD_CHECK")
+		{
+			value = "YES";
+		}
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','cod_check','NewValue',value);	
+
+		value = "NO";
+		var codcash = "";
+		codcash = doAction('REQ_GET_FORMVALUE', 'COD_CASH','COD_CASH');
+		if (codcash != "" && codcash == "COD_CASH")
+		{
+			value = "YES";
+		}
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','cod_cash','NewValue',value);	
+
+		value = "NO";
+		var codmoneyorder = "";
+		codmoneyorder = doAction('REQ_GET_FORMVALUE', 'COD_CASH','COD_MONEYORDER');
+		if (codmoneyorder != "" && codmoneyorder == "COD_MONEYORDER")
+		{
+			value = "YES";
+		}
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','cod_moneyorder','NewValue',value);	
+
+		value = "NO";
+		var codcashierscheck = "";
+		codcashierscheck = doAction('REQ_GET_FORMVALUE', 'COD_CASH','COD_CASHIERSCHECK');
+		if (codcashierscheck  != "" && codcashierscheck == "COD_CASHIERSCHECK")
+		{
+			value = "YES";
+		}
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','cod_cashierscheck','NewValue',value);	
+
+		value = "NO";
+		var PurchaseOrder = "";
+		PurchaseOrder = doAction('REQ_GET_FORMVALUE', 'PURCHASEORDER','PURCHASEORDER');
+		if (PurchaseOrder != "" && PurchaseOrder  == "PURCHASEORDER")
+		{
+			value = "YES";
+		}
+		result = doActionEx('DATA_SETCONFIGDATA','NewValue','ObjectName','PAYMENT','ColName','value','RowName','purchaseorder','NewValue',value);	             
+	}
+
+
+</script>
+
+
+
+
+
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" class="penda-bkgrd" 
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg8), 
+		new Array (parent.topFrame.document.images.wizimg1, 
+					parent.topFrame.document.images.wizimg2, 
+					parent.topFrame.document.images.wizimg3, 
+					parent.topFrame.document.images.wizimg4, 
+					parent.topFrame.document.images.wizimg5,
+					parent.topFrame.document.images.wizimg6,
+					parent.topFrame.document.images.wizimg7,
+					parent.topFrame.document.images.wizimg9));">
+
+<form name="commerce" action="javascript:void(0);">
+	<input type="hidden" name="WizState" value="8">
+</form>
+
+
+<table width="625" border="0" cellpadding="0" cellspacing="0" height="189" align="center">
+  <tr bgcolor="#FFFFCC"> 
+    
+<td width="46%" height="25" > <span class="page-title">&nbsp;Security</span></td>
+    
+<td width="54%" height="25" >
+	 <div align="right">
+
+	<!--HELP WINDOW LINK-->
+	<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+	<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_RTL_SEC+SoftCart+{helpversion}+en-us', 'Alane'));">
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a>
+	<!--END HELP WINDOW LINK-->
+
+
+	<a href="javascript:parent.SubmitForm ('WIZ_WizardBack', 'comwiz_7.htm','mainFrame', document.commerce);">
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border="0"></a>
+
+	<a href="#" onClick="javascript:parent.SubmitForm ('WIZ_WizardNext', 'comwiz_9.htm','mainFrame', document.commerce);return false;"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Next_Nbtn_base.gif" width="86" height="30" border="0" alt="Next"></a>
+	</div>
+
+   </td>
+  </tr>
+  <tr bgcolor="#FFFFCC" valign="top"> 
+    <td height="147" colspan="2" class="table-bkgrd-main"> 
+      <div align="left"></div>
+      <blockquote>
+        
+<div align="left">
+          
+<script runat="merc_server">
+var CheckKeyName = doAction ('DATA_GETCONFIGDATA', 'ObjectName', 'SecurityCfg', 'RowName', 'PGPKeyName','ColName', 'Value');
+if((onlineccauth && onlineccauth=="onlineccauth") || CheckKeyName.toLowerCase() != "none")
+{
+	writeln("<p><span class='instr-note'><br>");
+	writeln("To ensure your online order data is secure, Mercantec recommends encrypting each order record. ");
+	writeln("Mercantec's Encryption Software is the most secure encryption software available that has been designed to ");
+	writeln("encrypt your online order data which contains shopper personal and credit card information. ");
+	writeln("To encrypt your data and secure your online store, please follow the easy two-step process: ");
+
+	writeln("<br><br><b>Step One: Install the Mercantec Encryption Software</b>");
+	writeln("<br>Once you download the software, you will be required to close this browser session and start the PowerRetail Wizard again. ");
+	writeln("Please note - you will NOT lose the work you have completed in Step 1 through Step 7.  Once the software is downloaded you will be ");
+	writeln("taken back to Step 8 in the Wizard where you can complete step two of the security process: Generating your Encryption Key.");
+
+	writeln("<br><br>If you have already downloaded the Mercantec Encryption Software, please move onto Step Two: ");
+	writeln("Generating your Encryption Key to secure your online store data.");
+
+	writeln("<br><br>If you do not wish to install your Mercantec Encryption Software at this time, click the 'Next' button to move onto Step 9 ");
+	writeln("of the Wizard. However, note that your store will not be able to receive online orders until the Software is downloaded and a PGP key is generated.");
+	
+	writeln("<br><br>");
+
+	writeln("<a href='http://www.mercantec.com/products/download/pgp/pgpdownload.htm' target='pgpdownload'>");
+	writeln("<font color='#0000FF'>download</font></a> the software now.");
+
+	writeln("<br><br><b>Step Two: Generate your Encryption Key</b>");
+	writeln("<br>Click on the <b>Generate New Key button</b>.  You will be prompted to create a pass phrase to protect your private key. ");
+	writeln("Your pass phrase must contain at least 8 characters including one non-alphabetical character."); 
+
+	writeln("<br><br>Once you have generated your encryption key, click the 'Next' button to move onto Step 9.");
+	writeln("</p>");
+	writeln("</span>");
+}
+else
+{
+	writeln("<p><span class='instr-note'><br>");
+	writeln("Mercantec places a high regard on security and encrypts all customer information transmitted through your online store automatically. ");
+	writeln("If you decide to accept credit cards online through your store in the future, you must download Mercantec's Encryption Software, ");
+	writeln("the most secure encryption software available - designed to encrypt your online order data which contains shopper personal and credit ");
+	writeln("card information automatically. Download instructions are available on PowerManager as well within the Help files of PowerRetail.");
+	writeln("</p>");
+	writeln("</span>");
+}
+	
+</script>
+
+
+        </div>
+      </blockquote>
+      <div align="left">
+        
+<div align="center">
+
+<script runat="merc_server">
+	// Verify commerce is installed
+    var sndRegJs = doActionEx ('DATA_READFILE','sendreg.js', 'FileName', 'sendreg.js',
+                               'ObjectName','JS_SRC', 'FileType', 'txt');
+	eval (sndRegJs);
+	var prodObj = getProdInfo();
+
+if((onlineccauth && onlineccauth=="onlineccauth") || CheckKeyName.toLowerCase() != "none")
+{
+	if (prodObj.POWER_RETAIL_LEVEL.Installed)
+	{
+		<merc_embed>
+			<table width="350" border="1" align="center" cellpadding="4" cellspacing="0">
+			<tr class="table-header">
+				<td nowrap height="18" class="table-header" colspan="2">New Encryption Key</td>
+			</tr>
+			<form name="form_genkey" >
+				<tr>
+				<td class="general-label" height="23" nowrap>
+					<merc_dynamic noshow=true name=SC_TabSelected action=REQ_GET_FORMVALUE TabSelected=TabSelected>
+					<script>
+					document.writeln('<input type="hidden" name="BrowserName" value="'+navigator.appName+'">');
+					document.writeln('<input type="hidden" name="BrowserTitle" value="'+document.title+'">');
+					document.writeln('<input type="hidden" name="TabSelected" value="{SC_TabSelected}">');
+					</script>
+					<div align="center">
+		</merc_embed>
+						//
+						// Only one PGP key can be uploaded.  This was done to prevent
+						// encrypting with multiple keys.
+						// If there is a PGP key name set in the "security.cfg" file,
+						// then just display a message indicating that a key has
+						// has alread been generated.
+						//
+						var CheckKeyName = doAction ('DATA_GETCONFIGDATA', 'ObjectName', 'SecurityCfg', 'RowName', 'PGPKeyName', 'ColName', 'Value');
+						if ( (CheckKeyName) && (CheckKeyName.toLowerCase() != "none") )
+						{
+						write('Your encryption key has been generated.');
+						}
+						else
+						{
+						write('<a href=\'javascript:void(parent.SubmitForm("L", "bm_keygen_wait.htm", "mainFrame", document.form_genkey));\'>');
+						write('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_gennewkey.gif" width="90" height="21" border="0">');
+						write('</a>');
+						}
+		<merc_embed>
+					</div>
+				</td>
+				</tr>
+			</form>
+			<br><br>
+			</table>
+		</merc_embed>
+	}
+}
+</script>
+
+</div>
+      </div>
+    </td>
+  </tr>
+
+</table>
+</body>
+</html>

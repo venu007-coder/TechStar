@@ -1,0 +1,968 @@
+<script runat=merc_server>
+
+function isInArray (key, arrayToSearch)
+{
+	for (var n = 0; n < arrayToSearch.length; n++)
+	{
+		if (arrayToSearch[n].toLowerCase() == key.toLowerCase())
+			return true;
+	}
+	return false;
+}
+
+function readFile(oldFile, bGetExt)
+{
+	var scriptFile = doActionEx('DATA_READFILE', 'common.js', 'FileName',
+					'common.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+	eval (scriptFile);
+	if (bGetExt)
+	{
+		var useThisName = oldFile, useThisExt = ".html";
+		var pageObjs = generateSEObjects (useThisName);
+		if (pageObjs.pageObjArray[useThisName] && pageObjs.pageObjArray[useThisName].FileExt)
+			useThisExt = pageObjs.pageObjArray[useThisName].FileExt;
+		oldFile = useThisName + useThisExt;
+	}
+	// read the file based on the given page name - oldFile will be displayed
+	// to support the old demo store (this is temporary)
+	var pageName = doAction('REQ_GET_FORMVALUE', 'PageName', 'PageName');
+	if (pageName)
+		pageName = unescape(pageName);
+	var pageObj = 'WATPublishDir';
+	var preview = doAction('REQ_GET_FORMVALUE', 'Preview', 'Preview');
+	if (preview && preview == '1')
+		pageObj = 'WATPreviewDir';
+	if (!pageName || pageName == '')
+	{
+		// Remove this once we have WAT fully integrated, this is the old demo
+		pageName = oldFile;
+		//pageObj = 'StoreHTML';
+	}
+	return getWebPage(pageName, pageObj, preview);
+}
+function readPageByType(type)
+{
+	var scriptFile = doActionEx('DATA_READFILE', 'common.js', 'FileName',
+					'common.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+	eval (scriptFile);
+	var pageName = PageNameByType('', type);
+	pageName = unescape(pageName);
+	var ext = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'SiteEditorCfg', 'RowName', pageName, 'ColName', 'FileExt');
+	if (!ext || ext == '')
+		ext = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'SiteEditorCfg', 'RowName', gBASE_PAGE, 'ColName', 'FileExt');
+	pageName += ext;
+	var pageObj = 'WATPublishDir';
+	var preview = doAction('REQ_GET_FORMVALUE', 'Preview', 'Preview');
+	if (preview && preview == '1')
+		pageObj = 'WATPreviewDir';
+	return getWebPage(pageName, pageObj, preview);
+}
+function readPageByPaymentType()
+{
+	var scriptFile = doActionEx('DATA_READFILE', 'Payment.js', 'FileName',
+			'Payment.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+	eval (scriptFile);
+
+	var whichFile;
+	var typesObj = getPaymentTypes();
+	if (typesObj.typesArray.length > 1)
+		whichFile = readPageByType('PaymentType');
+	else if (typesObj.typesArray.length == 1)
+	{
+		var pageType = 'PaymentType';//'PostOrder';
+		switch (typesObj.typesArray[0])
+		{
+			case 0: pageType = 'TakeCC'; break;
+			case 8: pageType = 'TakePO'; break;
+		}
+		whichFile = readPageByType(pageType);
+	}
+	else
+		whichFile = readPageByType('ConfirmOrder');
+	return whichFile;
+}
+
+
+var affiliateID = doAction('REQ_GET_FORMVALUE', 'RefID', 'RefID');
+if (affiliateID != undefined && affiliateID != '')
+	doAction('ST_SET_STATEDATA', 'RefID', affiliateID);
+
+var badCharArray = new Array ("/", "\\", "\t", ":", ";", "*", "\"", "|");
+var dsp = "&nbsp;&nbsp;";
+var badCharDisplay = ("/"+dsp+"\\"+dsp+"&lt;tab&gt;"+dsp+":"+dsp+";"+dsp+"*"+dsp+"\""+dsp+"|");
+	
+var output = "";
+var whichAction;
+
+	whichAction=doAction("REQ_GET_FORMVALUE", "sh_action", "sh_action");
+
+if (whichAction == 'entry')
+{
+	// Begin New For Service
+	var sndRegJs = doActionEx ('DATA_READFILE','sendreg.js', 'FileName', 'sendreg.js',
+								'ObjectName','JS_SRC', 'FileType', 'txt');
+	eval (sndRegJs);
+	var prodObj = getProdInfo();
+
+	if (prodObj)
+	{
+		//check if session file exists
+		var sessionid = doActionEx("ST_GET_STATEDATA","Result","SessionID","SessionID");
+	
+		// if service and retail are installed create a new session upon entry to avoid
+		// accidentally mixing the carts
+		// also, if no session id exists start a new session
+		if ((prodObj.POWER_SERVICE_LEVEL.Installed && prodObj.POWER_RETAIL_LEVEL.Installed) || (!sessionid))
+			doAction("ST_CREATE_SESSION");
+	}
+	// End New New For Service
+	doAction("ST_SET_STATEDATA","currentNode",9000);
+	var whichFile = readFile('choose_prod_serv.htm', false);
+	output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+}
+else if (whichAction == 'reentry')
+{
+	// Begin New For Service
+	var sndRegJs = doActionEx ('DATA_READFILE','sendreg.js', 'FileName', 'sendreg.js',
+								'ObjectName','JS_SRC', 'FileType', 'txt');
+	eval (sndRegJs);
+	var prodObj = getProdInfo();
+
+	// create a new session after an order has already been placed once.
+	if (prodObj)
+		doAction("ST_CREATE_SESSION");
+
+	// End New New For Service
+	doAction("ST_SET_STATEDATA","currentNode",9000);
+	var whichFile = readFile('choose_prod_serv.htm', false);
+	output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+}
+else if (whichAction == "link")
+{
+	var whichFile = readFile('', false);
+	output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+}
+else if (whichAction == "noparse")
+{
+	output = readFile('', false);
+}
+else if (whichAction == "viewcatalog")
+{
+	curNode = doActionEx("REQ_GET_FORMVALUE","Result","currentNode","currentNode");
+	if (curNode == undefined)
+	{
+		// set curNode to the root product level
+		curNode = 9000;
+	}
+	doAction("ST_SET_STATEDATA","currentNode",curNode);
+	var whichFile = readFile('viewcatalog.htm', false);
+	output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+}
+else if (whichAction == 'viewitem')
+{
+	var whichFile;
+		// New WAT sites need to load the item cache here
+		// Old demo loads the cache on the viewitem.htm page
+		var itemKey = doAction("REQ_GET_FORMVALUE","ItemKey","ItemKey");
+		if (itemKey)
+		{
+			MERC_ITEMCACHE.Reset();
+			MERC_ITEMCACHE.LoadItem(itemKey);
+		}
+
+		var pageName = doAction('REQ_GET_FORMVALUE', 'PageName', 'PageName');
+		if (!pageName || pageName == '')
+			whichFile = readPageByType("ItemPage");
+		else
+			whichFile = readFile(pageName, false);
+	output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+}
+else if (whichAction == 'updateitemattr')
+{
+	var updateItem = doActionEx("REQ_GET_FORMVALUE","Result","UpdateItem","UpdateItem");
+	var attrBDO = doActionBDO("IC_ATTRIBUTES_GET","RowName",updateItem);
+	// For PadLeft
+	var cs_inc = doActionEx('DATA_READFILE', 'ServicesLib.js', 'FileName', 'ServicesLib.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+
+	var i = 1;
+	while (true)
+	{
+		var attrID = attrBDO[PadLeft("ID",i)];
+		if (!attrID)
+			break;
+
+		var attrDataBDO = doActionBDO("IC_ATTRIBUTE_DATA_GET", "RowName", updateItem, "AttrID", attrID);
+
+		if (attrDataBDO)
+		{
+			var newdata = doActionEx("REQ_GET_FORMVALUE","Result",attrID.toString(),attrID.toString());
+
+			if (newdata && newdata != 'none')
+			{
+				if (attrDataBDO.InputType == 0)
+					doAction('IC_ATTRIBUTE_SET','AttrID',attrID,'RowName',updateItem,'Text',newdata);
+				else if (attrDataBDO.InputType == 1)
+					doAction('IC_ATTRIBUTE_SET','AttrID',attrID,'RowName',updateItem,'YESNO',newdata);
+				else if (attrDataBDO.InputType == 2)
+					doAction("IC_ATTRIBUTE_CHOICE_SET","RowName",updateItem,"AttrID",attrID,"ChoiceID",parseInt(newdata));
+			}
+		}
+		i++;
+	}
+
+	var whichFile = readPageByType('ItemPage');
+	output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+}
+else if (whichAction == "addtocart")
+{
+	var newItem = doAction("REQ_GET_FORMVALUE", "ItemKey", "ItemKey");
+	var ItemType = doAction("REQ_GET_FORMVALUE", "ItemType", "ItemType");
+	var AppointmentMade = doAction("REQ_GET_FORMVALUE", "AppointmentMade", "AppointmentMade");
+
+	if (ItemType == 'service' && AppointmentMade != 'YES')
+	{
+		var whichFile = doActionEx('DATA_READFILE','setappointment.htm', 'FileName', 'setappointment.htm','ObjectName','StoreHTML','FileType','txt');
+		output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+	}
+	else
+	{
+		var CartRow = MERC_ITEMCACHE.AddToCart(newItem);
+		var qty = doAction("REQ_GET_FORMVALUE", "ItemQuantity", "ItemQuantity");
+		if (qty && qty != '')
+		{
+			// The ItemCache does not take a quantity, so loop and add repeatedly.
+			var q = parseInt(qty);
+			while (--q > 0)
+				MERC_ITEMCACHE.AddToCart(newItem);
+		}
+		if (ItemType == 'service')
+		{
+			var ApptDay = doAction("REQ_GET_FORMVALUE", "ApptDay", "ApptDay");
+			var ApptMonth = doAction("REQ_GET_FORMVALUE", "ApptMonth", "ApptMonth");
+			var ApptYear = doAction("REQ_GET_FORMVALUE", "ApptYear", "ApptYear");
+			var FromHour = doAction("REQ_GET_FORMVALUE", "FromHour", "FromHour");
+			var FromMinute = doAction("REQ_GET_FORMVALUE", "FromMinute", "FromMinute");
+			var FromAMPM = doAction("REQ_GET_FORMVALUE", "FromAMPM", "FromAMPM");
+
+			MERC_SHOPCART.AddColumn('Items', 'ApptDay', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptMonth', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptYear', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptHour', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptMinute', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'ApptAMPM', 'NONE', 'MERC_STRING', -1);
+			MERC_SHOPCART.AddColumn('Items', 'Duration', 'NONE', 'MERC_STRING', -1);
+
+			MERC_SHOPCART.SetField('Items', CartRow, 'ApptDay', ApptDay);
+			MERC_SHOPCART.SetField('Items', CartRow, 'ApptMonth', ApptMonth);
+			MERC_SHOPCART.SetField('Items', CartRow, 'ApptYear', ApptYear);
+			MERC_SHOPCART.SetField('Items', CartRow, 'ApptHour', FromHour);
+			MERC_SHOPCART.SetField('Items', CartRow, 'ApptMinute', FromMinute);
+			MERC_SHOPCART.SetField('Items', CartRow, 'ApptAMPM', FromAMPM);
+
+			var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "CAT_Services", "Filter", "ItemID=" + MERC_SHOPCART.GetField("Items",CartRow,"ID"));
+			if (!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "CAT_Services"))
+			{
+				var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "CAT_Services", "QueryID",qID);
+				if (resultset != undefined && resultset.Duration != undefined)
+					MERC_SHOPCART.SetField('Items', CartRow, 'Duration', String(resultset.Duration));
+			}
+		}
+
+		var done = doAction('ST_GET_STATEDATA','BTST_DONE','BTST_DONE');
+		var whichFile;
+
+			if (done == 'YES')
+				// show the cart
+				whichFile = readFile('modcart.htm', false);
+			else
+				// do bill to ship to
+				whichFile = readPageByType('GeoPrompt');
+		output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+	}
+}
+else if (whichAction == 'SetAppointment')
+{
+	var whichFile = readFile('setappointment.htm', false);
+	output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+}
+else if (whichAction == "viewCart")
+{
+	sortby = doAction("REQ_GET_FORMVALUE","sortby","sortby");
+	ascending = doAction("REQ_GET_FORMVALUE","dir","dir");
+	var whichFile = doActionEx('DATA_READFILE','modcart.htm', 'FileName', 'modcart.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "modifyCart")
+{
+	var action;
+	var co = false;
+
+		action = doAction("REQ_GET_FORMVALUE","Submit","Submit");
+		if (action == "Check_Out")
+			co = true;
+
+	var hasServices = doAction("REQ_GET_FORMVALUE","hasServices","hasServices");
+	var hasProducts = doAction("REQ_GET_FORMVALUE","hasProducts","hasProducts");
+
+	if (co)
+	{
+		var whichFile;
+
+		if (doAction('ST_GET_STATEDATA','BTST_DONE','BTST_DONE') == 'YES')
+		{
+			whichFile = readPageByPaymentType();
+		}
+		else
+		{
+			doAction('ST_SET_STATEDATA','Caller','checkout');
+			whichFile = readPageByType('GeoPrompt');
+		}
+
+		output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+	}
+	else
+	{
+		var cntu = false;
+		if (action == "Continue_Shopping")
+			cntu = true;
+		if (cntu)
+		{
+			doAction("ST_SET_STATEDATA","currentNode",9000);
+			whichFile = readPageByType('ShopHome');
+			output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+		}
+		else
+		{
+			var whichFile = readPageByType('ModCart');
+			output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+		}
+	}
+}
+else if (whichAction == "applyChanges")
+{
+	for (var itemID = MERC_SHOPCART.GetFirstRow("Items"); itemID != "END_OF_TABLE";)
+	{
+		tempID = MERC_SHOPCART.GetNextRow("Items",itemID);
+		quantity = doAction("REQ_GET_FORMVALUE", itemID, itemID);
+		MERC_SHOPCART.SetField("Items",itemID,"Quantity",eval(quantity));
+		itemID = tempID;
+	}
+	var whichFile = doActionEx('DATA_READFILE','modcart.htm', 'FileName', 'modcart.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "contactPage")
+{
+	var whichFile = doActionEx('DATA_READFILE','contact.htm', 'FileName', 'contact.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "displayBillToShipTo")
+{
+	//var whichFile = doActionEx('DATA_READFILE','chooseshippingzone.html', 'FileName', 'chooseshippingzone.html','ObjectName','StoreHTML','FileType','txt');
+	doAction('ST_DELETE_STATEDATA','Caller','Caller');
+	whichFile = readPageByType('GeoPrompt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "setShippingZone")
+{
+	var shippingZone = doAction("REQ_GET_FORMVALUE", "shippingZone", "shippingZone");
+	doAction("SHIP_SET_ZONE","FieldName","shippingZone","ShippingZone",eval(shippingZone));
+	var whichFile = doActionEx('DATA_READFILE','modcart.htm', 'FileName', 'modcart.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "adminCat")
+{
+	var whichFile = doActionEx('DATA_READFILE','cniadmin.htm', 'FileName', 'cniadmin.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "adminCatView")
+{
+	var whichFile = doActionEx('DATA_READFILE','catView.htm', 'FileName', 'catView.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "adminCatControl")
+{
+	var whichFile = doActionEx('DATA_READFILE','catControl.htm', 'FileName', 'catControl.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "setBillToShipTo")
+{
+	var missingString = '', bOk = false;
+	var reqFields = doAction('REQ_GET_FORMVALUE', "reqFields", "reqFields");
+	if (!reqFields)
+		reqFields="BillToName	BillToAddress1	BillToSubRegion	BillToRegion	BillToPostalCode	BillToCountry	BillToDaytimePhone	BillToEveningPhone	BillToEmailAddress	shippingZone	ShipToName	ShipToAddress1	ShipToSubRegion	ShipToRegion	ShipToPostalCode	ShipToCountry	ShipToDaytimePhone	ShipToEveningPhone";
+	reqFields = reqFields.split("\t");
+	
+	var badCharString = "";
+	
+	var btArray = new Array (
+		new btstStruct ("BillToName", "BillToName", "ShipToName", "Billing Name", "", false),
+		new btstStruct ("BillToAddress1", "Address1", "Address1", "Billing Address", "", false),
+		new btstStruct ("BillToAddress2", "Address2", "Address2", "Billing Address Continued", "", false),
+		new btstStruct ("BillToSubRegion", "SubRegion", "SubRegion", "Billing City", "", false),
+		new btstStruct ("BillToRegion", "Region", "Region", "Billing State/Province", "", true),
+		new btstStruct ("BillToPostalCode", "PostalCode", "PostalCode", "Billing Postal Code", "", false),
+		new btstStruct ("BillToCountry", "Country", "Country", "Billing Country", "", true),
+		new btstStruct ("BillToDaytimePhone", "DaytimePhone", "DaytimePhone", "Billing Daytime Phone", "", false),
+		new btstStruct ("BillToEveningPhone", "EveningPhone", "EveningPhone", "Billing Evening Phone", "", false),
+		new btstStruct ("BillToEmailAddress", "EmailAddress", "", "Billing E-mail Address", "", false)
+	)
+	
+	var stArray = new Array (
+		new btstStruct ("ShipToName", "ShipToName", "", "Shipping Name", "", false),
+		new btstStruct ("ShipToAddress1", "Address1", "", "Shipping Address", "", false),
+		new btstStruct ("ShipToAddress2", "Address2", "", "Shipping Address Continued", "", false),
+		new btstStruct ("ShipToSubRegion", "SubRegion", "", "Shipping City", "", false),
+		new btstStruct ("ShipToRegion", "Region", "", "Shipping State/Province", "", true),
+		new btstStruct ("ShipToPostalCode", "PostalCode", "", "Shipping Postal Code", "", false),
+		new btstStruct ("ShipToCountry", "Country", "", "Shipping Country", "", true),
+		new btstStruct ("ShipToDaytimePhone", "DaytimePhone", "", "Shipping Daytime Phone", "", false),
+		new btstStruct ("ShipToEveningPhone", "EveningPhone", "", "Shipping Evening Phone", "", false),
+		new btstStruct ("Special", "Special", "", "Special Instructions", "", false)
+	)
+
+	// set the bill to address
+	billToRowName = MERC_SHOPCART.GetFirstRow("BillTo");
+	if((billToRowName == "END_OF_TABLE") || (!billToRowName))
+		billToRowName = doActionEx("SC_ADD_ROW","RowName","TableName","BillTo");
+		
+	var retStruct = btstProcess (btArray, "BillTo", billToRowName, badCharArray, reqFields);
+	missingString = retStruct.missingString;
+	badCharString = retStruct.badCharString;
+	
+	crmQuery = doAction("REQ_GET_FORMVALUE", "crmquery", "crmquery");
+
+	// set the shipping address and zone
+	// set the shipping zone
+	var shippingZone = doAction("REQ_GET_FORMVALUE", "shippingZone", "shippingZone");
+	if (shippingZone != undefined && shippingZone != '')
+		doAction("SHIP_SET_ZONE","FieldName","shippingZone","ShippingZone",eval(shippingZone));
+//	else if (isInArray ("shippingZone", reqFields))
+//		missingString += 'Shipping Zone,';
+
+	// set the ship to address
+	// but first find out if it is the same as the billing address
+	var ShipToSameAsBillTo = doAction("REQ_GET_FORMVALUE", "ShipToSameAsBillTo", "ShipToSameAsBillTo");
+	if(!ShipToSameAsBillTo)
+		ShipToSameAsBillTo="false";
+
+	shipToRowName = MERC_SHOPCART.GetFirstRow("ShipTo");
+	MERC_SHOPCART.SetField("ShipTo",shipToRowName, "SameAsBillTo", ShipToSameAsBillTo);
+
+	if((shipToRowName == "END_OF_TABLE") || (!shipToRowName))
+		shipToRowName = doActionEx("SC_ADD_ROW","RowName","TableName","ShipTo");
+
+	// if the ship to address is the same as the bill to address do the below stuff
+	if(ShipToSameAsBillTo=="true")
+	{
+		for (var n = 0; n < btArray.length; n++)
+		{
+			if (btArray[n].value && btArray[n].value.length > 0 && btArray[n].altTabVal.length > 0)
+			{
+				if (btArray[n].bInt)
+					MERC_SHOPCART.SetField("ShipTo",shipToRowName, btArray[n].altTabVal, parseInt(btArray[n].value));
+				else
+					MERC_SHOPCART.SetField("ShipTo",shipToRowName, btArray[n].altTabVal, btArray[n].value);
+			}
+		}
+
+		shipToSpecial = doAction("REQ_GET_FORMVALUE", "Special", "Special");
+		MERC_SHOPCART.SetField("ShipTo",shipToRowName, "Special", shipToSpecial);
+	}
+	else	//ship to address is different than bill to address
+	{
+		var retStruct = btstProcess (stArray, "ShipTo", shipToRowName, badCharArray, reqFields);
+		missingString += retStruct.missingString;
+		badCharString += retStruct.badCharString;	
+	}
+
+	// find out who called me
+	var caller = doAction("ST_GET_STATEDATA","Caller","Caller");
+	// and what button submitted me
+	var whichSubmit = doAction("REQ_GET_FORMVALUE", "Submit", "Submit");
+
+	var whichFile = '';
+
+	doAction('ST_DELETE_STATEDATA','BTST_MISSING_FIELDS','BTST_MISSING_FIELDS');
+	doAction('ST_DELETE_STATEDATA','BTST_BADCHAR_FIELDS','BTST_BADCHAR_FIELDS');
+	
+	doAction('ST_SET_STATEDATA','BTST_MISSING_FIELDS',missingString);
+	doAction('ST_SET_STATEDATA','BTST_BADCHAR_TYPES',badCharDisplay);
+	doAction('ST_SET_STATEDATA','BTST_BADCHAR_FIELDS',badCharString);
+	
+	if (missingString.length == 0 && badCharString.length == 0)
+	{
+		bOk = true;
+		doAction('ST_SET_STATEDATA','BTST_DONE','YES');
+	}
+		
+	var hasServices = doAction("REQ_GET_FORMVALUE","hasServices","hasServices");
+	if((caller && caller == "checkout"))
+	{
+		if (hasServices == 'YES')
+			whichFile = readFile('verify.htm', false);
+		else if (!bOk)
+		{
+			whichFile = readPageByType('GeoPrompt');
+		}
+		else
+		{
+			doAction('ST_DELETE_STATEDATA','Caller','Caller');
+			whichFile = readPageByPaymentType();
+		}
+	}
+	else
+	{
+		if (whichSubmit == 'Continue Shopping')
+		{
+			doAction("ST_SET_STATEDATA","currentNode",9000);
+			whichFile = readPageByType('ShopHome');
+		}
+		else if (whichSubmit == 'Show Cart')
+		{
+			whichFile = readPageByType('ModCart');
+		}
+	}
+
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "sched_svcs")
+{
+	var whichFile = readFile('ScheduleSvcs', true);
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "sched")
+{
+	var whichFile = '';
+	var submitReason = doActionEx("REQ_GET_FORMVALUE","Result","submit","submit");
+	if (submitReason == 'Services')
+	{
+		whichFile = readFile('ScheduleSvcs', true);
+	}
+	else if (submitReason == 'Done - Send Request')
+	{
+		if (doAction("ST_GET_STATEDATA","IDENTIFY_DONE", "IDENTIFY_DONE") != 'YES')
+		{
+			whichFile = readFile('ScheduleIdentify', true);
+		}
+		else
+		{
+			whichFile = readFile('ScheduleThanks', true);
+		}
+	}
+	else if (submitReason == 'Send Request')
+	{
+			var btArray = new Array (
+			new btstStruct ("Email", "EmailAddress", "", "E-mail", "", false),
+			new btstStruct ("crmquery", "crmquery", "", "crmquery", "", true),
+			new btstStruct ("Name", "BillToName", "", "Name", "", false),
+			new btstStruct ("Address1", "Address1", "", "Address", "", false),
+			new btstStruct ("Address2", "Address2", "", "Address Continued", "", false),
+			new btstStruct ("City", "SubRegion", "", "City", "", false),
+			new btstStruct ("State", "Region", "", "State", "", true),
+			new btstStruct ("Zip", "PostalCode", "", "Zip", "", false),
+			new btstStruct ("Phone", "DaytimePhone", "", "Phone", "", false),
+			new btstStruct ("Comments", "Comments", "", "Comments", "", false)
+		)
+		
+		var reqFields = new Array ("Name", "Address1", "City", "State", "Zip", "Phone", "Email");
+
+		var BillToRow = MERC_SHOPCART.GetFirstRow("BillTo");
+		if (BillToRow == 'END_OF_TABLE')
+		{
+			BillToRow = doActionEx("SC_ADD_ROW","RowName","TableName","BillTo");
+			MERC_SHOPCART.AddColumn('BillTo', 'Comments', 'NONE', 'MERC_STRING', -1);
+		}
+		
+		var retStruct = btstProcess (btArray, "BillTo", BillToRow, badCharArray, reqFields);
+		var missingString = retStruct.missingString;
+		var badCharString = retStruct.badCharString;
+		
+		doAction('ST_DELETE_STATEDATA','IDENTIFY_MISSING','IDENTIFY_MISSING');
+		doAction('ST_DELETE_STATEDATA','IDENTIFY_BAD','IDENTIFY_BAD');
+		
+		if (missingString.length == 0 && badCharString.length == 0)
+		{
+			// set the email for CRM
+			setCRMEmail (getBtstVal ("Email", btArray), getBtstVal ("crmquery", btArray));
+			whichFile = readFile('ScheduleThanks', true);
+		}
+		else
+		{
+			doAction('ST_SET_STATEDATA','IDENTIFY_MISSING',missingString);
+			doAction('ST_SET_STATEDATA','IDENTIFY_BADCHAR_TYPES',badCharDisplay);
+			doAction('ST_SET_STATEDATA','IDENTIFY_BAD',badCharString);
+			whichFile = readFile('ScheduleIdentify', true);
+		}
+	}
+
+	if (whichFile == '')
+	{
+		whichFile = readFile('Schedule', true);
+	}
+
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "commitOrder")
+{
+	cctype = doActionEx("REQ_GET_FORMVALUE","Result","cctype","cctype");
+	ccnum = doActionEx("REQ_GET_FORMVALUE","Result","ccnum","ccnum");
+	ccmonth = doActionEx("REQ_GET_FORMVALUE","Result","ccmonth","ccmonth");
+	ccyear = doActionEx("REQ_GET_FORMVALUE","Result","ccyear","ccyear");
+	ccmonth = eval(ccmonth);
+	ccyear = eval(ccyear);
+
+	result = MERC_ORDER.Commit(ccnum,cctype,ccmonth,ccyear);
+	if (result.Verified == "SUCCEEDED")
+	{
+		var whichFile = doActionEx('DATA_READFILE','thankyou.htm', 'FileName', 'thankyou.htm','ObjectName','StoreHTML','FileType','txt');
+		output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+	}
+	else
+	{
+		doAction("ST_SET_STATEDATA","DeclineReason",result.ErrorMessage);
+		var whichFile = doActionEx('DATA_READFILE','decline.htm', 'FileName', 'decline.htm','ObjectName','StoreHTML','FileType','txt');
+		output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+	}
+}
+else if (whichAction == "checkOut")
+{
+	var btstdone = doAction('ST_GET_STATEDATA','BTST_DONE','BTST_DONE');
+
+	if (btstdone == 'YES')
+		whichFile = doActionEx('DATA_READFILE','takeorder.htm', 'FileName', 'takeorder.htm','ObjectName','StoreHTML','FileType','txt');
+	else
+	{
+		doAction("ST_SET_STATEDATA","Caller","checkout");
+		whichFile = doActionEx('DATA_READFILE','cust_billtoshipto.htm', 'FileName', 'cust_billtoshipto.htm','ObjectName','StoreHTML','FileType','txt');
+		doAction("ST_DELETE_STATEDATA","Caller","Caller");
+	}
+
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "SetAppointments")
+{
+	var whichFile = doActionEx('DATA_READFILE','setappointments.htm', 'FileName', 'setappointments.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "paymentType")
+{
+	var type = parseInt(doAction("REQ_GET_FORMVALUE","paymentType","paymentType"));
+	doAction('ST_DELETE_STATEDATA', 'TakeOrderResult', 'TakeOrderResult');
+	var pageType = 'ConfirmOrder';
+	switch (type)
+	{
+		case 0: pageType = 'TakeCC'; break;
+		case 8: pageType = 'TakePO'; break;
+	}
+	whichFile = readPageByType(pageType);
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "takeorder")
+{
+	var whichFile;
+	var pageType = 'PaymentType';
+	pageType = TakeOrder(pageType);
+	whichFile = readPageByType(pageType);
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "verifypo")
+{
+	// Move on to the confirm page 
+	pageType = "ConfirmOrder";
+	whichFile = readPageByType(pageType);
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "verifycc")
+{
+	var whichFile;
+	var action = doAction("REQ_GET_FORMVALUE","Continue_Shopping","Continue_Shopping");
+	if (action)
+	{
+		doAction("ST_SET_STATEDATA","currentNode",9000);
+		whichFile = readFile('viewcatalog.htm', false);
+		output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+	}
+	else
+		whichFile = readFile('verify.htm', false);
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "configCartTemplate")
+{
+	var whichFile = doActionEx('DATA_READFILE','configCartTemplate.htm', 'FileName', 'configCartTemplate.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == "DiscountItemList")
+{
+	var whichFile = doActionEx('DATA_READFILE','DiscountItemList.htm', 'FileName', 'DiscountItemList.htm','ObjectName','StoreHTML','FileType','txt');
+	output = doActionEx("PAR_PARSE_BUFFER","Result","document",whichFile);
+}
+else if (whichAction == 'search')
+{
+	var whichFile;
+	whichFile = readPageByType('CatSearch');
+	output = doAction('PAR_PARSE_BUFFER','document',whichFile);
+}
+else
+{
+	output += "Please accept out apologies. The chosen course of action is not yet supported";
+}
+
+//if(MERC_ERRORCMP.GetErrorCount() > 0)
+//	output += MERC_ERRORCMP.ProcessQueue("paul@compinnovations.com", "errtest.txt");
+
+write(output);
+
+
+function TakeOrder(pageType)
+{
+	//include Formatting Library
+	var cs_inc = doActionEx ('DATA_READFILE','FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc)
+
+	//var LOCALE_STRING="en";
+	var LOCALE_STRING=getBrowserLocale();
+	var PRECISION = getDefaultPrecision();
+
+
+	// if there are no items in the cart do not place an order.
+	// this may happen if the shopper hits the back button and then tries to resubmit the order.
+
+	// count the items in the cart
+	var itemCount = 0;
+
+	for (var currentShipTo = MERC_SHOPCART.GetFirstRow("ShipTo"); currentShipTo != "END_OF_TABLE"; currentShipTo= MERC_SHOPCART.GetNextRow("ShipTo",currentShipTo))
+		for (var itemID = MERC_SHOPCART.GetFirstRow("Items","ShipTo ",currentShipTo); itemID != "END_OF_TABLE"; itemID = MERC_SHOPCART.GetNextRow("Items",itemID,"ShipTo",currentShipTo))
+			itemCount++;
+
+	// we need to break out early and not attempt to place an new order if there are no items in the cart
+	if (itemCount < 1)
+	{
+		bContinue = false;
+		return "PostOrder";
+	}
+
+	var storeEmail = doAction('DATA_GETLITERAL','ObjectName','storecfg','LiteralID','StoreEmail');
+
+	var bdoIn = GetBDO();
+	var bContinue = true;
+	var tempi = doActionEx("REQ_GET_FORMVALUE","Result","paymentType","paymentType");
+	bdoIn.PaymentType = parseInt(tempi);
+
+	if (bdoIn.PaymentType == 0)
+	{
+		pageType = 'TakeCC';
+		var nameOnCard = doActionEx("REQ_GET_FORMVALUE","Result","nameOnCard","nameOnCard");
+		var cardType = doActionEx("REQ_GET_FORMVALUE","Result","cardType","cardType");
+		var ccnum = doActionEx("REQ_GET_FORMVALUE","Result","ccnum","ccnum");
+		var expireMonth = doActionEx("REQ_GET_FORMVALUE","Result","expireMonth","expireMonth");
+		var expireYear = doActionEx("REQ_GET_FORMVALUE","Result","expireYear","expireYear");
+		if (nameOnCard == "" || ccnum == "" || expireMonth == "" || expireYear == "" || cardType == "")
+		{
+			errstr = "All fields are required";
+			doAction("ST_SET_STATEDATA","TakeOrderError", errstr);
+			doAction("ST_SET_STATEDATA","TakeOrderResult", "Failed");
+			bContinue = false;
+		}
+		else
+		{
+			var valid = doAction('MRA_PAYMENT_CC_MOD_CHECK', 'CCnum', ccnum);
+			if (valid == false)
+			{
+				errstr = "Invalid credit card number entered";
+				doAction("ST_SET_STATEDATA","TakeOrderError", errstr);
+				doAction("ST_SET_STATEDATA","TakeOrderResult", "Failed");
+				bContinue = false;
+			}
+			else
+			{
+				var curDateObj = new Date();
+				var curYear = curDateObj.getYear() + 1900;
+				var curMonth = curDateObj.getMonth() + 1;
+
+				if ((expireYear < curYear) || ((expireYear == curYear) && (expireMonth < curMonth)))
+				{
+					errstr = "Card is expired"
+					doAction("ST_SET_STATEDATA","TakeOrderError", errstr);
+					doAction("ST_SET_STATEDATA","TakeOrderResult", "Failed");
+					bContinue = false;
+				}
+				else
+				{
+					pageType = 'ConfirmOrder';
+					bdoIn.CardHolderName = nameOnCard;
+					bdoIn.CardType = cardType;
+					bdoIn.CardNumber = String(ccnum);
+					bdoIn.ExpMonth = String(expireMonth);
+					bdoIn.ExpYear = String(expireYear);
+				}
+			}
+		}
+
+		var ClearComConfiged = doAction('MRA_PAYMENT_IS_CLEARCOMMERCE_CONFIGURED');
+/* Don't require ClearCommerce - may want to take CC's without a payment system
+		if (ClearComConfiged == 'NO')
+		{
+			errstr = 'ClearCommerce is not configured at this store. Please contact the store\'s merchant at <a href="mailto:' + storeEmail +'">'+storeEmail+'</a>';
+			doAction("ST_SET_STATEDATA","TakeOrderError", errstr);
+			bContinue = false;
+		}
+		else if (ClearComConfiged == 'YES')
+*/
+		if (ClearComConfiged == 'YES')
+		{
+			var ClearComLive = doAction('MRA_PAYMENT_IS_CLEARCOMMERCE_ONLINE_CCAUTH_LIVE');
+			if (ClearComLive == 'NO')
+			{
+				errstr = 'ClearCommerce is not "Live" at this store. Please contact the store\'s merchant at <a href="mailto:' + storeEmail + '">'+storeEmail+'</a>';
+				doAction("ST_SET_STATEDATA","TakeOrderError", errstr);
+				bContinue = false;
+			}
+			else if (ClearComLive != 'YES')
+			{
+				errstr = 'An error occured during a payment action. (live)';
+				doAction("ST_SET_STATEDATA","TakeOrderError", errstr);
+				bContinue = false;
+			}
+		}
+/*		else
+		{
+			errstr = 'An error occured during a payment action. (config)';
+			doAction("ST_SET_STATEDATA","TakeOrderError", errstr);
+			bContinue = false;
+		}
+*/
+		if (bContinue == false)
+			doAction("ST_SET_STATEDATA","TakeOrderResult", "Failed");
+	}
+	else if (bdoIn.PaymentType == 8)
+	{
+		var ponum = doActionEx("REQ_GET_FORMVALUE","Result","ponum","ponum");
+		// Save the PO number in the cart so it can get written to OrderSummary
+		doAction("SC_SET_FIELD", "FieldName", "PONumber", "Value", ponum);
+	}
+
+	var firstBillTo = MERC_SHOPCART.GetFirstRow("BillTo");
+	var emailAddress = MERC_SHOPCART.GetField("BillTo",firstBillTo,"EmailAddress");
+	var crmQuery = MERC_SHOPCART.GetField("BillTo",firstBillTo,"crmquery");
+	var unformattedGrandTotal = MERC_SHOPCART.GetField("GrandTotal");
+	var grandTotal = formatCurrency(unformattedGrandTotal,LOCALE_STRING,PRECISION);
+
+	if (!grandTotal)
+	{
+		bContinue = false;
+		pageType = 'GeoPrompt';
+	}
+	if (bContinue)
+	{
+		// set the email for CRM
+		setCRMEmail (emailAddress, crmQuery);
+		
+		bdoIn.BillingEmail = emailAddress;
+//?? ehovorka 7/30/01 - can this be correct? grandTotal.substr(1) is returning the formatted
+// total and stripping off the leading currency symbol. What about trailing currency symbols?
+// What about the commas?  This was taken from the storehtml/verify.htm sample.
+		bdoIn.Total = String(grandTotal.substr(1));
+
+		var bdoOut = doActionBDO("ORD_CREATEORDER",bdoIn);
+		if (bdoOut.OrderID == undefined)
+			bContinue = false;
+		var result = bdoOut.Result;
+		if (!result)
+			result = "Succeeded";
+		doAction("ST_SET_STATEDATA","TakeOrderResult",result);
+		if (result == "Succeeded")
+			pageType = 'PostOrder';
+		else
+		{
+			doAction("ST_SET_STATEDATA","TakeOrderError",bdoOut.ErrorMessage);
+			bContinue = false;
+		}
+		if (bContinue)
+			doAction("ST_SET_STATEDATA", "TakeOrderOrderID", bdoOut.OrderID);
+	}
+
+	return pageType;
+}
+
+function setCRMEmail (billToEmailAddress, crmPicked)
+{
+	if (billToEmailAddress)
+	{
+		var input = GetBDO('ObjectName', 'CRM_EmailTo', 'Filter', 'EmailAddress=' + billToEmailAddress.toLowerCase());
+		var resultBDO = doActionBDO("DATA_OPENQUERY",input);
+		if (resultBDO && resultBDO.QueryID && !isNaN(resultBDO.QueryID) && resultBDO.QueryID >= 0)
+		{
+			input['QueryID'] = resultBDO.QueryID;
+			if 	(crmPicked && crmPicked.toLowerCase() == "no")
+			{
+				if (resultBDO.RowCount > 0)
+					doAction("DATA_DELETE", input);
+			}
+			else if (resultBDO.RowCount <= 0)
+			{
+				doAction("DATA_ADDNEW", input);
+				input['FieldName'] = 'EmailAddress';
+				input['FieldVal'] = billToEmailAddress.toLowerCase();
+				doAction("DATA_SETFIELDDATA", input);
+				doAction("DATA_UPDATE", input);
+			}
+			doAction("DATA_CLOSEQUERY", input);
+		}
+	}
+}
+
+function btstStruct (reqVal, tabVal, altTabVal, missingLabel, value, bInt)
+{
+	this.reqVal = reqVal;
+	this.tabVal = tabVal;
+	this.altTabVal = altTabVal;
+	this.missingLabel = missingLabel;
+	this.value = value;
+	this.bInt = bInt;
+}
+
+function getBtstVal (key, btstArray)
+{
+	for (var n = 0; n < btstArray.length; n++)
+	{
+		if (key.toLowerCase() == btstArray[n].reqVal.toLowerCase())
+			return btstArray[n].value;
+	}
+}
+
+function twoStrings (missingString, badCharString)
+{
+	this.missingString = missingString;
+	this.badCharString = badCharString;
+}
+
+function btstProcess (btstArray, tableName, rowName, badCharArray, reqFields)
+{
+	var badCharString = "", missingString = "";
+	for (var n = 0; n < btstArray.length; n++)
+	{
+		var value = doAction("REQ_GET_FORMVALUE", btstArray[n].reqVal, btstArray[n].reqVal);
+		if (value && value.length > 0)
+		{
+			if (btstArray[n].bInt)
+				MERC_SHOPCART.SetField(tableName, rowName, btstArray[n].tabVal, parseInt(value));
+			else
+				MERC_SHOPCART.SetField(tableName, rowName, btstArray[n].tabVal, value);
+			btstArray[n].value = value;
+			for (var x = 0; x < badCharArray.length; x++)
+			{
+				if (value.indexOf(badCharArray[x]) >= 0)
+				{
+					badCharString += btstArray[n].missingLabel + ",";
+					break;
+				}
+			}
+		}
+		else if (isInArray (btstArray[n].reqVal, reqFields))
+			missingString += btstArray[n].missingLabel + ",";
+	}
+	return (new twoStrings (missingString, badCharString));
+}
+</script>
+

@@ -1,0 +1,82 @@
+Return-Path: shah.veenal@gmail.com
+Received: from mx86.stngva01.us.mxservers.net (198.173.112.3)
+	by mail19b.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 0-0713753040
+	for <ms@altechstar.com>; Fri, 21 Aug 2009 12:44:00 -0400 (EDT)
+Received: from unknown [204.202.242.83] (HELO mail19g.g19.rapidsite.net)
+	by va1-mx86.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 0dece8a4.2519899040.1004958.00-006.va1-mx86.stngva01.us.mxservers.net (envelope-from <shah.veenal@gmail.com>);
+	Fri, 21 Aug 2009 12:44:00 -0400 (EDT)
+Received: from mx60.stngva01.us.mxservers.net (204.202.242.130)
+	by mail19g.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-0526973037
+	for <anand@altechstar.com>; Fri, 21 Aug 2009 12:43:57 -0400 (EDT)
+Received: from unknown [209.85.217.221] (EHLO mail-gx0-f221.google.com)
+	by va1-mx60.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id dcece8a4.2532875168.195467.00-007.va1-mx60.stngva01.us.mxservers.net (envelope-from <shah.veenal@gmail.com>);
+	Fri, 21 Aug 2009 12:43:57 -0400 (EDT)
+Received: by gxk21 with SMTP id 21so1258047gxk.3
+        for <anand@altechstar.com>; Fri, 21 Aug 2009 09:43:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:date:message-id:subject
+         :from:to:content-type;
+        bh=CACn5e8L3ZCBNn8tGjDRCKsSqatXkjzTrjoZgchKvKI=;
+        b=Yd6f2+AeJiL02Zb1vvYJcpQks+oUT5ROELQIrItUUZbPVReDjdGRh/FtJyo215m0YO
+         Es9PaiFK9VwNelHwI+xjXnu5oW2zOMq1NlsEmegbxgOC7m9JQl4JWM1OMgIGO+SEjZ2L
+         vKK1x3t7mB8H839QMd/DePD2d/PxAfvktZlSE=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:date:message-id:subject:from:to:content-type;
+        b=gR3FNnJyBBymnmNKBrS7Iu3R4dMhPEjdg58dWUR5k6guhEY3I6p9VTuw+Fyk+QqmrH
+         OPotTfoV2MD6VNHohBy6MLTOiq7FUUXVmHE6NGk97VIDh/Gv6URzt5g5y9NKGPzOf9nH
+         lPXh1XGO3Pr056My/3FdwqW6J3DMJ9oenw0Ys=
+MIME-Version: 1.0
+Received: by 10.150.183.11 with SMTP id g11mr2638290ybf.50.1250873036343; Fri, 
+	21 Aug 2009 09:43:56 -0700 (PDT)
+Date: Fri, 21 Aug 2009 11:43:56 -0500
+Message-ID: <836a72660908210943v2882c80cgc98c1878506de638@mail.gmail.com>
+Subject: Hello
+From: veena shah <shah.veenal@gmail.com>
+To: anand@altechstar.com
+Content-Type: multipart/alternative; boundary=000e0cd6ad04fd8cb40471a992e8
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082122)]
+X-MAIL-FROM: <shah.veenal@gmail.com>
+X-SOURCE-IP: [209.85.217.221]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082122)]
+X-MAIL-FROM: <shah.veenal@gmail.com>
+X-SOURCE-IP: [204.202.242.83]
+X-Loop-Detect:1
+
+--000e0cd6ad04fd8cb40471a992e8
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+
+Hi Anand,
+
+This is Veena. I got your reference through an aquaintance. I am exploring
+the option for converting my L1B to H1 visa and wanted to know if you have
+any thoughts on this.
+I am currently working as a  PeopleSoft Consultant in Dallas TX.
+
+If we need to talk, please let me know your convenient time and I shall call
+you.
+
+Thank you.
+
+Regards,
+Veena
+
+--000e0cd6ad04fd8cb40471a992e8
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<div>Hi Anand,</div><div><br></div><div>This is Veena. I got your reference=
+ through an aquaintance. I am exploring the option for converting my L1B to=
+ H1 visa and wanted to know if you have any thoughts on this.</div><div>
+I am currently working as a =A0PeopleSoft Consultant in Dallas TX.=A0</div>=
+<div><br></div><div>If we need to talk, please let me know your convenient =
+time and I shall call you.</div><div><br></div><div>Thank you.</div><div><b=
+r>
+</div><div>Regards,</div><div>Veena</div><div><br></div>
+
+--000e0cd6ad04fd8cb40471a992e8--

@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" bgcolor="#CCCCCC" background="/cgi-docs/Mercantec/PC_F_6.6.1/images/stripeback2.gif"
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg1),
+		new Array (parent.topFrame.document.images.wizimg2,
+					parent.topFrame.document.images.wizimg3,
+					parent.topFrame.document.images.wizimg4,
+					parent.topFrame.document.images.wizimg5,
+					parent.topFrame.document.images.wizimg6));">
+<form name="intro" action="javascript:void(0);">
+	<input type="hidden" name="WizState" value="1">
+<table width="625" border="0" cellpadding="4" cellspacing="0" height="172" align="center">
+  <tr bgcolor="#FFFFCC">
+    <td height="17" nowrap width="151" ><span class="page-title">Introduction</span>
+    </td>
+    <td width="474" align="right" height="17">
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_WAT_INTRO+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a><!--END HELP WINDOW LINK-->
+<a href="javascript:window.print();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Print_This_Page_Nbtn_base_lg2.gif" width="115" height="30" border="0" alt="Print This Page"></a>
+<a href="javascript:parent.SubmitForm ('L', 'desktop_frameset.htm','', new Array('DrawerSelected', 'drw_site.gif'));" target="_parent"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Exit_Nbtn_base2.gif" width="86" height="30" border="0" alt="Exit"></a>
+<a href="javascript:parent.SubmitForm ('WIZ_WizardNext', 'pwizwat_2.htm','mainFrame', document.intro);">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Next_Nbtn_base.gif" width="86" height="30" border="0" alt="Next"></a></td>
+  </tr>
+  <tr bgcolor="#FFFFFF" valign="top">
+    <td height="243" colspan="4" class="table-bkgrd-main">
+	<p align="left"><font size="2" face="Arial, Helvetica, sans-serif">Welcome to PowerWebBuilder.  To start building your new web site, follow the easy 6-step Wizard by clicking the <b>Next</b> button.</font></p>
+      <p>
+        <font size="2" face="Arial, Helvetica, sans-serif">
+        Not sure how to design your new web site?  Take a look at our helpful <a href="http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_GETSTART+SoftCart+{helpversion}+en-us" target="new">Getting Started</a> guide.</font></p>
+		<p>
+        <font face="Arial, Helvetica, sans-serif" size="2">
+        <b>A few things to remember:</b>
+        </font></p>
+
+<p><font face="Arial, Helvetica, sans-serif" size="2">
+	<ol>
+		<li>
+		Click the <b>Help</b> button for online help if you have any questions throughout the Wizard.
+        </li>
+		</p>
+		<p>
+		<li>
+		The <b>Next</b> button will take you to the next step in the Wizard and save your information as you go.  You can go back through the Wizard at anytime and make changes to your site as long as you have not published your site in Step 6.
+        </li>
+		</p>
+		<p>
+		<li>
+		Once you have published your site in Step 6, your site will be available for viewing on the Internet.  Any changes you would like to make to your web site after publishing can be made through the PowerWebBuilder Editor.  In the Editor, you will have the chance to further customize your web site and give it that one-of-a-kind look.
+		</li>
+        </font></p>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF" valign="top">
+    <td colspan="4" class="table-bkgrd-main"><br>
+	</td>
+  </tr>
+</table>
+</form>
+
+</body>
+</html>

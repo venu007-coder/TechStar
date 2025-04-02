@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/u/web/altec2/mpc/data/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_ItemAttr</TYPE>
+	<GLOBAL TYPE="never"></GLOBAL>
+	<UIGRAPHIC></UIGRAPHIC>
+	<UITEXT></UITEXT>
+	<!-- Can't be deleted -->
+	<PERMISSIONS>666</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="width">
+			<VALUE>150</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE>200</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="style">
+			<VALUE></VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="btnbkgstyle">
+			<VALUE>btn-shopperbackground</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="securebtnbkgstyle">
+			<VALUE>secure-btn-shopperbackground</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="btntextstyle">
+			<VALUE>btn-shoppertext</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="visible">
+			<VALUE>Yes</VALUE><VALUE>No</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="btntext">
+			<VALUE>Update Options</VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+		var commonScriptFile = doActionEx('DATA_READFILE', 'common.js', 'FileName', 
+					'common.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+		eval (commonScriptFile);
+
+		if (visible.selectedIndex != -1 && visible[visible.selectedIndex] == "No")
+			return true;
+
+		if (type == "text/html")
+		{
+			var mode = doAction("ST_GET_STATEDATA", "PE_OutputMode", "PE_OutputMode");
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('text-align:left;');
+			write('z-index:'+merc_zindex+';">');
+
+			write('<scr');
+				writeln('ipt runat="merc_server">');
+			writeln('//include Formatting Library');
+			writeln("var cs_inc = doActionEx('DATA_READFILE', 'FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName', 'JS_SRC', 'FileType', 'txt');");
+			writeln('eval (cs_inc);');
+			// For PadLeft
+			writeln("cs_inc = doActionEx('DATA_READFILE', 'ServicesLib.js', 'FileName', 'ServicesLib.js','ObjectName', 'JS_SRC', 'FileType', 'txt');");
+			writeln('eval (cs_inc);');
+
+			writeln('var LOCALE_STRING = getBrowserLocale();');
+			writeln('var PRECISION = getDefaultPrecision();');
+
+			writeln('key = doActionEx("REQ_GET_FORMVALUE","Result","ItemKey","ItemKey");');
+			writeln('if (key && key != "")');
+			writeln('{');
+//The item cache must be loaded only once for the product page
+//It gets loaded in shopmgr.htm
+//			writeln('	MERC_ITEMCACHE.Reset();');
+//			writeln('	MERC_ITEMCACHE.LoadItem(key);');
+			writeln('var urlpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","SiteUrl");');
+			writeln('var sessionid = doActionEx("ST_GET_STATEDATA","Result","SessionID","SessionID");');
+			writeln('var siteid = doActionEx("REQ_GET_FORMVALUE","Result","SiteID","SiteID");');
+			writeln('var appid = doActionEx("REQ_GET_FORMVALUE","Result","AppID","AppID");');
+			writeln('var formString = "";');
+
+			writeln('for (var rowName = MERC_ITEMCACHE.GetFirstItem(); rowName != "END_OF_TABLE"; rowName = MERC_ITEMCACHE.GetNextItem(rowName))');
+			writeln('{');
+			writeln('	var Type4Attr = MERC_ITEMCACHE.GetItemData(rowName,"Type4Attr");');
+			writeln('	if (Type4Attr == "MAIN")');
+			writeln('	{');
+			writeln('		var attrBDO = doActionBDO("IC_ATTRIBUTES_GET","RowName",rowName);');
+			writeln('		if (attrBDO)');
+			writeln('		{');
+			writeln("			formString += '<form name=update action=' + urlpath + '>';");
+			writeln("			formString += '<input type=hidden name=sh_action value=updateitemattr>';");
+			writeln("			formString += '<input type=hidden name=SessionID value=' + sessionid + '>';");
+			writeln("			formString += '<input type=hidden name=AppID value=' + appid + '>';");
+			writeln("			formString += '<input type=hidden name=SiteID value=' + siteid + '>';");
+			writeln("			formString += '<input type=hidden name=UpdateItem value=' + rowName + '>';");
+						if (mode == "PE_PreviewMode")
+			writeln("			formString += '<input type=hidden name=Preview value=1>';");
+			writeln("			formString += '<table border=0>';");
+
+			writeln('			var i = 1;');
+			writeln('			while (true)');
+			writeln('			{');
+			writeln('				var attrID = attrBDO[PadLeft("ID",i)];');
+			writeln('				var attrName = attrBDO[PadLeft("Attr",i)];');
+			writeln('				if (!attrID || !attrName)');
+			writeln('					break;');
+
+			writeln('				var attrDataBDO = doActionBDO("IC_ATTRIBUTE_DATA_GET", "RowName", rowName, "AttrID", attrID);');
+
+			writeln('				if (attrDataBDO)');
+			writeln('				{');
+			writeln("					formString += '<tr>';");
+			writeln('					selectedAItemID = MERC_ITEMCACHE.GetItemData(attrDataBDO.Row,"ID");');
+			writeln('					if (attrDataBDO.InputType == 0)');
+			writeln('					{');
+			writeln("						formString += '<td align=right>' + attrDataBDO.Prompt2 + '</td><td align=left>' + ' <input type=text name=' + attrID;");
+			writeln('						if (attrDataBDO.AttributeText)');
+			writeln("							formString += ' value=\"' + attrDataBDO.AttributeText + '\"';");
+			writeln("						formString += '></td>';");
+			writeln('					}');
+			writeln('					else if (attrDataBDO.InputType == 1)');
+			writeln('					{');
+			writeln("						formString += '<td align=right>' + attrDataBDO.Prompt2 + '</td><td align=left>' + ' <input type=radio name=' + attrID + ' value=\"YES\"';");
+			writeln('						if (attrDataBDO.YESNO == true)');
+			writeln("							formString += ' checked';");
+			writeln("						formString += '>Yes <input type=radio name=' + attrID + ' value=\"NO\"';");
+			writeln('						if (attrDataBDO.YESNO == false)');
+			writeln("							formString += ' checked';");
+			writeln("						formString += '>No</td>';");
+			writeln('					}');
+			writeln('					else if (attrDataBDO.InputType == 2)');
+			writeln('					{');
+			writeln("						formString += '<td align=right>' + attrDataBDO.Prompt2 + '</td><td align=left>';");
+			writeln("						formString += ' <select name=' + attrID + '><option value=none>choose:</option>';");
+			writeln('						var choicesBDO = doActionBDO("IC_ATTRIBUTE_CHOICE_GET", "RowName", rowName, "AttrID", attrID);');
+			writeln('						if (choicesBDO)');
+			writeln('						{');
+			writeln('							var j = 1;');
+			writeln('							var notSelected = true;');
+			writeln('							while (true)');
+			writeln('							{');
+			writeln('								var choiceID = choicesBDO[PadLeft("Choice",j)];');
+			writeln('								var aItemID = choicesBDO[PadLeft("AItem",j)];');
+
+			writeln('								if (!choiceID || !aItemID)');
+			writeln('									break;');
+
+			writeln('								var choiceDataBDO = doActionBDO("IC_ATTRIBUTE_CHOICE_DATA_GET", "RowName", rowName, "AttrID", attrID, "ChoiceID", choiceID);');
+			writeln('								if (choiceDataBDO)');
+			writeln('								{');
+			writeln('									var cname = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",choiceDataBDO.NameID,"Locale","en");');
+			writeln('									if (cname)');
+			writeln('									{');
+			writeln("										formString += '<option value=' + choiceID;");
+			writeln('										if (selectedAItemID == aItemID)');
+			writeln('										{');
+			writeln("											formString += ' selected';");
+			writeln('											notSelected = false;');
+			writeln('										}');
+			writeln("										formString += '>' + cname + '</option>';");
+			writeln('									}');
+			writeln('								}');
+			writeln('								j++;');
+			writeln('							}');
+			writeln('						}');
+			writeln("						formString += '</select></td>';");
+			writeln('					}');
+
+			writeln("					formString += '</tr>';");
+			writeln('				}');
+			writeln('				i++;');
+			writeln('			}');
+			writeln("			formString += '</table>';");
+
+			// write out button
+			writeln('			formString += \'<table border=0 cellspacing="0" cellpadding="0"><tr>\';');
+
+			var currentPage = doAction('ST_GET_STATEDATA', 'CurrentPageName', 'CurrentPageName');
+			var seObj = generateSEObjects (currentPage);
+			var pageObj = seObj.pageObjArray[currentPage];
+			if (mode != "PE_EditMode" && pageObj.SecureBaseHref.toLowerCase() == "yes")
+				writeln('			formString += \'<td align=right valign=middle width=120 height=22 class="'+securebtnbkgstyle+'">\';');
+			else
+				writeln('			formString += \'<td align=right valign=middle width=120 height=22 class="'+btnbkgstyle+'">\';');
+			writeln('			formString += \'<a href="#" onClick="document.update.submit();return false;">\';');
+			writeln('			formString += \'<center><span class="'+btntextstyle+'">'+btntext+'</span></center></a>\';');
+			writeln('			formString += \'</td></tr></table>\';');
+			writeln("			formString += '<input type=hidden name=ItemKey value=' + key + '>';");
+			writeln("			formString += '</form>';");
+			writeln('			writeln(formString);');
+			writeln('		}');
+			writeln('		else');
+			writeln('			break;');
+			writeln('	}');
+			writeln('}'); //for
+
+			writeln('}'); //if key
+
+			write('</scr');
+				writeln('ipt>');
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		if (type == "text/html")
+		{
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos+'px;');
+			write('text-align:left;');
+			write('z-index:'+merc_zindex+';">');
+
+			if (visible.selectedIndex != -1 && visible[visible.selectedIndex] == "No")
+			{
+				write('<table border=0><tr><td ');
+				write(' background="/cgi-docs/Mercantec/PC_F_6.6.1/images/highlite_inactive_sm.gif">');
+				write('<font color="#999999">');
+			}
+			writeln("Item Attributes");
+			if (visible.selectedIndex != -1 && visible[visible.selectedIndex] == "No")
+				writeln('</font></td></tr></table>');
+
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	function edit_properties()
+	{
+		//write out html for EditProperties dialog box
+		// The input "names" have to match the <name> tags above.
+		write('<form name="saveprop">');
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		writeln('<input type=hidden name="ElementAddEdit" value="'+addEditMode+'">');
+		writeln('<input type=hidden name="ElementID" value="'+merc_elementid+'">');
+
+		writeln('<p align="center"><span class="dialog-title">Item Attributes</span></p>');
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr valign="top"><td colspan="2" class="field-label"><center>');
+
+		writeln('<table border=0 width="344">');
+		writeln('<tr valign="top"><td colspan="2">&nbsp;');
+		writeln('</td></tr>');
+		writeln('</table>');
+
+		writeln('<table width="344" border="1" cellspacing="0" cellpadding="0">');
+		writeln('<tr class="table-bkgrd-main">');
+		writeln('<td width="96" class="table-header2">');
+		writeln('<span class="field-label">Button Text: </span>');
+		writeln('</td><td width="212" class="table-bkgrd-main">');
+		writeln('<input type=text name=btntext value="'+btntext+'">');
+		writeln('</td></tr>');
+
+		writeln('<tr><td width="96" class="table-header2"><span class="field-label">Visible:</span></td>');
+		writeln('<td colspan="2" width="212">');
+		var visSelect = (visible.selectedIndex == -1 ? 0 : visible.selectedIndex);
+		for (i=0; i < visible.length; i++)
+		{
+			write('<input type="radio" class="table-bkgrd-main" name="visible" value="'+visible[i]+'"');
+			if (i == visSelect)
+				write(' CHECKED');
+			writeln('>'+visible[i]);
+		}
+		writeln('</td></tr></table>');
+		writeln('<table width="75%" border="0" cellspacing="0" cellpadding="0">');
+		writeln('<tr valign="top"><td colspan="2">');
+		writeln('<span class="instr-note">If you do not want this element to appear on your product pages, select \"No\" for \"Visible\"</span>');
+		writeln('</td></tr></table>');
+
+		writeln('</center></td></tr>');
+		writeln('</table>');
+
+		writeln('<table width="407" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr><td><center>');
+<!--BEGIN HELP WINDOW LINK-->
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_RTL_ELMT_ITMATTR+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_Cancel\', \'Layout1.htm\', \'mainFrame\', document.saveprop);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel" border="0"></a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_SaveProperties\', \'Layout1.htm\', \'mainFrame\', document.saveprop);">');
+		writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Ok" border="0"></a>');
+		writeln('</td></tr></table>');
+		write('</form>');
+		writeln ("<SCRIPT language=javascript>");+
+		writeln('self.resizeTo(500, 300);');
+		writeln('</script>');
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

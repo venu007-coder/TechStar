@@ -1,0 +1,267 @@
+
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=myLayout action=DATA_GETCONFIGDATA ObjectName=SiteEditorCfg RowName='*BasePage*' ColName=Layout>
+<merc_dynamic noshow=true name=myButtonAlignment action=DATA_GETCONFIGDATA ObjectName=SiteEditorCfg RowName='*BasePage*' ColName=ButtonAlignment>
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+<SCRIPT RUNAT="merc_server">
+	var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+			    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+	writeln ('<SCRIPT LANGUAGE="JavaScript">var useObject = \"'+gPRIV_PG_OBJ+'\";'+
+			'var homePage = \"'+gHOME_PAGE+'\";</script>');
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript">
+	var winName = "wat_global_popup", winName2 = "wat_global_popup2", align = "TopHorizontal";
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	var master_js = parent;
+	var bChange = false;
+
+	function setForms ()
+	{
+		if (master_js.WindowID)
+			if (!master_js.WindowID.closed)
+				if (master_js.WindowID.name == winName || master_js.WindowID.name == winName2)
+					master_js.CloseWin ();
+		var useLayout = '<merc_dynamic name=myLayout>';
+		var useAlign = '<merc_dynamic name=myButtonAlignment>';
+		/*
+		for (var n = 0; n < document.forms.SelectLayout.LayoutSelected.length; n++)
+		{
+			if (document.forms.SelectLayout.LayoutSelected[n].value == useLayout)
+			{
+				document.forms.SelectLayout.LayoutSelected[n].checked = true;
+				break;
+			}
+		}
+		*/
+		for (var x = 0; x < document.forms.navBar.alignment.length; x++)
+		{
+			if (document.forms.navBar.alignment[x].value == useAlign)
+			{
+				document.forms.navBar.alignment[x].checked = true;
+				break;
+			}
+		}
+	}
+	
+	function moveList (bUp)
+	{
+		bChange = true;
+		var op = (bUp ? '-' : '+');
+		if ((bUp && document.forms.navBar.select1.selectedIndex > 0) ||
+			(!bUp && document.forms.navBar.select1.selectedIndex+1 < document.forms.navBar.select1.length))
+		{
+			var old = eval ("document.forms.navBar.select1.options[document.forms.navBar.select1.selectedIndex"+op+"1].text");
+			eval ("document.forms.navBar.select1.options[document.forms.navBar.select1.selectedIndex"+op+"1].text = document.forms.navBar.select1.options[document.forms.navBar.select1.selectedIndex].text");
+			document.forms.navBar.select1.options[document.forms.navBar.select1.selectedIndex].text = old;
+			eval ("document.forms.navBar.select1.selectedIndex = document.forms.navBar.select1.selectedIndex"+op+"1");
+		}
+		return false;
+	}
+	
+	function preview ()
+	{
+		var args = buildPageOrderList ();
+		if (align == "LeftVertical")
+			var WinObj = master_js.createSimpleSubmitWindow (((document.forms.navBar.select1.length*25)+20).toString(), '133');
+		else
+			var WinObj = master_js.createSimpleSubmitWindow ('75', ((document.forms.navBar.select1.length*100)+35).toString());
+		
+		master_js.OpenWinSubmitForm ('', 'L', 'wat_button_prev.htm', winName, args, WinObj);
+		return false;
+	}
+	
+	function buildPageOrderList ()
+	{
+		for (var x = 0; x < document.forms.navBar.alignment.length; x++)
+		{
+			if (document.forms.navBar.alignment[x].checked)
+			{
+				align = (document.forms.navBar.alignment[x].value);
+				break;
+			}
+		}
+		var text = new Array();
+		for (var n = 0; n < document.forms.navBar.select1.length; n++)
+			text[n] = document.forms.navBar.select1.options[n].text;
+		var args = new Array ('buttonList', text.join('\t'), 'align', align);
+		return (args);	
+	}
+	
+	function submitOrderChange ()
+	{
+		saveWindow ();
+		var args = buildPageOrderList ();
+		master_js.SubmitForm('SE_SetButtonOrder', 'wat_ed_global.htm', 'mainFrame', args); 
+	}
+	
+	function submitLayoutChange (formObj)
+	{
+		saveWindow ();
+		master_js.SubmitForm('SE_SetBaseLayout', 'wat_ed_global.htm', 'mainFrame', formObj); 
+		return false;
+	}
+	
+	function saveWindow ()
+	{
+		master_js.createAndWriteToPopUp ("150", "300", winName, baseUrl, 
+										master_js.gSAVING_PAGE, master_js.gWINDOW_WILL_CLOSE);
+	}
+
+	function editName()
+	{
+		if (bChange)
+		{
+			if (!confirm(master_js.gCONFIRM_BUTTON_ORDER))
+			return false;
+		}
+		var selected = document.forms.navBar.select1.options[document.forms.navBar.select1.selectedIndex].text;
+		var existingFiles = new Array();
+		for (var n = 0; n < document.forms.navBar.select1.options.length; n++)
+			existingFiles[existingFiles.length] = document.forms.navBar.select1.options[n].text
+		if (selected && selected != homePage)
+		{
+			var WinObj = master_js.createSimpleSubmitWindow ("220", "460");
+			var args = new Array ("Action", "SE_RenameFile", "OldFileName", 
+									selected ,
+									"Target", "mainFrame", "LinkToPage", "wat_ed_global.htm",
+									"TargetDir", "",
+									"ExistingFiles", existingFiles.join('\t'),
+									"CallBack", 
+									"master_js.createAndWriteToPopUp ('150', '300', '"+winName2+"', '"+baseUrl+"', master_js.gRENAMING_PAGE, master_js.gWINDOW_WILL_CLOSE);",
+									"ObjectName", useObject,
+									"ImageDirName", "");
+			master_js.OpenWinSubmitForm ('', 'L', 'ed_pagename.html', winName, args, WinObj);
+		}
+		else if (selected == homePage)
+			alert (master_js.gINVALID_SELECTION + "\n" + master_js.gNO_RENAME_HOME);
+		else
+			alert (master_js.gINVALID_SELECTION);
+		return false;
+	}
+
+</SCRIPT>
+</head>
+
+<body topmargin="0" marginheight="0" leftmargin="13" bgcolor="#CCCCCC"  background="/cgi-docs/Mercantec/PC_F_6.6.1/images/stripeback2.gif" onLoad="setForms();">
+  
+<table width="660" border="0" bgcolor="#CCCCCC" class="table-bkgrd-main" align="center" cellpadding="2" cellspacing="0">
+<tr valign="top">
+<td align="left">
+<span class="page-title">Global</span><br>
+<span class="instr-note">On this page you will define the Global attributes of your site. Global attributes appear on all pages of your site.</span>
+</td>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<td align="right"> <a href="javasc
+		ript:void(master_js.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_GLOBAL+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help on Global Page Elements" align="right"></a></td><!--END HELP WINDOW LINK-->
+</tr>
+<tr valign="top">    
+<td colspan="2"> 
+        <div align="left"> 
+          
+<form id=navBar name=navBar>
+
+<br>
+<!-- begin navbar -->
+<table border="1" width="620" align="center">
+
+<tr>
+	<td rowspan="3" class="table-header" width="75">
+	<div align="right"><span class="field-label">Navigation Bar:</span></div>
+	</td>
+	<td colspan="2" height="31" class="table-header"> 
+                
+	<p align="center">
+	<span class="field-label">Button Order & Name
+	</span></p>
+	</td>
+	<td height="31" class="table-header">
+	<p align="center"><span class="field-label">Orientation</span></p>
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2">
+
+	<div align="right">
+	<table border="0" cellspacing="0" cellpadding="0" align="center">
+		<tr>
+			<td>
+			<center>
+<SCRIPT RUNAT="merc_server">
+	var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+			    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+	var seObj = generateSEObjects ('');
+	var sortList = sortByButtonOrder (seObj);
+	write ("<SELECT size="+sortList.length+" id=select1 name=select1>");
+	
+	for (var n = 0; n < sortList.length; n++)
+	{
+		if ((n+1) < sortList.length)
+			write ("<OPTION>"+sortList[n]+"</OPTION>");
+		else
+			write ("<OPTION SELECTED>"+sortList[n]+"</OPTION>");
+	}
+	write ("</SELECT>");
+</SCRIPT>
+
+			</center>
+			</td>
+			<td>
+			<a href="javascript:void(0);" onClick="moveList (true)"><img border="0" name="imageField" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Move_Up_Nbtn_base2.gif" width="86" height="30" align="middle" alt="Move Up"></a><br>
+			<a href="javascript:void(0);" onClick="moveList (false)"><img name="imageField2" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Move_Down_Nbtn_base2.gif" width="86" height="30" border="0" alt="Move Down"></a><br>
+			<br><a href="javascript:void(0);" onClick="editName();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Edit_Name_Nbtn_base2.gif" width="86" height="30" border="0" alt="Edit Name"></a>
+
+			</td>
+		</tr>
+	</table>
+	</div>
+	</td>
+	<td valign="top">
+	<table align="center"><tr><td>
+		<p><font face="Arial, Helvetica, sans-serif" size="2">
+		<input type="radio" class="table-bkgrd-main" name="alignment" value="LeftVertical" checked>
+                        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/verticon.gif" width="7" height="12" border="0" alt="">&nbsp;Left Vertical<br>
+
+                        
+		<input type="radio" class="table-bkgrd-main" name="alignment" value="TopHorizontal">
+                        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/horizicon.gif" width="28" height="3" border="0" alt="" align="absmiddle">&nbsp;Top Horizontal </font></p>
+
+		</td></tr></table><br>
+		<p align="center"><span class="instr-note">(To 
+                          add or remove buttons, add or remove the<br>
+ corresponding 
+                          page under the Site Pages tab)</span>
+		</p>
+	</td>
+</tr>
+<tr>
+	<td colspan="3">
+
+	<p align="center">
+	<p align="center"><!-- <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Button_Set_Nbtn_base_lg2.gif" width="115" height="30"> --><a href="javascript:void(0)" onClick="preview()"><img border="0" name="imageField4" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Preview_Buttons_Nbtn_base_lg2.gif" width="115" height="30" alt="Preview Buttons"></a>
+<a href="javascript:void(submitOrderChange())"><img border="0" name="imageField3" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Save"></a>
+	</p>
+	</td>
+</tr>
+          
+</table>
+          </div>
+      &nbsp;  
+      </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
+

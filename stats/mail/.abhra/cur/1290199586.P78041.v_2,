@@ -1,0 +1,376 @@
+Return-Path: aruntr.usa@gmail.com
+Received: from mx120.stngva01.us.mxservers.net (198.173.112.49)
+	by mail19a.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 0-0911209585
+	for <abhra@altechstar.com>; Fri, 19 Nov 2010 15:46:25 -0500 (EST)
+Received: from unknown [74.125.82.56]
+	by va1-mx120.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 022e6ec4.2873666464.172061.00-027.va1-mx120.stngva01.us.mxservers.net (envelope-from <aruntrusa+bncciz01rylbxd4w5vnbboeb-qdsg@googlegroups.com>);
+	Fri, 19 Nov 2010 15:46:24 -0500 (EST)
+Received: by mail-ww0-f56.google.com with SMTP id 14sf2358803wwi.21
+        for <abhra@altechstar.com>; Fri, 19 Nov 2010 12:46:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=beta;
+        h=domainkey-signature:received:x-beenthere:received:received:received
+         :received:received-spf:received:mime-version:received:received:date
+         :message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=2kRcJxIxDbPnn0y/Ind5C9nwfM+WJBHo8XrzUR4sz4o=;
+        b=u2XfqZ9Fbx3a/YqtlNFyz/1kzIFE6TtUATRH8SVoG8S02nAa8AXRpWbxOcUtgQiW1O
+         KgsKPQ5plO9hxcdqTNywkXi+tDr18pLVQ9rOLJ0GU8IqpTvLjs3qCTMWXf7ho7f5V9RM
+         cTPwSc3GSe392mHbaAOIqjHVSVLfiPYoLxnBs=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=googlegroups.com; s=beta;
+        h=x-beenthere:received-spf:mime-version:date:message-id:subject:from
+         :to:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :sender:list-subscribe:list-unsubscribe:content-type;
+        b=g2Lzo+WPqjh2g3kTnjx7OK6/FlFl7SGQviutuJsx+yRK0tXRVe0/nYhR8Cad/dagZR
+         ZGqtbpe/8PHUvRITVIwbJD2BqjdXDNMNIG1CC4OkLI6pQOUdUnbqW3Y/xNxoN4StR5B9
+         zFFFUG5NRB8YBNrX983xmZ2mOqcwNjFOVAU9Q=
+Received: by 10.217.7.68 with SMTP id z46mr136242wes.2.1290199544043;
+        Fri, 19 Nov 2010 12:45:44 -0800 (PST)
+X-BeenThere: aruntrusa@googlegroups.com
+Received: by 10.227.3.11 with SMTP id 11ls1225369wbl.3.p; Fri, 19 Nov 2010
+ 12:45:41 -0800 (PST)
+Received: by 10.227.69.195 with SMTP id a3mr111298wbj.27.1290199541065;
+        Fri, 19 Nov 2010 12:45:41 -0800 (PST)
+Received: by 10.227.69.195 with SMTP id a3mr111297wbj.27.1290199541008;
+        Fri, 19 Nov 2010 12:45:41 -0800 (PST)
+Received: from mail-wy0-f176.google.com (mail-wy0-f176.google.com [74.125.82.176])
+        by gmr-mx.google.com with ESMTP id q27si250157wbv.5.2010.11.19.12.45.39;
+        Fri, 19 Nov 2010 12:45:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of aruntr.usa@gmail.com designates 74.125.82.176 as permitted sender) client-ip=74.125.82.176;
+Received: by wyf19 with SMTP id 19so5126744wyf.35
+        for <aruntrusa@googlegroups.com>; Fri, 19 Nov 2010 12:45:39 -0800 (PST)
+MIME-Version: 1.0
+Received: by 10.227.133.147 with SMTP id f19mr2822966wbt.71.1290199522371;
+ Fri, 19 Nov 2010 12:45:22 -0800 (PST)
+Received: by 10.227.9.142 with HTTP; Fri, 19 Nov 2010 12:45:22 -0800 (PST)
+Date: Sat, 20 Nov 2010 02:15:22 +0530
+Message-ID: <AANLkTinYsXj780mVzW80Rg9e4+CzSvyPKPsLDPjpJwYb@mail.gmail.com>
+Subject: Arun Chandupatla Urgent Need : OBIEE Developer ( Strong Financial )
+From: Arun TR <aruntr.usa@gmail.com>
+To: aruntrusa@googlegroups.com
+X-Original-Sender: aruntr.usa@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of aruntr.usa@gmail.com designates 74.125.82.176 as permitted sender)
+ smtp.mail=aruntr.usa@gmail.com; dkim=pass (test mode) header.i=@gmail.com
+Reply-To: aruntr.usa@gmail.com
+Precedence: list
+Mailing-list: list aruntrusa@googlegroups.com; contact aruntrusa+owners@googlegroups.com
+List-ID: <aruntrusa.googlegroups.com>
+List-Post: <http://groups.google.com/group/aruntrusa/post?hl=en-GB_IN>, <mailto:aruntrusa@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en-GB_IN>, <mailto:aruntrusa+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/aruntrusa?hl=en-GB_IN>
+Sender: aruntrusa@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/aruntrusa/subscribe?hl=en-GB_IN>,
+ <mailto:aruntrusa+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/aruntrusa/subscribe?hl=en-GB_IN>,
+ <mailto:aruntrusa+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=0016e6570eae3872bd04956dfc3f
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010111701); MH=0.500(2010111941)]
+X-MAIL-FROM: <aruntrusa+bncciz01rylbxd4w5vnbboeb-qdsg@googlegroups.com>
+X-SOURCE-IP: [(unknown)]
+X-SF-Loop: 1
+
+--0016e6570eae3872bd04956dfc3f
+Content-Type: text/plain; charset=windows-1252
+Content-Transfer-Encoding: quoted-printable
+
+*OBIEE Developer ( Strong Financial )*
+*NY*
+
+*1 year*
+
+*Requirement Details :*
+
+Develop a strategic reporting data model/architecture to encompass all
+business processes
+=95 Manage ETL creation and development as it pertains to the data warehous=
+e
+=95 Ensure  flexibility with varied relational and multidimensional data
+sources
+=95 Oversee physical schemas for all layers of the data model
+o Map data elements of data sources into the domain data models
+=95 Administer star schema or related appropriate schema based on business
+process
+=95 Direct  and determine/document business rules to be applied to data
+cleansing and organization
+=95 Coordinate with development/implementation teams to improve model forma=
+ts
+and approaches with regard to implementation issues
+=95 Supervise normalizing of relational and multidimensional data models
+=95 Review and document best practices for data warehousing
+=95 Participate in cross functional reviews/peer reviews as an author or
+reviewer of functional and technical specifications
+=95 Standardize and lead configuration and change management processes
+=95 Create clear, comprehensive technical specifications when required
+=95 Provide timely, complete and relevant input into schedule and planning =
+for
+the implementation of the data warehouse
+
+
+
+Qualifications 8-10 years of demonstrable analysis and development
+experience in data modeling and architecture
+=95 5+ years of experience in OBIEE 10/11g
+=95 Expertise in relational/multidimensional databases a must
+=95 Strong SQL skills, preferably Sybase or UDB/DB2
+=95 Strong skills in a strategic ETL tool, such as Informatica
+=95 Excellent and proven communication skills
+
+
+
+Preferred Qualifications
+
+=95 Degree in Computer Science or related field
+=95 Excellent communication skills and the ability to work in a team
+environment
+=95 Self-starter, self-motivated, able to work with minimal supervision
+
+
+
+The Reporting Team within the Corporate Services and Real Estate, Accountin=
+g
+Services, and Office of Global Security Technology group is responsible for
+reporting within the aforementioned groups in Firmwide Systems Technology.
+Currently, our strategic reporting platform leverages Oracle Business
+Intelligence (OBIEE).
+
+
+
+Thanks & Regards,
+
+*Arun Chandupatla *
+
+*carun@hgtechinc.net* <carun@hgtechinc.net>
+
+*302-525-4228** |* * **302-355-2324** **|*
+
+*Hallmark Global Technologies Inc*.* **|*
+
+*|* www.hgtechinc.net *|*
+
+262 Chapman Rd, Suite # 101,  Newark, DE- 19702.
+
+*
+___________________________________________________________________________=
+___________________________________________________________________________=
+_______________________________________________
+*
+
+ *NOTE*:* *We respect your Online Privacy. This is not an unsolicited mail.
+Under Bill s.1618 Title III passed by the 105th U.S. Congress this mail
+cannot be considered Spam as long as we include Contact information and a
+method to be *removed* from our mailing list. If you are not interested in
+receiving our e-mails then please reply with a *remove* in the subject line
+and mention all the e-mail addresses to be *removed* with any e-mail
+addresses which might be diverting the e-mails to you. We are sorry for the
+inconvenience
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+ArunTR.USA" group.
+To post to this group, send an email to aruntrusa@googlegroups.com.
+To unsubscribe from this group, send email to aruntrusa+unsubscribe@googleg=
+roups.com.
+For more options, visit this group at http://groups.google.com/group/aruntr=
+usa?hl=3Den-GB.
+
+
+--0016e6570eae3872bd04956dfc3f
+Content-Type: text/html; charset=windows-1252
+Content-Transfer-Encoding: quoted-printable
+
+<p class=3D"MsoNormal"><b><span style=3D"color:#C00000">OBIEE Developer ( S=
+trong Financial
+)</span></b> <br>
+<b>NY</b></p>
+
+<p class=3D"MsoNormal"><b>1 year</b> <br>
+<br>
+<b><span style=3D"color:#C00000">Requirement Details :</span></b></p>
+
+<p class=3D"MsoNormal" style=3D"margin-top:0in;margin-right:0in;margin-bott=
+om:12.0pt;
+margin-left:.25in">Develop a strategic reporting data model/architecture to
+encompass all business processes <br>
+=95 Manage ETL creation and development as it pertains to the data warehous=
+e <br>
+=95 Ensure=A0 flexibility with varied relational and multidimensional data
+sources <br>
+=95 Oversee physical schemas for all layers of the data model <br>
+o Map data elements of data sources into the domain data models <br>
+=95 Administer star schema or related appropriate schema based on business
+process <br>
+=95 Direct=A0 and determine/document business rules to be applied to data
+cleansing and organization <br>
+=95 Coordinate with development/implementation teams to improve model forma=
+ts and
+approaches with regard to implementation issues <br>
+=95 Supervise normalizing of relational and multidimensional data models <b=
+r>
+=95 Review and document best practices for data warehousing <br>
+=95 Participate in cross functional reviews/peer reviews as an author or re=
+viewer
+of functional and technical specifications <br>
+=95 Standardize and lead configuration and change management processes <br>
+=95 Create clear, comprehensive technical specifications when required <br>
+=95 Provide timely, complete and relevant input into schedule and planning =
+for
+the implementation of the data warehouse <span style=3D"color:black"></span=
+></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ve=
+rdana&quot;,&quot;sans-serif&quot;;
+color:black">=A0</span></p>
+
+<p class=3D"MsoNormal"><span style=3D"background:yellow;mso-highlight:yello=
+w">Qualifications
+<span style=3D"color:black">8-</span>10 years of demonstrable analysis and
+development experience in data modeling and architecture <br>
+=95 5+ years of experience in OBIEE 10/11g <br>
+=95 Expertise in relational/multidimensional databases a must <br>
+=95 Strong SQL skills, preferably Sybase or UDB/DB2 <br>
+=95 Strong skills in a strategic ETL tool, such as Informatica</span> <br>
+=95 Excellent and proven communication skills </p>
+
+<p class=3D"MsoNormal">=A0</p>
+
+<p class=3D"MsoNormal">Preferred Qualifications </p>
+
+<p class=3D"MsoNormal">=95 Degree in Computer Science or related field <br>
+=95 Excellent communication skills and the ability to work in a team enviro=
+nment <br>
+=95 Self-starter, self-motivated, able to work with minimal supervision</p>
+
+<p class=3D"MsoNormal">=A0</p>
+
+<p class=3D"MsoNormal">The Reporting Team within the Corporate Services and=
+ Real
+Estate, Accounting Services, and Office of Global Security Technology group=
+ is
+responsible for reporting within the aforementioned groups in Firmwide Syst=
+ems
+Technology.=A0 Currently, our strategic reporting platform leverages Oracle
+Business Intelligence (OBIEE).</p>
+
+<p class=3D"MsoNormal">=A0</p>
+
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-bottom:12.0p=
+t"><span style=3D"font-size:9.0pt;font-family:&quot;Cambria Math&quot;,&quo=
+t;serif&quot;;color:#7F7F7F">Thanks
+&amp; Regards,</span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:#0=
+070C0">Arun Chandupatla </span></b><span style=3D"color:#0070C0"></span></p=
+>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"color:#007=
+0C0"><a href=3D"mailto:carun@hgtechinc.net" target=3D"_blank"><b><span styl=
+e=3D"font-size:
+10.0pt;line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;c=
+olor:#0070C0;text-decoration:
+none;text-underline:none">carun@hgtechinc.net</span></b></a></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:#0=
+070C0">302-525-4228</span></b><b><span style=3D"font-size:10.0pt;line-heigh=
+t:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;
+color:#C00000"> |</span></b><span style=3D"font-size:10.0pt;line-height:115=
+%;
+font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:#C00000"> <b>=A0</b=
+></span><b><span style=3D"font-size:10.0pt;line-height:115%;font-family:&qu=
+ot;Cambria&quot;,&quot;serif&quot;;
+color:#0070C0">302-355-2324</span></b><b><span style=3D"font-size:10.0pt;
+line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:#1=
+F497D"> </span></b><b><span style=3D"font-size:10.0pt;line-height:115%;font=
+-family:&quot;Cambria&quot;,&quot;serif&quot;;
+color:#C00000">|</span></b><span style=3D"color:#0070C0"></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:#0=
+070C0">Hallmark Global
+Technologies Inc</span></b><span style=3D"font-size:10.0pt;line-height:115%=
+;
+font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:#0070C0">.</span><b=
+><span style=3D"font-size:
+10.0pt;line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;c=
+olor:#17365D"> </span></b><b><span style=3D"font-size:10.0pt;line-height:11=
+5%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;
+color:#C00000">|</span></b><span style=3D"font-size:10.0pt;line-height:115%=
+;
+font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:#C00000"> </span><s=
+pan style=3D"font-size:
+10.0pt;line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;c=
+olor:#1F497D"></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:#C=
+00000">|</span></b><span style=3D"font-size:10.0pt;line-height:115%;font-fa=
+mily:&quot;Cambria&quot;,&quot;serif&quot;;
+color:#17365D"> </span><a href=3D"http://www.hgtechinc.net/" target=3D"_bla=
+nk"><span style=3D"font-size:10.0pt;line-height:115%;font-family:&quot;Camb=
+ria&quot;,&quot;serif&quot;;
+color:#0070C0">www.hgtechinc.net</span></a><span style=3D"color:#1F497D"> <=
+/span><b><span style=3D"font-size:10.0pt;line-height:115%;font-family:&quot=
+;Cambria&quot;,&quot;serif&quot;;
+color:#C00000">|</span></b><span style=3D"color:#17365D"></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"font-size:=
+10.0pt;
+line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:gr=
+ay">262 Chapman=A0Rd,
+Suite # 101, =A0Newark, DE- 19702.</span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:&quot;Cambria&quot;,&quot;serif&quot;;color:re=
+d">________________________________________________________________________=
+___________________________________________________________________________=
+__________________________________________________</span><span style=3D"col=
+or:red"></span></b></p>
+
+
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"color:#173=
+65D">=A0</span><b><span style=3D"font-size:8.0pt;line-height:115%;color:red=
+">NOTE</span></b><span style=3D"font-size:8.0pt;line-height:115%;color:red"=
+>:</span><b><span style=3D"font-size:8.0pt;line-height:115%;color:#A6A6A6">=
+ </span></b><span style=3D"font-size:8.0pt;line-height:115%;color:#A6A6A6">=
+We respect your Online
+Privacy. This is not an unsolicited mail. Under Bill s.1618 Title III passe=
+d by
+the 105th U.S. Congress this mail cannot be considered Spam as long as we
+include Contact information and a method to be <u>removed</u> from our mail=
+ing
+list. If you are not interested in receiving our e-mails then please reply =
+with
+a=A0<u>remove</u> in the subject line and mention all the e-mail addresses
+to be <u>removed</u> with any e-mail addresses which might be diverting the
+e-mails to you. We are sorry for the inconvenience</span><span style=3D"col=
+or:#A6A6A6"></span></p>
+
+<p class=3D"MsoNormal">=A0</p>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups "=
+ArunTR.USA" group.<br />
+To post to this group, send an email to aruntrusa@googlegroups.com.<br />
+To unsubscribe from this group, send email to aruntrusa+unsubscribe@googleg=
+roups.com.<br />
+
+For more options, visit this group at http://groups.google.com/group/aruntr=
+usa?hl=3Den-GB.<br />
+
+
+
+--0016e6570eae3872bd04956dfc3f--

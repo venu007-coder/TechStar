@@ -1,0 +1,803 @@
+<html>
+	<head>
+		<title>
+			Billing/Shipping Information
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.linkcolor {  font-family: Arial, Helvetica, sans-serif; color: #000099; font-weight: bold;}
+-->
+</style>
+	</head>
+
+<SCRIPT runat="merc_server">
+
+var hasServices = doAction("REQ_GET_FORMVALUE","hasServices","hasServices");
+var hasProducts = doAction("REQ_GET_FORMVALUE","hasProducts","hasProducts");
+
+var default_locale = "en";
+
+	// First, define our Objects
+	function Country(id, shortname, longname)
+	{
+		this.ID = id;
+		this.ShortName = shortname;
+		this.LongName = longname;
+	}
+
+	function Region(id, shortname, longname)
+	{
+		this.ID = id;
+		this.ShortName = shortname;
+		this.LongName = longname;
+	}
+
+	// Get list of allowed Countries
+
+	var CountryList = new Array();
+	var numCountries = 0;
+
+	var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_COUNTRY", "Sort", "ID ASC");
+	while(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "TAX_COUNTRY"))
+	{
+		var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "TAX_COUNTRY", "QueryID",qID);
+
+		CountryList[numCountries] = new Country(resultset.ID, resultset.SHORTNAME, resultset.LONGNAME);
+		numCountries++;
+
+		var movednext=doActionEx("DATA_MOVENEXT","Result","ObjectName","TAX_COUNTRY","QueryID",qID);
+
+
+		if (numCountries > 99)
+		{
+			writeln("<br> FORCED BREAK FROM LOOP!<p>");
+			break;
+		}
+	}
+	var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "TAX_COUNTRY");
+
+	// Get list of allowed Regions (States)
+	var RegionList = new Array();
+	var numRegions = 0;
+
+	var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_REGION", "Sort", "ID ASC");
+	while(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "TAX_REGION"))
+	{
+		var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "TAX_REGION", "QueryID",qID);
+
+		RegionList[numRegions] = new Region(resultset.ID, resultset.SHORTNAME, resultset.LONGNAME);
+		numRegions++;
+
+		var movednext=doActionEx("DATA_MOVENEXT","Result","ObjectName","TAX_REGION","QueryID",qID);
+
+
+		if (numRegions > 99)
+		{
+			writeln("<br> FORCED BREAK FROM LOOP!<p>");
+			break;
+		}
+	}
+
+	//CLOSE QUERY
+	var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "TAX_REGION");
+
+	//writeln("Num countries=" + numCountries + " numRegions=" + numRegions);
+
+
+
+
+</script>
+
+	<body bgcolor="#FFFFFF" onLoad="document.BillToShipToForm.BillToName.focus();">
+
+		<merc_dynamic noshow=true name=storeLogo action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreLogo>
+		<merc_dynamic noshow=true name=siteID action=REQ_GET_FORMVALUE return=Result SiteID=SiteID>
+		<merc_dynamic noshow=true name=appID action=REQ_GET_FORMVALUE return=Result AppID=AppID>
+		<merc_dynamic noshow=true name=sessionID action=REQ_GET_FORMVALUE return=Result SessionID=SessionID>
+		<merc_dynamic name=billToRow noshow=true action=SC_GET_FIRST_ROW return=RowName TableName=BillTo>
+		<merc_dynamic name=shipToRow noshow=true action=SC_GET_FIRST_ROW return=RowName TableName=ShipTo>
+
+		<table width="100%" border="0" cellspacing="0" cellpadding="5" height="75">
+			<tr bgcolor="#CC0O00" align="right">
+				<td height="29">
+					<font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3">
+					</font>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td>
+								<center>
+									<font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="3">
+										<font face="Verdana, Arial, Helvetica, sans-serif">
+											<merc_dynamic name=storeName action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=StoreName>
+										</font>
+									</font>
+								</center>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr bgcolor="#FF9933">
+				<td height="46">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" name="topnav">
+						<tr>
+							<td>
+								<center>
+									<a href="&AppID={appID}&action=search">
+										<img src="/mpc/docs/images/TopNav1.gif" BORDER="0" width="61" height="28" name="Search">
+									</a>
+									<a href="&AppID={appID}&action=entry">
+										<img src="/mpc/docs/images/TopNav2.gif" BORDER="0" width="85" height="28" name="products">
+									</a>
+									<a href="&AppID={appID}&action=contactPage">
+										<img src="/mpc/docs/images/TopNav5.gif" width="93" height="28" BORDER="0" name="contactus">
+									</a>
+								</center>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table width="693" border="0" cellspacing="0" cellpadding="0" height="90%">
+			<tr>
+				<td valign="top" width="18%" height="291" bgcolor="#0033FF">
+					<p>
+					&nbsp;
+					</p>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" name="logo">
+						<tr align="center" valign="middle">
+							<td height="62">
+								<img src="/mpc/docs/images/{storeLogo}">
+							</td>
+						</tr>
+					</table>
+					<p>
+					&nbsp;
+					</p>
+					<p>
+					<a href="&AppID={appID}&action=displayBillToShipTo">
+						<img src="/mpc/docs/images/SideNav1.gif" width="110" height="25" name="changelocation" alt="Change Location Zone" border="0">
+					</a>
+					<br>
+					<a href="&AppID={appID}&action=modifyCart">
+						<img src="/mpc/docs/images/SideNav3.gif" width="110" height="24" name="viewcart" alt="View Cart" border="0">
+					</a>
+					<br>
+					<a href="&AppID={appID}&action=checkOut">
+						<img src="/mpc/docs/images/SideNav5.gif" width="110" height="26" name="checkout" alt="Checkout" border="0">
+					</a>
+					</p>
+				</td>
+				<td height="291" width="82%" align="left" valign="top">
+
+					<P>
+					</p>
+					<table width="100%" border="0" cellspacing="0" cellpadding="10" name="copy">
+						<tr valign="top">
+							<td width="10%">
+
+							</td>
+							<td width="90%">
+								<P>
+								<p>
+								&nbsp;
+								</p>
+
+								<p>
+								<table align="left" width="500">
+									<tr>
+										<td align="left">
+											<p>
+											<font face="Arial">
+												<strong>
+													<font face="Arial, Helvetica, sans-serif" size="3">
+														<font color="#000000">
+															<!-- PUT STUFF HERE -->
+															<form action="PowerCommerce.cgi" name="BillToShipToForm">
+																<input type=hidden name=SessionID value=sessionID>
+																<input type=hidden name=action value="setBillToShipTo">
+																<input type=hidden name=SiteID value=siteID>
+																<input type=hidden name=AppID value=appID>
+
+<SCRIPT runat="merc_server">
+var caller= doAction('REQ_GET_FORMVALUE', "Caller", "Caller");
+if (caller != undefined)
+	caller = "ModCart";
+
+writeln("<input type=hidden name='Caller' value='" + caller + "'>");
+
+
+if (hasServices != 'YES')
+{
+	<merc_embed>
+																	<p align="center">
+																	<b>
+																		<font size="5">
+																		Billing and Shipping Information
+																		</font>
+																	</b>
+																	</p>
+	</merc_embed>
+}
+
+var missingFields = doAction('ST_GET_STATEDATA','BTST_MISSING_FIELDS','BTST_MISSING_FIELDS');
+
+if (missingFields != undefined && missingFields.length > 0)
+{
+	missingFields = missingFields.split(',');
+
+	writebr('The following required fields were not entered:<br>');
+
+	for (var k = 0; k < missingFields.length; k++)
+		writebr(missingFields[k]);
+}
+
+<merc_embed>
+																<!-- Display the billing info table -->
+																<table width="500" border="0" cellpadding="0" cellspacing="0" align="center">
+																	<tr bgcolor="#333333">
+																		<td nowrap colspan="4">
+																			<div align="center">
+																				<b>
+																					<font color="#FFFFFF">
+</merc_embed>
+
+if (hasServices == 'YES')
+	writeln('Customer Information');
+else
+	writeln('Billing Address');
+
+<merc_embed>
+																					</font>
+																				</b>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Name:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=billToName noshow=true action=SC_GET_FIELD return=Result TableName=BillTo RowName={billToRow} FieldName=BillToName>
+																			<input type="text" name="BillToName"  value="{billToName}" size="40" maxlength="60">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Address:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=billToAddress1 noshow=true action=SC_GET_FIELD return=Result TableName=BillTo RowName={billToRow} FieldName=Address1>
+																			<input type="text" name="BillToAddress1"  value="{billToAddress1}" size="40" maxlength="80">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Address continued:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=billToAddress2 noshow=true action=SC_GET_FIELD return=Result TableName=BillTo RowName={billToRow} FieldName=Address2>
+																			<input type="text" name="BillToAddress2"  value="{billToAddress2}" size="40" maxlength="80">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;City:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=billToSubRegion noshow=true action=SC_GET_FIELD return=Result TableName=BillTo RowName={billToRow} FieldName=SubRegion>
+																			<input type="text" name="BillToSubRegion"  value="{billToSubRegion}" size="40" maxlength="60">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;State/Province:
+																			</b>
+																		</td>
+																		<td width="220">
+
+</merc_embed>
+
+		var billToRowName = doActionEx('SC_GET_FIRST_ROW', 'RowName','TableName', 'BillTo');
+		var region= MERC_SHOPCART.GetField("BillTo",billToRowName,"Region");
+
+		write("<SELECT NAME=\"BillToRegion\">\n<OPTION VALUE=\"\">None</OPTION>");
+		for (var i=0; i < numRegions; i++)
+		{
+			if (region == RegionList[i].ID)
+				SelectedFlag=" SELECTED ";
+			else
+				SelectedFlag=" ";
+
+			writeln("<OPTION VALUE=\"" + RegionList[i].ID + "\"" + SelectedFlag + ">" + RegionList[i].LongName + "</OPTION>");
+		}
+
+		writeln("\n</SELECT>");
+
+<merc_embed>
+
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Postal Code:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=billToPostalCode noshow=true action=SC_GET_FIELD return=Result TableName=BillTo RowName={billToRow} FieldName=PostalCode>
+																			<input type="text" name="BillToPostalCode"  value="{billToPostalCode}" size="40" maxlength="40">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Country:
+																			</b>
+																		</td>
+																		<td width="220">
+
+</merc_embed>
+		var billToRowName = doActionEx('SC_GET_FIRST_ROW', 'RowName','TableName', 'BillTo');
+		var country= MERC_SHOPCART.GetField("BillTo",billToRowName,"Country");
+		writeln("<SELECT NAME=\"BillToCountry\">");
+		var SelectedFlag="";
+		for (var i=0; i < numCountries; i++)
+		{
+			if (country == CountryList[i].ID)
+				SelectedFlag=" SELECTED ";
+			else
+				SelectedFlag=" ";
+
+			writeln("<OPTION VALUE=\"" + CountryList[i].ID + "\"" + SelectedFlag + ">" + CountryList[i].LongName + "</OPTION>");
+		}
+
+		writeln("\n</SELECT>");
+
+<merc_embed>
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Daytime Phone:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=billToDaytimePhone noshow=true action=SC_GET_FIELD return=Result TableName=BillTo RowName={billToRow} FieldName=DaytimePhone>
+																			<input type="text" name="BillToDaytimePhone"  value="{billToDaytimePhone}" size="16" maxlength="16">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Evening Phone:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=billToEveningPhone noshow=true action=SC_GET_FIELD return=Result TableName=BillTo RowName={billToRow} FieldName=EveningPhone>
+																			<input type="text" name="BillToEveningPhone"  value="{billToEveningPhone}" size="16" maxlength="16">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;E-mail Address:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=billToEmailAddress noshow=true action=SC_GET_FIELD return=Result TableName=BillTo RowName={billToRow} FieldName=EmailAddress>
+																			<input type="text" name="BillToEmailAddress"  value="{billToEmailAddress}" size="40" maxlength="40">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" nowrap colspan="4" height="4"><img src="/mpc/docs/MercShared/images/1x1.gif" height="1" width="500" border="0"></td>
+																	</tr>
+																</table>
+</merc_embed>
+
+if (hasServices != 'YES')
+{
+	<merc_embed>
+
+																<!-- Display the shipping zone table -->
+																<br>
+																<table width="500" border="0" cellpadding="0" cellspacing="0" align="center">
+																	<tr bgcolor="#333333">
+																		<td nowrap colspan="4">
+																			<div align="center">
+																				<b>
+																					<font color="#FFFFFF">
+																						Shipping Information
+																					</font>
+																				</b>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="178" nowrap>
+																			<b>
+																				&nbsp;Shipping:
+																			</b>
+																		</td>
+																		<td width="314">
+																			<!-- SELECT THE SHIPPING ZONE -->
+																			<select name='shippingZone'>
+	</merc_embed>
+				var sessionShippingZoneID = doActionEx("SHIP_GET_ZONE","ShippingZone");
+
+				// query the shipping zone table to get the next (first) shipping zone
+				var theBDO = doActionBDO("DATA_OPENQUERY", "ObjectName", "SHIP_ZONE");
+				var qID = theBDO.QueryID;
+
+				// at the end of the table?
+				if (qID > 0)
+				{
+					while(!doActionEx("DATA_ISEOF","Result","QueryID", qID, "ObjectName", "SHIP_ZONE"))
+					{
+						// get the name lit id
+						var shippingZoneResultSet=doActionBDO("DATA_GETFIELDDATA", "ObjectName", "SHIP_ZONE","QueryID", qID,"FieldName","NAME_LIT_ID");
+						var shippingZoneID=doActionBDO("DATA_GETFIELDDATA", "ObjectName", "SHIP_ZONE","QueryID",qID,"FieldName","ID");
+
+						// the localeText table is queried for the text description of the shipping zone
+						var LIT_TEXT = doActionEx("DATA_GETLOCALESTRING", "LiteralValue", "ObjectName", "SHIP_LITERALS","Locale","en","LiteralID",shippingZoneResultSet.NAME_LIT_ID);
+ 						// get the locale text that the name lit id corresponds to
+						// display dropdown selection box for shipping zone
+
+						if(shippingZoneID.ID == sessionShippingZoneID)
+							write("<option value=\"" + shippingZoneID.ID + "\" selected>");
+						else
+							write("<option value=\"" + shippingZoneID.ID +"\">");
+
+						write(LIT_TEXT);
+						writeln("</option>");
+
+						// move to the next row of the previously opened shipping query
+						var movednext = doActionEx("DATA_MOVENEXT","Result","QueryID", qID, "ObjectName", "SHIP_ZONE")
+					}
+					doAction("DATA_CLOSEQUERY","ObjectName", "SHIP_ZONE","QueryID", qID);
+				}
+	<merc_embed>
+																			</select>
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+
+																		<td colspan="2" width="492" nowrap>
+																			<center>
+	</merc_embed>
+		var shipToRowName = doActionEx('SC_GET_FIRST_ROW', 'RowName','TableName', 'ShipTo');
+		var shipToSameAsBillTo = "false";
+		shipToSameAsBillTo= MERC_SHOPCART.GetField("ShipTo",shipToRowName,"SameAsBillTo");
+
+		if(shipToSameAsBillTo=="true")
+			writeln('<input type="checkbox" name="ShipToSameAsBillTo"  value="true" CHECKED>');
+		else
+			writeln('<input type="checkbox" name="ShipToSameAsBillTo"  value="true">');
+	<merc_embed>
+																				Ship-To address same as Bill-To address
+																			</center>
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+
+																	</tr>
+
+																	<tr>
+																		<td bgcolor="#CCCCCC" nowrap colspan="4" height="4"><img src="/mpc/docs/MercShared/images/1x1.gif" height="1" width="500" border="0"></td>
+																	</tr>
+																</table>
+																<!-- end shipping zone table-->
+
+
+																<!-- Display the shipping info table -->
+																<br>
+																<table width="500" border="0" cellpadding="0" cellspacing="0" align="center">
+																	<tr bgcolor="#333333">
+																		<td width="100%" nowrap colspan="4">
+																			<div align="center">
+																				<b>
+																					<font color="#FFFFFF">
+																						Shipping Address
+																					</font>
+																				</b>
+																				<font color="#FFFFFF">
+																					(if different from above)
+																				</font>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Name:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=shipToName noshow=true action=SC_GET_FIELD return=Result TableName=ShipTo RowName={shipToRow} FieldName=ShipToName>
+																			<input type="text" name="ShipToName"  value="{shipToName}" size="40" maxlength="60">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Address:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=shipToAddress1 noshow=true action=SC_GET_FIELD return=Result TableName=ShipTo RowName={shipToRow} FieldName=Address1>
+																			<input type="text" name="ShipToAddress1"  value="{shipToAddress1}" size="40" maxlength="80">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Address continued:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=shipToAddress2 noshow=true action=SC_GET_FIELD return=Result TableName=ShipTo RowName={shipToRow} FieldName=Address2>
+																			<input type="text" name="ShipToAddress2"  value="{shipToAddress2}" size="40" maxlength="80">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;City:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=shipToSubRegion noshow=true action=SC_GET_FIELD return=Result TableName=ShipTo RowName={shipToRow} FieldName=SubRegion>
+																			<input type="text" name="ShipToSubRegion"  value="{shipToSubRegion}" size="40" maxlength="60">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC"  width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;State/Province:
+																			</b>
+																		</td>
+																		<td width="220">
+
+
+	</merc_embed>
+
+		var shipToRowName = doActionEx('SC_GET_FIRST_ROW', 'RowName','TableName', 'ShipTo');
+		var region= MERC_SHOPCART.GetField("ShipTo",shipToRowName,"Region");
+
+		write("<SELECT NAME=\"ShipToRegion\">\n<OPTION VALUE=\"\">None</OPTION>");
+		for (var i=0; i < numRegions; i++)
+		{
+			if (region == RegionList[i].ID)
+				SelectedFlag=" SELECTED ";
+			else
+				SelectedFlag=" ";
+
+			writeln("<OPTION VALUE=\"" + RegionList[i].ID + "\"" + SelectedFlag + ">" + RegionList[i].LongName + "</OPTION>");
+		}
+
+		writeln("\n</SELECT>");
+
+	<merc_embed>
+
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Postal Code:
+																			</b>
+																		</td>
+																		<td width="220">
+																			<merc_dynamic name=shipToPostalCode noshow=true action=SC_GET_FIELD return=Result TableName=ShipTo RowName={shipToRow} FieldName=PostalCode>
+																			<input type="text" name="ShipToPostalCode"  value="{shipToPostalCode}" size="40" maxlength="40">
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap>
+																			<b>
+																				&nbsp;Country:
+																			</b>
+																		</td>
+																		<td width="220">
+	</merc_embed>
+
+		var country= MERC_SHOPCART.GetField("ShipTo",shipToRowName,"Country");
+		writeln("<SELECT NAME=\"ShipToCountry\">");
+		var SelectedFlag="";
+		for (var i=0; i < numCountries; i++)
+		{
+			if (country == CountryList[i].ID)
+				SelectedFlag=" SELECTED ";
+			else
+				SelectedFlag=" ";
+
+			writeln("<OPTION VALUE=\"" + CountryList[i].ID + "\"" + SelectedFlag + ">" + CountryList[i].LongName + "</OPTION>");
+		}
+
+		writeln("\n</SELECT>");
+
+	<merc_embed>
+
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" width="4">
+																			&nbsp;
+																		</td>
+																		<td bgcolor="#CCCCCC" width="175" nowrap valign="top">
+																			<b>
+																				&nbsp;Special Instructions:
+																			</b>
+																		</td>
+																		<td width="220">
+	<textarea name="Special" cols="35" rows="5">
+	<merc_dynamic name=special noshow=false action=SC_GET_FIELD return=Result TableName=ShipTo RowName={shipToRow} FieldName=Special>
+	</textarea>
+																		</td>
+																		<td width="4" bgcolor="#CCCCCC">
+																			&nbsp;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td bgcolor="#CCCCCC" nowrap colspan="4" height="4"><img src="/mpc/docs/MercShared/images/1x1.gif" height="1" width="500" border="0"></td>
+																	</tr>
+																</table>
+																<p align="center">
+	</merc_embed>
+}
+
+writeln('<input type=hidden name="hasServices" value="' + hasServices + '">');
+writeln('<input type=hidden name="hasProducts" value="' + hasProducts + '">');
+
+var theCaller = doAction("ST_GET_STATEDATA","Caller","Caller");
+if (theCaller == 'checkout')
+	writeln('<br><center><input type="submit" name="Submit" value="Continue Checkout">');
+else
+{
+	writeln('<input type="submit" name="Submit" value="Continue Shopping">');
+	writeln('<input type="submit" name="Submit" value="Show Cart"></center>');
+}
+
+</script>
+																</p>
+															</form>
+														</font>
+													</font>
+												</strong>
+											</font>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

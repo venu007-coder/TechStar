@@ -1,0 +1,637 @@
+<SCRIPT runat="merc_server">
+	//	INITIALIZE THE LANGUAGE LOCALE TO ENGLISH, FOR NOW. WE WILL NEED TO READ 
+	//	THE DEFAULT LOCALE FROM A CONFIG FILE LATER, BUT FOR NOW IT WILL BE HARD-CODED.
+	var default_locale = "en";
+
+	var incJsFile = doActionEx('DATA_READFILE','tax_pr.js', 'FileName', 'tax_pr.js','ObjectName','Site','FileType','txt');
+	eval (incJsFile);
+
+	var theAction= doAction('REQ_GET_FORMVALUE', "tax_zone_action", "tax_zone_action");
+	if (theAction)
+	{
+		switch (theAction)
+		{
+			case "DEL":
+				deleteTaxZone();
+				break;
+			case "UPDATE_TAX_ZONE":
+				updateTaxZone();
+				break;
+			case "NEW_TAX_ZONE":
+				addTaxZone();
+				break;
+			case "DEL_TAX_CAT":
+				deleteTaxCat();
+				break;
+			case "NEW_CAT_SAVE":
+				saveNewCat();
+				break;
+			case "EDIT_CAT_SAVE":
+				saveEditCat()
+				break;
+			case "SAVE": 
+				saveTaxRates();
+				break;
+		}
+
+	}
+</script>
+
+<html>
+<head>
+<title>Sales Tax Zones</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+
+<merc_dynamic noshow=true name=dyn_ImagePath action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=imagepath>
+
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+	<!--  Begin
+	function confirmTaxZoneDelete(zoneRowText, tax_zone_id)
+	{
+		var result = confirm("Are you sure you wish to delete Tax Zone, '"+zoneRowText+"' ?");
+		if (result == true)
+		{
+			document.editTax.main_id.value = tax_zone_id;
+			document.editTax.tax_zone_action.value = "DEL";
+			parent.SubmitForm('L','bm_salestax.htm','mainFrame', document.editTax );
+		}
+	}
+
+	function confirmCatDelete(category_node_id, cat_name)
+	{
+		var result = confirm("Are you sure you wish to delete Tax Category, '"+cat_name+"' ?");
+		if (result == true)
+		{
+			document.editTax.main_id.value = category_node_id;
+			document.editTax.tax_zone_action.value = "DEL_TAX_CAT";
+			parent.SubmitForm('L','bm_salestax.htm','mainFrame', document.editTax );
+		}
+	}
+
+	function setEditTaxZone(country,region,subRegion,tax_zone_id)
+	{
+		document.forms[0].main_id.value = tax_zone_id;
+		document.forms[0].tax_zone_action.value = "EDIT";
+		document.forms[0].main_name.value = country;
+		document.forms[0].region.value = region;
+		document.forms[0].subregion.value = subRegion;
+		parent.OpenWinSubmitForm('','L','bm_salestax_newzone.htm','newWin', document.editTax, parent.createSimpleSubmitWindow(275,600) );
+	}
+
+	function setEditCat(category_node_id, cat_name)
+	{
+		document.forms[0].main_id.value = category_node_id;
+		document.forms[0].tax_zone_action.value = "EDIT_CAT";
+		document.forms[0].main_name.value = cat_name;
+		document.forms[0].region.value = '';
+		document.forms[0].subregion.value = '';
+		parent.OpenWinSubmitForm('','L','bm_salestax_newcat.htm','newWin', document.editTax, parent.createSimpleSubmitWindow(200,400) );
+	}
+
+	function setAddTaxZone()
+	{
+		document.forms[0].tax_zone_action.value = "ADD";
+		document.forms[0].main_id.value = '';
+		document.forms[0].main_name.value = '';
+		document.forms[0].region.value = '';
+		document.forms[0].subregion.value = '';
+		parent.OpenWinSubmitForm('','L','bm_salestax_newzone.htm','newWin', document.editTax, parent.createSimpleSubmitWindow(275,600) );
+	}
+
+	function setNewCat()
+	{
+		document.forms[0].tax_zone_action.value = "NEW_CAT";
+		document.forms[0].main_id.value = '';
+		document.forms[0].main_name.value = '';
+		document.forms[0].region.value = '';
+		document.forms[0].subregion.value = '';
+		parent.OpenWinSubmitForm('','L','bm_salestax_newcat.htm','newWin', document.editTax, parent.createSimpleSubmitWindow(200,400) );
+	}
+
+	function setSave()
+	{
+		document.forms[0].tax_zone_action.value = "SAVE";
+		parent.SubmitForm('L','bm_salestax.htm','mainFrame', document.editTax );
+	}
+
+
+	// End -->
+</SCRIPT>
+</head>
+<SCRIPT runat="merc_server">
+	// Define objects
+	function RateCategory(name, nodeID)
+	{
+		this.name = name;
+		this.nodeID = nodeID;
+	}
+
+	function TaxZone(theID, countryRegionID, regionID, subRegionID)
+	{
+		this.ID = theID;
+		this.countryID = countryRegionID;
+		this.regionID = regionID;
+		this.subRegionID = subRegionID;
+	}
+
+	function Rate(catLookupID, zone, rate, catName, catID)
+	{
+		this.categoryLookupID = catLookupID;
+		this.zoneID = zone;
+		this.rate = rate;
+		this.categoryName = catName;
+		this.categoryID = catID;
+	}
+
+	var UseTaxOnShippingFlag = doActionEx('TAXZONE_GETSHIPPINGTAXFLAG', 'Value');
+	if (UseTaxOnShippingFlag)
+	{}
+	else
+		UseTaxOnShippingFlag = 'Y';
+
+	// Get Tax Category List
+	var taxCategoryArray = new Array();
+	var numTaxCategories=0;
+	var numCategories=0;
+
+	var mainBDO = doActionBDO('MRA_ZONETAX_CATEGORIES', "Locale", default_locale);
+
+	if (mainBDO && mainBDO.Count)
+		numCategories = mainBDO.Count;
+	else
+		writebr("No BDO for Tax Categories");
+
+	//writebr("mainBDO.Count=" + mainBDO.Count);
+
+	for (var i=1; i < numCategories + 1; i++)
+	{
+		var CategoryBDO = eval("mainBDO.RateCat" + i);
+		if (CategoryBDO)
+		{
+			//writebr("Category BDO #" + i + " has name=" + CategoryBDO.Name + " and ID=" +  CategoryBDO.ID);
+			var temp = new RateCategory(CategoryBDO.Name, CategoryBDO.ID); // Insert (Name, NodeID)
+			taxCategoryArray[numTaxCategories] = temp;
+			numTaxCategories++;
+		}
+	}
+
+	// Retrieve list of Tax Zones
+	var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_ZONE", "Sort", "COUNTRY_LOOKUP_ID, REGION_LOOKUP_ID, SUBREGION_LOOKUP_ID ASC");
+	var zoneArray = new Array();
+	var numZones=0;
+
+	while(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "TAX_ZONE"))
+	{ 
+		var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "TAX_ZONE", "QueryID",qID);
+		var theID = resultset.ID;
+		var countryRegionID = resultset.COUNTRY_LOOKUP_ID;		
+		var regionID = resultset.REGION_LOOKUP_ID;
+		var subRegionID = resultset.SUBREGION_LOOKUP_ID;
+
+		var tmpA = new TaxZone(theID, countryRegionID, regionID, subRegionID);
+		zoneArray[numZones]=tmpA;
+
+		var movednext=doActionEx("DATA_MOVENEXT","Result","ObjectName","TAX_ZONE","QueryID",qID);
+		numZones++;
+
+		if (numZones > 999)
+		{
+			writeln("<br> FORCED BREAK FROM LOOP!<p>");
+			break;
+		}
+	}	
+
+	//CLOSE QUERY
+	var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "TAX_ZONE");
+
+
+	// Now retrieve list of Category Rates Codes
+	var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_RATE", "Sort", "ZONE_ID");
+	var rateArray = new Array();
+	var numCatRates=0;
+
+	//writeln("cat rates qID=" + qID + "<BR>");
+	if (qID > 0)
+	{
+		while(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "TAX_RATE"))
+		{ 
+			var rowSet = doActionBDO("DATA_GETROWDATA","ObjectName", "TAX_RATE", "QueryID",qID);
+
+			var zone=rowSet.ZONE_ID;
+			var rate=rowSet.RATE;
+			var catLookupID=rowSet.CATEGORY_NODE_ID;
+			var catName="-";
+			var catID=rowSet.ID;
+
+
+			//writeln("CatLookup=" + catLookupID + ", zone=" + zone + ", rate=" + rate + "<br>");
+
+			var tmpA = new Rate(catLookupID, zone, rate, catName, catID);
+			rateArray[numCatRates]=tmpA;
+						
+			var movednext=doActionEx("DATA_MOVENEXT","Result","ObjectName","TAX_RATE","QueryID",qID);
+			numCatRates++;
+
+		}
+		//writeln("NumCatRates = " + numCatRates + "<BR>");
+	}
+	//CLOSE QUERY
+	var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "TAX_RATE");
+
+
+	if (output)
+		writeln('	<body class="bkgrd-main-items" onLoad="alert(\'', output, '\');">');
+	else
+		writeln('	<body class="bkgrd-main-items" >');
+
+
+	</script>
+
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<td align="right">
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SALESTAX_EDITRATECAT+SoftCart+{helpversion}+en-us', 'Alane'));"> 
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" name="help" alt="Help" align="right">
+</a></td>
+<!--END HELP WINDOW LINK-->
+	<div align="center">
+	  <p align="left"><span class="header">&nbsp;Sales Tax</span></p>
+
+	<form action="" method="post" name="editTax" 
+	onSubmit="javascript:void(parent.SubmitForm('L','tax_pr.js','mainFrame', document.editTax ))">
+
+
+	  <INPUT TYPE="HIDDEN" NAME="main_id" VALUE="">
+	  <INPUT TYPE="HIDDEN" NAME="tax_zone_action" VALUE="">
+	  <INPUT TYPE="HIDDEN" NAME="main_name" VALUE="">
+	  <INPUT TYPE="HIDDEN" NAME="region" VALUE="">
+	  <INPUT TYPE="HIDDEN" NAME="subregion" VALUE="">
+
+	<SCRIPT runat="merc_server">
+
+	var colLookupArrayValues="";
+	var colArrayValues="";
+	var rowArrayValues="";
+	for (var i=0; i < numTaxCategories; i++)
+	{
+		if (i==0)
+			colLookupArrayValues = colLookupArrayValues + taxCategoryArray[i].nodeID;
+		else
+			colLookupArrayValues = colLookupArrayValues + "," + taxCategoryArray[i].nodeID;
+	}
+	//writeln("colLookupArrayValues= '" + colLookupArrayValues + "'");
+
+	for (var i=0; i < numCatRates; i++)
+	{
+		if (i==0)
+			colArrayValues = colArrayValues + rateArray[i].categoryID;
+		else
+			colArrayValues = colArrayValues + "," + rateArray[i].categoryID;
+	}
+	//writebr("colArrayValues=" + colArrayValues);
+
+	for (var i=0; i < numZones; i++)
+	{
+		if (i==0)
+			rowArrayValues = rowArrayValues + zoneArray[i].ID;
+		else
+			rowArrayValues = rowArrayValues + "," + zoneArray[i].ID;
+	}
+	//writeln("row Array = '" + rowArrayValues + "'");
+
+	writeln("  <INPUT TYPE=\"HIDDEN\" NAME=\"tax_row_array\" VALUE=\"" + rowArrayValues + "\">");
+	writeln("  <INPUT TYPE=\"HIDDEN\" NAME=\"tax_col_array\" VALUE=\"" + colArrayValues + "\">");
+	writeln("  <INPUT TYPE=\"HIDDEN\" NAME=\"tax_col2_array\" VALUE=\"" + colLookupArrayValues + "\">");
+
+	</script>
+
+	  <table width="500" border="1" cellspacing="0" cellpadding="0">
+		<tr> 
+		  <td width="23%" nowrap class="blank-cell" rowspan="2"> 
+			<div align="center">&nbsp</div>
+		  </td>
+
+
+	<SCRIPT runat="merc_server">
+
+	if (UseTaxOnShippingFlag && UseTaxOnShippingFlag == 'N')
+		writeln("<td colspan=\"3\" class=\"subheader\">");
+	else
+		writeln("<td colspan=\"4\" class=\"subheader\">");
+	
+	</script>
+
+
+			<div align="center">Zone</div>
+		  </td>
+		  <td width="7%" bgcolor="#FFCC66" class="blank-cell">&nbsp;</td>
+
+
+	<SCRIPT runat="merc_server">
+
+	if (numTaxCategories < 1)
+		var TaxCatColSpan = 1;
+	else
+		var TaxCatColSpan = numTaxCategories-1; // Subtract one because we display the Shipping Category in a different location.
+
+	writeln("      <td nowrap colspan=\"" + TaxCatColSpan + "\"  class=\"subheader\"> ");
+
+	</script>
+
+			<div align="center">Tax Categories</div>
+		  </td>
+		</tr>
+		<tr class="table-header"> 
+		  <td width="13%" class="table-header"> 
+			<div align="center">Country</div>
+		  </td>
+		  <td width="17%" class="table-header"> 
+			<div align="center">Region<br>
+			  (state, province...) </div>
+		  </td>
+		  <td width="12%" class="table-header"> 
+			<div align="center">Sub-region<br>
+			  (city...) </div>
+		  </td>
+	<SCRIPT runat="merc_server">
+
+	if (UseTaxOnShippingFlag && UseTaxOnShippingFlag == 'Y')
+		writeln("      <td width=\"12%\" class=\"table-header\">\n\
+		<div align=\"center\">Shipping Tax Rate</div>\n\
+	  </td>");
+
+	</script>
+
+		  <td width="1%" nowrap> 
+			<div align="center"> &nbsp;</div>
+		  </td>
+
+	<SCRIPT runat="merc_server">
+//include Formatting Library
+var cs_inc = doActionEx ('DATA_READFILE','FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName',
+	    'JS_SRC', 'FileType', 'txt');
+eval (cs_inc)
+
+//var LOCALE_STRING="en";
+var LOCALE_STRING=getBrowserLocale();
+var PRECISION = 4;
+
+
+	if (numTaxCategories > 0)
+	{
+		for (var i=0; i < numTaxCategories; i++)
+		{
+			if (taxCategoryArray[i].name == "Shipping")
+				continue;
+
+			if (taxCategoryArray[i].name == "Basic" )
+			{
+				writeln("<td width=\"14%\" nowrap class=\"table-header\"><div align=\"center\"> &quot;"+ taxCategoryArray[i].name +"&quot; <br>Tax Rate<br></div>\n</td>");
+			}
+			else
+			{
+				write("<td width=\"14%\" nowrap class=\"table-header\">\
+	<div align=\"center\">\
+	&quot;"+ taxCategoryArray[i].name +"&quot; <br>\
+	Tax Rate<br>");
+
+	// Temporarily remove the Delete Category button until we tie in which items get affected by deleting a tax category.
+	//			write("<a href=\"javascript:confirmCatDelete('" + taxCategoryArray[i].nodeID +"','" + taxCategoryArray[i].name + "')\">\
+	//<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_delete.gif\" width=\"60\" height=\"19\" border=\"0\" alt=\"Delete\"></a><br>");
+
+				writeln("<a href=\"javascript:setEditCat('" + taxCategoryArray[i].nodeID +"','" + taxCategoryArray[i].name + "'); \" >\
+	<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_edit.gif\" width=\"60\" height=\"19\" border=\"0\" alt=\"Edit\"></a></div>\n\
+	</td>");
+			}
+		}
+	}
+	else
+	{
+		writeln("<td width=\"14%\" nowrap class=\"table-header\">\
+		<div align=\"center\">Rate:<br>\
+		  Category<br>--NONE DEFINED--</div>\
+		</td>");
+
+	}
+
+	writeln("	</tr>");
+
+	if (numZones == 0)
+	{
+	writeln("<tr>\n<td align='center'> None Defined </td>\n<td align='center'> -- </td>\n<td align='center'> -- </td>\n\
+	<td align='center'> -- </td>\n<td align='center'> -- </td>\n<td align='center'> &nbsp </td>\n<td colspan=" + TaxCatColSpan+ " align='center'> -- </td>\n</tr>");
+
+	}
+
+	for (var j=0; j < numZones; j++)
+	{
+
+		// If Country ID exists, retrieve the text value
+		var country = "--";
+		if (zoneArray[j].countryID != 0)
+		{
+			var temp = "ID=" + zoneArray[j].countryID;
+			//writeln("tempstring=" + temp + "<br>");
+
+			var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_COUNTRY", "Filter", temp);
+			//writeln("queryID=" + eval(qID) + "<BR>");
+
+			if (qID > 0)
+			{
+				var resultset = doActionBDO("DATA_GETFIELDDATA", "ObjectName", "TAX_COUNTRY","QueryID",qID,"FieldName","SHORTNAME");
+				if (resultset && resultset.SHORTNAME)
+				{
+					var country = resultset.SHORTNAME;
+				}
+			}
+			var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "TAX_COUNTRY");
+			//writeln("Using country=" + country + "<br>");
+		}
+
+		// If Region ID exists, retrieve the text value
+		var region = "--";
+		if (zoneArray[j].regionID != 0)
+		{
+			var temp = "ID=" + zoneArray[j].regionID;
+			//writeln("tempstring=" + temp + "<br>");
+
+			var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_REGION", "Filter", temp);
+			//writeln("queryID=" + eval(qID) + "<BR>");
+
+			if (qID > 0)
+			{		
+				var resultset=doActionBDO("DATA_GETFIELDDATA", "ObjectName", "TAX_REGION","QueryID",qID,"FieldName","SHORTNAME");
+				if (resultset && resultset.SHORTNAME)
+				{
+					var region = resultset.SHORTNAME;
+				}
+			}
+			var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "TAX_REGION");
+			//writeln("Using region=" + region + "<br>");
+		}
+
+		// If Region ID exists, retrieve the text value
+		var subRegion = "--";
+		if (zoneArray[j].subRegionID != 0)
+		{
+			var temp = "ID=" + zoneArray[j].subRegionID;
+			//writeln("tempstring=" + temp + "<br>");
+
+			var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_SUBREGION", "Filter", temp);
+			//writeln("queryID=" + eval(qID) + "<BR>");
+
+			if (qID > 0)
+			{		
+				var resultset=doActionBDO("DATA_GETFIELDDATA", "ObjectName", "TAX_SUBREGION","QueryID",qID,"FieldName","SHORTNAME");
+				if (resultset && resultset.SHORTNAME)
+				{
+					var subRegion = resultset.SHORTNAME;
+				}
+			}
+			var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "TAX_SUBREGION");
+			//writeln("Using region=" + region + "<br>");
+		}
+		
+		writeln("    <tr> ");
+		write  ("      <td nowrap ><div align=\"center\">");
+		write  ("<a href=\"javascript:setEditTaxZone('" + country+"','"+region+"','"+subRegion+"','"+ zoneArray[j].ID + "','" + "')\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_edit.gif\" width=\"60\" height=\"19\" border=\"0\" alt=\"Edit\"></a>" );
+		writeln("<a href=\"javascript:confirmTaxZoneDelete('" + country+","+region+","+subRegion+ "','" + zoneArray[j].ID   + "')\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_delete.gif\" width=\"60\" height=\"19\" border=\"0\" alt=\"Delete\"></a></div>");
+		writeln("      </td> ");
+
+		writeln("      <td width=\"13%\">\n        <div align=\"center\">" + country +   "</div>\n      </td> ");
+		writeln("      <td width=\"17%\">\n        <div align=\"center\">" + region +    "</div>\n      </td> ");
+		writeln("      <td width=\"12%\">\n        <div align=\"center\">" + subRegion + "</div>\n      </td> "); 
+
+
+		// Display the Shipping Rate Column
+		if (numTaxCategories > 0 && (UseTaxOnShippingFlag && UseTaxOnShippingFlag=="Y"))
+		{
+			for (var i=0; i < numTaxCategories; i++)
+			{
+				if (taxCategoryArray[i].name != "Shipping")
+					continue;
+
+				var categoryLookupID = taxCategoryArray[i].nodeID; 
+				var catRateID = 0; 
+
+				var rate=0; // Default rate to be $0.00
+
+				// For each rate, see if we are displaying the correct zone and category
+				for (var k=0; k < numCatRates; k++)
+				{
+					// if RateZone==theRowWeAreDisplaying and the RateCategory matches the header's category... 
+					if (rateArray[k].zoneID == zoneArray[j].ID && rateArray[k].categoryLookupID == taxCategoryArray[i].nodeID)
+					{
+						catRateID = rateArray[k].categoryID; // Actual RateCodeID from table
+						rate = rateArray[k].rate;
+						//writeln("Should show array=(" + zoneArray[j].ID + "," + catRateID + ") value=" + rateArray[k].categoryName + "-" + rateArray[k].rate + "<BR>");
+					}
+				}
+
+				if (rate > 0)
+				{
+					writeln("      <td nowrap>\n\
+		&nbsp <input type=\"text\" name=\"rate_id_" + zoneArray[j].ID + "_" +categoryLookupID + "_" + catRateID + "\" value=\"" + formatDouble(rate,"en",PRECISION) + "\" maxlength=\"8\" size=\"8\">\n\
+		<span class=\"general-label\">% </span></td> ");
+				}
+				else
+				{
+					writeln("      <td nowrap>\n\
+		&nbsp <input type=\"text\" name=\"rate_id_" + zoneArray[j].ID + "_" +categoryLookupID + "_" + catRateID + "\" value=\"\" maxlength=\"8\" size=\"8\">\n\
+		<span class=\"general-label\">% </span></td> ");
+				}
+			}
+		}
+
+		// SPACER
+		writeln("      <td width=\"7%\">\n        <div align=\"center\"> &nbsp </div>\n      </td> ");
+
+
+		// Go through each Category and find the correct value, omitting the Shipping Category
+		if (numTaxCategories > 0)
+		{
+			for (var i=0; i < numTaxCategories; i++)
+			{
+				if (taxCategoryArray[i].name == "Shipping")
+					continue;
+
+				var categoryLookupID = taxCategoryArray[i].nodeID; 
+				var catRateID = 0; 
+				// Default to the appropriate CategoryRateID if one isn't in the DB
+
+				var rate=0; // Default rate to be $0.00
+
+				// For each rate, see if we are displaying the correct zone and category
+				for (var k=0; k < numCatRates; k++)
+				{
+					// if RateZone==theRowWeAreDisplaying and the RateCategory matches the header's category... 
+					if (rateArray[k].zoneID == zoneArray[j].ID && rateArray[k].categoryLookupID == taxCategoryArray[i].nodeID)
+					{
+						catRateID = rateArray[k].categoryID; // Actual RateCodeID from table
+						rate = rateArray[k].rate;
+					}
+				}
+
+				if (rate > 0)
+				{
+//I Added formatting here
+					write("      <td nowrap>\n\
+		&nbsp <input type=\"text\" name=\"rate_id_" + zoneArray[j].ID + "_" +categoryLookupID + "_" + catRateID + "\" value=\"" + formatDouble(rate,"en",PRECISION) + "\" maxlength=\"8\" size=\"8\">\n\
+		<span class=\"general-label\">% </span></td> ");
+				}
+				else
+				{
+					write("      <td nowrap>\n\
+		&nbsp <input type=\"text\" name=\"rate_id_" + zoneArray[j].ID + "_" +categoryLookupID + "_" + catRateID + "\" value=\"\" maxlength=\"8\" size=\"8\">\n\
+		<span class=\"general-label\">% </span></td> ");
+				}
+			}
+		}
+		else // No existing Tax categories yet.
+		{
+			write("      <td width=\"14%\" nowrap><div align=\"center\"> -- </div></td> ");
+		}
+
+
+		writeln("    </tr> ");
+		
+	}
+
+
+	</script>
+	  </table>
+
+	  <p><a href="javascript:void(0);" onClick="javascript:setAddTaxZone()"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_newzone.gif" width="90" height="21" border="0" alt="New Zone"></a>
+	&nbsp;<a href="javascript:void(0);" onClick="javascript:setNewCat()"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_newcat.gif" width="120" height="21" border="0" alt="New Category"></a>
+
+	<SCRIPT runat="merc_server">
+
+	if (numTaxCategories > 0)
+	{
+		write("&nbsp;<a href=\"javascript:setSave();\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif\" width=\"90\" height=\"21\" border=\"0\" alt=\"Save\"></a>");
+	}
+
+
+	</script>
+		<span class="header"> 
+		</span> </p>
+	  </form>
+
+
+	</div>
+<SCRIPT runat="merc_server">
+
+
+</script>
+
+</body>
+</html>

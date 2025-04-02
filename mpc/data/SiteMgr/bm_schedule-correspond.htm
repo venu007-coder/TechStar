@@ -1,0 +1,376 @@
+<!-- bm_schedule-correspond.htm -->
+<script runat="merc_server">
+	//set Locale string
+	var LOCALE_STRING="en";
+	var status;
+	var mode= doAction('REQ_GET_FORMVALUE', "mode", "mode");
+
+	var serverCfgVarsArray = new Array('CUST_REMINDER', 'APT_APPROVE_EMAIL',
+			'APT_DENY_EMAIL', 'APT_CANCELLED_EMAIL');
+
+	if (mode =='save')
+	{
+		//writebr("Saving values...");
+
+		var incomingVarsArray = new Array('dontSendAutoReminder', 'dontSendApptAccepted',
+				'dontSendApptRejected',	'dontSendApptCancelled');
+		var inputCfgVars = new Array('cust_reminder', 'apt_approve_email',
+				'apt_deny_email', 'apt_cancelled_email');
+
+		for (var i=0; i < incomingVarsArray.length;i++)
+		{
+			eval(incomingVarsArray[i] + '=' + doAction('REQ_GET_FORMVALUE', incomingVarsArray[i], incomingVarsArray[i]));
+			//writebr(incomingVarsArray[i], '=', eval(incomingVarsArray[i]));
+
+			if (eval(incomingVarsArray[i]))
+				eval(inputCfgVars[i] + '="N"');
+			else
+				eval(inputCfgVars[i] + '="Y"');
+
+			status = doAction('DATA_SETCONFIGDATA', "ObjectName", "ServicesCfg", "RowName", serverCfgVarsArray[i], "Col", 1, "NewValue", eval(inputCfgVars[i]));
+
+			//writebr('just set ', serverCfgVarsArray[i],' to ', eval(inputCfgVars[i]));
+		}
+		var numDaysBeforeAppt =  doAction('REQ_GET_FORMVALUE', "numDaysBeforeAppt", "numDaysBeforeAppt")
+		var setAckCustEmail = doAction('DATA_SETCONFIGDATA', "ObjectName", "ServicesCfg", "RowName", "CUST_REMINDER_DAYS", "Col", 1, "NewValue", numDaysBeforeAppt);
+
+		// Now handle the first two checkboxes for shopper and merchant email
+		// notification.  The Post Order component is used for this.  If
+		// the "Don't Send" button is checked, the corresponding template line
+		// is removed from the file "PostOrder.cfg".  Otherwise, it is added.
+		var bdoInput;
+		var bdoOutput;
+		var shopperCheck = "";
+		var merchantCheck = "";
+
+		// Get the form value for the check box
+		shopperCheck = doAction('REQ_GET_FORMVALUE', 'shopperEmailNotification',
+				'shopperEmailNotification');
+
+		// The value '9' here indicates a payment type of 'NONE'
+		bdoInput = GetBDO('Event', 'ON_SERVICE_REQUEST', 'Template',
+				'Service_OrderConf_Shopper', 'PaymentType', 9);
+		bdoOutput = GetBDO();
+		// If shopperCheck is defined, the checkbox was checked.
+		if (shopperCheck)
+		{
+			status = ProcessRequest('PORD_REMOVE_EMAIL_TEMPLATE', bdoInput, bdoOutput);
+		}
+		else
+		{
+			status = ProcessRequest('PORD_ADD_EMAIL_TEMPLATE', bdoInput, bdoOutput);
+		}
+
+		// Get the form value for the check box
+		merchantCheck = doAction('REQ_GET_FORMVALUE', 'merchantEmailNotification',
+				'merchantEmailNotification');
+
+		// The value '9' here indicates a payment type of 'NONE'
+		bdoInput = GetBDO('Event', 'ON_SERVICE_REQUEST', 'Template',
+				'Service_OrderConf_Merchant', 'PaymentType', 9);
+		bdoOutput = GetBDO();
+		// If merchantCheck is defined, the checkbox was checked.
+		if (merchantCheck)
+		{
+			status = ProcessRequest('PORD_REMOVE_EMAIL_TEMPLATE', bdoInput, bdoOutput);
+		}
+		else
+		{
+			status = ProcessRequest('PORD_ADD_EMAIL_TEMPLATE', bdoInput, bdoOutput);
+		}
+
+	}
+	/*Retrieve values AFTER all sets are complete*/
+	var cfgVars = new Array('custAutoReminder', 'apptApproveEmail',
+			'apptRejectEmail','apptCancelEmail');
+
+	for (var j=0; j < cfgVars.length;j++)
+	{
+		//writebr(j);
+		eval(cfgVars[j] + '="' + doAction('DATA_GETCONFIGDATA', "ObjectName", "ServicesCfg", "RowName", serverCfgVarsArray[j], "Col", 1)+'"');
+
+		//set CHECKS for checkbox display
+		if (eval(cfgVars[j]) == 'Y')
+			eval(cfgVars[j]+'CHECK=""');
+		else
+			eval(cfgVars[j]+'CHECK="CHECKED"');
+	}
+	var reminderDaysBeforeAppt= doAction('DATA_GETCONFIGDATA', "ObjectName", "ServicesCfg", "RowName", "CUST_REMINDER_DAYS", "Col", 1);
+
+</script>
+
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+<script language="JavaScript">
+
+function EmailEditor(whichrow)
+{
+ var win = parent.OpenWin ("", whichrow, "");
+ document.serviceCorrespondence.NextPage.value = "bm_emaileditor.html";
+ document.serviceCorrespondence.sm_action.value = "L";
+ document.serviceCorrespondence.emailrowname.value = whichrow;
+ var emaileditor = new parent.submitFormObject ("", "", whichrow, document.serviceCorrespondence);
+ parent.SubmitSubmitFormObject (emaileditor);
+}
+
+//For Email Editor
+function edit_template(whichTemplate)
+{
+	// You need to know the name of your template (see the EmailTemplates table).
+	var args = new Array('TemplateName', whichTemplate);
+
+	// 500 x 700 for Netscape, 450 x 500 for IE
+	if (navigator.appVersion.indexOf('MSIE') != -1) myWin = parent.createSimpleSubmitWindow(450, 500);
+	else myWin = parent.createSimpleSubmitWindow(500, 700);
+
+	// You need to get the base URL for the please_wait.htm file from somewhere. I used a merc_dynamic
+	// tag to fill in a hidden input named BaseURL, in the form named form1.
+	var baseURL = document.forms['serviceCorrespondence'].elements.BaseURL.value;
+
+	// Now you can actually open the pop-up window.
+	parent.OpenWinSubmitForm(baseURL + 'please_wait.htm', 'EmailTemplateEditor', '', 'EmailTemplateEditor', args, myWin);
+}
+
+</script>
+</head>
+
+<script runat=merc_server>
+function IsTemplateOn(eventName, templateName, paymentType)
+{
+	if (templateName == undefined)
+	{
+		return false; // not enough arguments
+	}
+	if (eventName == '' || templateName == '')
+	{
+		return false;
+	}
+
+	paymentType = parseInt(paymentType);
+	if (isNaN(paymentType))
+	{
+	  	return false;
+	}
+
+	var input = GetBDO('Event', eventName, 'Template', templateName, 'PaymentType', paymentType);
+	var output = GetBDO();
+
+	ProcessRequest('PORD_CHECK_EMAIL_TEMPLATE', input, output);
+	if (output['Result'] == true)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+</script>
+
+<body class="bkgrd-main-items">
+<table width="100%" border="0">
+  <tr>
+    <td><span class="header">Schedule - Correspondence</span></td>
+    <td>
+      <div align="right"><!--HELP LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+
+<span class="header"><a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SCHD_NOTIFICATION+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" alt="Help" align="absmiddle"></span></div>
+    </td>
+  </tr>
+</table>
+<br>
+
+<form name="serviceCorrespondence" action="/cgi-local/mpc/PowerCommerce.cgi" method="post" id="serviceCorrespondence">
+
+<!-- this is needed for calling the EmailEditor pop-up -->
+<merc_dynamic noshow=true name=dyn_BaseHref action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<input type="hidden" name="BaseURL" value=dyn_BaseHref>
+<!-- this is needed for calling the EmailEditor pop-up -->
+
+<input type="hidden" NAME="NextPage" VALUE="bm_schedule-correspond.htm">
+<input type="hidden" NAME="sm_action" VALUE="L">
+<input type="hidden" name="emailrowname" value="">
+
+<input type="hidden" name="mode" value="save">
+  <div align="center"> <br>
+    <font face="Times New Roman, Times, serif" color="#990099"><i><br>
+    </i></font>
+    <table width="550" border="1" align="center" cellpadding="2">
+      <tr>
+        <td class="table-header" width="23%">Shopper Email<br>
+          Notification</td>
+        <td width="33%"><span class="instr-note">Notifies customer only that their
+          request has been received</span> </td>
+        <td width="44%">
+          <div align="center">
+            <script runat="merc_server">
+              // ON_SERVICE_REQUEST is a PostOrder "event", which is a broadcast request action for PostOrder.
+              // 'Service_OrderConf_Shopper' is the name of the email template in the EmailTempate table.
+              // The value '9' here indicates payment type of 'NONE'.
+              if (IsTemplateOn('ON_SERVICE_REQUEST', 'Service_OrderConf_Shopper', 9))
+              {
+                 write ("<input type=\"checkbox\" name=\"shopperEmailNotification\" value=\"shopperEmailNotification\">");
+              }
+              else
+              {
+                 write ("<input type=\"checkbox\" name=\"shopperEmailNotification\" value=\"shopperEmailNotification\" checked >");
+              }
+			</script>
+            <span class="general-label">
+			  Don't Send &nbsp;&nbsp;
+			  <a href="javascript:edit_template('Service_OrderConf_Shopper')"><img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" align="absmiddle" alt="Edit Template"></a>
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="table-header" width="23%">Owner Email<br>
+          Notification </td>
+        <td width="33%"><span class="instr-note">Notifies business owner or responsible
+          person that a request has been made by a customer</span><span class="general-label">
+          </span></td>
+        <td width="44%">
+          <div align="center">
+            <script runat="merc_server">
+              // ON_SERVICE_REQUEST is a PostOrder "event", which is a broadcast request action for PostOrder.
+              // 'Service_OrderConf_Merchant' is the name of the email template in the EmailTempate table.
+              // The value '9' here indicates payment type of 'NONE'.  (Look in PostOrder.cpp)
+              if (IsTemplateOn('ON_SERVICE_REQUEST', 'Service_OrderConf_Merchant', 9))
+              {
+                 write ("<input type=\"checkbox\" name=\"merchantEmailNotification\" value=\"merchantEmailNotification\">");
+              }
+              else
+              {
+                 write ("<input type=\"checkbox\" name=\"merchantEmailNotification\" value=\"merchantEmailNotification\" checked >");
+              }
+			</script>
+            <span class="general-label">
+		      Don't Send &nbsp;&nbsp;
+			  <a href="javascript:edit_template('Service_OrderConf_Merchant')"><img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" align="absmiddle" alt="Edit Template"></a>
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="table-header" width="23%">Auto-reminder<br>
+          Email </td>
+        <td width="33%"><span class="instr-note">For automatically reminding the
+          customer of the appointment made</span> </td>
+        <td width="44%" nowrap>
+          <div align="center">
+            <script runat="merc_server">
+				writeln('<input type="checkbox" name="dontSendAutoReminder" value="true" ', custAutoReminderCHECK, '>');
+			</script>
+            <span class="general-label">
+		      Don't Send &nbsp;&nbsp;
+			  <a href="javascript:edit_template('Service_OrderRemind_Shopper')"><img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" align="absmiddle" alt="Edit Template"></a>
+              <br>
+              Send
+            </span>
+            <script runat="merc_server">
+				var daysArray = new Array(1,2,3,4,5,6,7,14,21,30,60,90);
+				writeln('<select name="numDaysBeforeAppt">');
+				for(var i=0; i < daysArray.length;i++)
+				{
+					var weeks = false;
+					var dayVal =daysArray[i];
+					var dayString="days";
+
+					if (dayVal == 1)
+					{
+						dayString="day";
+					}
+					else if ((dayVal%7) == 0)
+					{
+						dayString=(dayVal==7)?"week":"weeks";
+						weeks = true;
+						weekVal = parseInt(dayVal/7);
+					}
+					else
+					{
+						dayString="days";
+					}
+
+					write('<option value="',dayVal,'" ');
+					if (dayVal == reminderDaysBeforeAppt)
+						write('SELECTED');
+					if (weeks)
+						write('>', weekVal,' ');
+					else
+						write('>', dayVal,' ');
+					write(dayString,'</option>');
+
+				}
+				writeln('</select>');
+			</script>
+
+            <span class="general-label">before appointment</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="table-header" width="23%">Appt Accepted</td>
+        <td width="33%" class="instr-note">Notifies customer that appt has been
+          accepted for the time requested</td>
+        <td width="44%">
+          <div align="center">
+            <script runat="merc_server">
+				writeln('<input type="checkbox" name="dontSendApptAccepted" value="true" ',apptApproveEmailCHECK ,'>');
+            </script>
+            <span class="general-label">
+		      Don't Send &nbsp;&nbsp;
+			  <a href="javascript:edit_template('Service_OrderAccept_Shopper')"><img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" align="absmiddle" alt="Edit Template"></a>
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="table-header" width="23%">Appt Rejected</td>
+        <td width="33%" class="instr-note">Notifies customer that appt has been
+          rejected</td>
+        <td width="44%">
+          <div align="center">
+            <script runat="merc_server">
+				writeln('<input type="checkbox" name="dontSendApptRejected" value="true" ',apptRejectEmailCHECK ,'>');
+            </script>
+            <span class="general-label">
+		      Don't Send &nbsp;&nbsp;
+			  <a href="javascript:edit_template('Service_OrderReject_Shopper')"><img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" align="absmiddle" alt="Edit Template"></a>
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="table-header" width="23%">Appt Cancelled</td>
+        <td width="33%" class="instr-note">Notifies customer that appt has been
+          cancelled</td>
+        <td width="44%">
+          <div align="center">
+            <script runat="merc_server">
+				writeln('<input type="checkbox" name="dontSendApptCancelled" value="true" ',apptCancelEmailCHECK , '>');
+			</script>
+            <span class="general-label">
+		      Don't Send &nbsp;&nbsp;
+			  <a href="javascript:edit_template('Service_OrderCancel_Shopper')"><img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" align="absmiddle" alt="Edit Template"></a>
+            </span>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <font face="Times New Roman, Times, serif" color="#990099"><i> </i></font></div>
+</form>
+<div align="center">
+	<a href="javascript:void(parent.SubmitForm('L','bm_schedule-correspond.htm','mainFrame',document.serviceCorrespondence));"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif"
+	 alt="Save" width="90" height="21" border="0"><span class="header"></a>
+</div>
+</body>
+</html>

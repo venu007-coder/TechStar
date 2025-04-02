@@ -1,0 +1,124 @@
+<SCRIPT runat="merc_server">
+
+		var mode= doAction('REQ_GET_FORMVALUE', "mode", "mode");
+		if (mode == "change_ship_model") {
+			//Need to change shipping model
+			var shipModelID =doAction('REQ_GET_FORMVALUE', "chg_model", "chg_model");
+			var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_METHOD");
+			if(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "SHIP_METHOD"))
+			{
+				var setField = doActionEx("DATA_SETFIELDDATA", "Success","ObjectName", "SHIP_METHOD", "QueryID",qID,"FieldName", "LIT_ID", "FieldVal",shipModelID);
+				if (setField)
+					var commitField = doActionEx("DATA_UPDATE", "Success","ObjectName", "SHIP_METHOD", "QueryID",qID);
+			}
+			var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "SHIP_METHOD");
+		
+		}
+		
+		/*var output = GetBDO();
+		var status = ProcessRequest('DATA_OPENQUERY', 'ObjectName', 'SHIP_METHOD', output);
+		if (output.qID != undefined) writebr('qID: ', output.qID);
+		if (status != MCERR_NOERROR) 
+		{
+			writebr('status: ', status);
+			if(MERC_ERRORCMP.GetErrorCount())
+				writep(MERC_ERRORCMP.ProcessQueue("paul@compinnovations.com", "errtest.txt"));
+		}
+		*/
+		var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_METHOD");
+		if(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "SHIP_METHOD"))
+		{
+			var resultset=doActionBDO("DATA_GETFIELDDATA", "ObjectName", "SHIP_METHOD","QueryID",qID,"FieldName","LIT_ID");
+			var LIT_ID = resultset.LIT_ID;
+		} else
+			var LIT_ID=0; // error getting lit id
+		var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "SHIP_METHOD");
+		
+		//writeln("queryID:"+qID);
+		//writeln("LIT_ID:"+LIT_ID);
+		
+		switch (parseInt(LIT_ID))
+		{
+		case 1:
+			var file = "bm_shpg_price.htm";
+			var whichFile = doActionEx('DATA_READFILE',file, 'FileName', file,'ObjectName','QuartzSite', 
+						'FileType', 'txt');
+			var output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+			write (output);
+			break;
+		
+		case 2:
+			var file = "bm_shpg_weight.htm";
+			var whichFile = doActionEx	('DATA_READFILE',file, 'FileName', file,'ObjectName','QuartzSite', 
+						'FileType', 'txt');
+			var output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+			write (output);
+			break;
+		case 3:
+			var file = "bm_shpg_quantity.htm";
+			var whichFile = doActionEx	('DATA_READFILE',file, 'FileName', file,'ObjectName','QuartzSite', 
+						'FileType', 'txt');
+			var output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+			write (output);
+			break;
+		case 4:
+			var file = "bm_shpg_lineitem.htm";
+			var whichFile = doActionEx	('DATA_READFILE',file, 'FileName', file,'ObjectName','QuartzSite', 
+						'FileType', 'txt');
+			var output = doActionEx('PAR_PARSE_BUFFER','Result', 'document', whichFile);
+			write (output);
+			break;
+		default:
+			var CommerceWizPage = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'CommerceWizCfg', 'RowName', 'WizardState', 'ColName', 'Value');
+			if (CommerceWizPage < 8)
+			{
+				// Must be in commerce Wizard.
+				writeln("				  <table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"left\">\n\
+				    <tr>");
+
+				writeln("<td width=\"\" align=\"center\"><span class=\"general-label\">&nbsp;<b>Selected Model: No Model Selected</b></span> &nbsp; &nbsp;");
+				writeln("<a href=\"javascript:void(parent.OpenWinSubmitForm('','L','bm_shpg_chgmodel.htm','newWin','',parent.createSimpleSubmitWindow(180,400)));\">");
+				writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_chgshpgmodel.gif\" alt=\"Change Shipping Model\" width=\"160\" height=\"21\" border=\"0\"></a>\n\
+			  </td>");
+
+				writeln("				    </tr>\
+				  </table>");
+
+			}
+			else
+			{
+				writeln("<html>\
+				<head>\
+				<title>mainFrame</title>\
+				<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\
+				<link rel=\"stylesheet\" href=\"/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css\">");
+<merc_embed>
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+</merc_embed>
+				writeln("</head>\
+				<body class=\"bkgrd-main-items\">\
+				<div align=\"center\">\
+				  <table width=\"580\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"left\">\
+				    <tr>\
+				      <td width=\"68%\"><span class=\"header\">Shipping - No Model Selected</span></td>\
+				      <td width=\"32%\">\
+				        <div align=\"right\"><span class=\"header\"><a href=\"javascript:void(parent.OpenWinSubmitForm('','L','bm_shpg_chgmodel.htm','newWin','',parent.createSimpleSubmitWindow(250,400)));\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_chgshpgmodel.gif\" width=\"160\" height=\"21\" border=0></a></span></div>\
+				      </td>");
+<merc_embed>
+        <td align="right">
+        <!--HELP WINDOW LINK-->
+        <a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SHIPZ_NOSHIPCHRGE+SoftCart+helpversion+en-us', 'Alane'));">
+
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" alt="Help" align="right"></a>
+	<!--END HELP WINDOW--></td>
+</merc_embed>
+
+				writeln("</tr>\
+				  </table>\
+				 </div>\
+				 </body></html>");			}
+
+			break;			
+		}
+</SCRIPT>

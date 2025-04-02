@@ -1,0 +1,1 @@
+ID=long	ItemID=long	DiscountType=long	DiscountAmount=double	StartDate=date	EndDate=date	UseStrikethru=long	UseGraphic=long	Graphic=text	UseText=long	Text=text

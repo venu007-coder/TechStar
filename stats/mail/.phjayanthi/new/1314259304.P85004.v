@@ -1,0 +1,179 @@
+Return-Path: jojobln@gmx.de
+Received: from mx119.stngva01.us.mxservers.net (198.173.112.48)
+	by mail19c.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-052589303
+	for <jayanthi@altechstar.com>; Thu, 25 Aug 2011 04:01:43 -0400 (EDT)
+Received: from unknown [174.121.234.132] (EHLO msourceone.pugmarks.in)
+	by va1-mx119.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 661065e4.1450781600.1645742.00-003.va1-mx119.stngva01.us.mxservers.net (envelope-from <jojobln@gmx.de>);
+	Thu, 25 Aug 2011 04:01:42 -0400 (EDT)
+Received: from [122.166.2.174] (helo=gmx.de)
+	by msourceone.pugmarks.in with esmtp (Exim 4.69)
+	(envelope-from <jojobln@gmx.de>)
+	id 1QwUse-0005fV-9B
+	for jayanthi@altechstar.com; Thu, 25 Aug 2011 13:31:42 +0530
+From: jojobln@gmx.de
+To: jayanthi@altechstar.com
+Subject: MAIL SYSTEM ERROR - RETURNED MAIL
+Date: Thu, 25 Aug 2011 13:31:42 +0530
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="=_reb-r07B3A380-t4E560167"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2600.0000
+X-MIMEOLE: Produced By Microsoft MimeOLE V6.00.2600.0000
+X-ACL-Warn: {
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - msourceone.pugmarks.in
+X-AntiAbuse: Original Domain - altechstar.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - gmx.de
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011082502)]
+X-MAIL-FROM: <jojobln@gmx.de>
+X-SOURCE-IP: [174.121.234.132]
+Message-ID:<20110825040143.GA5258@mail19c.g19.rapidsite.net>
+X-SF-Loop: 1
+
+This is a multi-part MIME message.
+
+--=_reb-r07B3A380-t4E560167
+Content-Type: text/plain;
+	charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+=FE=CD>jD=85=F9=89C=F7N=EB=F2=9F7=A6=DC=A3=F0=E4v=F1 =C7!AP0=FC!=9E[xB=A3J=
+=E2|=D1=D4=ADDy=A5=CFa=FEes%=CF=DF=E8=C4=85~J9=F2=C1w{=E9
+=D4=FE[=C3=DBn=93L=DE=E8.=A1Z=8Eh=E4X=EAZ=F1=A7,=8Ff=DAi0=92=FC=D3=D0`=B5=
+=AB=BF=93=E4=D8b%D`=A9J=CAL=99c=AF=8Bz<=DF5$xdF,]B%3=A9=C8=9B=B9=88&F=EFN=
+=F8J=CF=D4=8F=81'{=A9=B9=C3'=FC|=B5=F8=E3=F0=C4\5#t=8E2=FC=E9=D8o=C9=CC(I=
+=B7=C9=90\[S=C1=D3=DA=9F=D6ZV=8A1=D2=D9=CDZ=8A=DF1x=EA{=C8=9E=8DC=B9=EC=BC=
+=AB0=84=CA|E=B2_=87$=87=FE=DF=B0=8D=8D5=83]d=C2,l=A7
+w
+t=B7=95=D3Y}/=E4=DF=BFw"K=A3;=BC4p=FA1$(B=D3\=95=CFT=D1&4LY%)=A2jq=D1=C9=AB=
+=9E=9DN[=C9=E7=C6X=AA=D9=AB=F45\=F5=A3=C9=8EcC=A6>"=90=D4Iv=E0=DA d=94=C9=
+=C5j=C8=B3=FDD=B3=DA=B4F=F9=E7x=E8$=9D=8F=A2=FD=CB1=EF=95L2=82=E2?=CC=9Ev=
+=AE=93=C4Ir=CF=B7:t=94=E8=E91Y=BB=B9=FE=F2=C2=A3?f=82V>=94=8BC=92C=82f=F168=
+=E2=B2=89IfC=C0=91=A4"=BD"k=8D=C31<
+=B9=86=FC=D9=949?
+=F8=85|=9CC=88#=86=D7=AB=B7=C9=C7=92=F3=99=F4H:Z=D4
+e
+E=A1=EE=B8=FCTy=EB=C0=DD4=BC1=EACj=96=F0=AE:X=A3=E1=F6=85=FD=A3=FA(i=DA=A2]=
+=FCo=D7=D0=8A=CA=E1=EA=9C=E9\=8D/|&=BE
+W=BA=B03=AE=C6cdA=F42T=A0=DA89=EE=A9AB=C0=A9=CD=EF=A1=B6=90=96=8E=BF=F3=DF{=
+F=91H=CD=E2=BB=A1=DE=C0=F4=90|=91=B9=DE=8B?=D9=DD=B9=B5BY=E7"=83h;6h=E0=B4.=
+C=99h=8Fw%Kau}0=B3=98'`=EEo\=97=A6=90=E5=CD\=CDGh=C0=EC=A6N=B0UdT=CB=FB=F5=
+=DC=91=C7=9C2=DF=DE=B9=B8Jp=EC!=F3Zz=DE"=A2=9DxRE=E6=906=C2K=BE=A2=BDPTDtT\=
+]~=9D"
+=FA=BC=87=E2=A9F=C5=8B=B1Wi=AA=E7=B9$=90=F6y=D6N=FC=B1=C8=96aPE.=C6=DFE=EF=
+=C2=A0=91=CA
+8=F7=F9<=B8=E7^
+I=D5=C5=C0&i5=FA=8C=F1=A5=CE6=C1]f=FD=B1aF=E6=BFZq5=DC=ED=E3jz\=E7i=A0o=EC=
+=AB=D4=84=98=D6;v=EC*=BB=ACP=FE=DD=FEQ:=CF=82=C5y<=86=94
+=B1=C4I!=E0d=99=9C=B3=F0}n;=EEUfL=D9=A4=A0=B3=EC^=F4=B3G=D7a?}#=AB0"~=D7=C1=
+O=C3=B1=AAw=D8)=B3!=C0=A9
+3=DB4=99C=C6}t=92d=88=D1=E3=CC=CE=B3=A5=DC=A1rO%=B15=D4=A3g=86=F9XK=C3=FAC=
+=81F=E0=E1=EC=C2=E9fZ=8C$=D1=B4=E6=F9=C7=BC"1=A00=97=DBR=E8a=9B2=F1=E6=D7/=
+=8480Z
+\=CE=BF/%=9D=CE=8A=D0=C9=C4=E8=BF=C0=84J=F7=B5=D5=B5=A3=E4=B0=8F4=C0=C9=AEy=
+=DD3.=92=9A=FD=D9=9B=84=C6=98=DD=ED=83=8BT=AFw&=AA,=FD=FB=D8=A6=B2=CDd)=CDv=
+x=A1$=E5=A7=8C=BC2=FDxD'=88=F3=89=99=C3u]>=A7=F2P=DF=9B=CD=F7?=ED,=B8=9BH7=
+=C3_y
+pM=EE
+=B8i~=9BE=A7]=8B=D6=F5=F3Y=DB=92=E3(=F80=CCt=92=E7=FA=DB=C7=8Cc=DB=8B=8F=D1=
+=F5<=A7"t=A6=BFZ=D9D[=E7=F2=B5=BF=C27=FB
+b=F3>;=9B=B8`=E1>&=BC*!=FD=9C=C0_=E5bbnt=B5=EC=C0=C9=AA=8F=F6=8E7h'=83j=98=
+=AD=C3=A6=91=F8-$=91T=F6L=B0=A9=84=B7x`)Hvf4Z#TLb9Pf(a=84=9E=A6=88e=D1"$=D0=
+=E5{=C5=D1=F0=B9|=FA=88n=ED=D9=AD{,=E6=9D;=9F=B8=93z=B4=D8=DFx
+d;;=87=8Dhuzh=94x&=DFO=F8'<=91I=C1=87=FC
+=9F=BCc=B4=DF=E9O=DC=A7=F3=ACA=CCW=93c=86=89y=E8<gz=B1=E2~=85=82=E52=DB=F9=
+=8C=8EH =E6_Q=94=8EC=E8=AA=A7=94=81=F6=BD1=83=87 =97=F4=94=D5O
+=B2=C4*=F7=947R=91=B6=82=AB
+v_=D2=FB=AE=F7=D9;=84
+=C4=B3*=B5=9B3=B6C5'=D0=BB2=DBuQxL=C1=AF=B2b/E=A4=C2t=F4N!=FC=B6C=AF.{,=9Es=
+=AD=E9UE=9Eqq3Y=DD=F3&:=99=FBH=A3=ED=96=9DDT=B1=CF=BE=E0=E5=F2=F1O=B5~=FD=
+=CF=C54=A9R=9D=D8=DE=E5=B4*b=C9=A9ein)5q,=D3=DCm=B9;=F4:/=B1
+=E85=82O=F2=D2=BAl!
+=94=EF=AB=85=C3=9D=F5=C2=DA=FDQ=B1|=C4=9A=D2z=E2=C0=E5=C1=F5=92
+=C2=A8=FD=D4s{R=AA{=9F=9E=B82z=DAi=8C2B=8BI=AB=ACr=83X=BE=F3=DC=CC=B9=CB=A7=
+=EF=C1B|6=C4=B5Q=B0
+7I8=F5=E6=90=94=D040=CC=E3]=FC
+=C6=B0aX*dQ6o=AF=8C:-=A5=B7=96'!L=9A4=A8=E4=9BK=F0=C17=B3=EC=FB9=8F=81=965(=
+^=A9=8CU)W=BD=C8"`4=C5e[=B7=98=E1y}.=C2i=DE=CC=DCi=86w=D8Z=D9=AD=D7c[<mF=A6=
+K=D9I=91=C1=F5=BB=EE=D9Q=88=CC=B2=F03=D1=89=C1=D3,g=9F#Q=EE=ED=CDYD=81=EA=
+=C4h}=85=CB=E7/=C65=ABWx=9E=97=A9SWXw=BB$=8B=E4=EB=FA=FE=E0=D3{=B1=FByaH=C9=
+I=E4=CE=A8=9FF=91][m=A6=8EcbaH=923=E2=BE=93<`=DA=84]x=DC=EF=E7.3F=D6=BB=DA=
+=E8=96$Ok=8D=F0=91.=89,%=87m=AF=B5
+=B3=F1M=D9JZ!=B9=D0m=99=C8=E2 =CC=EEIV=95}=86m=9C=9D[=DD8A=92=D9=90=91=BB]=
+=A2=ACTf=D6=C0#=BBg=F9m=CF[=9D=9DZ=9Dm=FDe=DF=CC9=B9=86=F1>R=E1=B4]=84=9D(
+'X=B8}=85)=C7=82=ED=92=C4=86=BE=B2=B2yz=F4=B5=FD3=C5=97=C9=BD"#n=D5=C1mw=8D=
+E=C0=A5|=AEV=E9=8FE'=A8s=84=F5=AE=D2=E8=D7=BDY=A97is=F2Tp8H=C6JX=85>w_!=EBZ=
+n=E5=CDY=D5h=B2=D3`i=F38=FCz=AD=B02=FAwB=B4=E3=C9d=CDy=FB'=D3q=95=AFw=E1=97=
+D5#=F0l=93m1=E2=E0=BD=86Z=E6=85R.*=AF=E9x=B6=C3}S=F36=A7u=A5Zc:=FC"=BDE,=CF=
+=B7)=FD=82<=B4=B9=C7c=B6
+=B3v=D65=B7=AEU0j=88=F9=FA=98=E0L=CB=CC?s1=B8v=B6=9F0 =D2=B2=B9=F56Z=CF=87]=
+``=C7=BBx=84=AD=EC=FE=C0=88!=FAZ=DF\=A5=AD=A2=F3Y]=F9?'=FC=FD)S=EFh=A4=DBk=
+=B9=F8Q&=82=F7t=E3=87p=89=82=A95e=FB_=89=82"Eo=B5=F2=89=F6b=CB=AA=B9=8A=F2=
+=D2=F7(=AA=B5=AB=E1=B6W=F2J=D8h=A3=CDa=F8]2=D9yV=DD=C3=9Cv=E6=DE8=CD}u=E1z=
+=F5=97By8=D8=89=E6=AE=F1Y=F11=CF=9B=CDW~0=DC=8B=94=F6=EA=8A_=92\=DE|,e=99=
+=93=B7=F8n=B0=84=F1=DE=D6=9E=C0=BE=CC=E4=8F=84>)Z=F1=8F=90=DD=97=F5=F7=E6=
+=C0=F8/=D8=E8=F6=9A>=A0#=EB'{=C65
+=BB_
+p=93C=F7p=BF2=CB:v1=CD=F7
+7=C9=81=87'=DA=D5=F7c=D6=F1#=A1H]=87=FE=99|=BAf=AF=D5=F0Gu=99%=A0=F0=CE=C5Y=
+=E5=8F=A7,M =E7=93t'I}=B7=FA=E8=CBQU=D3t=EC=E1
+=E1=91=BE=93=B1=C7-=F62`
+=ED=D6Q=9BckW=BC=F5DB=BB]=E2=A7=C4&<,=B73
+;=B9=A5?=97`c=CB=BC^=96i<=FB=F3=9Aj=9E=D6=F2=A0kZX=F8[=FAT=E0=CBfl=82=8A=C5=
+=DB=EA=9E=CA=8B=EA=B2C=DD#=F4=C6'z=C1=E9=C17=8EU =E2=D1=98a=F7tWK'=F0=E1=CA=
+p#(4;s{=D5=A6=C6#8=C6=B1=A8,=B2=F5=B0]=A7=B2inf=AF=C5=E7=B4=D5=FC=B4=D8=B2=
+=F4$ =DB=CFF=FAZ=9Ea5=EC<=87=C5=E4$,=EC=93=B0[=BB=C4v=B9=A0.h=E0eI=E3=FB=83=
+=88V=FC=C0=9AIA=F1#=8D=D3x=9E=86=F68Y=FCv=CD=F7=ED_o=C7=E9=FA=8E=F9j_=DD=87=
+-=E9=8A=C4=8E=BB=98?=C0NC=E9=F2=D1=F4Q=9Cm=EFv[D=A7w=DFB=88'=CB=99=9CG=AC=
+=BA=C4O=DB^=D5=D3=938}=99A=B7L=D5=CAC=C4Tv=CC=9B=A3=F2=9A=DB=B3h=DE{<=8EF=
+=87\KT=DC=EAe8|(=E8=D0=F0=8F
+=D6[=AA=A5=AD;N.Ob=D3A=B8=B0&Bh=AC=FBz=E5=9E)%=F8=C88=AD=8C=A1"5=BD=E0=BF=
+=D8=89=C4%Ax^gw=FE>=C5=C5=DAf=ED=AD=96=D4I=FA=C1B=CE~=CB~=D3o9e=B0=EF=DA=E0=
+=BBo"
+=83=E2=93;=9F=FE=89|0=A6K=C1=B1=85D,G=D5=A7=FClY=83W6RT;=BB=A1=A0G=A0=D5=9B=
+K=A2l=AE=F3=DA/[HkN=A41R=DF=BAw=CE=B5=DFR=90'=A5B=BB96=BE|ta=C7<=B4=F3=A6=
+=F5i=9AO=AD=98=B9j=B2}2P=C8=92`S=EE=82=9C=DF=F9C=F71=82=87=D9=93=E8=A6=98"=
+=8C=D5=FEZ%=93=CF=BA=C5=83
+=E28uE=E7=FA=9E=8D ^|=A7;=CE=B7"rB
+=D4y=A8#=8F=8C=D0=CF=FA=9A=CB1Q=B6O=A7=E2=A8d=83=91m=E8=8BT=B45#m=F5=9D=EF=
+=F2=BB=B4o=87=8E=B9=BF,=9F!I"
+,=C0pqW=A9c=FB=E6=F3(=BD=FA=8A=A8=A7=9B=AA=DE=8C=9F=90=D6R=E2O=EA=E8=E3=C0h=
+Z=B9{=9F=FC=C5=F6<;"T&=C4=FE=DB=A2=8Al0=F2VA=91=9ClH=B0<=BF=F9<=B0=D2Y=CAV=
+=E9=B9<v=E2=93T=9A=DA=BC=C5k=B0=BC=AB=C5=F3=81D
+=AB=97=F6=C7=8D=A7=98=9A=BE>=F7#>=B9<=83=82=BE=F6^kM}%/:A=BA=8F=E7!=A7=96=
+=89=8C=B0`=C9=BC=B9=BE=9Ck7=8C=A9=CE94=FA&1=A6=C1=E0=86f=8E9=F8"=EE8=82=A1d=
+6=BFm=BF=EE=E6=EE=B4=9BqS0=ED=97j=B4=9A=EF=CB=C3=EC=98=D4=BF=98=D0=CFU{Lh=
+=D8x=95=BF=D9=E8:=D4P=85=BC;h=DC.Eu=E4=F2Z=9E=DAQ).=9A3<=C1=91=A2=BD=81O=86=
+e\=95=F0=D3v=95=AE5e
+=96>=B2sV=A9\=ED=BBV=F6=D0=81=B3=83=CA=AAZ=91=F9=94=FD=E34=D5=D6=FC=E0=A6=
+=EA=8A=E0=B5=DA=90#c=E0=A1f
+=BC=AC=E8=9B=EDn=FD=F7=A25=F4)=AC
+
+
+--=_reb-r07B3A380-t4E560167
+Content-Type: text/plain
+Content-Disposition: inline; filename="removed.txt"
+X-Virus-Removed: virus="W32/Mydoom.O@mm (exact)"; engine="Authentium"
+
+
+***************************   VIRUS   REMOVED   ***************************
+
+An attachment has been removed because it contained a virus.
+
+***************************   VIRUS   REMOVED   ***************************
+
+Virus name:      [W32/Mydoom.O@mm (exact)]
+Virus scanner:   [Authentium]
+Attachment name: [jayanthi@altechstar.com]
+Attachment type: [application/octet-stream]
+
+--=_reb-r07B3A380-t4E560167--
+

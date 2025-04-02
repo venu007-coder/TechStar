@@ -1,0 +1,76 @@
+<script runat="merc_server">
+	var DestinationHTML = "zoneshipping.html";
+	var CommerceWizPage = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'CommerceWizCfg', 'RowName', 'WizardState', 'ColName', 'Value');
+	var theHelpDomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+	var theHelpVersion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+	if (CommerceWizPage < 9)
+	{
+		// Must be in commerce Wizard.
+		DestinationHTML = "comwiz_" + CommerceWizPage + ".htm";
+		var masterClass = "master_layer.css";
+		var backgroundClass = "pop-up-bkgrd";
+		var helpLink = "http://" + theHelpDomain +"/cgi-bin/helpsrvr.exe?+R+helpsrvr+OH_SHIPZ_CHANGEMODEL+SoftCart+" + theHelpVersion + "+en-us";
+	}
+	else
+	{
+		// NOT IN WIZARD
+		var masterClass = "master.css";
+		var backgroundClass = "bkgrd-main-items";
+		var helpLink = "http://" + theHelpDomain +"/cgi-bin/helpsrvr.exe?+R+helpsrvr+OH_SHIPZ_CHANGEMODEL+SoftCart+" + theHelpVersion + "+en-us";
+	}
+</script>
+<html>
+<head>
+<title>Change Shipping Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+
+<script runat="merc_server">
+writeln('<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/' + masterClass+ '">');
+writeln('<body class="' + backgroundClass + '" onLoad=changeModel.chg_model.focus()>');
+</script>
+
+<div align="center"> 
+ <p align="center" class="dialog-title">Change Shipping Model</p>
+<script runat="merc_server">
+	writeln("<form name=\"changeModel\" action=\"#\" onSubmit=\"javascript:void(opener.CloseWinSubmitForm('L','" + DestinationHTML + "','mainFrame',document.changeModel));\">");
+</script>
+    <span class="general-label">Use Shipping Model: </span>
+    <select name="chg_model">
+    <script runat="merc_server">
+		var currentMethod = doAction("SHIP_GET_METHOD");
+		var methodsBDO = doActionBDO("SHIP_GET_METHODLIST");
+		var methodsBDORows = methodsBDO.GetLabels();
+			
+		for (var i=0; i < methodsBDORows.length; i++)
+		{
+			curRow=eval("methodsBDO."+methodsBDORows[i]);
+					
+			if (curRow.ID)
+			{
+			write("\n\t\t<option value=\"" + curRow.ID + "\" ");
+			if (curRow.ID == currentMethod) write("SELECTED");
+				write(">" + curRow.Name+ "</option>");
+			}			
+		}		
+	</script>  
+      
+    </select>
+    <input type="hidden" name="mode" value="change_ship_model">
+    <p>
+    
+    <!-- HELP LINK -->
+<script runat="merc_server">
+	writeln("<a href=\"javascript:void(opener.parent.openHelpWindow('" +  helpLink + "', 'Alane'));\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif\" border=\"0\" alt=\"Help\"></a>");
+</script>
+	<!-- END HELP LINK -->
+	&nbsp;<a href="javascript:void(0);" onClick="javascript:window.close()"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_cancel.gif" alt="Cancel" width="90" height="21" border=0></a>
+	&nbsp;<input type=image src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_select.gif" alt="Select" width="90" height="21" border="0"></p>
+  </form>
+  
+</div>
+</body>
+</html>

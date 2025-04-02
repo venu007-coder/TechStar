@@ -1,0 +1,933 @@
+Return-Path: arun@vlinkinfo.com
+Received: from mx92.stngva01.us.mxservers.net (198.173.112.9)
+	by mail19c.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 1-0182229556
+	for <abhra@altechstar.com>; Thu, 18 Nov 2010 17:32:36 -0500 (EST)
+Received: from unknown [76.74.252.24] (EHLO rs78.luxhv.com)
+	by va1-mx92.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 489a5ec4.2819554208.68029.00-019.va1-mx92.stngva01.us.mxservers.net (envelope-from <arun@vlinkinfo.com>);
+	Thu, 18 Nov 2010 17:32:36 -0500 (EST)
+Received: from ip-10-196-81-219.ec2.internal (ec2-184-72-246-77.compute-1.amazonaws.com [184.72.246.77])
+	(authenticated bits=0)
+	by rs78.luxhv.com (8.13.8/8.13.8) with ESMTP id oAIMWZ9w025295
+	for <abhra@altechstar.com>; Thu, 18 Nov 2010 16:32:35 -0600
+Date: Thu, 18 Nov 2010 17:32:34 -0500 (GMT-05:00)
+From: Arun Chouhan <arun@vlinkinfo.com>
+To: abhra@altechstar.com
+Message-ID: <1290119554946.3546955735866787.arun@vlinkinfo.com>
+Subject: Datastage / CDC Datapower [ VLINK_451 ]Data Analyst [ VLINK_450 ]
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="=_reb-r5498944A-t4CE5A984"
+Importance: Normal
+X-Lux-Comment: Message oAIMWZ9w025295 sent by user #76870; report Spam, UCE, or Abuse to abuse@luxsci.us
+X-Lux-Comment: LuxSci High Volume Email: http://luxhv.com
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010111701); MH=0.500(2010111832)]
+X-MAIL-FROM: <arun@vlinkinfo.com>
+X-SOURCE-IP: [76.74.252.24]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r5498944A-t4CE5A984
+Content-Type: text/html; charset=ANSI_X3.4-1968
+Content-Transfer-Encoding: quoted-printable
+
+
+
+<style type=3D"text/css">
+
+		.font11 {color: black; font: 11px verdana}
+		.font11bold {color: black; font: bold 11px verdana}
+		.font12 {color: black; font: 12px verdana}
+		.font12bold {color: black; font: bold 12px verdana}
+		TABLE {font: 12px verdana}
+		.font10 {color: black; font: 10px verdana}
+		A:link.font10Link
+		{  	color: black; font: 10px verdana;text-decoration: underline;
+		}
+		A:visited.font10Link
+		{  	color: black; font: 10px verdana;text-decoration: underline;
+		}
+		A:active.font10Link
+		{  	color: black; font: 10px verdana;text-decoration: underline;
+		}
+		A:hover.font10Link
+		{	color: black; font: 10px verdana;text-decoration: underline;
+		}
+		A:link.font11Link
+		{  	color: black; font: 11px verdana;text-decoration: underline;
+		}
+		A:visited.font11Link
+		{  	color: black; font: 11px verdana;text-decoration: underline;
+		}
+		A:active.font11Link
+		{  	color: black; font: 11px verdana;text-decoration: underline;
+		}
+		A:hover.font11Link
+		{	color: black; font: 11px verdana;text-decoration: underline;
+		}
+		A:link.font12Link
+		{  	color: black; font: 12px verdana;text-decoration: underline;
+		}
+		A:visited.font12Link
+		{  	color: black; font: 12px verdana;text-decoration: underline;
+		}
+		A:active.font12Link
+		{  	color: black; font: 12px verdana;text-decoration: underline;
+		}
+		A:hover.font12Link
+		{	color: black; font: 12px verdana;text-decoration: underline;
+		}
+	</style>
+<div style=3D"padding:3px" width=3D"100%" align=3D"right" id=3D"removeTopLi=
+nk"><a href=3D"http://portal.zoniacswift.com//servlet/ZoniacServlet?api=3Dg=
+etOutsideUnsubscribeContact&e66Ve62i57=3Dfalse&m9UCc1ucRi=3D693&h2BNp44yL7=
+=3D206454&h5p8pKsyMi8l0=3D3025003&h2ZNp64yM8=3Dabhra%40altechstar.com&h2TNp=
+86wP9=3D5&h2GQy54sI2=3D1530" style=3D"font: 11px verdana;"><font style=3D"f=
+ont: 11px verdana;" color=3D"blue">Click here </font></a><span style=3D"fon=
+t: 11px verdana;">to unsubscribe.</span></div>
+<br>
+<table align=3D"center" width=3D"100%" cellpadding=3D"10" cellspacing=3D"0"=
+ border=3D"1" style=3D"border-bottom-color: #51ae70; border-top-color: #51a=
+e70; border-collapse: collapse; border-right-color: #51ae70; border-left-co=
+lor: #51ae70">
+    <tbody>
+        <tr>
+            <td>
+            <div id=3D"customerLogo"><img src=3D"cid:NoMug4Tlqw" alt=3D"" b=
+order=3D"0"></div>
+            <div id=3D"messagebody"><br>
+            <br>
+            Hello Partner,<br>
+            <br>
+            Please send qualified resumes for the following position.&nbsp;=
+ MAX pay rate is $&nbsp; /hr.&nbsp;for this position.&nbsp; Be sure to incl=
+ude&nbsp;rate and availability information.<br>
+            <br>
+            Regards,<br>
+            <br>
+            Arun&nbsp;<br>
+            Recruiter<br>
+            678.701.8160<br>
+            <a href=3D"mailto:arun@vlinkinfo.com">arun@vlinkinfo.com</a></d=
+iv>
+            <br>
+            <a name=3D"Top"></a>
+            <table cellpadding=3D"3" cellspacing=3D"0" border=3D"1" style=
+=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; border-collaps=
+e: collapse; font: 12px verdana; color: black; border-right-color: #51ae70;=
+ border-left-color: #51ae70">
+                <tbody>
+                    <tr bgcolor=3D"#e0f8e0">
+                        <td align=3D"left" width=3D"50%" valign=3D"top" sty=
+le=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; font: bold 1=
+2px verdana; color: black; border-right-color: #51ae70; border-left-color: =
+#51ae70">Name</td>
+                        <td align=3D"left" width=3D"15%" valign=3D"top" sty=
+le=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; font: bold 1=
+2px verdana; color: black; border-right-color: #51ae70; border-left-color: =
+#51ae70">Experience</td>
+                        <td align=3D"left" width=3D"15" valign=3D"top" styl=
+e=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; font: bold 12=
+px verdana; color: black; border-right-color: #51ae70; border-left-color: #=
+51ae70">Openings</td>
+                        <td align=3D"left" width=3D"20%" valign=3D"top" sty=
+le=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; font: bold 1=
+2px verdana; color: black; border-right-color: #51ae70; border-left-color: =
+#51ae70">Location</td>
+                    </tr>
+                    <tr>
+                        <td style=3D"border-bottom-color: #51ae70; border-t=
+op-color: #51ae70; font: 12px verdana; color: black; border-right-color: #5=
+1ae70; border-left-color: #51ae70"><a href=3D"#39873" class=3D"font12Link">=
+<span id=3D"jobTitle">Datastage / CDC Datapower</span> [ <span id=3D"jobCod=
+e">VLINK_451</span> ] </a></td>
+                        <td style=3D"border-bottom-color: #51ae70; border-t=
+op-color: #51ae70; font: 12px verdana; color: black; border-right-color: #5=
+1ae70; border-left-color: #51ae70"><span id=3D"totalExp">5</span></td>
+                        <td style=3D"border-bottom-color: #51ae70; border-t=
+op-color: #51ae70; font: 12px verdana; color: black; border-right-color: #5=
+1ae70; border-left-color: #51ae70"><span id=3D"numberOfOpenings">1</span></=
+td>
+                        <td style=3D"border-bottom-color: #51ae70; border-t=
+op-color: #51ae70; font: 12px verdana; color: black; border-right-color: #5=
+1ae70; border-left-color: #51ae70"><span id=3D"location">Irwindale, CA</spa=
+n></td>
+                    </tr>
+                    <tr>
+                        <td style=3D"border-bottom-color: #51ae70; border-t=
+op-color: #51ae70; font: 12px verdana; color: black; border-right-color: #5=
+1ae70; border-left-color: #51ae70"><a href=3D"#39868" class=3D"font12Link">=
+<span id=3D"jobTitle">Data Analyst</span> [ <span id=3D"jobCode">VLINK_450<=
+/span> ] </a></td>
+                        <td style=3D"border-bottom-color: #51ae70; border-t=
+op-color: #51ae70; font: 12px verdana; color: black; border-right-color: #5=
+1ae70; border-left-color: #51ae70">&nbsp;</td>
+                        <td style=3D"border-bottom-color: #51ae70; border-t=
+op-color: #51ae70; font: 12px verdana; color: black; border-right-color: #5=
+1ae70; border-left-color: #51ae70"><span id=3D"numberOfOpenings">1</span></=
+td>
+                        <td style=3D"border-bottom-color: #51ae70; border-t=
+op-color: #51ae70; font: 12px verdana; color: black; border-right-color: #5=
+1ae70; border-left-color: #51ae70"><span id=3D"location">NYC</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>&nbsp;</div>
+            <div style=3D"border-bottom-color: #51ae70; border-top-color: #=
+51ae70; font: 11px verdana; color: black; border-right-color: #51ae70; bord=
+er-left-color: #51ae70">Please <strong><a href=3D"#Details" class=3D"font11=
+Link">scroll down</a></strong> or click on the requirement's name for more =
+information.</div>
+            <div>&nbsp;</div>
+            <div id=3D"Signature" style=3D"font: 12px verdana">&nbsp;</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<a name=3D"Details"></a>
+<table align=3D"center" width=3D"100%" cellpadding=3D"3" cellspacing=3D"0" =
+border=3D"1" style=3D"border-bottom-color: #51ae70; border-top-color: #51ae=
+70; border-collapse: collapse; border-right-color: #51ae70; border-left-col=
+or: #51ae70">
+    <tbody>
+        <tr>
+            <th bordercolordark=3D"#ffffff" bordercolor=3D"#ffffff" borderc=
+olorlight=3D"#51ae70" height=3D"5" bgcolor=3D"#51ae70" style=3D"font: bold =
+14px verdana; color: white">Requirement List</th>
+        </tr>
+        <tr>
+            <td width=3D"100%">
+            <div><a name=3D"39873"></a>
+            <table width=3D"100%" cellpadding=3D"3" cellspacing=3D"0" borde=
+r=3D"1" style=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; b=
+order-collapse: collapse; border-right-color: #51ae70; border-left-color: #=
+51ae70">
+                <tbody>
+                    <tr bgcolor=3D"#e0f8e0">
+                        <td align=3D"right" nowrap=3D"nowrap" width=3D"5%" =
+valign=3D"top" style=3D"border-bottom-color: #51ae70; border-top-color: #51=
+ae70; font: bold 12px verdana; color: black; border-right-color: #51ae70; b=
+order-left-color: #51ae70">Requirement Title</td>
+                        <td align=3D"left" width=3D"95%" valign=3D"top" sty=
+le=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; font: bold 1=
+2px verdana; color: black; border-right-color: #51ae70; border-left-color: =
+#51ae70"><span id=3D"jobCode">VLINK_451</span> &nbsp; -&nbsp; <span id=3D"j=
+obTitle">Datastage / CDC Datapower</span> ,&nbsp; <span id=3D"location">Irw=
+indale, CA</span> .&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align=3D"right" nowrap=3D"nowrap" width=3D"5%" =
+valign=3D"top" style=3D"border-bottom-color: #51ae70; border-top-color: #51=
+ae70; font: bold 11px verdana; color: black; border-right-color: #51ae70; b=
+order-left-color: #51ae70">Description</td>
+                        <td align=3D"left" width=3D"95%" valign=3D"top" sty=
+le=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; border-right=
+-color: #51ae70; border-left-color: #51ae70"><span id=3D"description">
+                        <div style=3D"line-height: normal; text-indent: -0.=
+25in; margin: 0in 0in 0pt 0.5in"><span style=3D"font-family: Symbol; font-s=
+ize: 10pt; font-weight: normal">&middot;<span style=3D"font: 7pt 'Times New=
+ Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><sp=
+an style=3D"font-size: 10pt; font-weight: normal"><font face=3D"Arial">Smar=
+t Connect Data warehousing project using Websphere Datastage and Teradata d=
+atabase.</font></span></div>
+                        <div style=3D"line-height: normal; text-indent: -0.=
+25in; margin: 0in 0in 0pt 0.5in"><span style=3D"font-family: Symbol; font-s=
+ize: 10pt; font-weight: normal">&middot;<span style=3D"font: 7pt 'Times New=
+ Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><fo=
+nt face=3D"Arial"><span style=3D"font-size: 10pt; font-weight: normal">Desi=
+gned </span><span style=3D"font-size: 10pt"><strong>Datastage Architecture<=
+/strong></span><span style=3D"font-size: 10pt; font-weight: normal"> and wr=
+ite process flow documents.</span></font></div>
+                        <div style=3D"line-height: normal; text-indent: -0.=
+25in; margin: 0in 0in 0pt 0.5in"><span style=3D"font-family: Symbol; font-s=
+ize: 10pt; font-weight: normal">&middot;<span style=3D"font: 7pt 'Times New=
+ Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><sp=
+an style=3D"font-size: 10pt; font-weight: normal"><font face=3D"Arial">Work=
+ed on the Balance Optimizer to optimize the jobs for better performance.</f=
+ont></span></div>
+                        <div style=3D"line-height: normal; text-indent: -0.=
+25in; margin: 0in 0in 0pt 0.5in"><span style=3D"font-family: Symbol; font-s=
+ize: 10pt; font-weight: normal">&middot;<span style=3D"font: 7pt 'Times New=
+ Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><sp=
+an style=3D"font-size: 10pt; font-weight: normal"><font face=3D"Arial">Writ=
+e routines for Audit processing and BatchId creation.</font></span></div>
+                        <div style=3D"line-height: normal; text-indent: -0.=
+25in; margin: 0in 0in 0pt 0.5in"><span style=3D"font-family: Symbol; font-s=
+ize: 10pt; font-weight: normal">&middot;<span style=3D"font: 7pt 'Times New=
+ Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><sp=
+an style=3D"font-size: 10pt; font-weight: normal"><font face=3D"Arial">Expe=
+rience using TERADATA PARALLEL TRANSPORTER to load data.</font></span></div>
+                        <div style=3D"line-height: normal; text-indent: -0.=
+25in; margin: 0in 0in 0pt 0.5in"><span style=3D"font-family: Symbol; font-s=
+ize: 10pt; font-weight: normal">&middot;<span style=3D"font: 7pt 'Times New=
+ Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><sp=
+an style=3D"font-size: 10pt; font-weight: normal"><font face=3D"Arial">Writ=
+e shell scripts to handle file process, Archiving and Datastage scheduling.=
+</font></span></div>
+                        <ul type=3D"disc" style=3D"margin-top: 0in">
+                            <li style=3D"margin: 0in 0in 0pt"><span style=
+=3D"font-family: 'Arial','sans-serif'">Experience in low-level design and d=
+eveloped various jobs and performed data loads and transformations using di=
+fferent stages of DataStage and pre-built routines, functions and macros.</=
+span></li>
+                        </ul>
+                        <div style=3D"line-height: normal; margin: 0in 0in =
+0pt 0.25in">&nbsp;</div>
+                        <div style=3D"line-height: normal; margin: 0in 0in =
+0pt 0.25in"><span style=3D"font-size: 10pt; font-weight: normal"><font face=
+=3D"Arial">&nbsp;IBM Information server 8.0/8.1.1,Shell Scripting, UNIX, TE=
+RADATA skills</font></span></div>
+                        </span></td>
+                    </tr>
+                    <tr>
+                        <td align=3D"right" nowrap=3D"nowrap" width=3D"5%" =
+valign=3D"top" style=3D"border-bottom-color: #51ae70; border-top-color: #51=
+ae70; font: bold 11px verdana; color: black; border-right-color: #51ae70; b=
+order-left-color: #51ae70">
+                        <p>&nbsp;</p>
+                        </td>
+                        <td align=3D"left" width=3D"95%" valign=3D"top" sty=
+le=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; font: 11px v=
+erdana; color: black; border-right-color: #51ae70; border-left-color: #51ae=
+70"><span style=3D"border-bottom-color: #51ae70; border-top-color: #51ae70;=
+ font: bold 11px verdana; color: black; border-right-color: #51ae70; border=
+-left-color: #51ae70">Rate</span>&nbsp;:&nbsp; <span id=3D"rate" style=3D"b=
+order-bottom-color: #51ae70; border-top-color: #51ae70; font: 11px verdana;=
+ color: black; border-right-color: #51ae70; border-left-color: #51ae70">55<=
+/span> ,&nbsp; <span style=3D"border-bottom-color: #51ae70; border-top-colo=
+r: #51ae70; font: bold 11px verdana; color: black; border-right-color: #51a=
+e70; border-left-color: #51ae70">Number of Openings</span>&nbsp;:&nbsp; <sp=
+an id=3D"numberOfOpenings" style=3D"border-bottom-color: #51ae70; border-to=
+p-color: #51ae70; font: 11px verdana; color: black; border-right-color: #51=
+ae70; border-left-color: #51ae70">1</span> ,&nbsp; <span style=3D"border-bo=
+ttom-color: #51ae70; border-top-color: #51ae70; font: bold 11px verdana; co=
+lor: black; border-right-color: #51ae70; border-left-color: #51ae70">Experi=
+ence</span>&nbsp;:&nbsp; <span id=3D"totalExp" style=3D"border-bottom-color=
+: #51ae70; border-top-color: #51ae70; font: 11px verdana; color: black; bor=
+der-right-color: #51ae70; border-left-color: #51ae70">5</span> ,&nbsp; <spa=
+n style=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; font: b=
+old 11px verdana; color: black; border-right-color: #51ae70; border-left-co=
+lor: #51ae70">Duration</span>&nbsp;:&nbsp; <span id=3D"duration" style=3D"b=
+order-bottom-color: #51ae70; border-top-color: #51ae70; font: 11px verdana;=
+ color: black; border-right-color: #51ae70; border-left-color: #51ae70">1 y=
+ear</span></td>
+                    </tr>
+                    <tr>
+                        <td align=3D"right" nowrap=3D"nowrap" width=3D"5%" =
+valign=3D"top" style=3D"border-bottom-color: #51ae70; border-top-color: #51=
+ae70; font: bold 11px verdana; color: black; border-right-color: #51ae70; b=
+order-left-color: #51ae70"><a href=3D"#Top" class=3D"font11Link">Go to Top<=
+/a></td>
+                        <td align=3D"left" width=3D"95%" valign=3D"top"><a =
+href=3D"mailto:arun%40vlinkinfo.com?Subject=3DApplying%20for%20the%20job%20=
+Datastage%20/%20CDC%20Datapower[VLINK_451]" class=3D"font11Link">Respond to=
+ this requirement.</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div><a name=3D"39868"></a>
+            <table width=3D"100%" cellpadding=3D"3" cellspacing=3D"0" borde=
+r=3D"1" style=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; b=
+order-collapse: collapse; border-right-color: #51ae70; border-left-color: #=
+51ae70">
+                <tbody>
+                    <tr bgcolor=3D"#e0f8e0">
+                        <td align=3D"right" nowrap=3D"nowrap" width=3D"5%" =
+valign=3D"top" style=3D"border-bottom-color: #51ae70; border-top-color: #51=
+ae70; font: bold 12px verdana; color: black; border-right-color: #51ae70; b=
+order-left-color: #51ae70">Requirement Title</td>
+                        <td align=3D"left" width=3D"95%" valign=3D"top" sty=
+le=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; font: bold 1=
+2px verdana; color: black; border-right-color: #51ae70; border-left-color: =
+#51ae70"><span id=3D"jobCode">VLINK_450</span> &nbsp; -&nbsp; <span id=3D"j=
+obTitle">Data Analyst</span> ,&nbsp; <span id=3D"location">NYC</span> .&nbs=
+p;</td>
+                    </tr>
+                    <tr>
+                        <td align=3D"right" nowrap=3D"nowrap" width=3D"5%" =
+valign=3D"top" style=3D"border-bottom-color: #51ae70; border-top-color: #51=
+ae70; font: bold 11px verdana; color: black; border-right-color: #51ae70; b=
+order-left-color: #51ae70">Description</td>
+                        <td align=3D"left" width=3D"95%" valign=3D"top" sty=
+le=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; border-right=
+-color: #51ae70; border-left-color: #51ae70"><span id=3D"description">
+                        <div style=3D"margin: 0in 0in 0pt"><strong><u><span=
+ style=3D"color: black"><font size=3D"2"><font face=3D"Arial">Project Descr=
+iption:</font></font></span></u></strong></div>
+                        <div>&nbsp;</div>
+                        <div><span style=3D"font-family: 'Verdana','sans-se=
+rif'; color: black; font-size: 9pt">The client&nbsp;is looking for a Data A=
+nalyst to assist in the evaluation, modification and implementation of a cu=
+stom Operational Data Store (ODS) that would manage all student, teacher, a=
+nd parent data for&nbsp;client for the Student Parent E-Mail initiative.&nb=
+sp;</span></div>
+                        <div style=3D"margin: 0in 0in 0pt">&nbsp;</div>
+                        <div style=3D"margin: 0in 0in 0pt"><strong><u><span=
+ style=3D"color: black"><font size=3D"2"><font face=3D"Arial">Position Func=
+tions or Responsibilities:</font></font></span></u></strong></div>
+                        <div style=3D"margin: 0in 0in 0pt">&nbsp;</div>
+                        <div style=3D"margin: 0in 0in 0pt"><span style=3D"f=
+ont-family: 'Verdana','sans-serif'; color: black; font-size: 9pt">The Data =
+Analyst will be responsible for, but not limited to, the following:</span><=
+/div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Conduct data analysis, des=
+ign and documentation of the complex and enterprise-level ODS,&nbsp; specif=
+ically for the Student Parent Email project</span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Work with other data analy=
+sts, business users and IT professionals to ensure that the Student Parent =
+Email initiative data requirements are met with the highest degree of integ=
+rity and efficiency that is practical and cost effective </span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Ensure that the vendor bus=
+iness needs are met and that they understand the complex data as it exists =
+within the&nbsp;client. </span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Work with the existing ODS=
+ team to ensure the data stores are designed in compliance with corporate s=
+tandards and to ensure that information is managed as a significant corpora=
+te asset </span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Participate in, or facilit=
+ate, business process and requirement sessions to fully understand the proj=
+ect requirements and the data necessary to support those requirements both =
+during the blueprinting and the implementation of any modifications to the =
+enterprise ODS</span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Ensure that documentation =
+is captured, maintained, understood by and available to business and/or IT =
+partners</span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Communicate with other dat=
+a analysts to ensure an enterprise-wide consistency in implementing data mo=
+del changes, promote re-use, and improve data quality</span></div>
+                        <div style=3D"margin: 0in 0in 0pt">&nbsp;</div>
+                        <div style=3D"margin: 0in 0in 0pt"><span style=3D"f=
+ont-family: 'Verdana','sans-serif'; color: black; font-size: 9pt">She/he wi=
+ll work as a member of the ODS technical team reporting to one the Business=
+ owners and Project Manager.</span></div>
+                        <div style=3D"margin: 0in 0in 0pt">&nbsp;</div>
+                        <div style=3D"margin: 0in 0in 0pt"><strong><span st=
+yle=3D"font-family: 'Verdana','sans-serif'; color: black; font-size: 9pt">D=
+uties and Responsibilities:</span></strong></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Work as a team lead to ide=
+ntify and implement modifications to an existing ODS to meet project requir=
+ements. </span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Participate in, or facilit=
+ate, business process and requirement sessions to ensure that the team full=
+y understands the requirements and the data necessary to support those requ=
+irements</span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Ensure that data requireme=
+nts are translated into a logical data model that includes an entity-relati=
+onship diagram of entities, attributes, key structures as defined by the&nb=
+sp;company standard</span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Work closely with the vari=
+ous IT departments to ensure the project data needs are met within the syst=
+em(s) </span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Work with vendors and inte=
+rnal development groups, as needed, for information discovery</span></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Review existing documentat=
+ion and processes to ensure a strong understanding of existing systems</spa=
+n></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"font-family: 'Verd=
+ana','sans-serif'; color: black; font-size: 9pt">Escalate potential problem=
+s as needed to address any issues in advance of deadlines</span></div>
+                        <div style=3D"margin: 0in 0in 0pt"><strong><span st=
+yle=3D"font-family: 'Verdana','sans-serif'; color: black; font-size: 9pt">E=
+xperience:</span></strong></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span style=3D"font-famil=
+y: 'Verdana','sans-serif'; color: black; font-size: 9pt">Five years of proc=
+ess improvement experience. </span></strong></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span style=3D"font-famil=
+y: 'Verdana','sans-serif'; color: black; font-size: 9pt">Experience that le=
+verages technology as part of the solution in Data Analyst.</span></strong>=
+</div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span style=3D"font-famil=
+y: 'Verdana','sans-serif'; color: black; font-size: 9pt">Business domain ex=
+perience in the education industry.</span></strong></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span style=3D"font-famil=
+y: 'Verdana','sans-serif'; color: black; font-size: 9pt">Proven Knowledge/e=
+xperience in logical and physical data modeling and normalization data.</sp=
+an></strong></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span style=3D"font-famil=
+y: 'Verdana','sans-serif'; color: black; font-size: 9pt">Hands-on experienc=
+e with process modeling, analysis and simulation tools.</span></strong></di=
+v>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span style=3D"font-famil=
+y: 'Verdana','sans-serif'; color: black; font-size: 9pt">Knowledge of relev=
+ant business process standards (for example, business process modeling nota=
+tion).</span></strong></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span style=3D"font-famil=
+y: 'Verdana','sans-serif'; color: black; font-size: 9pt">Ability to adapt t=
+o rapidly changing technology and apply it to business needs.</span></stron=
+g></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span style=3D"font-famil=
+y: 'Verdana','sans-serif'; color: black; font-size: 9pt">Excellent analytic=
+al and conceptual skills and the ability to create original concepts on pro=
+jects.</span></strong></div>
+                        <div style=3D"text-indent: -0.25in; margin: 0in 0in=
+ 0pt 39.75pt"><span style=3D"font-family: Symbol; color: black"><font size=
+=3D"2">&middot;</font><span style=3D"font: 7pt 'Times New Roman'">&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><strong><span style=3D"font-famil=
+y: 'Verdana','sans-serif'; color: black; font-size: 9pt">Ability to analyze=
+ project needs and solve problems may span multiple environments in a busin=
+ess area.</span></strong></div>
+                        <table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width: 100%">
+                            <tbody>
+                                <tr>
+                                    <td valign=3D"top" style=3D"border-bott=
+om: #f0f0f0; border-left: #f0f0f0; padding-bottom: 0in; background-color: t=
+ransparent; padding-left: 0in; padding-right: 0in; border-top: #f0f0f0; bor=
+der-right: #f0f0f0; padding-top: 0in">
+                                    <div style=3D"margin: 0in 0in 0pt"><spa=
+n style=3D"font-family: 'Times New Roman','serif'; color: black; font-size:=
+ 12pt">Required Qualifications: </span></div>
+                                    </td>
+                                    <td valign=3D"top" style=3D"border-bott=
+om: #f0f0f0; border-left: #f0f0f0; padding-bottom: 0in; background-color: t=
+ransparent; padding-left: 0in; padding-right: 0in; border-top: #f0f0f0; bor=
+der-right: #f0f0f0; padding-top: 0in">
+                                    <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0" style=3D"width: 100%">
+                                        <tbody>
+                                            <tr>
+                                                <td valign=3D"top" style=3D=
+"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: 0in; backgro=
+und-color: transparent; padding-left: 0in; padding-right: 0in; border-top: =
+#f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                <table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width: 100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign=3D"t=
+op" style=3D"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: =
+0in; background-color: transparent; padding-left: 0in; padding-right: 0in; =
+border-top: #f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                            <div style=3D"m=
+argin: 0in 0in 0pt"><span style=3D"font-family: 'Times New Roman','serif'; =
+color: black; font-size: 12pt">Qualification:</span></div>
+                                                            </td>
+                                                            <td valign=3D"t=
+op" style=3D"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: =
+0in; background-color: transparent; padding-left: 0in; padding-right: 0in; =
+border-top: #f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                            <div style=3D"m=
+argin: 0in 0in 0pt"><span style=3D"font-family: 'Times New Roman','serif'; =
+color: black; font-size: 12pt">Data Analyst</span></div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign=3D"top" style=3D=
+"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: 0in; backgro=
+und-color: transparent; padding-left: 0in; padding-right: 0in; border-top: =
+#f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                <table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width: 100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign=3D"t=
+op" style=3D"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: =
+0in; background-color: transparent; padding-left: 0in; padding-right: 0in; =
+border-top: #f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                            <div style=3D"m=
+argin: 0in 0in 0pt"><span style=3D"font-family: 'Times New Roman','serif'; =
+color: black; font-size: 12pt">Minimum Years Required:</span></div>
+                                                            </td>
+                                                            <td valign=3D"t=
+op" style=3D"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: =
+0in; background-color: transparent; padding-left: 0in; padding-right: 0in; =
+border-top: #f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                            <div style=3D"m=
+argin: 0in 0in 0pt"><span style=3D"font-family: 'Times New Roman','serif'; =
+color: black; font-size: 12pt">5</span></div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign=3D"top" style=3D"border-bott=
+om: #f0f0f0; border-left: #f0f0f0; padding-bottom: 0in; background-color: t=
+ransparent; padding-left: 0in; padding-right: 0in; border-top: #f0f0f0; bor=
+der-right: #f0f0f0; padding-top: 0in">
+                                    <div style=3D"margin: 0in 0in 0pt"><spa=
+n style=3D"font-family: 'Times New Roman','serif'; color: black; font-size:=
+ 12pt">Other Required Qualifications/Experience: </span></div>
+                                    </td>
+                                    <td valign=3D"top" style=3D"border-bott=
+om: #f0f0f0; border-left: #f0f0f0; padding-bottom: 0in; background-color: t=
+ransparent; padding-left: 0in; padding-right: 0in; border-top: #f0f0f0; bor=
+der-right: #f0f0f0; padding-top: 0in">
+                                    <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0" style=3D"width: 100%">
+                                        <tbody>
+                                            <tr>
+                                                <td valign=3D"top" style=3D=
+"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: 0in; backgro=
+und-color: transparent; padding-left: 0in; padding-right: 0in; border-top: =
+#f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                <table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width: 100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign=3D"t=
+op" style=3D"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: =
+0in; background-color: transparent; padding-left: 0in; padding-right: 0in; =
+border-top: #f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                            <div style=3D"m=
+argin: 0in 0in 0pt"><span style=3D"font-family: 'Times New Roman','serif'; =
+color: black; font-size: 12pt">Qualification:</span></div>
+                                                            </td>
+                                                            <td valign=3D"t=
+op" style=3D"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: =
+0in; background-color: transparent; padding-left: 0in; padding-right: 0in; =
+border-top: #f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                            <div style=3D"m=
+argin: 0in 0in 0pt"><span style=3D"font-family: 'Times New Roman','serif'; =
+color: black; font-size: 12pt">Bachelor of Science degree or related busine=
+ss discipline (MBA preferred);Five years of process improvement experience;=
+ especially experience that leverages technology as part of the solution in=
+ Data Analyst;Business domain experience in the education industry;Proven K=
+nowledge/experience in logical and physical data modeling and normalization=
+ data;Hands-on experience with process modeling, analysis and simulation to=
+ols ;Knowledge of relevant business process standards (for example, busines=
+s process modeling notation);Ability to adapt to rapidly changing technolog=
+y and apply it to business needs;Excellent analytical and conceptual skills=
+ and the ability to create original concepts on projects;Ability to analyze=
+ project needs and solve problems may span multiple environments in a busin=
+ess area</span></div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign=3D"top" style=3D=
+"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: 0in; backgro=
+und-color: transparent; padding-left: 0in; padding-right: 0in; border-top: =
+#f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                <table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width: 100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign=3D"t=
+op" style=3D"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: =
+0in; background-color: transparent; padding-left: 0in; padding-right: 0in; =
+border-top: #f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                            <div style=3D"m=
+argin: 0in 0in 0pt"><span style=3D"font-family: 'Times New Roman','serif'; =
+color: black; font-size: 12pt">Minimum Years Required:</span></div>
+                                                            </td>
+                                                            <td valign=3D"t=
+op" style=3D"border-bottom: #f0f0f0; border-left: #f0f0f0; padding-bottom: =
+0in; background-color: transparent; padding-left: 0in; padding-right: 0in; =
+border-top: #f0f0f0; border-right: #f0f0f0; padding-top: 0in">
+                                                            <div style=3D"m=
+argin: 0in 0in 0pt"><span style=3D"font-family: 'Times New Roman','serif'; =
+color: black; font-size: 12pt">5</span></div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </span></td>
+                    </tr>
+                    <tr>
+                        <td align=3D"right" nowrap=3D"nowrap" width=3D"5%" =
+valign=3D"top" style=3D"border-bottom-color: #51ae70; border-top-color: #51=
+ae70; font: bold 11px verdana; color: black; border-right-color: #51ae70; b=
+order-left-color: #51ae70">
+                        <p>&nbsp;</p>
+                        </td>
+                        <td align=3D"left" width=3D"95%" valign=3D"top" sty=
+le=3D"border-bottom-color: #51ae70; border-top-color: #51ae70; font: 11px v=
+erdana; color: black; border-right-color: #51ae70; border-left-color: #51ae=
+70"><span style=3D"border-bottom-color: #51ae70; border-top-color: #51ae70;=
+ font: bold 11px verdana; color: black; border-right-color: #51ae70; border=
+-left-color: #51ae70">Rate</span>&nbsp;:&nbsp; <span id=3D"rate" style=3D"b=
+order-bottom-color: #51ae70; border-top-color: #51ae70; font: 11px verdana;=
+ color: black; border-right-color: #51ae70; border-left-color: #51ae70">70<=
+/span> ,&nbsp; <span style=3D"border-bottom-color: #51ae70; border-top-colo=
+r: #51ae70; font: bold 11px verdana; color: black; border-right-color: #51a=
+e70; border-left-color: #51ae70">Number of Openings</span>&nbsp;:&nbsp; <sp=
+an id=3D"numberOfOpenings" style=3D"border-bottom-color: #51ae70; border-to=
+p-color: #51ae70; font: 11px verdana; color: black; border-right-color: #51=
+ae70; border-left-color: #51ae70">1</span> ,&nbsp; <span style=3D"border-bo=
+ttom-color: #51ae70; border-top-color: #51ae70; font: bold 11px verdana; co=
+lor: black; border-right-color: #51ae70; border-left-color: #51ae70">Durati=
+on</span>&nbsp;:&nbsp; <span id=3D"duration" style=3D"border-bottom-color: =
+#51ae70; border-top-color: #51ae70; font: 11px verdana; color: black; borde=
+r-right-color: #51ae70; border-left-color: #51ae70">4 months</span></td>
+                    </tr>
+                    <tr>
+                        <td align=3D"right" nowrap=3D"nowrap" width=3D"5%" =
+valign=3D"top" style=3D"border-bottom-color: #51ae70; border-top-color: #51=
+ae70; font: bold 11px verdana; color: black; border-right-color: #51ae70; b=
+order-left-color: #51ae70"><a href=3D"#Top" class=3D"font11Link">Go to Top<=
+/a></td>
+                        <td align=3D"left" width=3D"95%" valign=3D"top"><a =
+href=3D"mailto:arun%40vlinkinfo.com?Subject=3DApplying%20for%20the%20job%20=
+Data%20Analyst[VLINK_450]" class=3D"font11Link">Respond to this requirement=
+.</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style=3D"padding:3px" width=3D"100%" align=3D"center" id=3D"removeLink=
+"><a href=3D"http://portal.zoniacswift.com//servlet/ZoniacServlet?api=3Dget=
+OutsideUnsubscribeContact&e66Ve62i57=3Dfalse&m9UCc1ucRi=3D693&h2BNp44yL7=3D=
+206454&h5p8pKsyMi8l0=3D3025003&h2ZNp64yM8=3Dabhra%40altechstar.com&h2TNp86w=
+P9=3D5&h2GQy54sI2=3D1530" class=3D"font10"><font color=3D"blue">Click here =
+</font></a><span class=3D"font10">to unsubscribe from our mailing list.</sp=
+an><br><span class=3D"font10">VLINK INC, 635 Farmington Ave,  Hartford, Con=
+necticut, 06105 Phone: 860.247.1400 </span></div>
+<div align=3D"center" width=3D"100%">
+<table align=3D"center" width=3D"100%">
+    <tbody>
+        <tr>
+            <td width=3D"55%" align=3D"right"><a href=3D"http://www.zoniac.=
+com" target=3D"_new" style=3D"vertical-align: text-top"><font style=3D"vert=
+ical-align: text-top">Powered by Zoniac</font></a></td>
+            <td width=3D"45%" align=3D"left"><img src=3D"cid:qyDoVyc6sm" al=
+t=3D"" height=3D"20" width=3D"20" align=3D"bottom" border=3D"0"></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div id=3D"removeLinkDummy1">&nbsp;</div>
+<div id=3D"removeLinkDummy2">&nbsp;</div>
+<div id=3D"removeLinkDummy3">&nbsp;</div>
+<div id=3D"removeLinkDummy4">&nbsp;</div>
+<div id=3D"removeLinkDummy5">&nbsp;</div>
+<div id=3D"removeLinkDummy6">&nbsp;</div>
+
+--=_reb-r5498944A-t4CE5A984
+Content-Type: image/gif; name="/Companies/693///custom/customerLogo.gif"
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; 
+	filename="/Companies/693///custom/customerLogo.gif"
+Content-ID: <NoMug4Tlqw>
+
+R0lGODlhdwA7APcAAAAAAP/////9/+Lh4tHQ0fj3+8bGyqioqvT09eDg4c7Oz8jK1+fo7ePk
+6czP29ja4wIGFd/h6AsTKRMYJiYrObm/0MDF08XJ1ZaXmiArSEZYhS81RBYfMzRBXWV6p2Fv
+jtDU3RYkQC5BaT1Reyg1TzlKazU8Sq+zu8DEzNve5O/w8g8aLyE0VSs+X0Jciklhjklbex0j
+LoujzqWpsLq+xQcRIhcuVBwzWSE5YDtWgTVMc0pRXJimvKy2xsTN3NPY4E1qllt3oVNoh0RS
+Zz1IWG+CnpCes4OPoKKuwLK8y8XJz/Dy9evt8NXX2gkfPQ4nSRkvTlNynGqIsVhwkXWPspiy
+1Fdkdpyy0WdveneAjIqQmNfa3mCBqWeGq3WVu3ubwWh9mIOdvoiiw5y423qQq3WKpIGYtJWu
+zGJvf1NdaYGLl3CRtoOkyIqqz11zjIiny5e115Wz1Y2px5y415OqxMbg/Gp2hLvN4nmFkpqh
+qbzEzYChwo+w05Kz04+uzZKwz5Wy0Jm21Ji105e00Zm205+82aC71qbB3aK92J+506vG4p20
+zLLM5pqwx67G3sDa9KW6z3F7hdLe6rS5vpqdoP3+//j5+ufo6dPU1Yqrype415q41J2715y6
+1qK/25y40oqiuafE36bB2qnE3a7J47TP6LvW77jT67fI2IuYpMfX5punsqKuuaizvdnl8IWp
+yKPC3bTM4JKeqJ2805+nrcrP06yws/H1+Ojs74GKkN/r8+fy+MrT2Onw9OHp7fn7/O73+/H7
+//X6/Nrk5t/m5/n+/qKkpMDCwvLz8+nq6uPk5N7f38rLy7/AwLW2ttji4Pz+/fj6+fj9+uXo
+5trb2tbX1ri5uLKzsq+wr+rs6fr7+fHy7/f58q6vq+Hi3tzd1v//+urq5ufn4/r69/X18v//
+/f///v39/Pn5+KmnpMfDv/79/Ozr6q2qqKKgn/r39urn5+Xi4vr5+fDv78jHx/7+/vv7+/r6
++vb29u3t7ezs7Obm5sTExL29vaysrP///yH5BAEAAP8ALAAAAAB3ADsAAAj/AAMIHEiwoMGD
+CBMONFfOnLlK9cqBA+dQYMMAAgQMzJhRocePIEOKHFlQIsUAlYQB2+VL1y5gv+oNLEeTJsmb
+OHPqtBhtiS5JqkyVcuQo1h1VrnQBE0ZzYrmdUKPurIiyF9BYokaFUhQKVqivjkYVRbpkoEyp
+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
+
+--=_reb-r5498944A-t4CE5A984
+Content-Type: image/gif; name="/custom/UnsubscribedPoweredByImg.gif"
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename="/custom/UnsubscribedPoweredByImg.gif"
+Content-ID: <qyDoVyc6sm>
+
+R0lGODlhJgAlAPcAAAAAAP///yRfkfDw8FFARGliZSgnQhgYGUBAQbKys6CgoZycnQABEgIG
+ICBAkCFCkiNDkiNBkCRCkCRAgyFDkCBGkSBChiBAgpqgqNXa4ZufpLG5wgFAgQQIDA4SFhIU
+FmVwe7C0uDQ1NouNj4CBgtna28XGxyJHaC9KYjNNZUlecQVAdCFfkxtNeCNiliNglCNgkyJc
+jyFbjCVkmyNfkiNekSFaiSRgkyViliVhlSdkmCdjlidilCZhkSlklipmmSljlSlikSdciSlg
+jyFNciVVfipfjCxchCZOcSVLbDNolC1ZfixWei1TdCpMaSdGYRovQS9RbiE3SiY+UztZczdT
+az1TZSk0PUlZZlFhbl1qdXB8hiBfkSRag0RXZkxdamt1fbzEymtyd5KVlwBAaBhQcCFghIaR
+l7S5vCFQaRIiKiBMYCFSZQFUcARVZsLLzGtsbPP09O/w8DSEghlSQUFYUQRAIgAYBAZADICE
+gMDBwAghACBVAyFAESBCCCFAAhQkACpACMTFwjExJdjY0EJCQIqKiGJiYeXl5JiYlyYeA0pJ
+R/b18+zq5yUjIWBdWi4tLIaEgrKwrv/9++nn5eXj4fv6+d3c25iVk8jEwnVzcrq4t/37+vr4
+9/n39uLg39za2dnX1vXy8UACARQSEisqKoaEhOLg4Pf29vb19dnY2NTT09HQ0P7+/vz8/Pv7
++/j4+PT09PLy8vHx8e/v7+3t7evr6+jo6Obm5uLi4uDg4N7e3tzc3Nvb29bW1s7Ozs3NzcnJ
+ycbGxsXFxcLCwr29vbm5ubW1tbGxsa6urqqqqqenp6KiopaWlpKSkpGRkY6OjoeHh4SEhH5+
+fnp6enV1dXFxcW9vb2xsbGtra2hoaGZmZmRkZGJiYmBgYF9fX1dXV1VVVVNTU1BQUExMTEhI
+SEZGRkVFRUNDQz8/Pzw8PDs7OzY2NjU1NTMzMzExMS8vLywsLCkpKScnJyUlJSIiIiAgIB4e
+HhYWFhISEgoKCgYGBgQEBAICAgEBAf///yH5BAEAAP8ALAAAAAAmACUAAAj/AAMIHEiwoMGD
+CBMqXMhQgMOHEB3imKLGiIuIGDMOzAixhhIs6aQEocGx5MaSXMyQiTTIABs/FEpqFChTApEz
+n1hFwwQGj0yMJzl2UWECUTBf3zK0efETYtCMF8Qw2iUswLZNdIYwbSrgKUY+klz1qooMzjEU
+MW5w9doRz61UvYYFuHUI2JkTN2o0ZfvQRQdUscYKlGZowBYmO/TK5CvgAZ5RsuIEI4bKWCEA
+sE4RcHOBy2KaGWtQQeNqwDJx6u7NowdrlqUNVYJ45siXhg0Qb6atowdv3LV2+4bBGtBJgxMI
+GT3zdRElHCl45Lxd4/YOH4lpr2bFEUXiT8YKPNh6/1TjCEG2bNrKyQMwrsQ3XqgGxGq0YqsA
+Gjl0KCrC1gWTD4togw049JQDDQDRBGANM8MN4EkdRuRQwww+HAFFAzGwBQQV1ZSiDTvxUCPM
+NvnIVQw3tMwywAB6WBHDD0lI4QEUZtzgVQRlqEFJPwCE88sp/OTzjkCtHHBOLIjMcg4DgOyx
+xx2BUOBAV6A9JMMXucRBSy6yWIKMPPToMdAu3+RiCzbvmAOJCETM4FSVArDAxDOwpDiAduPA
+kw4tA7WyDTO7zIPAOwuAgkULFzkUFBc+oMBKKisO8MoypbBDzUC5UFMPN4iMo48qrXASRgpC
+kERlAA85UMQWtMgSqS3noP8TDzICmfKOO9+k84svy6BCixyThJACEMpVKUEUCVhyp4rLyDMO
+ArkEkEw94XgDTz3TBBBLpLJ0MoYTUwbFgRaVQLqiLuWYc443wYhzTzkI0CPNKuLwEukAtGi5
+RR+nPvTHGeeuCMAB2vizjz3xAkBOMaiggo4+uuhyisS63JIHvyexwAcj97ZSijfaWIPNOvNI
+UwtBlmiDzL2oqPLFBf3WoIMd8d3ZsnnZjPMOOMActIA1stByp7dISNDvC10UsK2Wv1RjTzfv
+lNKMKwW1IhAt42w7ACqheDFEsaju0AQGs6ByijHCwFtPNbYsRIIlQnsyAhKJDnSDDVkQIgsr
+CeBxckw+BxRzkNUEjWOLLJ68UUUPig3EwhLS2KJHMbMEkA4+zjAkEDbKtIIKGC3YN9AEaWSi
+ADCvBICKMqdoLpAC3ggyxxoWzHaqE9BcQrjrBiVyyBM6RDTQFY8k8szxyCev/PLHa3LFETAI
+z/v01FevUEAAOw==
+
+--=_reb-r5498944A-t4CE5A984--
+

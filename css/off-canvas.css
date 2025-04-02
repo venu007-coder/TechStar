@@ -1,0 +1,51 @@
+
+@media (max-width: 991px) {
+
+/*---------- SIDEBAR-MOBILE ----------*/
+.wrapper {
+	 -webkit-transform: translate(0px, 0px);
+	-moz-transform: translate(0px, 0px);
+	-o-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+}
+.wrapper.active {
+	-webkit-transform: translate(220px, 0px);
+	-moz-transform: translate(220px, 0px);
+	-o-transform: translate(220px, 0px);
+	-ms-transform: translate(220px, 0px);
+	transform: translate(220px, 0px);
+	overflow: hidden;
+}
+.navbar-custom03 { background-color: #fff; height: 60px;}
+.navbar-custom03 .navbar-brand { padding: 10px 50px;}
+.navbar-custom03 .fa-bars { color: #3087d0; margin-top: 9px;}
+#sidebar-wrapper .fa-times { color: #fff !important;}
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    margin-left: -220px;
+    overflow-y: auto;
+    background: #222;
+		padding-bottom: 25px;
+}
+#sidebar-wrapper.active { left: 220px; width: 220px; overflow-y: auto; overflow-x: hidden;}
+
+.sidebar-login { position: relative; width: 220px; margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #333;}
+.sidebar-login .caret { margin-top: 5px; margin-left: 5px; color: #fff;}
+.sidebar-login li { display: inline;}
+.sidebar-login li a { text-decoration: none; color: #ED4337; padding: 15px; display: inline-block; font-weight: 700; font-size: 1.15em;}
+.sidebar-login .fa { color: #ED4337;}
+.dropdown-menu.dropdown-menu01 { position: relative; width: 220px; border-radius: 0; background-color: #333; padding: 0;}
+.dropdown-menu.dropdown-menu01 li a { display: block; color: #fff; font-size: 1em}
+.dropdown-menu.dropdown-menu01 li a:hover,
+.dropdown-menu.dropdown-menu01 li a:focus { background-color: #111;}
+.sidebar-nav { position: relative; top: 0px; width: 220px; margin: 0; padding: 0; list-style: none;}
+.sidebar-nav li a { display: block; text-decoration: none; color: #fff; padding: 15px; border-bottom: 1px solid #333; font-size: 1em; font-weight: 700;}
+.sidebar-nav li a:hover, .sidebar-nav li a:focus, .sidebar-nav li.active a { background-color: #111;}
+#menu-toggle { z-index: 1; position: fixed; top: 0; left: 0;}
+}
+	

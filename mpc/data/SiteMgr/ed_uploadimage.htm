@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>Upload File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_UserName action=REQ_GET_FORMVALUE Username=Username>
+<merc_dynamic noshow=true name=SC_Password action=ST_GET_STATEDATA Password=Password>
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<merc_dynamic noshow=true name=SC_SiteID action=REQ_GET_FORMVALUE SiteID=SiteID>
+<merc_dynamic noshow=true name=SC_Session action=ST_GET_STATEDATA SessionID=SessionID>
+
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT SRC="SiteEditor.js" LANGUAGE="JavaScript"></SCRIPT>
+
+<SCRIPT RUNAT="merc_server">
+	<merc_embed>
+		<SCRIPT LANGUAGE="JavaScript">
+		var master_js = opener;
+		var action = "", target = "", nextPage = "", targetDir = "";
+		var objectName = "", inputLabel = "selectedFile", imageDirName = "";
+		var winName = "ed_image_popup", callBack = "", useImageCategory = "";
+		var exisitingFiles = new Array();
+		var fileExt = new Array();
+		var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	</merc_embed>
+	var callBack = doAction('REQ_GET_FORMVALUE', "CallBack", "CallBack");
+	if (callBack)
+		writeln ("callBack = '"+escape (callBack)+"';");
+	var imageDirName = doAction('REQ_GET_FORMVALUE', "ImageDirName", "ImageDirName");
+	if (imageDirName)
+		writeln ("imageDirName = '"+imageDirName+"';");
+	var objectName = doAction('REQ_GET_FORMVALUE', "ObjectName", "ObjectName");
+	if (objectName)
+		writeln ("objectName = '"+objectName+"';");
+	var master_js = doAction('REQ_GET_FORMVALUE', "MasterJs", "MasterJs");
+	if (master_js)
+		writeln ("master_js = "+master_js+";");
+	var action = doAction('REQ_GET_FORMVALUE', "Action", "Action");
+	if (action)
+		writeln ("action = '"+action+"';");
+	var target = doAction('REQ_GET_FORMVALUE', "Target", "Target");
+	if (target)
+		writeln ("target = '"+target+"';");
+	var nextPage = doAction('REQ_GET_FORMVALUE', "LinkToPage", "LinkToPage");
+	if (nextPage)
+		writeln ("nextPage = '"+nextPage+"';");
+	var targetDir = doAction('REQ_GET_FORMVALUE', "TargetDir", "TargetDir");
+	if (targetDir)
+		writeln ("targetDir = '"+targetDir+"';");
+	var exisitingFiles = doAction('REQ_GET_FORMVALUE', "ExistingFiles", "ExistingFiles");
+	if (exisitingFiles)
+	{
+		var temp = new Array();
+		temp = exisitingFiles.split("\t");
+		writeln ("exisitingFiles = new Array('"+temp.join('\',\'')+"');");
+	}
+	var fileExt = doAction('REQ_GET_FORMVALUE', "FileExtensions", "FileExtensions");
+	if (fileExt)
+	{
+		var tempExt = new Array();
+		tempExt = fileExt.split("\t");
+		writeln ("fileExt = new Array('"+tempExt.join('\',\'')+"');");
+	}
+	var useImageCategory = doAction('REQ_GET_FORMVALUE', "UseImageCategory", "UseImageCategory");
+	if (useImageCategory)
+		writeln ("useImageCategory = '"+escape(useImageCategory)+"';");
+	
+	<merc_embed>
+		function uploadImage ()
+		{
+			var fileName = document.fileSelect.selectedFile.value.replace (/\\\\/g, "/");
+			
+			if (fileName.lastIndexOf("/") >= 0)
+				fileName = fileName.substr (fileName.lastIndexOf("/")+1);
+
+			var bValid = false;
+			if (validateName (fileName, -1, fileName, exisitingFiles, self, master_js))
+			{
+				if (fileExt.length > 0)
+				{
+					if (validateExtension (fileName, fileExt, self, master_js))
+						bValid = true;
+				}
+				else
+					bValid = true;
+			}
+			if (bValid)
+			{
+				document.fileSelect.target = target;
+				document.fileSelect.action = master_js.gFORM_ACTION;
+	
+				document.fileSelect.sm_action.value = action;
+				document.fileSelect.NextPage.value = nextPage;
+				document.fileSelect.FileName.value = targetDir + fileName;
+				document.fileSelect.UploadedFileNameOnly.value = fileName;
+				document.fileSelect.ObjectName.value = objectName;
+				document.fileSelect.InputLabel.value = inputLabel;
+				document.fileSelect.ImageDirName.value = imageDirName;
+				document.fileSelect.UseImageCategory.value = unescape(useImageCategory);
+				
+				document.fileSelect.submit();
+				if (callBack.length > 0)
+					eval (unescape (callBack));
+
+				self.close();
+			}
+		}
+		</SCRIPT>
+	</merc_embed>
+</SCRIPT>
+
+
+</head>
+
+<body class="pop-up-bkgrd" bgcolor="#CCCCFF">
+
+
+<p align="center"><span class="dialog-title">Select File To Upload</span></p>
+
+<table width="350" border="0" cellspacing="0" cellpadding="2" align="center" class="table-bkgrd-main">
+<tr>
+
+<td class="field-label" align="center" height="35"> 
+	<form enctype="multipart/form-data" method="POST" name="fileSelect">
+		<input type="hidden" name="Password" value="{SC_Password}">
+		<input type="hidden" name="Username" value="{SC_UserName}">
+		<input type="hidden" name="SessionID" value="{SC_Session}">
+		<input type="hidden" name="AppID" value="merchant">
+		<input type="hidden" name="SiteID" value="{SC_SiteID}">
+		<input type="hidden" value = "" name="sm_action">
+		<input type="hidden" value = "" name="NextPage">
+		<input type="hidden" value = "" name="FileName">
+		<input type="hidden" value = "" name="UploadedFileNameOnly">
+		<input type="hidden" value = "" name="ObjectName">
+		<input type="hidden" value = "" name="InputLabel">
+		<input type="hidden" value = "" name="ImageDirName">
+		<input type="hidden" value = "" name="UseImageCategory">
+		<input type="file" value = "" name="selectedFile">
+	</form>      
+</td>
+</tr>
+<tr>
+
+<td class="field-label" height="35"> 
+<div align="center"><!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<a href="javascript:void(master_js.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_IMAGES_UPLOAD_POP+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a>
+<!--END HELP WINDOW LINK-->      
+<a href="javascript:void(0)" onclick="self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a><a href="javascript:void(0)" onclick="uploadImage();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Upload_Nbtn_base2.gif" width="86" height="30" border="0" alt="Upload"></a></div>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

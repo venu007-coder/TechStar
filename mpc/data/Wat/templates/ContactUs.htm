@@ -1,0 +1,99 @@
+<script runat="merc_server">
+	var text = '';
+	var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+			    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+	var pageName = doAction('ST_GET_STATEDATA', 'WizNewPageName', 'WizNewPageName');
+	if (!pageName)
+		pageName = '';
+	var pageElements = generateObjectsFromCfg ('WATWizardPages');
+
+</script>
+<tr>
+	<td height="15" colspan="5" width="100%" class="instr-note">
+		Fields below are optional; nothing will appear if nothing is entered
+	</td>
+</tr>
+<tr>
+<tr>
+	<td width="9%" height="15" class="field-label">Image:</td>
+	<td height="15" colspan="4" width="60%" nowrap>
+		<table border="0">
+			<tr>
+				<td><input type="text" size="30" name="imgtext" value="" onKeyUp="this.value=imageName;"><input type="hidden" name="imgurl" value=""><input type="hidden" name="secureimgurl" value=""><input type="hidden" name="imgrow" value=""></td>
+				<td>
+					<a href="javascript:void(0);" onClick="editWindow();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Select____Nbtn_base2.gif" border="0"></a>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+     <td width="19%" height="18" class="field-label">Page Description:<br><font class="instr-note">Example:  How to reach us...</font></td>
+     <td height="18" colspan="4"> 
+	<script runat="merc_server">
+	text = '';
+	if (pageName != '' && pageElements.ObjArray[pageName])
+	{
+		var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[pageName].DescriptionText);
+		if (properties && properties['text'])
+			text = properties['text'];
+		text = text.replace (/<br>/g, '\n');
+		text = escape(text);
+	}
+	write('<textarea name="DescriptionText" cols="30" rows="3" wrap="soft">'+text+'</textarea>');
+	</script>
+		<input type="hidden" name="TemplateScript" value="ContactUs.js">
+     </td>
+</tr>
+<tr>
+	<script runat="merc_server">
+	var textFields = new Array("Street_Address_1", "Street_Address_2", "City", "State_Province", "Zip_Postal_Code", "Country", 
+											"Phone", "Fax", "Email");
+	var fieldLabels = new Array("Street Address 1", "Street Address 2", "City", "State/Province", "Zip/Postal Code", "Country", 
+											"Phone", "Fax", "Email");
+	var bizLabels = new Array("Street1", "Street2", "City", "State", "Postal", "Country", 
+										"Phone", "Fax", "Email");
+	var fieldVals = new Array();
+	for (var n = 0; n < textFields.length; n++)
+		fieldVals[textFields[n]] = '';
+										
+	write ('<input type="hidden" name="TextFields" value="'+textFields.join(gSEPERATOR)+'">');	
+	if (pageName != '' && pageElements.ObjArray[pageName])
+	{
+		var properties = doActionBDO ("MPEA_GET_PROPERTIES", 'ElementID', 
+					pageElements.ObjArray[pageName].BusinessText);
+		if (properties)
+		{
+			for (var n = 0; n < textFields.length; n++)
+			{
+				if (properties[textFields[n]])
+					fieldVals[textFields[n]] = properties[textFields[n]];
+			}
+		}
+	}
+	else
+	{
+		// no properties yet, read from BizInfo object
+		for (var n = 0; n < textFields.length; n++)
+		{
+			var bi =  doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'BizInfo',
+						  'RowName', bizLabels[n], 'ColName', 'Data');
+			if (bi && bi != '')
+				fieldVals[textFields[n]] = bi;
+		}
+	}
+	
+	for (var n = 0; n < textFields.length; n++)
+	{
+		writeln ('<tr><td width="121" class="field-label" nowrap>'+
+				'<div align="right">' + fieldLabels[n] + ':</div></td><td width="319">'+ 
+				'<input name="'+textFields[n]+'" type="text" size="30" value="'+fieldVals[textFields[n]]+'"></td>'+
+				'<td width="47">&nbsp;</td></tr>');
+	}
+	</script>
+	<SCRIPT language=javascript>
+	document.newpage.DescriptionText.value = unescape(document.newpage.DescriptionText.value);
+	</SCRIPT>
+</tr>

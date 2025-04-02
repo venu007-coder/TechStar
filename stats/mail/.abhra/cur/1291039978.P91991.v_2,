@@ -1,0 +1,647 @@
+Return-Path: carun@hgtechinc.net
+Received: from mx58.stngva01.us.mxservers.net (204.202.242.48)
+	by mail19k.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-050519978
+	for <abhra@altechstar.com>; Mon, 29 Nov 2010 09:12:58 -0500 (EST)
+Received: from unknown [209.85.160.56] (EHLO mail-pw0-f56.google.com)
+	by va1-mx58.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 9e4b3fc4.2751073184.51586.00-055.va1-mx58.stngva01.us.mxservers.net (envelope-from <aruntrusa+bnccoro5bcwghcz6c7nbboebegisw@googlegroups.com>);
+	Mon, 29 Nov 2010 09:12:57 -0500 (EST)
+Received: by pwi7 with SMTP id 7sf1799190pwi.21
+        for <abhra@altechstar.com>; Mon, 29 Nov 2010 06:12:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=beta;
+        h=domainkey-signature:received:x-beenthere:received:received:received
+         :received:received-spf:received:received:from:to:cc:subject:date
+         :message-id:mime-version:x-mailer:thread-index:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type:content-language;
+        bh=jtVAAXPAMMDjvwi2axh2hCA8zwRXx0m7Y1WgsM3uYr8=;
+        b=fMvl756MlxfpQNulg3FYvoE16QRxYXY11AvANQk9QPAOJ/rvs8M2hCNvXkLSjrDr7O
+         1ANF/gtUHxifT89Ho3ZgogDsfrmY9nrCKVTE8vdVNOwhZ6PsAIaEJ3/r4QFLLEwW8csi
+         OQqU2MiYfuaS9iktOBbQnVLAm/fKjHjt1AL4A=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=googlegroups.com; s=beta;
+        h=x-beenthere:received-spf:from:to:cc:subject:date:message-id
+         :mime-version:x-mailer:thread-index:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type:content-language;
+        b=Pkd2TRIY+JM2gvnoG6O1XvcUxhfFI2FO9QNNX6AW0ZMS3NGjCTaTtvtWPQB7OtimxU
+         qJDPx9RCrvnRFdy2ISs9kUv5G6Il3htbmgL4VYBuCMYfW7sR/YZo5adqyVrhE8ub4keE
+         toMT3feevW4PmaQ6PGSsXJfoekJvNCzL0QeiA=
+Received: by 10.142.208.5 with SMTP id f5mr215625wfg.39.1291039923985;
+        Mon, 29 Nov 2010 06:12:03 -0800 (PST)
+X-BeenThere: aruntrusa@googlegroups.com
+Received: by 10.142.249.41 with SMTP id w41ls8321406wfh.1.p; Mon, 29 Nov 2010
+ 06:12:02 -0800 (PST)
+Received: by 10.142.215.11 with SMTP id n11mr3850980wfg.57.1291039922387;
+        Mon, 29 Nov 2010 06:12:02 -0800 (PST)
+Received: by 10.142.215.11 with SMTP id n11mr3850978wfg.57.1291039922339;
+        Mon, 29 Nov 2010 06:12:02 -0800 (PST)
+Received: from itr2.serverbox.net (itr2.serverbox.net [216.75.55.183])
+        by gmr-mx.google.com with ESMTP id p40si6108033wfc.2.2010.11.29.06.12.02;
+        Mon, 29 Nov 2010 06:12:02 -0800 (PST)
+Received-SPF: neutral (google.com: 216.75.55.183 is neither permitted nor denied by best guess record for domain of carun@hgtechinc.net) client-ip=216.75.55.183;
+Received: (qmail 12355 invoked from network); 29 Nov 2010 15:12:02 -0000
+Received: from unknown (HELO hgtarun) (202.63.113.246)
+  by itr2.serverbox.net with SMTP; 29 Nov 2010 15:12:02 -0000
+From: "Arun-HALLMARK" <carun@hgtechinc.net>
+To: <aruntrusa@googlegroups.com>
+Cc: "'Arun-HALLMARK'" <carun@hgtechinc.net>
+Subject: Arun Chandupatla Need : .Net /Web UI Developer (Software Engineer ) -  AZ
+Date: Mon, 29 Nov 2010 19:46:52 +0530
+Message-ID: <001501cb8fd0$128114d0$37833e70$@net>
+MIME-Version: 1.0
+X-Mailer: Microsoft Office Outlook 12.0
+Thread-Index: AcuP0BFbrt5CQKm1S2uy2wccpNIasQ==
+X-Original-Sender: carun@hgtechinc.net
+X-Original-Authentication-Results: gmr-mx.google.com; spf=neutral (google.com:
+ 216.75.55.183 is neither permitted nor denied by best guess record for domain
+ of carun@hgtechinc.net) smtp.mail=carun@hgtechinc.net
+Reply-To: carun@hgtechinc.net
+Precedence: list
+Mailing-list: list aruntrusa@googlegroups.com; contact aruntrusa+owners@googlegroups.com
+List-ID: <aruntrusa.googlegroups.com>
+List-Post: <http://groups.google.com/group/aruntrusa/post?hl=en-GB_IN>, <mailto:aruntrusa@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en-GB_IN>, <mailto:aruntrusa+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/aruntrusa?hl=en-GB_IN>
+Sender: aruntrusa@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/aruntrusa/subscribe?hl=en-GB_IN>,
+ <mailto:aruntrusa+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/aruntrusa/subscribe?hl=en-GB_IN>,
+ <mailto:aruntrusa+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative;
+	boundary="=_reb-r4A134E27-t4CF3B4EA"
+Content-Language: en-us
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010111701); MH=0.500(2010112910)]
+X-MAIL-FROM: <aruntrusa+bnccoro5bcwghcz6c7nbboebegisw@googlegroups.com>
+X-SOURCE-IP: [209.85.160.56]
+X-SF-Loop: 1
+
+This is a multi-part MIME message.
+
+--=_reb-r4A134E27-t4CF3B4EA
+Content-Type: text/plain; charset=ISO-8859-1
+
+.Net /Web UI Developer (Software Engineer )
+Phoenix, Az
+
+Contract to hire
+
+ 
+
+Need : EAD, Green cards and citizens 
+
+Local candidates, 
+
+
+
+
+
+
+Duties & Responsibilities
+
+This is a senior web developer position responsible for building and
+redesigning mission-critical web sites that achieve business performance and
+scalability standards.  The right person for the job is naturally strong in
+graphics design, online branding and style, usability, and web application
+development. 
+
+Day-to-day responsibilities include, but are not limited to:
+
+         Leads development and implementation of complex internet and
+intranet end to end solutions on one or more technology platforms.
+
+         Uses advanced technical knowledge to lead projects resulting in
+functional enhancements of mission critical applications, development of new
+applications/technologies, or integration of enterprise applications.
+
+         Leads design presentations.  Helps determine and implement the most
+efficient and cost-effective custom development or packaged software
+solution.
+
+         Coordinates with systems partners outside the group, including 3rd
+party vendors to ensure the right solutions are being proposed, developed,
+tested and implemented.
+
+         Performs web-enabled database development and module design.
+
+         Performs web security activities and participates in security
+planning.
+
+         Produces ballpark and detailed technical sizings for strategic
+projects and initiatives.
+
+         Provides training and mentoring to less experienced developers and
+oversees contractors on projects.
+
+         Conducts code reviews and enforces SDLC standards and best
+practices.
+
+         Administers source code and manages software releases.
+
+         Responsible for system quality assurance and consistency with
+installation and security policy and standards.
+
+         Researches, proposes and trains staff on new technologies,
+standards and best practices.
+
+
+
+
+ 
+
+
+Competencies
+
+         Uses advanced technical knowledge to build dynamic applications in
+Microsoft.NET Framework (4.0), DHTML, CSS, JavaScript, XML, AJAX,  XSLT,
+SQL, and Microsoft Team Foundation Server (MTFS)
+
+         Strong planning, communication and execution of Web User Interface
+(WUI) design skills.
+
+         Uses tableless web design to control visual style of WUI.
+
+         Uses visual design, colors, symbols and arrangements to communicate
+ideas, brands, styles and messaging to achieve business goals.
+
+         Uses information design to strengthen usability and findability. 
+
+         Strong understanding of object-oriented programming concepts and
+their use in client-side web applications, interfaces and databases.
+
+         Proven record of accomplishing goals using SDLC best practices,
+including Agile SCRUM
+
+         Proven ability to lead multiple diverse projects that require
+collaboration across groups of people and organizations
+
+         Strong communication skills and attention to detail
+
+         Highly organized and productively manages commitments across the
+service lifecycle
+
+         Able to make commitments and work efficiently to meet deadlines
+
+         Proactive, self-motivated and willing to lead others to achieve
+aggressive goals
+
+         Strong understanding of IT governance and how to effectively
+achieve compliance without adding unnecessary complexity and overhead
+
+ 
+
+ 
+
+Thanks & Regards,
+
+Arun Chandupatla 
+
+ <mailto:carun@hgtechinc.net> carun@hgtechinc.net
+
+302-525-4228 |  302-355-2324 |
+
+Hallmark Global Technologies Inc. | 
+
+|  <http://www.hgtechinc.net/> www.hgtechinc.net |
+
+262 Chapman Rd, Suite # 101,  Newark, DE- 19702.
+
+____________________________________________________________________________
+____________________________________________________________________________
+_____________________________________________
+
+ NOTE: We respect your Online Privacy. This is not an unsolicited mail.
+Under Bill s.1618 Title III passed by the 105th U.S. Congress this mail
+cannot be considered Spam as long as we include Contact information and a
+method to be removed from our mailing list. If you are not interested in
+receiving our e-mails then please reply with a remove in the subject line
+and mention all the e-mail addresses to be removed with any e-mail addresses
+which might be diverting the e-mails to you. We are sorry for the
+inconvenience
+
+ 
+
+-- 
+You received this message because you are subscribed to the Google Groups "ArunTR.USA" group.
+To post to this group, send an email to aruntrusa@googlegroups.com.
+To unsubscribe from this group, send email to aruntrusa+unsubscribe@googlegroups.com.
+For more options, visit this group at http://groups.google.com/group/aruntrusa?hl=en-GB.
+
+
+--=_reb-r4A134E27-t4CF3B4EA
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns=3D"http://www.w3.org/TR/REC-html40" xmlns:m=3D"http://schemas.m=
+icrosoft.com/office/2004/12/omml" xmlns:w=3D"urn:schemas-microsoft-com:offi=
+ce:word" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml">
+
+<head>
+
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p
+	{mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext=3D"edit">
+  <o:idmap v:ext=3D"edit" data=3D"1" />
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body vlink=3D"purple" link=3D"blue" lang=3D"EN-US">
+
+<div class=3D"Section1">
+
+<p class=3D"MsoNormal"><b><span style=3D"font-size:10.0pt;font-family:"Aria=
+l","sans-serif";
+color:#C00000">.Net /Web UI Developer (Software Engineer )</span></b><span =
+style=3D"font-size:10.0pt;font-family:"Arial","sans-serif""><br>
+<b>Phoenix, Az</b><o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><b><span style=3D"font-size:10.0pt;font-family:"Aria=
+l","sans-serif"">Contract&nbsp;to
+hire<o:p></o:p></span></b></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:"Arial",=
+"sans-serif""><o:p>&nbsp;</o:p></span></p>
+
+<p class=3D"MsoNormal"><b><span style=3D"font-size:10.0pt;font-family:"Aria=
+l","sans-serif"">Need
+: EAD, Green cards and citizens <o:p></o:p></span></b></p>
+
+<p class=3D"MsoNormal"><b><span style=3D"font-size:10.0pt;font-family:"Aria=
+l","sans-serif"">Local
+candidates, <o:p></o:p></span></b></p>
+
+<p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;
+margin-left:0in"><b><span style=3D"font-size:10.0pt;font-family:"Arial","sa=
+ns-serif""><br>
+<br>
+</span></b><span style=3D"font-size:10.0pt;font-family:"Arial","sans-serif"=
+"><o:p></o:p></span></p>
+
+<table style=3D"width:492.15pt;margin-left:-.05in;border-collapse:collapse"=
+ width=3D"656" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"Ms=
+oNormalTable">
+ <tr style=3D"height:44.5pt">
+  <td style=3D"width:106.95pt;border:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:44.5pt" valign=3D"top" width=3D"143">
+  <p style=3D"margin:0in;margin-bottom:.0001pt"><b>Duties &amp; Responsibil=
+ities</b><o:p></o:p></p>
+  </td>
+  <td style=3D"width:5.35in;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt;height:44.5pt" valign=3D"top=
+" width=3D"514">
+  <p style=3D"margin-top:0in">This is a senior web developer position respo=
+nsible
+  for building and redesigning mission-critical web sites that achieve busi=
+ness
+  performance and scalability standards.&nbsp; The right person for the job=
+ is
+  naturally strong in graphics design, online branding and style, usability,
+  and web application development. <o:p></o:p></p>
+  <p style=3D"margin-top:0in">Day-to-day responsibilities include, but are =
+not
+  limited to:<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Leads development and implementation of complex internet and intranet end=
+ to
+  end solutions on one or more technology platforms.<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Uses advanced technical knowledge to lead projects resulting in functional
+  enhancements of mission critical applications, development of new
+  applications/technologies, or integration of enterprise applications.<o:p=
+></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Leads design presentations.&nbsp; Helps determine and implement the most
+  efficient and cost-effective custom development or packaged software
+  solution.<a name=3D"_GoBack"></a><o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Coordinates with systems partners outside the group, including 3<sup>rd</=
+sup>
+  party vendors to ensure the right solutions are being proposed, developed,
+  tested and implemented.<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Performs web-enabled database development and module design.<o:p></o:p></=
+p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Performs web security activities and participates in security planning.<o=
+:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Produces ballpark and detailed technical sizings for strategic projects a=
+nd
+  initiatives.<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Provides training and mentoring to less experienced developers and overse=
+es
+  contractors on projects.<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Conducts code reviews and enforces SDLC standards and best practices.<o:p=
+></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Administers source code and manages software releases.<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Responsible for system quality assurance and consistency with installation
+  and security policy and standards.<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Researches, proposes and trains staff on new technologies, standards and =
+best
+  practices.<o:p></o:p></p>
+  </td>
+ </tr>
+</table>
+
+<b><span style=3D"font-size:10.0pt;font-family:"Arial","sans-serif""><br st=
+yle=3D"page-break-before:always" clear=3D"all">
+</span></b>
+
+<p style=3D"margin:0in;margin-bottom:.0001pt"><span style=3D"font-size:10.0=
+pt;
+font-family:"Arial","sans-serif"">&nbsp;<o:p></o:p></span></p>
+
+<table style=3D"width:492.15pt;margin-left:-.05in;border-collapse:collapse"=
+ width=3D"656" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"Ms=
+oNormalTable">
+ <tr style=3D"height:63.4pt">
+  <td style=3D"width:106.95pt;border:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:63.4pt" valign=3D"top" width=3D"143">
+  <p style=3D"margin:0in;margin-bottom:.0001pt"><b>Competencies</b><o:p></o=
+:p></p>
+  </td>
+  <td style=3D"width:5.35in;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt;height:63.4pt" valign=3D"top=
+" width=3D"514">
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in;mso-margin-top-al!
+ t: auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Uses advanced technical knowledge to build dynamic applications in <span =
+style=3D"background:yellow;mso-highlight:yellow">Microsoft.NET Framework (4=
+.0),
+  DHTML, CSS, JavaScript, XML, AJAX,&nbsp; XSLT, SQL, and Microsoft Team
+  Foundation Server (MTFS)</span><o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Strong planning, communication and execution of <span style=3D"background=
+:yellow;
+  mso-highlight:yellow">Web User Interface (WUI)</span> design skills.<o:p>=
+</o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Uses tableless web design to control visual style of WUI.<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Uses visual design, colors, symbols and arrangements to communicate ideas,
+  brands, styles and messaging to achieve business goals.<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Uses information design to strengthen usability and findability. <o:p></o=
+:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Strong understanding of object-oriented programming concepts and their us=
+e in
+  client-side web applications, interfaces and databases.<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Proven record of accomplishing goals using SDLC best practices, including
+  Agile SCRUM<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Proven ability to lead multiple diverse projects that require collaborati=
+on
+  across groups of people and organizations<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Strong communication skills and attention to detail<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Highly organized and productively manages commitments across the service
+  lifecycle<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Able to make commitments and work efficiently to meet deadlines<o:p></o:p=
+></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Proactive, self-motivated and willing to lead others to achieve aggressive
+  goals<o:p></o:p></p>
+  <p style=3D"mso-margin-top-alt:0in;margin-right:0in;margin-bottom:5.0pt;
+  margin-left:.25in;text-indent:-.25in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;
+  Strong understanding of IT governance and how to effectively achieve
+  compliance without adding unnecessary complexity and overhead<o:p></o:p><=
+/p>
+  </td>
+ </tr>
+</table>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p style=3D"mso-margin-top-alt:auto;margin-bottom:12.0pt" class=3D"MsoNorma=
+l"><span style=3D"font-size:9.0pt;font-family:"Cambria Math","serif";color:=
+#7F7F7F">Thanks
+&amp; Regards,<o:p></o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#0070C0">Arun Chandupa=
+tla </span></b><span style=3D"color:#0070C0"><o:p></o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><span style=3D"color:#007=
+0C0"><a target=3D"_blank" href=3D"mailto:carun@hgtechinc.net"><b><span styl=
+e=3D"font-size:
+10.0pt;line-height:115%;font-family:"Cambria","serif";color:#0070C0;text-de=
+coration:
+none">carun@hgtechinc.net</span></b></a><o:p></o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#0070C0">302-525-4228<=
+/span></b><b><span style=3D"font-size:10.0pt;line-height:115%;font-family:"=
+Cambria","serif";
+color:#C00000"> |</span></b><span style=3D"font-size:10.0pt;line-height:115=
+%;
+font-family:"Cambria","serif";color:#C00000"> <b>&nbsp;</b></span><b><span =
+style=3D"font-size:10.0pt;line-height:115%;font-family:"Cambria","serif";
+color:#0070C0">302-355-2324</span></b><b><span style=3D"font-size:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#1F497D"> </span></b><=
+b><span style=3D"font-size:10.0pt;line-height:115%;font-family:"Cambria","s=
+erif";
+color:#C00000">|</span></b><span style=3D"color:#0070C0"><o:p></o:p></span>=
+</p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#0070C0">Hallmark Glob=
+al
+Technologies Inc</span></b><span style=3D"font-size:10.0pt;line-height:115%;
+font-family:"Cambria","serif";color:#0070C0">.</span><b><span style=3D"font=
+-size:
+10.0pt;line-height:115%;font-family:"Cambria","serif";color:#17365D"> </spa=
+n></b><b><span style=3D"font-size:10.0pt;line-height:115%;font-family:"Camb=
+ria","serif";
+color:#C00000">|</span></b><span style=3D"font-size:10.0pt;line-height:115%;
+font-family:"Cambria","serif";color:#C00000"> </span><span style=3D"font-si=
+ze:
+10.0pt;line-height:115%;font-family:"Cambria","serif";color:#1F497D"><o:p><=
+/o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#C00000">|</span></b><=
+span style=3D"font-size:10.0pt;line-height:115%;font-family:"Cambria","seri=
+f";
+color:#17365D"> </span><a target=3D"_blank" href=3D"http://www.hgtechinc.ne=
+t/"><span style=3D"font-size:10.0pt;line-height:115%;font-family:"Cambria",=
+"serif";
+color:#0070C0">www.hgtechinc.net</span></a><span style=3D"color:#1F497D"> <=
+/span><b><span style=3D"font-size:10.0pt;line-height:115%;font-family:"Camb=
+ria","serif";
+color:#C00000">|</span></b><span style=3D"color:#17365D"><o:p></o:p></span>=
+</p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><span style=3D"font-size:=
+10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:gray">262 Chapman&nbsp=
+;Rd,
+Suite # 101, &nbsp;Newark, DE- 19702.<o:p></o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:red">_________________=
+___________________________________________________________________________=
+___________________________________________________________________________=
+______________________________</span></b><b><span style=3D"color:red"><o:p>=
+</o:p></span></b></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><span style=3D"color:#173=
+65D">&nbsp;</span><b><span style=3D"font-size:8.0pt;line-height:115%;color:=
+red">NOTE</span></b><span style=3D"font-size:8.0pt;line-height:115%;color:r=
+ed">:</span><b><span style=3D"font-size:8.0pt;line-height:115%;color:#A6A6A=
+6"> </span></b><span style=3D"font-size:8.0pt;line-height:115%;color:#A6A6A=
+6">We respect your Online
+Privacy. This is not an unsolicited mail. Under Bill s.1618 Title III passe=
+d by
+the 105th U.S. Congress this mail cannot be considered Spam as long as we
+include Contact information and a method to be <u>removed</u> from our mail=
+ing
+list. If you are not interested in receiving our e-mails then please reply =
+with
+a&nbsp;<u>remove</u> in the subject line and mention all the e-mail address=
+es
+to be <u>removed</u> with any e-mail addresses which might be diverting the
+e-mails to you. We are sorry for the inconvenience</span><span style=3D"col=
+or:#A6A6A6"><o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
+
+<p></p>
+
+-- <br>
+You received this message because you are subscribed to the Google Groups "=
+ArunTR.USA" group.<br>
+To post to this group, send an email to aruntrusa@googlegroups.com.<br>
+To unsubscribe from this group, send email to aruntrusa+unsubscribe@googleg=
+roups.com.<br>
+
+For more options, visit this group at http://groups.google.com/group/aruntr=
+usa?hl=3Den-GB.<br>
+
+
+
+--=_reb-r4A134E27-t4CF3B4EA--
+

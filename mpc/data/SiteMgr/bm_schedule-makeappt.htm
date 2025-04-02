@@ -1,0 +1,376 @@
+<html>
+<head>
+<title>Make/View Appointment Detail</title>
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<merc_dynamic noshow=true name=dyn_ImagePath action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=imagepath>
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Begin
+
+function validateForm()
+{
+	var errArray = new Array();
+	var errCount=0;
+
+	/*
+	Temporarily removed. Once reactivated, add check for validDuration in the CloseWinSubmitForm line.
+	var validDuration = (document.make_appt.duration && document.make_appt.duration.value != "");
+	if (!validDuration)
+	{
+		errArray[errCount] = "Duration";
+		errCount++;
+	}
+	*/
+
+	var validName = (document.make_appt.name && document.make_appt.name.value != "");
+	if (!validName)
+	{
+		errArray[errCount] = "Customer Name";
+		errCount++;
+	}
+
+	var validPhone = (document.make_appt.phone && document.make_appt.phone.value != "");
+	if (!validPhone)
+	{
+		errArray[errCount] = "Phone";
+		errCount++;
+	}
+
+	var validEmail = (document.make_appt.email && document.make_appt.email.value != "");
+	if (!validEmail)
+	{
+		errArray[errCount] = "Email";
+		errCount++;
+	}
+
+	if (validName && validPhone && validEmail)
+	{
+		opener.parent.CloseWinSubmitForm('L','bm_schedule-appts.htm','mainFrame', document.make_appt );
+	}
+	else
+	{
+		if (errCount == 1)
+			var errMsg = "You must enter a value for ";
+		else
+			var errMsg = "You must enter values for ";
+
+		for (i=0; i < errCount; i++)
+		{
+			if (i > 0 && i != errCount -1)
+				errMsg = errMsg + ", ";
+
+			if (i == errCount -1 && errCount > 1)
+				errMsg = errMsg + " and ";
+
+			errMsg = errMsg + errArray[i];
+		}
+		alert(errMsg);
+	}
+
+}
+// End -->
+</SCRIPT>
+<!--bm_schedule-makeappt.htm-->
+</head>
+
+<SCRIPT runat="merc_server">
+
+	var incJsFile = doActionEx('DATA_READFILE','ServicesLib.js', 'FileName', 'ServicesLib.js','ObjectName','Site','FileType','txt');
+	eval (incJsFile);
+
+	var apptDate = doAction('REQ_GET_FORMVALUE', 'date', 'date');
+	if (apptDate) {}
+	else
+		apptDate = "Saturday, April 7, 2001";
+
+	var DisplayYear = doAction('REQ_GET_FORMVALUE', 'val1', 'val1');
+	var DisplayMonth = doAction('REQ_GET_FORMVALUE', 'val2', 'val2');
+	var DisplayDay = doAction('REQ_GET_FORMVALUE', 'val3', 'val3');
+	var DisplayDayofWeek = doAction('REQ_GET_FORMVALUE', 'val4', 'val4');
+	var AppointmentID = doAction('REQ_GET_FORMVALUE', 'appt_id', 'appt_id');
+
+	if (AppointmentID)
+	{
+		function Appointment(id, serviceID, status, apptDate, startHour, startMin, startAMPM, duration, name, address1, address2, city, state, zip, email, phone, comments)
+		{
+			this.ID = id;
+			this.ServiceID = serviceID;
+			this.Status = status;
+			this.ApptDate = apptDate;
+			this.StartHour = startHour;
+			this.StartMin = startMin;
+			this.StartAMPM = startAMPM;
+			this.Duration = duration;
+			this.Name = name;
+			this.Address1 = address1;
+			this.Address2 =	address2;
+			this.City = city;
+			this.State = state;
+			this.Zip = zip;
+			this.Email = email;
+			this.Phone = phone;
+			this.Comments = comments;
+		}
+
+		function PadLeft(prefix, num)
+		{
+			var temp = '';
+			if (num < 10) temp = prefix + '000' + num;
+			else if (num < 100) temp = prefix + '00' + num;
+			else if (num < 1000) temp = prefix + '0' + num;
+			else if (num < 10000) temp = prefix + num;
+			return temp;
+		}
+
+		var resultBDO = doActionBDO('SVC_GET_APPOINTMENTS', 'ID', parseInt(AppointmentID));
+//writebr("resultBDO.Count=" + resultBDO.Count);
+
+		// Initialize Schedule
+		var AppointmentList = new Array();
+		AppointmentList[0] = new Appointment(i, "-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-");
+		var AppointmentCount= resultBDO.Count;
+
+		if (AppointmentCount != 1)
+			AppointmentCount = 0;
+		else
+		{
+			var BDORows = resultBDO.GetLabels('APPT');
+			BDORows.sort();
+
+			for (var i = 0; i < BDORows.length; i++)
+			{
+				var apptBDO = eval("resultBDO." + PadLeft('APPT',i+1));
+				if (apptBDO)
+				{
+					AppointmentList[i].ID = apptBDO.ID;
+					AppointmentList[i].ServiceID = apptBDO.ServiceID;
+					AppointmentList[i].Status = apptBDO.Status;
+					AppointmentList[i].ApptDate = apptBDO.ApptDate;
+					AppointmentList[i].StartHour = apptBDO.StartHour;
+					AppointmentList[i].StartMin = apptBDO.StartMin;
+					AppointmentList[i].StartAMPM = apptBDO.StartAMPM;
+					AppointmentList[i].Duration = apptBDO.Duration;
+					AppointmentList[i].Name = apptBDO.Name;
+					AppointmentList[i].Address1 = apptBDO.Address1;
+					AppointmentList[i].Address2 = apptBDO.Address2;
+					AppointmentList[i].City = apptBDO.City;
+					AppointmentList[i].State = apptBDO.State;
+					AppointmentList[i].Zip = apptBDO.Zip;
+					AppointmentList[i].Email = apptBDO.Email;
+					AppointmentList[i].Phone = apptBDO.Phone;
+					AppointmentList[i].Comments = apptBDO.Comments;
+//write("id=",apptBDO.ID," ServiceID=",apptBDO.ServiceID," Status=",apptBDO.Status," Date=",apptBDO.ApptDate," StartHour=",apptBDO.StartHour,":",apptBDO.StartMin,apptBDO.StartAMPM," Dur=",apptBDO.Duration);
+//writebr("  Name=",apptBDO.Name," Ad1=",apptBDO.Address1," 2=",apptBDO.Address2," City=",apptBDO.City," state=",apptBDO.State," zip=",apptBDO.Zip);
+//writebr("Comments=" + apptBDO.Comments + " and AppointmentList[i].Comments=" + AppointmentList[i].Comments);
+				}
+			}
+		}
+	}
+	else
+		var AppointmentID = 0;
+
+	var ServiceArray =  readServiceItems('Name');
+
+
+	writeln("<body bgcolor='#FFFFFF' class='bkgrd-maintable'>\n\
+<div align='center'>\n\
+  <p><b><font size='5'><span class='dialog-title'>");
+
+	if (ServiceArray && ServiceArray.length > 0)
+	{
+		if (AppointmentID)
+			write("View/Edit Appointment Detail");
+		else
+			write("Make Appointment");
+
+	  writeln("</span></font></b>\n\
+	  </p>\n\
+	  <form name='make_appt' action='#' method='post' onSubmit=\"javascript:opener.parent.CloseWinSubmitForm('L','bm_schedule-appts.htm','mainFrame', document.make_appt);\">\n\
+	<input type='hidden' name='action' value='makeAppt'>\n\
+	  <table width='356' border='1' align='center' cellpadding='1' cellspacing='0'>\n\
+		<tr class='table-header'>\n\
+		  <td height='22' nowrap colspan='2' class='table-header'>");
+
+		if (DisplayYear)
+			writeln("<input type='hidden' name='val1' value='", DisplayYear, "'>");
+
+		if (DisplayMonth)
+			writeln("<input type='hidden' name='val2' value='", DisplayMonth, "'>");
+
+		if (DisplayDay)
+			writeln("<input type='hidden' name='val3' value='", DisplayDay, "'>");
+
+		if (DisplayDayofWeek)
+			writeln("<input type='hidden' name='val4' value='", DisplayDayofWeek, "'>\n");
+
+		if (AppointmentID)
+			writeln("<input type='hidden' name='id' value='", AppointmentID, "' >");
+		writeln("        <div align='center'><b>", apptDate, "</b></div>\n\
+		  </td>\n\
+		</tr>\n\
+		<tr>\n\
+		  <td width='30%' height='22' nowrap class='table-header'><b>Appointment Time:</b></td>\n\
+		  <td width='70%' height='22' nowrap>&nbsp; ");
+
+		writeln("<input type = 'hidden' name='date' value='", apptDate, "'>");
+
+		writeln("            <select name='hour'>");
+
+		for (var j=0; j < 12; j++)
+		{
+			if (AppointmentID && AppointmentList[0].StartHour == hours[j])
+				writeln("              <option value='" + hours[j] + "' selected>" + hours[j] + "</option>");
+			else
+				writeln("              <option value='" + hours[j] + "'>" + hours[j] + "</option>");
+		}
+
+		writeln("            </select>");
+		writeln("            <select name='minutes'>");
+
+		for (var j=0; j < 12; j++)
+		{
+			if (AppointmentID && AppointmentList[0].StartMin == minutes[j])
+				writeln("              <option value='" + minutes[j] + "' selected>" + minutes[j] + "</option>");
+			else
+				writeln("              <option value='" + minutes[j] + "'>" + minutes[j] + "</option>");
+		}
+
+		writeln("            </select>");
+		writeln("            <select name='ampm'>");
+
+		if (AppointmentID && AppointmentList[0].StartAMPM == 'PM')
+			writeln("              <option value='AM'>AM</option>\n\
+				  <option value='PM' selected>PM</option>");
+		else
+			writeln("              <option value='AM' selected>AM</option>\n\
+				  <option value='PM'>PM</option>");
+
+		writeln("            </select>");
+
+
+		write("	</td>\n\
+		</tr>\n\
+		<tr>\n\
+		  <td width='30%' height='22' nowrap class='table-header'><b>Type of service:</b></td>\n\
+		  <td width='70%' height='22' nowrap>&nbsp; <select name='service_id'>");
+
+
+		if (ServiceArray && ServiceArray.length > 0)
+		{
+			for (var i = 0; i < ServiceArray.length; i++)
+			{
+				if (ServiceArray[i].ID && ServiceArray[i].Name)
+				{
+					if (AppointmentID)
+					{
+						if(ServiceArray[i].ID == AppointmentList[0].ServiceID)
+							writeln("<option value='", ServiceArray[i].ID, "' selected >", ServiceArray[i].Name, "</option>");
+						else
+							writeln("<option value='", ServiceArray[i].ID, "'>", ServiceArray[i].Name, "</option>");
+					}
+					else
+						writeln("<option value='", ServiceArray[i].ID, "'>", ServiceArray[i].Name, "</option>");
+				}
+			}
+		}
+		else
+			writeln("<option value='0'> N/A</option>");
+
+		writeln("    </select>\n	</td>\n	</tr>");
+
+/*
+		writeln("<tr>\n\
+		  <td width='30%' height='22' nowrap class='table-header'><b>Duration: </b></td>\n\
+		  <td width='70%' height='22' nowrap><b>&nbsp; <input type='text' name='duration' ");
+
+		if (AppointmentID)
+			write("value = '" + AppointmentList[0].Duration + "'");
+
+		writeln("size='12' maxlength='12'></b></td>\n\
+		</tr>");
+*/
+
+		write("<tr>\n\
+		  <td width='30%' height='22' nowrap class='table-header'><b>Customer Name:</b></td>\n\
+		  <td width='70%' height='22' nowrap><b>&nbsp; <input type='text' name='name' ");
+
+		if (AppointmentID)
+			write("value = '" + AppointmentList[0].Name + "'");
+
+		write("></b></td>\n\
+		</tr>\n\
+		<tr>\n\
+		  <td width='30%' height='22' nowrap class='table-header'><b>Address:</b></td>\n\
+		  <td width='70%' height='22' nowrap><b>&nbsp; <input type='text' name='address1' ");
+
+		if (AppointmentID && AppointmentList[0].Address1 != "-")
+			write("value = '" + AppointmentList[0].Address1 + "'");
+
+		  write("></b></td>\n\
+		</tr>\n\
+		<tr>\n\
+		  <td width='30%' height='22' nowrap class='table-header'><b>Phone:</b></td>\n\
+		  <td width='70%' height='22' nowrap><b>&nbsp; <input type='text' name='phone' ");
+
+		if (AppointmentID && AppointmentList[0].Phone != "-")
+			write("value = '" + AppointmentList[0].Phone + "'");
+
+		write("></b></td>\n\
+		</tr>\n\
+		<tr> \n\
+		  <td width='30%' height='22' nowrap class='table-header'><b>E-mail:</b></td>\n\
+		  <td width='70%' height='22' nowrap><b>&nbsp; <input type='text' name='email' ");
+
+		if (AppointmentID && AppointmentList[0].Email != "-")
+			write("value = '" + AppointmentList[0].Email + "'");
+
+		write("></b></td>\n\
+		</tr>\n\
+		<tr>\n\
+		  <td width='30%' height='22' nowrap class='table-header'><b>Comments:</b></td>\n\
+		  <td width='70%' height='22' nowrap><b>&nbsp; <textarea name='comments' >");
+
+		if (AppointmentID && AppointmentList[0].Comments != "-")
+			write(AppointmentList[0].Comments);
+
+		write("</textarea></b></td>\n\
+		</tr>\n\
+	  </table>\n\
+	  <br>\n\
+	</div>");
+	}
+	else
+	{
+		writeln("<form name='make_appt' action='#' method='post' onSubmit=\"javascript:opener.parent.CloseWinSubmitForm('L','bm_schedule_appts_pr.js','mainFrame', document.make_appt);\">");
+		writeln("You must define available services before creating appointments");
+	}
+</script>
+<div align='center'>
+<p>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<a href="javascript:void(opener.parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SCH_MAKE_APPT+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" name="help" alt="Help" ></a>
+<!--END HELP WINDOW LINK-->
+<SCRIPT runat="merc_server">
+	writeln("<a href='javascript:void(0);' onClick='javascript:window.close()'> <img ");
+ 	if (AppointmentID)
+		writeln("src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_close.gif'");
+	else
+		writeln("src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_cancel.gif'");
+	writeln(" width='90' height='21' border=0></a>&nbsp;&nbsp;");
+	if (ServiceArray && ServiceArray.length)
+	{
+		if (AppointmentID)
+			write("<a href='javascript:validateForm()' ><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif' width='90' height='21' border='0' alt='Save'></a>");
+		else
+			write("<a href='javascript:validateForm()' ><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_reservetime.gif' width='90' height='21' border='0' alt='Reserve Time'></a>");
+	}
+</script>
+</div>
+</form>
+</body>
+</html>

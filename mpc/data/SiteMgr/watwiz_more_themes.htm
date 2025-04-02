@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>More Themes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript">
+	var winName = "wiz_theme_popup";
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	var childWin = "";
+	
+	function submitForm ()
+	{
+		opener.CloseWinSubmitForm ('WIZ_SetMoreThemeAndLayout', 
+						'pwizwat_3.htm', 'mainFrame', document.selectTheme);
+	}
+	
+	function next (direction)
+	{
+		document.selectTheme.Direction.value = direction;
+		opener.SubmitForm ('L', 'watwiz_more_themes.htm', window.name, document.selectTheme);
+	}
+	
+	function previewTheme ()
+	{
+		var bSelected = false;
+		for (var n = 0; !bSelected && n < document.selectTheme.selectedThemeLayout.length; n++)
+		{
+			if (document.selectTheme.selectedThemeLayout[n].checked)
+				bSelected = true;
+		}
+		if (!bSelected)
+			alert ("Please Select A Theme To Preview.");
+		else
+		{
+			var winObj = opener.createSimpleSubmitWindow ('400', '600'); 
+			childWin = window.open ('', 'preview', winObj.createOutput());
+			opener.SubmitForm('WIZ_SelectThemeAndLayout', 'pwizwat_prev.html', 'preview', document.selectTheme);
+		}
+		return false;
+	}
+	
+	function closeLocalWin ()
+	{	
+		if (childWin)
+			if (!childWin.closed)
+				childWin.close ();
+	}
+</SCRIPT>
+</head>
+
+<body class="pop-up-bkgrd" bgcolor="#CCCCFF" onUnload="
+	closeLocalWin ();
+	if (opener.mainFrame.togglePleaseWaitLayer){
+		opener.mainFrame.togglePleaseWaitLayer('off');}">
+<p align="center"><span class="dialog-title">Select Theme</span><br>
+<form name="selectTheme">
+<table width="500" border="0" bgcolor="#CCCCCC" class="table-bkgrd-main" align="center" cellpadding="4">
+  <tr valign="top"> 
+    <td> 
+      <table width="425" border="1" align="center" cellspacing="2" cellpadding="4">
+        <tr> 
+            
+<div align="center"> 
+<!--          <td width="85%" background="/cgi-docs/Mercantec/PC_F_6.6.1/images/bkgrd_theme.jpg">-->
+<!-- netscape doesn't like the background image -->
+         <td width="85%" bgcolor="#DDDDDD">
+            <table width="412" border="1" cellspacing="0" cellpadding="4">
+              
+	<SCRIPT RUNAT="merc_server">
+		var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+				     'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+		
+		var maxCount = 16;
+		var count = doAction('REQ_GET_FORMVALUE', "Count", "Count");
+		if (!count || isNaN(count))
+			count = 0;
+		else
+			count = parseInt(count);
+		var direction = doAction('REQ_GET_FORMVALUE', "Direction", "Direction");
+		if (!direction)
+			direction = "next";
+		else if (direction == "back")
+			count -= (2*maxCount);
+			
+		var useTheme = doAction('REQ_GET_FORMVALUE', "UseTheme", "UseTheme");
+		// SubmitToWindow uses "UseStyle" so we reuse that for the layout
+		var useLayout = doAction('REQ_GET_FORMVALUE', "UseStyle", "UseStyle");
+		var wizObj = doAction('REQ_GET_FORMVALUE', "MoreThemesList", "MoreThemesList");
+		if (wizObj)
+			wizObj = wizObj.split (gSEPERATOR);
+		else
+			wizObj = "";
+			
+		var totsize = wizObj.length;
+		write ('<input type="hidden" name="MoreThemesList" value="' + wizObj.join (gSEPERATOR) + '">');
+		if ((wizObj.length - count) > maxCount)
+			wizObj = wizObj.slice(count, (count+maxCount));
+		else 
+			wizObj = wizObj.slice(count);
+					
+		count += wizObj.length;
+		
+		// even out the count so the back button works properly
+		while (count % maxCount != 0)
+			count ++;
+		write ('<input type="hidden" name="Count" value="' + count + '">');
+		
+		var layoutObjArray = new Array();
+		var layoutNames = new Array('LayoutTopLeft', 'LayoutTop', 'LayoutLeft', 'LayoutFull');
+		layoutObjArray[0] = generateLayoutObject(layoutNames[0]);
+		SE_Obj.prototype.layoutObjArray = layoutObjArray[0];
+		var pageObj;
+//		layoutObjArray[1] = generateLayoutObject(layoutNames[1]);
+//		layoutObjArray[2] = generateLayoutObject(layoutNames[2]);
+//		layoutObjArray[3] = generateLayoutObject(layoutNames[3]);
+
+		for (var i=0; i < wizObj.length;)
+		{
+			write ("<tr>");
+			var cells = 0;
+			for (var j=0; j < 4 && i < wizObj.length; j++, i++)
+			{
+				if (wizObj[i].length > 0)
+				{
+					write("<td align=center valign=top width=100>");
+					var pageObj = new SE_Obj();
+					pageObj.layoutObjArray = layoutObjArray[0];
+					var themeThumb = generateThemeThumb (wizObj[i], pageObj);
+					write (themeThumb);
+					if (themeThumb.indexOf ("<img src=") == 0)
+						write ("<br>");
+					write ("<input style=\"background-color:#dddddd;\" type=\"radio\" name=\"selectedThemeLayout\" value=\""+wizObj[i]+":"+layoutNames[0]+"\""+
+					(useTheme == wizObj[i] && 
+						useLayout == layoutNames[0] ? ' CHECKED>' : '>'));
+					var thisTheme = wizObj[i];
+					if ((thisTheme.indexOf("TC_") == 0) || (thisTheme.indexOf("TS_") == 0))
+						thisTheme = thisTheme.slice (3);
+					write("<br>" + thisTheme.substr (0, thisTheme.lastIndexOf('.')));
+					writeln("</td>");
+					cells++;
+				}
+			}
+			// even out the table row
+			while (cells%4 != 0)
+			{
+				writeln("<td align=center>&nbsp;</td>");
+				cells++;
+			}
+			write("</tr>");
+		}
+	</SCRIPT>
+		</table>
+          </td>
+            </div>
+        </tr>
+      </table>
+      </td>
+  </tr>
+<tr>
+<td class="field-label" height="35"> 
+<input type="hidden" name="Direction" value="" ID="Hidden1">
+<div align="center">
+<SCRIPT RUNAT="merc_server">
+	if (count > maxCount)
+		writeln('<a href="javascript:next(\'back\');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border=0 alt="Back"></a>');
+	if (count < totsize)
+		writeln('<a href="javascript:next(\'next\');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/More_Nbtn_base2.gif" width="86" height="30" border="0" alt="More choices"></a>');
+</SCRIPT>
+<br>
+<a href="javascript:void(0)" onclick="self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a><a href="javascript:void(0)" onClick="return(previewTheme());"><img border="0" name="imageField4" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Preview_Nbtn_base2.gif" width="86" height="30" alt="Preview"></a><a href="javascript:void(0)" onclick="submitForm();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Apply_Nbtn_base2.gif" width="86" height="30" border="0" alt="Apply"></a></div>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

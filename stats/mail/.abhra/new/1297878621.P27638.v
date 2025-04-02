@@ -1,0 +1,263 @@
+Return-Path: robert@platinuminfosys.com
+Received: from mx66.stngva01.us.mxservers.net (204.202.242.136)
+	by mail19b.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 1-0644378621
+	for <abhra@altechstar.com>; Wed, 16 Feb 2011 12:50:21 -0500 (EST)
+Received: from unknown [66.165.70.221] (EHLO mail.platinuminfosys.com)
+	by va1-mx66.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id c5e0c5d4.2731539360.101916.00-002.va1-mx66.stngva01.us.mxservers.net (envelope-from <robert@platinuminfosys.com>);
+	Wed, 16 Feb 2011 12:50:20 -0500 (EST)
+From: "Robert" <robert@platinuminfosys.com> 
+To: "robert@platinuminfosys.com" <abhra@altechstar.com>
+Reply-To: robert@platinuminfosys.com
+Date: Wed, 16 Feb 2011 10:54:31 -0600
+Subject: Urgent Req-----Dot Net Developer's & SDET in Redmond, WA for 6+
+ Months Contract
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="=_reb-r0B62855B-t4D5C0E5D"
+X-Mailer: aspNetEmail ver 3.6.1.5
+Message-ID: <PLATf8b3106b542149e695272efd647bb803@plat>
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011021619)]
+X-MAIL-FROM: <robert@platinuminfosys.com>
+X-SOURCE-IP: [66.165.70.221]
+X-SF-Loop: 1
+
+This is a multi-part MIME message.
+
+--=_reb-r0B62855B-t4D5C0E5D
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+
+<BASE HREF=3D"http://127.0.0.1/"></HEAD>
+<BODY>
+<P><B style=3D"mso-bidi-font-weight: normal"><FONT face=3D"Book Antiqua">Gr=
+eetings=20
+from Robert,</FONT></B></P>
+<P><FONT face=3D"Book Antiqua"><A name=3D"_MailAutoSig"><U><SPAN style=3D"m=
+so-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font: minor-fa=
+reast; mso-no-proof: yes"><FONT face=3D"Book Antiqua"><STRONG>NOTE</STRONG>=
+</FONT></SPAN></U></A><SPAN style=3D"mso-bookmark: _MailAutoSig"><SPAN styl=
+e=3D"mso-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font: mi=
+nor-fareast; mso-no-proof: yes"><FONT face=3D"Book Antiqua">: Telephonic In=
+terview will be scheduled for the suitable=20
+candidates on this Saturday i.e., on 02/19/2011.<?xml:namespace prefix =3D =
+o ns =3D=20
+"urn:schemas-microsoft-com:office:office"=20
+/><o:p></o:p></FONT></SPAN></SPAN><o:p></o:p></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><o:p><FONT face=3D"Boo=
+k Antiqua"><STRONG><U><FONT color=3D"#0000ff">Requirement#1:</FONT></U></ST=
+RONG>&nbsp;</FONT></o:p></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><o:p><FONT face=3D"Boo=
+k Antiqua"></FONT></o:p>&nbsp;</P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><FONT face=3D"Book Ant=
+iqua">Job:=20
+Dot Net Developer<o:p></o:p></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><FONT face=3D"Book Ant=
+iqua"><B>Location :</B> Redmond, WA<o:p></o:p></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><FONT face=3D"Book Ant=
+iqua"><B>Duration :</B> 6+ Months<o:p></o:p></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><o:p><FONT face=3D"Boo=
+k Antiqua">&nbsp;</FONT></o:p></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><B><U><FONT face=3D"Bo=
+ok Antiqua">Required Skills:<o:p></o:p></FONT></U></B></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><B><U><o:p><SPAN style=
+=3D"TEXT-DECORATION: none"><FONT face=3D"Book Antiqua">&nbsp;</FONT></SPAN>=
+</o:p></U></B></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><FONT face=3D"Book Ant=
+iqua">Strong=20
+development experience using C#, ASP.NET experience&nbsp; (Preferred .NET 3=
+.0=20
+Experience)<o:p></o:p></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><FONT face=3D"Book Ant=
+iqua">Good=20
+Experience on skills like Silverlight/MVVM/WCF/Web=20
+services<o:p></o:p></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><FONT face=3D"Book Ant=
+iqua">May=20
+have worked on large / complex applications (user base exceeding=20
+millions)<o:p></o:p></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><FONT face=3D"Book Ant=
+iqua">People=20
+worked on an application end to end (Design, coding, and deployment)</FONT>=
+<SPAN style=3D"FONT-SIZE: 10pt"><BR></SPAN><FONT face=3D"Book Antiqua">Good=
+ experience on=20
+writing SQL queries and worked on large databases<o:p></o:p></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><o:p><FONT face=3D"Boo=
+k Antiqua">&nbsp;</FONT></o:p></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><o:p><FONT face=3D"Boo=
+k Antiqua">&nbsp;</FONT></o:p><o:p><FONT face=3D"Book Antiqua">&nbsp;</P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><o:p><FONT face=3D"Boo=
+k Antiqua"><STRONG><U><FONT color=3D"#0000ff">Requirement#2:</FONT></U></ST=
+RONG>&nbsp;</FONT></o:p></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><o:p></o:p>&nbsp;</P><=
+/FONT></o:p><FONT face=3D"Book Antiqua">
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt">Job Title: SDET (Softw=
+are=20
+Developer Engineer in Test)</P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><B>Location :</B> Redm=
+ond, WA</P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><B>Duration :</B> 6+ M=
+onths=20
+Contract</P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><o:p>&nbsp;</o:p></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><B><U>Required=20
+Skills:<o:p></o:p></U></B></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><o:p>&nbsp;</o:p></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt">Very good coding skill=
+s in C#=20
+<BR>Has been a SDET in active projects for the last 2+ years<BR>Strong=20
+application testing skills and troubleshooting skills; </P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt">Good experience in Tes=
+t=20
+Automation, writing test scripts, creating test plans/scenarios</P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt">UI testing skills are =
+a plus</P>
+<P></FONT><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=3D"COLO=
+R: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-=
+fareast-theme-font: minor-fareast; mso-no-proof: yes"><FONT face=3D"Book An=
+tiqua"></FONT></SPAN></B></SPAN>&nbsp;</P>
+<P><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=3D"COLOR: blac=
+k; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-fareast=
+-theme-font: minor-fareast; mso-no-proof: yes"><FONT face=3D"Book Antiqua">=
+With Regards,<o:p></o:p></FONT></SPAN></B></SPAN></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><FONT face=3D"Book Ant=
+iqua"><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=3D"COLOR: b=
+lack; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-fare=
+ast-theme-font: minor-fareast; mso-no-proof: yes">Robert=20
+</SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=
+=3D"COLOR: red; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'=
+; mso-fareast-theme-font: minor-fareast; mso-no-proof: yes">|</SPAN></B></S=
+PAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=3D"COLOR: bla=
+ck; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; mso-fareas=
+t-theme-font: minor-fareast; mso-no-proof: yes">Technical=20
+Recruiter </SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><=
+SPAN style=3D"COLOR: red; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times =
+New Roman'; mso-fareast-theme-font: minor-fareast; mso-no-proof: yes">|</SP=
+AN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=3D"=
+COLOR: black; FONT-SIZE: 10pt; mso-fareast-font-family: 'Times New Roman'; =
+mso-fareast-theme-font: minor-fareast; mso-no-proof: yes">Platinum=20
+Infosys Inc<o:p></o:p></SPAN></B></SPAN></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"mso-boo=
+kmark: _MailAutoSig"><B><SPAN style=3D"COLOR: black; FONT-SIZE: 9pt; mso-fa=
+reast-font-family: 'Times New Roman'; mso-fareast-theme-font: minor-fareast=
+; mso-bidi-font-family: Tahoma; mso-no-proof: yes"><FONT face=3D"Book Antiq=
+ua">Email: </FONT></SPAN></B></SPAN><A href=3D"mailto:robert@platinuminfosy=
+s.com"><FONT face=3D"Book Antiqua"><SPAN style=3D"mso-bookmark: _MailAutoSi=
+g"><B><SPAN style=3D"COLOR: blue; FONT-SIZE: 9pt; mso-fareast-font-family: =
+'Times New Roman'; mso-fareast-theme-font: minor-fareast; mso-bidi-font-fam=
+ily: Tahoma; mso-bidi-font-size: 11.0pt; mso-no-proof: yes">robert@platinum=
+infosys.com</SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"></S=
+PAN></FONT></A><FONT face=3D"Book Antiqua"><SPAN style=3D"mso-bookmark: _Ma=
+ilAutoSig"><B><SPAN style=3D"COLOR: black; FONT-SIZE: 9pt; mso-fareast-font=
+-family: 'Times New Roman'; mso-fareast-theme-font: minor-fareast; mso-bidi=
+-font-family: Tahoma; mso-no-proof: yes">=20
+</SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=
+=3D"COLOR: red; FONT-SIZE: 9pt; mso-fareast-font-family: 'Times New Roman';=
+ mso-fareast-theme-font: minor-fareast; mso-bidi-font-family: Tahoma; mso-n=
+o-proof: yes">|=20
+</SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=
+=3D"COLOR: black; FONT-SIZE: 9pt; mso-fareast-font-family: 'Times New Roman=
+'; mso-fareast-theme-font: minor-fareast; mso-bidi-font-family: Tahoma; mso=
+-no-proof: yes">Phone:=20
+</SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><SPAN style=3D=
+"COLOR: gray; FONT-SIZE: 9pt; mso-fareast-font-family: 'Times New Roman'; m=
+so-fareast-theme-font: minor-fareast; mso-bidi-font-family: Tahoma; mso-no-=
+proof: yes">214-550-0248</SPAN></SPAN><SPAN style=3D"mso-bookmark: _MailAut=
+oSig"><B><SPAN style=3D"COLOR: black; FONT-SIZE: 9pt; mso-fareast-font-fami=
+ly: 'Times New Roman'; mso-fareast-theme-font: minor-fareast; mso-bidi-font=
+-family: Tahoma; mso-no-proof: yes">=20
+</SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=
+=3D"COLOR: red; FONT-SIZE: 9pt; mso-fareast-font-family: 'Times New Roman';=
+ mso-fareast-theme-font: minor-fareast; mso-bidi-font-family: Tahoma; mso-n=
+o-proof: yes">|</SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"=
+><B><SPAN style=3D"COLOR: black; FONT-SIZE: 9pt; mso-fareast-font-family: '=
+Times New Roman'; mso-fareast-theme-font: minor-fareast; mso-bidi-font-fami=
+ly: Tahoma; mso-no-proof: yes">=20
+Fax: </SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><SPAN sty=
+le=3D"COLOR: gray; FONT-SIZE: 9pt; mso-fareast-font-family: 'Times New Roma=
+n'; mso-fareast-theme-font: minor-fareast; mso-bidi-font-family: Tahoma; ms=
+o-no-proof: yes">214&#8211;260&#8211;1160</SPAN></SPAN><SPAN style=3D"mso-b=
+ookmark: _MailAutoSig"><B><SPAN style=3D"COLOR: black; FONT-SIZE: 9pt; mso-=
+fareast-font-family: 'Times New Roman'; mso-fareast-theme-font: minor-farea=
+st; mso-bidi-font-family: Tahoma; mso-no-proof: yes">=20
+<o:p></o:p></SPAN></B></SPAN></FONT></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"mso-boo=
+kmark: _MailAutoSig"><B><SPAN style=3D"COLOR: black; FONT-SIZE: 9pt; mso-fa=
+reast-font-family: 'Times New Roman'; mso-fareast-theme-font: minor-fareast=
+; mso-bidi-font-family: Tahoma; mso-no-proof: yes"><FONT face=3D"Book Antiq=
+ua">Visit us @ </FONT></SPAN></B></SPAN><A href=3D"http://www.platinuminfos=
+ys.com/"><FONT face=3D"Book Antiqua"><SPAN style=3D"mso-bookmark: _MailAuto=
+Sig"><B><SPAN style=3D"COLOR: blue; FONT-SIZE: 9pt; mso-fareast-font-family=
+: 'Times New Roman'; mso-fareast-theme-font: minor-fareast; mso-bidi-font-f=
+amily: Tahoma; mso-bidi-font-size: 11.0pt; mso-no-proof: yes">www.platinumi=
+nfosys.com</SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"></SP=
+AN></FONT></A><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=3D"=
+COLOR: black; FONT-SIZE: 9pt; mso-fareast-font-family: 'Times New Roman'; m=
+so-fareast-theme-font: minor-fareast; mso-bidi-font-family: Tahoma; mso-no-=
+proof: yes"><o:p></o:p></SPAN></B></SPAN></P>
+<DIV align=3D"center" class=3D"MsoNormal" style=3D"TEXT-ALIGN: center; MARG=
+IN: 0in 0in 0pt"><SPAN style=3D"mso-bookmark: _MailAutoSig"><SPAN style=3D"=
+FONT-FAMILY: 'Arial','sans-serif'; COLOR: blue; FONT-SIZE: 7pt; mso-fareast=
+-font-family: 'Times New Roman'; mso-no-proof: yes"><FONT face=3D"Book Anti=
+qua">
+<HR width=3D"100%" SIZE=3D"2" align=3D"center">
+</FONT></SPAN></SPAN></DIV>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"mso-boo=
+kmark: _MailAutoSig"><SPAN style=3D"FONT-FAMILY: 'Arial','sans-serif'; COLO=
+R: #999999; FONT-SIZE: 7pt; mso-fareast-font-family: 'Times New Roman'; mso=
+-fareast-theme-font: minor-fareast; mso-no-proof: yes">Note:=20
+Under Bill s.1618 Title III passed by the 105<SUP>th</SUP> U.S.Congress thi=
+s=20
+mail cannot be considered spam as long as we include contact information an=
+d a=20
+remove link for removal from our mailing list. To be removed from our maili=
+ng=20
+list, reply with &ldquo;</SPAN></SPAN><SPAN style=3D"mso-bookmark: _MailAut=
+oSig"></SPAN><A href=3D"mailto:ravi@platinuminfosys.com?subject=3D_R%20E%20=
+M%20O%20V%20E_" title=3D"mailto:praneeth@platinuminfosys.com?subject=3D_R E=
+ M O V E_"><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=3D"FON=
+T-FAMILY: 'Arial','sans-serif'; COLOR: gray; FONT-SIZE: 7pt; mso-fareast-fo=
+nt-family: 'Times New Roman'; mso-fareast-theme-font: minor-fareast; mso-bi=
+di-font-size: 11.0pt; mso-no-proof: yes">remove</SPAN></B></SPAN><SPAN styl=
+e=3D"mso-bookmark: _MailAutoSig"></SPAN></A><SPAN style=3D"mso-bookmark: _M=
+ailAutoSig"><SPAN style=3D"FONT-FAMILY: 'Arial','sans-serif'; COLOR: #99999=
+9; FONT-SIZE: 7pt; mso-fareast-font-family: 'Times New Roman'; mso-fareast-=
+theme-font: minor-fareast; mso-no-proof: yes">&rdquo;=20
+and include your &ldquo;original e-mail address/addresses&rdquo; in the sub=
+ject heading. We=20
+will immediately update it accordingly. We apologize for the inconvenience =
+if=20
+any caused. Thank You.</SPAN></SPAN><SPAN style=3D"mso-bookmark: _MailAutoS=
+ig"><SPAN style=3D"FONT-FAMILY: 'Arial','sans-serif'; COLOR: #999999; FONT-=
+SIZE: 7pt; mso-no-proof: yes"><o:p></o:p></SPAN></SPAN></P>
+<DIV align=3D"center" class=3D"MsoNormal" style=3D"TEXT-ALIGN: center; MARG=
+IN: 0in 0in 0pt"><SPAN style=3D"mso-bookmark: _MailAutoSig"><B><SPAN style=
+=3D"FONT-FAMILY: 'Arial','sans-serif'; COLOR: blue; FONT-SIZE: 7pt; mso-far=
+east-font-family: 'Times New Roman'; mso-no-proof: yes">
+<HR width=3D"100%" SIZE=3D"2" align=3D"center">
+</SPAN></B></SPAN></DIV>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"mso-boo=
+kmark: _MailAutoSig"><B><SPAN style=3D"FONT-FAMILY: 'Arial','sans-serif'; C=
+OLOR: #339933; FONT-SIZE: 7pt; mso-fareast-font-family: 'Times New Roman'; =
+mso-fareast-theme-font: minor-fareast; mso-no-proof: yes">Think=20
+Green:</SPAN></B></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><SPAN st=
+yle=3D"FONT-FAMILY: 'Arial','sans-serif'; COLOR: #339933; FONT-SIZE: 7pt; m=
+so-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font: minor-fa=
+reast; mso-no-proof: yes">=20
+<B>Please consider the environment before printing this=20
+e-mail.</B></SPAN></SPAN><SPAN style=3D"mso-bookmark: _MailAutoSig"><SPAN s=
+tyle=3D"FONT-FAMILY: 'Arial','sans-serif'; mso-no-proof: yes"><o:p></o:p></=
+SPAN></SPAN></P>
+<P class=3D"MsoNormal" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"mso-boo=
+kmark: _MailAutoSig"><SPAN style=3D"mso-fareast-font-family: 'Times New Rom=
+an'; mso-fareast-theme-font: minor-fareast; mso-no-proof: yes"><o:p><FONT f=
+ace=3D"Book Antiqua">&nbsp;</FONT></o:p></SPAN></SPAN></P></BODY></HTML>
+
+
+--=_reb-r0B62855B-t4D5C0E5D--
+

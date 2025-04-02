@@ -1,0 +1,56 @@
+<BDO>
+	<BDO_Data name="GrandTotal" type="BDO"><BDO>
+		<BDO_Data name="ApplyItems" type="boolean">false</BDO_Data>
+		<BDO_Data name="ConvertTotals" type="boolean">false</BDO_Data>
+		<BDO_Data name="Table" type="string"></BDO_Data>
+		<BDO_Data name="Inputs" type="string">TotalItems,TotalTax,TotalShipping</BDO_Data>
+		<BDO_Data name="Field" type="string">GrandTotal</BDO_Data>
+		<BDO_Data name="Total" type="boolean">false</BDO_Data>
+		<BDO_Data name="Qty" type="boolean">false</BDO_Data>
+	</BDO></BDO_Data>
+	<BDO_Data name="ItemTotal" type="BDO"><BDO>
+		<BDO_Data name="ApplyItems" type="boolean">false</BDO_Data>
+		<BDO_Data name="ConvertTotals" type="boolean">false</BDO_Data>
+		<BDO_Data name="Table" type="string">Items</BDO_Data>
+		<BDO_Data name="Inputs" type="string">Quantity,Discount,Price</BDO_Data>
+		<BDO_Data name="Field" type="string">Total</BDO_Data>
+		<BDO_Data name="Total" type="boolean">false</BDO_Data>
+		<BDO_Data name="Qty" type="boolean">true</BDO_Data>
+	</BDO></BDO_Data>
+	<BDO_Data name="CacheItemTotal" type="BDO"><BDO>
+		<BDO_Data name="ApplyItems" type="boolean">true</BDO_Data>
+		<BDO_Data name="ConvertTotals" type="boolean">false</BDO_Data>
+		<BDO_Data name="Table" type="string">Items</BDO_Data>
+		<BDO_Data name="Inputs" type="string">Discount,Price</BDO_Data>
+		<BDO_Data name="Field" type="string">Total</BDO_Data>
+		<BDO_Data name="Total" type="boolean">false</BDO_Data>
+		<BDO_Data name="Qty" type="boolean">false</BDO_Data>
+	</BDO></BDO_Data>
+	<BDO_Data name="ShipToTotal" type="BDO"><BDO>
+		<BDO_Data name="ApplyItems" type="boolean">false</BDO_Data>
+		<BDO_Data name="ConvertTotals" type="boolean">false</BDO_Data>
+		<BDO_Data name="Table" type="string">ShipTo</BDO_Data>
+		<BDO_Data name="Inputs" type="string">ShipToItems</BDO_Data>
+		<BDO_Data name="Field" type="string">Total</BDO_Data>
+		<BDO_Data name="Total" type="boolean">false</BDO_Data>
+		<BDO_Data name="Qty" type="boolean">false</BDO_Data>
+	</BDO></BDO_Data>
+	<BDO_Data name="ShipToSubTotal" type="BDO"><BDO>
+		<BDO_Data name="ApplyItems" type="boolean">false</BDO_Data>
+		<BDO_Data name="ConvertTotals" type="boolean">false</BDO_Data>
+		<BDO_Data name="Table" type="string">ShipTo</BDO_Data>
+		<BDO_Data name="Inputs" type="string">Items.Total</BDO_Data>
+		<BDO_Data name="Field" type="string">ShipToItems</BDO_Data>
+		<BDO_Data name="Total" type="boolean">true</BDO_Data>
+		<BDO_Data name="Qty" type="boolean">false</BDO_Data>
+	</BDO></BDO_Data>
+	<BDO_Data name="SubTotal" type="BDO"><BDO>
+		<BDO_Data name="ApplyItems" type="boolean">false</BDO_Data>
+		<BDO_Data name="ConvertTotals" type="boolean">false</BDO_Data>
+		<BDO_Data name="Table" type="string"></BDO_Data>
+		<BDO_Data name="Inputs" type="string">ShipTo.Total</BDO_Data>
+		<BDO_Data name="Field" type="string">TotalItems</BDO_Data>
+		<BDO_Data name="Total" type="boolean">true</BDO_Data>
+		<BDO_Data name="Qty" type="boolean">false</BDO_Data>
+	</BDO></BDO_Data>
+</BDO>

@@ -1,0 +1,390 @@
+
+
+<html>
+<head>
+<title>topFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script runat="merc_server">
+	var secure = doAction ('REQ_GET_FORMVALUE', 'SecureMode', 'SecureMode');
+	var baseHrf = "", mercCommon = "";
+	if (secure)
+		doAction('ST_SET_STATEDATA', 'SecureMode', secure);
+	else
+		secure = doAction('ST_GET_STATEDATA', 'SecureMode', 'SecureMode');
+		
+	if (secure && secure.toLowerCase() == "yes")
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SecureBaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTPS_SHARED_HTDOCS_ALIAS');
+	}
+	else
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'BaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTP_SHARED_HTDOCS_ALIAS');
+	}
+	writeln('<BASE href="'+baseHrf+'">');
+	writeln('<link rel="stylesheet" href="'+mercCommon+'styles/masterportal_top.css">');
+</script>
+
+<script runat="merc_server">
+	function CountPendingOrders()
+	{
+		var input = GetBDO('OnlyCount', true);
+
+		// Status indicates the type of order: 0 for pending, 2 for rejected, 3 for completed
+		input['Status'] = 0;
+
+		// Range indicates the date range to search over.. 1 means all orders
+		input['Range'] = 1;
+
+		var output = GetBDO();
+		ProcessRequest('ORDM_LISTORDERS', input, output);
+
+		if (output['RowCount'] == undefined) return -1;
+		var ret = parseInt(output['RowCount']);
+		if (isNaN(ret)) return -1;
+
+		return ret;
+		
+	}
+	<merc_embed>
+		<Form name = "myForm">
+		<input type="hidden" name="Distributor" value="Mercantec">
+		<input type="hidden" name="ISP" value="Verio">
+		<input type="hidden" name="ReturnURL" value="http://altechstar.com:80/cgi-local/mpc/PowerCommerce.cgi">
+	</merc_embed>
+	
+	var merchEMail = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'BizInfo',  
+								'RowName', 'Email', 'ColName', 'Data');
+
+	if (merchEMail == "")
+	{
+		merchEMail = doAction('DATA_GETCONFIGDATA',  'ObjectName', 'SendReg',  
+ 				              'RowName', 'Requesters_Email', 'ColName', 'Value');
+	}
+
+	writeln ('<input type="hidden" name="MerchantEMail" value="'+merchEMail+'">');
+
+	var cjsInc = doActionEx	('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+								'JS_SRC', 'FileType', 'txt');
+	eval (cjsInc);
+	
+	var sndRegJs = doActionEx ('DATA_READFILE','sendreg.js', 'FileName', 'sendreg.js',
+								'ObjectName','JS_SRC', 'FileType', 'txt');
+	eval (sndRegJs);
+	var prodObj = getProdInfo();
+
+	if (prodObj.POWER_RETAIL_LEVEL.Level)
+		writeln ('<input type="hidden" name="PowerRetailLevel" value="'+prodObj.POWER_RETAIL_LEVEL.Level+'">');
+	if (prodObj.POWER_WEBBUILDER_LEVEL.Level)
+		writeln ('<input type="hidden" name="PowerWebBuilderLevel" value="'+prodObj.POWER_WEBBUILDER_LEVEL.Level+'">');
+	if (prodObj.POWER_SERVICE_LEVEL.Level)
+		writeln ('<input type="hidden" name="PowerServiceLevel" value="'+prodObj.POWER_SERVICE_LEVEL.Level+'">');
+	if (prodObj.POWER_BRICKANDMORTAR_LEVEL.Level)
+		writeln ('<input type="hidden" name="PowerBrickMortarLevel" value="'+prodObj.POWER_BRICKANDMORTAR_LEVEL.Level+'">');
+	
+	var powerWebBuilder="No", powerRetail="No", powerService="No", powerBrickMortar="No";
+	(prodObj.POWER_RETAIL_LEVEL.Installed ? powerRetail="Yes" : powerRetail="No");
+	(prodObj.POWER_SERVICE_LEVEL.Installed ? powerService="Yes" : powerService="No");
+	(prodObj.POWER_WEBBUILDER_LEVEL.Installed ? powerWebBuilder="Yes" : powerWebBuilder="No");
+	(prodObj.POWER_BRICKANDMORTAR_LEVEL.Installed ? powerBrickMortar="Yes" : powerBrickMortar="No");
+	
+	var firstPublish="No", officeDrawerExists="No", serviceDrawerExists="No", officeDrawerURL="", serviceDrawerURL="";
+		
+	var result = doAction ('DATA_GETHEADERS',  'GetRow', true, 'ObjectName', prodObj.CabinetObject);
+	if (result)
+	{
+		writeln ('<input type="hidden" name="AllDrawers" value="'+result+'">');
+		var installedComp = result.split('\t');
+		for (var n = 0; n < installedComp.length; n++)
+		{
+			if (installedComp[n].toLowerCase() == "drw_site.gif")
+				writeln ('<input type="hidden" name="PWBURL" value="'+installedComp[n]+'">');
+			else if (installedComp[n].toLowerCase() == "drw_orders.gif")
+				writeln ('<input type="hidden" name="OrderMgrURL" value="'+installedComp[n]+'">');
+			else if (installedComp[n].toLowerCase() == "drw_items.gif")
+			{
+				writeln ('<input type="hidden" name="ProdEditorURL" value="'+installedComp[n]+'">');
+				writeln ('<input type="hidden" name="ProdCatEditorURL" value="'+installedComp[n]+'">');
+				writeln ('<input type="hidden" name="ProdCatEditorTab" value="Categories_Noff.gif">');
+			}
+			else if (installedComp[n].toLowerCase() == "drw_rpts.gif")
+				writeln ('<input type="hidden" name="ReportsURL" value="'+installedComp[n]+'">');
+			else if (installedComp[n].toLowerCase() == "drw_office.gif")
+			{
+				officeDrawerExists="Yes";
+				officeDrawerURL=installedComp[n];
+			}
+			else if (installedComp[n].toLowerCase() == "drw_crm.gif")
+			{
+				writeln ('<input type="hidden" name="CRMURL" value="'+installedComp[n]+'">');
+			}
+			else if (installedComp[n].toLowerCase() == "drw_sched.gif")
+			{
+				serviceDrawerExists="Yes";
+				serviceDrawerURL=installedComp[n];
+			}
+		}
+	}
+	if (powerWebBuilder.toLowerCase() == "yes")
+	{
+		var ThroughPwbWiz = "No";
+
+		var pwbWizState = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'PageEditorCfg',  
+							'RowName', 'WizardState', 'ColName', 'Value');
+
+		var pwbWizPages = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'PageEditorCfg',  
+							'RowName', 'WizardNumPages', 'ColName', 'Value');
+
+		var nPwbWizState = parseInt(pwbWizState, 10);
+        var nPwbWizPages = parseInt(pwbWizPages, 10);
+
+		if (nPwbWizState > nPwbWizPages)
+			ThroughPwbWiz = "Yes";
+		
+		var siteUrl =  doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'PageEditorCfg',  
+								'RowName', 'PublishLinkHref', 'ColName', 'Value');
+		var seObj = generateSEObjects (gHOME_PAGE);
+		if (siteUrl && seObj)
+		{
+			var homePage = gHOME_PAGE+seObj.pageObjArray[gHOME_PAGE][gFILE_EXT];
+			if (doAction('DATA_FILEEXISTS', 'ObjectName', 'WATPublishDir', 'FileName', homePage))
+			{
+				firstPublish=ThroughPwbWiz;
+				var path = siteUrl+homePage;
+				/* need to escape spaces out of filename, but we don't want to
+				** escape the whole thing, i.e. colons, etc. so we parse after the domain */
+				var findPos = path.indexOf ("//");
+				var findPos2 = 0;
+				if (findPos >= 0)
+					findPos2 = path.indexOf ("/", findPos+2);
+				if (findPos2 < 0)
+					findPos2 = 0;	
+					
+				path = path.substring (0, findPos2+1) + escape (path.substr(findPos2+1));
+				
+				writeln ('<input type="hidden" name="SiteURL" value="'+path+'">');
+			}
+		}
+		writeln ('<input type="hidden" name="FirstPublish" value="'+firstPublish+'">');
+	}
+	writeln ('<input type="hidden" name="PowerRetail" value="'+powerRetail+'">');
+	writeln ('<input type="hidden" name="PowerWebBuilder" value="'+powerWebBuilder+'">');
+	writeln ('<input type="hidden" name="PowerService" value="'+powerService+'">');
+	writeln ('<input type="hidden" name="PowerBrickMortar" value="'+powerBrickMortar+'">');
+
+	var paymentSystem = doAction ('DATA_GETLITERAL', 'ObjectName', 'License', 'LiteralID', 'PAYMENT_SYSTEM');
+	writeln ('<input type="hidden" name="PaymentSystem" value="'+paymentSystem+'">');
+
+	if (paymentSystem == "ClearCommerce")
+	{
+		var paySystemConfigured = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'CLEARCOMMERCE',  
+							                'RowName', 'CONFIGSTATUS', 'ColName', 'value');
+		writeln ('<input type="hidden" name="PaymentSystemConfigured" value="'+paySystemConfigured+'">');
+
+		if (paySystemConfigured == "YES")
+		{
+			var paymentStoreName = doAction('DATA_GETCONFIGDATA',  'ObjectName', 'CLEARCOMMERCE',  
+							                'RowName', 'ClearCommerceStoreNameLive', 'ColName', 'value');
+			writeln ('<input type="hidden" name="PaymentSystemStoreName" value="'+paymentStoreName+'">');
+		}
+	}
+
+	if (powerRetail.toLowerCase() == "yes")
+	{
+		var ordPending = CountPendingOrders();
+		if (ordPending > -1)
+		{
+			writeln ('<input type="hidden" name="PendingOrders" value="'+ordPending+'">');
+		}
+
+		var ThroughCommerceWiz = "No";
+		
+		var wizState = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'CommerceWizCfg',  
+							'RowName', 'WizardState', 'ColName', 'Value');
+
+		var wizPages = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'CommerceWizCfg',  
+							'RowName', 'WizardNumPages', 'ColName', 'Value');
+
+		var nwizState = parseInt(wizState, 10);
+        var nwizPages = parseInt(wizPages, 10);
+
+		if (nwizState > nwizPages)
+		{
+			ThroughCommerceWiz = "Yes";
+		}
+
+		writeln ('<input type="hidden" name="ThroughCommerceWiz" value="'+ThroughCommerceWiz+'">');
+			
+
+		if (ThroughCommerceWiz = "Yes" && officeDrawerExists == "Yes")
+		{
+				writeln ('<input type="hidden" name="ContactInfoURL" value="'+officeDrawerURL+'">');
+				writeln ('<input type="hidden" name="SalesTaxEditorURL" value="'+officeDrawerURL+'">');
+				writeln ('<input type="hidden" name="SalesTaxEditorTab" value="Sales_Tax_Noff.gif">');
+				writeln ('<input type="hidden" name="ShippingEditorURL" value="'+officeDrawerURL+'">');
+				writeln ('<input type="hidden" name="ShippingEditorTab" value="Shipping_Noff.gif">');
+		}
+
+		var pgpKeyName = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'SecurityCfg',  
+							       'RowName', 'PGPKeyName', 'ColName', 'Value');
+		var pgpKeyUploaded = "Yes";
+
+		if (pgpKeyName && pgpKeyName.toLowerCase() == 'none')
+		{
+			pgpKeyUploaded = "No";
+		}
+		else if (!pgpKeyName || pgpKeyName == '')
+		{
+			pgpKeyUploaded = "No";
+		}
+		
+		writeln ('<input type="hidden" name="PGPKeyUploaded" value="'+pgpKeyUploaded+'">');
+	}
+
+	if (powerService.toLowerCase() == "yes")
+	{
+		var ThroughServiceWiz = "No";
+
+		var wizState = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'ServicesCfg',  
+							'RowName', 'WizardState', 'ColName', 'Value');
+
+		var wizPages = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'ServicesCfg',  
+							'RowName', 'WizardNumPages', 'ColName', 'Value');
+
+		var nwizState = parseInt(wizState, 10);
+        var nwizPages = parseInt(wizPages, 10);
+
+		if (nwizState > nwizPages)
+		{
+			ThroughServiceWiz = "Yes";
+		}
+
+		writeln ('<input type="hidden" name="ThroughServiceWiz" value="'+ThroughServiceWiz+'">');
+
+		if (ThroughServiceWiz = "Yes" && serviceDrawerExists == "Yes")
+		{
+				writeln ('<input type="hidden" name="ServicesURL" value="'+serviceDrawerURL+'">');
+				writeln ('<input type="hidden" name="AppointmentURL" value="'+serviceDrawerURL+'">');
+				writeln ('<input type="hidden" name="ServiceEditorURL" value="'+serviceDrawerURL+'">');
+				writeln ('<input type="hidden" name="ServiceEditorTab" value="Services_Noff.gif">');
+				writeln ('<input type="hidden" name="HoursEditorURL" value="'+serviceDrawerURL+'">');
+				writeln ('<input type="hidden" name="HoursEditorTab" value="Hours_Noff.gif">');
+		}
+	}
+
+	var PwrMktgURL =  doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'PowerMarketingCfg',  
+							'RowName', 'location', 'ColName', 'Value');
+
+	if (PwrMktgURL)
+	{
+		writeln('<input type="hidden" name="PowerMarketingCGIURL" value="http://altechstar.com:80' + PwrMktgURL + 'ctone_button.cgi">');
+
+		var PwrMktgActivated = "No";
+
+		var PwrMktgActive = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'PowerMarketingCfg',  
+							'RowName', 'active', 'ColName', 'Value');
+
+		if (PwrMktgActive == "Y")
+		{
+			PwrMktgActivated = "Yes";
+		}
+
+		writeln ('<input type="hidden" name="PowerMarketingActivated" value="'+PwrMktgActivated+'">');
+	}
+
+	var numServiceReminderDays= doAction('DATA_GETCONFIGDATA', "ObjectName", "ServicesCfg", "RowName", "CUST_REMINDER_DAYS", "Col", 1);
+
+	if (numServiceReminderDays)
+	{
+		var today = new Date('2001, August, 24');
+
+		today = (today.getTime() / 1000) ; 
+		var endDate = (today + (86400 * numServiceReminderDays)); // 60 sec * 60 min * 24 hours per day = 86400
+
+		var result = doActionEx('SVC_SEND_REMINDER', 'Success', 'StartDate', today.toString(), 'EndDate', endDate.toString());
+	}
+
+
+	var pwbVer = doAction ('DATA_GETLITERAL', 'ObjectName', gSTORE_CFG, 'LiteralID', 'POWER_WEB_BUILDER_VERSION');
+	var psVer = doAction ('DATA_GETLITERAL', 'ObjectName', gSTORE_CFG, 'LiteralID', 'POWER_SERVICE_VERSION');
+	var prVer = doAction ('DATA_GETLITERAL', 'ObjectName', gSTORE_CFG, 'LiteralID', 'POWER_RETAIL_VERSION');
+	var regKeyID = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'SendReg', 'RowName', 'RegKeyID', 'ColName', 'Value');
+
+	if (pwbVer)
+		writeln ('<input type="hidden" name="POWER_WEB_BUILDER_VERSION" value="'+pwbVer+'">');
+	if (psVer)
+		writeln ('<input type="hidden" name="POWER_SERVICE_VERSION" value="'+psVer+'">');
+	if (prVer)
+		writeln ('<input type="hidden" name="POWER_RETAIL_VERSION" value="'+prVer+'">');
+	if (regKeyID)
+		writeln ('<input type="hidden" name="RegKeyID" value="'+regKeyID+'">');
+	<merc_embed>
+		</form>
+		</head>
+	</merc_embed>
+	// verify the PowerManager connection, if it's down redirect the merchant
+	var reUrl = /(\w+):\/\/([\w.-]+)\/(\S*)/;
+	var pwrMgrUrl = "http://pwrmgr.mercantec.com/PwrMgr/PowerManager.cgi";
+	var resHeader = new Array("");
+	var ret = pwrMgrUrl.match(reUrl);
+	if (ret.length > 2)
+	{
+		var outBdo = doActionBDO ("INU_EZ_GET_WEB_PAGE", "USESSL", 
+								 (ret[1].toLowerCase() == "https" ? true : false), 
+								 "HOST", ret[2], 
+								 "PATH", (ret.length > 3 ? ret[3] : "/"));
+		
+		if (outBdo && outBdo.HEADERS)
+			resHeader = outBdo.HEADERS.split("\n");
+		if (resHeader[0].indexOf("200") >= 0)
+		{
+			<merc_embed>
+				<body bgcolor="#FFFFFF" marginwidth=0 marginheight=0 onLoad="
+				setTimeout(setStrLink, 120000);
+				var formObj = new parent.submitFormObject ('', '', 'mainFrame', document.myForm);
+				formObj.formAction = 'http://pwrmgr.mercantec.com/PwrMgr/PowerManager.cgi';
+				parent.SubmitSubmitFormObject (formObj);">
+				<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr> 
+					<td height="51" bgcolor="#003399" width="103" rowspan="2" class="bkgrd-topbar"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/logo_newmerc_transwhiteonblue100.gif" width="100" height="51" alt="Mercantec"></td>
+					<td height="25" bgcolor="#003399" class="bkgrd-topbar" width="100%" nowrap>&nbsp;
+					<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/logo_powermanager_blue.jpg" width="144" height="37" align="absmiddle" alt="Power Manager"> 
+					<td height="25" bgcolor="#003399" class="bkgrd-topbar" width="265" nowrap align="right"><a href="javascript:parent.SubmitForm ('logout', 'access_logout.html','_top', '');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_logout.gif" width="60" height="19" border="0" alt="Log Out">
+				</a></td>
+				</tr>
+				<tr> 
+					<td height="10" bgcolor="#66CCFF" class="bkgrd-topbar-lower" valign="middle"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/merccurve2.gif" width="16" height="16"><a href="http://www.mercantec.com" target="_blank">MERCANTEC 
+					HOME</a></td>
+					<td height="10" bgcolor="#66CCFF" class="bkgrd-topbar-lower" valign="middle" align="right"><a href="#" onClick="parent.OpenWinSubmitForm('', 'L', 'about.html', 'AboutPowerCommerce', document.myForm, (parent.createSimpleSubmitWindow (320, 400)));return false;">About 
+					Power Commerce...</a></td>
+				</tr>
+				</table>
+			</merc_embed>
+		}
+		else
+		{
+			<merc_embed>
+				<body bgcolor="#FFFFFF" marginwidth=0 marginheight=0 onLoad="
+				parent.SubmitForm('L', 'desktop_wat_frameset.htm','_top', new Array('DrawerSelected', 'drw_site.gif'));">
+			</merc_embed>
+		}
+	}
+</script>
+
+<div id="strmgrlink" name="strmgrlink" class="bkgrd-topbar-lower" style="position:absolute; left:300px; top:37px; visibility:hidden;">
+<a href="javascript:parent.SubmitForm('L', 'desktop_wat_frameset.htm','_top', new Array('DrawerSelected', 'drw_site.gif'));">Continue</a>
+</div>
+
+<script language=javascript>
+	function setStrLink ()
+	{
+		if (document.layers)
+			document.strmgrlink.visibility="show";
+		else
+			document.all.strmgrlink.style.visibility="visible";
+	}
+</script>
+
+</body>
+</html>

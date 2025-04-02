@@ -1,0 +1,206 @@
+Return-Path: unsubscribe@fashionandyou.com
+Received: from mx24.stngva01.us.mxservers.net (204.202.242.8)
+	by mail19d.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 0-0302624355
+	for <jayanthi@altechstar.com>; Thu, 20 Jan 2011 01:19:16 -0500 (EST)
+Received: from unknown [146.82.220.43] (EHLO mta3.primary.na.epidm.net)
+	by va1-mx24.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 3e3d73d4.2701089696.111029.00-004.va1-mx24.stngva01.us.mxservers.net (envelope-from <invitation-ctg0aab7waaalhlamvzm4jgtpu7dachq@offers.fashionandyou.com>);
+	Thu, 20 Jan 2011 01:19:15 -0500 (EST)
+Return-Path: <Invitation-ctg0aab7waaalhlamvzm4jgtpu7dachq@offers.fashionandyou.com>
+DomainKey-Signature: q=dns; a=rsa-sha1; c=nofws;
+	s=dk; d=offers.fashionandyou.com;
+	h=Received:Date:Message-Id:From:Reply-To:To:Subject:MIME-Version:Content-Type;
+	b=cb2PlyejB/CY2oHGVpx7gBv60lpT0Uzf0+droEWUKt1QW9+NUgOB+DDRwmrIbrqF
+	+UbZLgv8yc0MQZWhUggila/fUbezLZivbW1mEvm9bBDCsusNStliEp48+6eW6/Ls
+Received: from [10.21.250.194] ([10.21.250.194:3395] helo=CORE19PUMPER2)
+	by pcomtanode05 (envelope-from <Invitation-ctg0aab7waaalhlamvzm4jgtpu7dachq@offers.fashionandyou.com>)
+	(ecelerity 2.2.2.45 r(34222M)) with ESMTP
+	id BF/32-27461-3E3D73D4; Thu, 20 Jan 2011 01:19:15 -0500
+Date: Thu, 20 Jan 2011 15:19:15 +0900 (JST)
+Message-Id: <Kilauea22998-6255-106376418-3-1019@flonetwork.com>
+From: "Fashion and you" <Invitation@offers.fashionandyou.com>
+Reply-To: "Fashion And You" <unsubscribe@fashionandyou.com>
+To: jayanthi@altechstar.com
+Subject: Rs 250 credited in your account - Cheers, Balaji
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=_reb-r14BD2C69-t4D37D3E3"
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011011935)]
+X-MAIL-FROM: <invitation-ctg0aab7waaalhlamvzm4jgtpu7dachq@offers.fashionandyou.com>
+X-SOURCE-IP: [146.82.220.43]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r14BD2C69-t4D37D3E3
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Join Balaji & Shop Polo Ralph Lauren D&G Tiffany Ferrari at up to 80% off !!
+
+Balaji has gifted you a Free Luxury Shopping    Voucher worth
+Rs 250 for your First Shopping Experience.
+
+
+What's More! 
+Join Now and Win Luxury Fragrances from Issey Miyake & Gucci
+
+
+Indulge Yourself!
+Team Fashion and You
+
+Hurry & Join The
+
+SHOPPING REVOLUTION Now !!
+--=_reb-r14BD2C69-t4D37D3E3
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+<HTML><HEAD></HEAD>
+<BODY>
+<TABLE bgColor="#fff" width="100%" cellPadding="0" cellSpacing="0" border="0">
+<TBODY>
+<TR>
+<TD align="middle" vAlign="top">
+<TABLE align="center" bgColor="#ffffff" width="513" cellPadding="0" cellSpacing="0" border="0" style="BORDER-BOTTOM: #000 1px solid; BORDER-LEFT: #000 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #000000; FONT-SIZE: 12px; BORDER-TOP: #000 1px solid; BORDER-RIGHT: #000 1px solid">
+<TBODY>
+<TR style="BACKGROUND-COLOR: #fff">
+<TD style="BACKGROUND-COLOR: #fff"><A target="_blank" href="http://offers.fashionandyou.com/cgi-bin19/DM/t/nGXS0IMdAS0BsP0GtEZ0EI&Email=buu2you@gmail.com" style="BACKGROUND-COLOR: #fff"><IMG src="http://newms.fashionandyou.com/mailer/MktVirality/acceptmailerimages/header.jpg" alt="LUXURY AT UPTO 80% OFF!" border="0" title="LUXURY AT UPTO 80% OFF!"></A></TD>
+</TR>
+
+<TR>
+<TD bgColor="#ffffff">
+<TABLE width="513" cellPadding="0" cellSpacing="0" border="0">
+<TBODY>
+<TR>
+<TD width="2"></TD>
+
+<TD width="509">
+<TABLE width="509" cellPadding="0" cellSpacing="0" border="0">
+<TBODY>
+<TR>
+<TD>&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="middle" style="TEXT-ALIGN: center; COLOR: #000000; FONT-SIZE: 13px">Join Balaji &amp; Shop Polo Ralph Lauren D&amp;G Tiffany Ferrari at<BR>
+<SPAN style="COLOR: #000; FONT-SIZE: 13px; FONT-WEIGHT: normal">up to 80% off !!</SPAN><BR>
+<BR>
+Balaji has gifted you a <SPAN style="FONT-WEIGHT: bold">Free Luxury Shopping Voucher worth</SPAN><BR>
+<SPAN style="COLOR: #ff0099; FONT-SIZE: 14px; FONT-WEIGHT: bold">Rs 250</SPAN> for your First Shopping Experience.</TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="middle" style="TEXT-ALIGN: center"><A target="_parent" href="http://offers.fashionandyou.com/cgi-bin19/DM/t/nGXS0IMdAS0BsP0GtEZ0EI&Email=buu2you@gmail.com"><IMG height="30" width="227" src="http://newms.fashionandyou.com/mailer/MktVirality/acceptmailerimages/AcceptButton.jpg" alt="" border="0"></A></TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="middle" style="BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; COLOR: #000000; FONT-SIZE: 14px; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid"><A target="_blank" href="http://offers.fashionandyou.com/cgi-bin19/DM/t/nGXS0IMdAS0BsP0GtEZ0EI&Email=buu2you@gmail.com"><IMG width="509" src="http://newms.fashionandyou.com/mailer/MktVirality/dec/accept.jpg" alt="Current Sale" border="0" title="Current Sale"></A></TD>
+</TR>
+
+<TR>
+<TD align="left" style="PADDING-LEFT: 5px; FONT-SIZE: 10px">&nbsp;</TD>
+</TR>
+
+<TR>
+<TD height="3"></TD>
+</TR>
+
+<TR>
+<TD height="25" bgColor="#f9dca2" style="PADDING-LEFT: 10px; FONT-SIZE: 13px; FONT-WEIGHT: bold">New Sales Everyday</TD>
+</TR>
+
+<TR>
+<TD height="3"></TD>
+</TR>
+
+<TR>
+<TD style="BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid"><A target="_blank" href="http://offers.fashionandyou.com/cgi-bin19/DM/t/nGXS0IMdAS0BsP0GtEZ0EI&Email=buu2you@gmail.com"><IMG width="509" src="http://newms.fashionandyou.com/mailer/sept/Virality/accept/banner1.jpg" alt="Current Sale" border="0" title="Current Sale"></A></TD>
+</TR>
+
+<TR>
+<TD height="3"></TD>
+</TR>
+
+<TR>
+<TD style="BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid"><A target="_blank" href="http://offers.fashionandyou.com/cgi-bin19/DM/t/nGXS0IMdAS0BsP0GtEZ0EI&Email=buu2you@gmail.com"><IMG width="509" src="http://newms.fashionandyou.com/mailer/sept/Virality/accept/banner2.jpg" alt="Current Sale" border="0" title="Current Sale"></A></TD>
+</TR>
+
+<TR>
+<TD height="3"></TD>
+</TR>
+
+<TR>
+<TD style="BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid"><A target="_blank" href="http://offers.fashionandyou.com/cgi-bin19/DM/t/nGXS0IMdAS0BsP0GtEZ0EI&Email=buu2you@gmail.com"><IMG width="509" src="http://newms.fashionandyou.com/mailer/sept/Virality/accept/banner3.jpg" alt="Current Sale" border="0" title="Current Sale"></A></TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+</TR>
+
+<TR>
+<TD>
+<TABLE width="509" cellPadding="0" cellSpacing="0" border="0">
+<TBODY>
+<TR>
+<TD align="left" width="274" vAlign="top" style="PADDING-LEFT: 15px; FONT-SIZE: 12px; FONT-WEIGHT: bold">Indulge Yourself!<BR>
+Team Fashion and You<BR>
+</TD>
+
+<TD align="middle" width="235" vAlign="top" style="FONT-SIZE: 14px; FONT-WEIGHT: bold">Hurry &amp; Join The <BR>
+Shopping Revolution Now ! </TD>
+</TR>
+</TBODY></TABLE></TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+</TR>
+
+<TR>
+<TD style="PADDING-LEFT: 100px">
+<TABLE cellPadding="0" cellSpacing="0" border="0" style="TEXT-ALIGN: center; BACKGROUND-COLOR: #de4712; WIDTH: 302px">
+<TBODY>
+<TR>
+<TD width="181" bgColor="#de4712"><IMG height="42" width="181" src="http://newms.fashionandyou.com/mailer/MktVirality/acceptmailerimages/social.jpg" alt="Socialise With Us" title="Socialise With Us"></TD>
+
+<TD align="middle" bgColor="#de4712"><A target="_blank" href="http://offers.fashionandyou.com/cgi-bin19/DM/t/nGXS0IMdAS0BsP0GtEa0EP"><IMG height="27" width="28" src="http://newms.fashionandyou.com/mailer/MktVirality/acceptmailerimages/facebook.jpg" alt="Facebook" border="0" title="Facebook"></A></TD>
+
+<TD width="4" bgColor="#de4712"></TD>
+
+<TD align="middle" bgColor="#de4712"><A target="_blank" href="http://offers.fashionandyou.com/cgi-bin19/DM/t/nGXS0IMdAS0BsP0GtEb0EQ"><IMG height="27" width="28" src="http://newms.fashionandyou.com/mailer/MktVirality/acceptmailerimages/blog.jpg" alt="Blog" border="0" title="Blog"></A></TD>
+
+<TD width="4" bgColor="#de4712"></TD>
+
+<TD align="middle" bgColor="#de4712"><A target="_blank" href="http://offers.fashionandyou.com/cgi-bin19/DM/t/nGXS0IMdAS0BsP0GtEc0ER"><IMG height="27" width="28" src="http://newms.fashionandyou.com/mailer/MktVirality/acceptmailerimages/twiter.jpg" alt="twitter" border="0" title="twitter"></A></TD>
+
+<TD width="12" bgColor="#de4712"><IMG height="42" width="12" src="http://newms.fashionandyou.com/mailer/MktVirality/acceptmailerimages/social-right.jpg" alt=""></TD>
+</TR>
+</TBODY></TABLE></TD>
+</TR>
+</TBODY></TABLE></TD>
+
+<TD width="2"></TD>
+</TR>
+</TBODY></TABLE></TD>
+</TR>
+
+<TR>
+<TD><IMG height="43" width="513" src="http://newms.fashionandyou.com/mailer/MktVirality/acceptmailerimages/footer.jpg" alt=""></TD>
+</TR>
+</TBODY></TABLE></TD>
+</TR>
+</TBODY></TABLE></BODY>
+
+<IMG src="http://portal.mxlogic.com/images/transparent.gif"></HTML>
+
+--=_reb-r14BD2C69-t4D37D3E3--
+

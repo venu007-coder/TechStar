@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/u/web/altec2/mpc/data/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_Biz</TYPE>
+	<GLOBAL TYPE="never"></GLOBAL>
+	<UIGRAPHIC>/cgi-docs/Mercantec/PC_F_6.6.1/images/Business_Info_Npl1.gif</UIGRAPHIC>
+	<UITEXT>Business Info</UITEXT>
+	<!-- Here, the owner, group and world can do anything -->
+	<PERMISSIONS>777</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="textOut">
+			<VALUE></VALUE>
+		</PROPERTY>
+		<DBENTRY NAME="Name" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="Name">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<DBENTRY NAME="Street_Address_1" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="Street1">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<DBENTRY NAME="Street_Address_2" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="Street2">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<DBENTRY NAME="City" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="City">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<DBENTRY NAME="State_Province" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="State">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<DBENTRY NAME="Zip_Postal_Code" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="Postal">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<DBENTRY NAME="Country" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="Country">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<DBENTRY NAME="Phone" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="Phone">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<DBENTRY NAME="Fax" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="Fax">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<DBENTRY NAME="Email" TABLENAME="BizInfo" FIELDNAME="Data" INDEX="Email">
+			<VALUE></VALUE>
+		</DBENTRY>
+		<PROPERTY NAME="style">
+			<VALUE>text-body</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="width">
+			<VALUE>200</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE>100</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="html">
+			<VALUE>false</VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	function ConvertText (textToChange)
+	{
+		textToChange = textToChange.replace (/&/g, '&amp;');
+		textToChange = textToChange.replace (/</g, '&lt;');
+		textToChange = textToChange.replace (/>/g, '&gt;');
+		textToChange = textToChange.replace (/\n/g, '<br>');
+		textToChange = textToChange.replace (/ /g, '&nbsp;');
+		return (textToChange);
+	}
+	function BuildOutput(type, mode)
+	{
+		var textFields = new Array("Name", "Street_Address_1", "Street_Address_2", "City", "State_Province", "Zip_Postal_Code", "Country", 
+										"Phone", "Fax", "Email");
+		var fieldVals = new Array();
+		for (var n = 0; n < textFields.length; n++)
+			fieldVals[textFields[n]] = eval (textFields[n]);
+
+		if (type == "text/html")
+		{
+			if (html == "false")
+			{
+				for (var n = 0; n < textFields.length; n++)
+					fieldVals[textFields[n]] = ConvertText(fieldVals[textFields[n]]);
+			}
+			textOut = (Name.length > 0 ? fieldVals[textFields[0]] + "<br><br>" : "");
+			textOut += (Street_Address_1.length > 0 ? fieldVals[textFields[1]] + "<br>" : "");
+			textOut += (Street_Address_2.length > 0 ? fieldVals[textFields[2]] + "<br>" : "");
+			textOut += (City.length > 0 ? fieldVals[textFields[3]] : "");
+			if (City.length > 0 && State_Province.length > 0)
+				textOut += ", ";
+			textOut += (State_Province.length > 0 ? fieldVals[textFields[4]] : "");
+			if ((City.length > 0 || State_Province.length > 0) && Zip_Postal_Code.length > 0)
+				textOut += " ";
+			textOut += (Zip_Postal_Code.length > 0 ? fieldVals[textFields[5]] : "");
+			if (City.length > 0 || State_Province.length > 0 || Zip_Postal_Code.length > 0)
+				textOut += "<br>";
+			textOut += (Country.length > 0 ? fieldVals[textFields[6]] + "<br>" : "");
+			textOut += (Phone.length > 0 ? "Phone:  " + fieldVals[textFields[7]] + "<br>" : "");
+			textOut += (Fax.length > 0 ? "Fax:  " + fieldVals[textFields[8]] + "<br>" : "");
+			/* if the user entered quotes its wrong, but we have no way to prevent that without altering
+			**	the users intent so we'll leave it as they typed it in */
+			if (mode == 'output')
+			{
+				var scriptFile = doActionEx('DATA_READFILE', 'common.js', 'FileName', 
+					'common.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+				eval (scriptFile);
+				textOut += (Email.length > 0 ? "<a href='mailto:"+fieldVals[textFields[9]]+"'>" + fieldVals[textFields[9]] + "</a><br>" : "");
+			}
+			else
+				textOut += (Email.length > 0 ? fieldVals[textFields[9]]+"<br>" : "");
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			if (style && style != '')
+			{
+				write(' class="'+style+'" ');
+			}
+			write('style="position:absolute; width:'+width+'px; ');
+			write('height:'+height+'px; left:'+merc_xpos+'px; top:'+merc_ypos);
+			write('px;z-index:'+merc_zindex+';">');
+			writeln('<p>'+textOut);
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+		return BuildOutput(type, 'output');
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		return BuildOutput(type, 'edit');
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	function edit_properties()
+	{
+		var textFields = new Array("Name", "Street_Address_1", "Street_Address_2", "City", "State_Province", "Zip_Postal_Code", "Country", 
+										"Phone", "Fax", "Email");
+		var fieldVals = new Array();
+		for (var n = 0; n < textFields.length; n++)
+		{
+			fieldVals[textFields[n]] = eval (textFields[n]);
+			fieldVals[textFields[n]] = escape(fieldVals[textFields[n]]);
+		}
+
+		//write out html for EditProperties dialog box
+		// use table tags to position stuff better?
+		// The input "names" have to match the <name> tags above.
+		writeln('<form name="saveprop" action="" method=post onSubmit = "');
+		writeln("opener.CloseWinSubmitForm	");
+		write ("('PE_SaveProperties', 'Layout1.htm', 'mainFrame', document.saveprop);");
+		writeln('return false;">');
+		writeln('<input type=hidden name="ElementID" value="'+merc_elementid+'">');
+		writeln('<input type=hidden name="html" value="false">');
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		writeln('<input type=hidden name="ElementAddEdit" value="'+addEditMode+'">');
+
+		n = 0;
+		writeln('<p align="center"><span class="dialog-title">Business Information</span></p>');
+		writeln('<table width="435" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr><td><center>');
+		writeln('<table width="435" border="1" cellspacing="0" cellpadding="2" align="center" class="table-bkgrd-main">');
+		writeln('<tr><td class="table-header2" width="28%" nowrap><span class="field-label">Name:</span></td>');
+		writeln('<td width="72%"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'"></td>');
+		writeln('</tr><tr>');
+		writeln('<td class="table-header2" width="28%" nowrap height="169"><span class="field-label">Address:</span></td>');
+		writeln('<td width="72%" height="169">');
+
+		writeln('<table width="100%" border="0">');
+		writeln('<tr><td class="field-label" width="41%">Street 1:</td>');
+		writeln('<td width="59%"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'"></td>');
+		writeln('</tr>');
+		writeln('<tr><td class="field-label" width="41%">Street 2:</td>');
+		writeln('<td width="59%"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'"></td>');
+		writeln('</tr>');
+		writeln('<tr><td class="field-label" width="41%">City:</td>');
+		writeln('<td width="59%"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'"></td>');
+		writeln('</tr>');
+		writeln('<tr><td class="field-label" width="41%">State /Province:</td>');
+		writeln('<td width="59%"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'"></td>');
+		writeln('</tr>');
+		writeln('<tr><td class="field-label" width="41%">Postal Code: </td>');
+		writeln('<td width="59%"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'"></td>');
+		writeln('</tr>');
+		writeln('<tr><td class="field-label" width="41%">Country: </td>');
+		writeln('<td width="59%"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'"></td>');
+		writeln('</tr>');
+		writeln('</table></td></tr>');
+
+		writeln('<tr><td class="table-header2" width="28%" nowrap height="11"><span class="field-label">Phone:</span></td>');
+		writeln('<td height="11" width="72%"><div align="left"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'">');
+		writeln('</div></td></tr>');
+		writeln('<tr><td width="28%" class="table-header2" nowrap><span class="field-label">Fax:</span></td>');
+		writeln('<td width="72%"><div align="left"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'">');
+		writeln('</div></td></tr>');
+		writeln('<tr><td width="28%" nowrap class="table-header2"><span class="field-label">Email:</span></td>');
+		writeln('<td width="72%"><input type="text" name="'+textFields[n]+'" value="'+fieldVals[textFields[n++]]+'"></td></tr>');
+		writeln('</table>');
+
+		writeln('</td></tr>');		
+		writeln('<tr><td><center>');
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_SITEPAGES_INSBUSINFO_POP+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_Cancel\', \'Layout1.htm\', \'mainFrame\', document.saveprop);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel" border="0"></a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_SaveProperties\', \'Layout1.htm\', \'mainFrame\', document.saveprop);">');
+		writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Ok" border="0"></a>');
+		writeln('</td></tr></table>');
+
+//		writeln('Element Width <input name="width" type=text size=5 value="'+width+'"><br>');
+//		writeln('Element Height <input name="height" type=text size=5 value="'+height+'">');
+		write('</form>');
+
+		writeln ("<SCRIPT language=javascript>"+
+					"for (var n = 0; n < document.saveprop.elements.length; n++){"+
+					"if (document.saveprop.elements[n].type.toLowerCase() == 'text' || document.saveprop.elements[n].type.toLowerCase() == 'textarea'){"+
+					"document.saveprop.elements[n].value = unescape (document.saveprop.elements[n].value);}}");
+		writeln('self.resizeTo(500, 475);');
+		writeln("</SCRIPT>");
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	// May not need to do anything in all cases
+	// Save things to Prod DB on price/desc? - automatic based on dbentry
+	// if there is a reason not to dismiss the properties dialog, return false
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

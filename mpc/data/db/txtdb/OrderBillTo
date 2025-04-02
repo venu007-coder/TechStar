@@ -1,0 +1,1 @@
+OrderID	Address1=text_encoded	Address2=text_encoded	Address3=text_encoded	Apartment=text_encoded	SubRegion=text_encoded	Region=long	PostalCode=text_encoded	Country=long	DaytimePhone=text_encoded	EveningPhone=text_encoded	EmailAddress=text_encoded	BillToName=text_encoded	ccData

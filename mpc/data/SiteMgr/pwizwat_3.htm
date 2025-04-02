@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+	function moreThemesWin (LinkToPage, useStyle, useTheme, pageName, windowPage,
+							height, width, moreThemesList)
+	{
+		var WinObj = new parent.createSimpleSubmitWindow (height, width);
+		var args = new Array ('LinkToPage', LinkToPage, 'UseStyle', useStyle,
+								'UseTheme', useTheme, 'SetForPageName', pageName,
+								'MoreThemesList', moreThemesList);
+		parent.OpenWinSubmitForm ('', 'L', windowPage, 'newWin', args, WinObj);
+	}
+</SCRIPT>
+</head>
+
+<body class="penda-bkgrd"
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg3),
+		new Array (parent.topFrame.document.images.wizimg1,
+					parent.topFrame.document.images.wizimg2,
+					parent.topFrame.document.images.wizimg4,
+					parent.topFrame.document.images.wizimg5,
+					parent.topFrame.document.images.wizimg6));">
+<form name="designform" action="javascript:void(0);">
+<input type="hidden" name="WizState" value="3">
+<table width="625" border="0" cellpadding="4" cellspacing="0" height="189" align="center">
+  <tr bgcolor="#FFFFCC">
+    <td width="60%" height="25" > <span class="page-title">Select a Site Design</span></td>
+    <td width="40%" height="25" >
+      <div align="right">
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_WAT_DESIGN+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a><!--END HELP WINDOW LINK--><a href="javascript:parent.SubmitForm ('WIZ_WizardBack', 'pwizwat_2.htm','mainFrame', document.designform);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border=0 alt="Back"></a><a href="javascript:parent.SubmitForm ('WIZ_WizardNext', 'pwizwat_4.htm','mainFrame', document.designform);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Next_Nbtn_base.gif" width="86" height="30" border=0 alt="Next"></a></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFCC">
+    <td height="169" colspan="2" class="table-bkgrd-main">
+      <div align="left"><font face="Arial, Helvetica, sans-serif" size="2">
+	  <p>
+		Create the look of your web site by selecting a page layout and theme as well as content layout.
+	  </p>
+	  <p>
+	  In "Page Layout & Theme", select a theme that contains the colors and graphics you'd like to be displayed on the pages of your site. For additional choices, select the <b>More</b> button.
+	  In "Content Layout", select a standard as to how the text and images will display on your site.
+	  </p>
+	</font></div>
+      <table width="100%" border="0" cellpadding="4">
+        <tr>
+          <td width="15%" class="field-label">Page Layout & Theme:</td>
+<!--          <td width="85%" background="/cgi-docs/Mercantec/PC_F_6.6.1/images/bkgrd_theme.jpg">-->
+<!-- netscape doesn't like the background image -->
+         <td width="55%" bgcolor="#DDDDDD">
+            <table width="312" border="1" cellspacing="0" cellpadding="4">
+              <tr><td>
+		<table border="1" cellspacing="0" cellpadding="4"><tr>
+<script runat="merc_server">
+		var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+				     'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+		var wizObj = getThemeStyleList (false, true, false);
+
+		var basePageObj = generateSEObjects (gBASE_PAGE);
+		var selectedThemeLayout = doAction("REQ_GET_FORMVALUE", "moreThemeLayout", "moreThemeLayout");
+		var selectedTheme = '';
+		var selectedLayout = '';
+		if (selectedThemeLayout && selectedThemeLayout != '')
+		{
+			// Find if the user selected a themeLayout from the more box
+			// that is not in the default choices.  If so, put in a hidden tag
+			var tl = selectedThemeLayout.split(':');
+			selectedTheme = tl[0];
+			selectedLayout = tl[1];
+		}
+		else
+		{
+			selectedTheme = basePageObj.pageObjArray[gBASE_PAGE].Theme;
+			selectedLayout = basePageObj.pageObjArray[gBASE_PAGE].Layout;
+			selectedThemeLayout = selectedTheme + ":" + selectedLayout;
+		}
+
+		var numPerRow = 0;
+		var selected = -1;
+		var displayNum = 12;
+		for (var i = 0; i < displayNum && i < wizObj.themes.suppliedThemes.length; i++)
+		{
+			// Find the selected one if it is in our set of choices
+			if (wizObj.themes.suppliedThemes[i] == selectedTheme)
+				selected = i;
+		}
+		var moreList = "";
+		for (i=0; i < wizObj.themes.suppliedThemes.length; i++)
+		{
+			if (i < displayNum)
+			{
+				if (numPerRow == displayNum/2)
+				{
+					numPerRow = 0;
+					write("</tr><tr>");
+				}
+				var layoutObjArray = generateLayoutObject("LayoutTopLeft");
+				SE_Obj.prototype.layoutObjArray = layoutObjArray;
+				var pageObj = new SE_Obj();
+				write ("<td>");
+				write (generateThemeThumb (wizObj.themes.suppliedThemes[i], pageObj));
+				write ("<center><input type=\"radio\" style=\"background-color:#dddddd;\" name=\"ThemeLayout\" value=\""+wizObj.themes.suppliedThemes[i]+":LayoutTopLeft\"");
+				if (selected == i)
+					write(" checked");
+				writeln("></center></td>");
+				numPerRow++;
+				}
+			else
+				moreList += wizObj.themes.suppliedThemes[i] + gSEPERATOR;
+		}
+		while (moreList.charAt(moreList.length-1) == gSEPERATOR)
+			moreList = moreList.substr (0, moreList.length-1);
+</script>
+		</tr></table>
+<script runat="merc_server">
+		if (selected == -1)
+			write("<input type=hidden name=\"selectedThemeLayout\" value=\""+selectedThemeLayout+"\">");
+</script>
+	      </td>
+	      </tr></table>
+          </td>
+	  <td width="20%">&nbsp;
+	  	<a href="javascript:void(0)" onClick="
+			var winObj = parent.createSimpleSubmitWindow ('400', '600');
+			parent.OpenWinSubmitForm('', 'WIZ_SelectThemeAndLayout', 'pwizwat_prev.html', 'preview', document.designform, winObj);"><img border="0" name="imageField4" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Preview_Nbtn_base2.gif" width="86" height="30" alt="Preview"></a>
+<BR>&nbsp;
+		<script runat="merc_server">
+			if(wizObj.themes.suppliedThemes.length > displayNum)
+			{
+                write("<a href='javascript:void(0)' onClick = \"moreThemesWin('watwiz_more_themes.htm', ");
+				write("'"+basePageObj.pageObjArray[gBASE_PAGE].Layout+"',");
+				write("'"+basePageObj.pageObjArray[gBASE_PAGE].Theme+"', '', ");
+				write("'watwiz_more_themes.htm', '570', '670', '"+moreList+"');\">");
+				write('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/More_Nbtn_base2.gif" width="86" height="30" border="0" alt="More choices"></a>');
+			}
+		</script>
+
+	</td>
+        </tr>
+        <tr>
+          <td width="15%" class="field-label">Content Layout:</td>
+          <td width="55%" bgcolor="#DDDDDD">
+            <table width="375" border="1" cellspacing="0" cellpadding="3" align="center">
+              <tr valign="middle">
+<script runat="merc_server">
+		var format = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'PageEditorCfg', 'RowName', 'WizardPageFormat', 'ColName', 'Value');
+		var labels = new Array('', 'Left, header<br> at top','Left, image<br> at top','Center, image<br> at top', 'Center, header<br> at top');
+		for (var i=1; i <= 4; i++)
+		{
+			writeln('<td width="90" align="center">');
+			writeln('<center>');
+			writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/lyt'+i+'.gif" width="48" height="38"><br>');
+			write('<input type="radio" name="WizardPageFormat" value="'+i+'"');
+			if (format == i)
+				write(' checked');
+			writeln('><br>');
+			writeln('<font size="-1">'+labels[i]+'</font>');
+			writeln('</center>');
+			writeln('</td>');
+		}
+</script>
+                <!--<td width="89">
+                   <center>
+                    <a href="javascript:parent.SubmitForm ('WIZ_SelectPageFormat', 'pwizwat_3.htm','mainFrame', document.designform);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Select_Nbtn_base.gif" width="86" height="30" align="absmiddle" border="0"></a>
+                  </center>
+                </td>-->
+              </tr>
+            </table>
+            </td>
+	  <td width="20%">&nbsp;</td>
+        </tr>
+      </table>
+     <div align="left"><font face="Arial, Helvetica, sans-serif" size="2">
+	  <p>
+	  <b>Remember:</b><br>
+	  You can always change the layout and theme using the Wizard prior to publishing your site in Step 6.  Once you have published your site in Step 6, changes to the layout and theme can be made in the Editor.
+	  </p>
+	  </font></div>
+     </td>
+  </tr>
+</table>
+</form>
+<script runat="merc_server">
+//var mode = doAction('ST_SET_STATEDATA', 'PE_OutputMode', 'PE_WizardMode');
+//var layoutName = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'PageEditorCfg', 'RowName', 'LayoutFile', //'ColName', 'Value');
+//write(readAndParseFile(layoutName));
+
+// set current page to base page
+//setCurrentWorkingPage (gBASE_PAGE);
+//write(generateThemeTableHTML(basePageObj.pageObjArray[gBASE_PAGE].Theme, //basePageObj.pageObjArray[gBASE_PAGE], -1));
+</script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+Return-Path: naresh.k@softhq.com
+Received: from mx32.stngva01.us.mxservers.net (204.202.242.10)
+	by mail19l.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0131414933
+	for <abhra@altechstar.com>; Wed, 15 Dec 2010 15:28:53 -0500 (EST)
+Received: from unknown [75.146.94.189] (EHLO email.careermailer.com)
+	by va1-mx32.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 505290d4.2105490336.507838.00-012.va1-mx32.stngva01.us.mxservers.net (envelope-from <bohandler@softhq.com>);
+	Wed, 15 Dec 2010 15:28:53 -0500 (EST)
+Received: from email.careermailer.com ([127.0.0.1]) by email.careermailer.com with Microsoft SMTPSVC(7.5.7600.16544);
+	 Wed, 15 Dec 2010 12:28:40 -0800
+To: abhra@altechstar.com
+Subject: SQL Developer  Consultant  Available
+Message-ID: <423f8e7cd8f3e80004b6d3f8da42ac23@email.careermailer.com>
+Return-Path: bohandler@softhq.com
+Date: Wed, 15 Dec 2010 10:06:29 -0800
+From: "Naresh" <naresh.k@softhq.com>
+Reply-To: naresh.k@softhq.com
+MIME-Version: 1.0
+X-Mailer-LID: 2
+List-Unsubscribe: <http://email.careermailer.com:2020/unsubscribe.php?M=14190&C=c96b1df85efe452d42a7cd21aeb74212&L=2&N=522>
+X-Mailer-RecptId: 14190
+X-Mailer-SID: 522
+X-Mailer-Sent-By: 6
+Content-Type: multipart/alternative; charset="UTF-8"; boundary="b1_a6a5687064fec3ad9568d94f567cbfa0"
+Content-Transfer-Encoding: 8bit
+X-OriginalArrivalTime: 15 Dec 2010 20:28:40.0020 (UTC) FILETIME=[A8BD5940:01CB9C96]
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010120101); MH=0.500(2010121525)]
+X-MAIL-FROM: <bohandler@softhq.com>
+X-SOURCE-IP: [75.146.94.189]
+X-SF-Loop: 1
+
+--b1_a6a5687064fec3ad9568d94f567cbfa0
+Content-Type: text/plain; format=flowed; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+Your email client cannot read this email.
+To view it online, please go here:
+http://email.careermailer.com:2020/display.php?M=14190&C=c96b1df85efe452d42a7cd21aeb74212&S=522&L=2&N=509
+
+
+To stop receiving these
+emails:http://email.careermailer.com:2020/unsubscribe.php?M=14190&C=c96b1df85efe452d42a7cd21aeb74212&L=2&N=522
+
+--b1_a6a5687064fec3ad9568d94f567cbfa0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+<html><head></head><body><div style="color: #000000; font-family: Verdana,
+Arial, Helvetica, sans-serif; font-size: 10px; background-image: initial;
+background-attachment: initial; background-origin: initial;
+background-clip: initial; background-color: #ffffff; margin: 8px;">
+<table bgcolor="#e1e7e8" width="100%" cellpadding="0" cellspacing="0"
+border="0" style="cursor: default; border: 1px dotted #bbbbbb;">
+<tbody>
+<tr>
+<td style="color: #000000; font-family: Verdana, Arial, Helvetica,
+sans-serif; font-size: 10px; cursor: text; margin: 8px; border: 1px dotted
+#bbbbbb;">
+<table align="center" width="600" cellpadding="0" cellspacing="0"
+border="0" style="cursor: default; border: 1px dotted #bbbbbb;">
+<tbody>
+<tr>
+<td style="color: #465355; font-family: Verdana; font-size: 11px; cursor:
+text; padding-top: 0px; padding-right: 10px; padding-bottom: 0px;
+padding-left: 10px; text-align: center; margin: 0px; border: 1px dotted
+#bbbbbb;">Having trouble reading this email?&nbsp;<a
+href="http://email.careermailer.com:2020/display.php?M=14190&C=c96b1df85efe452d42a7cd21aeb74212&S=522&L=2&N=509"
+style="color: #465355;">Click here to see it in your browser</a></td>
+</tr>
+</tbody>
+</table>
+<table align="center" bgcolor="#ffffff" width="580" cellpadding="0"
+cellspacing="0" border="0" style="cursor: default; font-family: Verdana;
+font-size: 11px; border: 1px dotted #bbbbbb;">
+<tbody>
+<tr>
+<td valign="top" height="10" style="color: #000000; font-family: Verdana,
+Arial, Helvetica, sans-serif; font-size: 10px; cursor: text; margin: 8px;
+border: 1px dotted #bbbbbb;"></td>
+</tr>
+<tr>
+<td valign="top" height="100" style="color: #000000; font-family: Verdana,
+Arial, Helvetica, sans-serif; font-size: 10px; cursor: text; padding: 10px;
+margin: 8px; border: 1px dotted #bbbbbb;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+style="cursor: default; border: 1px dotted #bbbbbb;">
+<tbody>
+<tr>
+<td valign="top" height="32" style="color: #000000; font-family: Verdana,
+Arial, Helvetica, sans-serif; font-size: 10px; cursor: text; padding-top:
+0px; padding-right: 10px; padding-bottom: 0px; padding-left: 10px; margin:
+8px; border: 1px dotted #bbbbbb;">
+<table cellpadding="0" cellspacing="0" border="0" style="cursor: default;
+border: 1px dotted #bbbbbb;">
+<tbody>
+<tr>
+<td width="580" height="32" bgcolor="#d9e7ed" style="color: #384b53;
+font-family: Verdana; font-size: 10px; cursor: text; background-image:
+initial; background-attachment: initial; background-origin: initial;
+background-clip: initial; background-color: #d9e7ed; padding-top: 9px;
+padding-right: 0px; padding-bottom: 10px; padding-left: 5px;
+background-position: initial initial; background-repeat: initial initial;
+margin: 8px; border: 1px dotted #bbbbbb;"><strong><font size="4"><font
+size="7"><font color="#ff0000">SOFT</font>HQ<br
+/></font></font></strong><font face="terminal, monaco"><font size="3"><br
+/></font></font><br />&nbsp;<font size="4">Availability of &nbsp;SQL
+Developer Shaiju George</font></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table align="center" width="600" cellpadding="0" cellspacing="0"
+border="0" style="cursor: default; border: 1px dotted #bbbbbb;">
+<tbody>
+<tr>
+<td valign="top" style="color: #000000; font-family: Verdana, Arial,
+Helvetica, sans-serif; font-size: 10px; cursor: text; margin: 8px; border:
+1px dotted #bbbbbb;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+style="cursor: default; border: 1px dotted #bbbbbb;">
+<tbody>
+<tr>
+<td valign="top" style="color: #000000; font-family: Verdana, Arial,
+Helvetica, sans-serif; font-size: 10px; cursor: text; padding-top: 0px;
+padding-right: 10px; padding-bottom: 0px; padding-left: 10px; margin: 8px;
+border: 1px dotted #bbbbbb;"><br />
+<table style="cursor: default; border: 1px dotted #bbbbbb;">
+<tbody>
+</tbody>
+<tbody>
+<tr>
+<td width="100%" valign="top" style="color: #000000; font-family: Verdana,
+Arial, Helvetica, sans-serif; font-size: 10px; cursor: text; padding-left:
+20px; margin: 8px; border: 1px dotted #bbbbbb;"><font
+face="Verdana,Geneva,Arial,Helvetica,sans-serif" size="2" color="#000000"
+style="font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; color:
+#000000; font-size: 10pt;"><strong>Greetings!</strong><br /><br />We have
+an excellent SQL Developer Shaiju
+George&nbsp;Consultant&nbsp;Available&nbsp;for Projects anywhere in the
+USA.<br /><br /><strong><u>Summary</u></strong>
+<ul>
+<li><strong>7 years</strong> of experience in IT Industry which includes
+experience as a Microsoft <strong>BI developer (SSIS, SSRS)</strong> with
+sound business analysis skills. </li>
+<li>Expertise in Extracting, Transformation and Loading<strong>
+(ETL)</strong> data using various tools including Bulk insert
+<strong>(BCP</strong>),<strong> Import/Export data </strong>an<strong>d SQL
+server Integration Services</strong></li>
+<li>Highly proficient in the use of T-SQL for developing stored procedures,
+triggers, tables, user defined functions, relational database models and
+data integrity, SQL joins. </li>
+<li>Experienced in writing Parameterized Queries for generating
+<strong>Tabular reports, Formatting report layout, Sub reports</strong>
+using Global Variables, Expressions, Functions, Sorting the data, defining
+data source and subtotals for the reports using SSRS 2005/2008.</li>
+<li>Experienced <strong>in Logical and Physical Database design</strong>
+and development, Normalization and Data modeling using Erwin and SQL Server
+Enterprise manager.</li>
+<li>Exposure to <strong>SQL Server Analysis
+Services</strong>(<strong>SSAS</strong>).<strong><u></u></strong></li>
+<li>Hands on experience on <strong>Implement &amp; maintain database
+security</strong> (Create and maintain users and roles, assign privileges,
+mapping users).<strong></strong></li>
+<li>Experienced in Replication Programming, Table Partitioning.</li>
+<li>Expertise in <strong>MSOffice, Visio, Testing tools, Rational Unified
+Process (RUP), Unified Modeling Language (UML), Object Modeling, Rational
+RequisitePro </strong>and other web technologies.</li>
+<li>Hands on experience working with <strong>Microsoft Dynamics ERP
+system</strong>. Acquainted with various functional areas like Sales,
+<strong>Purchasing</strong>, Finance, <strong>Manufacturing and
+Forecasting</strong>.<strong><u></u></strong></li>
+<li>Designed and created tables, views, triggers, indexes, stored
+procedures, functions and written queries in <strong>SQL</strong>. Also
+acquainted with <strong>Oracle 10g</strong>.</li>
+<li>Excellent <strong>written and oral communication skills</strong> with a
+results-oriented attitude. Good in Collecting, Analyzing and Interpreting
+Data in an organized way. Versatile in working as an individual and also as
+part of a team. Proficient with various computer operating systems.</li>
+<li>Proactive team player with demonstrated problem solving and analytical
+reasoning abilities.</li>
+<li>Excellent analytical and problem solving skills, with strong
+communication skills and team player.<strong></strong></li>
+</ul>
+<p>&nbsp;<br /><br /><br />Technical Recruiter</p>
+<p>Naresh Kumar<br /><strong><font size="4"><font
+color="#ff0000">SOFT</font>HQ</font></strong><br />6496 Weathers Place,<br
+/>Suite # 100,<br />Sandiego, CA 92121<br />Phone:<skype:span
+class="skype_v3_tb_injection_print"
+id="softomate_v3_print_1">(858)&nbsp;658&nbsp;9200</skype:span>&nbsp;x
+614<br />email:&nbsp;<a
+href="mailto:mano@softhq.com">naresh.k@softhq.com</a></p>
+</font></td>
+<td align="right" valign="top" style="color: #000000; font-family: Verdana,
+Arial, Helvetica, sans-serif; font-size: 10px; cursor: text; margin: 8px;
+border: 1px dotted #bbbbbb;">
+<table width="180" cellpadding="0" cellspacing="0" border="0"
+style="cursor: default; border: 1px dotted #bbbbbb;">
+<tbody>
+<tr>
+<td height="8" style="color: #000000; font-family: Verdana, Arial,
+Helvetica, sans-serif; font-size: 10px; cursor: text; margin: 8px; border:
+1px dotted #bbbbbb;"></td>
+</tr>
+<tr>
+<td valign="top" bgcolor="#f9f6e1" style="color: #000000; font-family:
+Verdana; font-size: 10px; cursor: text; padding-top: 0px; padding-right:
+10px; padding-bottom: 20px; padding-left: 10px; text-align: left; margin:
+8px; border: 1px dotted #bbbbbb;">
+<h1 style="font-size: 17px; font-family: Arial; display: block;
+padding-top: 0px; padding-right: 0px; padding-bottom: 5px; padding-left:
+0px; color: #9b7d34; font-weight: normal; border-bottom-style: solid;
+border-bottom-width: 1px; border-bottom-color: #d1cbac; margin:
+0px;">Candidate Profile</h1>
+<p style="font-family: Verdana; font-size: 11px; color: #615948;
+padding-top: 10px; padding-right: 0px; padding-bottom: 0px; padding-left:
+0px; line-height: 15px; margin: 0px;">Total Years of Exp:7<br />Current
+Location: MA<st1:state w:st="on"><strong><br /></strong></st1:state>Rate:
+Open<br />Availability: Immediate<br />Comm. Skills : Excellent<br
+/>Availability for In-Person Interview : YES</p>
+<h1 style="font-size: 17px; font-family: Arial; display: block;
+padding-top: 0px; padding-right: 0px; padding-bottom: 5px; padding-left:
+0px; color: #9b7d34; font-weight: normal; border-bottom-style: solid;
+border-bottom-width: 1px; border-bottom-color: #d1cbac; margin: 0px;">Need
+more Info?</h1>
+<p style="font-family: Verdana; font-size: 11px; color: #615948;
+padding-top: 10px; padding-right: 0px; padding-bottom: 0px; padding-left:
+0px; line-height: 15px; margin: 0px;">Please reach me here<br />Naresh<br
+/>Technical Recruiter<br /><strong><font size="4"><font
+color="#ff0000">SOFT</font>HQ</font></strong><br />6496 Weathers
+Place,#100<br />Sandiego, CA 92121<br />Ph :<skype:span
+class="skype_v3_tb_injection_print"
+id="softomate_v3_print_2">(858)&nbsp;658&nbsp;9200</skype:span>&nbsp;x
+614<br />email:<a
+href="mailto:Pradeep@softhq.com">naresh.k@softhq.com</a></p>
+</td>
+</tr>
+<tr>
+<td height="8" style="color: #000000; font-family: Verdana, Arial,
+Helvetica, sans-serif; font-size: 10px; cursor: text; margin: 8px; border:
+1px dotted #bbbbbb;"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" bgcolor="#d1d8db" style="color: #000000;
+font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px;
+cursor: text; margin: 8px; border: 1px dotted #bbbbbb;">
+<p align="center" style="font-family: Verdana; font-size: 9px; color:
+#333333; text-align: center;">This message was intended for
+'abhra@altechstar.com' . If this message has reached you in error or if you
+donot wish to receive any emails from us in the future, please click the
+unsubscribe link below and you will be automatically removed from our
+mailing list.<br /><br /><a
+href="http://email.careermailer.com:2020/unsubscribe.php?M=14190&C=c96b1df85efe452d42a7cd21aeb74212&L=2&N=522"
+style="color: #333333;">Unsubscribe</a></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" bgcolor="#e1e7e8" style="color: #000000; font-family:
+Verdana, Arial, Helvetica, sans-serif; font-size: 10px; cursor: text;
+padding: 5px; margin: 8px; border: 1px dotted #bbbbbb;">
+<p align="center" style="font-family: Verdana; font-size: 10px; color:
+#999999; text-align: center;"><br /></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div><br/>	<br>
+
+	<table bgcolor="" cellpadding="0" width="100%" border="0">
+		<tr align="center">
+			<td>
+				<table bgcolor="white" width="450" border="0" cellpadding="5">
+					<tr>
+						<td>
+							<a
+href="http://email.careermailer.com:2020/link.php?M=14190&N=522&L=6&F=H">
+								<img border="0"
+src="http://email.careermailer.com:2020/admin/images/poweredby.gif"
+alt="Powered by SoftHQ" />
+							</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+<img
+src="http://email.careermailer.com:2020/open.php?M=14190&L=2&N=522&F=H&image=.jpg"
+height="1" width="10"></body></html>
+
+--b1_a6a5687064fec3ad9568d94f567cbfa0--
+
+

@@ -1,0 +1,380 @@
+Return-Path: madhu@vortalsoftusa.com
+Received: from mx106.stngva01.us.mxservers.net (198.173.112.43)
+	by mail19d.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-0119233817
+	for <abhra@altechstar.com>; Thu, 25 Aug 2011 10:50:17 -0400 (EDT)
+Received: from unknown [173.205.125.22] (EHLO vps4021.inmotionhosting.com)
+	by va1-mx106.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 921665e4.1775381408.503480.00-003.va1-mx106.stngva01.us.mxservers.net (envelope-from <madhu@vortalsoftusa.com>);
+	Thu, 25 Aug 2011 10:50:17 -0400 (EDT)
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=default; d=vortalsoftusa.com;
+	h=Received:From:To:Subject:Date:MIME-Version:Content-Type:X-Mailer:thread-index:X-MimeOLE:X-Source:X-Source-Args:X-Source-Dir;
+	b=AgxuNbqlKqFGMSeqfFjDGwNoULjtHVQlZoKfg0M9qh8FKPT1E1p4Vv90o5zR8N6IUnT77rbv3bcOhswYxTJCeETAPJwSGDJzELtI0ou22JnJLOupSEQunwWmXRWDWzcM;
+Received: from s-157-103-63-202.southernonline.net ([202.63.103.157] helo=vortalboard)
+	by vps4021.inmotionhosting.com with esmtp (Exim 4.69)
+	(envelope-from <madhu@vortalsoftusa.com>)
+	id 1Qwb9v-0000Q6-EI; Thu, 25 Aug 2011 10:43:56 -0400
+From: "MADHU" <madhu@vortalsoftusa.com>
+To: "'MADHU'" <madhu@vortalsoftusa.com>
+Subject: CORE JAVA DEVELOPER @ AZ & NY   6+ Months Contract
+Date: Thu, 25 Aug 2011 10:18:10 -0400
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="=_reb-r0B5CFE59-t4E566129"
+X-Mailer: Microsoft Office Outlook, Build 11.0.5510
+thread-index: AcxjMTIOLOs/wzsPS+afyrLoY3j2Pw==
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.6109
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - vps4021.inmotionhosting.com
+X-AntiAbuse: Original Domain - altechstar.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - vortalsoftusa.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2727272727; B=0.500(0); S=0.200(2010122901); MH=0.600(2011082514)]
+X-MAIL-FROM: <madhu@vortalsoftusa.com>
+X-SOURCE-IP: [173.205.125.22]
+Message-ID:<20110825105017.GA11923@mail19d.g19.rapidsite.net>
+X-SF-Loop: 1
+
+This is a multi-part MIME message.
+
+--=_reb-r0B5CFE59-t4E566129
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+ 
+Hi,
+Hope you are doing well!
+Please let me know if you are available and comfortable with the
+requirement.
+And reply me with the below information.
+ 
+
+ Details:
+
+ 
+
+Full Name             : 
+
+Contact No           : 
+
+Email id                : 
+
+Availability           : 
+
+Current Location  : 
+
+Relocation            : 
+
+Visa Status           : 
+
+Total IT Exp          : 
+
+US Exp                  : 
+
+Employer Details  :
+
+Updated profile:
+
+Rate(All Inclusive):
+
+ 
+
+ 
+
+Requirement:
+
+ 
+
+Guys-this is a really good position to work on. We just placed 4 Developers
+and they need a few more. They confirm within 1 day after interview.
+
+ 
+
+Key is CORE JAVA. They have a lot of old code that they need to convert.
+Work is at least 6 months.
+
+ 
+
+ 
+
+Location: Tucson, AZ
+
+Duration: 6m+
+
+ 
+
+.         Excellent Core Java 1.6 knowledge
+
+.         XML / XML Schema knowledge
+
+.         Spring Framework
+
+.         Hibernate
+
+.         Web Services (REST)
+
+.           MS SQL Server 2008
+
+.         JBoss Application Server 4 desirable
+
+.         Unix/Linux/Windows environments
+
+ 
+
+ 
+
+Thanks & Regards
+
+ 
+
+Madhu Babu
+
+Vortalsoft Inc
+
+Direct: 732 377 3493
+
+Fax: 732 909 2476
+
+E-Mail: madhu@vortalsoftusa.com  
+
+URL:  <http://www.vortalsoft.com/> www.vortalsoft.com
+
+Yahoo IM: recruitz29
+
+Gtalk: recruitz29
+____________________________________________________________________________
+____________________________________________________________________________
+_____
+
+Confidentiality Notice: This e-mail message, including any attachments, is
+for the sole use of the intended recipient(s) and may contain confidential
+and/or privileged information. Any unauthorized review, use, disclosure or
+distribution is prohibited. If you are not the intended recipient, please
+contact the sender by reply e-mail and destroy all copies of the original.
+Under The Bill 1618 Title iii passed by the 105th US Congress this mail may
+not be considered SPAM as long as the contact information is included and a
+method to be removed from our mailing list stated. If you are not interested
+in receiving our e-mails then please reply with REMOVE in the subject line
+and your ID will be removed from our mailing list. We apologize for the
+inconvenience caused to you
+
+ 
+
+ 
+
+--=_reb-r0B5CFE59-t4E566129
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+
+</HEAD>
+<BODY>
+<DIV><FONT face=3D"Arial" size=3D"2"></FONT>&nbsp;</DIV>
+<DIV>
+<DIV align=3D"left" dir=3D"ltr"><SPAN class=3D"171073315-26072011"><SPAN st=
+yle=3D"FONT-FAMILY: Calibri; FONT-SIZE: 12pt"><SPAN class=3D"445341615-3103=
+2011">Hi,</SPAN></SPAN></SPAN></DIV>
+<DIV>
+<DIV>
+<DIV align=3D"left" dir=3D"ltr"><SPAN style=3D"FONT-FAMILY: Calibri; FONT-S=
+IZE: 12pt"><SPAN class=3D"445341615-31032011"><SPAN class=3D"671081418-2507=
+2011">Hope you are doing=20
+well!</SPAN></SPAN></SPAN></DIV>
+<DIV align=3D"left" dir=3D"ltr">
+<DIV align=3D"left" class=3D"OutlookMessageHeader" lang=3D"en-us" dir=3D"lt=
+r">
+<DIV>
+<DIV><SPAN style=3D"FONT-FAMILY: Calibri; FONT-SIZE: 12pt"><?XML:NAMESPACE =
+PREFIX=20
+=3D O /><O:P><SPAN class=3D"710141115-31032011">Please let me know if you a=
+re=20
+available and comfortable with the requirement.</SPAN></O:P></SPAN></DIV>
+<DIV><SPAN style=3D"FONT-FAMILY: Calibri; FONT-SIZE: 12pt"><O:P><SPAN class=
+=3D"710141115-31032011">And reply me with the below=20
+information.</SPAN></O:P></SPAN></DIV>
+<DIV><SPAN style=3D"FONT-FAMILY: Calibri; FONT-SIZE: 12pt"><O:P></O:P></SPA=
+N><FONT face=3D"Calibri">&nbsp;</FONT></DIV>
+<DIV class=3D"Section1">
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt; FONT-WEIGHT: bold"><SPAN class=3D"734423918-=
+28032011">&nbsp;</SPAN>Details:<U><O:P></O:P></U></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt"><O:P>&nbsp;</O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">Full=20
+Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; :=20
+<O:P></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">Contact=20
+No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :=20
+<O:P></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">Email=20
+id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;=20
+: <O:P></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+: <O:P></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">Current Location&nbsp; :=20
+<O:P></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">Relocation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+: <O:P></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">Visa=20
+Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :=20
+<O:P></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">Total IT Exp&nbsp;=20
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <O:P></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">US=20
+Exp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+: <O:P></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt">Employer Details&nbsp;=20
+:</SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt"><O:P><SPAN class=3D"710141115-31032011">Upda=
+ted profile:</SPAN></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt"><O:P><SPAN class=3D"710141115-31032011">Rate=
+(All Inclusive):</SPAN></O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt"><O:P>&nbsp;</O:P></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><B><SPAN style=3D"FONT-=
+FAMILY: Calibri; FONT-SIZE: 12pt; FONT-WEIGHT: bold"><O:P>&nbsp;</O:P></SPA=
+N></B></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 12pt; FONT-WEIGHT: bold">Requirement:</SPAN></P></=
+DIV></DIV></DIV></DIV></DIV></DIV>
+<P>&nbsp;</P>
+<P>Guys&#8212;this is a really good position to work on. We just placed 4 D=
+evelopers=20
+and they need a few more. They confirm within 1 day after interview.</P>
+<P>&nbsp;</P>
+<P>Key is CORE JAVA. They have a lot of old code that they need to convert.=
+ Work=20
+is at least 6 months.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Location: Tucson, AZ</P>
+<P>Duration: 6m+</P>
+<P>&nbsp;</P>
+<P>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Excellent Core =
+Java 1.6=20
+knowledge</P>
+<P>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XML / XML Schem=
+a=20
+knowledge</P>
+<P>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Spring Framewor=
+k</P>
+<P>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hibernate</P>
+<P>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Web Services (R=
+EST)</P>
+<P>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;MS SQL=20
+Server 2008</P>
+<P>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JBoss Applicati=
+on Server 4=20
+desirable</P>
+<P>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Unix/Linux/Wind=
+ows=20
+environments</P></DIV>
+<DIV class=3D"Section1">
+<DIV>
+<P align=3D"left" class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><FONT fa=
+ce=3D"Arial" size=3D"2"></FONT>&nbsp;</P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><?xml:namespace prefix =
+=3D o ns =3D=20
+"urn:schemas-microsoft-com:office:office" /><o:p>&nbsp;</o:p></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">Thanks=20
+&amp; Regards<B><SPAN style=3D"COLOR: black"><o:p></o:p></SPAN></B></SPAN><=
+/P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><B><SPAN style=3D"FONT-=
+FAMILY: Calibri; COLOR: black; FONT-SIZE: 11pt; mso-bidi-font-family: Arial=
+"><o:p>&nbsp;</o:p></SPAN></B></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><B style=3D"mso-bidi-fo=
+nt-weight: normal"><SPAN style=3D"FONT-FAMILY: Calibri; FONT-SIZE: 11pt; ms=
+o-bidi-font-family: Arial">Madhu=20
+<SPAN class=3D"SpellE">Babu</SPAN><SPAN style=3D"COLOR: navy"><o:p></o:p></=
+SPAN></SPAN></B></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN class=3D"SpellE">=
+<B style=3D"mso-bidi-font-weight: normal"><SPAN style=3D"FONT-FAMILY: Calib=
+ri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">Vortalsoft</SPAN></B></SP=
+AN><B style=3D"mso-bidi-font-weight: normal"><SPAN style=3D"FONT-FAMILY: Ca=
+libri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">=20
+Inc<SPAN style=3D"COLOR: black; mso-bidi-font-weight: bold"><o:p></o:p></SP=
+AN></SPAN></B></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">Direct:=20
+732 377 3493<SPAN style=3D"COLOR: navy"><o:p></o:p></SPAN></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">Fax:=20
+732 909 2476<B><SPAN style=3D"COLOR: black"><o:p></o:p></SPAN></B></SPAN></=
+P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><B><SPAN style=3D"FONT-=
+FAMILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">E-Mail:=20
+</SPAN></B><SPAN style=3D"FONT-FAMILY: Calibri; FONT-SIZE: 11pt; mso-bidi-f=
+ont-family: Arial"><A href=3D"mailto:madhu@vortalsoftusa.com" title=3D"bloc=
+ked::mailto:madhu@vortalsoftusa.com&#10;mailto:pavan@vortalsoftusa.com">mad=
+hu@vortalsoftusa.com</A>&nbsp;<B>&nbsp;</B><SPAN style=3D"COLOR: navy"><o:p=
+></o:p></SPAN></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><B><SPAN style=3D"FONT-=
+FAMILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">URL:=20
+<A href=3D"http://www.vortalsoft.com/" title=3D"blocked::http://www.vortals=
+oft.com/&#10;http://www.vortalsoft.com/"><SPAN style=3D"FONT-WEIGHT: normal=
+">www.vortalsoft.com</SPAN></A></SPAN></B></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><B><SPAN style=3D"FONT-=
+FAMILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">Yahoo=20
+IM: recruitz29</SPAN></B></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><B><SPAN style=3D"FONT-=
+FAMILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial"></SPAN></B><=
+B><SPAN style=3D"FONT-FAMILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-famil=
+y: Arial">Gtalk:=20
+recruitz29</SPAN></B><SPAN style=3D"FONT-FAMILY: Calibri; FONT-SIZE: 11pt; =
+mso-bidi-font-family: Arial"><BR>__________________________________________=
+___________________________________________________________________________=
+________________________________________<o:p></o:p></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">Confidentiality=
+=20
+Notice: This e-mail message, including any attachments, is for the sole use=
+ of=20
+the intended recipient(s) and may contain confidential and/or privileged=20
+information. Any unauthorized review, use, disclosure or distribution is=20
+prohibited. If you are not the intended recipient, please contact the sende=
+r by=20
+reply e-mail and destroy all copies of the original. Under The Bill 1618 Ti=
+tle=20
+iii passed by the 105th US Congress this mail may not be considered SPAM as=
+ long=20
+as the contact information is included and a method to be removed from our=
+=20
+mailing list stated. If you are not interested in receiving our e-mails the=
+n=20
+please reply with REMOVE in the subject line and your ID will be removed fr=
+om=20
+our mailing list. We apologize for the inconvenience caused to=20
+you<o:p></o:p></SPAN></P>
+<P class=3D"section1" style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAM=
+ILY: Calibri; FONT-SIZE: 11pt; mso-bidi-font-family: Arial">&nbsp;<o:p></o:=
+p></SPAN></P></DIV></DIV>
+<DIV>&nbsp;</DIV></BODY></HTML>
+
+--=_reb-r0B5CFE59-t4E566129--
+

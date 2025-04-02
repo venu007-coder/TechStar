@@ -1,0 +1,84 @@
+<SCRIPT runat="merc_server">
+	//set Locale string
+	var LOCALE_STRING="en";
+	var mode="addCustomField";
+	var custFieldValue = doAction('REQ_GET_FORMVALUE', "custfieldvalue", "custfieldvalue");
+	//writebr("Custom Field Name submitted is : " + custFieldValue);
+
+	if (custFieldValue != undefined)
+		mode="editCustomField";
+
+</SCRIPT>
+
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+
+<SCRIPT LANGUAGE="JavaScript">
+	function validateForm() 
+	{
+		if (document.newCustomField.newCustomFieldName.value == "")
+		{
+			alert("You must enter a custom field name.");
+			document.newCustomField.newCustomFieldName.focus;
+		}
+		else
+		{
+			
+			opener.parent.CloseWinSubmitForm('L','bm_setup.htm','mainFrame', document.newCustomField );
+		}
+	}
+</SCRIPT>
+
+</head>
+<body class="bkgrd-main-items">
+<div align="center"> 
+<p><span class="general-label">New/Edit Custom Field</span></p>
+
+<form action="javascript:void(0)" method="post" name="newCustomField">
+
+<table width="50%" border="0" cellpadding="0" cellspacing="0">
+<tr>         
+	<td width="32%" nowrap class="general-label">Name:&nbsp </td>        
+	<td width="68%">   
+	<SCRIPT runat="merc_server">
+		var fieldName="";
+		if (custFieldValue) 
+		{
+			fieldName=custFieldValue;
+			writeln('<INPUT TYPE="HIDDEN" NAME="oldCustomFieldName" VALUE="', custFieldValue,'">');
+		}
+		writeln('<INPUT TYPE="HIDDEN" NAME="mode" VALUE="', mode,'">');
+	
+        writeln('<div align="center"> ');
+        writeln('<input type="text" name="newCustomFieldName" value="', fieldName,'"></div></td>');
+         
+    </SCRIPT>
+</tr>
+</table>
+<span class="general-label">
+<p>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<a href="javascript:void(opener.parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SETUP_CUSTFIELD+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" alt="Help"></a>
+&nbsp;&nbsp;
+              <!--END HELP WINDOW-->
+<a href="javascript:void(0);" onClick="javascript:window.close()"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_cancel.gif" width="90" height="21" border=0 alt="Cancel"></a>&nbsp;&nbsp; 
+<a href="javascript:validateForm()" ><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" width="90" height="21" border=0 alt="Save"></a></span> 
+ 
+
+</form>
+<p></p>
+
+</div>
+</body>
+</html>

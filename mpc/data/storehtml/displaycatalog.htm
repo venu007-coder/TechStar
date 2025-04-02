@@ -1,0 +1,24 @@
+<script runat=merc_server>
+currentNode = eval(doActionEx("ST_GET_STATEDATA","Result","catalogNode","catalogNode"));
+if (currentNode != undefined)
+{
+	nodeData = doActionBDO("CAT_GETDATA","NodeID",currentNode,"Locale","en");
+	writeln("<h3>" + nodeData.Name + "</h3><p>");
+	writeln(nodeData.Desc + "<p>");
+	items = doActionBDO("CAT_GETNODEITEMS","NodeID",currentNode);
+	labels = items.GetLabels();
+
+	for (var i = 0; i < labels.length; i++)
+	{
+		key = doActionEx("ITEM_GETFIELD","Key","ItemID",eval("items." + labels[i]),"FieldName","Key");
+		//<br>
+		descriptionID = doActionEx("ITEM_GETFIELD","DescriptionID","Key",key,"FieldName","DescriptionID");
+		description = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",descriptionID,"Locale","en");
+		urlpath = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","urlfile");
+		sessionid = doActionEx("ST_GET_STATEDATA","Result","SessionID","SessionID");
+		var siteid = doActionEx("REQ_GET_FORMVALUE","Result","SiteID","SiteID");
+		var appid = doActionEx("REQ_GET_FORMVALUE","Result","AppID","AppID");
+		write("<a href=" + urlpath + "?action=viewitem&SessionID=" +  sessionid + "&SiteID=" + siteid + "&AppID=" + appid + "&ItemKey=" + key + ">" + description + "<\a><br>");
+	}
+}
+</script>

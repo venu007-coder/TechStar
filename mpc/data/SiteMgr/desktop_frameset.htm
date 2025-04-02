@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Power Commerce (TM)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script runat="merc_server">
+	var secure = doAction ('REQ_GET_FORMVALUE', 'SecureMode', 'SecureMode');
+	var baseHrf = "";
+	if (secure)
+		doAction('ST_SET_STATEDATA', 'SecureMode', secure);
+	else
+		secure = doAction('ST_GET_STATEDATA', 'SecureMode', 'SecureMode');
+		
+	if (secure && secure.toLowerCase() == "yes")
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SecureBaseHref');
+	else
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'BaseHref');
+	writeln('<BASE href="'+baseHrf+'">');
+</script>
+</head>
+
+<script language=javascript  src="master.js">	
+</script>
+<script language=javascript>
+var gPWRMGR_FRAMESET = true;	
+</script>
+<merc_dynamic noshow=true name=SC_UserName action=REQ_GET_FORMVALUE Username=Username>
+<merc_dynamic noshow=true name=SC_Password action=ST_GET_STATEDATA Password=Password>
+<merc_dynamic noshow=true name=SC_SiteID action=REQ_GET_FORMVALUE SiteID=SiteID>
+<merc_dynamic noshow=true name=SC_Session action=ST_GET_STATEDATA SessionID=SessionID>
+<Form name = "sc_form1">
+<input type="hidden" name="Password" value="{SC_Password}">
+<input type="hidden" name="Username" value="{SC_UserName}">
+<input type="hidden" name="SessionID" value="{SC_Session}">
+<input type="hidden" name="AppID" value="merchant">
+<input type="hidden" name="SiteID" value="{SC_SiteID}">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+<input type="hidden" name="" value="">
+</form>
+
+<frameset rows="62,*" frameborder="NO" border="0" framespacing="0" cols="*" onLoad = "
+SubmitForm ('L', 'desktop_top.htm', 'topFrame', '');" onUnload = "CloseWin();"> 
+  <frame name="topFrame" scrolling="NO" noresize src="blank2.htm" marginwidth=0 marginheight=0>
+  <frame name="mainFrame" src="please_wait.htm" marginwidth=0 marginheight=0>
+</frameset>
+<noframes><body bgcolor="#FFFFFF">
+
+</body></noframes>
+</html>

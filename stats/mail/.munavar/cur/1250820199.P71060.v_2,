@@ -1,0 +1,1062 @@
+Return-Path: emailcampaign@verizonwireless.com
+Received: from mx93.stngva01.us.mxservers.net (198.173.112.10)
+	by mail19b.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-01532198
+	for <ms@altechstar.com>; Thu, 20 Aug 2009 22:03:18 -0400 (EDT)
+Received: from unknown [204.202.242.121] (HELO mail19i.g19.rapidsite.net)
+	by va1-mx93.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 6600e8a4.2648595360.638174.00-003.va1-mx93.stngva01.us.mxservers.net (envelope-from <verizonwireless@email.vzwshop.com>);
+	Thu, 20 Aug 2009 22:03:18 -0400 (EDT)
+Received: from mx69.stngva01.us.mxservers.net (204.202.242.140)
+	by mail19i.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-070864197
+	for <anand@altechstar.com>; Thu, 20 Aug 2009 22:03:17 -0400 (EDT)
+Received: from unknown [12.130.136.108] (EHLO omp.moxiemail.moxieinteractive.com)
+	by va1-mx69.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 4600e8a4.2626964384.331291.00-014.va1-mx69.stngva01.us.mxservers.net (envelope-from <verizonwireless@email.vzwshop.com>);
+	Thu, 20 Aug 2009 22:03:16 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=vzwshop; d=email.vzwshop.com;
+ h=MIME-Version:Content-Type:Date:From:Reply-To:Subject:List-Unsubscribe:To:Message-Id; i=verizonwireless@email.vzwshop.com;
+ bh=JlG+TaZ7rOjTDIJb4IYe6sJeDhE=;
+ b=Pc5cXIn4nXiGlCg7Tg0J3y1MgT6WAT+32FvK34x0St6Ot+goNshSbjqPsrFgbwG8ubPM6Aup+RzM
+   ZEGvfm6HoBhsIk6h3APMf/f3hZQGZD2z2qGZokVcNY7UhjLM6nR6d/DlTT27Oe1pD/6Eqw6kbmxd
+   GLa4GpGYlOAi5Mcya7s=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=vzwshop; d=email.vzwshop.com;
+ b=OGN65740yYtOlzEcW04nhoP0SP9s2x//6WHTq+vc/VM0xFGUO6R/8AYu9FeGc05mvbREEXptRI0i
+   fdOTNR8w3HJN2NIJV9R0Sp0xlPZ8mbfDJCfz4anFOqQ/J9EFQakqxJHr2EX0rgBLawsW3oxKqPa/
+   qTFbhq0P9JE21qWQP5s=;
+Received: by omp.moxiemail.moxieinteractive.com (PowerMTA(TM) v3.5r10) id hho0680morcf for <anand@altechstar.com>; Thu, 20 Aug 2009 19:03:14 -0700 (envelope-from <verizonwireless@email.vzwshop.com>)
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=_reb-r180EAE85-t4A8E0065"
+Date: Thu, 20 Aug 2009 19:03:14 -0700
+From: "Verizon Wireless" <verizonwireless@email.vzwshop.com>
+Reply-To: "Verizon Wireless" <emailcampaign@verizonwireless.com>
+Subject: Your August Newsletter from Verizon Wireless
+List-Unsubscribe: https://email.vzwshop.com/servlet/optout?OSPDXTAYDAEHgHgKFHsmLJolmHkDJhtEf
+X-cid: vzw.4075.7
+X-sgxh1: HgHgKxHtlLJoklHjQJhu
+To: anand@altechstar.com
+Message-Id: <4A8E0062.00000891@omp.moxiemail.moxieinteractive.com>
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.0000000000; B=0.500(0); S=0.200(2009071501); MH=0.000(2009082029)]
+X-MAIL-FROM: <verizonwireless@email.vzwshop.com>
+X-SOURCE-IP: [12.130.136.108]
+X-SF-Loop: 1
+X-Spam: [F=0.0000000000; B=0.500(0); S=0.200(2009071501); MH=0.000(2009082029)]
+X-MAIL-FROM: <verizonwireless@email.vzwshop.com>
+X-SOURCE-IP: [204.202.242.121]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r180EAE85-t4A8E0065
+Date: Thu, 20 Aug 2009 19:03:14 -0700
+Content-Type: multipart/alternative; boundary="=_reb-r248A44D5-t4A8E0065"
+
+This is a multi-part MIME message.
+
+--=_reb-r248A44D5-t4A8E0065
+Content-Type: text/plain;
+	charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Verizon Wireless
+Monthly Newsletter - May 2009=20
+
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VRVG=
+f6beVHgHgKxHtlLJoklHjQJhu
+
+**********************************************************************
+Anandaraj N.=20
+Mobile Number ending in 2322.
+Your Device:   BlackBerry 8830 World Edition Smartphone=20
+View Guide:=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSVG=
+f6beVHgHgKxHtlLJoklHjQJhuVydb9VURSY
+
+=20
+AMERICAS CHOICE=20
+700 Minutes=20
+$ 60  Monthly Access
+=20
+Pay Your Bill Online:=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VUVG=
+f6beVHgHgKxHtlLJoklHjQJhu
+=20
+Add A Line:=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VWVG=
+f6beVHgHgKxHtlLJoklHjQJhu
+
+=20
+Check Account Balance:=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VYVG=
+f6beVHgHgKxHtlLJoklHjQJhu
+
+Click here to view accessories: =20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VUWV=
+Gf6beVHgHgKxHtlLJoklHjQJhuVydb9VURSYVyyXf6dGV7tHJs7LjjP%25TAjLn%3BVyyXfw9Ge=
+VCCUR+4hjtK+GKplphg+1uHjliohgL
+
+=20
+**********************************************************************
+A lost phone shouldn't mean lost friends.
+Backup Assistant keeps your contacts safe, and it's free for My Verizon sub=
+scribers.
+
+With Backup Assistant, you can save a copy of your phone's address book to =
+a secure website. That way, if you lose, damage or upgrade your phone, Back=
+up Assistant will restore your contact list to your new device.=20
+
+Read More=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VBVG=
+f6beVHgHgKxHtlLJoklHjQJhu
+
+**********************************************************************
+Spotlight: Celebrity DIgest
+Hollywood is calling! Now you can have all major celebrity news rushed=20
+to your phone and access thousands of images from the hottest parties.=20
+
+Get This App=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VCVG=
+f6beVHgHgKxHtlLJoklHjQJhu
+=20
+
+See All Apps=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VDVG=
+f6beVHgHgKxHtlLJoklHjQJhu
+=20
+
+Compatible phone required=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSRV=
+Gf6beVHgHgKxHtlLJoklHjQJhu
+=20
+=20
+**********************************************************************
+
+It's easy to find your My Verizon user ID and password. Just click one=20
+of the links below to get started!=20
+
+Find My Password=20
+
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSSV=
+Gf6beVHgHgKxHtlLJoklHjQJhu
+=20
+
+Find My User ID=20
+
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSTV=
+Gf6beVHgHgKxHtlLJoklHjQJhu
+=20
+=20
+**********************************************************************
+Out Latest Phones are the Hottest Topic
+The July survey results are in, and customers want to hear all about our ne=
+w devices.
+
+Check out all our new devices, including the BlackBerry(r) Tour(tm), which =
+can=20
+help you stay productive with email and Microsoft Document Managing. =20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSUV=
+Gf6beVHgHgKxHtlLJoklHjQJhu
+
+
+Browse All Phones=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSWV=
+Gf6beVHgHgKxHtlLJoklHjQJhu
+=20
+
+View Survey Results=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSYV=
+Gf6beVHgHgKxHtlLJoklHjQJhu
+=20
+=20
+**********************************************************************
+Your Phone Gets Personal
+Make your phone all about you with Wallpapers from our Media Store
+
+Browse All Wallpapers=20
+
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSAV=
+Gf6beVHgHgKxHtlLJoklHjQJhuVyw3v92ab1ze60VKpkitHP9jpNLjVKpkitHP9jpNLjVYTT%25=
+TAVJHlvHuLV4HttiHiLjk%25TAVJHlb9VUUYADW
+
+=20
+**********************************************************************
+Friends & Family(r) Challenge
+Find out who belongs in your top 5 or 10 with a quiz you create on Facebook.
+ =20
+Which of your Facebook friends deserves a spot on your Friends &=20
+Family list? Now you can find out with a quiz that=92s all about you!=20
+Present your pals with the ultimate friendship test using the=20
+Friends & Family Challenge app.
+
+Click here to Issue a Challenge Now=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSBV=
+Gf6beVHgHgKxHtlLJoklHjQJhu
+
+**********************************************************************
+Worry Free Guarantee(r)
+No wireless provider stands behind you like Verizon Wireless
+
+Find Out More=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSCV=
+Gf6beVHgHgKxHtlLJoklHjQJhu
+
+**********************************************************************
+
+(c) 2009 Verizon Wireless
+* The $1.99 monthly fee for Backup Assistant is automatically waived for My=
+ Verizon subscribers=20
+
+Verizon Wireless | One Verizon Way | Mail Code: 180WVB | Basking Ridge, NJ =
+08920
+
+This email was sent to anand@altechstar.com and associated with your=20
+Verizon Wireless mobile number 609-240-2322. =20
+We respect your privacy. Please review our privacy policy for more=20
+information about click activity with Verizon Wireless and links=20
+included in this email.=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VSDV=
+LuHptVHgHgKxHtlLJoklHjQJhu
+
+If you no longer wish to receive emails from Verizon Wireless, you may=20
+unsubscribe by clicking here.=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VTRV=
+LuHptVHgHgKxHtlLJoklHjQJhu
+
+Or easily adjust your subscription preferences from your=20
+profile information.=20
+https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuV2VTSV=
+Gf6beVHgHgKxHtlLJoklHjQJhu
+
+
+
+
+--=_reb-r248A44D5-t4A8E0065
+Content-Type: text/html;
+	charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<title>Verizon</title>
+</head>
+
+<body>
+<!--Page Top-->
+<table width=3D"700" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" b=
+order=3D"0">
+	<tr>
+    	<td style=3D"font-family:arial; color:#666666; font-size:11px; padding=
+-left:30px; padding-bottom:5px; padding-top:5px;" valign=3D"top" align=3D"l=
+eft">
+        	Here's an easy solution to restore your phone<br>contact list if y=
+ou ever lose, damage or get a<br>new phone.
+        </td>
+<td style=3D"font-family:arial; color:#666666; font-size:11px; padding-top:=
+5px; padding-right:30px; padding-bottom:10px;" align=3D"right">
+        	<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+            	<tr>
+                	<td style=3D"font-family:arial; color:#666666; font-size:1=
+1px;" align=3D"right">
+                    	To ensure our emails reach your inbox, please add=20
+                    </td>
+				</tr>
+                <tr>
+                    <td style=3D"font-family:arial; color:#666666; font-siz=
+e:11px;" align=3D"right">
+                    	<a style=3D"text-decoration:none; color:#0066cc;" targ=
+et=3D"_blank" href=3D"#">verizonwireless@email.vzwshop.com</a> to your addr=
+ess book.
+                	</td>
+                </tr>
+=20
+            </table>
+      </td>
+    </tr>
+</table>
+<!--Container Table Begin-->
+<table bgcolor=3D"#585858" width=3D"700" cellspacing=3D"0" cellpadding=3D"0=
+" align=3D"center" border=3D"0">
+	<tr>
+    	<td style=3D"padding-bottom:30px; padding-top:20px;">
+        	<!--Inner Table Begin-->
+        	<table width=3D"640" cellspacing=3D"0" cellpadding=3D"0" align=3D"=
+center" border=3D"0">
+                <tr>
+                	<td bgcolor=3D"#FFFFFF" align=3D"center">
+                    	<table width=3D"620" cellspacing=3D"0" cellpadding=3D"=
+0" border=3D"0">
+                        	<tr>
+                            	<td style=3D" padding-left:10px;" valign=3D"mi=
+ddle" align=3D"left" height=3D"50"><a target=3D"_blank" href=3D"https://ema=
+il.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVRVGf6beVHgHgKx=
+HtlLJoklHjQJhu"><img alt=3D"Verizon Wireless" height=3D"29" width=3D"203" b=
+order=3D"0" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer=
+_nl/09_c_c_08_nl/imgs/vzwlogo2.gif"></a></td>
+                                <td style=3D" padding-right:10px; padding-t=
+op:5px;" valign=3D"middle" align=3D"right" height=3D"45"><img alt=3D"August=
+ 2009 Newsletter" width=3D"290" height=3D"29" src=3D"http://ecrm.vzwshop.co=
+m/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/august_newsletter.g=
+if"></td>
+                          </tr>
+                          <tr>
+                          	<td align=3D"center" valign=3D"top" colspan=3D"2=
+"><img usemap=3D"#Map" border=3D"0" height=3D"30" width=3D"640" alt=3D"" sr=
+c=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_=
+nl/imgs/navbar.jpg"></td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+                <tr>
+                	<td style=3D"border-top:8px solid #585858;" valign=3D"top"=
+ bgcolor=3D"#FFFFFF" width=3D"640" height=3D"285">
+                    	<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+">
+                        	<tr>
+                            	<td valign=3D"top">
+                                	<!--Begin Module-->
+                                	<table cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0">
+                                    	<tr>
+											<td colspan=3D"3"><img alt=3D"-" width=3D"194" height=3D"9" src=
+=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_n=
+l/imgs/cust_mod_top.jpg"></td>
+                                      </tr>
+                                        <tr>
+                                        	<td valign=3D"top"><img alt=3D"-" =
+width=3D"9" height=3D"266" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consume=
+r/2009_consumer_nl/09_c_c_08_nl/imgs/cust_mod_left.jpg"></td>
+                                      <td style=3D"font-family:arial; color=
+:#000000; font-size:12px;" width=3D"184" height=3D"255" valign=3D"top" alig=
+n=3D"center">
+                                            	<table cellspacing=3D"0" cellp=
+adding=3D"0" border=3D"0">
+                                                	<tr>
+                                                    	<td style=3D"font-fami=
+ly:arial; font-size:12px;padding-left:9px;color:#e10000;padding-top:1px;" v=
+align=3D"top" align=3D"left"><b>Anandaraj N</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style=3D"font-f=
+amily:arial; color:#000000; padding-left:9px;font-size:11px;" valign=3D"top=
+" align=3D"left">Mobile number ending in <b>2322</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style=3D"paddin=
+g-top:7px; padding-left:9px;" valign=3D"top" align=3D"left">
+                                                        	<table cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0">
+                                                            	<tr>
+                                                                	<td style=
+=3D"padding-right:9px;" rowspan=3D"6"><img alt=3D"BlackBerry 8830" width=3D=
+"55" height=3D"84" src=3D"http://www.verizonwireless.com/images_b2c/phones/=
+mini/bb_8830.jpg"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                	<td style=
+=3D"font-family:arial; font-size:12px;color:#e10000;"><b>Your Device:</b></=
+td>
+                                                                </tr>
+                                                                <tr>
+                                                                	<td style=
+=3D"font-family:arial; color:#000000;font-size:11px;"><b>BlackBerry 8830 Wo=
+rld Edition Smartphone</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                	<td><a sty=
+le=3D"font-family:arial; text-decoration:none; color:#0066cc;font-size:11px=
+;" target=3D"_blank" href=3D"https://email.vzwshop.com/servlet/cc6?NFOQWRBY=
+QBVHgHgKxHtlLJoklHjQJhuVaVSVGf6beVHgHgKxHtlLJoklHjQJhuVydb9VURSY">View Guid=
+e</a>	<div>
+<div>
+<a style=3D"text-decoration:none; color:#0066cc;font-size:11px;font-family:=
+arial; " target=3D"_blank" href=3D"https://email.vzwshop.com/servlet/cc6?NF=
+OQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVUWVGf6beVHgHgKxHtlLJoklHjQJhuVydb9VURSYVyyX=
+f6dGV7tHJs7LjjP%25TAjLn%3BVyyXfw9GeVCCUR+4hjtK+GKplphg+1uHjliohgL">Add Acce=
+ssories</a></div></div></td>
+                                                                </tr>
+                                                         =20
+                                                                <tr>
+                                                                	<td></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                    	<td style=3D"padding-t=
+op:7px; padding-bottom:7px;"><img alt=3D"-" width=3D"184" height=3D"1" src=
+=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/09_c_p_07_nl_consumer_July_m=
+oxietest/images/cust_mod_divider.jpg"></td>
+                                                    </tr>
+                                                   <tr>
+                                                    	<td style=3D"font-fami=
+ly:arial; color:#000000; padding-left:9px;color:#e10000;" align=3D"left"><b=
+>Your Plan:</b></td>
+                                                  </tr>
+                                                    <tr>
+                                                    	<td style=3D"font-fami=
+ly:arial; color:#000000; padding-left:9px; font-size:11px;" align=3D"left">=
+<b>AMERICAS CHOICE</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                    	<td style=3D"font-fami=
+ly:arial; color:#000000; font-size:12px;padding-left:9px;" align=3D"left"> =
+  700 Minutes
+														<div><span>$</span>60&nbsp;Monthly Access</div>
+														</td>
+                                                    </tr>
+                                                =20
+                                                    <tr>
+                                                    	<td style=3D"padding-l=
+eft:9px; font-family:arial; text-decoration:none; color:#0066cc; font-size:=
+11px;" align=3D"left">
+														<div></div>
+														<div><a style=3D"text-decoration:none; color:#0066cc;font-siz=
+e:11px;font-family:arial; " target=3D"_blank" href=3D"https://email.vzwshop=
+.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVUVGf6beVHgHgKxHtlLJoklHj=
+QJhu">Pay Your Bill Online</a></div>
+														<div>
+<div><a style=3D"text-decoration:none; color:#0066cc;font-size:11px;font-fa=
+mily:arial; " target=3D"_blank" href=3D"https://email.vzwshop.com/servlet/c=
+c6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVWVGf6beVHgHgKxHtlLJoklHjQJhu">Add A Li=
+ne</a></div></div>
+														<div><a style=3D"text-decoration:none; color:#0066cc;font-siz=
+e:11px;font-family:arial; " target=3D"_blank" href=3D"https://email.vzwshop=
+.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVYVGf6beVHgHgKxHtlLJoklHj=
+QJhu">Check Account Balance</a></div>
+													=09
+                                                  =20
+                                                </td>
+                                                    </tr>
+                                                =20
+                                                </table>
+                                          </td>
+                                            <td valign=3D"top"><img alt=3D"=
+-" width=3D"1" height=3D"266" src=3D"http://ecrm.vzwshop.com/2009_ECRM/cons=
+umer/2009_consumer_nl/09_c_c_08_nl/imgs/cust_mod_right.gif"></td>
+                                      </tr>
+                                        <tr>
+                                        	<td valign=3D"top" colspan=3D"3"><=
+img alt=3D"-" width=3D"194" height=3D"1" src=3D"http://ecrm.vzwshop.com/200=
+9_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/cust_mod_bottom.gif"></t=
+d>
+                                   	  </tr>
+                                    <!-- End Module-->   =20
+                                    </table>
+                                </td>
+                                <td valign=3D"top">
+                                	<table cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0">
+                                    	<tr>
+                                        	<td align=3D"right" valign=3D"top"=
+><img alt=3D"A lost phone shouldn't mean lost friends." width=3D"292" heigh=
+t=3D"139" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_n=
+l/09_c_c_08_nl/imgs/hero_left.jpg"></td>
+                                        </tr>
+                                        <tr>
+                                        	<td style=3D"font-family:Arial, He=
+lvetica, sans-serif;  color:#e10000; font-size:12px; font-weight:bold; padd=
+ing-left:15px;" align=3D"left" valign=3D"top">
+                                            Backup Assistant keeps your con=
+tacts safe, and it's free for My Verizon subscribers</td>
+                                        </tr>
+                                        <tr>
+                                        	<td style=3D"font-family:Arial, He=
+lvetica, sans-serif;  color:#666666; font-size:12px; padding-left:15px; pad=
+ding-top:8px;" align=3D"left" valign=3D"top">
+                                        	With Backup Assistant, you can sav=
+e a copy of your phone's address book to a secure website. That way, if you=
+ lose, damage or upgrade your phone, Backup Assistant will restore your con=
+tact list to your new device.</td>
+                                        </tr>
+                                        <tr>
+                                        	<td style=3D"padding-left:15px; pa=
+dding-top:20px;" align=3D"left" valign=3D"top">
+                                            	<table cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0">
+                                                    <tr>
+                                                        <td><img alt=3D"" h=
+eight=3D"7" width=3D"6" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2=
+009_consumer_nl/09_c_c_08_nl/imgs/arrow.gif"></td>
+                                                        <td style=3D"paddin=
+g-left:4px;"><a style=3D"text-decoration:none; color:#0066cc; font-family:A=
+rial; font-size:12px;padding-left:3px;" target=3D"_blank" href=3D"https://e=
+mail.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVBVGf6beVHgHg=
+KxHtlLJoklHjQJhu">Read More</a></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td align=3D"left" valign=3D"top"><img alt=
+=3D"" width=3D"154" height=3D"344" src=3D"http://ecrm.vzwshop.com/2009_ECRM=
+/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/hero_right.jpg"></td>
+                          </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                	<td style=3D"padding-top:10px; border-top:8px solid #58585=
+8;" bgcolor=3D"#FFFFFF" align=3D"center" valign=3D"top" width=3D"640">
+                    	<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+">
+                        	<tr>
+                            	<td valign=3D"top">
+                                    <!--Begin Module-->
+                                   =20
+								=09
+								=09
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+    <tr>
+        <td colspan=3D"3"><img alt=3D"Spotlight: Celebrity Digest" width=3D=
+"307" height=3D"59" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_=
+consumer_nl/09_c_c_08_nl/imgs/extra/spot2_mod_top.gif"></td>
+    </tr>
+    <tr>
+        <td valign=3D"top"><img alt=3D"-" width=3D"1" height=3D"91" src=3D"=
+http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/im=
+gs/extra/spot2_mod_sides.gif"></td>
+      <td style=3D"font-family:arial; color:#666666; font-size:12px;" width=
+=3D"305" height=3D"91" valign=3D"top" bgcolor=3D"#F4F4F4" align=3D"center">
+      <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+        <tr>
+            <td style=3D"padding-top:2px; padding-left:10px; font-family:ar=
+ial; color:#666666; font-size:12px;" width=3D"305" height=3D"59" align=3D"l=
+eft" valign=3D"top">Hollywood is calling! Now you can have all major celebr=
+ity news rushed to your phone and access thousands of images from the hotte=
+st parties.</td>
+        </tr>
+        <tr>
+            <td align=3D"left" valign=3D"top">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+                    <tr>
+                        <td align=3D"left" valign=3D"top"><a target=3D"_bla=
+nk" href=3D"https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJokl=
+HjQJhuVaVSRVGf6beVHgHgKxHtlLJoklHjQJhu"><img border=3D"0" alt=3D"" width=3D=
+"101" height=3D"32" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_=
+consumer_nl/09_c_c_08_nl/imgs/extra/spot2_mod_img.jpg"></a></td>
+                        <td style=3D"padding-left:70px;" align=3D"left" val=
+ign=3D"top">
+                            <table cellpadding=3D"0" cellspacing=3D"0" bord=
+er=3D"0">
+                                <tr>
+                                    <td><img alt=3D"" height=3D"7" width=3D=
+"6" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c=
+_c_08_nl/imgs/arrow4.gif"></td>
+                                    <td style=3D"padding-left:4px;"><a styl=
+e=3D"text-decoration:none; color:#0066cc; font-family:Arial; font-size:12px=
+;padding-left:3px;" target=3D"_blank" href=3D"https://email.vzwshop.com/ser=
+vlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVCVGf6beVHgHgKxHtlLJoklHjQJhu">Ge=
+t This App</a></td>
+                                </tr>
+                                <tr>
+                                    <td><img alt=3D"" height=3D"7" width=3D=
+"6" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c=
+_c_08_nl/imgs/arrow4.gif"></td>
+                                    <td style=3D"padding-left:4px;"><a styl=
+e=3D"text-decoration:none; color:#0066cc; font-family:Arial; font-size:12px=
+;padding-left:3px;" target=3D"_blank" href=3D"https://email.vzwshop.com/ser=
+vlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVDVGf6beVHgHgKxHtlLJoklHjQJhu">Se=
+e All Apps</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+      </table>
+      </td>
+        <td valign=3D"top"><img alt=3D"-" width=3D"1" height=3D"91" src=3D"=
+http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/im=
+gs/extra/spot2_mod_sides.gif"></td>
+  </tr>
+    <tr>
+        <td valign=3D"top" colspan=3D"3"><a target=3D"_blank" href=3D"https=
+://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVSRVGf6be=
+VHgHgKxHtlLJoklHjQJhu"><img alt=3D"Compatible phone required" border=3D"0" =
+width=3D"307" height=3D"117" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consu=
+mer/2009_consumer_nl/09_c_c_08_nl/imgs/extra/spot2_mod_bottom.jpg"></a></td>
+    </tr>
+    <!-- End Module-->   =20
+</table>=09
+								=09
+								=09
+								</td>
+                                <td style=3D"padding-left:10px;" valign=3D"=
+top">
+                                    <!--Begin Module-->
+                                   =20
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+                                        <tr>
+                                            <td colspan=3D"3"><img alt=3D"Y=
+our login info at your fingertips. We can help you find your user ID and pa=
+ssword ASAP!" width=3D"307" height=3D"91" src=3D"http://ecrm.vzwshop.com/20=
+09_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/login_mod_top.gif"></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign=3D"top"><img alt=3D"=
+-" width=3D"1" height=3D"175" src=3D"http://ecrm.vzwshop.com/2009_ECRM/cons=
+umer/2009_consumer_nl/09_c_c_08_nl/imgs/login_mod_sides.gif"></td>
+                                            <td width=3D"305" height=3D"175=
+" valign=3D"top" bgcolor=3D"#F4F4F4" align=3D"center">
+                                            	<table cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0">
+                                                    <tr>
+                                                        <td style=3D"paddin=
+g-left:10px; padding-right:25px; font-family:arial; color:#666666; font-siz=
+e:12px;" width=3D"305" align=3D"left" valign=3D"top">It's easy to find your=
+ My Verizon user ID and password. Just click one of the links below to get =
+started!</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align=3D"left" =
+valign=3D"top">
+                                                            <table cellpadd=
+ing=3D"0" cellspacing=3D"0" border=3D"0">
+                                                                <tr>
+                                                                    <td ali=
+gn=3D"left" valign=3D"top">
+                                                                    	<table=
+ cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+                                                                           =
+ <tr>
+                                                                           =
+     <td style=3D"padding-left:10px; padding-top:25px;"><img alt=3D"" heigh=
+t=3D"7" width=3D"6" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_=
+consumer_nl/09_c_c_08_nl/imgs/arrow4.gif"></td>
+                                                                           =
+     <td style=3D"padding-left:4px; padding-top:25px;"><a style=3D"text-dec=
+oration:none; color:#0066cc; font-family:Arial; font-size:12px;padding-left=
+:3px;" target=3D"_blank" href=3D"https://email.vzwshop.com/servlet/cc6?NFOQ=
+WRBYQBVHgHgKxHtlLJoklHjQJhuVaVSSVGf6beVHgHgKxHtlLJoklHjQJhu">Find My Passwo=
+rd</a></td>
+                                                                           =
+ </tr>
+                                                                           =
+ <tr>
+                                                                           =
+     <td style=3D"padding-left:10px;"><img alt=3D"" height=3D"7" width=3D"6=
+" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c=
+_08_nl/imgs/arrow4.gif"></td>
+                                                                           =
+     <td style=3D"padding-left:4px;"><a style=3D"text-decoration:none; colo=
+r:#0066cc; font-family:Arial; font-size:12px;padding-left:3px;" target=3D"_=
+blank" href=3D"https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJ=
+oklHjQJhuVaVSTVGf6beVHgHgKxHtlLJoklHjQJhu">Find My User ID</a></td>
+                                                                           =
+ </tr>
+                                                                        </t=
+able>
+                                                                    </td>
+                                                                    <td sty=
+le=3D"padding-left:15px;" align=3D"left" valign=3D"top"><img alt=3D"" width=
+=3D"146" height=3D"126" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2=
+009_consumer_nl/09_c_c_08_nl/imgs/login_mod_img.jpg"></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                              </table>
+                                            </td>
+                                            <td valign=3D"top"><img alt=3D"=
+-" width=3D"1" height=3D"175" src=3D"http://ecrm.vzwshop.com/2009_ECRM/cons=
+umer/2009_consumer_nl/09_c_c_08_nl/imgs/login_mod_sides.gif"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=3D"3"><img alt=3D"-=
+" width=3D"307" height=3D"1" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consu=
+mer/2009_consumer_nl/09_c_c_08_nl/imgs/login_mod_bottom.gif"></td>
+                                      </tr>
+                                    <!-- End Module-->   =20
+                                    </table>=09
+								</td>
+							</tr>
+						</table>
+                    </td>
+                </tr>
+                <tr>
+                	<td style=3D"padding-top:9px;" bgcolor=3D"#FFFFFF">
+				=09
+<table bgcolor=3D"#FFFFFF" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+                        	<tr>
+                            	<td colspan=3D"2"><img alt=3D"Our latest phons=
+ are the hottest topic. The July survey results are in, and customers want =
+to hear all about our new devices." width=3D"640" height=3D"58" src=3D"http=
+://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/l=
+atest_mod_top.jpg"></td>
+                            </tr>
+                            <tr>
+                           	  <td width=3D"156" valign=3D"top" align=3D"lef=
+t"><img alt=3D"" width=3D"156" height=3D"62" src=3D"http://ecrm.vzwshop.com=
+/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/latest_mod_left.jpg"=
+></td>
+                              <td align=3D"left" valign=3D"top">
+                              	<table width=3D"484" cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0">
+                                	<tr>
+                                    	<td style=3D"font-family:arial; color:=
+#666666; font-size:12px; padding-left:33px; padding-top:5px; padding-right:=
+30px;" align=3D"left" valign=3D"top" colspan=3D"2">
+                                        	Check out all our new devices, inc=
+luding the <a style=3D"text-decoration:underline; color:#0066cc; font-famil=
+y:Arial; font-size:12px;" target=3D"_blank" href=3D"https://email.vzwshop.c=
+om/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVSUVGf6beVHgHgKxHtlLJoklHjQ=
+Jhu">BlackBerry&reg; Tour&trade;</a>, which can=20
+help you stay productive with email and Microsoft Document Managing.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                 =20
+                                        <td style=3D"padding-left:15px;" al=
+ign=3D"left" valign=3D"top">
+                                        	<table width=3D"150" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0">
+                                            	 <tr>
+                                                    <td style=3D"padding-le=
+ft:20px; padding-top:10px;"><img alt=3D"" height=3D"7" width=3D"6" src=3D"h=
+ttp://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/img=
+s/arrow.gif"></td>
+                                                    <td style=3D"padding-le=
+ft:0px; padding-top:5px;"><a style=3D"text-decoration:none; color:#0066cc; =
+font-family:Arial; font-size:12px;padding-left:3px;" target=3D"_blank" href=
+=3D"https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVa=
+VSWVGf6beVHgHgKxHtlLJoklHjQJhu">Browse All Phones</a></td>
+                                                </tr>
+													 <tr>
+                                                    <td style=3D"padding-le=
+ft:20px; padding-top:5px;"><img alt=3D"" height=3D"7" width=3D"6" src=3D"ht=
+tp://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs=
+/arrow.gif"></td>
+                                                    <td style=3D"padding-le=
+ft:0px; padding-top:5px; padding-bottom:3px;"><a style=3D"text-decoration:n=
+one; color:#0066cc; font-family:Arial; font-size:12px;padding-left:3px;" ta=
+rget=3D"_blank" href=3D"https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHg=
+HgKxHtlLJoklHjQJhuVaVSYVGf6beVHgHgKxHtlLJoklHjQJhu">View Survey Results</a>=
+</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                            	<td colspan=3D"2"><img alt=3D"-" width=3D"640"=
+ height=3D"1" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consum=
+er_nl/09_c_c_08_nl/imgs/latest_mod_bottom.gif"></td>
+                            </tr>
+                        </table>
+                    =09
+                    </td>
+                </tr>
+                <tr>
+                	<td style=3D"padding-top:10px; padding-bottom:10px;" bgcol=
+or=3D"#FFFFFF" align=3D"center" valign=3D"top" width=3D"640">
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+                        	<tr>
+                            	<td valign=3D"top">
+                                    <!--Begin Module-->
+                                    <table cellpadding=3D"0" cellspacing=3D=
+"0" border=3D"0">
+                                        <tr>
+                                            <td colspan=3D"3"><img alt=3D"F=
+riends &amp; Family Challenge. Find out who belongs in your top five or 10 =
+with a quiz you create on Facebook." width=3D"307" height=3D"140" src=3D"ht=
+tp://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs=
+/fnf_mod_top.gif"></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign=3D"top"><img alt=3D"=
+-" width=3D"1" height=3D"122" src=3D"http://ecrm.vzwshop.com/2009_ECRM/cons=
+umer/2009_consumer_nl/09_c_c_08_nl/imgs/fnf_mod_sides.gif"></td>
+                                          	<td width=3D"305" height=3D"122"=
+ valign=3D"top" bgcolor=3D"#EEEEEE" align=3D"left">
+                                                <table width=3D"280" cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0">
+                                                	<tr>
+                                                    	<td style=3D"font-fami=
+ly:arial; color:#666666; font-size:12px; padding-top:8px; padding-left:15px=
+;" align=3D"left">
+                                                        Which of your Faceb=
+ook friends deserves a spot on your Friends &amp; Family list? Now you can =
+find out with a quiz that&rsquo;s all about you! Present your pals with the=
+ ultimate friendship test using the Friends &amp; Family Challenge app.</td>
+                                                  </tr>
+                                                    <tr>
+                                                    	<td style=3D"padding-t=
+op:17px; padding-left:15px;" align=3D"left">
+                                                        	<table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0">
+  																<tr>
+                                                                    <td><im=
+g alt=3D"" height=3D"10" width=3D"8" src=3D"http://ecrm.vzwshop.com/2009_EC=
+RM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/arrow2.gif"></td>
+                                                                    <td sty=
+le=3D"padding-left:4px;"><a style=3D"text-decoration:none; color:#0066cc; f=
+ont-family:Arial; font-size:12px;padding-left:3px;" target=3D"_blank" href=
+=3D"https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVa=
+VSBVGf6beVHgHgKxHtlLJoklHjQJhu">Issue a Challenge Now</a></td>
+															    </tr>
+															</table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                          </td>
+                                            <td valign=3D"top"><img alt=3D"=
+-" width=3D"1" height=3D"122" src=3D"http://ecrm.vzwshop.com/2009_ECRM/cons=
+umer/2009_consumer_nl/09_c_c_08_nl/imgs/fnf_mod_sides.gif"></td>
+                                      </tr>
+                                        <tr>
+                                            <td valign=3D"top" colspan=3D"3=
+"><a target=3D"_blank" href=3D"https://email.vzwshop.com/servlet/cc6?NFOQWR=
+BYQBVHgHgKxHtlLJoklHjQJhuVaVTTVGf6beVHgHgKxHtlLJoklHjQJhu"><img alt=3D"&cop=
+y; WeatherBug, 2007. WeatherBug is a brand of AWS Convergence Technologies,=
+ Inc. All rights reserved." border=3D"0" width=3D"307" height=3D"158" src=
+=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_n=
+l/imgs/fnf_mod_bottom.jpg"></a></td>
+                                      </tr>
+                                    <!-- End Module-->   =20
+                                    </table>
+								</td>
+                                <td style=3D"padding-left:10px;" valign=3D"=
+top">
+                                    <!--Begin Module-->
+                                   =20
+								=09
+								=09
+								=09
+								=20
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+    <tr>
+        <td colspan=3D"3"><img alt=3D"Your phone gets personal. Make your p=
+hone all about you with wallpapers from our media store." width=3D"307" hei=
+ght=3D"87" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_=
+nl/09_c_c_08_nl/imgs/phone_mod_top.gif"></td>
+    </tr>
+    <tr>
+        <td valign=3D"top"><img alt=3D"-" width=3D"1" height=3D"332" src=3D=
+"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/i=
+mgs/phone_mod_sides.gif"></td>
+        <td style=3D"font-family:arial; color:#666666; font-size:12px;" hei=
+ght=3D"332" width=3D"305" valign=3D"top" bgcolor=3D"#EEEEEE" align=3D"cente=
+r">
+            <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+                <tr>
+                  <td style=3D"padding-top:25px;" align=3D"center" valign=
+=3D"top"><a target=3D"_blank" href=3D"https://email.vzwshop.com/servlet/cc6=
+?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVTUVGf6beVHgHgKxHtlLJoklHjQJhuVyw3v92ab1z=
+e60VKpkitHP9jpNLjVKpkitHP9jpNLjVYTT%25TAVJHlvHuLV4HttiHiLjk%25TAVJHlb9VUUYA=
+DW"><img border=3D"0" alt=3D"" width=3D"287" height=3D"258" src=3D"http://e=
+crm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/extra=
+/phone4_mod_img.jpg"></a></td>
+                </tr>
+                <tr>
+                  <td style=3D"padding-top:20px; padding-left:10px;" align=
+=3D"left" valign=3D"top">
+                        <table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0">
+                            <tr>
+                                <td><img alt=3D"" height=3D"10" width=3D"8"=
+ src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_=
+08_nl/imgs/arrow2.gif"></td>
+                                <td style=3D"padding-left:4px;"><a style=3D=
+"text-decoration:none; color:#0066cc; font-family:Arial; font-size:12px;pad=
+ding-left:3px;" target=3D"_blank" href=3D"https://email.vzwshop.com/servlet=
+/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVSAVGf6beVHgHgKxHtlLJoklHjQJhuVyw3v92=
+ab1ze60VKpkitHP9jpNLjVKpkitHP9jpNLjVYTT%25TAVJHlvHuLV4HttiHiLjk%25TAVJHlb9V=
+UUYADW">Browse All Wallpapers</a></td>
+                            </tr>
+                        </table>
+                  </td>
+                </tr>
+            </table>
+      </td>
+        <td valign=3D"top"><img alt=3D"-" width=3D"1" height=3D"332" src=3D=
+"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/i=
+mgs/phone_mod_sides.gif"></td>
+            </tr>
+            <tr>
+                <td colspan=3D"3"><img alt=3D"-" width=3D"307" height=3D"1"=
+ src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_=
+08_nl/imgs/phone_mod_bottom.gif"></td>
+  </tr>
+<!-- End Module-->   =20
+</table>=09
+								=09
+								</td>
+							</tr>
+					  </table>
+                    </td>
+                </tr>
+                <tr>
+                	<td><img usemap=3D"#Map2" border=3D"0" height=3D"86" width=
+=3D"640" alt=3D"Worry Free Guarantee&reg; - No wireless provider stands beh=
+ind you like Verizon Wireless" src=3D"http://ecrm.vzwshop.com/2009_ECRM/con=
+sumer/2009_consumer_nl/09_c_c_08_nl/imgs/footer.jpg"></td>
+                </tr>
+                <tr>
+                	<td>
+                    	<table bgcolor=3D"#F4F4F4" width=3D"640" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0">
+                        	<tr>
+                            	<td style=3D"padding-left:20px; padding-top:5p=
+x; padding-bottom:5px;" align=3D"left" width=3D"300">
+                                	<table cellspacing=3D"0" cellpadding=3D"0"=
+ border=3D"0">
+                                    	<tr>
+                                        	<td style=3D"font-family:arial; fo=
+nt-size:12px; color:#333333;" align=3D"left">
+                                            	<b>Find a Store Near You!</b>=
+=09
+                                            </td>
+                                            <td style=3D"padding-left:10px;=
+">
+                                            	<table border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0">
+                                                <tr>
+                                                	<td style=3D"border:1px so=
+lid #999999; width:91px; height:18px; background-color:#FFFFFF; font-family=
+:Arial, Helvetica, sans-serif; font-size:10px;"><div style=3D"font-family:A=
+rial, Helvetica, sans-serif; font-size:10px; padding:3px; color:#999999"><a=
+ style=3D"font-family:Arial, Helvetica, sans-serif; font-size:10px; text-de=
+coration:none; color:#999999" target=3D"_blank" href=3D"https://email.vzwsh=
+op.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVTWVGf6beVHgHgKxHtlLJok=
+lHjQJhuVzdbyX8w9GVRCYWR">08540</a></div></td>
+                                                </tr>
+                                                </table>
+                                            </td>
+                                            <td style=3D"padding-left:5px;">
+                                            	<table border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0"><tr><td style=3D"padding-top:2px;"><a target=3D"_=
+blank" href=3D"https://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJ=
+oklHjQJhuVaVTWVGf6beVHgHgKxHtlLJoklHjQJhuVzdbyX8w9GVRCYWR"><img border=3D"0=
+" src=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/09_c_p_07_nl_consumer_J=
+uly_moxietest/images/formbutton.gif"></a></td></tr></table>
+                                            </td>=20
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style=3D"padding-right:20px; padding-to=
+p:5px; padding-bottom:5px;" align=3D"right" width=3D"300">
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+                                    	<tr>
+                                        	<td style=3D"font-family:arial; fo=
+nt-size:12px; color:#333333;" align=3D"left">
+                                            	<b>Get Connected with Verizon =
+Wireless!</b>=09
+                                            </td>
+                                            <td style=3D"padding-left:5px; =
+padding-top:3px;">
+                                           	  <a href=3D"https://email.vzws=
+hop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVTYVGf6beVHgHgKxHtlLJo=
+klHjQJhu"><img border=3D"0" alt=3D"Facebook" width=3D"16" height=3D"16" src=
+=3D"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_n=
+l/imgs/facebook_icon.gif"></a>&nbsp;&nbsp; <a href=3D"https://email.vzwshop=
+.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVTAVGf6beVHgHgKxHtlLJoklH=
+jQJhu"><img border=3D"0" alt=3D"You Tube" width=3D"16" height=3D"16" src=3D=
+"http://ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/i=
+mgs/youtube_icon.gif"></a>&nbsp;&nbsp;<a href=3D"https://email.vzwshop.com/=
+servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVTBVGf6beVHgHgKxHtlLJoklHjQJhu=
+"><img border=3D"0" alt=3D"Twitter" width=3D"17" height=3D"16" src=3D"http:=
+//ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/tw=
+itter_icon.gif"></a>
+                                            </td>
+</tr>
+                                  </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                	<td><img alt=3D"-" width=3D"640" height=3D"1" src=3D"http:=
+//ecrm.vzwshop.com/2009_ECRM/consumer/2009_consumer_nl/09_c_c_08_nl/imgs/bo=
+ttom_page_divider.gif"></td>
+                </tr>
+                <tr>
+                	<td align=3D"center" bgcolor=3D"#FFFFFF">
+                    	<table width=3D"450" cellspacing=3D"0" cellpadding=3D"=
+0" border=3D"0">
+                        	<tr>
+                            	<td style=3D"font-family:arial; font-size:10px=
+; color:#666666;" align=3D"center">
+                                    <div style=3D"border-top:20px solid #FF=
+FFFF;font-family:arial; font-size:10px; color:#666666;">&copy;2009 Verizon =
+Wireless</div>
+                                    <div style=3D"border-top:15px solid #FF=
+FFFF;font-family:arial; font-size:10px; color:#666666;">* The $1.99 monthly=
+ fee for Backup Assistant is automatically waived for My Verizon subscriber=
+s.</div>
+                                    <div style=3D"border-top:15px solid #FF=
+FFFF;font-family:arial; font-size:10px; color:#666666;">Verizon Wireless | =
+One Verizon Way | Mail Code: 180WVB | Basking Ridge, NJ 07920</div>
+                                   <div style=3D"border-top:15px solid #FFF=
+FFF;font-family:arial; font-size:10px; color:#666666;">This email was sent =
+to anand@altechstar.com and associated with your Verizon Wireless mobile nu=
+mber 609-240-2322. We respect your privacy. Please review our <a style=3D"t=
+ext-decoration:none; color:#0066cc;" target=3D"_blank" href=3D"https://emai=
+l.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVSDVGf6beVHgHgKx=
+HtlLJoklHjQJhu">privacy policy</a> for more information about click activit=
+y with Verizon Wireless and links included in this email.</div>
+                                    <div style=3D"border-top:15px solid #FF=
+FFFF; border-bottom:25px solid #FFFFFF;font-family:arial; font-size:10px; c=
+olor:#666666;">If you no longer wish to receive future emails, you may <a s=
+tyle=3D"text-decoration:none; color:#0066cc;" target=3D"_blank" href=3D"htt=
+ps://email.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVTRVGf6=
+beVHgHgKxHtlLJoklHjQJhuV30eVollik%3A%2F%2FLuHptQNFOkohiQJhu%2FkLjNtLl%2FJHu=
+iHpngjLkihgKLgl%3FXb9X%3DNFOQAUC%25TAGf6be%3DHgHgKxHtlLJoklHjQJhu">unsubscr=
+ibe</a>, or easily adjust your subscription from your <a style=3D"text-deco=
+ration:none; color:#0066cc;" target=3D"_blank" href=3D"https://email.vzwsho=
+p.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVTSVGf6beVHgHgKxHtlLJokl=
+HjQJhu">profile information</a>. </div>
+							  </td>
+							</tr>
+						</table>                               =20
+                    </td>
+                </tr>
+			<!--Inner Table End-->
+			</table>
+        </td>
+	</tr>
+<!--Container Table End-->
+</table>
+
+<map name=3D"Map2">
+  <area alt=3D"Find Out More" target=3D"_blank" href=3D"https://email.vzwsh=
+op.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVSCVGf6beVHgHgKxHtlLJok=
+lHjQJhu" coords=3D"283,30,426,79" shape=3D"rect">
+</map>
+<map name=3D"Map">
+<area alt=3D"Phones &amp; Accessories" target=3D"_blank" href=3D"https://em=
+ail.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVTCVGf6beVHgHg=
+KxHtlLJoklHjQJhu" coords=3D"1,2,148,28" shape=3D"rect">
+<area alt=3D"Plans" target=3D"_blank" href=3D"https://email.vzwshop.com/ser=
+vlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVTDVGf6beVHgHgKxHtlLJoklHjQJhu" c=
+oords=3D"148,2,211,28" shape=3D"rect">
+<area alt=3D"Features &amp; Downloads" target=3D"_blank" href=3D"https://em=
+ail.vzwshop.com/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVURVGf6beVHgHg=
+KxHtlLJoklHjQJhu" coords=3D"211,2,366,28" shape=3D"rect">
+<area alt=3D"Messaging" target=3D"_blank" href=3D"https://email.vzwshop.com=
+/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVUSVGf6beVHgHgKxHtlLJoklHjQJh=
+u" coords=3D"366,2,463,28" shape=3D"rect">
+<area alt=3D"Support" target=3D"_blank" href=3D"https://email.vzwshop.com/s=
+ervlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVUTVGf6beVHgHgKxHtlLJoklHjQJhu"=
+ coords=3D"463,2,542,28" shape=3D"rect">
+<area alt=3D"My Verizon" target=3D"_blank" href=3D"https://email.vzwshop.co=
+m/servlet/cc6?NFOQWRBYQBVHgHgKxHtlLJoklHjQJhuVaVUUVGf6beVHgHgKxHtlLJoklHjQJ=
+hu" coords=3D"542,2,638,28" shape=3D"rect">
+</map><br><br><img src=3D"http://portal.mxlogic.com/images/transparent.gif"=
+ height=3D"3" width=3D"3" border=3D"0">
+</body>
+</html>
+
+--=_reb-r248A44D5-t4A8E0065--
+
+
+--=_reb-r180EAE85-t4A8E0065--
+

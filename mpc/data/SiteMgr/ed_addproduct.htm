@@ -1,0 +1,506 @@
+<html>
+<head>
+<title>Add or Edit Item</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+</head>
+
+<body class="pop-up-bkgrd">
+
+<script runat="merc_server" language="merc-js">
+
+var cs_inc = doActionEx('DATA_READFILE','FormattingLib.js','FileName','FormattingLib.js','ObjectName','JS_SRC','FileType','txt');
+eval(cs_inc);
+
+function GetFormValue(valName)
+{
+	var ret = doAction('REQ_GET_FORMVALUE', valName, valName);
+	if (ret == undefined) return '';
+	return ret;
+}
+
+g_itemInfo = GetBDO();
+g_itemCategories = new Array();
+g_task = GetFormValue('task');
+
+g_itemID = GetFormValue('ItemID');
+if (g_itemID != '')
+{
+	var num = parseInt(g_itemID);
+	if (!isNaN(num)) g_itemID = num;
+}
+
+function MakeWindowClose()
+{
+	writeln('<script language="JavaScript">');
+	writeln('<!--');
+	writeln("window.opener.parent.SubmitForm('L', 'comwiz_5.htm', 'mainFrame', new Array());");
+	writeln('window.close();');
+	writeln('// -->');
+	writeln('</script>');
+}
+
+var g_checkFields = new Array('Key', 'Name', 'Description', 'Price', 'Weight');
+
+function checkItemInfo()
+{
+	for (var i = 0; i < g_checkFields.length; i++)
+	{
+		var fld = g_checkFields[i];
+		if (g_itemInfo[fld] == undefined) g_itemInfo[fld] = '';
+	}
+
+	if (g_itemInfo['Weight'] != '')
+	{
+		var tmp = formatDouble(g_itemInfo['Weight']);
+		if (tmp != undefined) g_itemInfo['Weight'] = tmp;
+	}
+
+	if (g_itemInfo['Price'] != '')
+	{
+		var tmp = formatCurrency(g_itemInfo['Price']);
+		if (tmp != undefined) g_itemInfo['Price'] = tmp;
+	}
+}
+
+function saveItemInfo()
+{
+	var input = GetBDO('Locale', getMerchantLocale(), 'Type', 0);
+	var output = GetBDO();
+
+	if (g_itemID != '')
+	{
+		// this is an existing item
+		input['ItemID'] = g_itemID;
+	}
+	else
+	{
+		var key = GetFormValue('Key');
+		if (key == '') return false;
+		input['Key'] = key;
+
+		// this is a new item -- provide default values for
+		// fields not prompted for
+		input['PricePrecision'] = getDefaultPrecision();
+		input['PriceType'] = 0;
+		input['TAX_CATEGORY_NODE_ID'] = 201;
+		input['FractQty'] = 0;
+		input['OutOfStock'] = 0;
+	}
+
+	var page = new Array('ItemName','item_PictureFile','Description','Price','Weight');
+	var db = new Array('Name','PictureFile','Description','Price','Weight');
+
+	for (var i = 0; i < page.length; i++)
+	{
+		var tmp = GetFormValue(page[i]);
+		if (tmp == '') continue;
+
+		var fld = db[i];
+		input[fld] = tmp;
+	}
+
+	if (input['Weight'] != undefined)
+	{
+		var tmp = stripCommas(input['Weight']);
+		tmp = parseFloat(tmp);
+		if (!isNaN(tmp)) input['Weight'] = tmp;
+	}
+
+	if (input['Price'] != undefined)
+	{
+		var tmp = stripCommas(input['Price']);
+		tmp = stripCurrency(tmp);
+		tmp = parseFloat(tmp);
+		if (!isNaN(tmp)) input['Price'] = tmp;
+	}
+
+	var cat = GetFormValue('Category');
+	if (cat == '') cat = 'none';
+	else
+	{
+		cat = parseInt(cat);
+		if (isNaN(cat)) cat = 'none';
+	}
+
+	// first get rid of the old nodes, if necessary
+	if (g_itemID != '') doAction('CAT_DELETEITEMNODES', 'ItemID', g_itemID);
+
+	// here is where the new item should be added, and g_itemID set
+	ProcessRequest('ITEM_MODIFY', input, output);
+	if (output['ItemID'] != undefined)
+	{
+			var tmp = parseInt(output['ItemID']);
+			if (!isNaN(tmp)) g_itemID = tmp;
+	}
+
+	// then add in the new node, if necessary
+	if (cat != 'none')
+	{
+		var cat_in = GetBDO('ItemID', g_itemID, 'Node0001', cat);
+		doAction('CAT_SETITEMNODES', cat_in);
+	}
+}
+
+function main()
+{
+	if (g_task == 'save')
+	{
+		// save item info, and close the window
+		saveItemInfo();
+		MakeWindowClose();
+		g_task = 'edit';
+	}
+
+	if (g_task == 'edit')
+	{
+		if (g_itemID == '') return;
+
+		// load item info
+		var input = GetBDO('ItemID', g_itemID, 'Locale', getMerchantLocale());
+		ProcessRequest('ITEM_GETALLFIELDS', input, g_itemInfo);
+
+		// load category list
+		var cats = doActionBDO('CAT_GETITEMNODES', 'ItemID', g_itemID);
+		if (cats != undefined && IsBDO(cats))
+			g_itemCategories = cats.GetValues();
+	}
+
+	checkItemInfo();
+}
+
+main();
+</script>
+
+<noscript>
+<p>WARNING: This page uses JavaScript and will not function properly without it!
+Please use a browser which supports JavaScript, or enable scripting if it has been disabled.</p>
+</noscript>
+
+<script runat="merc_server" language="merc-js">
+	writeln ("<scr"+
+		   "ipt language='javascript'>"+
+		   "var gIMAGEPATH = '" + (g_itemInfo['PictureFile'] ? g_itemInfo['PictureFile'] : '') + "';"+
+		   "</scr"+
+		   "ipt>");
+</script>
+
+<script language="JavaScript">
+<!--
+/* ------------------------ begin client-side javascript ------------------------ */
+
+function prodEntry (name, value, bNumber)
+{
+	this.name = name;
+	this.value = value;
+	this.bNumber = bNumber;
+}
+var gREQ_FIELD_AR = new Array(new prodEntry("SKU", "Key", false), 
+			new prodEntry("Name", "ItemName", false), 
+			new prodEntry("Price", "Price", true));
+
+var childWin = "", imageName = "";
+function editWindow ()
+{
+	var editWinName = 'editWin';
+	var winObj = opener.parent.createSimpleSubmitWindow ('425', '750');
+	childWin = window.open ('', editWinName, winObj.createOutput());
+	opener.parent.SubmitForm ('L', 'ed_selectimage_frameset.htm', editWinName, '');
+	return false;
+}
+
+if (!document.all)
+{
+	document.onkeyup=Key_Up;
+	document.captureEvents(Event.KEYUP);
+}	
+
+
+function Key_Up(e)
+{
+	document.form1.item_PictureFile.value = imageName;
+}
+
+function submitImageChange(url, secureUrl, imgrow)
+{
+	if (childWin)
+		childWin.close();
+	slash = url.lastIndexOf('/');
+	if (slash == -1)
+		slash = url.lastIndexOf('\\');
+	if (slash == -1)
+		imageName = url;
+	else
+		imageName = url.substr(slash+1);
+			
+	if (document.form1.item_PictureFile)
+	{
+		if (document.form1.item_PictureFileText.value != imageName)
+		{
+			document.form1.item_PictureFileText.value = imageName;
+		}
+	}
+			
+	gIMAGEPATH = url;
+}
+
+
+function nope()
+{
+	window.close();
+}
+
+function yep()
+{
+	document.form1.item_PictureFile.value = gIMAGEPATH;
+	// Validate the sku
+	var bResChar = false;
+	var itemSku = document.form1.Key.value;
+	var resChar = new Array('@', '*', '+', '/');
+	for (var x = 0; x < resChar.length && !bResChar; x++)
+	{
+		if (itemSku.indexOf(resChar[x]) >= 0)
+			bResChar = true;
+	}
+	var tmpSku = escape (itemSku);
+	if (tmpSku != itemSku || bResChar)
+	{
+		alert ('Invalid character(s) in "SKU".\n'+
+				'A valid SKU can contain any combination of\n'+
+				'letters (a-z, A-Z), numbers (0-9), hyphen (-), underscore (_), or period(.)');
+		return false;
+	}
+	for (var n = 0; n < gREQ_FIELD_AR.length; n++)
+	{
+		// check if the field exists
+		if (document.form1[gREQ_FIELD_AR[n].value])
+		{
+			var tmpVal = document.form1[gREQ_FIELD_AR[n].value].value
+			if ((tmpVal.length <= 0) || (tmpVal == "none"))
+			{
+				alert ('Required value missing! You have not entered a value for "' + gREQ_FIELD_AR[n].name + '".');
+				return false;
+			}
+		}
+	}
+	document.forms['form1'].elements.task.value = 'save';
+	window.opener.parent.SubmitForm('L', 'ed_addproduct.htm', window.name, document.forms['form1']);
+}
+
+/* ------------------------ end client-side javascript ------------------------ */
+//-->
+</script>
+
+<p align="center"><span class="dialog-title">Add or Edit Item</span><br>
+<span class="instr-note">Edit text in white boxes. &nbsp;&nbsp;* = required field</span></p>
+
+<form name="form1" onsubmit="return false;">
+<input type="hidden" name="task">
+
+<script runat="merc_server" language="merc-js">
+writeln('<input type="hidden" name="ItemID" value="', g_itemID, '">');
+</script>
+
+<table width="450" border="0" cellspacing="2" cellpadding="4" align="center" class="table-bkgrd-main">
+<tr>
+	<td class="field-label">
+		<center>
+
+		<table border="0" cellspacing="0" cellpadding="0">
+		<tr valign="top">
+			<td><font color="#FF3300">*</font></td>
+			<td><span class="field-label">SKU:</span></td>
+
+			<script runat="merc_server" language="merc-js">
+				var sku = "";
+				sku = g_itemInfo['Key'];
+				if (g_task == 'add')
+					writeln('<td><input type="text" name="Key"></td>');
+				else
+				{
+					write('<script language="javascript">var csku = "'+sku+'";</script>');
+					writeln('<td><input type="text" name="Key" value='+sku+' onKeyUp="this.value=csku;"></td>');
+				}
+			</script>
+		</tr>
+		<tr valign="top">
+			<td><font color="#FF3300">*</font></td>
+			<td><span class="field-label">Name:</span></td>
+
+			<script runat="merc_server" language="merc-js">
+			writeln('<td><input type="text" name="ItemName" value="', g_itemInfo['Name'], '"></td>');
+			</script>
+		</tr>
+		<tr valign="top">
+			<td>&nbsp;</td>
+			<td><span class="field-label">Image:</span></td>
+			
+			<script runat="merc_server" language="merc-js">
+				var imageName = "";
+				if (g_itemInfo['PictureFile'])
+				{
+					var slash = g_itemInfo['PictureFile'].lastIndexOf('/');
+					if (slash == -1)
+						slash = g_itemInfo['PictureFile'].lastIndexOf('\\');
+					if (slash == -1)
+						imageName = g_itemInfo['PictureFile'];
+					else
+						imageName = g_itemInfo['PictureFile'].substr(slash+1);
+				}
+				write('<script language="javascript">imageName = "'+imageName+'";</script>');
+				writeln('<td><input type="hidden" name="item_PictureFile" value="', g_itemInfo['PictureFile'] ? g_itemInfo['PictureFile'] : '', '">');
+				writeln('<input type="text" onKeyUp="this.value=imageName;" name="item_PictureFileText" value="'+imageName+'">');
+				writeln('<a href="#" onClick="editWindow();return false;"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_selectimage.gif" width="90" height="21" border="0" alt="Select Image"></a>&nbsp;&nbsp;</td>');
+			</script>
+			
+		</tr>
+		<tr valign="top">
+			<td>&nbsp;</td>
+			<td><span class="field-label">Description:</td>
+
+			<script runat="merc_server" language="merc-js">
+			writeln('<td><textarea name="Description" cols="40">', g_itemInfo['Description'], '</textarea></td>');
+			</script>
+		</tr>
+		<tr valign="top">
+			<td><font color="#FF3300">*</font></td>
+			<td><span class="field-label">Price:</span></td>
+
+			<script runat="merc_server" language="merc-js">
+			writeln('<td><input type="text" name="Price" size="10" value="', g_itemInfo['Price'], '"></td>');
+			</script>
+		</tr>
+
+		<script runat="merc_server" language="merc-js">
+
+/* D Menagh 8-2-01 We will always display weight input field ... until we decide otherwise... :)
+		function shouldDisplayWeight()
+		{
+			var output = GetBDO();
+			ProcessRequest('SHIP_GET_METHOD', output);
+
+			// let them enter weight if we can't tell what the shipping model is ..
+			if (output['Result'] == undefined) return true;
+
+			var model = parseInt(output['Result']);
+			if (isNaN(model)) return true; // .. or if we don't understand the shipping model
+
+			// otherwise, 2 is the code for weight threshold
+			return (model == 2);
+		}
+
+		if (shouldDisplayWeight())
+		{
+			writeln('<tr valign="top"><td>&nbsp;</td><td><span class="field-label">Weight:</span></td>');
+			writeln('<td><input type="text" name="Weight" size="10" value="', g_itemInfo['Weight'], '"></td></tr>');
+		}
+		else
+		{
+			writeln('<input type="hidden" name="Weight" value="', g_itemInfo['Weight'] == '' ? 0 : g_itemInfo['Weight'], '">');
+		}
+*/
+		writeln('<tr valign="top"><td>&nbsp;</td><td><span class="field-label">Weight:</span></td>');
+		writeln('<td><input type="text" name="Weight" size="10" value="', g_itemInfo['Weight'], '"></td></tr>');
+
+		</script>
+
+		<tr valign="top">
+			<td>&nbsp;</td>
+			<td><span class="field-label">Category:</td>
+			<td>
+				<select name="Category">
+
+<script runat="merc_server" language="merc-js">
+//default to selecting the "unassigned" category
+var gSelectedOption = 0;
+function padLeft(prefix, num)
+{
+	if (num < 10) return prefix + '000' + num;
+	if (num < 100) return prefix + '00' + num;
+	if (num < 1000) return prefix + '0' + num;
+	return prefix + num;
+}
+
+function PosInArray(arrayToSearch, valToFind)
+{
+	for (var i = 0; i < arrayToSearch.length; i++)
+		if (arrayToSearch[i] == valToFind) return i;
+	return -1;
+}
+
+var foundSelectedNode = false;
+
+function isSelectedNode(whichNode)
+{
+	if (foundSelectedNode) return false;
+
+	if (PosInArray(g_itemCategories, whichNode) != -1)
+	{
+		foundSelectedNode = true;
+		return true;
+	}
+	return false;
+}
+
+function downBranch(mainBDO, baseID, depth)
+{
+	var parentBDO = mainBDO[padLeft('Parent', baseID)];
+	if (parentBDO == undefined) return;
+
+	for (var i = 1; i <= parentBDO.GetSize(); i++)
+	{
+		var desc = parentBDO[padLeft('Desc', i)];
+		var tmpNodeID = parentBDO[padLeft('NodeID', i)];
+		if (desc == undefined || tmpNodeID == undefined) continue;
+
+		write('<option value="', tmpNodeID, '">');
+		if (isSelectedNode(tmpNodeID))
+			gSelectedOption = i - 1;
+
+		// force the unassigned node to be selected if in add mode
+		if ((foundSelectedNode == false) && (tmpNodeID == '3'))
+			gSelectedOption = i -1;
+
+		for (var j = 0; j < depth; j++)
+			write('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+		writeln(desc + '</option>');
+		downBranch(mainBDO, tmpNodeID, depth + 1);
+	}
+}
+
+var baseNode = 9000;
+var bdo = doActionBDO('CAT_GETBRANCH', 'TopNodeID', baseNode, 'Locale', getMerchantLocale());
+
+if (bdo && bdo.GetSize()) downBranch(bdo, baseNode, 0);
+writeln('</select>');
+writeln ("<scri"+
+		"pt language='javascript'>document.form1.Category.selectedIndex="+gSelectedOption+"</scri"+
+		"pt>");
+</script>
+				</select>
+			</td>
+		</tr>
+		</table>
+
+		<p>	<!--HELP WINDOW LINK-->
+	<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+	<a href="javascript:void(window.opener.parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_RTL_ADDEDIT_ITEMS+SoftCart+{helpversion}+en-us', 'Alane'));">
+	<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a>
+	<!--END HELP WINDOW LINK-->
+		<a href="javascript:nope()"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel"></a>
+		<a href="javascript:void(yep());"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Save"></a>
+		</p>
+
+		</center>
+	</td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

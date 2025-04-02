@@ -1,0 +1,217 @@
+<html>
+<head>
+<title>Time Sheet - Registration Module</title>
+<link href="styles/AltechIntra.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+<body bgcolor="#ffffcc" link="Blue" vLink="Blue" alink="Blue" leftmargin="0" topmargin="0" bottommargin="0" marginwidth="0" marginheight="0">
+<form name=ractreg>
+<table border=0 cellspacing=0 cellpadding=0 width="100%" height="30">
+    <tr> 
+      <td width="97%" align=left>&nbsp;<font class="pagetitle">Project Registration</font></td>
+    </tr>
+  </table>
+
+            
+  <table width="750" cellpadding=0 cellspacing=0 bgcolor="#D1E2FF" height="18">
+    <tr> 
+      <td width="125" height="18" align=center><a href="registration.html"><img src="images/projdetails_tab_normal.jpg" width="125" height="18" border="0"></a></td>
+      <td width="125" height="18" align=center><a href="pregistration.html"><img src="images/clientdetails_tab_normal.jpg" width="125" height="18" border="0"></a></td>
+	        
+      <td width="125" height="18" align=center><a href="sizeregistration.html"><img src="images/size_tab_normal.jpg" width="125" height="18" border="0"></a></td>
+      <td width="125" height="18" align=center><img src="images/resource_tab.jpg" width="125" height="18" border="0"></td>
+      <td width="125" height="18" align=center><a href="mileregistration.html"><img src="images/milestone_tab_normal.jpg" width="125" height="18" border="0"></a></td>
+      <td width="125" height="18" align=center><a href="pcostregistration.html"><img src="images/projectcost_tab_normal.jpg" width="125" height="18" border="0"></a></td>
+      <td width="60%"></td>
+    </tr>
+  </table>
+			
+            
+  <table width="750" border=1 cellpadding=2 cellspacing=0 bordercolor="#FFFFFF" bgcolor="FBE9DD">
+    <tr> 
+      <td width="12%" height="39"><div align="left"><font size="1"><strong><font face="Verdana" color="#102F70">Resource 
+          Type </font></strong></font></div></td>
+      <td width="16%"><div align="left"><font size="1"><strong><font face="Verdana" color="#102F70">Resource 
+          Name </font></strong></font></div></td>
+      <td width="11%"><div align="left"><font size="1"><strong><font face="Verdana" color="#102F70">Mandays 
+          Required </font></strong></font></div></td>
+      <td width="9%"><div align="left"><font size="1"><strong><font face="Verdana" color="#102F70">Projected 
+          Mandays</font></strong></font></div></td>
+      <td width="11%"><div align="left"><font size="1"><strong><font face="Verdana" color="#102F70">Actual 
+          Mandays</font></strong></font></div></td>
+      <td width="12%"><div align="left"><font size="1"><strong><font face="Verdana" color="#102F70">Rate/Manday</font></strong></font></div></td>
+      <td width="29%"><div align="left"><font size="1"><strong><font face="Verdana" color="#102F70">Remarks</font></strong></font></div></td>
+    </tr>
+    <tr> 
+      <td height="31" valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <select name="select">
+            <option selected>SELECT</option>
+            <option value="pm">PM</option>
+            <option value="pl">PL</option>
+            <option value="dv">DVL</option>
+            <option value="qm">QM</option>
+            <option value="ts">TS</option>
+          </select>
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <input type="text" name="pm" size="16" value="Project Manager" readonly="true" disabled>
+          </font></div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input name="mdr1" type="text" id="mdr1" value="25" size="5">
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input name="mdr1" type="text" id="mdr1" value="25" size="5">
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input name="mdr1" type="text" id="mdr1" value="25" size="5">
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <input name="cost1" type="text" id="cost1" value="200k" size="10">
+          </font></div></td>
+      <td> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <textarea name="cost1" cols="30" rows="3" id="cost1">200k</textarea>
+          </font></div></td>
+    </tr>
+    <tr> 
+      <td height="33" valign="top"> <div align="center"> 
+          <select name="select1">
+            <option selected>SELECT</option>
+            <option value="pm">PM</option>
+            <option value="pl">PL</option>
+            <option value="dv">DVL</option>
+            <option value="qm">QM</option>
+            <option value="ts">TS</option>
+          </select>
+        </div></td>
+      <td valign="top"> <div align="center"> 
+          <input type="text" name="pl" size="16" value="Project Leader" readonly="true" disabled>
+        </div></td>
+      <td valign="top"> <div align="center"> 
+          <input name="mdr2" type="text" id="mdr2" value="20" size="5">
+        </div></td>
+      <td valign="top"> <div align="center"> 
+          <input name="mdr2" type="text" id="mdr2" value="20" size="5">
+        </div></td>
+      <td valign="top"> <div align="center"> 
+          <input name="mdr2" type="text" id="mdr2" value="20" size="5">
+        </div></td>
+      <td valign="top"> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <input name="cost2" type="text" id="cost2" value="200k" size="10">
+          </font></div></td>
+      <td> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <textarea name="cost2" cols="30" rows="3" id="cost2">200k</textarea>
+          </font></div></td>
+    </tr>
+    <tr> 
+      <td height="33" valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <select name="select2">
+            <option selected>SELECT</option>
+            <option value="pm">PM</option>
+            <option value="pl">PL</option>
+            <option value="dv">DVL</option>
+            <option value="qm">QM</option>
+            <option value="ts">TS</option>
+          </select>
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input type="text" name="dvl" size="16" value="Developer" readonly="true" disabled>
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input name="mdr3" type="text" id="mdr3" value="50" size="5">
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input name="mdr3" type="text" id="mdr3" value="50" size="5">
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input name="mdr3" type="text" id="mdr3" value="50" size="5">
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <input name="cost3" type="text" id="cost3" value="200k" size="10">
+          </font></div></td>
+      <td bgcolor="FBE9DD"> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <textarea name="cost3" cols="30" rows="3" id="cost3">200k</textarea>
+          </font></div></td>
+    </tr>
+    <tr> 
+      <td height="30" valign="top"> <div align="center"> 
+          <select name="select3">
+            <option selected>SELECT</option>
+            <option value="pm">PM</option>
+            <option value="pl">PL</option>
+            <option value="dv">DVL</option>
+            <option value="qm">QM</option>
+            <option value="ts">TS</option>
+          </select>
+        </div></td>
+      <td valign="top"> <div align="center"> 
+          <input type="text" name="qm" size="16" value="Quality Manager" readonly="true" disabled>
+        </div></td>
+      <td valign="top"> <div align="center"> 
+          <input name="mdr4" type="text" id="mdr4" value="10" size="5">
+        </div></td>
+      <td valign="top"> <div align="center"> 
+          <input name="mdr4" type="text" id="mdr4" value="10" size="5">
+        </div></td>
+      <td valign="top"> <div align="center"> 
+          <input name="mdr4" type="text" id="mdr4" value="10" size="5">
+        </div></td>
+      <td valign="top"> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <input name="cost4" type="text" id="cost4" value="200k" size="10">
+          </font></div></td>
+      <td> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <textarea name="cost4" cols="30" rows="3" id="cost4">200k</textarea>
+          </font></div></td>
+    </tr>
+    <tr> 
+      <td height="30" valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <select name="select4">
+            <option selected>SELECT</option>
+            <option value="pm">PM</option>
+            <option value="pl">PL</option>
+            <option value="dv">DVL</option>
+            <option value="qm">QM</option>
+            <option value="ts">TS</option>
+          </select>
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input type="text" name="ts" size="16" value="Tester" readonly="true" disabled>
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input name="mdr5" type="text" id="mdr5" value="10" size="5">
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input name="mdr5" type="text" id="mdr5" value="10" size="5">
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"> 
+          <input name="mdr5" type="text" id="mdr5" value="10" size="5">
+        </div></td>
+      <td valign="top" bgcolor="FBE9DD"> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <input name="cost5" type="text" id="cost5" value="200k" size="10">
+          </font></div></td>
+      <td bgcolor="FBE9DD"> <div align="center"><font face="Verdana" size=2 color="Black"> 
+          <textarea name="cost5" cols="30" rows="3" id="cost5">200k</textarea>
+          </font></div></td>
+    </tr>
+    <tr> 
+      <td height="30" colspan="4">&nbsp;</td>
+      <td> <div align="center"><font color="#102F70" size="1" face="Verdana"><strong>Resource 
+          Cost</strong> </font></div></td>
+      <td> <div align="left"><font face="Verdana" size=2 color="Black"> 
+          <input name="tcost" type="text" id="tcost" value="1000k" size="10">
+          </font></div>
+        <div align="center"><font face="Verdana" size=2 color="Black"> </font></div></td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+                  
+  <table width="750"  border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+                      
+      <td><div align="right"><font face="Verdana" size=2 color="Black"> 
+          <input type=submit name="subreg" value="Save Resource Details">
+          </font></div></td>
+                    </tr>
+                  </table>
+
+</form>
+</body>
+</html>

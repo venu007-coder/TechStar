@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript">
+	var winName = "ed_theme_popup";
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+<body topmargin="0" marginheight="0" leftmargin="13" bgcolor="#CCCCCC"  
+background="/cgi-docs/Mercantec/PC_F_6.6.1/images/stripeback2.gif" onLoad="closeChildWin();">
+<table width="95%" border="0" height="312" bgcolor="#CCCCCC" class="table-bkgrd-main" align="center" cellpadding="2" cellspacing="0">
+  <tr> 
+     <td align="left">
+        <p class="page-title">Themes</p></td>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<td align="right"><a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_THEMES+SoftCart+{helpversion}+en-us', 'Alane'));"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help on Themes" align="right"></a></td><!--END HELP WINDOW LINK-->
+</tr>
+  <tr valign="top">
+    <td colspan="2">
+<p><span class="page-title"></span></p>
+      <table width="53%" border="1" align="center" cellspacing="2" cellpadding="4">
+        <tr>
+          <td height="84">
+<div align="center">
+<p><font size="2"><b><font face="Arial, Helvetica, sans-serif">Current 
+        Base Theme:</font></b></font><br><br>
+	<SCRIPT RUNAT="merc_server">
+		var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+				   'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+		var seObj = generateSEObjects ('');
+		write (generateBaseThemeHeaderHTML (seObj.pageObjArray[gBASE_PAGE].Theme, 'wat_ed_themes.htm'));
+		//write (seObj.pageObjArray[gBASE_PAGE].layoutObjArray.main.height);
+	</SCRIPT>
+				<span class="instr-note">(Edit theme to see text colors)</span></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <center>
+        <b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        Themes Used</font></b> 
+        <a href="javascript:parent.SubmitForm ('L', 'wat_ed_themes2.htm', 'mainFrame', '');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btn_listbypage_sm.gif" border="0" width="106" height="27" alt="Show theme used on each page" align="absmiddle"></a>
+      </center><br>
+      <table width="65%" border="1" align="center" cellpadding="2">
+        <tr class="table-header"> 
+          <td width="25%" class="field-label" height="33"> 
+            
+<div align="center">Select</div>
+          </td>
+          <td colspan="2" class="field-label" height="33"> 
+            <div align="center">Themes<br></div>
+          </td>
+          <td width="9%" class="field-label" height="33"> 
+            <div align="center">Custom</div>
+          </td>
+          <td width="27%" class="field-label" height="33"> 
+            <div align="center">Pages </div>
+          </td>
+        </tr>
+        <SCRIPT RUNAT="merc_server">
+			
+			var themesList = new Array(), themesKey = new Array();
+			for (var n = 0; n < seObj.pageList.length; n++)
+			{
+				if (!themesList [seObj.pageObjArray[seObj.pageList[n]].Theme])
+				{
+					themesList [seObj.pageObjArray[seObj.pageList[n]].Theme] = "";
+					themesKey.push (seObj.pageObjArray[seObj.pageList[n]].Theme);
+				}
+				themesList [seObj.pageObjArray[seObj.pageList[n]].Theme] += seObj.pageList[n] + "<br>";
+			}
+			
+			// get a list of all custom themes, and compare it against the
+			// list of used themes to display unused custom themes
+			var custThemes = getThemeStyleList (true, true, false);
+			for (var n = 0; n < custThemes.themes.customThemes.length; n++)
+			{
+				if (!themesList [custThemes.themes.customThemes[n]])
+				{
+					themesList [custThemes.themes.customThemes[n]] = gNONE + "<br>";
+					themesKey.push (custThemes.themes.customThemes[n]);
+				}
+			}
+   
+			for (var n = 0; n < themesKey.length; n++)
+			{
+				themesList [themesKey[n]] = themesList [themesKey[n]].substr (0, themesList [themesKey[n]].lastIndexOf('<br>'))
+				write ("<tr><td width='25%' height='15'><div align='center'>");
+				write ("<a href='javascri"+
+						"pt:void(0)' onClick = \"submitToWindow('wat_ed_themes.htm', '', '"+themesKey[n]+
+						"', '"+themesList [themesKey[n]]+"', '"+gTHEME_EDIT_PAGE+"', '500', '600');\">"+
+						"<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/edit_sm.gif' border='0' width='60' height='19' alt='Edit this theme'></a><br>");
+				if (themesList [themesKey[n]] != gNONE)
+					write ("<a href='javascri"+
+							"pt:void(0)' onClick = \"submitToWindow('wat_ed_themes.htm', '', '"+themesKey[n]+
+							"', '"+themesList [themesKey[n]]+"', '"+gTHEME_SELECT_PAGE+"', '570', '670');\">"+
+							"<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/replace_sm.gif' border='0' width='60' height='19' alt='Replace this theme'></a><br>");
+				else
+					write ("<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/replace_smbw.gif' border='0' width='60' height='19' alt='Disabled'><br>");
+				if (themesKey[n].indexOf("TC_") == 0 && themesList [themesKey[n]].indexOf(gBASE_PAGE) < 0)
+						write ("<a href=\"javascri"+
+							"pt:void(deleteItem('wat_ed_themes.htm', '', '"+themesKey[n]+
+							"', '', '"+themesList [themesKey[n]]+"'))\">"+
+							"<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/delete_sm.gif' border='0' width='60' height='19' alt='Delete this theme'></a>");
+				else
+					write ("<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/delete_smbw.gif' border='0' width='60' height='19' alt='Disabled'>");
+				write ("</div></td><td width='20%' height='37'>");
+				write (generateThemeThumb (themesKey[n], seObj.pageObjArray[gBASE_PAGE]));
+				myTheme = themesKey[n]
+				if ((bCustom = myTheme.indexOf("TC_") == 0) || (myTheme.indexOf("TS_") == 0))
+					myTheme = myTheme.slice (3);
+				write ("</td><td width='19%' height='15' nowrap>" + myTheme.substr (0, myTheme.lastIndexOf('.')) + "</td>"+
+						"<td width='9%' height='15'> <div align='center'>");
+				if (bCustom)
+					write ("<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/check.gif' width='12' height='12'>");
+				else
+					write("&nbsp;");
+				write ("</div></td>"+
+						"<td width='27%' height='15' nowrap><p>"+themesList [themesKey[n]]+"</p></td></tr>");
+			}
+        </SCRIPT>
+
+      </table>
+      
+<p>&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Preview</TITLE>
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<script runat="merc_server">
+		var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+				     'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+		var themeSelected = "", selectedTheme = "", selectedThemeUrl = "";
+		var seObj = generateSEObjects (gBASE_PAGE);
+		themeSelected = doAction('REQ_GET_FORMVALUE', "ThemeLayout", "ThemeLayout");
+		// selected from the "more" page - a hidden tag
+		var moreThemeLayout = doAction("REQ_GET_FORMVALUE", "selectedThemeLayout", "selectedThemeLayout");
+		if (themeSelected)
+			selectedTheme = themeSelected.substr(0, themeSelected.indexOf(":"));
+		else if (moreThemeLayout)
+			selectedTheme = moreThemeLayout.substr(0, moreThemeLayout.indexOf(":"));
+
+		if (selectedTheme)
+		{
+			if (selectedTheme.indexOf ("TS_") == 0)
+				selectedThemeUrl = gCOMMON_URL + gWEB_ALIAS_THEMES + "/" + escape(selectedTheme);
+			else
+				selectedThemeUrl = gWEB_ROOT + gWEB_ALIAS_THEMES + "/" + escape(selectedTheme);
+
+			writeln('<link rel="stylesheet" href="'+gCOMMON_URL+'styles/master_layer.css">');
+			writeln('<link rel="stylesheet" type="text/css" href="'+selectedThemeUrl+'">');
+		}
+</script>
+</HEAD>
+<BODY marginwidth=0 marginheight=0 LEFTMARGIN=0 TOPMARGIN=0 onLoad="document.closeButtonForm.closeButton.focus();">
+
+<script runat="merc_server">
+		if (selectedTheme)
+		{
+			var output = generateThemeTableHTML (selectedTheme, seObj.pageObjArray[gBASE_PAGE], 1);
+			output = output.replace ("<!--Begin_Main_Content-->", "<div align=center><form name='closeButtonForm'><input name ='closeButton' type='button' onClick='self.close();' value='Close'></form></div>");
+			write (output);
+		
+			var styObj = generateCSSObject (selectedTheme);
+			var topPx = 10;
+			if (styObj['navbar-vertical-start'])
+				if (styObj['navbar-vertical-start'].height)
+					topPx = styObj['navbar-vertical-start'].height;
+
+			topPx = parseInt(topPx) + 
+					parseInt(seObj.pageObjArray[gBASE_PAGE].layoutObjArray.top.height); 
+		
+			var leftPx = (seObj.pageObjArray[gBASE_PAGE].layoutObjArray.top.left - 100) / 2;	
+			write ("\n" + generatePageButtonsHTML ('', gHOME_PAGE, '', '10', 
+											topPx, 
+											'100px', '25px', 
+											'btn-background', 'btn-text', 10000, 'close', 
+											'WIZ_Preview'));
+		}
+</script>
+
+</BODY>
+</HTML>

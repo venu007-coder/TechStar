@@ -1,0 +1,338 @@
+Return-Path: rakesh@javaji.com
+Received: from mx07.stngva01.us.mxservers.net (204.202.242.99)
+	by mail19i.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 4-0239235074
+	for <abhra@altechstar.com>; Fri,  8 Jul 2011 18:44:34 -0400 (EDT)
+Received: from unknown [64.34.164.59] (EHLO web1075.linux-hosting.com)
+	by va1-mx07.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 258871e4.1052756896.773974.00-006.va1-mx07.stngva01.us.mxservers.net (envelope-from <rakesh@javaji.com>);
+	Fri, 08 Jul 2011 18:44:34 -0400 (EDT)
+Received: from [192.168.1.8] ([115.249.155.122])
+	(authenticated bits=0)
+	by web1075.linux-hosting.com (8.13.1/8.13.1) with ESMTP id p68FjZdh014887;
+	Fri, 8 Jul 2011 21:16:03 +0530
+Message-Id: <201107081546.p68FjZdh014887@web1075.linux-hosting.com>
+Content-Type: multipart/alternative; boundary="===============0691913426=="
+MIME-Version: 1.0
+Subject: Looking for 1)Senior Java Developer 2)Test Lead with treasury 3)
+	Business Analyst (RAKESH)
+To: Recipients <rakesh@javaji.com>
+From: rakesh@javaji.com
+Date: Fri, 08 Jul 2011 12:00:14 -0400
+Reply-To: rakesh@javaji.com
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011070831)]
+X-MAIL-FROM: <rakesh@javaji.com>
+X-SOURCE-IP: [64.34.164.59]
+X-SF-Loop: 1
+
+You will not see this in a MIME-aware mail reader.
+--===============0691913426==
+Content-Type: text/plain; charset="iso-8859-1"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+
+ Hi Folks,
+  =
+
+ This is Rakesh from Javaji System Solutions Inc. One of our Client is look=
+ing for below requirements, If interested respond back at the earliest with=
+ the below details. If you are not available for this position, I appreciat=
+e to  provide some references. =
+
+ send profiles to  rakesh@javaji.com
+ pls find the below requirements with my direct client
+  =
+
+ Title: Senior Java Developer
+ Location: PA
+ Duration: 6 months+
+ Description:
+  =
+
+ 1. 3-5 years Strong J2EE, UDB, Springs Framework, WAS 6.1, Hibernate, XML/=
+XSL, RAD experience =
+
+ 2. Experience on working on Support projects handling Critical Issues and =
+working with offshore. =
+
+ 3. Experience on doing Knowledge Transition from external vendors =
+
+ 4. Experience working with other interfacing application vendors.
+  =
+
+ Title: Test Lead
+ Location: Richmond, VA
+ Duration: 6 months+
+ Description:
+  =
+
+ 5-8 years in Testing Space.
+ Should be able to forecast the risks and plan for mitigation and contingen=
+cy plans, and alerting the same to stake holders. =
+
+ Domain : Finance. =
+
+ Responsible : Test planning, Test case Review ,Test results, Coordination =
+, manage team load, handle escalations. =
+
+ Accountable for Delivery of test results as per plan.
+ Other : Experience of automated testing and web based testing."
+ Effectively applies Quality methodology and enforces project standards.
+ Effectively communicates relevant project information to different stake h=
+older. =
+
+ Good knowledge in testing process and using Quality Centre tool =
+
+ Should have experience in the Treasury domain either as direct domain expe=
+rience or part of project dev team or experience as a Tester / Test lead in=
+ this space.
+ Good knowledge in Finance Domain. =
+
+ Comfortable with writing queries for DB2 and Terradata database
+ Excellent working knowledge in Unix environment =
+
+  =
+
+ Title: Business Analyst
+ Location: FL
+ Duration: 6 months+
+ Description:
+  =
+
+ Asset Management Business Analyst:
+ At least 7 years of experience in Requirements Analysis, Business Analysis=
+, Design and implementation of Asset Management Solutions. =
+
+ Experience of leading packages like Maximo, SAP, Logica ARM suite etc. is =
+required. =
+
+ Knowledge and experience of asset management in Utilities and Meter assets=
+ is desirable. =
+
+ The candidate should have excellent communication and analytical skills.
+   =
+
+  =
+
+ Thanks & Regards,
+ Rakesh | Javaji Systems Solutions | Email: rakesh@javaji.com
+ Direct: 571-483-2829| Fax :  703 880 7232
+ www.javaji.com | YIM: rakeshe_cool
+ =
+
+ =
+
+ =
+
+  =
+
+ =
+
+ =
+
+ =
+
+ =
+
+ =
+
+
+
+--===============0691913426==
+Content-Type: text/html; charset="iso-8859-1"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+
+<HTML><BODY><FONT face=3DCalibri><SPAN style=3D"FONT-SIZE: 28pt; COLOR: #54=
+8dd4; mso-bidi-font-size: 11.0pt; mso-themecolor: text2; mso-themetint: 153=
+"><SPAN><FONT color=3D#000000 size=3D3>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-SIZE=
+: 14pt; COLOR: black">Hi Folks,</SPAN><SPAN style=3D"COLOR: black"><?xml:na=
+mespace prefix =3D o ns =3D "urn:schemas-microsoft-com:office:office" /><o:=
+p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-SIZE=
+: 14pt; COLOR: black">&nbsp;</SPAN><SPAN style=3D"COLOR: black"><o:p></o:p>=
+</SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-SIZE=
+: 14pt; COLOR: black">This is&nbsp;<B>Rakesh&nbsp;</B>from Javaji System So=
+lutions Inc. One of&nbsp;our Client is looking for below requirements, If i=
+nterested respond back at the earliest with the below details. If you are n=
+ot available for this position, I appreciate to&nbsp;&nbsp;provide some ref=
+erences.&nbsp;</SPAN><SPAN style=3D"COLOR: black"><o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><B><SPAN style=3D"FONT-S=
+IZE: 18pt; COLOR: #0070c0">send profiles to&nbsp;&nbsp;<A href=3D"mailto:ra=
+kesh@javaji.com">rakesh@javaji.com</A></SPAN></B></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><B><SPAN style=3D"FONT-S=
+IZE: 18pt; COLOR: #0070c0">pls find the below requirements with my direct c=
+lient</SPAN></B></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><B><SPAN style=3D"FONT-S=
+IZE: 18pt; COLOR: #0070c0"></SPAN></B>&nbsp;</P><SPAN style=3D"FONT-SIZE: 1=
+8pt; COLOR: #0070c0"><FONT size=3D3><FONT color=3D#000000><SPAN style=3D"FO=
+NT-SIZE: 11pt"><SPAN style=3D"FONT-SIZE: 11pt"><FONT size=3D3><SPAN style=
+=3D"mso-bidi-font-size: 12.0pt"><SPAN style=3D"mso-bidi-font-family: Calibr=
+i; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri"><SPAN st=
+yle=3D"mso-bidi-font-size: 12.0pt; mso-fareast-font-family: 'Times New Roma=
+n'; mso-fareast-theme-font: minor-fareast; mso-no-proof: yes"><SPAN style=
+=3D"mso-bidi-font-size: 12.0pt; mso-fareast-font-family: 'Times New Roman';=
+ mso-fareast-theme-font: minor-fareast; mso-no-proof: yes"><SPAN style=3D"m=
+so-bidi-font-size: 12.0pt; mso-fareast-font-family: 'Times New Roman'; mso-=
+fareast-theme-font: minor-fareast; mso-no-proof: yes"><SPAN style=3D"mso-bi=
+di-font-size: 12.0pt; mso-fareast-font-family: 'Times New Roman'; mso-farea=
+st-theme-font: minor-fareast; mso-no-proof: yes"><SPAN style=3D"mso-bidi-fo=
+nt-size: 12.0pt; mso-fareast-font-family: 'Times New Roman'; mso-fareast-th=
+eme-font: minor-fareast; mso-no-proof: yes"><SPAN style=3D"mso-bidi-font-si=
+ze: 12.0pt; mso-fareast-font-family: 'Times New Roman'; mso-fareast-theme-f=
+ont: minor-fareast; mso-no-proof: yes">
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Title: Senior Ja=
+va Developer<o:p></o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Location: PA<o:p=
+></o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Duration: 6 mont=
+hs+<o:p></o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Description:<o:p=
+></o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><o:p>&nbsp;</o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">1. 3-5 years Strong J2EE=
+, UDB, Springs Framework, WAS 6.1, Hibernate, XML/XSL, RAD experience <o:p>=
+</o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">2. Experience on working=
+ on Support projects handling Critical Issues and working with offshore. <o=
+:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">3. Experience on doing K=
+nowledge Transition from external vendors <o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">4. Experience working wi=
+th other interfacing application vendors.<o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG></STRONG>&nbsp;<=
+/P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Title: Test Lead=
+<o:p></o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Location: Richmo=
+nd, VA<o:p></o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Duration: 6 mont=
+hs+<o:p></o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Description:<o:p=
+></o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><o:p>&nbsp;</o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">5-8 years in Testing Spa=
+ce.<o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Should be able to foreca=
+st the risks and plan for mitigation and contingency plans, and alerting th=
+e same to stake holders. <o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Domain : Finance=
+. <o:p></o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Responsible :</S=
+TRONG> Test planning, Test case Review ,Test results, Coordination , manage=
+ team load, handle escalations. <o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Accountable for Delivery=
+ of test results as per plan.<o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Other :</STRONG>=
+ Experience of automated testing and web based testing."<o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Effectively applies Qual=
+ity methodology and enforces project standards.<o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Effectively communicates=
+ relevant project information to different stake holder. <o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Good knowledge in testin=
+g process and using Quality Centre tool <o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><STRONG>Should have expe=
+rience in the Treasury domain either as direct domain experience or part of=
+ project dev team or experience as a Tester / Test lead in this space.<o:p>=
+</o:p></STRONG></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Good knowledge in Financ=
+e Domain. <o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Comfortable with writing=
+ queries for DB2 and Terradata database<o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Excellent working knowle=
+dge in Unix environment <o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><o:p></o:p>&nbsp;</P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><B style=3D"mso-bidi-fon=
+t-weight: normal">Title: Business Analyst<o:p></o:p></B></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><B style=3D"mso-bidi-fon=
+t-weight: normal">Location: FL<o:p></o:p></B></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><B style=3D"mso-bidi-fon=
+t-weight: normal">Duration: 6 months+<o:p></o:p></B></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><B style=3D"mso-bidi-fon=
+t-weight: normal">Description:<o:p></o:p></B></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><o:p>&nbsp;</o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Asset Management Busines=
+s Analyst:<o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">At least 7 years of expe=
+rience in Requirements Analysis, Business Analysis, Design and implementati=
+on of Asset Management Solutions. <o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Experience of leading pa=
+ckages like Maximo, SAP, Logica ARM suite etc. is required. <o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">Knowledge and experience=
+ of asset management in Utilities and Meter assets is desirable. <o:p></o:p=
+></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">The candidate should hav=
+e excellent communication and analytical skills.<o:p></o:p></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">&nbsp;</P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"></SPAN></SPAN></SPAN></S=
+PAN></SPAN></SPAN></SPAN></SPAN></FONT></SPAN></SPAN></FONT></FONT></SPAN><=
+/FONT></SPAN><SPAN style=3D"FONT-FAMILY: 'Arial','sans-serif'"><FONT face=
+=3DCalibri color=3D#548dd4 size=3D3><SPAN style=3D"FONT-SIZE: 11pt; COLOR: =
+#7030a0; mso-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font=
+: minor-fareast; mso-no-proof: yes"></SPAN></FONT></SPAN>&nbsp;</P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-FAMI=
+LY: 'Arial','sans-serif'"><FONT face=3DCalibri color=3D#548dd4 size=3D3><SP=
+AN style=3D"FONT-SIZE: 11pt; COLOR: #7030a0; mso-fareast-font-family: 'Time=
+s New Roman'; mso-fareast-theme-font: minor-fareast; mso-no-proof: yes">Tha=
+nks &amp; Regards,</SPAN><SPAN style=3D"FONT-SIZE: 11pt; COLOR: #7030a0; ms=
+o-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font: minor-far=
+east; mso-no-proof: yes"><o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-SIZE=
+: 11pt; mso-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font:=
+ minor-fareast; mso-no-proof: yes"><FONT color=3D#000000>Rakesh | Javaji Sy=
+stems Solutions |</FONT></SPAN><SPAN style=3D"FONT-SIZE: 11pt; COLOR: #7030=
+a0; mso-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font: min=
+or-fareast; mso-no-proof: yes"> Email:</SPAN><SPAN style=3D"FONT-SIZE: 11pt=
+; mso-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font: minor=
+-fareast; mso-no-proof: yes"><FONT color=3D#000000> </FONT></SPAN><U style=
+=3D"text-underline: #000000"><SPAN style=3D"FONT-SIZE: 11pt; COLOR: blue; m=
+so-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font: minor-fa=
+reast; mso-no-proof: yes"><A href=3D"mailto:rakesh@javaji.com"><SPAN style=
+=3D"COLOR: blue">rakesh@javaji.com</SPAN></A></SPAN></U><SPAN style=3D"FONT=
+-SIZE: 11pt; mso-fareast-font-family: 'Times New Roman'; mso-fareast-theme-=
+font: minor-fareast; mso-no-proof: yes"><o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-SIZE=
+: 11pt; COLOR: #7030a0; mso-fareast-font-family: 'Times New Roman'; mso-far=
+east-theme-font: minor-fareast; mso-no-proof: yes">Direct:</SPAN><SPAN styl=
+e=3D"FONT-SIZE: 11pt; COLOR: #1f497d; mso-fareast-font-family: 'Times New R=
+oman'; mso-fareast-theme-font: minor-fareast; mso-no-proof: yes"> </SPAN><S=
+PAN style=3D"FONT-SIZE: 11pt; mso-fareast-font-family: 'Times New Roman'; m=
+so-fareast-theme-font: minor-fareast; mso-no-proof: yes"><FONT color=3D#000=
+000>571-483-2829| </FONT></SPAN><SPAN style=3D"FONT-SIZE: 11pt; COLOR: #703=
+0a0; mso-fareast-font-family: 'Times New Roman'; mso-fareast-theme-font: mi=
+nor-fareast; mso-no-proof: yes">Fax :</SPAN><FONT color=3D#000000><SPAN sty=
+le=3D"FONT-SIZE: 11pt; mso-fareast-font-family: 'Times New Roman'; mso-fare=
+ast-theme-font: minor-fareast; mso-no-proof: yes">&nbsp; 703 880 7232</SPAN=
+><SPAN style=3D"FONT-SIZE: 11pt; mso-fareast-font-family: 'Times New Roman'=
+; mso-fareast-theme-font: minor-fareast; mso-no-proof: yes"><o:p></o:p></SP=
+AN></FONT></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt"><SPAN style=3D"FONT-SIZE=
+: 11pt; COLOR: #7030a0; mso-fareast-font-family: 'Times New Roman'; mso-far=
+east-theme-font: minor-fareast; mso-no-proof: yes"><A href=3D"http://www.ja=
+vaji.com/"><SPAN style=3D"COLOR: blue">www.javaji.com</SPAN></A></SPAN><SPA=
+N style=3D"FONT-SIZE: 11pt; COLOR: #7030a0; mso-fareast-font-family: 'Times=
+ New Roman'; mso-fareast-theme-font: minor-fareast; mso-no-proof: yes"> | <=
+/SPAN><B><SPAN style=3D"FONT-SIZE: 11pt; COLOR: #7030a0; mso-fareast-font-f=
+amily: 'Times New Roman'; mso-fareast-theme-font: minor-fareast; mso-no-pro=
+of: yes">YIM:</SPAN></B><SPAN style=3D"FONT-SIZE: 11pt; mso-fareast-font-fa=
+mily: 'Times New Roman'; mso-fareast-theme-font: minor-fareast; mso-no-proo=
+f: yes"><FONT color=3D#000000> rakeshe_cool</FONT></SPAN><SPAN style=3D"FON=
+T-SIZE: 11pt; mso-fareast-font-family: 'Times New Roman'; mso-fareast-theme=
+-font: minor-fareast; mso-no-proof: yes"><o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 12pt; tab-stops: 45.8pt 91.6p=
+t 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 5=
+49.6pt 595.4pt 641.2pt 687.0pt 732.8pt; mso-margin-top-alt: auto"></FONT></=
+SPAN></SPAN></P>
+<P></P>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0in 0in 0pt">&nbsp;</P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P></P></FONT></BODY></HTML>
+--===============0691913426==--

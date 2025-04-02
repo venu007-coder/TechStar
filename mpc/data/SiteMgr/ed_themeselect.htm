@@ -1,0 +1,264 @@
+<html>
+<head>
+<title>Select Theme</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+<SCRIPT RUNAT="merc_server">
+	var moveHistoryList = doAction('REQ_GET_FORMVALUE', "moveHistoryList", "moveHistoryList");
+		if (moveHistoryList)
+			doAction('MPEA_SAVE_HISTORYLIST', 'moveHistoryList', moveHistoryList);
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript">
+	var master_js = opener;
+	var childWin = "";
+	var winName = "ed_theme_popup";
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+	var nextPage = '<merc_dynamic noshow=false name=SC_NextPage action=REQ_GET_FORMVALUE LinkToPage=LinkToPage>';
+	var bNewTheme = false;
+	
+	function submitForm ()
+	{
+		bNewTheme = true;
+		master_js.SubmitForm ('SE_SetTheme', nextPage, 
+									'mainFrame', document.selectTheme);
+		saveWindow (); 
+	}
+	
+	function next (direction)
+	{
+		document.selectTheme.Direction.value = direction;
+		master_js.SubmitForm ('L', 'ed_themeselect.htm', window.name, document.selectTheme);
+	}
+	
+	function saveWindow ()
+	{
+		master_js.createAndWriteToPopUp ("150", "300", winName, baseUrl, 
+										master_js.gSAVING_PAGE, master_js.gWINDOW_WILL_CLOSE);
+	}
+	
+	function previewTheme ()
+	{
+		var bSelected = false;
+		for (var n = 0; !bSelected && n < document.selectTheme.ThemeSelected.length; n++)
+		{
+			if (document.selectTheme.ThemeSelected[n].checked)
+			{
+				bSelected = true;
+				document.selectTheme.selectedThemeLayout.value = document.selectTheme.ThemeSelected[n].value+":";
+			}
+		}
+		if (!bSelected)
+			alert ("Please Select Theme To Preview.");
+		else
+		{
+			var winObj = opener.createSimpleSubmitWindow ('400', '600'); 
+			childWin = window.open ('', 'preview', winObj.createOutput());
+			opener.SubmitForm('L', 'pwizwat_prev.html', 'preview', document.selectTheme);
+		}
+		return false;
+	}
+	
+	function closeLocalWin ()
+	{	
+		if (childWin)
+			if (!childWin.closed)
+				childWin.close ();
+	}
+
+</SCRIPT>
+
+</head>
+
+<body class="pop-up-bkgrd" bgcolor="#CCCCFF" onUnload="
+	closeLocalWin ();
+	if (opener.mainFrame.togglePleaseWaitLayer && !bNewTheme){
+		opener.mainFrame.togglePleaseWaitLayer('off');}">
+
+
+<p align="center"><span class="dialog-title">Select Theme</span></p>
+<form name="selectTheme">
+<input type="hidden" name="selectedThemeLayout" value="">
+<input type="hidden" name="LinkToPage" value="{SC_NextPage}">
+<table width="634" border="0" cellspacing="0" cellpadding="2" align="left" hspace="6" height="262" class="table-bkgrd-main">
+
+	
+	<SCRIPT RUNAT="merc_server">
+		var maxCount = 16, curCount = 0;
+		var count = doAction('REQ_GET_FORMVALUE', "Count", "Count");
+		if (!count || isNaN(count))
+			count = 0;
+		else
+			count = parseInt(count);
+		var direction = doAction('REQ_GET_FORMVALUE', "Direction", "Direction");
+		if (!direction)
+			direction = "next";
+		else if (direction == "back")
+			count -= (2*maxCount);
+
+		var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+				     'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+		var useTheme = doAction('REQ_GET_FORMVALUE', "UseTheme", "UseTheme");
+		var seObj = getThemeStyleList (false, true, false);
+		seBpObj = generateSEObjects (gBASE_PAGE);
+		var totCustThemes = seObj.themes.customThemes.length;
+		var totSuppThemes = seObj.themes.suppliedThemes.length;
+		
+		function generateThemes (themeObj, nStart, nInc)
+		{
+			for (var n = nStart; n < themeObj.length; n += nInc)
+			{
+				myTheme = themeObj[n]
+				if ((myTheme.indexOf("TC_") == 0) || (myTheme.indexOf("TS_") == 0))
+					myTheme = myTheme.slice (3);
+				writeln ('<tr><td width="32">'+
+						'<input class="table-bkgrd-main" type="radio" name="ThemeSelected"'+
+						' value="'+themeObj[n]+'"'+
+						(useTheme == themeObj[n] ? ' CHECKED>' : '>')+
+						'</td><td width="160">'+myTheme.substr (0, myTheme.lastIndexOf('.'))+'</td>'+
+						'<td width="50">');
+				writeln (generateThemeThumb (themeObj[n], seBpObj.pageObjArray[gBASE_PAGE]));
+				writeln ('</td></tr>');
+			}
+		}
+		
+		var pageName = doAction('REQ_GET_FORMVALUE', "SetForPageName", "SetForPageName");
+		if (pageName)
+			write ('<input type="hidden" name="SetForPageName" value="' + pageName + '">');
+		
+		if (count == 0 || count < seObj.themes.customThemes.length)
+		{
+			<merc_embed>
+				<tr class="table-header2">
+				<td height="40" colspan="2">
+				<center>
+				<font face="Arial, Helvetica, sans-serif"><b>Custom</b></font> 
+				</center>
+				</td>
+
+				</tr>
+				<tr class="table-bkgrd-main">
+			</merc_embed>
+			
+			if (seObj.themes.customThemes.length <= 0)
+				write ('<td align="center" colspan="2">'+gEMPTY);
+			else
+			{
+				write ('<td align="center" valign="top" width="305">' +		
+						'<table width="250" border="1" cellspacing="0" cellpadding="0">');
+			
+				if ((seObj.themes.customThemes.length - count) > maxCount)
+					seObj.themes.customThemes = seObj.themes.customThemes.slice(count, (count+maxCount));
+				else 
+					seObj.themes.customThemes = seObj.themes.customThemes.slice(count);
+					
+				curCount = seObj.themes.customThemes.length;
+				generateThemes (seObj.themes.customThemes, 0, 2);
+		
+			<merc_embed>
+				</table>
+				</td> 
+    
+				<td align="center" valign="top" width="305"> 
+			  
+			</merc_embed>
+			 /* if we only have one entry put in a space for the second entry
+			 ** otherwise the cell background won't get carried across */
+				if (seObj.themes.customThemes.length == 1)
+					write ('&nbsp;');
+				else
+				{
+					write ('<table width="250" border="1" cellspacing="0" cellpadding="0">');
+					generateThemes (seObj.themes.customThemes, 1, 2);
+					write ('</table>');
+				}
+			}
+			writeln ("</td></tr>");
+			if (curCount%2 != 0)
+				curCount ++;
+			count += curCount;
+		}			
+	</SCRIPT>
+
+	
+	<SCRIPT RUNAT="merc_server">
+		if (curCount < maxCount)
+		{
+			var cntRemain = maxCount - curCount;
+			<merc_embed>
+				<tr class="table-header2">
+				<td height="40" colspan="2">
+				<center>
+				<font face="Arial, Helvetica, sans-serif"><b>Supplied</b></font> 
+				</center>
+				</td>
+
+				</tr>
+				<tr class="table-bkgrd-main">
+			</merc_embed>
+			
+			if (seObj.themes.suppliedThemes.length <= 0)
+				write ('<td align="center" colspan="2">'+gEMPTY);
+			else
+			{
+				var begIndex = count - totCustThemes;
+				if ((seObj.themes.suppliedThemes.length -  begIndex) > cntRemain)
+					seObj.themes.suppliedThemes = seObj.themes.suppliedThemes.slice(begIndex, (begIndex+cntRemain));
+				else 
+					seObj.themes.suppliedThemes = seObj.themes.suppliedThemes.slice(begIndex);
+					
+				count += seObj.themes.suppliedThemes.length;
+				
+				write ('<td align="center" valign="top" width="305">' +		
+						'<table width="250" border="1" cellspacing="0" cellpadding="0">');
+				generateThemes (seObj.themes.suppliedThemes, 0, 2);
+							
+				<merc_embed>
+					</table>
+					</td> 
+	    
+					<td align="center" valign="top" width="305"> 
+				  
+				</merc_embed>
+				/* if we only have one entry put in a space for the second entry
+				** otherwise the cell background won't get carried across */
+					if (seObj.themes.suppliedThemes.length == 1)
+						write ('&nbsp;');
+					else
+					{
+						write ('<table width="250" border="1" cellspacing="0" cellpadding="0">');
+						generateThemes (seObj.themes.suppliedThemes, 1, 2);
+						write ('</table>');
+					}
+			}	
+			writeln ("</td></tr>");
+		}		
+		// even out the count so the back button can work properly
+		while (count % maxCount != 0)
+			count ++;
+		write ('<input type="hidden" name="Count" value="' + count + '">');
+	</SCRIPT>
+  
+<tr bgcolor="#FFFFCc"> 
+    
+<td colspan="2" class="field-label" height="35"> 
+<input type="hidden" name="Direction" value="" ID="Hidden2">
+<div align="center">
+<SCRIPT RUNAT="merc_server">
+	if (count > maxCount)
+		writeln('<a href="javascript:next(\'back\');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border=0 alt="Back"></a>');
+	if (count < (totCustThemes + totSuppThemes))
+		writeln('<a href="javascript:next(\'next\');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/More_Nbtn_base2.gif" width="86" height="30" border="0" alt="More choices"></a>');
+</SCRIPT>
+<br>
+<a href="javascript:void(0)" onclick="self.close();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a><a href="javascript:void(0)" onClick="return(previewTheme());"><img border="0" name="imageField4" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Preview_Nbtn_base2.gif" width="86" height="30" alt="Preview"></a><a href="javascript:void(0)" onclick="submitForm();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Apply_Nbtn_base2.gif" width="86" height="30" border="0" alt="Apply"></a></div>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

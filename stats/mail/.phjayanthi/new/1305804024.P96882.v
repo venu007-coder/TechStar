@@ -1,0 +1,144 @@
+Return-Path: vijayvashisth@yahoo.com
+Received: from mx19.stngva01.us.mxservers.net (204.202.242.102)
+	by mail19d.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-0264964023
+	for <jayanthi@altechstar.com>; Thu, 19 May 2011 07:20:23 -0400 (EDT)
+Received: from unknown [76.162.254.75] (HELO mail75.opentransfer.com)
+	by va1-mx19.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id 7fcf4dd4.2175789984.684227.00-003.va1-mx19.stngva01.us.mxservers.net (envelope-from <hrs-return-37-jayanthi=altechstar.com@vtmanpower.net>);
+	Thu, 19 May 2011 07:20:23 -0400 (EDT)
+Received: (qmail 32625 invoked by uid 399); 19 May 2011 09:47:56 -0000
+Mailing-List: contact hrs-help@vtmanpower.net; run by ezmlm
+Precedence: bulk
+X-No-Archive: yes
+List-Post: <mailto:hrs@vtmanpower.net>
+List-Help: <mailto:hrs-help@vtmanpower.net>
+List-Unsubscribe: <mailto:hrs-unsubscribe@vtmanpower.net>
+List-Subscribe: <mailto:hrs-subscribe@vtmanpower.net>
+Delivered-To: mailing list hrs@vtmanpower.net
+Received: (qmail 8026 invoked by uid 399); 19 May 2011 09:42:16 -0000
+X-Virus-Scan: Scanned by clamdmail 0.15 (no viruses);
+  Thu, 19 May 2011 05:42:17 -0400
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws;
+  s=s1024; d=yahoo.com;
+  h=DKIM-Signature:Received:X-Yahoo-SMTP:X-YMail-OSG:X-Yahoo-Newman-Property:X-rim-org-msg-ref-id:Message-ID:Content-Transfer-Encoding:Reply-To:X-Priority:References:In-Reply-To:Sensitivity:Importance:Subject:To:From:Date:Content-Type:MIME-Version;
+  b=ZGUVkPyTYq1IlYlpP+B/tZHrkpmeFfBFd8Y5sPqKl7fuah5hZP3LX1G4jCI2vXuj8LHpMGXWWcOn/dNLD6cT8vkbYRYGjiMdf9QN85Qj0vF07+K4zh052ly3S6vavuaYz3yRrMImO3IFah/J35V2ria2im1XjftlK+SiNo5BjY8=  ;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s1024; t=1305798134; bh=Xwjhw93pWOLf39bL9qaG86UHMtsj9lztFmdhsUijiGA=; h=Received:X-Yahoo-SMTP:X-YMail-OSG:X-Yahoo-Newman-Property:X-rim-org-msg-ref-id:Message-ID:Content-Transfer-Encoding:Reply-To:X-Priority:References:In-Reply-To:Sensitivity:Importance:Subject:To:From:Date:Content-Type:MIME-Version; b=XypyPGNCC+jbg1fJFe2xd6VaELmFKJ6CCWffZShSCBwZbUBo3jLqzu0+jJUUUYrm5bgwhRpA92xrYh/OCZNFwcD6Idk9kvjoxOIUfILW15kxkX0uzSsSRqPRKLKE9UZqZSVKaRNfDNs5n3ZlPZ/1aJNNRUsoyEHVgdlzZlVHFUo=
+X-Yahoo-SMTP: h1GRCbWswBABTNxoGYTiFB8e82VFeBURUKw-
+X-YMail-OSG: ij.E5jIVM1nrZDdalW00XF7NWvYqXJJcRXZawacLLkAlfFL
+ YFnIMia3yYfRXisbl6R1wKqP310N3LiTjLlkYzx_er6hlcOT9.R.v4FQZ1pe
+ zG2tyiCkxdblT56THyqmb4curpnjOvmKSnX6HKu1uak6vAKbni4tadM0NhOB
+ ewvBvtFjeuyE34IWvvKzLFgSrYfDd6C246skyBtyjSLKSkVnD7DzRRJAok9b
+ EqR3a_H1tfLbo7ywIVjZIPbmxlKfB.NnPXunA.LfKecaZdiBujydcf_SvAPM
+ ANBvh9SX8Hc_._PznmwBFFT1fkKUbwIeIVZ7iaKGU.OjPJxEhktVwlSDX9u8
+ VzemdsEdQ94M8hJUEwcWutdEgUNlV5gkrmx5wfdnPW5toz3WjJyKbHteSyqE
+ K7tCj_QnVIsRKatID..qwjcrin.Oicxi_iAAqUNr2aLmMXa20rgO_puxlTtZ
+ EjW2bNjcL7t4MSrbvQWjcieg1VD_uEGlRLY8ggY6G8WxFbQnXZz6N8Dw_rW4
+ 0CwmdemR7hmp9dWpYWHsjkhm6VzCoYbXbUBEOlYmVfnDvgQ--
+X-Yahoo-Newman-Property: ymail-3
+X-rim-org-msg-ref-id:1057120014
+Message-ID:<1057120014-1305798130-cardhu_decombobulator_blackberry.rim.net-519188600-@b28.c10.bise7.blackberry>
+Content-Transfer-Encoding: base64
+Reply-To: vijayvashisth@yahoo.com
+X-Priority: Normal
+References: <BLU0-SMTP331F09C27938C69B1B684CDA8E0@phx.gbl>
+In-Reply-To: <BLU0-SMTP331F09C27938C69B1B684CDA8E0@phx.gbl>
+Sensitivity: Normal
+Importance: Normal
+Subject: Re: AN EXCELLENT JOB OPPORTUNITY FOR FRESH GRADUATE IN BLOOMSOFTWARE SOLUTIONS
+To: "Brutuski" <brutuski@hotmail.com>,
+  "Reply To" <bloom21@bloomsolutions.com>, hrs@vtmanpower.net
+From: vijayvashisth@yahoo.com
+Date: Thu, 19 May 2011 09:42:23 +0000
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+X-Spam-Checker-Version: SpamAssassin 3.0.2 (2004-11-16) on localhost
+X-Spam-Status: No, score=-0.1 required=5.0 tests=ALL_TRUSTED,
+	MIME_BASE64_BLANKS,MIME_BASE64_NO_NAME,NO_REAL_NAME,PRIORITY_NO_NAME 
+	autolearn=disabled version=3.0.2
+X-Spam-Level: 
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011051913)]
+X-MAIL-FROM: <hrs-return-37-jayanthi=altechstar.com@vtmanpower.net>
+X-SOURCE-IP: [76.162.254.75]
+X-SF-Loop: 1
+
+SXRzIG15IGh1bWJsZSByZXF1ZXN0IHRvIGFsbCBjb25jZXJuZWQgdG8gcGxlYXNlIGRlbGV0ZSBt
+eSBjb250YWN0IGZyb20geW91ciBsaXN0IGNveiBJIGFtIHVuYWJsZSB0byB1bmRlcnN0YW5kIGZy
+b20gd2hlcmUgSSBjYW1lIGludG8gdGhlIHBpY3R1cmUgYW5kIGZyb20gd2hlcmUgdGhlIGluaXRp
+YWwgc2VuZGVyIGdvdCBteSBjb250YWN0LCBPbmNlIGFnYWluIEkgcmVxdWVzdCB0byBhbGwgY29u
+Y2VybmVkIHRvIHBsZWFzZSBkZWxldGUgbXkgSSdkIGJlZm9yZSBzZW5kaW5nIHRoZSBtYWlsIHRv
+IGFueSBvdGhlciByZWNlaXZlciwgQWR2LiBWaWpheSBWYXNoaXN0aC4NClNlbnQgZnJvbSBCbGFj
+a0JlcnJ5wq4gb24gQWlydGVsDQoNCi0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tDQpGcm9tOiBC
+cnV0dXNraSA8YnJ1dHVza2lAaG90bWFpbC5jb20+DQpEYXRlOiBUaHUsIDE5IE1heSAyMDExIDE0
+OjExOjIxIA0KVG86IFJlcGx5IFRvPGJsb29tMjFAYmxvb21zb2x1dGlvbnMuY29tPjsgPGhyc0B2
+dG1hbnBvd2VyLm5ldD4NClN1YmplY3Q6IFJlOiBBTiBFWENFTExFTlQgSk9CIE9QUE9SVFVOSVRZ
+IEZPUiBGUkVTSCBHUkFEVUFURSBJTiBCTE9PTQ0KIFNPRlRXQVJFIFNPTFVUSU9OUw0KDQpQbHMg
+ZG50IHNlbmQgc3VjaCBpcnJlbGV2YW50IG1haWxzCgpBcmNoYW5hLSBCbG9vbSBTb2Z0d2FyZSBT
+b2x1dGlvbnMgPGJsb29tMjFAYmxvb21zb2x1dGlvbnMuY29tPiB3cm90ZToKCj5JZiB5b3UgYXJl
+IHVuYWJsZSB0byB2aWV3LCBQbGVhc2UgQ2xpY2sgSGVyZQo+Cj5Ob3JtYWwKPjAKPgo+Cj4KPgo+
+ZmFsc2UKPmZhbHNlCj5mYWxzZQo+Cj5FTi1VUwo+WC1OT05FCj5YLU5PTkUKPgo+Cj4KPgo+Cj4K
+Pgo+Cj4KPgo+Cj4KPgo+TWljcm9zb2Z0SW50ZXJuZXRFeHBsb3JlcjQKPgo+Cj4KPgo+Cj4KPgo+
+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4K
+Pgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+
+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4K
+Pgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+
+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4KPgo+Cj4K
+Pgo+Cj4KPgo+Cj4vKiBTdHlsZSBEZWZpbml0aW9ucyAqLwo+dGFibGUuTXNvTm9ybWFsVGFibGUK
+Pnttc28tc3R5bGUtbmFtZToiVGFibGUgTm9ybWFsIjsKPm1zby10c3R5bGUtcm93YmFuZC1zaXpl
+OjA7Cj5tc28tdHN0eWxlLWNvbGJhbmQtc2l6ZTowOwo+bXNvLXN0eWxlLW5vc2hvdzp5ZXM7Cj5t
+c28tc3R5bGUtcHJpb3JpdHk6OTk7Cj5tc28tc3R5bGUtcWZvcm1hdDp5ZXM7Cj5tc28tc3R5bGUt
+cGFyZW50OiIiOwo+bXNvLXBhZGRpbmctYWx0OjBpbiA1LjRwdCAwaW4gNS40cHQ7Cj5tc28tcGFy
+YS1tYXJnaW46MGluOwo+bXNvLXBhcmEtbWFyZ2luLWJvdHRvbTouMDAwMXB0Owo+bXNvLXBhZ2lu
+YXRpb246d2lkb3ctb3JwaGFuOwo+Zm9udC1zaXplOjEwLjBwdDsKPmZvbnQtZmFtaWx5OiJUaW1l
+cyBOZXcgUm9tYW4iLCJzZXJpZiI7fQo+Cj4KPkFOIEVYQ0VMTEVOVCBKT0IgT1BQT1JUVU5JVFkg
+Rk9SIEZSRVNIIEdSQURVQVRFIElOIEJMT09NIFNPRlRXQVJFIFNPTFVUSU9OUyZuYnNwOwo+Jm5i
+c3A7Cj5XQUxLLUlOJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5i
+c3A7IDogMjNyZCwgMjR0aCwgMjV0aCBhbmQgMjZ0aCBNQVkgMjAxMSAKPiZuYnNwOwo+LSA0IG1v
+bnRocyBhcyBhIFRyYWluaW5nIHBlcmlvZCBvbiAuTkVUIGFuZCBwYXltZW50cyBhcmUgY2hhcmdl
+ZC4KPi0gQXQgdGhlIHRpbWUgb2YgdHJhaW5pbmcgc3RpcGVuZCB3aWxsIGJlIHByb3ZpZGVkLiZu
+YnNwOwo+LSBFYWNoIGFuZCBldmVyeSBjYW5kaWRhdGUgd2lsbCBiZSBhYnNvcmJlZCB0byBvdXIg
+UmVzZWFyY2ggJmFtcDsgRGV2ZWxvcG1lbnQgdGVhbSBhcyBmdWxsIHRpbWUgZW1wbG95ZWUuCj4m
+bmJzcDsKPkFib3V0IENvbXBhbnkKPkJMT09NIHNvZnR3YXJlIHNvbHV0aW9ucywgUHJvdmlkZXMg
+b2YgY29uc3VsdGluZywgdGVjaG5vbG9neSBhbmQgb3V0c291cmNpbmcgc2VydmljZXMsIGFuZCBl
+bmFibGVzIGl0cyBjbGllbnRzIHRvIHRyYW5zZm9ybSBhbmQgcGVyZm9ybSB0aHJvdWdoIHRlY2hu
+b2xvZ2llcy4gQkxPT00gc29mdHdhcmUgc29sdXRpb25zIHByb3ZpZGUgaXRzIGNsaWVudHMgd2l0
+aCBpbnNpZ2h0cyBhbmQgY2FwYWJpbGl0aWVzIHRoYXQgYm9vc3QgdGhlaXIgZnJlZWRvbSB0byBh
+Y2hpZXZlIHN1cGVyaW9yIHJlc3VsdHMgdGhyb3VnaCBhIHVuaXF1ZSB3YXkgb2Ygd29ya2luZywg
+dGhlIENvbGxhYm9yYXRpdmUgQnVzaW5lc3MgRXhwZXJpZW5jZS4KPiZuYnNwOwo+RGVzaWduYXRp
+b246IFRyYWluZWUgU29mdHdhcmUgRW5naW5lZXIKPlRlY2hub2xvZ2llcyZuYnNwOyZuYnNwOyZu
+YnNwOyZuYnNwOyA6QXNwLm5ldCwgVkIubmV0L0MjLCBTUUwgU2VydmVyLCBBamF4LCBKYXZhU2Ny
+aXB0LCBIVE1MCj4mbmJzcDsKPlJvbGUgYW5kIFJlc3BvbnNpYmlsaXR5Cj4tIFBlcmZvcm1zIGRl
+c2lnbiwgaW1wbGVtZW50YXRpb24gYW5kIG1haW50ZW5hbmNlIG9mIG11bHRpcGxlIHByb2R1Y3Qg
+bW9kdWxlcy8gc3ViLXN5c3RlbXMuCj4tIFBhcnRpY2lwYXRlcyBpbiBwcm9kdWN0IGRlc2lnbiBt
+ZWV0aW5ncy4KPi0gUGVyZm9ybXMgYnVnIGZpeGVzIGJldGEgc3VwcG9ydCBmb3IgYXNzaWduZWQg
+cHJvZHVjdHMuCj4tIFJlc2VhcmNoZXMgcHJvYmxlbXMgZGlzY292ZXJlZCBieSBRQSBhbmQgZGV2
+ZWxvcHMgc29sdXRpb25zIHRvIHRoZSBwcm9ibGVtcy4KPi0gQ29uZHVjdHMgdW5pdCB0ZXN0aW5n
+IGFuZCBpbnRlZ3JhdGlvbiB0ZXN0aW5nIGZvciBmdW5jdGlvbmFsaXR5IGFuZCBsaW1pdHMuCj4t
+IE1heSBhc3Npc3QgaW4gcGVyZm9ybWluZyBvbi1zaXRlIGNsaWVudCB3b3JrIG9uIGhpZ2hseSBj
+b21wbGV4IGFwcGxpY2F0aW9ucy4KPi0gSW4gYWJzZW5jZSBvZiBzZW5pb3IgZGV2ZWxvcGVycywg
+cmVzcG9uc2libGUgZm9yIHByb2R1Y3QgYXJjaGl0ZWN0dXJlLgo+LSBEZXNpZ24gYW5kIGltcGxl
+bWVudGF0aW9uIGluIG9yZGVyIHRvIG1lZXQgcHJvamVjdCBvYmplY3RpdmVzLgo+LSBEb2N1bWVu
+dGF0aW9uIG9mIGRldmVsb3BtZW50IHdvcmsKPiZuYnNwOwo+RGVzaXJlZCBQcm9maWxlOiZuYnNw
+Owo+LSBNdXN0IGJlIGFibGUgdG8gZWZmZWN0aXZlbHkgd29yayB3aXRoIGEgdGVhbQo+LSBTZWxm
+IG1vdGl2YXRlZCB3aXRoIGNvbXBldGl0aXZlIHNwaXJpdAo+LSBTZWxmLXN0YXJ0ZXIgd2l0aCBn
+b29kIGludGVycGVyc29uYWwgYW5kIGNvbW11bmljYXRpb24gc2tpbGxzCj4tIFN0cm9uZyBwcm9i
+bGVtIGFuYWx5c2lzLCBwcm9ibGVtLXNvbHZpbmcsIGFuYWx5dGljYWwgc2tpbGxzIHJlcXVpcmVk
+Cj5FeHBlcmllbmNlJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IDog
+RlJFU0hFUlMgKDIwMDgvMjAwOS8yMDEwIFBBU1MgT1VUIENBTkRJREFURVMpCj5FZHVjYXRpb24m
+bmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJz
+cDsgOiAmbmJzcDtCQ0EvTUNBLCBCRS9CLlRlY2gsIE1FL00uVGVjaAo+V2Fsay1pbiBEYXRlICZu
+YnNwOyZuYnNwOyZuYnNwOyA6IDIzcmQsIDI0dGgsIDI1dGggYW5kIDI2dGggTUFZIDIwMTEgCj5U
+aW1lJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7
+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7ICZuYnNwOyZuYnNwOyA6IDk6MzAg
+QU0mbmJzcDsmbmJzcDsgLSA0OjMwIFBNCj4mbmJzcDsKPkxvY2F0aW9uOiBCYW5nYWxvcmUKPkNv
+bnRhY3QgcGVyc29uOiBBcmNoYW5hCj5Db250YWN0IG51bWJlcjogNzIwNDEzMTM2Nwo+RW1haWwg
+SWQ6IGJsb29tMjFAYmxvb21zb2x1dGlvbnMuY29tCj4mbmJzcDsKPkludGVyZXN0ZWQgY2FuZGlk
+YXRlcyBjYW4gV2Fsay1pbiB0byBiZWxvdyBtZW50aW9uZWQgYWRkcmVzcwo+Qmxvb20gc29mdHdh
+cmUgc29sdXRpb25zCj5Oby4yNSwgVHJ1cHRoaSBjb21wbGV4Cj40dGggQ3Jvc3MsIDJuZCBGbG9v
+ciwgQWJvdmUgQ29mZmVlIERheQo+U2FuamF5IE5hZ2FyLAo+QmFuZ2Fsb3JlLTU2MDA5NAo+V2Vi
+OiBkZXYuYmxvb21zb2x1dGlvbnMuY29tJm5ic3A7Jm5ic3BUaGlzIGVtYWlsIHdhcyBzZW50IHRv
+IFtocnNAdnRtYW5wb3dlci5uZXRdIGJ5IFtibG9vbTIxQGJsb29tc29sdXRpb25zLmNvbV0uIEhv
+d2V2ZXIsaWYgeW91IGRvIG5vdCB3aXNoIHRvIHJlY2VpdmUgZW1haWxzLiBQbGVhc2UgQ2xpY2sg
+aGVyZSB0byB1bnN1YnNjcmliZSBmcm9tIGFueSBmdXR1cmUgbWFpbGluZ3MuIHwgc3VwcG9ydEBi
+bG9vbXNvbHV0aW9ucy5jb21SZWdhcmRzICBFbWFpbCBDYW1wYWlnbiBCeSA=
+
+

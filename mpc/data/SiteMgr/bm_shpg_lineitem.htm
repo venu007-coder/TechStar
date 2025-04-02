@@ -1,0 +1,478 @@
+<script runat="merc_server">
+
+	var DestinationHTML = "zoneshipping.html";
+	var InWizard = false; // innocent until proven guilty
+	var CommerceWizPage = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'CommerceWizCfg', 'RowName', 'WizardState', 'ColName', 'Value');
+	if (CommerceWizPage < 9)
+	{
+		// Must be in commerce Wizard.
+		DestinationHTML = "comwiz_" + CommerceWizPage + ".htm";
+		InWizard = true;
+	}
+
+
+var cs_inc = doActionEx ('DATA_READFILE','FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName',
+	    'JS_SRC', 'FileType', 'txt');
+eval (cs_inc)
+
+//set Locale string
+//var LOCALE_STRING="en";
+var LOCALE_STRING=getBrowserLocale();
+var PRECISION = getDefaultPrecision();
+
+//get zone information
+	var zoneInfo = new Array();
+	var zonesBDO = doActionBDO("SHIP_GET_ZONELIST");
+	var zonesBDORows = zonesBDO.GetLabels();
+	var j=0;
+	for (var i=0; i< zonesBDORows.length; i++)
+	{
+		curRow=eval("zonesBDO."+zonesBDORows[i]);
+				
+		if (curRow.ID)
+		{
+			zoneInfo[j] = new Array(curRow.ID,curRow.NAME_LIT_ID,curRow.Name,curRow.BASE_PRICE);
+			j++;//increment array counter ONLY when a valid row is encountered and saved
+		}
+		
+				
+	}
+	//Get sku information
+	var input = GetBDO('Locale', LOCALE_STRING, 'Type', 0);
+	var output = GetBDO();
+	var status = ProcessRequest('ITEM_GETALLITEMS', input, output);
+	var items = output.GetValues(output.GetLabels('Item')); // this is the items array w/no fields
+
+	var itemInfo = new Array(), rowNum = 0;
+	for (var i = 0; i < items.length; i++)
+	{
+			if (items[i].ID && items[i].Name)
+			{
+				var allfields = GetBDO();
+				var input = GetBDO('Locale', LOCALE_STRING, 'ItemID', parseInt(items[i].ID, 10));
+				var status = ProcessRequest('ITEM_GETALLFIELDS', input, allfields);
+				if (status == MCERR_NOERROR && allfields.ID != undefined)
+				{
+					itemInfo[rowNum] = new Array(allfields.ID,allfields.Key, allfields.Name, allfields.Price);
+					rowNum++;	
+				}
+			}
+			
+	}
+		
+//Read in posted vars
+var startpos, endpos;
+var mode= doAction('REQ_GET_FORMVALUE', "mode", "mode");
+var START_POS = startpos= parseInt(doAction('REQ_GET_FORMVALUE', "startpos", "startpos"));
+var END_POS = endpos = parseInt(doAction('REQ_GET_FORMVALUE', "endpos", "endpos"));
+var direction=doAction('REQ_GET_FORMVALUE', "direction", "direction");
+var disablePrevious = disableNext = false;
+//assign constants for later use
+var LIST_INCREMENT = 25;
+var DIRECTION=(direction)?direction:'';
+if (DIRECTION=='next' && endpos) 
+{
+	START_POS=parseInt(endpos);
+	END_POS=parseInt(START_POS)+parseInt(LIST_INCREMENT);
+} 
+else if (DIRECTION=='previous' && startpos) 
+{
+	END_POS=START_POS;
+	START_POS=parseInt(startpos) - parseInt(LIST_INCREMENT)
+	
+}
+
+if ((START_POS < 0) || !START_POS) 
+{
+	START_POS=0;
+	END_POS=parseInt(START_POS)+parseInt(LIST_INCREMENT);
+	disablePrevious=true;
+}
+if ((END_POS < 0) || !END_POS) //if end_pos was not passed in, compute it
+	END_POS=parseInt(START_POS)+parseInt(LIST_INCREMENT); //define last position
+	
+if (END_POS>itemInfo.length) //make sure we don't go beyond last item
+{
+	END_POS=itemInfo.length;
+	disableNext=true;
+	
+}		
+	
+//LOOP AWAY
+
+//Code for generating button HTML, this is used in the display code
+var buttonHTML="";
+	
+//Make sure to disable Previous/Next buttons when appropriate
+if (disablePrevious)
+{
+	buttonHTML += '<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_previous.gif" alt="Previous" width="79" height="21" border="0">';
+} 
+else
+{
+	buttonHTML += '<a href="javascript:moveList(\'previous\', \'' + DestinationHTML + '\');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_previous.gif" alt="Previous" width="79" height="21" border="0"></a>';
+}
+if (disableNext)
+{
+	buttonHTML += '<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_next.gif" alt="Next" width="79" height="21" border="0">';
+}
+else 
+{
+	buttonHTML += '<a href="javascript:moveList(\'next\', \'' + DestinationHTML + '\');"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_next.gif" alt="Next" width="79" height="21" border="0"></a>';
+ 
+}
+
+if (mode=='saveLineItem') 
+{
+	//writebr("saving values");
+	for(var z=0; z< zoneInfo.length;z++)
+	{
+		//Save base price number for zone
+		var tmp="zone_"+zoneInfo[z][0]+"_baseprice";
+		var basePrice = 0.00;
+		var basePriceString = doAction('REQ_GET_FORMVALUE', tmp, tmp);
+
+		//unformat in case invalid entry
+		basePriceString=unformatDouble(basePriceString,PRECISION);
+
+		if(basePriceString)
+			basePrice = parseFloat(basePriceString);
+		basePrice=formatDouble(basePrice,PRECISION);
+			
+		if (!basePrice)
+			basePrice = 0;
+
+		if(basePrice < 0)
+			basePrice = 0;
+
+		var updateBase = doActionEx("SHIP_SET_ZONEBASEPRICE","Success","Zone",parseInt(zoneInfo[z][0]),"BasePrice",parseFloat(basePrice),"ChargeType",'F');
+		zoneInfo[z][3]=basePrice;
+		
+		for(var i=START_POS; i< END_POS;i++)
+		{
+			var resultset=0;// reset this for looping purposes
+								
+			var tmp="item_"+ itemInfo[i][0] + "_zone_"+ zoneInfo[z][0] +"_ship_price";
+			var shipPrice = doAction('REQ_GET_FORMVALUE', tmp, tmp);
+
+			//Open query
+			filterStr = "ITEM_ID="+itemInfo[i][0]+" AND ZONE_ID="+zoneInfo[z][0];
+			var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_LINE_ITEM", "Filter", filterStr);
+			if(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "SHIP_LINE_ITEM"))
+			{
+				var resultset=doActionBDO("DATA_GETROWDATA", "ObjectName", "SHIP_LINE_ITEM","QueryID",qID);
+			}
+
+			var cost=0;
+			var updateReq = false;
+
+			if (shipPrice) 
+			{//Need to INSERT or UPDATE
+				updateReq = true; // set flag for update
+
+				
+				//ship price cannot be negative - MTR
+				var tmpShipPrice = parseFloat(unformatDouble(shipPrice,PRECISION));
+			
+				if (tmpShipPrice < 0)
+					tmpShipPrice = 0;
+				
+				shipPrice = tmpShipPrice.toString();
+
+				if (resultset) 
+				{//UPDATE ROW
+					//writebr("updating row...charge (db) before insert: ", resultset.CHARGE);
+					var setChargeField = doActionEx("DATA_SETFIELDDATA", "Success","ObjectName", "SHIP_LINE_ITEM", "QueryID",qID,"FieldName", "CHARGE", "FieldVal",shipPrice.toString());
+				} 
+				else
+				{//INSERT ROW
+					//writebr("inserting row...");
+					var result = doActionEx("DATA_ADDNEW", "Success","ObjectName", "SHIP_LINE_ITEM", "QueryID", qID);
+					var nextID = doActionEx("DATA_GENERATEID","ID","ObjectName","GENERATE_ID","IdType","TBL_SHIP_LINE_ITEM");
+					var setField0 = doActionEx("DATA_SETFIELDDATA", "Success","ObjectName", "SHIP_LINE_ITEM", "QueryID",qID,"FieldName", "ID", "FieldVal",nextID.toString());
+					var setField1 = doActionEx("DATA_SETFIELDDATA", "Success","ObjectName", "SHIP_LINE_ITEM", "QueryID",qID,"FieldName", "ZONE_ID", "FieldVal",zoneInfo[z][0].toString());
+					var setField2 = doActionEx("DATA_SETFIELDDATA", "Success","ObjectName", "SHIP_LINE_ITEM", "QueryID",qID,"FieldName", "ITEM_ID", "FieldVal",itemInfo[i][0].toString());
+					var setField3 = doActionEx("DATA_SETFIELDDATA", "Success","ObjectName", "SHIP_LINE_ITEM", "QueryID",qID,"FieldName", "CHARGE", "FieldVal",shipPrice.toString());
+					var setField4 = doActionEx("DATA_SETFIELDDATA", "Success","ObjectName", "SHIP_LINE_ITEM", "QueryID",qID,"FieldName", "MSG_LIT_ID", "FieldVal","0");
+					
+				}
+				
+			} else
+			{//Need to DELETE if exists
+				
+				if ((resultset.CHARGE>=0) && resultset) 
+				{//DELETE ROW
+					//writebr("deleting row...");
+					var deleteRow=doActionEx("DATA_DELETE", "Success","ObjectName", "SHIP_LINE_ITEM","QueryID",qID);
+				}
+			}
+			//Update changes
+			if (updateReq) 
+			{
+				var update = doActionEx("DATA_UPDATE", "Success", "ObjectName", "SHIP_LINE_ITEM","QueryID",qID);
+				//writebr("updating db...update status:", update);
+			}
+			//Close query
+			var closeConn = doAction("DATA_CLOSEQUERY","QueryID",qID,"ObjectName", "SHIP_LINE_ITEM");
+		}//end FOR (item)
+
+	}//end FOR (zone)
+
+	//get recently saved zone information
+	var zoneInfo = new Array();
+	var zonesBDO = doActionBDO("SHIP_GET_ZONELIST");
+	var zonesBDORows = zonesBDO.GetLabels();
+	var j=0;
+	for (var i=0; i< zonesBDORows.length; i++)
+	{
+		curRow=eval("zonesBDO."+zonesBDORows[i]);
+
+		if (curRow.ID)
+		{
+			zoneInfo[j] = new Array(curRow.ID,curRow.NAME_LIT_ID,curRow.Name,curRow.BASE_PRICE);
+			j++;//increment array counter ONLY when a valid row is encountered and saved
+		}
+
+	}
+	
+}//end IF
+
+
+
+</script>
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+
+<BASE href="{SC_BaseUrl}">
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+
+<SCRIPT language="javascript">
+
+	<SCRIPT runat="merc_server">
+	writeln("var ZoneList = new Array();\n");
+	for(var z=0; z < zoneInfo.length; z++) 
+		{
+			var zoneStr="''";
+			//for(var i=0; i < itemInfo.length;i++)
+			for(var i=START_POS; i < END_POS; i++) 
+			{
+				var tmp="'item_"+ itemInfo[i][0] + "_zone_"+ zoneInfo[z][0] +"_ship_price'";
+				//writebr(tmp);
+				zoneStr=zoneStr + "," + tmp;
+			}
+			writeln("ZoneList["+z+"]=new Array("+zoneStr+");");
+		}
+
+	//End Server side
+	</SCRIPT>
+
+function applyFirstToAll()
+{
+
+	for(var z=0;z < ZoneList.length;z++) 
+	{
+		//foreach zone
+		var firstval = eval("document.lineItemValues."+ZoneList[z][1]+".value");
+		if((firstval!=0) && !firstval ) {
+			firstval="''";
+		}
+		for(var i=2;i < ZoneList[z].length;i++){
+			if (eval("document.lineItemValues."+ZoneList[z][i]))
+				eval("document.lineItemValues."+ZoneList[z][i]+".value='"+firstval+"'");
+		}
+
+	}
+
+
+}
+
+function moveList(whichway, DestinationHTML) 
+{
+	//alert('move Next');
+	document.lineItemValues.direction.value=whichway;
+	document.lineItemValues.mode.value='';
+	parent.SubmitForm('L',DestinationHTML,'mainFrame',document.lineItemValues);
+	
+	return(void(0));
+}
+
+function setFocus()
+{
+	for (var n = 0; n < document.lineItemValues.elements.length ; n++)
+	{
+		if (document.lineItemValues.elements[n].type.toLowerCase() != "hidden")
+		{
+			document.lineItemValues.elements[n].focus();
+			break;
+		}
+	}
+}
+//End client script
+</SCRIPT>
+
+
+
+
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+</head>
+<body class="bkgrd-main-items"  onLoad="javascript:setFocus();">
+
+<div align="center"> 
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" align="left">
+    <tr>
+<script runat="merc_server">
+	if (InWizard)
+	{
+		writeln("<td width=\"\" align=\"center\"><span class=\"general-label\">&nbsp;Selected Model: Line Item</span> &nbsp; &nbsp;");
+		writeln("<a href=\"javascript:void(parent.OpenWinSubmitForm('','L','bm_shpg_chgmodel.htm','newWin','',parent.createSimpleSubmitWindow(180,400)));\">");
+		writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_chgshpgmodel.gif\" alt=\"Change Shipping Model\" width=\"160\" height=\"21\" border=\"0\"></a>\n\
+      </td>");
+	}
+	else
+	{
+		writeln("	<td width=\"\"><span class=\"header\">Shipping - Line Item Model</span></td>");
+		writeln("	<td width=\"\">\n\
+        <div align=\"right\"><span class=\"header\"><a href=\"javascript:void(parent.OpenWinSubmitForm('','L','bm_shpg_chgmodel.htm','newWin','',parent.createSimpleSubmitWindow(180,400)));\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_chgshpgmodel.gif\" alt=\"Change Shipping Model\" width=\"160\" height=\"21\" border=\"0\"></a> </span></div>\n\
+      </td>");
+
+<merc_embed>
+        <td align="right">
+<!--HELP WINDOW LINK-->
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SHIPZ_LINE+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" alt="Help" align="right"></a>
+<!--END HELP WINDOW--><!--HELP TEST COMMENT --></td>
+</merc_embed>
+
+
+	}
+
+</script>
+    </tr>
+  </table>
+  <p align="left"><br>
+    <br>
+  </p>
+ <p align="center"><span class="header">
+ <!--**********************************
+ APPLY FIRST TO ALL REMOVED FOR NOW
+	 <a href="javascript:applyFirstToAll();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_apply1sttoall.gif" width="120" height="21" border="0"></a>&nbsp;
+***************************************
+END APPLY FIRST TO ALL-->	 
+  <a href="javascript:void(parent.OpenWinSubmitForm('','L','bm_shpgzones.htm','newWin','',parent.createSimpleSubmitWindow(240,460)));"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_shpgzones.gif" alt="Manage Shipping Zones" width="120" height="21" border=0></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  <span class="header">
+  
+<SCRIPT RUNAT="merc_server">
+	write(buttonHTML);
+</SCRIPT> 
+   
+  </span></p>
+   
+	<script runat="merc_server">
+		writeln("<form name=\"lineItemValues\" action=\"\" onSubmit=\"javascript:void(parent.SubmitForm('L','" + DestinationHTML + "','mainFrame',document.changeZone));return false;\">");
+	</script>
+
+  <input type="hidden" name="mode" value="saveLineItem">
+  
+<script runat="merc_server">
+	writeln("<input type=\"hidden\" name=\"startpos\" value=\""+START_POS+"\">");
+	writeln("<input type=\"hidden\" name=\"endpos\" value=\""+END_POS+"\">");
+</script> 
+
+<input type="hidden" name="direction" value="">
+
+  <table width="" border="1" cellspacing="0" cellpadding="0">
+    <tr class="table-header"> 
+      <td width="100" nowrap class="table-header" height="38"> 
+        <div align="center">SKU</div>
+      </td>
+      <td width="100" class="table-header" height="38"> 
+        <div align="center">Name</div>
+      </td>
+      <td width="75" class="table-header" height="38"> 
+        <div align="center">Price</div>
+      </td>
+<script runat="merc_server">
+	
+	for (var i=0; i<zoneInfo.length; i++)
+	{
+	  writeln("<td width=\"100\" class=\"table-header\" height=\"38\"> \n\
+	    <div align=\"center\">Zone<br>\n\
+	      &quot;"+ zoneInfo[i][2] + "&quot;<br>\
+	  </td>\n");
+			
+	}
+		
+</script>
+
+    </tr>
+    <tr class="subheader">
+		<td colspan="3" class="general-label">Base Charge:</td>
+		<script runat="merc_server">
+			for (var i=0; i < zoneInfo.length; i++)
+			{
+				writeln("<td align=\"center\"><input type=\"text\" name=\"zone_"+zoneInfo[i][0]+"_baseprice\" value=\""+formatDouble(zoneInfo[i][3], PRECISION)+"\" maxlength=\"8\" size=\"5\"></td>");
+			}
+		</script>	
+	</tr>
+    
+<script runat="merc_server">
+	for(var i=START_POS; i < END_POS; i++) 
+	{
+		var itemID=itemInfo[i][0];			
+		var itemKey=itemInfo[i][1];
+		var itemName=itemInfo[i][2]			
+		var itemPrice=itemInfo[i][3];			
+			
+			
+		writeln("<tr>\n\
+			<td width=\"100\" nowrap height=\"22\">\
+			  <div align=\"center\">"+ itemKey +"</div>\
+			</td>\n\
+			<td width=\"100\" height=\"22\"> \
+			  <div align=\"center\">"+ itemName +"</div>\
+			</td>\n\
+			<td width=\"75\" height=\"22\"> \
+			  <div align=\"center\">"+ formatCurrency(itemPrice, LOCALE_STRING, PRECISION) +"</div>\
+			</td>\n");
+				
+		for (var j=0; j < zoneInfo.length; j++)
+		{
+			cost=doActionEx("SHIP_GET_LINEITEMCHARGE", "Result","ITEM_ID",itemID,"SHIPPING_ZONE",zoneInfo[j][0]);
+			
+			writeln("<td width=\"100\" height=\"22\"> \n\
+				  <div align=\"center\"><span class=\"general-label\"> \n\
+				    <input type=\"text\" name=\"item_"+ itemID + "_zone_"+ zoneInfo[j][0] +"_ship_price\" value=\""+formatDouble(cost, PRECISION)+"\" maxlength=\"8\" size=\"5\">\n\
+				    </span></div>\
+				</td>\n");
+			
+		}
+		writeln("</tr>");					
+						
+	}
+</script>
+    
+    </tr>
+  </table>
+  
+  <p>
+<script runat="merc_server">
+	writeln("  <a href=\"javascript:void(parent.SubmitForm('L','" + DestinationHTML + "','mainFrame',document.lineItemValues))\">");
+</script>
+  <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" alt="Save" width="90" height="21" border="0"></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <SCRIPT RUNAT="merc_server">
+	write(buttonHTML);	
+  </SCRIPT>
+ 
+ </p>
+ 
+ </form>
+</div>
+</body>
+</html>

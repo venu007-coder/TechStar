@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+<SCRIPT LANGUAGE="JavaScript" src="master.js">
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+</head>
+
+<body class="penda-bkgrd" 
+onLoad="changeWizImage(new Array(parent.topFrame.document.images.wizimg6), 
+		new Array (parent.topFrame.document.images.wizimg1, 
+					parent.topFrame.document.images.wizimg2, 
+					parent.topFrame.document.images.wizimg3, 
+					parent.topFrame.document.images.wizimg4, 
+					parent.topFrame.document.images.wizimg5));">
+<form name="publish" action="javascript:void(0);">
+	<input type="hidden" name="WizState" value="6">
+	<!--Begin Temp-->
+	<INPUT TYPE="hidden" NAME="DrawerSelected" VALUE="drw_site.gif">
+	<!--End Temp-->
+<table width="625" border="0" cellpadding="4" cellspacing="0" height="152" align="center">
+  <tr bgcolor="#FFFFCC">
+    <td width="25%" height="25"><span class="page-title">Publish Your Site</span></td>
+    <td width="75%" height="25">
+      <div align="right">
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WIZ_WAT_PUBLISH+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a><!--END HELP WINDOW LINK-->
+
+<a href="javascript:parent.SubmitForm ('L', 'desktop_frameset.htm','', new Array('DrawerSelected', 'drw_site.gif'));" target="_parent"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Exit_Nbtn_base2.gif" width="86" height="30" border="0" alt="Exit"></a>
+
+<script runat="merc_server">
+	// Clear the state for the image selection window
+	doAction('ST_DELETE_STATEDATA', 'WizardSelectImage', 'WizardSelectImage');
+	var baseUrl = doAction('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'BaseHref');
+	write('<a href="javascript:void(0);" onClick="var WinObj = parent.createSimpleSubmitWindow (\'600\', \'800\'); ');
+	write('WinObj.values.toolbar=\'yes\'; WinObj.values.menubar=\'yes\';');
+	write('parent.OpenWinSubmitForm (\''+baseUrl+'please_wait.htm\', \'WIZ_PreviewSite\',');
+	write(' \'\', \'NewWindow\', document.publish, WinObj);">');
+</script>
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Preview_Nbtn_base2.gif" width="86" height="30" border="0" alt="Preview site in new browser window"></a><a href="javascript:parent.SubmitForm ('WIZ_WizardBack', 'pwizwat_5.htm','mainFrame', document.publish);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Back_Nbtn_base.gif" width="86" height="30" border=0 alt="Back"></a><a href="javascript:parent.SubmitForm ('WIZ_Publish', 'desktop_frameset.htm','', document.publish);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Publish_Nbtn_base.gif" width="86" height="30" border="0" alt="Publish site to world wide web"></a></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFCC" valign="top"> 
+    <td height="147" colspan="2" class="table-bkgrd-main"> 
+      <div align="left"></div>
+      <blockquote>
+        <div align="left"><br>
+          <p><font size="2" face="Arial, Helvetica, sans-serif"><b>Congratulations!</b></p>
+		  <p>
+		   The site information you have entered in Step 1 through Step 5 has been saved but not yet published for viewing on the Internet. If you would like to review your site before publishing, select the <b>Preview</b> button.  If you are ready to publish, select the <b>Publish</b> button.
+		  </p>
+		  <p>
+		  The <b>Exit</b> button will take you back to PowerManager without publishing. You can return to the Wizard later, when you are ready to publish.  Your information will be saved.
+		  </p>
+		  <p>
+		  <b>Remember:</b><br>
+		  Once you select <b>Publish</b>, you will be taken back to the PowerManager log-in page. There you can further customize your web site and give it that one-of-a-kind look using the PowerWebBuilder Editor.
+		  </p>
+	   </div>
+      </blockquote>
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

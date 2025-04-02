@@ -1,0 +1,64 @@
+Return-Path: jobs@iapposite.com
+Received: from mx29.stngva01.us.mxservers.net (204.202.242.73)
+	by mail19i.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 0-0425439535
+	for <abhra@altechstar.com>; Mon, 23 May 2011 12:52:15 -0400 (EDT)
+Received: from unknown [24.249.248.181] (EHLO mail.appositesolutions.com)
+	by va1-mx29.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id fb09add4.1887181728.909592.00-005.va1-mx29.stngva01.us.mxservers.net (envelope-from <apposite.bounce@gmail.com>);
+	Mon, 23 May 2011 12:52:15 -0400 (EDT)
+Received: by mail.appositesolutions.com (Postfix, from userid 30)
+	id 7E4A4CEC90; Mon, 23 May 2011 11:15:42 +0000 (UCT)
+Date: Mon, 23 May 2011 12:15:42 +0100
+To: abhra@altechstar.com
+From: Apposite Solutions <jobs@iapposite.com>
+Subject: Direct Client : Java/J2EE Developer in NJ
+Message-ID: <e3502c89651d0ad7bef87cd393b9dcea@www.appositesolutions.com>
+X-Priority: 3
+X-Mailer: PHPMailer [version 1.72]
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011052314)]
+X-MAIL-FROM: <apposite.bounce@gmail.com>
+X-SOURCE-IP: [24.249.248.181]
+X-SF-Loop: 1
+
+<p><font class=3D"Apple-style-span" face=3D"Tahoma"><span class=3D"Apple-=
+style-span" style=3D"border-collapse: collapse;"> </span></font></p>
+<p><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-span"=
+>Greetings!!</font></span></p>
+<p><span style=3D"font-family: Tahoma; "><font class=3D"Apple-style-span"=
+> </font></span><font class=3D"Apple-style-span" face=3D"Tahoma">
+<p><span style=3D"font-family: Tahoma; ">Warm regards to you.</span></p>
+<p><span style=3D"font-family: Tahoma; ">We have an immediate job opening=
+ with our direct client. Kindly send resume along with contact informatio=
+n.</span></p>
+<p><span style=3D"font-family: Tahoma; ">Location: Jersey City , NJ</span=
+></p>
+<p><span style=3D"font-family: Tahoma; ">Duration : Long Term</span></p>
+<p><span style=3D"font-family: Tahoma; ">Rate : Open</span></p>
+<p>&nbsp;</p>
+<span style=3D"font-family: Tahoma; ">
+<p><u><b>Description</b></u></p>
+</span>
+<p>
+<p><span style=3D"font-family: Tahoma; ">5+ years of experience in JAVA/J=
+2EE</span></p>
+<p><span style=3D"font-family: Tahoma; ">Webservices, Spring, JDBC</span>=
+</p>
+<p><span style=3D"font-family: Tahoma; ">Excellent communication required=
+. </span></p>
+<p><span style=3D"font-family: Tahoma; ">Should be a self starter and hit=
+ the ground running with minimal guidance from peers.</span></p>
+<p><span style=3D"font-family: Tahoma; "><br />
+</span><span style=3D"font-family: Tahoma; ">send response to jobs@iappos=
+ite.com</span></p>
+</p>
+<p>&nbsp;</p>
+<p><span style=3D"font-family: Tahoma; ">Thanks,</span></p>
+<p><span style=3D"font-family: Tahoma; ">Apposite Solutions Inc(An Idhaso=
+ft Company)</span></p>
+<p><span style=3D"font-family: Tahoma; ">To unsubscribe or update your re=
+cords, Click here</span><font class=3D"Apple-style-span">&nbsp;</font></p=
+>
+</font></p>

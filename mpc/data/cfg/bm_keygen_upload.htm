@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Upload Generated Key</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script runat="merc_server">
+  //
+  // See if we're using SSL switching.
+  //
+  var secure = doAction ('REQ_GET_FORMVALUE', 'SecureMode', 'SecureMode');
+  var baseHrf = "";
+  var mercCommon = "";
+  var siteUrl = ""
+  if (secure)
+    doAction('ST_SET_STATEDATA', 'SecureMode', secure);
+  else
+    secure = doAction('ST_GET_STATEDATA', 'SecureMode', 'SecureMode');
+
+  if (secure && secure.toLowerCase() == "yes")
+  {
+    siteUrl = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SecureSiteUrl');
+    baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SecureBaseHref');
+    mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTPS_SHARED_HTDOCS_ALIAS');
+  }
+  else
+  {
+    siteUrl = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SiteUrl');
+    baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'BaseHref');
+    mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTP_SHARED_HTDOCS_ALIAS');
+  }
+
+  writeln('<base href="' + baseHrf + '">');
+  writeln('<link rel="stylesheet" href="'+mercCommon+'styles/master.css">');
+
+  //
+  // This lets us get back to the security page after the key is uploaded.
+  //
+  var tabSelected = doAction('ST_GET_STATEDATA', 'TabSelected', 'TabSelected');
+  doAction('ST_DELETE_STATEDATA', 'TabSelected', 'TabSelected');
+
+</script>
+
+<merc_dynamic noshow=true name=SC_UserName action=REQ_GET_FORMVALUE Username=Username>
+<merc_dynamic noshow=true name=SC_Password action=ST_GET_STATEDATA Password=Password>
+<merc_dynamic noshow=true name=SC_SiteID action=REQ_GET_FORMVALUE SiteID=SiteID>
+<merc_dynamic noshow=true name=SC_Session action=ST_GET_STATEDATA SessionID=SessionID>
+
+</head>
+
+<body class="bkgrd-main-items" onLoad="document.upload_form.submit();">
+<p align="center"><span class="dialog-title">Upload Generated Key</span><br>
+</p>
+<script runat="merc_server">
+  write('<form name="upload_form" action="'+siteUrl+'" method="POST" target="_top">');
+</script>
+<input type="hidden" name="Password" value="{SC_Password}">
+<input type="hidden" name="Username" value="{SC_UserName}">
+<input type="hidden" name="SessionID" value="{SC_Session}">
+<input type="hidden" name="SiteID" value="{SC_SiteID}">
+<input type="hidden" name="AppID" value="merchant">
+<input type="hidden" name="DrawerSelected" value="drw_office.gif">
+<script runat="merc_server">
+  write('<input type="hidden" name="TabSelected" value="'+tabSelected+'">');
+</script>
+<input type="hidden" name="NextPage" value="desktop_wat_frameset.htm">
+<input type="hidden" name="sm_action" value="SecurityAcceptKey">
+  <div align="center"> 
+    
+<p><span class="general-label">To complete the upload of the "%%keygen.keyname%%" public key to the server, press "Upload To Server"</span></p>
+<p>
+<input type="hidden" name=SecurityKeyName VALUE="%%keygen.keyname%%">
+<input type="hidden" name=SecurityKeyData VALUE="%%keygen.keydata%%">
+<input type="submit" name="uploadToServer" value="Upload To Server">
+
+</p>
+
+  </div>
+</form>
+
+</body>
+</html>

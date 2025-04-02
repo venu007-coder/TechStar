@@ -1,0 +1,353 @@
+<SCRIPT runat="merc_server">
+	var apptClassArray = new Array(" "," class='colorcode-respond'", " ", " ", " ", " ", " ");
+	var ImageStatus1 = new Array(" ", "/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_accept.gif", "/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_contact.gif", "/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_contact.gif", "/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_contact.gif");
+	var ImageStatus2 = new Array(" ", "/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_reject.gif", "/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_cancel.gif", "/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_cancel.gif", "/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_cancel.gif");
+
+	var incJsFile = doActionEx('DATA_READFILE','Services.js', 'FileName', 'Services.js','ObjectName','Site','FileType','txt');
+	eval (incJsFile);
+
+	/*
+	** If page submitted to itself, look for the action to take
+	*/
+	var theAction= doAction('REQ_GET_FORMVALUE', "action", "action");
+	var gERR_MSG = "";
+	if (theAction)
+	{
+		switch (theAction)
+		{
+			case "makeAppt":
+				gERR_MSG = makeAppointment();
+				break;
+
+			case "Accept":
+
+				acceptAppointment();
+				break;
+
+			case "Reject":
+
+				rejectAppointment();
+				break;
+
+			case "Cancel":
+
+				cancelAppointment()
+				break;
+
+			case "Contact":
+				var task = doAction('REQ_GET_FORMVALUE', "task", "task");
+
+				if (task == 'sendEmail')
+				{
+					var incJsFile = doActionEx('DATA_READFILE','send_email.js', 'FileName', 'send_email.js','ObjectName','Site','FileType','txt');
+					eval (incJsFile);
+
+					SendEmail();
+				}
+
+				break;
+		}
+	}
+
+	AppointmentList = loadAppointments(DisplayDateString); // DisplayDateString is global from Service.js
+	AppointmentCount = getAppointmentListCount();
+
+	var ServiceArray =  readServiceItems('Name');
+
+	function getApptDesc(ServiceID)
+	{
+		for (var i = 0; i < ServiceArray.length; i++)
+		{
+			if (ServiceArray[i].ID && ServiceArray[i].Name && ServiceArray[i].ID == ServiceID)
+				return ServiceArray[i].Name;
+		}
+	}
+</script>
+
+<html>
+<head>
+<title>Untitled Document</title>
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<merc_dynamic noshow=true name=dyn_ImagePath action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=imagepath>
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+<!--bm_schedule-appts.htm-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Begin
+	var months = new Array("January","February","March","April","May","June",
+			"July","August","September","October","November","December");
+	var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+
+	function setGridPos(month, day, year)
+	{
+		// Use date format to determine day of week
+		var date = new Date(); // date
+		date.setYear(year);
+		date.setMonth(month);
+		date.setDate(day);
+		var DayofWeek=date.getDay();
+		document.forms[0].val1.value = year;
+		document.forms[0].val2.value = month;
+		document.forms[0].val3.value = day;
+		document.forms[0].val4.value = DayofWeek;
+
+		document.forms[0].date.value = days[DayofWeek] + ", " + months[month] + " " + day + ", " + year;
+		parent.SubmitForm('L','bm_schedule-appts.htm','mainFrame', document.appts );
+	}
+	function setMonth(newValue)
+	{
+		if (newValue) {}
+		else
+		{
+			document.forms[0].val1.value = '';
+			document.forms[0].val2.value = '';
+			document.forms[0].val3.value = '';
+			document.forms[0].val4.value = '';
+		}
+
+		document.forms[0].month1.value = newValue;
+		parent.SubmitForm('L','bm_schedule-appts.htm','mainFrame', document.appts );
+	}
+	function setFindMonth()
+	{
+		// Initialize in case the following IF statements are invalid...
+		document.forms[0].month1.value = "";
+		document.forms[0].year1.value = "";
+
+		var fieldList = document.forms[0].searchmonth;
+		if (document.forms[0].searchmonth.selectedIndex > -1)
+			document.forms[0].month1.value = fieldList.options[document.forms[0].searchmonth.selectedIndex].value; //gets the option value
+		var fieldList = document.forms[0].searchyear;
+		if (document.forms[0].searchyear.selectedIndex > -1)
+			document.forms[0].year1.value = fieldList.options[document.forms[0].searchyear.selectedIndex].value; //gets the option value
+		parent.SubmitForm('L','bm_schedule-appts.htm','mainFrame', document.appts );
+	}
+	function makeAppt()
+	{
+		if (document.forms[0].date.value != '' )
+		{
+			document.forms[0].action.value = "makeAppt";
+			document.forms[0].appt_id.value = '';
+			parent.OpenWinSubmitForm('','L','bm_schedule-makeappt.htm','newWin', document.appts, parent.createSimpleSubmitWindow(425,525) );
+		}
+		else
+			alert("You must select a date before creating an appointment");
+	}
+	function actionClick1(status,id)
+	{
+		document.forms[0].appt_id.value = id;
+		if (status==1)
+		{
+			document.forms[0].action.value = "Accept";
+			parent.SubmitForm('L','bm_schedule-appts.htm','mainFrame', document.appts );
+		}
+		else
+		if (status==2)
+		{
+			document.forms[0].action.value = "Contact";
+			initiateEmail(id);
+		}
+	}
+
+	function actionClick2(status,id)
+	{
+		document.forms[0].appt_id.value = id;
+		if (status==1)
+			document.forms[0].action.value = "Reject";
+		else
+		if (status==2)
+			document.forms[0].action.value = "Cancel";
+
+		parent.SubmitForm('L','bm_schedule-appts.htm','mainFrame', document.appts );
+	}
+
+	function initiateEmail(id)
+	{
+		document.forms[0].appt_id.value = id;
+		//var args = new Array('MailTo', 'test@test.test');
+		//var baseURL = document.forms['form1'].elements.BaseURL.value;
+
+		// 500 x 700 for Netscape, 450 x 500 for IE
+		if (navigator.appVersion.indexOf('MSIE') != -1)
+			myWin = parent.createSimpleSubmitWindow(450, 500);
+		else
+			myWin = parent.createSimpleSubmitWindow(500, 700);
+
+		parent.OpenWinSubmitForm('', 'L','ServiceEmail.htm', 'newWin', document.appts, myWin);
+	}
+
+	function showDetail(id)
+	{
+		if (id != '' )
+		{
+			document.forms[0].action.value = "showAppt";
+			document.forms[0].appt_id.value = id;
+			parent.OpenWinSubmitForm('','L','bm_schedule-makeappt.htm','newWin', document.appts, parent.createSimpleSubmitWindow(425,525) );
+		}
+	}
+
+// End -->
+</SCRIPT>
+</head>
+
+<body class="bkgrd-main-items" onLoad=document.appts.searchmonth.focus()>
+<table width="100%" border="0">
+  <tr>
+    <td><span class="header">Schedule - Appointments</span></td>
+
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<td align="right">
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SCHD_APPT_CAL+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" name="help" alt="Help" align="right">
+</a>
+</td>
+<!--END HELP WINDOW LINK-->
+
+  </tr>
+</table><br>
+<form name="appts">
+<input type="hidden" name="action" value="">
+
+
+<SCRIPT runat="merc_server">
+	writeln("<input type='hidden' name='val1' value='",DisplayYear,"'>");
+	writeln("<input type='hidden' name='val2' value='",DisplayMonth,"'>");
+	writeln("<input type='hidden' name='val3' value='",DisplayDay,"'>");
+	writeln("<input type='hidden' name='val4' value='",DisplayDayofWeek,"'>");
+	writeln("<input type='hidden' name='appt_id' value=''>");
+	writeln("<input type='hidden' name='month1' value='" + dispMonth1 + "'>");
+	writeln("<input type='hidden' name='year1' value='" + dispYear1 + "'>");
+</script>
+
+  <div align="center"><br>
+    <table width="640" border="1" cellspacing="0" cellpadding="2">
+      <tr>
+        <td colspan="5" height="389">
+          <div align="center">
+            <p><span class="general-label">
+
+<SCRIPT runat="merc_server">
+
+	write("<a href=\"javascript:setMonth('');\">");
+	writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_today.gif\" width=\"90\" height=\"21\" align=\"absmiddle\" border=\"0\" alt=\"Today\"></a>");
+	writeln("&nbsp;&nbsp;&nbsp;&nbsp;Find month/year:</span>");
+
+	var todayDate=new Date();
+	todayYear = todayDate.getYear();
+	todayYear = todayYear % 100;
+	todayYear = ((todayYear < 50) ? (2000 + todayYear) : (1900 + todayYear));
+
+	writeln("<select name='searchmonth'>");
+	for (var i=0; i < 12; i++)
+	{
+		if (i == todayDate.getMonth())
+			writeln("<option value='" + i + "' SELECTED>" + months[i] + "</option>");
+		else
+			writeln("<option value='" + i + "'>" + months[i] + "</option>");
+	}
+	writeln("</select>");
+	writeln("<select name='searchyear'>");
+	for (var i=todayYear; i < todayYear+10; i++)
+	{
+		if (i == todayYear)
+			writeln("<option value='" + i + "' SELECTED>" + i + "</option>");
+		else
+			writeln("<option value='" + i + "'>" + i + "</option>");
+	}
+	writeln("</select>");
+
+	write("<a href=\"javascript:setFindMonth();\">");
+	writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_find.gif\" width=\"90\" height=\"21\" align=\"absmiddle\" border=\"0\" alt=\"Find\"></a>");
+
+	writeln("            </p>\n\
+            <table width='70%' border='0'>\n              <tr>\n                <td nowrap align='center'>");
+
+	write("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/1x1.gif\" width=\"20\" height=\"1\">");
+	write("<a href=\"javascript:setMonth(" + eval(dispMonth1 - 1) + ");\">");
+	writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btn_nav_back.gif\" width=\"26\" height=\"21\" align=\"absmiddle\" border=\"0\" alt=\"Back\"></a>");
+	writeln("</td>");
+
+	writeln("<td>");
+	var displayHours = displayHoursHtml ();
+	var cal = GetCalendar(dispMonth1, dispYear1);
+	write(cal);
+	writeln("</td>\n<td>");
+
+	var cal = GetCalendar(dispMonth2, dispYear2);
+	write(cal);
+	writeln("</td>");
+
+	write("<td><a href=\"javascript:setMonth(" + eval(dispMonth1 + 1) + ");\">");
+	writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btn_nav_next.gif\" width=\"26\" height=\"21\" align=\"absmiddle\" border=\"0\" alt=\"Next\"></a>");
+	writeln("                </td>\n</table>");
+	
+	writeln("<br>" + displayHours);
+	
+	writeln("		<table width='70%'><td align='bottom'><table>\n\
+					<tr><td width='70%'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/1x1.gif' width='435' height='1'></td>\n\
+						<td bgcolor='#CC6666' width='15' nowrap>&nbsp</td>\n\
+						<td>&nbsp</td>\n\
+						<td>Closed</td></tr>\n\
+					<tr><td width='70%'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/1x1.gif' width='205' height='1'>", (gIS_STORE_CLOSED_TODAY? "" : "<a href=\"javascript:makeAppt();\"><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_makeappt.gif' width='120' height='21' border=0></a>"), "<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/1x1.gif' width='90' height='1'></td>\n\
+						<td bgcolor='#33FF00'' width='15'>&nbsp</td>\n\
+						<td>&nbsp</td>\n\
+						<td>Selected</td></tr>\n\
+					<tr><td width='70%'> &nbsp </td>\n\
+						<td bgcolor=yellow width='15'>&nbsp</td>\n\
+						<td>&nbsp</td>\n\
+						<td>Respond!</td></tr>\n</table>\n\
+              </tr>\n\
+            </table>");
+
+	writeln("<input type='hidden' name='date' value='",days[DisplayDayofWeek],", ",months[DisplayMonth]," ",DisplayDay,", ",DisplayYear,"'>");
+
+	writeln("			<table width='93%' border='1' cellpadding='0' cellspacing='0'>\n\
+              <tr>\n\
+                <td colspan='5' class='table-header'>\n\
+                  <div align='center'>Appointments</div>\n\
+                </td>\n\
+              </tr>\n\
+              <tr>\n\
+                <td width='10%' nowrap class='subheader'>\n\
+                  <div align='center'>Time</div>\n\
+                </td>\n\
+                <td colspan='2' nowrap class='subheader'>\n\
+                  <div align='center'>Customer</div>\n\
+                </td>\n\
+                <td width='22%' nowrap class='subheader'>\n\
+                  <div align='center'>Service</div>\n\
+                </td>\n\
+                <td width='22%' nowrap class='subheader'>&nbsp;</td>\n\
+              </tr>");
+
+
+	for (var i=0; i < AppointmentCount ; i++)
+	{
+		writeln("              <tr>\n\
+                <td width='10%' nowrap height='27'", apptClassArray[AppointmentList[i].Status],"><div align='center'>", AppointmentList[i].StartHour, ":", AppointmentList[i].StartMin, " ",AppointmentList[i].StartAMPM,"</div></td>\n\
+                <td width='35%' nowrap height='27'", apptClassArray[AppointmentList[i].Status],"><div align='center'>", AppointmentList[i].Name, "</div></td>\n\
+                <td width='11%' nowrap height='27'", apptClassArray[AppointmentList[i].Status],"><a href='javascript:showDetail(",AppointmentList[i].ID,");'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_detail.gif' width='60' height='19' align='absmiddle' border='0' alt='Detail'></a></td>\n\
+                <td width='22%' nowrap height='27'", apptClassArray[AppointmentList[i].Status],"><div align='center'>",getApptDesc(AppointmentList[i].ServiceID),"</div></td>\n\
+                <td width='22%' nowrap height='27'", apptClassArray[AppointmentList[i].Status],">\n\
+                  <div align='center'>\n\
+				  <a href='javascript:actionClick1(",AppointmentList[i].Status,",",AppointmentList[i].ID,");'><img src='",ImageStatus1[AppointmentList[i].Status],"' width='60' height='19' border=0></a>\n\
+				  <a href='javascript:actionClick2(",AppointmentList[i].Status,",",AppointmentList[i].ID,");'><img src='",ImageStatus2[AppointmentList[i].Status],"' width='60' height='19' border=0></div></a>\n\
+                </td>\n\
+              </tr>");
+}
+if (gERR_MSG.length > 0)
+	writeln("<tr><td colspan='5' align='center' nowrap height='27'><b>" + gERR_MSG + "</b></td></tr>");
+</script>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <br>
+  </div>
+</form>
+</body>
+</html>

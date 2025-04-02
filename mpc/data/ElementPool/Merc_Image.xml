@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/u/web/altec2/mpc/data/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_Image</TYPE>
+	<GLOBAL TYPE="never"></GLOBAL>
+	<UIGRAPHIC>/cgi-docs/Mercantec/PC_F_6.6.1/images/Image_Npl1.gif</UIGRAPHIC>
+	<UITEXT>Image</UITEXT>
+	<!-- Here, the owner, group and world can do anything -->
+	<PERMISSIONS>777</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="source">
+			<VALUE>/cgi-docs/Mercantec/PC_F_6.6.1/images/spacer.gif</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="secure_source">
+			<VALUE>/cgi-docs/Mercantec/PC_F_6.6.1/images/spacer.gif</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="alttext">
+			<VALUE></VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="width">
+			<VALUE></VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE></VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="border">
+			<VALUE>0</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="cfgrow">
+			<VALUE></VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="urllink">
+			<VALUE></VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="align">
+			<VALUE>left</VALUE>
+			<VALUE>center</VALUE>
+			<VALUE>right</VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	function BuildOutput(type)
+	{
+		if (type == "text/html")
+		{
+			var mode = doAction('ST_GET_STATEDATA', 'PE_OutputMode', 'PE_OutputMode');
+			var useHeight = 0, useWidth = 0; 
+			if (source && cfgrow)
+			{
+				var scriptFile = doActionEx('DATA_READFILE', 'common.js', 'FileName', 
+				 								'common.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+				eval (scriptFile);
+				var tmpltJsFile = doActionEx('DATA_READFILE', 'template.js', 'FileName', 
+						 						'template.js','ObjectName', 'WATTemplates', 'FileType', 'txt');
+				eval (tmpltJsFile);
+				
+				source = buildNewImageUrl (source, cfgrow, false);
+				secure_source = buildNewImageUrl (source, cfgrow, true);
+				
+				useHeight = getImageHeight(source, cfgrow);
+				useWidth = getImageWidth(source, cfgrow);
+			
+				if (height && height > 0)
+				{
+					var tmpRat = height / useHeight;
+					useHeight = height;
+					useWidth = Math.round(useWidth * tmpRat);
+				}
+				else if (width && width > 0)
+				{
+					var tmpRat = width / useWidth;
+					useWidth = width;
+					useHeight = Math.round(useHeight * tmpRat);
+				}
+			}
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			write('style="position:absolute; ');
+			write ('width:'+useWidth+'px; ');
+			write('height:'+useHeight+'px;');
+			write ('left:'+merc_xpos+'px; top:'+merc_ypos);
+			write('px;z-index:'+merc_zindex+';">');
+	// NOTE TO SELF: or should this be <include file="editmodehead.html">?
+	// We may want to change the way we do elements in the future so an
+	// include file will make the DHTML easy to change for all elements.
+	// So this would be a doAction(readfile) followed by doAction(parse)
+			if (!border)
+				border="0";
+			if (urllink && mode!="PE_EditMode")
+				write('<a hr'+
+						'ef="'+urllink+'">');
+			
+			var currentPage = doAction('ST_GET_STATEDATA', 'CurrentPageName', 'CurrentPageName');
+			var seObj = generateSEObjects (currentPage);
+			var pageObj = seObj.pageObjArray[currentPage];
+			var useSource = source;
+			if (pageObj.SecureBaseHref.toLowerCase() == "yes" && mode!="PE_EditMode")
+				var useSource = secure_source;
+
+			// split img tag to get around parser problem
+			// append date to prevent referring to cached images
+			var antiCache = new Date();
+			write('<img s');
+			write('rc="'+useSource +'?'+antiCache.getTime()+'" border='+border);
+			if (width)
+				write(' width="'+width+'"');
+			if (height)
+				write(' height="'+height+'"');
+			if (alttext)
+				write(' alt="'+alttext+'"');
+			writeln('>');
+			if (urllink && mode!="PE_EditMode")
+				write('</a>');
+			writeln('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+		return BuildOutput(type);
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		return BuildOutput(type);
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	
+	function edit_properties()
+	{
+		var imageRow = doAction('REQ_GET_FORMVALUE', "ImageRow", "ImageRow");
+		var imageURL = doAction('REQ_GET_FORMVALUE', "ImageURL", "ImageURL");
+		var secureImageURL = doAction('REQ_GET_FORMVALUE', "SecureImageURL", "SecureImageURL");
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		write ("<SCRIPT LANGUAGE='javascript'>var bNew = false;</SCRIPT>");
+		if (addEditMode && addEditMode.toLowerCase() == "add")
+			write ("<SCRIPT LANGUAGE='javascript'>bNew = true;</SCRIPT>");
+		if (imageURL)
+			source = imageURL;
+		if (secureImageURL)
+			secure_source = secureImageURL;
+		if (imageRow)
+			cfgrow = imageRow;
+		if (source && cfgrow)
+		{
+			var scriptFile = doActionEx('DATA_READFILE', 'common.js', 'FileName', 
+				 								'common.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+			eval (scriptFile);
+			var tmpltJsFile = doActionEx('DATA_READFILE', 'template.js', 'FileName', 
+						 						'template.js','ObjectName', 'WATTemplates', 'FileType', 'txt');
+			eval (tmpltJsFile);
+			
+			source = buildNewImageUrl (source, cfgrow, false);
+			secure_source = buildNewImageUrl (source, cfgrow, true);
+				
+			var useHeight = getImageHeight(source, cfgrow);
+			var useWidth = getImageWidth(source, cfgrow);
+			
+			if (height && height > 0)
+			{
+				var tmpRat = height / useHeight;
+				width = Math.round(useWidth * tmpRat);
+			}
+			else if (width && width > 0)
+			{
+				var tmpRat = width / useWidth;
+				height = Math.round(useHeight * tmpRat);
+			}
+			else 
+			{
+				width = useWidth;
+				height = useHeight;
+			}
+			
+			if (!alttext)
+			{
+				alttext = source.replace (/\\/g, "/");
+				alttext = alttext.substring (alttext.lastIndexOf ("/")+1, alttext.lastIndexOf ("."));
+			}
+		}
+		
+		var SC_BaseUrl = doAction('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'BaseHref');
+		writeln ("<SCRIPT LANGUAGE='javascript'>var useHeight = '"+height+"', useWidth = '"+width+"';"+
+				   "var baseUrl='"+SC_BaseUrl+"', elementID = '"+merc_elementid+"';</SCRIPT>");
+	<merc_embed>
+		<SCRIPT language="javascript">
+			var master_js = opener.parent;
+			var childWin = "";
+			var bCloseExecuted = false;
+			if (bNew)
+				master_js.CloseWin ();
+			function closeLocalWin()
+			{
+				if (childWin)
+					if (!childWin.closed)
+						childWin.close();
+			}
+			
+			function cancelSelected ()
+			{
+				if (bCloseExecuted)
+					return false;
+					
+				bCloseExecuted = true;
+
+				/* if this is a new element and cancel was selected, delete the elementID */
+				if (bNew)
+	   				master_js.SubmitForm ('PE_Cancel', 'Layout1.htm', 'mainFrame', '');
+				else
+					master_js.SubmitForm ('PE_EditPageByName', 'Layout1.htm', 'mainFrame', ''); 
+				
+				master_js.createAndWriteToPopUp ("150", "300", "newWin", baseUrl, master_js.gRELOADING, 
+															master_js.gWINDOW_WILL_CLOSE);
+				
+				if (master_js.WindowID != self)	
+					self.close();
+						
+				return false;
+			}
+			
+			function submitImage ()
+			{
+				bCloseExecuted = true;
+				var checkedVal = "";
+				for (var n = 0; n < document.resize.resizeBy.length; n++)
+				{
+					if (document.resize.resizeBy[n].checked)
+					{
+						checkedVal = document.resize.resizeBy[n].value;
+						break;
+					}
+				}
+				if (checkedVal.toLowerCase() == "height" || checkedVal.toLowerCase() == "width")
+				{
+					document.saveprop.size.value = document.resize.imageSize.value;
+					document.saveprop.size.name = checkedVal.toLowerCase();
+					document.saveprop.oldSize.name = (checkedVal.toLowerCase() == "height" ? "width" : "height");
+				}
+				
+				closeLocalWin();
+				master_js.SubmitForm('PE_SaveProperties', 'Layout1.htm', 'mainFrame', document.saveprop); 
+
+				if (master_js.WindowID != self)
+					self.close();
+			}
+		</SCRIPT>
+		<p align="center"><span class="dialog-title">Image Properties</span></p>
+		<table width="400" border="0" cellspacing="2" cellpadding="2" align="center" class="table-bkgrd-main">
+		<tr>
+		<td colspan="2" class="field-label">
+		<center>
+		<p>
+		<table width="84%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+		<td class="field-label" width="29%">Text:
+		</td>
+		<td width="71%">
+	</merc_embed>
+		writeln ("<form name='saveprop'>"+
+					"<input type='hidden' name='size' value=''>"+
+					"<input type='hidden' name='oldSize' value=''>"+
+					"<input type='hidden' name='source' value='"+source+"'>"+
+					"<input type='hidden' name='secure_source' value='"+secure_source+"'>"+
+					"<input type='hidden' name='cfgrow' value='"+cfgrow+"'>"+
+					"<input type='hidden' name='border' value='"+border+"'>"+
+					"<input type='hidden' name='align' value='"+align+"'>"+
+					"<input type='hidden' name='urllink' value='"+urllink+"'>"+
+					"<input type='hidden' name='ElementID' value='"+merc_elementid+"'>"+
+					"<input type='text' name='alttext' value='"+ alttext +"' size='20'>");
+	<merc_embed>
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2"><span class="instr-note">(Text that appears when user puts the cursor on the image)</span>
+		</td>
+		</tr>
+		<tr>
+		<td class="field-label" width="29%">Link URL:</td>
+		<td width="71%">
+	</merc_embed>
+		writeln ("<input type='text' name='urllink' value='"+ urllink +"' size='20'>");
+	<merc_embed>
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2"><span class="instr-note">(Link is active when previewed or published.)</span>
+		</td>
+		</tr>
+	</merc_embed>
+		writeln ("</form>");
+	<merc_embed>
+		<tr>
+		<td width="29%" class="table-header2">
+		<center>
+		<span class="field-label">Current Size: </span>
+		</center>
+		</td>
+		<td width="71%" class="table-header2"><span class="field-label">= 
+	</merc_embed>
+		writeln (width + " wide x " + height + " high");
+	<merc_embed>
+		</span></td>
+		</tr>
+		<tr class="table-bkgrd-main">
+		<td width="29%">&nbsp;</td>
+		<td width="71%" class="table-bkgrd-main">
+		<form name="resize">
+			<input type="radio" class="table-bkgrd-main" name="resizeBy" value="none" checked>
+			Keep Current Size 
+			
+			<br>
+			<input type="radio" class="table-bkgrd-main" name="resizeBy" value="width" onClick="document.resize.imageSize.value=useWidth">
+			Resize by Width 
+			
+			<br>
+			<input type="radio" class="table-bkgrd-main" name="resizeBy" value="height" onClick="document.resize.imageSize.value=useHeight">
+			Resize by Height </td>
+			</tr>
+			<tr>
+			<td colspan="2">
+			<center>
+			<span class="field-label">Size:</span>  
+			<input type="text" name="imageSize" size="10">
+			pixels
+		</form>
+		</center>
+		</td>
+		</tr>
+		</table>
+		<p>
+	</merc_embed>
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_IMAGE_PROP+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+	<merc_embed>
+
+<a href="javascript:void(0)" onclick="cancelSelected();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" border="0" alt="Cancel"></a><a href="javascript:void(0)" onclick="submitImage();return false;"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/OK_Nbtn_base.gif" width="86" height="30" border="0" alt="Ok"></a></p>
+		</center>
+		</td>
+		</tr>
+		</table>
+		<p align="center">&nbsp;</p>
+	</merc_embed>
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	// May not need to do anything in all cases
+	// Save things to Prod DB on price/desc? - automatic based on dbentry
+	// if there is a reason not to dismiss the properties dialog, return false
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

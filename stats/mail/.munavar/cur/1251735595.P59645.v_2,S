@@ -1,0 +1,120 @@
+Return-Path: clientservice@paychex.com
+Received: from mx38.stngva01.us.mxservers.net (204.202.242.43)
+	by mail19j.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 4-0215325594
+	for <ms@altechstar.com>; Mon, 31 Aug 2009 12:19:54 -0400 (EDT)
+Received: from unknown [204.202.242.88] (HELO mail19b.g19.rapidsite.net)
+	by va1-mx38.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id a28fb9a4.2596436896.1005699.00-009.va1-mx38.stngva01.us.mxservers.net (envelope-from <ts1030@paychex.com>);
+	Mon, 31 Aug 2009 12:19:54 -0400 (EDT)
+Received: from mx12.stngva01.us.mxservers.net (204.202.242.5)
+	by mail19b.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-0836405592
+	for <anand@altechstar.com>; Mon, 31 Aug 2009 12:19:52 -0400 (EDT)
+Received: from unknown [141.123.123.65] (EHLO paychex.com)
+	by va1-mx12.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 828fb9a4.2774014880.511591.00-002.va1-mx12.stngva01.us.mxservers.net (envelope-from <ts1030@paychex.com>);
+	Mon, 31 Aug 2009 12:19:52 -0400 (EDT)
+X-Server-Uuid: 84C30744-ED2B-41E9-A7EC-D8748539079E
+Date: Mon, 31 Aug 2009 12:18:58 -0400 (EDT)
+Message-ID: <200908311618.n7VGIwpX001730@intweb1a.paychex.com>
+Subject: Paychex Online Password Notification
+From: "Paychex Client Service" <clientservice@paychex.com>
+To: anand@altechstar.com
+Return-path: ts1030@paychex.com
+X-OriginalArrivalTime: 31 Aug 2009 16:18:58.0167 (UTC)
+ FILETIME=[BE4BC070:01CA2A56]
+MIME-Version: 1.0
+X-WSS-ID: 668528783E8812431-01-01
+Content-Type: multipart/alternative;
+	boundary="------------CBA865DA35D8F027A517B467"
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009083124)]
+X-MAIL-FROM: <ts1030@paychex.com>
+X-SOURCE-IP: [141.123.123.65]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009083124)]
+X-MAIL-FROM: <ts1030@paychex.com>
+X-SOURCE-IP: [204.202.242.88]
+X-Loop-Detect:1
+
+This is a multi-part message in MIME format.
+
+
+--------------CBA865DA35D8F027A517B467
+Content-Type: text/plain;
+	charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+
+Your Paychex Online password has been changed as requested.
+Please use your new password when logging in to Paychex Online.
+
+Important: Make sure you reset your password when you re-enter the system.
+
+If you did not authorize this change, notify the
+Paychex Online Service Center at 1-888-246-7500,
+Monday through Friday from 8:00 a.m. to 8:00 p.m. ET.
+
+If you do not wish to receive an e-mail when your password changes,
+use the link below. Please note: Paychex recommends
+that you continue to receive these e-mails in order to ensure changes
+to your password are made with your authorization only. Access to
+critical or sensitive information you maintain with us depends, in part,
+on your password. It is an important factor in controlling the ability
+to add, view, delete or alter data.
+
+Link to Stop this E-mail Notice.
+"https://online.paychex.com/smlogin/login_email.fcc?/cgi-bin/menu/enotify%3fattrib=chgpasseoff_requested_password_butrigger"
+
+Thank You,
+The Paychex Online Service Center
+
+
+
+
+-----------------------------------------
+The information contained in this message may be privileged,
+confidential, and protected from disclosure. If the reader of this
+message is not the intended recipient, or any employee or agent
+responsible for delivering this message to the intended recipient,
+you are hereby notified that any dissemination, distribution, or
+copying of this communication is strictly prohibited. If you have
+received this communication in error, please notify us immediately
+by replying to the message and deleting it from your computer. 
+
+Thank you. Paychex, Inc.
+--------------CBA865DA35D8F027A517B467
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<p>Your Paychex Online password has been changed as requested.<br>
+Please use your new password when logging in to Paychex Online.</p>
+
+<p><b>Important:</b> Make sure you reset your password when you re-enter the system.</p>
+
+<p>If you did not authorize this change, notify the
+Paychex Online Service Center at 1-888-246-7500,
+Monday through Friday from 8:00 a.m. to 8:00 p.m. ET.</p>
+
+<p>If you do not wish to receive an e-mail when your password changes,
+click on the link below. Please note: Paychex recommends
+that you continue to receive these e-mails in order to ensure changes
+to your password are made with your authorization only. Access to
+critical or sensitive information you maintain with us depends, in part,
+on your password. It is an important factor in controlling the ability
+to add, view, delete or alter data.
+
+<a href="https://online.paychex.com/smlogin/login_email.fcc?/cgi-bin/menu/enotify%3fattrib=chgpasseoff_requested_password_butrigger" >
+Stop this E-mail Notice.</a></p>
+
+Thank You,<br>
+The Paychex Online Service Center
+</html>
+<HTML><BODY><P><hr size=1></P>
+<P><STRONG>
+The information contained in this message may be privileged, confidential, and protected from disclosure. If the reader of this message is not the intended recipient, or any employee or agent responsible for delivering this message to the intended recipient, you are hereby notified that any dissemination, distribution, or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by replying to the message and deleting it from your computer. 
+
+Thank you. Paychex, Inc.
+</STRONG></P></BODY></HTML>
+--------------CBA865DA35D8F027A517B467--
+

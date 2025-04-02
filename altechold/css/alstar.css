@@ -1,0 +1,279 @@
+/* 
+Custom CSS for...
+'Modern Business' HTML Theme by Start Bootstrap
+
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+
+/* Global Styles */
+
+html, body {
+  height:100%;
+}
+
+body {
+  padding-top: 50px; /* body padding for fixed top nav */
+  font-family:"Helvetica Neue", "Helvetica Neue Light", "Helvetica Neue Medium", "Helvetica Neue Thin", "Helvetica Neue UltraLight";
+}
+
+.img-home-portfolio,
+.img-customer,
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.tab-pane {
+  margin-top: 15px;
+}
+
+/* Page Sections */
+.section,
+.section-colored {
+  padding: 50px 0 20px 0;
+}
+
+.navbar-toggle{ margin-top:23px; color:#333; background-color:#333;}
+.section-colored {
+  background-color: #e1e1e1; /* change this to change the background color of a colored section */
+}
+.navbar-inverse{ background:#fff}
+.dropdown-menu{ background-color:#2D2D2D; border:0; left:0; right:0}
+.navbar-inverse .navbar-nav > li > a{ font-size:12px; padding-top:25px;}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{background-color:#2D2D2D; color:#ffd675;}
+.dropdown-menu li a{ color:#ffd675; font-size:11px;  padding-top:5px; padding-bottom:5px; font-family:"Helvetica Neue Thin", "Helvetica Neue UltraLight","Helvetica Neue", "Helvetica Neue Light", "Helvetica Neue Medium"}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a.selected{ color:#ffd675;}
+.dropdown-toggle b{ background:url(../images/menuIco.png) top left no-repeat; width:14px; height:11px; display:inline-block;}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #ffd675;
+  text-decoration: none;
+  background-color: #212121;
+}
+.dropdown-menu > li{ padding-top:5px; padding-bottom:5px;}
+.navbar-inverse{ border-bottom:1px solid #eee;}
+
+.sidebar {
+  margin-top: 40px;
+}
+
+.healthcare{ background:#ffd675 url(../images/hcbg.png) right center no-repeat; }
+.healthcare p, .healthcareServicesection p{ padding-bottom:0px; margin-bottom:1px; color:#1a648d; font-size:26px; font-weight:normal; font-family:"Helvetica Neue Light", "Helvetica Neue Medium", "Helvetica Neue Thin", "Helvetica Neue UltraLight","Helvetica Neue"; font-weight:lighter;}
+.transparentRect{ float:left;  padding:10px; color:#333; padding-right:40px; background:url(../images/transparent.png) repeat-x top left;}
+.transparentRect a{ color:#666;}
+.healthcareServicesection .transparentRect{  background:#ebebeb;}
+.sidebar ul {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+}
+.healthcareServices{ background:url(../images/hcComputer.png) center 130px no-repeat; padding-bottom:70px;}
+.healthcareServicesection{ }
+/* Half Page Height Carousel Customization */
+.carousel {
+  height: 50%;
+}
+.contactForm input, .contactForm textarea{ margin-bottom:10px;}
+.contactForm h3 { color:#1a648d; font-weight:normal;}
+.item,
+.active,
+.carousel-inner {
+  height: 100%;
+}
+.healthcareText{ padding-top:80px;}
+.fill {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Social Icons Styles */
+.list-social-icons {
+  margin-bottom: 45px;
+}
+
+.tooltip-social a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.facebook-link a:hover {
+  color: #3b5998;
+}
+
+.linkedin-link a:hover {
+  color: #007fb1;
+}
+
+.twitter-link a:hover {
+  color: #39a9e0;
+}
+
+.google-plus-link a:hover {
+  color: #d14836;
+}
+
+/* Service Page Styles */
+.service-icon {
+  font-size: 50px;
+}
+
+/* 404 Page Styles */
+.error-404 {
+  font-size: 8em;
+}
+
+/* Pricing Page Styles */
+.price {
+  font-size: 4em;
+}
+
+.price-cents {
+  vertical-align: super;
+  font-size: 50%;
+}
+
+.price-month {
+  font-size: 35%;
+  font-style: italic;
+}
+
+/* Footer Styles */
+footer {
+  margin: 10px 0;
+  font-size:11px;
+}
+.btn-primary {
+  color: #ffffff;
+  background-color: #000;
+  border-color: #000;
+}
+.navbar-inverse .navbar-nav > li > a.homeiconStyle01{padding:0; padding-top:20px;}
+.contactForm{ padding-top:20px;}
+.contactForm h3{ margin-top:0;}
+.cusservice{margin-top:50px; margin-bottom:40px;}
+.servicetopband{ background:#ececec url(../images/inside_head_bg.png) repeat-x top left; margin-top:20px; padding-top:0px;}
+.servicespage{ margin-right:0px; }
+.newssection, .servicespage{ background:#fff; margin-top:10px;}
+.container01{ width:980px;}
+.footerStyle01{ background:#fff; margin-top:10px; padding:1px 20px; padding-bottom:0;}
+.serviceContent{ font-size:12px; padding:10px 15px;}
+.list-group{ font-size:11px; padding-left:15px; padding-right:15px; color:#666; border-top:2px solid #ccc; margin-bottom:10px; padding-top:20px; padding-bottom:1px;}
+.list-group-item-heading{ font-size:12px;}
+.list-group-item-text{ margin-bottom:20px; }
+.footerStyle02{ font-size:11px; padding-top:10px; padding-bottom:10px; padding-left:15px;}
+.servicetopband h3, .servicespage h3{ padding-left:20px; padding-top:20px; font-weight:normal; padding-bottom:15px; margin-bottom:0; font-size:18px; color:#5d5d5d;}
+
+#myTab{ margin-top:20px;}
+#myTab li{ padding-bottom:10px;}
+#myTab li.active{ background:url(../images/downarrow.png) bottom center no-repeat; }
+#myTab li a{ background:none; border:0; color:#333; padding-top:70px; outline:none;}
+.nav-tabs{ border-bottom:0;}
+
+#myTab li a.hcare{ background:url(../images/healthcare_tab.png) no-repeat center 10px;}
+#myTab li a.manufacture{ background:url(../images/manufacture.png) no-repeat center 10px;}
+#myTab li a.businessInt{ background:url(../images/businessInt.png) no-repeat center 10px;}
+#myTab li a.banking{ background:url(../images/banking.png) no-repeat center 10px;}
+
+#myTab li.active a.hcare, #myTab li.active a.manufacture, #myTab li.active a.businessInt, #myTab li.active a.banking{background-color:#ececec;}
+.tab-content{ padding-left:30px; padding-right:30px;}
+.contentstyle01{ padding:1px 15px; background:#ececec;}
+.contentstyle01 li{ padding-bottom:10px;}
+.banner{ background-color:#5d5d5d; margin-right:1px; color:#fff; margin-left:1px; }
+.bannertext p{ width:400px; font-size:18px; font-weight:normal; margin-left:30px; margin-top:40px; margin-bottom:20px;}
+.banner img{/* float:right;*/}
+.navbar-right .dropdown-menu{ left:0; right:auto;}
+.serviceContent{ background:#fff;}
+.contentstyle02{ background-color:#ececec; padding:1px 10px; }
+.contentstyle02 ul{ margin-left:0; padding-left:20px;}
+.careerpage .form-control{ margin-bottom:10px;}
+.list-group-item-text a{ color:#999;}
+.mapselect{ font-size:14px; }
+.mapselect a{ margin-right:5px; padding:3px 5px; color:#999; }
+.mapselect a.selected{ background-color:#eee;}
+.india{ display:none;}
+.overlay{position:absolute; top:0; left:0; width:100%; height:100%; display:none; background-color:#333; opacity:0.5; z-index:1029;}
+/* Responsive Styles */
+@media (max-width: 767px) {
+#myTab li a{ padding-left:2px; padding-right:2px; font-size:9px; max-width:100px; min-width:70px; text-align:center; }
+#myTab li a.businessInt{  max-width:70px;}
+#myTab li a.banking{  min-width:70px; max-width:80px;}
+.serviceContent{ padding:10px;}
+.leftsec{ padding-left:0; padding-right:0;}
+.contentstyle02{ min-height:auto; margin-bottom:10px;}
+.servicetopband{ margin-top:0;}
+.servicespage{ background:none;}
+.pull-left {
+  float:none;
+  margin:0 auto;
+  width:100%;
+}
+.pull-right {
+  float:none;
+  width:100%;
+  margin:0 auto;
+}
+.dropdown-menu{ background-color:#2D2D2D;}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {color:#ffd675 !important; }
+.tab-content{ padding-left:5px; padding-right:5px;}
+.contactForm h3{ margin-top:20px;}
+.cusservice{margin-top:0px; margin-bottom:0px;}
+.healthcareText{ padding-top:0}
+.transparentRect{ float:none;} 
+.contactForm{ padding-top:0;}
+.healthcareServicesection{ padding-top:20px;}
+.transparentRect{ float:left;}
+
+.healthcareServices{ background:url(../images/hcComputer.png) center center no-repeat; padding-bottom:80px;}
+.healthcare p, .healthcareServicesection p{ padding-bottom:0px; margin-bottom:1px; color:#1a648d; font-size:18px; font-weight:normal; font-family:"Helvetica Neue Light", "Helvetica Neue Medium", "Helvetica Neue Thin", "Helvetica Neue UltraLight","Helvetica Neue"; font-weight:lighter;}
+
+.navbar-nav {background-color:#000;color:#fff;}
+.navbar-nav .open .dropdown-menu {background-color:#000;color:#fff;}
+
+.navbar-inverse .navbar-nav > li > a{ padding-top:7px; padding-bottom:7px; background:#000; color:#fff;}
+.nav .homeiconStyle01{ display:none;}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a.selected{ color:#fff;}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{background-color:#000; color:#fff;}
+.navbar-inverse .navbar-nav .open .dropdown-menu { background-color:#2D2D2D;}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus{ color:#ffd675; background-color:#000;}
+.dropdown b{ display:none;} 
+.navbar-collapse{ min-height:367px; overflow:auto;}
+.dropdown-menu, .dropdown-menu > li{ padding-top:0; padding-bottom:0;}
+.navbar-header{ padding-top:0; margin-top:0; }
+.nav li{ border-bottom:1px solid #333;}
+.navbar-brand { padding-bottom:0px; padding-top:5px;}
+.navbar-toggle{ margin-top:10px;}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{ border:none; padding-top:0;}
+.servicespage h3{ padding-top:0;}
+#myTab li{ border:0;}
+
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.healthcareText { padding-top:10px; margin:0 auto;}
+	.pull-left {
+  float:none;
+  margin:0 auto;
+  width:100%;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {color:#ffd675 !important; }
+
+.pull-right {
+  float:none;
+  width:100%;
+  margin:0 auto;
+}
+	.healthcareServicesection img{ alignment-adjust:middle;}
+	.healthcareText{ padding-left:200px;}
+
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.leftsec{ padding-right:0;}
+	.contentstyle02{ min-height:250px;}
+}
+@media (min-width: 1200px) {
+	.leftsec{ padding-right:0;}
+	.contentstyle02{ min-height:250px;}
+}

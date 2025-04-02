@@ -1,0 +1,546 @@
+Return-Path: carun@hgtechinc.net
+Received: from mx27.stngva01.us.mxservers.net (204.202.242.104)
+	by mail19c.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-030907933
+	for <abhra@altechstar.com>; Tue, 30 Nov 2010 13:15:33 -0500 (EST)
+Received: from unknown [209.85.160.56] (EHLO mail-pw0-f56.google.com)
+	by va1-mx27.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 44f35fc4.2905271200.1721915.00-012.va1-mx27.stngva01.us.mxservers.net (envelope-from <aruntrusa+bnccoro5bcwghco_ttnbboepsxe9a@googlegroups.com>);
+	Tue, 30 Nov 2010 13:15:32 -0500 (EST)
+Received: by pwi7 with SMTP id 7sf2152282pwi.21
+        for <abhra@altechstar.com>; Tue, 30 Nov 2010 10:15:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=beta;
+        h=domainkey-signature:received:x-beenthere:received:received:received
+         :received:received-spf:received:received:from:to:cc:subject:date
+         :message-id:mime-version:x-mailer:thread-index:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type:content-language;
+        bh=WZYwX8U00ORSleLjM3Pl3ePVdp6ub3pJnpVDVOCfeFI=;
+        b=khlNK6DwVnPk+hFI5J1oxrQYYyc4tCzqk7VH+1mdk/aO9u2AOGwAzZGBgnx8XODyvF
+         u8ZCILmL5fFE8xnUe2ycTj5L0tt+3hz6m+gO/3sw3+34DVVkQWp0P8f6xN/rukgar4tz
+         oM68AmNzilVDdEFvN1XAkpp2Wd67cPgJXJR0Y=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=googlegroups.com; s=beta;
+        h=x-beenthere:received-spf:from:to:cc:subject:date:message-id
+         :mime-version:x-mailer:thread-index:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type:content-language;
+        b=GzbspL0ri00USrf/j/4PfB8DGLfftMBjhp5+gGvb7PvvJKpovdFE/ADc1HDfiykni1
+         whCe22rMsp6Tg+lixeuFaSr6Fhpjbinyzz2vRgOh3ZoJH4Igqnh9CCmmAJaRXBpZ3Szn
+         Nltcw6Nma6JOvSC0uxkeFJi73t/joNoPCrBXM=
+Received: by 10.142.150.13 with SMTP id x13mr318992wfd.41.1291140878352;
+        Tue, 30 Nov 2010 10:14:38 -0800 (PST)
+X-BeenThere: aruntrusa@googlegroups.com
+Received: by 10.142.6.9 with SMTP id 9ls10334848wff.3.p; Tue, 30 Nov 2010
+ 10:14:36 -0800 (PST)
+Received: by 10.142.83.1 with SMTP id g1mr5016827wfb.35.1291140876831;
+        Tue, 30 Nov 2010 10:14:36 -0800 (PST)
+Received: by 10.142.83.1 with SMTP id g1mr5016825wfb.35.1291140876794;
+        Tue, 30 Nov 2010 10:14:36 -0800 (PST)
+Received: from itr2.serverbox.net (itr2.serverbox.net [216.75.55.183])
+        by gmr-mx.google.com with ESMTP id y8si7730783wfj.1.2010.11.30.10.14.36;
+        Tue, 30 Nov 2010 10:14:36 -0800 (PST)
+Received-SPF: neutral (google.com: 216.75.55.183 is neither permitted nor denied by best guess record for domain of carun@hgtechinc.net) client-ip=216.75.55.183;
+Received: (qmail 25725 invoked from network); 30 Nov 2010 19:14:37 -0000
+Received: from unknown (HELO hgtarun) (202.63.113.246)
+  by itr2.serverbox.net with SMTP; 30 Nov 2010 19:14:37 -0000
+From: "Arun-HALLMARK" <carun@hgtechinc.net>
+To: "'Arun-HALLMARK'" <carun@hgtechinc.net>
+Cc: <aruntrusa@googlegroups.com>
+Subject: Arun Chandupatla Requirement - Java, Swing, GUI Developer
+Date: Tue, 30 Nov 2010 23:49:23 +0530
+Message-ID: <005d01cb90bb$1e218b30$5a64a190$@net>
+MIME-Version: 1.0
+X-Mailer: Microsoft Office Outlook 12.0
+Thread-Index: AcuQsJurNtoXDxi8QVWKL2pjEK/IlwAAYuPQAAHf0NAAAFu5YA==
+X-Original-Sender: carun@hgtechinc.net
+X-Original-Authentication-Results: gmr-mx.google.com; spf=neutral (google.com:
+ 216.75.55.183 is neither permitted nor denied by best guess record for domain
+ of carun@hgtechinc.net) smtp.mail=carun@hgtechinc.net
+Reply-To: carun@hgtechinc.net
+Precedence: list
+Mailing-list: list aruntrusa@googlegroups.com; contact aruntrusa+owners@googlegroups.com
+List-ID: <aruntrusa.googlegroups.com>
+List-Post: <http://groups.google.com/group/aruntrusa/post?hl=en-GB_IN>, <mailto:aruntrusa@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en-GB_IN>, <mailto:aruntrusa+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/aruntrusa?hl=en-GB_IN>
+Sender: aruntrusa@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/aruntrusa/subscribe?hl=en-GB_IN>,
+ <mailto:aruntrusa+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/aruntrusa/subscribe?hl=en-GB_IN>,
+ <mailto:aruntrusa+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative;
+	boundary="=_reb-r3854BE34-t4CF53F45"
+Content-Language: en-us
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010111701); MH=0.500(2010113018)]
+X-MAIL-FROM: <aruntrusa+bnccoro5bcwghco_ttnbboepsxe9a@googlegroups.com>
+X-SOURCE-IP: [209.85.160.56]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r3854BE34-t4CF53F45
+Content-Type: text/plain; charset=windows-1252
+Content-Transfer-Encoding: quoted-printable
+
+Java swing
+
+Atlanta, GA,=20
+
+6+ months
+
+=20
+
+Required Skills:=20
+
+=20
+
+Skills:  Java, Swing, GUI development / Experience 7+ years.
+
+=20
+
+Please send me the following information for submission:
+
+=20
+
+=97  Candidate=92s full name
+
+=97  Candidate=92s phone #
+
+=97  Email address:
+
+=97  Visa Status:
+
+=97  Current location:
+
+=97  Last 4 digits of the Social Security  :
+
+=97  Availability to interview (can they interview with one day=92s notice?=
+):
+
+=97  Availability to start :
+
+=20
+
+=20
+
+Thanks & Regards,
+
+Arun Chandupatla=20
+
+ <mailto:carun@hgtechinc.net> carun@hgtechinc.net
+
+302-525-4228 |  302-355-2324 |
+
+Hallmark Global Technologies Inc. |=20
+
+|  <http://www.hgtechinc.net/> www.hgtechinc.net |
+
+262 Chapman Rd, Suite # 101,  Newark, DE- 19702.
+
+____________________________________________________________________________
+____________________________________________________________________________
+_____________________________________________
+
+ NOTE: We respect your Online Privacy. This is not an unsolicited mail.
+Under Bill s.1618 Title III passed by the 105th U.S. Congress this mail
+cannot be considered Spam as long as we include Contact information and a
+method to be removed from our mailing list. If you are not interested in
+receiving our e-mails then please reply with a remove in the subject line
+and mention all the e-mail addresses to be removed with any e-mail addresses
+which might be diverting the e-mails to you. We are sorry for the
+inconvenience
+
+=20
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+ArunTR.USA" group.
+To post to this group, send an email to aruntrusa@googlegroups.com.
+To unsubscribe from this group, send email to aruntrusa+unsubscribe@googleg=
+roups.com.
+For more options, visit this group at http://groups.google.com/group/aruntr=
+usa?hl=3Den-GB.
+
+
+--=_reb-r3854BE34-t4CF53F45
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+
+<html xmlns=3D"http://www.w3.org/TR/REC-html40" xmlns:st=3D"&#1;" xmlns:Z=
+=3D"urn:schemas-microsoft-com:" xmlns:spsl=3D"http://microsoft.com/webservi=
+ces/SharePointPortalServer/PublishedLinksService" xmlns:pptsl=3D"http://sch=
+emas.microsoft.com/sharepoint/soap/SlideLibrary/" xmlns:ex12m=3D"http://sch=
+emas.microsoft.com/exchange/services/2006/messages" xmlns:ex12t=3D"http://s=
+chemas.microsoft.com/exchange/services/2006/types" xmlns:spwp=3D"http://mic=
+rosoft.com/sharepoint/webpartpages" xmlns:mrels=3D"http://schemas.openxmlfo=
+rmats.org/package/2006/relationships" xmlns:m=3D"http://schemas.microsoft.c=
+om/office/2004/12/omml" xmlns:mver=3D"http://schemas.openxmlformats.org/mar=
+kup-compatibility/2006" xmlns:mdssi=3D"http://schemas.openxmlformats.org/pa=
+ckage/2006/digital-signature" xmlns:dssi=3D"http://schemas.microsoft.com/of=
+fice/2006/digsig" xmlns:dsss=3D"http://schemas.microsoft.com/office/2006/di=
+gsig-setup" xmlns:wf=3D"http://schemas.microsoft.com/sharepoint/soap/workfl=
+ow/" xmlns:udcp2p=3D"http://schemas.microsoft.com/data/udc/parttopart" xmln=
+s:udcxf=3D"http://schemas.microsoft.com/data/udc/xmlfile" xmlns:udcs=3D"htt=
+p://schemas.microsoft.com/data/udc/soap" xmlns:xsi=3D"http://www.w3.org/200=
+1/XMLSchema-instance" xmlns:sps=3D"http://schemas.microsoft.com/sharepoint/=
+soap/" xmlns:sp=3D"http://schemas.microsoft.com/sharepoint/" xmlns:ec=3D"ht=
+tp://www.w3.org/2001/04/xmlenc#" xmlns:sub=3D"http://schemas.microsoft.com/=
+sharepoint/soap/2002/1/alerts/" xmlns:xsd=3D"http://www.w3.org/2001/XMLSche=
+ma" xmlns:udc=3D"http://schemas.microsoft.com/data/udc" xmlns:dsp=3D"http:/=
+/schemas.microsoft.com/sharepoint/dsp" xmlns:ds=3D"http://www.w3.org/2000/0=
+9/xmldsig#" xmlns:dir=3D"http://schemas.microsoft.com/sharepoint/soap/direc=
+tory/" xmlns:ois=3D"http://schemas.microsoft.com/sharepoint/soap/ois/" xmln=
+s:ppda=3D"http://www.passport.com/NameSpace.xsd" xmlns:x2=3D"http://schemas=
+.microsoft.com/office/excel/2003/xml" xmlns:mt=3D"http://schemas.microsoft.=
+com/sharepoint/soap/meetings/" xmlns:Repl=3D"http://schemas.microsoft.com/r=
+epl/" xmlns:D=3D"DAV:" xmlns:rtc=3D"http://microsoft.com/officenet/conferen=
+cing" xmlns:q=3D"http://schemas.xmlsoap.org/soap/envelope/" xmlns:html=3D"h=
+ttp://www.w3.org/TR/REC-html40" xmlns:oa=3D"urn:schemas-microsoft-com:offic=
+e:activation" xmlns:odc=3D"urn:schemas-microsoft-com:office:odc" xmlns:c=3D=
+"urn:schemas-microsoft-com:office:component:spreadsheet" xmlns:ss=3D"urn:sc=
+hemas-microsoft-com:office:spreadsheet" xmlns:b=3D"urn:schemas-microsoft-co=
+m:office:publisher" xmlns:z=3D"#RowsetSchema" xmlns:rs=3D"urn:schemas-micro=
+soft-com:rowset" xmlns:s=3D"uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882" xmln=
+s:dt=3D"uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:a=3D"urn:schemas-m=
+icrosoft-com:office:access" xmlns:p=3D"urn:schemas-microsoft-com:office:pow=
+erpoint" xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns:w=3D"urn:=
+schemas-microsoft-com:office:word" xmlns:o=3D"urn:schemas-microsoft-com:off=
+ice:office" xmlns:v=3D"urn:schemas-microsoft-com:vml">
+
+<head>
+
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Wingdings 2";
+	panose-1:5 2 1 2 1 5 7 7 7 7;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle18
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle19
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle20
+	{mso-style-type:personal-reply;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:837157472;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1509179570 981133572 -1166145032 -279397462 14448845=
+8 -627526978 -1751342378 1853006460 -498023250 -124453520;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F097;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Wingdings 2";}
+@list l0:level2
+	{mso-level-start-at:2678;
+	mso-level-number-format:bullet;
+	mso-level-text:\F097;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Wingdings 2";}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext=3D"edit">
+  <o:idmap v:ext=3D"edit" data=3D"1" />
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body vlink=3D"purple" link=3D"blue" lang=3D"EN-US">
+
+<div class=3D"Section1">
+
+<p class=3D"MsoNormal"><b><span style=3D"color:#C00000">Java swing<o:p></o:=
+p></span></b></p>
+
+<p class=3D"MsoNormal"><b>Atlanta, GA,&nbsp;<o:p></o:p></b></p>
+
+<p class=3D"MsoNormal"><b>6+ months<o:p></o:p></b></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal"><b>Required Skills: <o:p></o:p></b></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class=3D"MsoNormal"><b><span style=3D"color:#C00000">Skills:&nbsp; Java,=
+ Swing,
+GUI development / Experience 7+ years.<o:p></o:p></span></b></p>
+
+<p class=3D"MsoNormal"><b><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></=
+span></b></p>
+
+<p class=3D"MsoNormal"><b><span style=3D"font-size:12.0pt;color:#C00000">Pl=
+ease send
+me the following information for submission:<o:p></o:p></span></b></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+
+<p style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2" cl=
+ass=3D"MsoNormal"><![if !supportLists]><span style=3D"font-size:12.0pt;font=
+-family:"Wingdings 2""><span style=3D"mso-list:Ignore">&#151;<span style=3D=
+"font:7.0pt "Times New Roman"">&nbsp; </span></span></span><![endif]><span =
+style=3D"font-size:12.0pt">Candidate&#8217;s full name<o:p></o:p></span></p>
+
+<p style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2" cl=
+ass=3D"MsoNormal"><![if !supportLists]><span style=3D"font-size:12.0pt;font=
+-family:"Wingdings 2""><span style=3D"mso-list:Ignore">&#151;<span style=3D=
+"font:7.0pt "Times New Roman"">&nbsp; </span></span></span><![endif]><span =
+style=3D"font-size:12.0pt">Candidate&#8217;s phone #<o:p></o:p></span></p>
+
+<p style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2" cl=
+ass=3D"MsoNormal"><![if !supportLists]><span style=3D"font-size:12.0pt;font=
+-family:"Wingdings 2""><span style=3D"mso-list:Ignore">&#151;<span style=3D=
+"font:7.0pt "Times New Roman"">&nbsp; </span></span></span><![endif]><span =
+style=3D"font-size:12.0pt">Email address<span style=3D"color:black">:</span=
+><o:p></o:p></span></p>
+
+<p style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2" cl=
+ass=3D"MsoNormal"><![if !supportLists]><span style=3D"font-size:12.0pt;font=
+-family:"Wingdings 2""><span style=3D"mso-list:Ignore">&#151;<span style=3D=
+"font:7.0pt "Times New Roman"">&nbsp; </span></span></span><![endif]><span =
+style=3D"font-size:12.0pt">Visa Status<span style=3D"color:black">:</span><=
+o:p></o:p></span></p>
+
+<p style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2" cl=
+ass=3D"MsoNormal"><![if !supportLists]><span style=3D"font-size:12.0pt;font=
+-family:"Wingdings 2""><span style=3D"mso-list:Ignore">&#151;<span style=3D=
+"font:7.0pt "Times New Roman"">&nbsp; </span></span></span><![endif]><span =
+style=3D"font-size:12.0pt">Current location<span style=3D"color:black">:</s=
+pan><o:p></o:p></span></p>
+
+<p style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2" cl=
+ass=3D"MsoNormal"><![if !supportLists]><span style=3D"font-size:12.0pt;font=
+-family:"Wingdings 2""><span style=3D"mso-list:Ignore">&#151;<span style=3D=
+"font:7.0pt "Times New Roman"">&nbsp; </span></span></span><![endif]><span =
+style=3D"font-size:12.0pt">Last 4 digits of the Social Security &nbsp;<span=
+ style=3D"color:black">:</span><o:p></o:p></span></p>
+
+<p style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2" cl=
+ass=3D"MsoNormal"><![if !supportLists]><span style=3D"font-size:12.0pt;font=
+-family:"Wingdings 2""><span style=3D"mso-list:Ignore">&#151;<span style=3D=
+"font:7.0pt "Times New Roman"">&nbsp; </span></span></span><![endif]><span =
+style=3D"font-size:12.0pt">Availability to interview (can they interview wi=
+th one
+day&#8217;s notice?)<span style=3D"color:black">:</span><o:p></o:p></span><=
+/p>
+
+<p style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2" cl=
+ass=3D"MsoNormal"><![if !supportLists]><span style=3D"font-size:12.0pt;font=
+-family:"Wingdings 2""><span style=3D"mso-list:Ignore">&#151;<span style=3D=
+"font:7.0pt "Times New Roman"">&nbsp; </span></span></span><![endif]><span =
+style=3D"font-size:12.0pt">Availability to start<span style=3D"color:black"=
+> :</span><o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><b><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></=
+span></b></p>
+
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:"Arial",=
+"sans-serif""><o:p>&nbsp;</o:p></span></p>
+
+<p style=3D"mso-margin-top-alt:auto;margin-bottom:12.0pt" class=3D"MsoNorma=
+l"><span style=3D"font-size:9.0pt;font-family:"Cambria Math","serif";color:=
+#7F7F7F">Thanks
+&amp; Regards,<o:p></o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#0070C0">Arun Chandupa=
+tla </span></b><span style=3D"color:#0070C0"><o:p></o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><span style=3D"color:#007=
+0C0"><a target=3D"_blank" href=3D"mailto:carun@hgtechinc.net"><b><span styl=
+e=3D"font-size:
+10.0pt;line-height:115%;font-family:"Cambria","serif";color:#0070C0;text-de=
+coration:
+none">carun@hgtechinc.net</span></b></a><o:p></o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#0070C0">302-525-4228<=
+/span></b><b><span style=3D"font-size:10.0pt;line-height:115%;font-family:"=
+Cambria","serif";
+color:#C00000"> |</span></b><span style=3D"font-size:10.0pt;line-height:115=
+%;
+font-family:"Cambria","serif";color:#C00000"> <b>&nbsp;</b></span><b><span =
+style=3D"font-size:10.0pt;line-height:115%;font-family:"Cambria","serif";
+color:#0070C0">302-355-2324</span></b><b><span style=3D"font-size:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#1F497D"> </span></b><=
+b><span style=3D"font-size:10.0pt;line-height:115%;font-family:"Cambria","s=
+erif";
+color:#C00000">|</span></b><span style=3D"color:#0070C0"><o:p></o:p></span>=
+</p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#0070C0">Hallmark Glob=
+al
+Technologies Inc</span></b><span style=3D"font-size:10.0pt;line-height:115%;
+font-family:"Cambria","serif";color:#0070C0">.</span><b><span style=3D"font=
+-size:
+10.0pt;line-height:115%;font-family:"Cambria","serif";color:#17365D"> </spa=
+n></b><b><span style=3D"font-size:10.0pt;line-height:115%;font-family:"Camb=
+ria","serif";
+color:#C00000">|</span></b><span style=3D"font-size:10.0pt;line-height:115%;
+font-family:"Cambria","serif";color:#C00000"> </span><span style=3D"font-si=
+ze:
+10.0pt;line-height:115%;font-family:"Cambria","serif";color:#1F497D"><o:p><=
+/o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:#C00000">|</span></b><=
+span style=3D"font-size:10.0pt;line-height:115%;font-family:"Cambria","seri=
+f";
+color:#17365D"> </span><a target=3D"_blank" href=3D"http://www.hgtechinc.ne=
+t/"><span style=3D"font-size:10.0pt;line-height:115%;font-family:"Cambria",=
+"serif";
+color:#0070C0">www.hgtechinc.net</span></a><span style=3D"color:#1F497D"> <=
+/span><b><span style=3D"font-size:10.0pt;line-height:115%;font-family:"Camb=
+ria","serif";
+color:#C00000">|</span></b><span style=3D"color:#17365D"><o:p></o:p></span>=
+</p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><span style=3D"font-size:=
+10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:gray">262 Chapman&nbsp=
+;Rd,
+Suite # 101, &nbsp;Newark, DE- 19702.<o:p></o:p></span></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><b><span style=3D"font-si=
+ze:10.0pt;
+line-height:115%;font-family:"Cambria","serif";color:red">_________________=
+___________________________________________________________________________=
+___________________________________________________________________________=
+______________________________</span><span style=3D"color:red"><o:p></o:p><=
+/span></b></p>
+
+<p style=3D"line-height:115%" class=3D"MsoNormal"><span style=3D"color:#173=
+65D">&nbsp;</span><b><span style=3D"font-size:8.0pt;line-height:115%;color:=
+red">NOTE</span></b><span style=3D"font-size:8.0pt;line-height:115%;color:r=
+ed">:</span><b><span style=3D"font-size:8.0pt;line-height:115%;color:#A6A6A=
+6"> </span></b><span style=3D"font-size:8.0pt;line-height:115%;color:#A6A6A=
+6">We respect your Online
+Privacy. This is not an unsolicited mail. Under Bill s.1618 Title III passe=
+d by
+the 105th U.S. Congress this mail cannot be considered Spam as long as we
+include Contact information and a method to be <u>removed</u> from our mail=
+ing
+list. If you are not interested in receiving our e-mails then please reply =
+with
+a&nbsp;<u>remove</u> in the subject line and mention all the e-mail address=
+es
+to be <u>removed</u> with any e-mail addresses which might be diverting the
+e-mails to you. We are sorry for the inconvenience</span><span style=3D"col=
+or:#A6A6A6"><o:p></o:p></span></p>
+
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
+
+<p></p>
+
+-- <br>
+You received this message because you are subscribed to the Google Groups "=
+ArunTR.USA" group.<br>
+To post to this group, send an email to aruntrusa@googlegroups.com.<br>
+To unsubscribe from this group, send email to aruntrusa+unsubscribe@googleg=
+roups.com.<br>
+
+For more options, visit this group at http://groups.google.com/group/aruntr=
+usa?hl=3Den-GB.<br>
+
+
+
+--=_reb-r3854BE34-t4CF53F45--
+

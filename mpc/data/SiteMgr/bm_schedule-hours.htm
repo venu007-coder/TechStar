@@ -1,0 +1,374 @@
+<html>
+<head>
+<title>Schedule-Hours of Operation</title>
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<merc_dynamic noshow=true name=dyn_ImagePath action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=imagepath>
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Begin
+var months = new Array("January","February","March","April","May","June",
+		"July","August","September","October","November","December");
+var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+
+function btnclick(num)
+{
+    if (num==5)
+    {
+		if (!validateTimes('hours', 'open', 'closed', '') || !validateTimes('hours', 'unavail_from', 'unavail_to', ''))
+			return false;
+		document.hours.action.value = "SAVE";
+    }
+    else if (num==4)
+	{
+		var result = confirm("Revert to last saved?");
+		if (result == true)
+			document.hours.action.value = "REVERT";
+	}
+	else if (num==3)
+	{
+		var result = confirm("Resetting will restore the initial default hours.\nYou will lose all times and days open that you have saved previously.\nAre you sure?");
+		if (result == true)
+			document.hours.action.value = "CLEAR";
+	}
+    else if (num==2)
+	{
+			var result = confirm("This will change all hours for every day of the week.\nAre you sure you wish to set the store to be open 24 Hours?");
+			if (result == true)
+				document.hours.action.value = "24H";
+	}
+
+    if (document.hours.action.value)
+            parent.SubmitForm('L','bm_schedule-hours.htm','mainFrame', document.hours );
+
+}
+// End -->
+</SCRIPT>
+</head>
+<SCRIPT runat="merc_server">
+
+	var incJsFile = doActionEx('DATA_READFILE','ServicesLib.js', 'FileName', 'ServicesLib.js','ObjectName','Site','FileType','txt');
+	eval (incJsFile);
+
+	var theAction= doAction('REQ_GET_FORMVALUE', "action", "action");
+	if (theAction)
+	{
+		switch (theAction)
+		{
+		case "SAVE":
+			SaveDailyHours();
+			break;
+		case "24H":
+			Set24Hours();
+			break;
+		case "REVERT":
+			break;
+		case "CLEAR":
+			ClearDailyHours();
+			break;
+		default:
+			break;
+		}
+	}
+	GetDailyHours();
+</script>
+<body class="bkgrd-main-items">
+<table width="100%" border="0">
+  <tr>
+    <td><span class="header">Schedule - Hours and Availability</span></td>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<td align="right">
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SCHD_HOURS_OPEN+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" name="help" alt="Help" align="right">
+</a>
+</td>
+<!--END HELP WINDOW LINK-->
+  </tr>
+</table>
+<br>
+<form name="hours">
+  <div align="center">
+<input type='hidden' name='action' value=''>
+<input type="hidden" name="reverse_closed_flag" value="Y">
+
+    <table width="640" border="1" cellspacing="0" cellpadding="2" bgcolor="#FFFF99">
+      <tr>
+        <td colspan="6" height="17" class="table-header">Hours of Operation</td>
+      </tr>
+      <tr>
+        <td width="11%" class="subheader">
+          <div align="center">Day</div>
+        </td>
+        <td width="8%" class="subheader">
+          <div align="center">Open</div>
+        </td>
+        <td width="20%" class="subheader">
+          <div align="center">Opening Time</div>
+        </td>
+        <td width="20%" class="subheader">
+          <div align="center">Unavailable From</div>
+        </td>
+        <td width="20%" class="subheader" nowrap>
+          <div align="center">Unavailable To</div>
+        </td>
+        <td width="20%" class="subheader" nowrap>
+          <div align="center">Closing Time</div>
+        </td>
+      </tr>
+<SCRIPT runat="merc_server">
+
+// write the array of ids into a hidden field
+write("<input type='hidden' name='open_array' value='");
+for (var i=0; i < shortDays.length; i++)
+{
+	if ( i > 0 )
+		write(",",theOpenSchedule[shortDays[i]].ID);
+	else
+		write(theOpenSchedule[shortDays[i]].ID);
+}
+writeln("'>");
+
+write("<input type='hidden' name='unavail_array' value='");
+var printedOnce=0;
+for (var i=0; i < days.length; i++)
+{
+	if (printedOnce)
+		write(",",theUnavailSchedule[shortDays[i]].ID);
+	else
+	{
+		write(theUnavailSchedule[shortDays[i]].ID);
+		printedOnce = 1;
+	}
+}
+writeln("'>\n");
+
+for (var i=0; i < shortDays.length; i++)
+{
+	writeln("		<tr>\n\
+        <td height='36' class='general-label'>\n\
+          <div align='center' class='general-label'>" +  shortDays[i] + " </div>\n\
+        </td>\n\
+        <td height='36'>\n\
+          <div align='center'>");
+
+/*
+	if (theOpenSchedule[shortDays[i]].State == 'C' && theOpenSchedule[shortDays[i]].AllDay == 'Y')
+		writeln("            <input type='checkbox' name='closed_24_" + shortDays[i] + "' value='Y' checked>");
+	else
+		writeln("            <input type='checkbox' name='closed_24_" + shortDays[i] + "' value='Y'>");
+	writeln("          </div>\n\
+        </td>");
+*/
+
+
+
+	if (theOpenSchedule[shortDays[i]].State == 'C' && theOpenSchedule[shortDays[i]].AllDay == 'Y')
+		writeln("            <input type='checkbox' name='closed_24_" + shortDays[i] + "' value='Y'>");
+	else
+		writeln("            <input type='checkbox' name='closed_24_" + shortDays[i] + "' value='Y' checked>");
+
+	writeln("          </div>\n</td>");
+
+
+
+
+
+
+
+
+
+
+	/************* OPEN HOUR ************/
+	writeln("        <td height='36' nowrap>\n\
+          <div align='center'>\n\
+            <select name='open_hours_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < hours.length; j++)
+	{
+		if (theOpenSchedule[shortDays[i]].OpenHour == parseInt(hours[j]))
+			writeln("              <option value='" + hours[j] + "' selected>" + hours[j] + "</option>");
+		else
+			writeln("              <option value='" + hours[j] + "'>" + hours[j] + "</option>");
+	}
+	writeln("            </select>");
+
+	/************* OPEN MINUTES ************/
+	writeln("            <select name='open_minutes_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < hours.length; j++)
+	{
+		if (theOpenSchedule[shortDays[i]].OpenMin == parseInt(minutes2[j]) && theOpenSchedule[shortDays[i]].AllDay != 'Y' && theOpenSchedule[shortDays[i]].OpenHour != '0')
+			writeln("              <option value='" + minutes[j] + "' selected>" + minutes[j] + "</option>");
+		else
+			writeln("              <option value='" + minutes[j] + "'>" + minutes[j] + "</option>");
+
+	}
+	writeln("            </select>");
+
+	/************* OPEN AMPM ************/
+	writeln("            <select name='open_ampm_" + shortDays[i] + "'>");
+
+	if (theOpenSchedule[shortDays[i]].OpenAMPM == 'PM')
+	{
+		writeln("              <option value='AM'>AM</option>\n\
+              <option value='PM' selected>PM</option>");
+	}
+	else
+	{
+		writeln("              <option value='AM' selected>AM</option>\n\
+              <option value='PM'>PM</option>");
+	}
+
+	writeln("            </select>\n\
+          </div>\n\
+        </td>");
+
+	/************* UNAVAILABLE FROM ************/
+	writeln("        <td height='36' bgcolor='#CCCC99' nowrap>\n\
+          <div align='center'>\n\
+            <select name='unavail_from_hours_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < hours.length; j++)
+	{
+		if (theUnavailSchedule[shortDays[i]].OpenHour == parseInt(hours[j]) && theOpenSchedule[shortDays[i]].AllDay != 'Y')
+			writeln("              <option value='" + hours[j] + "' selected>" + hours[j] + "</option>");
+		else
+			writeln("              <option value='" + hours[j] + "'>" + hours[j] + "</option>");
+	}
+	writeln("            </select>");
+	writeln("            <select name='unavail_from_minutes_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < minutes.length; j++)
+	{
+		if (theUnavailSchedule[shortDays[i]].OpenMin == parseInt(minutes2[j]) && theOpenSchedule[shortDays[i]].AllDay != 'Y' && theUnavailSchedule[shortDays[i]].OpenHour != '0')
+			writeln("              <option value='" + minutes[j] + "' selected>" + minutes[j] + "</option>");
+		else
+			writeln("              <option value='" + minutes[j] + "'>" + minutes[j] + "</option>");
+	}
+	writeln("            </select>\n\
+            <select name='unavail_from_ampm_" + shortDays[i] + "'>");
+
+	if (theUnavailSchedule[shortDays[i]].OpenAMPM == 'PM')
+	{
+		writeln("              <option value='AM'>AM</option>\n\
+              <option value='PM' selected>PM</option>");
+	}
+	else
+	{
+		writeln("              <option value='AM' selected>AM</option>\n\
+              <option value='PM'>PM</option>");
+	}
+	writeln("            </select>\n\
+          </div>\n\
+        </td>");
+
+	/************* UNAVAILABLE TO ************/
+	writeln("        <td height='36' bgcolor='#CCCC99' nowrap>\n\
+          <div align='center'>\n\
+            <select name='unavail_to_hours_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < hours.length; j++)
+	{
+		if (theUnavailSchedule[shortDays[i]].CloseHour == parseInt(hours[j]) && theOpenSchedule[shortDays[i]].AllDay != 'Y')
+			writeln("              <option value='" + hours[j] + "' selected>" + hours[j] + "</option>");
+		else
+			writeln("              <option value='" + hours[j] + "'>" + hours[j] + "</option>");
+	}
+	writeln("            </select>");
+	writeln("            <select name='unavail_to_minutes_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < minutes.length; j++)
+	{
+		if (theUnavailSchedule[shortDays[i]].CloseMin == parseInt(minutes2[j]) && theOpenSchedule[shortDays[i]].AllDay != 'Y' && theUnavailSchedule[shortDays[i]].CloseHour != '0')
+			writeln("              <option value='" + minutes[j] + "' selected>" + minutes[j] + "</option>");
+		else
+			writeln("              <option value='" + minutes[j] + "'>" + minutes[j] + "</option>");
+
+	}
+	writeln("            </select>\n\
+            <select name='unavail_to_ampm_" + shortDays[i] + "'>");
+
+	if (theUnavailSchedule[shortDays[i]].CloseAMPM == 'PM')
+	{
+		writeln("              <option value='AM'>AM</option>\n\
+              <option value='PM' selected>PM</option>");
+	}
+	else
+	{
+		writeln("              <option value='AM' selected>AM</option>\n\
+              <option value='PM'>PM</option>");
+	}
+	writeln("            </select>\n\
+          </div>\n\
+        </td>");
+
+	/************* CLOSED ************/
+	writeln("        <td nowrap >\n\
+          <div align='center'>\n\
+            <select name='closed_hours_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < 12; j++)
+	{
+		if (theOpenSchedule[shortDays[i]].CloseHour == parseInt(hours[j]))
+			writeln("              <option value='" + hours[j] + "' selected>" + hours[j] + "</option>");
+		else
+			writeln("              <option value='" + hours[j] + "'>" + hours[j] + "</option>");
+	}
+
+	writeln("            </select>\n\
+            <select name='closed_minutes_" + shortDays[i] + "'>\n\
+              <option> </option>");
+
+	for (var j=0; j < 12; j++)
+	{
+		if (theOpenSchedule[shortDays[i]].CloseMin == parseInt(minutes2[j]) && theOpenSchedule[shortDays[i]].AllDay != 'Y' && theOpenSchedule[shortDays[i]].CloseHour != '0')
+			writeln("              <option value='" + minutes[j] + "' selected>" + minutes[j] + "</option>");
+		else
+			writeln("              <option value='" + minutes[j] + "' >" + minutes[j] + "</option>");
+	}
+	writeln("            </select>\n\
+            <select name='closed_ampm_" + shortDays[i] + "'>");
+
+	if (theOpenSchedule[shortDays[i]].CloseAMPM == 'PM')
+	{
+		writeln("              <option value='AM'>AM</option>\n\
+              <option value='PM' selected>PM</option>");
+	}
+	else
+	{
+		writeln("              <option value='AM' selected>AM</option>\n\
+              <option value='PM'>PM</option>");
+	}
+	writeln("            </select>\n\
+          </div>\n\
+        </td>\n\
+      </tr>");
+}
+</script>
+	  <tr>
+        <td colspan="6" height="35" class="general-label">
+          <div align="center">
+<a href='javascript:btnclick(2);'><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_open24hrs.gif" width="90" height="21" alt="24 hours"  align="absmiddle" border=0></a>&nbsp;&nbsp;&nbsp;
+<a href='javascript:btnclick(3);'><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_reset.gif"  width="90" height="21" alt="Reset All" align="absmiddle" border=0></a>&nbsp;&nbsp;&nbsp;
+<a href='javascript:btnclick(4);'><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_revert.gif"    width="90" height="21" alt="Revert"    align="absmiddle" border=0></a>&nbsp;&nbsp;&nbsp;
+<a href='javascript:void(btnclick(5));'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif'      width='90' height='21' alt='Save'      align='absmiddle' border=0></a>
+		  </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>
+</body>
+
+</html>

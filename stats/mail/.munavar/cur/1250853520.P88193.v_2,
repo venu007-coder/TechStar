@@ -1,0 +1,967 @@
+Return-Path: lexus@lexuscommunications.delivery.net
+Received: from mx62.stngva01.us.mxservers.net (204.202.242.132)
+	by mail19e.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 4-0121893519
+	for <ms@altechstar.com>; Fri, 21 Aug 2009 07:18:39 -0400 (EDT)
+Received: from unknown [204.202.242.24] (HELO mail19a.g19.rapidsite.net)
+	by va1-mx62.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id f828e8a4.2753072032.564823.00-001.va1-mx62.stngva01.us.mxservers.net (envelope-from <lexus@lexuscommunications.delivery.net>);
+	Fri, 21 Aug 2009 07:18:39 -0400 (EDT)
+Received: from mx73.stngva01.us.mxservers.net (204.202.242.144)
+	by mail19a.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 3-045263518
+	for <anand@altechstar.com>; Fri, 21 Aug 2009 07:18:38 -0400 (EDT)
+Received: from unknown [209.11.164.43] (EHLO mh.lexus.m0.net)
+	by va1-mx73.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id d828e8a4.2710752160.917456.00-006.va1-mx73.stngva01.us.mxservers.net (envelope-from <lexus@lexuscommunications.delivery.net>);
+	Fri, 21 Aug 2009 07:18:37 -0400 (EDT)
+Return-Path: <lexus@lexuscommunications.delivery.net>
+DomainKey-Signature: q=dns; a=rsa-sha1; c=nofws;
+	s=v1; d=lexuscommunications.delivery.net;
+	h=DKIM-Signature:Received:Date:From:Reply-to:To:Message-ID:Subject:Errors-to:MIME-Version:Content-Type:X-eid:X-pid;
+	b=KUVHCmLYCv1dJaqgJuAIe/Jft0/DWQQPuJCnvDwhXf13rCEXy3KadLTHzmGaSkea
+	AdBlaOh5Tpoft7wOKjdjBQ+NWy25I+FXdW9nLSopreWV2epRH2jK94bmyZIMEWV6
+	86Kfm9oLvltl2QQ4rocKHnbboX/01z8vhG8nOYcY/IY=
+DKIM-Signature: v=1; a=rsa-sha1; d=lexuscommunications.delivery.net; s=v1; c=simple/simple;
+	q=dns/txt; i=@lexuscommunications.delivery.net; t=1250853504;
+	h=From;
+	bh=uO2lW8k9XxnT9bkAMArTNdxR0xg=;
+	b=JlddUBJgUTefWsLyTAGOwVK+QGFJ/hrXauh8mv9mbDqMBnQNYVJuc3FuxojLD0hm
+	5PbznfMp8r2DlFgM3+kuQdrqMjz7Q6RkmKVvAak/S3UohvHKyOSS3wIKgJ2bmkXW
+	plkhGK4rdqX+3MImdUlo2kzZwYS46V+pe7EZYISk8wk=;
+Received: from [192.168.138.10] ([192.168.138.10:56645] helo=fc1a1.dc1.prod)
+	by oms4.dc1.prod (envelope-from <lexus@lexuscommunications.delivery.net>)
+	(ecelerity 2.2.2.36 r(26875/27517M)) with ESMTP
+	id 87/FD-24587-0828E8A4; Fri, 21 Aug 2009 04:18:24 -0700
+Date: Fri, 21 Aug 2009 04:18:37 -0700 (PDT)
+From: Lexus <lexus@lexuscommunications.delivery.net>
+Reply-to: lexus@lexuscommunications.delivery.net
+To: anand@altechstar.com
+Message-ID: <12817078796.1250853517228@delivery.net>
+Subject: Lexus Pursuit: Three Months. Three Amazing Launches.
+Errors-to: lexus@lexuscommunications.delivery.net
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=_reb-r45B08728-t4A8E828E"
+X-eid: 2.5.3JJ.2VG.11Roku.BxzHeC..N..1H5q.CaEMETC0
+X-pid: 332148
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082112)]
+X-MAIL-FROM: <lexus@lexuscommunications.delivery.net>
+X-SOURCE-IP: [209.11.164.43]
+X-SF-Loop: 1
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2009071501); MH=0.500(2009082112)]
+X-MAIL-FROM: <lexus@lexuscommunications.delivery.net>
+X-SOURCE-IP: [204.202.242.24]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r45B08728-t4A8E828E
+Content-Type: text/plain; charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+If you are having trouble viewing this e-mail, please click below.
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+gw.1H5q.cnNfa3k9MTFSb2t1Jm1vPTEmcnNfb2M9TiZyc19tdj1IJnJzX2J2PUg%5fBIQMJTW0
+
+LEXUS PURSUIT
+08.09
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bI.1H5q.bW89MQ%5f%5fDJJcFSA0
+
+INNOVATIONS, NEWS & OFFERS
+
+LEXUS MODELS=20
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bK.1H5q.bW89MQ%5f%5fDJQQFSC0
+
+FUTURE VEHICLES=20
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bM.1H5q.bW89MQ%5f%5fDJXEFSE0
+
+FORWARD TO A FRIEND=20
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bO.1H5q.bW89MQ%5f%5fDJdYFSG0
+
+THREE MONTHS. THREE AMAZING LAUNCHES
+
+RXh
+Innovative. Intuitive. And now, totally reinvented. Experience the
+all-new 2010 RX Hybrid and its 32 MPG rating for city [1].
+
+Learn about the RXh
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bQ.1H5q.bW89MQ%5f%5fDKEMFSI0
+
+IS C
+Is the all-new IS Convertible for you? Visit the website where you'll
+discover a lot about the car, and maybe even a few things
+about yourself.
+
+LEARN ABOUT THE IS C
+HTTP://www.lexus.com/LIVEALITTLE?s_ocid=3DPursuit:0809:CTA2:ISC
+
+HS
+Powerful yet efficient, luxurious yet responsible. Learn more about
+the HS and its unmatched blend of technology and sustainability.
+
+LEARN ABOUT THE HSh=20
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bS.1H5q.bW89MQ%5f%5fDKLAFSK0
+
+
+LEXUS ENFORM(TM): WHERE SAFETY AND CONVENIENCE MEET
+
+Offered on select new Lexus 2010 models. Lexus Enform [2] [3] with
+Safety Connect(TM) [2] [4] provides exceptional service with features
+like Destination Assist and Automatic Collision Notification that
+allow for 24-hour access to agents who help with things like finding
+addresses to providing emergency support. And, our eDestination
+feature lets you save and download up to 200 destinations from any
+online source to a vehicle's available Navigation System [5].
+
+LEARN MORE ABOUT LEXUS ENFORM=20
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bU.1H5q.bW89MQ%5f%5fDKRUFSM0
+
+
+EXPLORE LEXUS DRIVERS.
+
+Visit LexusDrivers.com to get a more in-depth look at the=20
+eDestination feature, which allows you to plan trips before you leave
+home with speed, convenience and ease. Using our exclusive
+destination management system, you can search, organize and name
+preferred destinations, and then send them wirelessly to your vehicle
+when equipped with the Navigation System [5].
+
+LEARN MORE ABOUT eDESTINATION=20
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bW.1H5q.bW89MQ%5f%5fDKYIFSO0
+
+
+LEXUS TRIVIA
+Some of the benefits of available Lexus Enform [2] [3] include:=20
+
+a) 24-hour live assistance
+b) Online destination planning
+c) Stolen Vehicle Location
+d) Ability to program your digital video recorder
+e) Everything but D=20
+
+
+TRIVIA ANSWER
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+c4.1H5q.bW89MQ%5f%5fDHHWFRM0
+
+LEARN MORE ABOUT LEXUS ENFORM
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+ba.1H5q.bW89MQ%5f%5fDLZMFSY0
+
+
+LEXUS PURSUIT ARCHIVE=20
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bc.1H5q.bW89MQ%5f%5fDMAAFSa0
+
+FIND A DEALER
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+be.1H5q.bW89MQ%5f%5fDMGUFSc0
+
+
+YOUR PRIVACY RIGHTS
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bg.1H5q.bW89MQ%5f%5fDMNIFSe0
+
+[1] EPA MPG Estimates. Actual mileage will vary.
+
+[2] Available beginning Fall 2009 on select Lexus models. Contact
+with the Lexus Enform response center is dependent upon the
+telematics device being in operative condition, cellular connection
+availability and GPS satellite signal reception, which can limit the
+ability to reach the response center or receive support. Enrollment
+and Telematics Subscription Service Agreement required. A variety of
+subscription terms is available; charges vary by subscription
+term selected.
+
+
+[3] Lexus Enform premium services Destination Assist and eDestination
+will function in the contiguous United States and Washington, D.C.
+These services may also function in Hawaii and limited areas of
+Alaska for vehicles that contain map data for those states. They will
+not function in Canada or in other countries outside the
+United States.
+
+[4] Safety Connect services will function in the United States,
+including Hawaii and Alaska, and in Canada. The services will not
+function outside of the United States in countries other than Canada.
+
+[5]  The Navigation System is designed to assist in locating an
+address or point of interest. XM(R) Radio, XM NavTraffic(R), XM
+NavWeather(TM) and XM(R) Sports and Stocks require a monthly service
+fee and hardware. XM NavTraffic is designed to provide real-time
+traffic or alternative routes of travel; XM NavWeather is designed to
+provide real-time weather and forecasting information in your general
+vicinity and along your route of travel. Discrepancies may be
+encountered between the system and your actual location. Road system
+and weather changes may affect the accuracy of the information
+provided. Rely on your common sense to decide whether to follow a
+specified route. Detailed coverage not available in every city or
+roadway. Periodic Navigation updates available at an additional cost.
+Please see your Navigation System Owner's Manual for further details.
+
+
+Please note, this e-mail address is not monitored for comments. To=20
+UNSUBSCRIBE from receiving future e-mail from Lexus Marketing, please=20
+click below.
+http://lexuscommunications.p.delivery.net/m/u/mtz/lexus/g.asp?e=3Danand%40a=
+ltechstar.com&mid=3D1097804728&cid=3D12817078796
+
+To contact Lexus Customer Service, click below.
+http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cn=
+bi.1H5q.bW89MQ%5f%5fDMTcFTA0
+
+Lexus Relationship Marketing
+19001 South Western Avenue, L101
+Torrance, CA  90501-1106
+
+(c)2009 Lexus.
+
+
+
+
+--=_reb-r45B08728-t4A8E828E
+Content-Type: text/html; charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<HTML>
+
+<head>
+
+</head>
+<BODY topmargin=3D"0" marginwidth=3D"0" marginheight=3D"0" leftmargin=3D"0"=
+ bgcolor=3D"#c1c0c0">
+
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" bgco=
+lor=3D"#C1C0C0">
+<tr>
+<td align=3D"center"><table width=3D"780" id=3D"Table_01" cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0">
+<tr>
+<td width=3D"780" height=3D"23" colspan=3D"26"><table width=3D"780" cellspa=
+cing=3D"0" cellpadding=3D"0" border=3D"0">
+<tr>
+<td width=3D"36" style=3D"line-height:0px;font-size:0px;"><img width=3D"36"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"23" border=3D"0" alt=3D""></td>
+<td width=3D"744" style=3D"font-family:Verdana,sans-serif;color:#999999;fon=
+t-size:11px;">If you are having trouble viewing this e-mail, please <A HREF=
+=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..=
+N.Cngw.1H5q.cnNfa3k9MTFSb2t1Jm1vPTEmaT1hbmFuZEBhbHRlY2hzdGFyLmNvbSZyc19vYz1=
+OJnJzX212PUgmcnNfYnY9SA%5f%5fBdeEMOe0"><font color=3D"#666666"><u>click her=
+e</u></font></A>.</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width=3D"36" style=3D"line-height:0px;font-size:0px;" rowspan=3D"31" he=
+ight=3D"1787"><img width=3D"36" src=3D"http://img.delivery.net/cm50content/=
+18629/1062/spacer.gif" height=3D"1787" border=3D"0" alt=3D""></td>
+<td width=3D"4" style=3D"line-height:0px;font-size:0px;" rowspan=3D"28"><im=
+g width=3D"4" src=3D"http://img.delivery.net/cm50content/18629/1062/leftGra=
+d.jpg" height=3D"1366" border=3D"0" alt=3D""></td>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" colspan=3D"22"><=
+A HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bx=
+zHeC..N.CnbI.1H5q.bW89MQ%5f%5fDJJcFSA0"><img width=3D"700" title=3D"LEXUS P=
+URSUIT 08.09" src=3D"http://img.delivery.net/cm50content/18629/1062/mainHdr=
+.gif" height=3D"72" border=3D"0" alt=3D"LEXUS PURSUIT 08.09"></A></td>
+<td width=3D"8" style=3D"line-height:0px;font-size:0px;" rowspan=3D"28"><im=
+g width=3D"8" src=3D"http://img.delivery.net/cm50content/18629/1062/rightGr=
+ad.gif" height=3D"1366" border=3D"0" alt=3D""></td>
+<td width=3D"32" style=3D"line-height:0px;font-size:0px;" rowspan=3D"31" he=
+ight=3D"1787"><img width=3D"32" src=3D"http://img.delivery.net/cm50content/=
+18629/1062/spacer.gif" height=3D"1787" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"233" style=3D"line-height:0px;font-size:0px;" colspan=3D"7"><i=
+mg width=3D"233" title=3D"INNOVATIONS, NEWS &amp; OFFERS" src=3D"http://img=
+.delivery.net/cm50content/18629/1062/topSubHead.gif" height=3D"20" border=
+=3D"0" alt=3D"INNOVATIONS, NEWS &amp; OFFERS"></td>
+<td width=3D"155" style=3D"line-height:0px;font-size:0px;" colspan=3D"7"><A=
+ HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bxz=
+HeC..N.CnbK.1H5q.bW89MQ%5f%5fDJQQFSC0"><img width=3D"155" title=3D"LEXUS MO=
+DELS" src=3D"http://img.delivery.net/cm50content/18629/1062/topLink1.gif" h=
+eight=3D"20" border=3D"0" alt=3D"LEXUS MODELS"></A></td>
+<td width=3D"154" style=3D"line-height:0px;font-size:0px;" colspan=3D"4"><A=
+ HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bxz=
+HeC..N.CnbM.1H5q.bW89MQ%5f%5fDJXEFSE0"><img width=3D"154" title=3D"FUTURE V=
+EHICLES" src=3D"http://img.delivery.net/cm50content/18629/1062/topLink2.gif=
+" height=3D"20" border=3D"0" alt=3D"FUTURE VEHICLES"></A></td>
+<td width=3D"158" style=3D"line-height:0px;font-size:0px;" colspan=3D"4"><A=
+ HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bxz=
+HeC..N.CnbO.1H5q.bW89MQ%5f%5fDJdYFSG0"><img width=3D"158" title=3D"FORWARD =
+TO A FRIEND" src=3D"http://img.delivery.net/cm50content/18629/1062/topLink3=
+.gif" height=3D"20" border=3D"0" alt=3D"FORWARD TO A FRIEND"></A></td>
+</tr>
+<tr>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" colspan=3D"22"><=
+img width=3D"700" src=3D"http://img.delivery.net/cm50content/18629/1062/gra=
+d1.jpg" height=3D"20" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" colspan=3D"22"><=
+img width=3D"700" title=3D"Three Months. Three Amazing Launches." src=3D"ht=
+tp://img.delivery.net/cm50content/18629/1062/Heading1.gif" height=3D"50" bo=
+rder=3D"0" alt=3D"Three Months. Three Amazing Launches."></td>
+</tr>
+<tr>
+<td width=3D"233" style=3D"line-height:0px;font-size:0px;" colspan=3D"7"><A=
+ HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bxz=
+HeC..N.Cnbm.1H5q.bW89MQ%5f%5fDNBEFTE0"><img width=3D"233" title=3D"RXh" src=
+=3D"http://img.delivery.net/cm50content/18629/1062/topImg1.jpg" height=3D"2=
+97" border=3D"0" alt=3D"RXh"></A></td>
+<td width=3D"233" style=3D"line-height:0px;font-size:0px;" colspan=3D"10"><=
+A HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bx=
+zHeC..N.Cnbo.1H5q.bW89MQ%5f%5fDNHYFTG0"><img width=3D"233" title=3D"IS C" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/topImg2.jpg" height=3D=
+"297" border=3D"0" alt=3D"IS C"></A></td>
+<td width=3D"234" style=3D"line-height:0px;font-size:0px;" colspan=3D"5"><A=
+ HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bxz=
+HeC..N.Cnbs.1H5q.bW89MQ%5f%5fDNVAFTK0"><img width=3D"234" title=3D"HSh" src=
+=3D"http://img.delivery.net/cm50content/18629/1062/topImg3.jpg" height=3D"2=
+97" border=3D"0" alt=3D"HSh"></A></td>
+</tr>
+<tr valign=3D"top">
+<td width=3D"700" colspan=3D"22" bgcolor=3D"#f9f4f2"><table width=3D"700" c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+<tr>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" colspan=3D"7"><i=
+mg width=3D"1" src=3D"http://img.delivery.net/cm50content/18629/1062/spacer=
+.gif" height=3D"11" border=3D"0" alt=3D""></td>
+</tr>
+<tr valign=3D"top">
+<td width=3D"15" style=3D"line-height:0px;font-size:0px;"><img width=3D"15"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"215" style=3D"font-family:Verdana,sans-serif;font-size:10px;co=
+lor:#7c7a79;line-height:15px;" align=3D"left">Innovative. Intuitive. And no=
+w, totally reinvented. Experience the all-new 2010 RX Hybrid and its 32 MPG=
+ rating for city [1].</td>
+<td width=3D"13" style=3D"line-height:0px;font-size:0px;"><img width=3D"12"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"215" style=3D"font-family:Verdana,sans-serif;font-size:10px;co=
+lor:#7c7a79;line-height:15px;" align=3D"left">Is the all-new IS Convertible=
+ for you? Visit the website where you'll discover a lot about the car, and =
+maybe even a few things about yourself.</td>
+<td width=3D"12" style=3D"line-height:0px;font-size:0px;"><img width=3D"12"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"215" style=3D"font-family:Verdana,sans-serif;font-size:10px;co=
+lor:#7c7a79;line-height:15px;" align=3D"left">Powerful yet efficient, luxur=
+ious yet responsible. Learn more about the HS and its unmatched blend of te=
+chnology and sustainability.</td>
+<td width=3D"15" style=3D"line-height:0px;font-size:0px;"><img width=3D"15"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"685" style=3D"line-height:0px;font-size:0px;" colspan=3D"6"><i=
+mg width=3D"1" src=3D"http://img.delivery.net/cm50content/18629/1062/spacer=
+.gif" height=3D"15" border=3D"0" alt=3D""></td>
+<td width=3D"15">
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width=3D"15" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" hei=
+ght=3D"35" colspan=3D"3" bgcolor=3D"#f9f4f2"><img width=3D"15" src=3D"http:=
+//img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"35" border=
+=3D"0" alt=3D""></td>
+<td width=3D"218" style=3D"line-height:0px;font-size:0px;" colspan=3D"4" bg=
+color=3D"#f9f4f2"><A HREF=3D"http://lexuscommunications.r.delivery.net/r?2.=
+1.3JJ.2VG.11Roku.BxzHeC..N.CnbQ.1H5q.bW89MQ%5f%5fDKEMFSI0"><img width=3D"21=
+8" title=3D"Learn about the RXh" src=3D"http://img.delivery.net/cm50content=
+/18629/1062/btnRXh.gif" height=3D"21" border=3D"0" alt=3D"Learn about the R=
+Xh"></A></td>
+<td width=3D"7" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" heig=
+ht=3D"35" bgcolor=3D"#f9f4f2"><img width=3D"7" src=3D"http://img.delivery.n=
+et/cm50content/18629/1062/spacer.gif" height=3D"35" border=3D"0" alt=3D""><=
+/td>
+<td width=3D"218" style=3D"line-height:0px;font-size:0px;" colspan=3D"7"><A=
+ HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bxz=
+HeC..N.Cnby.1H5q.bW89MQ%5f%5fDOIcFTQ0"><img width=3D"218" title=3D"LEARN AB=
+OUT THE IS C" src=3D"http://img.delivery.net/cm50content/18629/1062/btnISc.=
+gif" height=3D"21" border=3D"0" alt=3D"LEARN ABOUT THE IS C"></A></td>
+<td width=3D"7" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" heig=
+ht=3D"35" bgcolor=3D"#f9f4f2"><img width=3D"7" src=3D"http://img.delivery.n=
+et/cm50content/18629/1062/spacer.gif" height=3D"35" border=3D"0" alt=3D""><=
+/td>
+<td width=3D"218" style=3D"line-height:0px;font-size:0px;" colspan=3D"5"><A=
+ HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bxz=
+HeC..N.CnbS.1H5q.bW89MQ%5f%5fDKLAFSK0"><img width=3D"218" title=3D"LEARN AB=
+OUT THE HSh" src=3D"http://img.delivery.net/cm50content/18629/1062/btnHSh.g=
+if" height=3D"21" border=3D"0" alt=3D"LEARN ABOUT THE HSh"></A></td>
+<td width=3D"17" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" hei=
+ght=3D"35" bgcolor=3D"#f9f4f2"><img width=3D"17" src=3D"http://img.delivery=
+.net/cm50content/18629/1062/spacer.gif" height=3D"35" border=3D"0" alt=3D""=
+></td>
+</tr>
+<tr>
+<td width=3D"218" style=3D"line-height:0px;font-size:0px;" height=3D"14" co=
+lspan=3D"4" bgcolor=3D"#f9f4f2"><img width=3D"218" src=3D"http://img.delive=
+ry.net/cm50content/18629/1062/spacer.gif" height=3D"14" border=3D"0" alt=3D=
+""></td>
+<td width=3D"218" style=3D"line-height:0px;font-size:0px;" height=3D"14" co=
+lspan=3D"7" bgcolor=3D"#f9f4f2"><img width=3D"218" src=3D"http://img.delive=
+ry.net/cm50content/18629/1062/spacer.gif" height=3D"14" border=3D"0" alt=3D=
+""></td>
+<td width=3D"218" style=3D"line-height:0px;font-size:0px;" height=3D"14" co=
+lspan=3D"5" bgcolor=3D"#f9f4f2"><img width=3D"218" src=3D"http://img.delive=
+ry.net/cm50content/18629/1062/spacer.gif" height=3D"14" border=3D"0" alt=3D=
+""></td>
+</tr>
+<tr>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" colspan=3D"22"><=
+img width=3D"700" src=3D"http://img.delivery.net/cm50content/18629/1062/gra=
+d1-17.jpg" height=3D"10" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" height=3D"10" co=
+lspan=3D"22"><img width=3D"700" src=3D"http://img.delivery.net/cm50content/=
+18629/1062/spacer.gif" height=3D"10" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" colspan=3D"22"><=
+img width=3D"700" src=3D"http://img.delivery.net/cm50content/18629/1062/img=
+2Top.gif" height=3D"23" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"13" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" hei=
+ght=3D"37" bgcolor=3D"#f9f4f2"><img width=3D"13" src=3D"http://img.delivery=
+.net/cm50content/18629/1062/spacer.gif" height=3D"37" border=3D"0" alt=3D""=
+></td>
+<td width=3D"617" style=3D"line-height:0px;font-size:0px;" colspan=3D"18"><=
+img width=3D"617" title=3D"Lexus Enform&#8482;: where safety and convenienc=
+e meet." src=3D"http://img.delivery.net/cm50content/18629/1062/Heading2.gif=
+" height=3D"22" border=3D"0" alt=3D"Lexus Enform&#8482;: where safety and c=
+onvenience meet."></td>
+<td width=3D"70" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" col=
+span=3D"3" bgcolor=3D"#f9f4f2"><img width=3D"70" src=3D"http://img.delivery=
+.net/cm50content/18629/1062/spacer.gif" height=3D"20" border=3D"0" alt=3D""=
+></td>
+</tr>
+<tr>
+<td width=3D"617" style=3D"line-height:0px;font-size:0px;" height=3D"15" co=
+lspan=3D"18" bgcolor=3D"#f9f4f2"><img width=3D"617" src=3D"http://img.deliv=
+ery.net/cm50content/18629/1062/spacer.gif" height=3D"15" border=3D"0" alt=
+=3D""></td>
+</tr>
+<tr>
+<td width=3D"350" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" co=
+lspan=3D"12"><A HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ=
+.2VG.11Roku.BxzHeC..N.Cnbu.1H5q.bW89MQ%5f%5fDNbUFTM0"><img width=3D"350" ti=
+tle=3D"LEXUS ENFORM with SAFETY CONNECT" src=3D"http://img.delivery.net/cm5=
+0content/18629/1062/img2.jpg" height=3D"182" border=3D"0" alt=3D"LEXUS ENFO=
+RM with SAFETY CONNECT"></A></td>
+<td width=3D"350" valign=3D"top" height=3D"162" colspan=3D"10" bgcolor=3D"#=
+f9f4f2"><table width=3D"350" cellspacing=3D"0" cellpadding=3D"0" border=3D"=
+0">
+<tr valign=3D"top">
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;"><img width=3D"14"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"318" style=3D"font-family:Verdana,sans-serif;font-size:10px;co=
+lor:#7c7a79;line-height:15px;" align=3D"left">Offered on select new Lexus 2=
+010 models. Lexus Enform [2] [3] with Safety Connect&#8482; [2] [4] provide=
+s exceptional service with features like Destination Assist and Automatic C=
+ollision Notification that allow for 24-hour access to agents who help with=
+ things like finding addresses to providing emergency support. And, our eDe=
+stination feature lets you save and download up to 200 destinations from an=
+y online source to a vehicle's available Navigation System [5].</td>
+<td width=3D"18" style=3D"line-height:0px;font-size:0px;"><img width=3D"18"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" hei=
+ght=3D"41" bgcolor=3D"#f9f4f2"><img width=3D"14" src=3D"http://img.delivery=
+.net/cm50content/18629/1062/spacer.gif" height=3D"41" border=3D"0" alt=3D""=
+></td>
+<td width=3D"318" style=3D"line-height:0px;font-size:0px;" colspan=3D"7"><A=
+ HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bxz=
+HeC..N.CnbU.1H5q.bW89MQ%5f%5fDKRUFSM0"><img width=3D"318" title=3D"LEARN MO=
+RE ABOUT LEXUS ENFORM" src=3D"http://img.delivery.net/cm50content/18629/106=
+2/btn2.gif" height=3D"20" border=3D"0" alt=3D"LEARN MORE ABOUT LEXUS ENFORM=
+"></A></td>
+<td width=3D"18" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" hei=
+ght=3D"41" colspan=3D"2" bgcolor=3D"#f9f4f2"><img width=3D"18" src=3D"http:=
+//img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"41" border=
+=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"350" style=3D"line-height:0px;font-size:0px;" height=3D"21" co=
+lspan=3D"12" bgcolor=3D"#f9f4f2"><img width=3D"350" src=3D"http://img.deliv=
+ery.net/cm50content/18629/1062/spacer.gif" height=3D"21" border=3D"0" alt=
+=3D""></td>
+<td width=3D"318" style=3D"line-height:0px;font-size:0px;" height=3D"21" co=
+lspan=3D"7" bgcolor=3D"#f9f4f2"><img width=3D"318" src=3D"http://img.delive=
+ry.net/cm50content/18629/1062/spacer.gif" height=3D"21" border=3D"0" alt=3D=
+""></td>
+</tr>
+<tr>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" colspan=3D"22"><=
+img width=3D"700" title=3D"Explore Lexus Drivers" src=3D"http://img.deliver=
+y.net/cm50content/18629/1062/Heading3.jpg" height=3D"48" border=3D"0" alt=
+=3D"Explore Lexus Drivers"></td>
+</tr>
+<tr valign=3D"top">
+<td width=3D"345" valign=3D"top" height=3D"145" colspan=3D"10" bgcolor=3D"#=
+f9f4f2"><table width=3D"345" cellspacing=3D"0" cellpadding=3D"0" border=3D"=
+0">
+<tr>
+<td style=3D"line-height:0px;font-size:0px;" colspan=3D"3"><img width=3D"1"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"20" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;"><img width=3D"14"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"317" style=3D"font-family:Verdana,sans-serif;font-size:10px;co=
+lor:#7c7a79;line-height:15px;" align=3D"left">Visit LexusDrivers.com to get=
+ a more in-depth look at the eDestination feature, which allows you to plan=
+ trips before you leave home with speed, convenience and ease. Using our ex=
+clusive destination management system, you can search, organize and name pr=
+eferred destinations, and then send them wirelessly to your vehicle when eq=
+uipped with the Navigation System [5].</td>
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;"><img width=3D"14"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td style=3D"line-height:0px;font-size:0px;" colspan=3D"3"><img width=3D"1"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"20" border=3D"0" alt=3D""></td>
+</tr>
+</table></td>
+<td width=3D"355" valign=3D"top" style=3D"line-height:0px;font-size:0px;" r=
+owspan=3D"4" colspan=3D"12" bgcolor=3D"#f9f4f2"><A HREF=3D"http://lexuscomm=
+unications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cnbw.1H5q.bW89MQ%5=
+f%5fDOCIFTO0"><img width=3D"355" title=3D"LEXUS DRIVERS" src=3D"http://img.=
+delivery.net/cm50content/18629/1062/img3.jpg" height=3D"210" border=3D"0" a=
+lt=3D"LEXUS DRIVERS"></A></td>
+</tr>
+<tr>
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" hei=
+ght=3D"34" colspan=3D"2" bgcolor=3D"#f9f4f2"><img width=3D"14" src=3D"http:=
+//img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"34" border=
+=3D"0" alt=3D""></td>
+<td width=3D"316" style=3D"line-height:0px;font-size:0px;" colspan=3D"7"><A=
+ HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bxz=
+HeC..N.CnbW.1H5q.bW89MQ%5f%5fDKYIFSO0"><img width=3D"316" title=3D"LEARN MO=
+RE ABOUT eDESTINATION" src=3D"http://img.delivery.net/cm50content/18629/106=
+2/btn3.gif" height=3D"20" border=3D"0" alt=3D"LEARN MORE ABOUT eDESTINATION=
+"></A></td>
+<td width=3D"15" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" hei=
+ght=3D"34" bgcolor=3D"#f9f4f2"><img width=3D"15" src=3D"http://img.delivery=
+.net/cm50content/18629/1062/spacer.gif" height=3D"34" border=3D"0" alt=3D""=
+></td>
+</tr>
+<tr>
+<td width=3D"316" style=3D"line-height:0px;font-size:0px;" height=3D"14" co=
+lspan=3D"7" bgcolor=3D"#f9f4f2"><img width=3D"316" src=3D"http://img.delive=
+ry.net/cm50content/18629/1062/spacer.gif" height=3D"14" border=3D"0" alt=3D=
+""></td>
+</tr>
+<tr>
+<td width=3D"345" style=3D"line-height:0px;font-size:0px;" colspan=3D"10"><=
+img width=3D"345" src=3D"http://img.delivery.net/cm50content/18629/1062/img=
+3Left.jpg" height=3D"31" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" height=3D"13" co=
+lspan=3D"22"><img width=3D"700" src=3D"http://img.delivery.net/cm50content/=
+18629/1062/spacer.gif" height=3D"13" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"700" style=3D"line-height:0px;font-size:0px;" colspan=3D"22"><=
+img width=3D"700" src=3D"http://img.delivery.net/cm50content/18629/1062/tri=
+viaTop.gif" height=3D"20" border=3D"0" alt=3D""></td>
+</tr>
+<tr valign=3D"top">
+<td width=3D"15" style=3D"line-height:0px;font-size:0px;" colspan=3D"3" bgc=
+olor=3D"#697a88"><img width=3D"15" src=3D"http://img.delivery.net/cm50conte=
+nt/18629/1062/spacer.gif" height=3D"35" border=3D"0" alt=3D""></td>
+<td width=3D"147" style=3D"line-height:0px;font-size:0px;" colspan=3D"2" bg=
+color=3D"#697a88"><img width=3D"147" title=3D"TRIVIA QUESTION" src=3D"http:=
+//img.delivery.net/cm50content/18629/1062/triviaHdr.gif" height=3D"22" bord=
+er=3D"0" alt=3D"TRIVIA QUESTION"></td>
+<td width=3D"51" style=3D"line-height:0px;font-size:0px;" bgcolor=3D"#697a8=
+8"><img width=3D"51" src=3D"http://img.delivery.net/cm50content/18629/1062/=
+spacer.gif" height=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"20" style=3D"line-height:0px;font-size:0px;" bgcolor=3D"#697a8=
+8"><img width=3D"20" title=3D"QUESTION" src=3D"http://img.delivery.net/cm50=
+content/18629/1062/q.gif" height=3D"22" border=3D"0" alt=3D"QUESTION"></td>
+<td width=3D"467" valign=3D"top" rowspan=3D"4" colspan=3D"15" bgcolor=3D"#5=
+3514f"><table width=3D"467" cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+">
+<tr bgcolor=3D"#697a88">
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;" height=3D"22"><im=
+g width=3D"5" src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.=
+gif" height=3D"22" border=3D"0" alt=3D""></td>
+<td style=3D"font-family:Verdana, Arial, Helvetica, sans-serif;color:#FFFFF=
+F;font-size:9px;" height=3D"22" colspan=3D"4" align=3D"left">Some of the be=
+nefits of available Lexus Enform [2] [3] include:</td>
+</tr>
+<tr>
+<td style=3D"line-height:0px;font-size:0px;" colspan=3D"5" bgcolor=3D"#697a=
+88"><img width=3D"1" src=3D"http://img.delivery.net/cm50content/18629/1062/=
+spacer.gif" height=3D"13" border=3D"0" alt=3D""></td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td style=3D"line-height:0px;font-size:0px;" colspan=3D"5"><img width=3D"1"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"20" border=3D"0" alt=3D""></td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td width=3D"9" style=3D"font-size:9px;font-family:Verdana, Arial, Helvetic=
+a, sans-serif;color:#FFFFFF;" align=3D"left">a)</td>
+<td width=3D"12" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td style=3D"font-size:9px;font-family:Verdana, Arial, Helvetica, sans-seri=
+f;color:#FFFFFF;" colspan=3D"2" align=3D"left">24-hour live assistance</td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td style=3D"line-height:0px;font-size:0px;" colspan=3D"5"><img width=3D"1"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"8" border=3D"0" alt=3D""></td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td width=3D"9" style=3D"font-size:9px;font-family:Verdana, Arial, Helvetic=
+a, sans-serif;color:#FFFFFF;" align=3D"left">b)</td>
+<td width=3D"12" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td style=3D"font-size:9px;font-family:Verdana, Arial, Helvetica, sans-seri=
+f;color:#FFFFFF;" colspan=3D"2" align=3D"left">Online destination planning<=
+/td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td style=3D"line-height:0px;font-size:0px;" colspan=3D"5"><img width=3D"1"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"8" border=3D"0" alt=3D""></td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td width=3D"9" style=3D"font-size:9px;font-family:Verdana, Arial, Helvetic=
+a, sans-serif;color:#FFFFFF;" align=3D"left">c)</td>
+<td width=3D"12" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td style=3D"font-size:9px;font-family:Verdana, Arial, Helvetica, sans-seri=
+f;color:#FFFFFF;" colspan=3D"2" align=3D"left">Stolen Vehicle Location</td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td style=3D"line-height:0px;font-size:0px;" colspan=3D"5"><img width=3D"1"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"8" border=3D"0" alt=3D""></td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td width=3D"9" style=3D"font-size:9px;font-family:Verdana, Arial, Helvetic=
+a, sans-serif;color:#FFFFFF;" align=3D"left">d)</td>
+<td width=3D"12" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td style=3D"font-size:9px;font-family:Verdana, Arial, Helvetica, sans-seri=
+f;color:#FFFFFF;" colspan=3D"2" align=3D"left">Ability to program your digi=
+tal video recorder</td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td style=3D"line-height:0px;font-size:0px;" colspan=3D"5"><img width=3D"1"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"8" border=3D"0" alt=3D""></td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td width=3D"9" style=3D"font-size:9px;font-family:Verdana, Arial, Helvetic=
+a, sans-serif;color:#FFFFFF;" align=3D"left">e)</td>
+<td width=3D"12" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" =
+src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D=
+"1" border=3D"0" alt=3D""></td>
+<td style=3D"font-size:9px;font-family:Verdana, Arial, Helvetica, sans-seri=
+f;color:#FFFFFF;" colspan=3D"2" align=3D"left">Everything but d</td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td style=3D"line-height:0px;font-size:0px;" colspan=3D"5"><img width=3D"1"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"10" border=3D"0" alt=3D""></td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td style=3D"font-size:9px;font-family:Verdana, Arial, Helvetica, sans-seri=
+f;color:#FFFFFF;" colspan=3D"5" align=3D"left">Find the answer <A STYLE=3D"=
+color:#FFFFFF;" HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ=
+.2VG.11Roku.BxzHeC..N.Cnc4.1H5q.bW89MQ%5f%5fDHHWFRM0"><u>here</u></A>.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td width=3D"15" style=3D"line-height:0px;font-size:0px;" colspan=3D"3"><im=
+g width=3D"15" src=3D"http://img.delivery.net/cm50content/18629/1062/spacer=
+.gif" height=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"147" style=3D"line-height:0px;font-size:0px;" height=3D"1" col=
+span=3D"2"><img width=3D"147" src=3D"http://img.delivery.net/cm50content/18=
+629/1062/spacer.gif" height=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"51" style=3D"line-height:0px;font-size:0px;"><img width=3D"51"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"13" border=3D"0" alt=3D""></td>
+<td width=3D"20" style=3D"line-height:0px;font-size:0px;" height=3D"1"><img=
+ width=3D"20" src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.=
+gif" height=3D"1" border=3D"0" alt=3D""></td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td width=3D"15" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" col=
+span=3D"3"><img width=3D"15" src=3D"http://img.delivery.net/cm50content/186=
+29/1062/spacer.gif" height=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"147" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" co=
+lspan=3D"2"><img width=3D"147" src=3D"http://img.delivery.net/cm50content/1=
+8629/1062/spacer.gif" height=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"51" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2"><im=
+g width=3D"51" src=3D"http://img.delivery.net/cm50content/18629/1062/spacer=
+.gif" height=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"20" valign=3D"top" style=3D"line-height:0px;font-size:0px;"><i=
+mg width=3D"20" title=3D"ANSWER" src=3D"http://img.delivery.net/cm50content=
+/18629/1062/a.gif" height=3D"22" border=3D"0" alt=3D"ANSWER"></td>
+</tr>
+<tr bgcolor=3D"#53514f">
+<td width=3D"20" style=3D"line-height:0px;font-size:0px;" height=3D"115"><i=
+mg width=3D"20" src=3D"http://img.delivery.net/cm50content/18629/1062/space=
+r.gif" height=3D"100" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"349" style=3D"line-height:0px;font-size:0px;" colspan=3D"11"><=
+A HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bx=
+zHeC..N.Cnbc.1H5q.bW89MQ%5f%5fDMAAFSa0"><img width=3D"349" title=3D"LEXUS P=
+URSUIT ARCHIVE" src=3D"http://img.delivery.net/cm50content/18629/1062/btmLi=
+nk1.gif" height=3D"28" border=3D"0" alt=3D"LEXUS PURSUIT ARCHIVE"></A></td>
+<td width=3D"351" style=3D"line-height:0px;font-size:0px;" colspan=3D"11"><=
+A HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.Bx=
+zHeC..N.Cnbe.1H5q.bW89MQ%5f%5fDMGUFSc0"><img width=3D"351" title=3D"FIND A =
+DEALER" src=3D"http://img.delivery.net/cm50content/18629/1062/btmLink.gif" =
+height=3D"28" border=3D"0" alt=3D"FIND A DEALER"></A></td>
+</tr>
+<tr>
+<td width=3D"712" style=3D"line-height:0px;font-size:0px;" height=3D"16" co=
+lspan=3D"24"><img width=3D"712" src=3D"http://img.delivery.net/cm50content/=
+18629/1062/spacer.gif" height=3D"16" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"19" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2" hei=
+ght=3D"405" colspan=3D"4"><img width=3D"19" src=3D"http://img.delivery.net/=
+cm50content/18629/1062/spacer.gif" height=3D"405" border=3D"0" alt=3D""></t=
+d>
+<td width=3D"127" style=3D"line-height:0px;font-size:0px;"><A HREF=3D"http:=
+//lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzHeC..N.Cnbg.1H=
+5q.bW89MQ%5f%5fDMNIFSe0"><img width=3D"127" title=3D"YOUR PRIVACY RIGHTS" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/privacyRights.gif" hei=
+ght=3D"12" border=3D"0" alt=3D"YOUR PRIVACY RIGHTS"></A></td>
+<td width=3D"566" style=3D"line-height:0px;font-size:0px;" height=3D"12" co=
+lspan=3D"19"><img width=3D"566" src=3D"http://img.delivery.net/cm50content/=
+18629/1062/spacer.gif" height=3D"12" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"693" valign=3D"top" height=3D"393" colspan=3D"20"><table width=
+=3D"680" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+<tr>
+<td width=3D"4" style=3D"line-height:0px;font-size:0px;" rowspan=3D"2"><img=
+ width=3D"4" src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.g=
+if" height=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"676" style=3D"line-height:0px;font-size:0px;"><img width=3D"1"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"12" border=3D"0" alt=3D""></td>
+</tr>
+<tr>
+<td width=3D"676" style=3D"font-size:9px;font-family:Verdana, Arial, Helvet=
+ica, sans-serif;color:#8A8A8A;" align=3D"left"> [1] EPA MPG Estimates. Actu=
+al mileage will vary.<BR>
+
+ <BR>
+
+  [2] Available beginning Fall 2009 on select Lexus models. Contact with th=
+e Lexus Enform response center is dependent upon the telematics device bein=
+g in operative condition, cellular connection availability and GPS satellit=
+e signal reception, which can limit the ability to reach the response cente=
+r or receive support. Enrollment and Telematics Subscription Service Agreem=
+ent required. A variety of subscription terms is available; charges vary by=
+ subscription term selected.<BR>
+
+ <BR>
+
+  [3] Lexus Enform premium services Destination Assist and eDestination wil=
+l function in the contiguous United States and Washington, D.C. These servi=
+ces may also function in Hawaii and limited areas of Alaska for vehicles th=
+at contain map data for those states. They will not function in Canada or i=
+n other countries outside the United States.<BR>
+
+ <BR>
+
+  [4] Safety Connect services will function in the United States, including=
+ Hawaii and Alaska, and in Canada. The services will not function outside o=
+f the United States in countries other than Canada.<BR>
+
+ <BR>
+
+  [5] &#160;The Navigation System is designed to assist in locating an addr=
+ess or point of interest. XM&#174; Radio, XM NavTraffic&#174;, XM NavWeathe=
+r&#8482; and XM&#174; Sports and Stocks require a monthly service fee and h=
+ardware. XM NavTraffic is designed to provide real-time traffic or alternat=
+ive routes of travel; XM NavWeather is designed to provide real-time weathe=
+r and forecasting information in your general vicinity and along your route=
+ of travel. Discrepancies may be encountered between the system and your ac=
+tual location. Road system and weather changes may affect the accuracy of t=
+he information provided. Rely on your common sense to decide whether to fol=
+low a specified route. Detailed coverage not available in every city or roa=
+dway. Periodic Navigation updates available at an additional cost. Please s=
+ee your <em>Navigation System Owner's Manual</em> for further details.<BR>
+
+ <BR>
+
+  Please note, this e-mail address is not monitored for comments. To UNSUBS=
+CRIBE from receiving future e-mail from Lexus Marketing, please <A HREF=3D"=
+http://lexuscommunications.p.delivery.net/m/u/mtz/lexus/g.asp?e=3Danand%40a=
+ltechstar.com&mid=3D1097804728&cid=3D12817078796"><font originaltag=3D"yes"=
+ color=3D"#8a8a8a"><u>click here</u></font></A>.<BR>
+
+ <BR>
+
+  To contact Lexus Customer Assistance Center, <A STYLE=3D"color:#8A8A8A;" =
+HREF=3D"http://lexuscommunications.r.delivery.net/r?2.1.3JJ.2VG.11Roku.BxzH=
+eC..N.Cnbi.1H5q.bW89MQ%5f%5fDMTcFTA0"><u>click here</u></A>.<BR>
+
+ <BR>
+
+  Lexus Relationship Marketing<BR>
+
+  19001 South Western Avenue, L101<BR>
+
+  Torrance, CA 90501-1106<BR>
+
+ <BR>
+
+  &#169;2009 Lexus.<BR>
+
+ <BR>
+
+ </td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width=3D"36" style=3D"line-height:0px;font-size:0px;"><img width=3D"36"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"4" style=3D"line-height:0px;font-size:0px;"><img width=3D"4" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"13" style=3D"line-height:0px;font-size:0px;"><img width=3D"13"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"1" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"1" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"127" style=3D"line-height:0px;font-size:0px;"><img width=3D"12=
+7" src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"20" style=3D"line-height:0px;font-size:0px;"><img width=3D"20"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"51" style=3D"line-height:0px;font-size:0px;"><img width=3D"51"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"20" style=3D"line-height:0px;font-size:0px;"><img width=3D"20"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"7" style=3D"line-height:0px;font-size:0px;"><img width=3D"7" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"90" style=3D"line-height:0px;font-size:0px;"><img width=3D"90"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"15" style=3D"line-height:0px;font-size:0px;"><img width=3D"15"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"4" style=3D"line-height:0px;font-size:0px;"><img width=3D"4" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"1" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"14" style=3D"line-height:0px;font-size:0px;"><img width=3D"14"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"24" style=3D"line-height:0px;font-size:0px;"><img width=3D"24"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"70" style=3D"line-height:0px;font-size:0px;"><img width=3D"70"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"7" style=3D"line-height:0px;font-size:0px;"><img width=3D"7" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"1" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"76" style=3D"line-height:0px;font-size:0px;"><img width=3D"76"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"88" style=3D"line-height:0px;font-size:0px;"><img width=3D"88"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"52" style=3D"line-height:0px;font-size:0px;"><img width=3D"52"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"1" style=3D"line-height:0px;font-size:0px;"><img width=3D"1" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"17" style=3D"line-height:0px;font-size:0px;"><img width=3D"17"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+<td width=3D"8" style=3D"line-height:0px;font-size:0px;"><img width=3D"8" s=
+rc=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=3D"=
+1" border=3D"0" alt=3D""></td>
+<td width=3D"32" style=3D"line-height:0px;font-size:0px;"><img width=3D"32"=
+ src=3D"http://img.delivery.net/cm50content/18629/1062/spacer.gif" height=
+=3D"1" border=3D"0" alt=3D""></td>
+</tr>
+</table></td>
+</tr>
+</table>
+
+<BR>
+<BR>
+<BR>
+<font size=3D"1" originaltag=3D"yes" face=3D"Verdana,Helvetica" color=3D"#6=
+66666"></font><BR>
+<img alt=3D" " src=3D"http://portal.mxlogic.com/images/transparent.gif" hei=
+ght=3D"1" width=3D"1">
+</BODY>
+</HTML>
+
+--=_reb-r45B08728-t4A8E828E--
+

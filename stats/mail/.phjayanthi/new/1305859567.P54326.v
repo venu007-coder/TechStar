@@ -1,0 +1,129 @@
+Return-Path: kmohan5@csc.com
+Received: from mx123.stngva01.us.mxservers.net (198.173.112.52)
+	by mail19a.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 1-0995709566
+	for <jayanthi@altechstar.com>; Thu, 19 May 2011 22:46:06 -0400 (EDT)
+Received: from unknown [76.162.254.75] (HELO mail75.opentransfer.com)
+	by va1-mx123.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id ee5d5dd4.2929462176.51645.00-005.va1-mx123.stngva01.us.mxservers.net (envelope-from <hrs-return-238-jayanthi=altechstar.com@vtmanpower.net>);
+	Thu, 19 May 2011 22:46:06 -0400 (EDT)
+Received: (qmail 27642 invoked by uid 399); 20 May 2011 02:42:17 -0000
+Mailing-List: contact hrs-help@vtmanpower.net; run by ezmlm
+Precedence: bulk
+X-No-Archive: yes
+List-Post: <mailto:hrs@vtmanpower.net>
+List-Help: <mailto:hrs-help@vtmanpower.net>
+List-Unsubscribe: <mailto:hrs-unsubscribe@vtmanpower.net>
+List-Subscribe: <mailto:hrs-subscribe@vtmanpower.net>
+Delivered-To: mailing list hrs@vtmanpower.net
+Received: (qmail 26465 invoked by uid 399); 20 May 2011 02:41:29 -0000
+X-Virus-Scan: Scanned by clamdmail 0.15 (no viruses);
+  Thu, 19 May 2011 22:41:30 -0400
+X-VirusChecked: Checked
+X-Env-Sender: kmohan5@csc.com
+X-Msg-Ref: server-9.tower-171.messagelabs.com!1305859288!5965494!1
+X-StarScan-Version: 6.2.9; banners=-,-,-
+X-Originating-IP: [20.137.2.87]
+In-Reply-To: <10B996B02E5D8D40B230FD4F955B8DFC020DAE7C0C@BLR-EXMB-02.ip-soft.net>
+References: <2127675569-1305833010-cardhu_decombobulator_blackberry.rim.net-402907364-@b25.c9.bise7.blackberry>,<9D581577A3ED4092B640518467AED10E@LENOVO903B1792> <10B996B02E5D8D40B230FD4F955B8DFC020DAE7C0C@BLR-EXMB-02.ip-soft.net>
+To: hrs@vtmanpower.net
+MIME-Version: 1.0
+Subject: Re: Unsubsribe please
+X-KeepSent: FD488CB6:1B439B19-65257896:000EB2BD;
+ type=4; name=$KeepSent
+X-Mailer: Lotus Notes Release 8.0.2 HF88 September 24, 2008
+From: Kaliappan Mohan <kmohan5@csc.com>
+Message-ID: <OFFD488CB6.1B439B19-ON65257896.000EB2BD-65257896.000EC7CC@csc.com>
+Date: Fri, 20 May 2011 08:09:40 +0530
+X-MIMETrack: Serialize by Router on AMER-GW07/SRV/CSC(Release 8.5.2FP1 HF29|January 09, 2011) at
+ 05/19/2011 10:42:32 PM,
+	Serialize complete at 05/19/2011 10:42:32 PM
+Content-Type: multipart/alternative; boundary="=_alternative 000EC6DF65257896_="
+X-Spam-Checker-Version: SpamAssassin 3.0.2 (2004-11-16) on localhost
+X-Spam-Status: No, score=0.6 required=5.0 tests=HTML_40_50,HTML_MESSAGE,
+	MIME_BASE64_NO_NAME autolearn=disabled version=3.0.2
+X-Spam-Level: 
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011051940)]
+X-MAIL-FROM: <hrs-return-238-jayanthi=altechstar.com@vtmanpower.net>
+X-SOURCE-IP: [76.162.254.75]
+X-SF-Loop: 1
+
+This is a multipart message in MIME format.
+--=_alternative 000EC6DF65257896_=
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+R3V5cywNCg0KIFVuc3Vic2NyaWJlLiBPdGhlcndpc2Ugc2V2ZXJlIGFjdGlvbiB3b3VsZCBiZSB0
+YWtlbiBhZ2FpbnN0IHlvdS4NCg0KUmVnYXJkcywNCg0KTU9IQU4gS0FMSUFQUEFODQpEZXB1dHkg
+TWFuYWdlciAtIFJlY3J1aXRtZW50DQpDU0MNClVuaXQgMiwgQmxvY2sgMiwgU0RGIEJ1aWxkaW5n
+cywgDQpNRVBaLCBDaGVubmFpIC0gNjAwMDQ1DQpQaG9uZSBObyA6IDA0NCAyMjYyODA4MCAvIDM4
+ODAgfCBNb2JpbGUgTm8gOiA5ODQxNCAwMDY0NyB8IFZPSVAgOiA3MzYxMjV8IA0KRmF4IDogMDQ0
+IDIyNjI4MTcxIHwgRW1haWwgSUQgOiBrbW9oYW41QGNzYy5jb20gfCB3d3cuY3NjLmNvbQ0KDQpD
+U0Mg4oCiIFRoaXMgaXMgYSBQUklWQVRFIG1lc3NhZ2UuIElmIHlvdSBhcmUgbm90IHRoZSBpbnRl
+bmRlZCByZWNpcGllbnQsIA0KcGxlYXNlIGRlbGV0ZSB3aXRob3V0IGNvcHlpbmcgYW5kIGtpbmRs
+eSBhZHZpc2UgdXMgYnkgZS1tYWlsIG9mIHRoZSANCm1pc3Rha2UgaW4gZGVsaXZlcnkuICBOT1RF
+OiBSZWdhcmRsZXNzIG9mIGNvbnRlbnQsIHRoaXMgZS1tYWlsIHNoYWxsIG5vdCANCm9wZXJhdGUg
+dG8gYmluZCBDU0MgdG8gYW55IG9yZGVyIG9yIG90aGVyIGNvbnRyYWN0IHVubGVzcyBwdXJzdWFu
+dCB0byANCmV4cGxpY2l0IHdyaXR0ZW4gYWdyZWVtZW50IG9yIGdvdmVybm1lbnQgaW5pdGlhdGl2
+ZSBleHByZXNzbHkgcGVybWl0dGluZyANCnRoZSB1c2Ugb2YgZS1tYWlsIGZvciBzdWNoIHB1cnBv
+c2Ug4oCiIENvbXB1dGVyIFNjaWVuY2VzIENvcnBvcmF0aW9uIEluZGlhIA0KUHZ0IEx0ZCDigKIg
+N3RoLEZsb29yLCBCbG9jayAxQiwgRExGIElUIFBhcmssIFNpdmFqaSBHYXJkZW4sIE5hbmRhbWJh
+a2thbSANClBvc3QsIFJhbWFwdXJhbSwgQ2hlbm5haS02MDAgMDg5Lg0KDQoNCg0KDQpGcm9tOg0K
+VWRheSBCaGFza2FyIDxVZGF5LkJoYXNrYXJAaXAtc29mdC5uZXQ+DQpUbzoNCiJocnNAdnRtYW5w
+b3dlci5uZXQiIDxocnNAdnRtYW5wb3dlci5uZXQ+DQpEYXRlOg0KMjAvMDUvMjAxMSAwODowMCBB
+TQ0KU3ViamVjdDoNClVuc3Vic3JpYmUgcGxlYXNlDQoNCg0KDQoNCg0KX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXw0KRnJvbTogU3dhcG5hIFtzd2FwbmFAbnV2aXN0YXN0
+ZWNoLmNvbV0NClNlbnQ6IEZyaWRheSwgTWF5IDIwLCAyMDExIDc6MTUgQU0NClRvOiBocnNAdnRt
+YW5wb3dlci5uZXQNClN1YmplY3Q6IFJlOiBVbnN1YnNyaWJlIHBsZWFzZQ0KDQotLS0tLSBPcmln
+aW5hbCBNZXNzYWdlIC0tLS0tDQpGcm9tOiA8dGljYmFiZEBlbWlyYXRlcy5uZXQuYWU+DQpUbzog
+PGhyc0B2dG1hbnBvd2VyLm5ldD4NClNlbnQ6IEZyaWRheSwgTWF5IDIwLCAyMDExIDM6MjMgQU0N
+ClN1YmplY3Q6IFVuc3Vic3JpYmUgcGxlYXNlDQoNCg0KPg0KPiBFbXBvd2VyIHlvdXIgQnVzaW5l
+c3Mgd2l0aCBCbGFja0JlcnJ5wq4gYW5kIE1vYmlsZSBTb2x1dGlvbnMgZnJvbSANCkV0aXNhbGF0
+DQoNCg0K
+--=_alternative 000EC6DF65257896_=
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+DQo8YnI+PGZvbnQgc2l6ZT0yIGZhY2U9InNhbnMtc2VyaWYiPkd1eXMsPC9mb250Pg0KPGJyPg0K
+PGJyPjxmb250IHNpemU9MiBmYWNlPSJzYW5zLXNlcmlmIj4mbmJzcDtVbnN1YnNjcmliZS4gT3Ro
+ZXJ3aXNlIHNldmVyZQ0KYWN0aW9uIHdvdWxkIGJlIHRha2VuIGFnYWluc3QgeW91LjwvZm9udD4N
+Cjxicj4NCjxicj48Zm9udCBzaXplPTIgZmFjZT0ic2Fucy1zZXJpZiI+UmVnYXJkcyw8YnI+DQo8
+YnI+DQpNT0hBTiBLQUxJQVBQQU48YnI+DQpEZXB1dHkgTWFuYWdlciAtIFJlY3J1aXRtZW50PGJy
+Pg0KQ1NDPGJyPg0KVW5pdCAyLCBCbG9jayAyLCBTREYgQnVpbGRpbmdzLCA8YnI+DQpNRVBaLCBD
+aGVubmFpIC0gNjAwMDQ1PGJyPg0KUGhvbmUgTm8gOiAwNDQgMjI2MjgwODAgLyAzODgwIHwgTW9i
+aWxlIE5vIDogOTg0MTQgMDA2NDcgfCBWT0lQIDogNzM2MTI1fA0KRmF4IDogMDQ0IDIyNjI4MTcx
+IHwgRW1haWwgSUQgOiBrbW9oYW41QGNzYy5jb20gfCA8L2ZvbnQ+PGEgaHJlZj13d3cuY3NjLmNv
+bT48Zm9udCBzaXplPTIgZmFjZT0ic2Fucy1zZXJpZiI+d3d3LmNzYy5jb208L2ZvbnQ+PC9hPjxm
+b250IHNpemU9MiBmYWNlPSJzYW5zLXNlcmlmIj48YnI+DQo8YnI+DQpDU0Mg4oCiIFRoaXMgaXMg
+YSBQUklWQVRFIG1lc3NhZ2UuIElmIHlvdSBhcmUgbm90IHRoZSBpbnRlbmRlZCByZWNpcGllbnQs
+DQpwbGVhc2UgZGVsZXRlIHdpdGhvdXQgY29weWluZyBhbmQga2luZGx5IGFkdmlzZSB1cyBieSBl
+LW1haWwgb2YgdGhlIG1pc3Rha2UNCmluIGRlbGl2ZXJ5LiAmbmJzcDtOT1RFOiBSZWdhcmRsZXNz
+IG9mIGNvbnRlbnQsIHRoaXMgZS1tYWlsIHNoYWxsIG5vdCBvcGVyYXRlDQp0byBiaW5kIENTQyB0
+byBhbnkgb3JkZXIgb3Igb3RoZXIgY29udHJhY3QgdW5sZXNzIHB1cnN1YW50IHRvIGV4cGxpY2l0
+DQp3cml0dGVuIGFncmVlbWVudCBvciBnb3Zlcm5tZW50IGluaXRpYXRpdmUgZXhwcmVzc2x5IHBl
+cm1pdHRpbmcgdGhlIHVzZQ0Kb2YgZS1tYWlsIGZvciBzdWNoIHB1cnBvc2Ug4oCiIENvbXB1dGVy
+IFNjaWVuY2VzIENvcnBvcmF0aW9uIEluZGlhIFB2dCBMdGQNCuKAoiA3dGgsRmxvb3IsIEJsb2Nr
+IDFCLCBETEYgSVQgUGFyaywgU2l2YWppIEdhcmRlbiwgTmFuZGFtYmFra2FtIFBvc3QsDQpSYW1h
+cHVyYW0sIENoZW5uYWktNjAwIDA4OS48YnI+DQo8L2ZvbnQ+DQo8YnI+DQo8YnI+DQo8YnI+DQo8
+dGFibGUgd2lkdGg9MTAwJT4NCjx0ciB2YWxpZ249dG9wPg0KPHRkPjxmb250IHNpemU9MSBjb2xv
+cj0jNWY1ZjVmIGZhY2U9InNhbnMtc2VyaWYiPkZyb206PC9mb250Pg0KPHRkPjxmb250IHNpemU9
+MSBmYWNlPSJzYW5zLXNlcmlmIj5VZGF5IEJoYXNrYXIgJmx0O1VkYXkuQmhhc2thckBpcC1zb2Z0
+Lm5ldCZndDs8L2ZvbnQ+DQo8dHIgdmFsaWduPXRvcD4NCjx0ZD48Zm9udCBzaXplPTEgY29sb3I9
+IzVmNWY1ZiBmYWNlPSJzYW5zLXNlcmlmIj5Ubzo8L2ZvbnQ+DQo8dGQ+PGZvbnQgc2l6ZT0xIGZh
+Y2U9InNhbnMtc2VyaWYiPiZxdW90O2hyc0B2dG1hbnBvd2VyLm5ldCZxdW90OyAmbHQ7aHJzQHZ0
+bWFucG93ZXIubmV0Jmd0OzwvZm9udD4NCjx0ciB2YWxpZ249dG9wPg0KPHRkPjxmb250IHNpemU9
+MSBjb2xvcj0jNWY1ZjVmIGZhY2U9InNhbnMtc2VyaWYiPkRhdGU6PC9mb250Pg0KPHRkPjxmb250
+IHNpemU9MSBmYWNlPSJzYW5zLXNlcmlmIj4yMC8wNS8yMDExIDA4OjAwIEFNPC9mb250Pg0KPHRy
+IHZhbGlnbj10b3A+DQo8dGQ+PGZvbnQgc2l6ZT0xIGNvbG9yPSM1ZjVmNWYgZmFjZT0ic2Fucy1z
+ZXJpZiI+U3ViamVjdDo8L2ZvbnQ+DQo8dGQ+PGZvbnQgc2l6ZT0xIGZhY2U9InNhbnMtc2VyaWYi
+PlVuc3Vic3JpYmUgcGxlYXNlPC9mb250PjwvdGFibGU+DQo8YnI+DQo8aHIgbm9zaGFkZT4NCjxi
+cj4NCjxicj4NCjxicj48dHQ+PGZvbnQgc2l6ZT0yPjxicj4NCjxicj4NCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX188YnI+DQpGcm9tOiBTd2FwbmEgW3N3YXBuYUBudXZp
+c3Rhc3RlY2guY29tXTxicj4NClNlbnQ6IEZyaWRheSwgTWF5IDIwLCAyMDExIDc6MTUgQU08YnI+
+DQpUbzogaHJzQHZ0bWFucG93ZXIubmV0PGJyPg0KU3ViamVjdDogUmU6IFVuc3Vic3JpYmUgcGxl
+YXNlPGJyPg0KPGJyPg0KLS0tLS0gT3JpZ2luYWwgTWVzc2FnZSAtLS0tLTxicj4NCkZyb206ICZs
+dDt0aWNiYWJkQGVtaXJhdGVzLm5ldC5hZSZndDs8YnI+DQpUbzogJmx0O2hyc0B2dG1hbnBvd2Vy
+Lm5ldCZndDs8YnI+DQpTZW50OiBGcmlkYXksIE1heSAyMCwgMjAxMSAzOjIzIEFNPGJyPg0KU3Vi
+amVjdDogVW5zdWJzcmliZSBwbGVhc2U8YnI+DQo8YnI+DQo8YnI+DQomZ3Q7PGJyPg0KJmd0OyBF
+bXBvd2VyIHlvdXIgQnVzaW5lc3Mgd2l0aCBCbGFja0JlcnJ5wq4gYW5kIE1vYmlsZSBTb2x1dGlv
+bnMgZnJvbSBFdGlzYWxhdDwvZm9udD48L3R0Pg0KPGJyPg0KPGJyPg0K
+--=_alternative 000EC6DF65257896_=--

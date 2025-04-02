@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+
+<SCRIPT LANGUAGE="JavaScript">
+	var winName = "wat_siteinfo_popup";
+	var baseUrl = '<merc_dynamic name=SC_BaseUrl>';
+
+	function initPage ()
+	{
+		if (parent.WindowID)
+			if (!parent.WindowID.closed)
+				if (parent.WindowID.name == winName)
+					parent.CloseWin ();
+	}
+	
+	function submitSiteInfo (formObj)
+	{
+		saveWindow ();
+		parent.SubmitForm ('SE_SetSiteInfo', 'wat_ed_siteinfo.htm', 'mainFrame', formObj);
+		return false;
+	}
+	
+	function saveWindow ()
+	{
+		parent.createAndWriteToPopUp ("150", "300", winName, baseUrl, 
+										parent.gSAVING_PAGE, parent.gWINDOW_WILL_CLOSE);
+	}
+
+</SCRIPT>
+
+</head>
+
+<body topmargin="4" marginheight="0" leftmargin="13" bgcolor="#CCCCCC"  
+		background="/cgi-docs/Mercantec/PC_F_6.6.1/images/stripeback2.gif" onLoad="initPage();">
+<form name="SetSiteInfo">
+<table width="660" border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC" class="table-bkgrd-main" align="center">
+  <tr valign="top"> 
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<td><p align="left"><span class="page-title">&nbsp;Site Information </span><br>
+<span class="instr-note">The following information helps to make your site more easily found by search engines, but does not register you with any search engines. Registering will have to be done separately.</span>
+
+</td><td align="right"><a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_SITEINFO+SoftCart+{helpversion}+en-us', 'Alane'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help on Site Information" align="right"></a></td></tr>
+<!--END HELP WINDOW-->
+<tr valign="top"> 
+ <td colspan="2"><p>
+
+<span class="page-title"></span></p>
+      
+<table width="94%" border="0" align="center" height="71">
+        
+<tr>
+          
+<td width="21%" class="table-header" height="70" valign="top"><span class="field-label">Keywords:</span></td> 
+ 
+	<script runat="merc_server">
+		var cs_inc = doActionEx ('DATA_READFILE','common.js', 'FileName', 'common.js','ObjectName',
+				   'JS_SRC', 'FileType', 'txt');
+		eval (cs_inc);
+		var seObj = generateSEObjects (gHOME_PAGE);
+		var keyWords =  seObj.pageObjArray[gHOME_PAGE].KeyWords;
+		var title = seObj.pageObjArray[gHOME_PAGE].Title;
+		var description = seObj.pageObjArray[gHOME_PAGE].Description;
+		<merc_embed>
+			<td width="79%" height="70">
+		</merc_embed>
+			write ('<input type="text" name="KeyWords" size="40" value="'+keyWords+'">');
+		<merc_embed>
+            <span class="instr-note"><br>
+            Keywords are used for web search engines to more easily find your 
+            site based on search words. Think of what you would search on to find 
+            your site, like product types, manufacturer names, etc. List up to 
+            12 or so.</span></td>
+			</tr>
+			        
+			<tr> 
+			          
+			<td width="21%" class="table-header" valign="top"><span class="field-label">Site Name:</span></td>
+			<td width="79%"> 
+		</merc_embed>
+			write ('<input type="text" name="Title" size="40" maxlength="64" value="'+title+'">');
+		<merc_embed>    
+			            <br>
+			            <span class="instr-note">Use some of your keywords in the title of 
+			            your home page, but keep the title under 64 characters.</span> </td>
+			</tr>
+			        
+			<tr> 
+			          
+			<td width="21%"  valign="top" class="table-header"><span class="field-label">Description:</span></td>
+			<td width="79%"> 
+		</merc_embed>
+			write ('<textarea name="Description" rows="4" cols="40">'+description+'</textarea>');
+		<merc_embed>          
+			            <br>
+			            <span class="instr-note">The Description is a short paragraph displayed 
+			            by search engines to describe your site. Use some of your keywords 
+			            within the text. Keep it short (under 200 characters) but complete.</span></td>
+		</merc_embed>
+	</script>     
+
+</tr>
+      
+</table>
+    
+<p align="center">
+<a href="javascript:void(submitSiteInfo(document.SetSiteInfo))"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Apply_Nbtn_base2.gif" border="0" width="86" height="30" alt="Apply"></a></p>
+</td>
+  </tr>
+</table>
+</form>
+	<SCRIPT LANGUAGE="JavaScript">
+		// values in the text are escaped, need to unescape them here to ensure proper rendering
+		document.SetSiteInfo.KeyWords.value = unescape (document.SetSiteInfo.KeyWords.value);
+		document.SetSiteInfo.Title.value = unescape (document.SetSiteInfo.Title.value);
+		document.SetSiteInfo.Description.value = unescape (document.SetSiteInfo.Description.value);
+	</SCRIPT>
+</body>
+</html>

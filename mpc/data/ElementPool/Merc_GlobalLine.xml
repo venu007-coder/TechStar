@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ELEMENT SYSTEM "/u/web/altec2/mpc/data/dtd/element.dtd">
+<ELEMENT>
+	<VERSION>1</VERSION>
+	<TYPE>Merc_GlobalLine</TYPE>
+	<GLOBAL TYPE="always"></GLOBAL>
+	<UIGRAPHIC>/cgi-docs/Mercantec/PC_F_6.6.1/images/Global_Line_Npl1.gif</UIGRAPHIC>
+	<UITEXT>Global Line</UITEXT>
+	<!-- Here, the owner, group and world can do anything -->
+	<PERMISSIONS>777</PERMISSIONS>
+	<PROPERTIES>
+		<PROPERTY NAME="width">
+			<VALUE>80</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="height">
+			<VALUE></VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="shade">
+			<VALUE>false</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="widthtype">
+			<VALUE>percent</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="align">
+			<VALUE>left</VALUE><VALUE>center</VALUE><VALUE>right</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="valign">
+			<VALUE>top</VALUE><VALUE>bottom</VALUE>
+		</PROPERTY>
+		<PROPERTY NAME="area">
+			<VALUE></VALUE>
+		</PROPERTY>
+	</PROPERTIES>
+	<SCRIPT NAME="common" TYPE="common" VERSION="1.0"><![CDATA[
+	function BuildOutput(type)
+	{
+		if (type == "text/html")
+		{
+			if (!area || area == "")
+				area = "0";
+			var index = Number(area);
+			write('<div id="newLayer'+merc_elementid+'" name="newLayer'+merc_elementid+'" ');
+			write('style="position:absolute;');
+			var elewidth, nHeight = 0;
+			if (width)
+			{
+				if (widthtype == "percent")
+				{
+					var layoutW = merc_layoutcells[index].width;
+					var pxWidth = layoutW * (parseInt(width) / 100);
+					write('width:'+pxWidth);
+					elewidth = Number(pxWidth);
+				}
+				else
+				{
+					write('width:'+width);
+					elewidth = Number(width);
+				}
+				write('px;');
+			}
+			if (height)
+			{
+				write('height:'+height+'px;');
+				nHeight = Number(height);
+			}
+			else
+				nHeight = 2;
+			var cellleft = Number(merc_layoutcells[index].left);
+			var celltop = Number(merc_layoutcells[index].top);
+			var cellwidth = Number(merc_layoutcells[index].width);
+			var cellheight = Number(merc_layoutcells[index].height);
+			var eleheight = nHeight + 10; // <HR> actually pads the height
+
+			if (align.value == "right")
+			{
+				var value=cellleft + cellwidth - elewidth;
+				write('left:'+value+'px;');
+			}
+			else if (align.value == "center")
+			{
+				var value=cellleft + (cellwidth/2) - (elewidth/2);
+				write('left:'+value+'px;');
+			}
+			else // default to "left"
+				write('left:'+cellleft+'px;');
+			if (valign.value == "bottom")
+			{
+				var value=(celltop+cellheight);
+				if (cellheight == 0)
+					value=celltop;
+				if (area == '1' || area == '2')
+				{
+					// We must adjust the bottom to be the page height
+					var pageHeight = doAction('MPEA_GET_PAGEHEIGHT', 'Minimum', value.toString());
+					if (!isNaN(pageHeight))
+						value = pageHeight;
+				}
+				value = value - eleheight - 5;
+				write('top:'+value+'px;');
+			}
+			else // default to "top"
+				write('top:'+celltop+'px;');
+
+			write('z-index:'+merc_zindex+';">');
+			write('<hr width="100%"');
+			if (height)
+				write(' size="'+height+'"');
+			if (shade == "false")
+				write(' noshade');
+			writeln('>');
+			write('</div>');
+			return true;
+		}
+		else if (type == "text/wml")
+		{
+			// output WML
+		}
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output" TYPE="output" VERSION="1.0"><![CDATA[
+	function output(type)
+	{
+		return BuildOutput(type);
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="output_edit_mode" TYPE="output_edit_mode" VERSION="1.0"><![CDATA[
+	function output_edit_mode(type)
+	{
+		return BuildOutput(type);
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="edit_properties" TYPE="edit_properties" VERSION="1.0"><![CDATA[
+	function edit_properties()
+	{
+		writeln('<form name="saveprop" action="" method=post onSubmit = "');
+		writeln("opener.CloseWinSubmitForm	");
+		write ("('PE_SaveProperties', 'Layout1.htm', 'mainFrame', document.saveprop);");
+		writeln('return false;">');
+		writeln('<input type=hidden name="ElementID" value="'+merc_elementid+'">');
+		var addEditMode = doAction('REQ_GET_FORMVALUE', "ElementAddEdit", "ElementAddEdit");
+		writeln('<input type=hidden name="ElementAddEdit" value="'+addEditMode+'">');
+
+		writeln('<p align="center"><span class="dialog-title">Global Line Properties</span></p>');
+		writeln('<table width="400" border="0" cellspacing="0" cellpadding="0" align="center" class="table-bkgrd-main">');
+		writeln('<tr valign="top"><td align="center">');
+		writeln('<table width="75%" border="0"><tr>');
+		write('<td class="field-label">Width</td><td><input type="text" name="width" size="10" value="'+width+'">');
+		writeln('<input type="radio" class="table-bkgrd-main" name="widthtype" value="percent" '+(widthtype == "percent" ? 'CHECKED' : '')+'>%');
+		writeln('<input type="radio" name="widthtype" value="pixels" '+(widthtype == "pixels" ? 'CHECKED' : '')+'>pixels');
+		writeln('</td></tr><tr>');
+
+		writeln('<td class="field-label">Thickness</td><td><input type="text" name="height" size="10" value="'+height+'"></td></tr></table>');
+		writeln('</td></tr>');
+
+		writeln('<tr><td align="center">');
+		writeln('<table width="75%" border="0" cellspacing="0" cellpadding="0">');
+		writeln('<tr class="table-header2"><td colspan="2"><span class="field-label">Appearance:</span></td></tr>');
+		writeln('<tr><td>&nbsp;</td><td><input type="radio" class="table-bkgrd-main" name="shade" value="true" '+(shade == "true" ? 'CHECKED' : '')+'>');
+		writeln('<span  class="field-label">3-Dimensional</span></td></tr>');
+		writeln('<tr><td>&nbsp;</td><td><input type="radio" name="shade" value="false" '+(shade == "false" ? 'CHECKED' : '')+'>');
+		writeln('<span class="field-label">Flat</span>');
+		writeln('</td></tr></table>');
+		writeln('</td></tr>');
+
+		writeln('<tr><td align="center"><br>');
+		writeln('<table border="1" width="89%" cellspacing="0" cellpadding="0">');
+		writeln('<tr><td class="table-header2" align="center">');
+		writeln('<span class="field-label">Location</span></td><td class="table-header2" align="center">');
+		writeln('<span class="field-label">Position</span></td></tr>');
+		writeln('<tr><td align="center">');
+		writeln('<table border="1" cellspacing="0" cellpadding="0" width="80%">');
+		var colspan = 2;
+		var topchecked = false, leftchecked = false;
+		if (!area || area == "")
+			area = "0";
+		var nArea= Number(area);
+		if (Number(merc_layoutcells[0].width) != 0 && Number(merc_layoutcells[0].height) != 0)
+		{
+			writeln('<tr><td colspan="3" align="center" bgcolor="#DDDDDD">');
+			writeln('<input type="radio" style="background-color:#dddddd;" name="area" value="0" ');
+			topchecked = (nArea == 0);
+			writeln((topchecked ? 'CHECKED':'')+'>top area');
+			writeln('</td></tr>');
+		}
+		writeln('<tr>');
+		if (Number(merc_layoutcells[1].width) != 0 && Number(merc_layoutcells[1].height) != 0)
+		{
+			writeln('<td bgcolor="#DDDDDD" width="15%">');
+			writeln('<input type="radio" style="background-color:#dddddd;" name="area" value="1" ');
+			leftchecked = (!topchecked && nArea == 0) || (nArea == 1);
+			writeln((leftchecked ? 'CHECKED':'')+'><br>left<br>area');
+			writeln('</td>');
+		}
+		else
+			colspan = 3;
+		if (Number(merc_layoutcells[2].width) != 0 && Number(merc_layoutcells[2].height) != 0)
+		{
+			writeln('<td colspan="'+colspan+'" align="center" bgcolor="#FFFFFF">');
+			writeln('<input type="radio" style="background-color:#FFFFFF;" name="area" value="2" ');
+			var checked = (!topchecked && !leftchecked && nArea != 2) || (nArea == 2);
+			writeln((checked ? 'CHECKED':'')+'><br>&nbsp;&nbsp;&nbsp;main area&nbsp;&nbsp;&nbsp;<br>&nbsp;');
+			writeln('</td>');
+		}
+		writeln('</tr></table>');
+
+		writeln('</td><td align="center">')
+		writeln('<table border="0"><tr><td>');
+		writeln('<span class="field-label">Horizontal: </span></td><td><select name="align">');
+		for (i=0; i < align.length; i++)
+		{
+			write('<option value="'+align[i]+'"');
+			if (align.value == align[i])
+				write(' SELECTED');
+			writeln('>'+align[i]);
+		}
+		writeln('</select></td></tr>');
+		writeln('<tr><td><span class="field-label">Vertical: </span></td><td><select name="valign">');
+		for (i=0; i < valign.length; i++)
+		{
+			write('<option value="'+valign[i]+'"');
+			if (valign.value == valign[i])
+				write(' SELECTED');
+			writeln('>'+valign[i]);
+		}
+		writeln('</select></td></tr></table>');
+		writeln('</center></td></tr>');
+		writeln('</table></td></tr>');
+
+		writeln('<tr><td align="center">');
+
+var helpdomain = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpdomain', 'ColName', 'Domain');
+var helpversion = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'HelpCfg', 'RowName', 'helpversion', 'ColName', 'Domain');
+
+writeln('<a href="javascript:void(opener.parent.openHelpWindow(\'http://'+helpdomain+'/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_WAT_SITEPAGES_INSGBLLINE_POP+SoftCart+'+helpversion+'+en-us\', \'Alane\'));"> <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Help"></a><!--END HELP WINDOW LINK--><a>');
+
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_Cancel\', \'Layout1.htm\', \'mainFrame\', document.saveprop);"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Cancel_Nbtn_base.gif" width="86" height="30" alt="Cancel" border="0"></a>');
+		writeln('<a href="javascript:opener.CloseWinSubmitForm(\'PE_SaveProperties\', \'Layout1.htm\', \'mainFrame\', document.saveprop);">');
+		writeln('<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Save_Nbtn_base.gif" width="86" height="30" alt="Ok" border="0"></a>');
+
+		writeln('</td></tr></table>');
+		write('</form>');
+		writeln ("<SCRIPT language=javascript>");
+		writeln('self.resizeTo(450, 400);');
+		writeln('</script>');
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="save_properties" TYPE="save_properties" VERSION="1.0"><![CDATA[
+	// May not need to do anything in all cases
+	// Save things to Prod DB on price/desc? - automatic based on dbentry
+	// if there is a reason not to dismiss the properties dialog, return false
+	function save_properties()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="create_element" TYPE="create_element" VERSION="1.0"><![CDATA[
+	function create_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+	<SCRIPT NAME="destroy_element" TYPE="destroy_element" VERSION="1.0"><![CDATA[
+	function destroy_element()
+	{
+		return true;
+	}
+	]]></SCRIPT>
+</ELEMENT>

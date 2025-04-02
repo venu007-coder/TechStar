@@ -1,0 +1,759 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+
+<script language="JavaScript">
+function test(whichform)
+{
+	switch (whichform)
+	{
+		case 'midapp':
+			document.MIDAPPFORM.HTTP_REFERER.value = location.href;
+			var win = parent.OpenWin ("", "MidAppWin", "");
+			var test = new parent.submitFormObject ("", "", "MidAppWin", document.MIDAPPFORM);
+			/* test.formAction = "http://merchsvc.mercantec.com/cgi-bin/msw.exe"; */
+			test.formAction = "http://pwrmgr.mercantec.com/PwrMgr/payment_apply.cgi";
+			break;
+
+		case 'update':
+			var win = parent.OpenWin ("", "UpdateWin", "");
+			var test = new parent.submitFormObject ("", "", "UpdateWin", document.UPDATEFORM);
+			test.formAction = "http://pwrmgr.mercantec.com/PwrMgr/payment_update.cgi";
+			/* test.formAction = "http://merchsvc.mercantec.com/cgi-bin/msw.exe"; */
+			break;
+
+		case 'transactionreport':
+			var win = parent.OpenWin ("", "TransRptWin", "");
+			var test = new parent.submitFormObject ("", "", "TransRptWin", document.TRANSREPORTFORM);
+
+			var paySystemConfigured = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'CLEARCOMMERCE',  
+							                    'RowName', 'CONFIGSTATUS', 'ColName', 'value');
+
+			if (paySystemConfigured == "YES")
+			{
+				var paymentStoreName = doAction('DATA_GETCONFIGDATA',  'ObjectName', 'CLEARCOMMERCE',  
+							                    'RowName', 'ClearCommerceStoreNameLive', 'ColName', 'value');
+			}
+
+			/* test.formAction = "https://reports.clearcommerce.com/admin/mercantectest/reports"; */
+			test.formAction = "https://reports.clearcommerce.com/admin/"+paymentStoreName+"/reports";
+			break;
+
+		case 'salemanager':
+			var win = parent.OpenWin ("", "SaleMgrWin", "");
+			var test = new parent.submitFormObject ("", "", "SaleMgrWin", document.SALEMANAGERFORM);
+			var paySystemConfigured = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'CLEARCOMMERCE',  
+							                    'RowName', 'CONFIGSTATUS', 'ColName', 'value');
+
+			if (paySystemConfigured == "YES")
+			{
+				var paymentStoreName = doAction('DATA_GETCONFIGDATA',  'ObjectName', 'CLEARCOMMERCE',  
+							                    'RowName', 'ClearCommerceStoreNameLive', 'ColName', 'value');
+			}
+
+			/* test.formAction = "https://reports.clearcommerce.com/admin/mercantectest/salemanager"; */
+			test.formAction = "https://reports.clearcommerce.com/admin/"+paymentStoreName+"/reports";
+			break;
+	}
+ 
+	parent.SubmitSubmitFormObject (test);
+}
+
+function submitauthmode()
+{
+
+	document.TESTLIVEFORM.cardtype.value = document.CCAUTHFORM.cardtype.value;
+	document.TESTLIVEFORM.cardnumber.value = document.CCAUTHFORM.cardnumber.value;
+	document.TESTLIVEFORM.billingname.value = document.CCAUTHFORM.billingname.value;
+	document.TESTLIVEFORM.expmonth.value = document.CCAUTHFORM.expmonth.value;
+	document.TESTLIVEFORM.expyear.value = document.CCAUTHFORM.expyear.value;
+	document.TESTLIVEFORM.billingemail.value = document.CCAUTHFORM.billingemail.value;
+	document.TESTLIVEFORM.total.value = document.CCAUTHFORM.total.value;
+
+	if (document.TESTLIVEFORM.authmodecheckbox.checked)
+	{
+		document.TESTLIVEFORM.authmode.value = 'Live';
+	}
+	else
+	{
+		document.TESTLIVEFORM.authmode.value = 'Test';
+	}
+
+	parent.SubmitForm("PAYMENT","bm_payment-clearcomm.html","mainFrame", document.TESTLIVEFORM);
+}
+
+function midapp()
+{
+	var msg = "You applied for Merchant ID before. Are you sure you want to apply again?\n\n" + 
+	          "If you want to apply again, all your existing online payment settings will\n\n" +
+	          "be reset.";
+
+	if (document.MIDAPPSTATUS.midappstatusfield.value.substr(0,3) != "Not")
+	{
+		if (!confirm(msg))
+		{
+			return false;
+		}
+	}
+
+	parent.SubmitForm("PAYMENT","bm_payment-clearcomm.html","mainFrame", document.MIDAPPFORM);
+}
+
+
+function gobacktopayment()
+{
+	parent.SubmitForm("L","bm_payment.html","mainFrame", "");
+}
+
+function ccauth()
+{
+	var t = "";
+
+	for (var i = 0; i < document.CCAUTHFORM.selectcardtype.options.length; i++)
+	{
+		if (document.CCAUTHFORM.selectcardtype.options[i].selected)
+		{	
+			document.CCAUTHFORM.cardtype.value = document.CCAUTHFORM.selectcardtype.options[i].value;
+
+			if (document.CCAUTHFORM.selectcardtype.options[i].value == 'visa')
+			{
+				document.CCAUTHFORM.cardnumber.value = '4111111111111111';
+			}
+			else if (document.CCAUTHFORM.selectcardtype.options[i].value == 'mastercard')
+			{
+				document.CCAUTHFORM.cardnumber.value = '5555555555554444';
+			}
+			else if (document.CCAUTHFORM.selectcardtype.options[i].value == 'discover')
+			{
+				document.CCAUTHFORM.cardnumber.value = '6011111111111117';
+			}
+			else if (document.CCAUTHFORM.selectcardtype.options[i].value == 'americanexpress')
+			{
+				document.CCAUTHFORM.cardnumber.value = '378282246310005';
+			}
+
+			break;
+		}
+	}
+
+	for (var i = 0; i < document.CCAUTHFORM.selectexpmonth.options.length; i++)
+	{
+		if (document.CCAUTHFORM.selectexpmonth.options[i].selected)
+		{
+			document.CCAUTHFORM.expmonth.value = document.CCAUTHFORM.selectexpmonth.options[i].value;
+            break;
+		}
+	}
+
+	for (var i = 0; i < document.CCAUTHFORM.selectexpyear.options.length; i++)
+	{
+		if (document.CCAUTHFORM.selectexpyear.options[i].selected)
+		{
+			document.CCAUTHFORM.expyear.value = document.CCAUTHFORM.selectexpyear.options[i].value;
+            break;
+		}
+	}
+        
+	parent.SubmitForm("L","bm_payment-clearcomm.html","mainFrame", document.CCAUTHFORM);
+}
+
+function setcardnumber()
+{
+	for (var i = 0; i < document.CCAUTHFORM.selectcardtype.options.length; i++)
+	{
+		if (document.CCAUTHFORM.selectcardtype.options[i].selected)
+		{
+			document.CCAUTHFORM.cardtype.value = document.CCAUTHFORM.selectcardtype.options[i].value;
+
+			if (document.CCAUTHFORM.selectcardtype.options[i].value == 'visa')
+			{
+				document.CCAUTHFORM.cardnumber.value = '4111111111111111';
+			}
+			else if (document.CCAUTHFORM.selectcardtype.options[i].value == 'mastercard')
+			{
+				document.CCAUTHFORM.cardnumber.value = '5555555555554444';
+			}
+			else if (document.CCAUTHFORM.selectcardtype.options[i].value == 'discover')
+			{
+				document.CCAUTHFORM.cardnumber.value = '6011111111111117';
+			}
+			else if (document.CCAUTHFORM.selectcardtype.options[i].value == 'americanexpress')
+			{
+				document.CCAUTHFORM.cardnumber.value = '378282246310005';
+			}
+			break;
+		}
+	}
+
+	return true; 
+}
+
+function ccauthresult(result, error, authnumber, transnumber)
+{
+	var str="";
+	var lerror = "";
+	lerror = error;
+	str = result + "\n\n";
+
+	if (lerror.length > 2) str = str + "Error: " + lerror + "\n";
+	if (authnumber != '') str = str + "Authorization Number: " + authnumber + "\n";
+	if (transnumber != '') str = str + "Transaction Number: " + transnumber + "\n";
+	alert(str);
+}
+
+function changeexpyear()
+{
+	for (var i = 0; i < document.CCAUTHFORM.selectexpyear.options.length; i++)
+	{
+		if (document.CCAUTHFORM.selectexpyear.options[i].selected)
+		{
+			document.CCAUTHFORM.expyear.value = document.CCAUTHFORM.selectexpyear.options[i].value;
+			break;
+		}
+	}
+}
+
+function changeexpmonth()
+{
+	for (var i = 0; i < document.CCAUTHFORM.selectexpmonth.options.length; i++)
+	{
+		if (document.CCAUTHFORM.selectexpmonth.options[i].selected)
+		{
+			document.CCAUTHFORM.expmonth.value = document.CCAUTHFORM.selectexpmonth.options[i].value;
+			break;
+		}
+	}
+}
+</script>
+</head>
+
+<script runat=merc_server>
+	var ifapplied = "";
+	var doccauth = "";
+	ifapplied = doAction('REQ_GET_FORMVALUE', 'MIDAPPLICATION', 'MIDAPPLICATION');
+	doccauth = doAction('REQ_GET_FORMVALUE', 'DOCCAUTH','DOCCAUTH');
+
+	if (ifapplied == "YES")
+	{
+		write('<BODY class="bkgrd-main-items" onLoad=test("midapp")>\n');
+	}
+	else
+	{
+		if (doccauth == "YES")
+		{
+			var orderid = '';
+			var month = 0;
+			var cardtype = '';
+			localdate = new Date();
+			orderid = orderid + localdate.getFullYear().toString();
+			month = localdate.getMonth() + 1;
+			orderid = orderid + month;
+			orderid = orderid + localdate.getHours().toString();
+			orderid = orderid + localdate.getMinutes().toString();
+	
+			orderid = orderid + month;
+			orderid = orderid + localdate.getSeconds().toString();
+
+			cardtype = doAction('REQ_GET_FORMVALUE', 'cardtype','cardtype');
+			cardnumber = doAction('REQ_GET_FORMVALUE', 'cardnumber','cardnumber');
+			billingname = doAction('REQ_GET_FORMVALUE', 'billingname','billingname');
+			expmonth = doAction('REQ_GET_FORMVALUE', 'expmonth','expmonth');
+			expyear =  doAction('REQ_GET_FORMVALUE', 'expyear','expyear');
+			billingemail = doAction('REQ_GET_FORMVALUE', 'billingemail','billingemail');
+			total = doAction('REQ_GET_FORMVALUE', 'total','total');
+
+			envflagval = false;
+	
+			theResult = doActionBDO('MRA_PAYMENT_BM_CCAUTH', 'OrderID', orderid, 'CardHolderName', billingname, 'CardType', cardtype, 'CardNumber', cardnumber, 'ExpMonth', expmonth, 'ExpYear', expyear, 'BillingEmail', billingemail, 'Total', total);
+
+			if (theResult.Result == 'Succeeded') 
+			{
+ 				authresult = "Your Credit Card Authorization has been approved."
+			}
+			else
+			{
+				authresult = "Your Credit Card Authorization was not approved."
+			}
+
+			write('<BODY class=bkgrd-main-items onLoad="ccauthresult(\''+authresult+'\', \''+theResult.ErrorMessage+'\',\''+theResult.AuthNumber+'\',\''+theResult.TransactionNumber+'\')">\n');
+		}
+		else
+		{
+     		write('<BODY class="bkgrd-main-items">\n');
+		}
+	}
+
+</script>
+
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<table width="100%" Border=0><tr><td><p align="left"><span class="header">&nbsp;Payment Options</span></p>
+</td><td align="right"> <a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_PAY_CLRCOMM+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" alt="Help on Payment Systems" align="right"></a></td></tr>
+</table>
+<!--END HELP WINDOW-->
+
+<span class="header">&nbsp;Merchant Payment Center&#153;</span></p>
+<table width="525" border="1" cellspacing="0" cellpadding="2" align="center">
+	<tr> 
+		<td class="table-header" width="253">Apply for an Internet Merchant ID
+		</td>
+		<td width="258" bgcolor="#00FF00" class="table-header-status"> 
+			<div align="center">
+
+<script runat="merc_server">
+	midappstatus = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName','CLEARCOMMERCE','ColName','value','RowName','MIDAPPSTATUS');
+
+	if (midappstatus == 'NO')
+	{
+		midappstatus = "Not yet applied";
+	} 
+	else if (midappstatus == 'YES')
+	{
+		midappdate = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName','CLEARCOMMERCE','ColName','value','RowName','MIDAPPDATE');	
+		midappstatus = "Applied on " + midappdate;
+	}
+
+	write("			<FORM NAME=MIDAPPSTATUS>\n");
+	write('				<INPUT type=hidden name=midappstatusfield value="'+midappstatus+'">\n');
+    write('			</FORM>\n');
+	write('			');
+    write(midappstatus);
+</script>
+			</div>
+		</td>
+	</tr>
+	<tr> 
+		<td colspan="2" height="198"> 
+			<table width="100%" border="0" cellpadding="2" cellspacing="0" height="100%">
+				<tr> 
+					<td height="161"> 
+						<div align="left"> 
+							<p><font face="Arial, Helvetica, sans-serif" size="2">
+							As an online merchant, you must have an Internet merchant account and access
+							to a payment gateway to authorize online credit card transactions. To apply
+							for an Internet merchant account and payment gateway access, follow the steps
+							below.
+
+							<ol>
+							<li>Click the Apply/Reapply for ID button below.</li>
+							<br>
+							<li>Complete the online merchant account application form. Approval may take
+							    up to 3 business days. </li>
+							<br>
+							<li>After receiving notification of approval and gateway access by e-mail,
+							    return to this Payment Systems page to learn about Payment System
+								operations and test transactions.  Your account will be in DEMO mode
+								until you return to this page and switch over to LIVE mode to start
+								authorizing orders in real time.
+							</li>
+							</ol>
+							</font>
+							</p>
+    					</div>
+						<div align="center">
+							<p align="center"><font face="Arial, Helvetica, sans-serif" size="2">
+							<FORM action="/cgi-local/mpc/PowerCommerce.cgi" method="post" id = "MIDAPPFORM" name="MIDAPPFORM">
+							<INPUT TYPE=HIDDEN NAME=MIDAPPLICATION value="YES">
+							<INPUT TYPE=HIDDEN NAME=PAYMENT_TASK value="clearcommercemidapp">
+							<INPUT TYPE=HIDDEN NAME=Payment value="ClearCommerce">
+							<INPUT TYPE=HIDDEN NAME=Host value="Verio">
+							<INPUT TYPE=HIDDEN NAME=SCProduct value="PowerCommerce">
+							<INPUT TYPE=HIDDEN NAME="Destination" value="PaymentCenter">
+							<INPUT TYPE=HIDDEN NAME="RefCgiDir" value="cgi-bin">
+							<input type=hidden name="HTTP_REFERER" value="">
+							<input type=hidden name="AppSource" value="PaymentTab">
+
+<script runat="merc_server">
+	var appid = doAction('REQ_GET_FORMVALUE','AppID','AppID');
+	var siteid = doAction('REQ_GET_FORMVALUE','SiteID','SiteID');
+	var version = doActionEx("DATA_GETLITERAL","Result","ObjectName","storecfg","LiteralID","POWER_RETAIL_VERSION");
+	var store_url = doActionEx("DATA_GETLITERAL","Result","ObjectName","License","LiteralID","LICENSE_SITE_URL");
+
+	var merchEMail = doAction ('DATA_GETCONFIGDATA',  'ObjectName', 'BizInfo',  
+ 						       'RowName', 'Email', 'ColName', 'Data');
+
+	if (merchEMail == "")
+	{
+		merchEMail = doAction('DATA_GETCONFIGDATA',  'ObjectName', 'SendReg',  
+			                  'RowName', 'Requesters_Email', 'ColName', 'Value');
+	}
+
+	write('							<input type=HIDDEN NAME="AppID" VALUE="'+appid+'">\n');
+	write('							<input type=HIDDEN NAME="SiteID" VALUE="'+siteid+'">\n');
+	write('							<INPUT TYPE=HIDDEN NAME="SCVersion" value="'+version+'">\n');
+	write('							<INPUT TYPE=HIDDEN NAME="StoreURL" value="'+store_url+'">\n');
+	write('							<INPUT TYPE=HIDDEN NAME="EMail" value="'+merchEMail+'">\n');
+</script>
+							</FORM>
+							<a href="#" onClick="javascript:midapp(); return false;"><img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_applyforID.gif" width="120" height="21" alt="Apply/Reapply for ID"></a>
+							</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr> 
+		<td class="table-header" width="253">Payment Gateway</td>
+		<td class="table-header-status" width="258" bgcolor="#00FF00"> 
+			<div align="center">
+
+<script runat="merc_server">
+	configstatus = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName','CLEARCOMMERCE','ColName','value','RowName','CONFIGSTATUS');
+
+	if (configstatus == 'YES')
+	{
+		configdate = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName','CLEARCOMMERCE','ColName','value','RowName','CONFIGDATE');
+		configstatustext = "Configured on "+configdate;
+	}
+	else
+	{
+		configstatustext = "Not yet configured";
+	}
+
+	write('			');
+	write(configstatustext);
+	write('\n');
+	write("			</div>\n");
+	write("		</td>\n");
+	write("	</tr>\n");
+    write("</table>\n");
+
+	if (configstatus == 'YES')
+	{
+		write('<br>\n');
+		write('<FORM action="/cgi-local/mpc/PowerCommerce.cgi" method=post name=CCAUTHFORM>\n');
+		write('	<table width=525 border=1 cellspacing=0 cellpadding=2 align=center>\n');
+		write('		<tr>\n');
+		write('			<td class=table-header height=23 colspan=2>\n');
+		write('				Test Online Credit Card Authorization\n');
+		write('			</td>\n');
+  		write('		</tr>\n');
+		write('		<tr>\n');
+		write('			<td colspan=2>\n');
+		write('				<span class=instr-note>Enter test information and click\n');
+		write('				on Test. Test result should appear in a few seconds in a small window upon return.\n');
+		write('				</span>\n'); 
+		write('				<table width=67% border=1 cellspacing=0 cellpadding=2 align=center>\n');
+		write('					<tr>\n');
+		write('						<td width=48% nowrap class=general-label>\n');
+		write('							Credit Card Type:\n');
+		write('						</td>\n');
+        write('						<td width=52%>\n');
+		write('							<div align=center>\n');
+		write('							<select name=selectcardtype size=1 onChange=setcardnumber()>\n');
+
+		var cardtype = doAction('REQ_GET_FORMVALUE','cardtype','cardtype');
+	
+		if (cardtype == 'visa')
+		{ 
+			write('								<option value=visa selected>VISA\n');
+		}
+		else
+		{ 
+			write('								<option value=visa>VISA\n'); 
+		}
+
+		if (cardtype == 'mastercard')
+		{ 
+			write('								<option value=mastercard selected>Mastercard\n');
+		}
+		else
+		{ 
+			write('								<option value=mastercard>Mastercard\n');
+		}
+
+		if (cardtype == 'discover')
+		{ 
+			write('								<option value=discover selected>Discover\n'); 
+		}
+		else
+		{ 
+			write('								<option value=discover>Discover\n');
+		}
+
+		if (cardtype == 'americanexpress')
+		{ 
+			write('								<option value=americanexpress selected>American Express\n'); 
+		}
+		else
+		{ 
+			write('								<option value=americanexpress>American Express\n');
+		}
+
+		write('							</select>\n');
+        write('							</div>\n');
+        write('						</td>\n');
+        write('					</tr>\n');
+		write('					<tr>\n');
+		write('						<td width=48% nowrap class=general-label>\n');
+		write('							Credit Card Number:\n');
+		write('						</td>\n');
+		write('						<td width=52%>\n');
+		write('							<div align=center>\n'); 
+
+		var cardno = doAction('REQ_GET_FORMVALUE', 'cardnumber', 'cardnumber');
+
+		write('								<input type=text name=cardnumber value="'+cardno+'" readonly>\n');
+		write('							</div>\n');
+		write('						</td>\n');
+		write('					</tr>\n');
+		write('					<tr>\n');
+        write('						<td width=48% nowrap>\n');
+		write('							<span class=general-label>Expiration Month/Year:</span>\n');
+		write('						</td>\n');
+		write('						<td width=52%>\n');
+		write('							<div align=center>\n'); 
+		write('							<select name=selectexpmonth size=1 onChange=changeexpmonth()>\n');
+
+		var today = new Date();
+		var expmonth = '';
+		expmonth = doAction('REQ_GET_FORMVALUE','expmonth','expmonth');	
+		var month = "";
+
+		if (expmonth == '' || expmonth == "")
+		{
+			expmonth = "01";
+		}
+
+		for (var i = today.getMonth().valueOf() + 1; i <= 12; i++)
+		{
+			if (i < 10)
+			{
+				month = "0" + i;
+			}
+			else
+			{
+				month = i;
+			}
+
+			if (month == expmonth)
+			{
+				write('							<option value="'+month+'" selected>'+month+'\n');
+			}
+			else
+			{
+				write('							<option value="'+month+'">'+month+'\n');
+			}
+		}
+
+		write('							</select>\n');
+		write('							/');
+		write('							<select name=selectexpyear size=1 onChange=changeexpyear()>\n');
+
+		var expyear = '';
+		expyear = doAction('REQ_GET_FORMVALUE','expyear','expyear');
+
+		if (expyear == '' || expyear == "") 
+		{
+			expyear = ""+ today.getFullYear();	
+		}
+ 
+		var year="";
+
+        for (var i = today.getFullYear().valueOf(); i <= (today.getFullYear().valueOf() + 9) ; i++)
+		{
+			year = i;
+
+			if (year == expyear)
+			{
+				write('							<option value="+year+" selected>'+year+'\n');
+			}
+			else
+			{
+				write('							<option value="+year+">'+year+'\n');
+			}
+		}
+
+		write('							</select>\n');
+		write('							</div>\n');
+		write('						</td>\n');
+		write('					</tr>\n');
+		write('					<tr>\n');
+		write('						<td width=48% nowrap class=general-label>\n');
+		write('							Card Holder Name:\n');
+		write('						</td>\n');
+		write('						<td width=52%>\n');
+		write('							<div align=center>\n');
+
+		var bname = "";
+		bname = doAction('REQ_GET_FORMVALUE','billingname','billingname');
+
+		if (bname == '' || bname == "")
+		{
+			bname = "";
+		}
+
+		write('							<input type="text" name=billingname value="'+bname+'">\n');
+		write('							</div>\n');
+		write('						</td>\n');
+		write('					</tr>\n');
+		write('					<tr>\n');
+		write('						<td width=48% nowrap class=general-label>\n');
+		write('							E-Mail Address:\n');
+		write('						</td>\n');
+		write('						<td width=52%>\n');
+		write('							<div align=center>\n');
+
+		var bmail = "";
+		bmail = doAction('REQ_GET_FORMVALUE','billingemail','billingemail');
+
+        if (bmail == '' || bmail == "")
+		{
+			bmail = "";
+		}
+
+        write('							<input type="text" name=billingemail value="'+bmail+'">\n');
+		write('							</div>\n');
+		write('						</td>\n');
+		write('					</tr>\n');
+		write('					<tr>\n');
+		write('						<td width=48% nowrap class=general-label>\n');
+		write('							Total Amount:\n');
+		write('						</td>\n');
+		write('						<td width=52%>\n');
+		write('							<div align=center>\n');
+
+		var t = "";
+		t = doAction ('REQ_GET_FORMVALUE','total','total');
+
+		if (t == '' || t == "")
+		{
+			t = "";
+		}
+
+		write('							<input type="text" name=total value="'+t+'">\n');
+		write('							<input type=hidden name=expmonth value="'+expmonth+'">\n');
+		write('							<input type=hidden name=expyear value="'+expyear+'">\n');
+		write('							<input type=hidden name=cardtype value="'+cardtype+'">\n');
+		write('							<input type=hidden name=DOCCAUTH value="YES">\n');
+		write('							</FORM>\n');
+		write('							</div>\n');
+		write('						</td>\n');
+		write('					</tr>\n');
+		write('				</table>\n');
+		write('				<div align="center"><br>\n');
+		write('					<a href="javascript:ccauth()"><img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_test.gif" width="90" height="21" alt="Test">\n');
+		write('					</a><br>\n');
+		write('				</div>\n');
+		write('			</td>\n');
+		write('		</tr>\n');
+		write('		<tr>\n');
+		write('			<td class="table-header" width="255">\n');
+		write('				Go Live\n');
+		write('			</td>\n');
+
+		write('			<FORM action="/cgi-local/mpc/PowerCommerce.cgi" method="post" id="TESTLIVEFORM" name="TESTLIVEFORM">\n');
+		write('				<input type=hidden name=authmode value="">\n');
+		write('				<input type=hidden name=PAYMENT_TASK value=clearcommerceauthmode>\n');
+		write('				<input type=hidden name=cardtype value=visa>\n');
+		write('				<input type=hidden name=cardnumber value=4111111111111111>\n');
+		write('				<input type=hidden name=expmonth value=01>\n');
+		write('				<input type=hidden name=expyear value=2001>\n');
+		write('				<input type=hidden name=billingname value="'+bname+'">\n');
+		write('				<input type=hidden name=billingemail value="'+bmail+'">\n');
+		write('				<input type=hidden name=total value="'+t+'">\n');
+
+		authmode = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','CLEARCOMMERCE','ColName','value','RowName','AUTHMODE');
+
+		if (authmode == 'LIVE' || authmode == 'live' || authmode == 'Live')
+		{
+			write('			<td class="table-header-status" width="256" bgcolor="#00FF00">\n');
+			write('				<div align="center">Online payment authorization is active</div>\n');
+			write('			</td>\n');
+			write('		</tr>\n');
+			write('		<tr>\n');
+			write('			<td class="general-label" colspan="2" height="44">\n'); 
+			write('				<div align="center">\n');
+			write('					<INPUT TYPE=checkbox NAME=authmodecheckbox value=LIVE checked onClick=submitauthmode()> Accept customer credit cards online\n');
+		} 
+		else
+		{
+			write('			<td class="table-header-status" width="256" bgcolor="#00FF00">\n');
+			write('				<div align="center">Online payment authorization is inactive</div>\n');
+			write('			</td>\n');
+			write('		</tr>\n');
+			write('		<tr>\n');
+			write('			<td class="general-label" colspan="2" height="44">\n'); 
+			write('				<div align="center">\n');
+			write('					<INPUT TYPE=checkbox NAME=authmodecheckbox value=Test onClick=submitauthmode()> Accept customer credit cards online\n');
+		}             
+
+		write('					</FORM>\n');
+		write('				</div>\n');
+		write('			</td>\n');
+		write('		</tr>\n');
+		write('		<tr>\n');
+		write('			<td class="table-header" colspan="2" height="24">\n');
+		write('				Maintain Account and Business Activities\n');
+		write('			</td>\n');
+		write('		</tr>\n');
+  		write('		<tr>\n');
+		write('			<FORM action="/cgi-local/mpc/PowerCommerce.cgi" method="post" id="UPDATEFORM" name="UPDATEFORM">\n');
+		write('				<INPUT TYPE=HIDDEN NAME=Payment value="Update">\n');
+		write('				<INPUT TYPE=HIDDEN NAME=Host value="Verio">\n');
+		write('				<INPUT TYPE=HIDDEN NAME=SCProduct value="SoftCart">\n');
+		write('				<INPUT TYPE=HIDDEN NAME=SCVersion value="5.1.5">\n');
+		write('				<INPUT TYPE=HIDDEN NAME="StoreURL" value="http://www.mercantec.com">\n');
+		write('				<INPUT TYPE=HIDDEN NAME="EMail" value="tchang@mercantec.com">\n');
+		write('				<INPUT TYPE=HIDDEN NAME="Destination" value="PaymentCenter">\n');
+		write('				<INPUT TYPE=HIDDEN NAME="SID" value="000000001">\n');
+		write('				<INPUT TYPE=HIDDEN NAME="RefCgiDir" value="cgi-bin">\n');
+		write('				<input type=hidden name="HTTP_REFERER" value="">\n');
+
+		var siteid = doAction('REQ_GET_FORMVALUE','SiteID','SiteID');
+		write('				<input type=HIDDEN NAME=SiteID VALUE="'+siteid+'">\n');
+		write('			</FORM>\n\n');
+
+		write('			<FORM action="/cgi-local/mpc/PowerCommerce.cgi" method="post" id="SALEMANAGERFORM" name="SALEMANAGERFORM">\n');
+		write('			</FORM>\n\n');
+
+		write('			<FORM action="/cgi-local/mpc/PowerCommerce.cgi" method="post" id="TRANSREPORTFORM" name="TRANSREPORTFORM">\n');
+		write('			</FORM>\n\n');
+
+		write('			<td colspan="2" height="48">\n');
+		write('				<p align="center">\n');
+		write('				<font size="2" face="Arial, Helvetica, sans-serif">\n');
+		write('				<a href="javascript:test(\'transactionreport\')">\n');
+		write('					<img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_rpts_settle.gif" width="120" height="21" alt="Reports, confirm shipments, issue credits, etc.">\n');
+		write('				</a>&nbsp;&nbsp;\n');
+		write('				<a href="javascript:test(\'salemanager\')">\n');
+		write('					<img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_salesmgr.gif" width="120" height="21" alt="Manually enter transactions">\n');
+		write('				</a>&nbsp;&nbsp;\n');
+
+		write('				<a href="javascript:test(\'update\')">\n');
+		write('				<img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_updateaccount.gif" width="120" height="21" alt="Update my account"></a>\n');
+
+		write('				</font></p>\n');
+		write('			</td>\n');
+		write('		</tr>\n');
+
+		write('	</table>\n');
+		write('<br>\n');
+		write('<div align="center">\n');
+		write('<span class="header">\n');
+		write('<a href="javascript:gobacktopayment()">\n');
+		write('<img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_return.gif" width="90" height="21"></a>\n');
+		write('</span></div>\n');
+	}
+	else  /* Not yet configured */
+	{
+		write('<table width="525" border="1" cellspacing="0" cellpadding="2" align="center">\n');
+		write('	<tr>\n'); 
+		write('		<td colspan="2"><font face="Arial, Helvetica, sans-serif" size="2">\n');
+		write('		When your application is approved and the gateway is configured, more options will appear below (testing authorization, maintaining your account, etc.)\n');
+		write('		</font></td>\n');
+		write('	</tr>\n');
+		write('</table>\n');
+	}
+
+</script>
+</body>
+</html>

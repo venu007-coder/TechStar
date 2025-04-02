@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<script language=javascript>
+<!--
+function openWin() {
+newWin = window.open('coolshirts_award.htm','newwin','width=300,height=150,toolbar=no,scrollbars=no')
+}
+// -->
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master_layer.css">
+</head>
+
+<body bgcolor="#FFFFFF" background="/cgi-docs/Mercantec/PC_F_6.6.1/images/stripeback2.gif" onLoad="document.form1.Username.focus();">
+
+<script language="JavaScript">
+var bUseName = false, bPasswd = false;
+if (!document.all)
+{
+	document.onkeyup=checkEnter;
+	document.captureEvents(Event.KEYUP);
+}	
+
+function checkEnter(e)
+{
+	if (document.all)
+	{
+		if (window.event.keyCode == 13)
+			document.form1.submit();
+	}
+	else
+	{
+		if (e.which == 13 && (bUseName || bPasswd))
+			document.form1.submit();
+	}
+}
+</script>
+
+<table width="660" border="0" align="center" class="table-bkgrd-main" cellspacing="0" cellpadding="4">
+<tr valign="top"> 
+    
+<td height="211" width="327" nowrap> 
+	<FORM ACTION="http://altechstar.com:80/cgi-local/mpc/PowerCommerce.cgi" METHOD="POST" id=form1 name=form1 target="_parent">
+		<INPUT TYPE="HIDDEN" NAME="NextPage" VALUE="redirect.html">
+		<INPUT TYPE="HIDDEN" NAME="sm_action" VALUE="login">
+		<INPUT TYPE="HIDDEN" NAME="AppID" VALUE="merchant">
+		<INPUT TYPE="HIDDEN" NAME="SiteID" VALUE="altec2">
+		<INPUT TYPE="HIDDEN" NAME="DrawerSelected" VALUE="drw_site.gif">
+    
+<center>
+<p align="left"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/pleaselogin.gif" width="211" height="62" alt="Please Log In"></p>
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/logingraphic_pwb.gif" width="328" height="179" alt="process">
+<br>
+
+</center>
+</td>
+<td height="211" width="323" nowrap>
+<br>
+<br>
+<br>
+<br>
+<table width="76%" border="0">
+        
+<tr> 
+          
+<td width="50%"> 
+            
+<div align="right"><span class="dialog-title">User ID:</span></div>
+</td>
+<td width="50%"><b><font face="Arial, Helvetica, sans-serif" color="#FFFFFF"> 
+            
+<input type="text" name="Username" onfocus="bUseName=true;" onblur="bUseName=false;">
+            </font></b></td>
+</tr>
+        
+<tr> 
+          
+<td width="50%"> 
+            
+<div align="right"><span class="dialog-title">Password: 
+              </span></div>
+</td>
+<td width="50%"><b><font face="Arial, Helvetica, sans-serif" color="#FFFFFF"> 
+            
+<input type="password" name="Password" onfocus="bPasswd=true;" onblur="bPasswd=false;">
+            </font></b></td>
+</tr>
+<tr>
+<td colspan="2">
+<div align="right">
+<a href="http://help.mercantec.com/PowerCommerce/Accessing_PowerCommerce.html" target="new"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2.gif" width="97" height="30" border="0" name="help" alt="Online Help"></a>
+<script language="JavaScript">
+if (document.all)
+	document.write('<input type="image" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Log_In_Nbtn_base2.gif" width="86" height="30" border="0" alt="Log In">');
+else
+	document.write('<a href="javascript:document.form1.submit();"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/Log_In_Nbtn_base2.gif" width="86" height="30" border="0" alt="Log In"></a>');
+</script>
+</div></form></td>
+</tr>
+      
+</table>
+</td>
+</tr>
+
+  
+
+</table>
+</div>
+ 
+
+</body><!--COMMENT="Copyright © 2001, Mercantec, Inc. All rights reserved. Mercantec, Inc. is a registered trademark of Mercantec, Inc.
+Mercantec Powering Commerce Online logo, PowerWebBuilder, Merchant Payment Center, StateTrack, and Mercantec Power Commerce are trademarks of Mercantec, Inc. All other products mentioned may be registered trademarks or trademarks of their respective companies."-->
+</html>

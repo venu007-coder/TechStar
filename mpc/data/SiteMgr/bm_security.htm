@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>Security</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<script runat="merc_server">
+	var secure = doAction ('REQ_GET_FORMVALUE', 'SecureMode', 'SecureMode');
+	var baseHrf = "", mercCommon = "";
+	if (secure)
+		doAction('ST_SET_STATEDATA', 'SecureMode', secure);
+	else
+		secure = doAction('ST_GET_STATEDATA', 'SecureMode', 'SecureMode');
+
+	if (secure && secure.toLowerCase() == "yes")
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SecureBaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTPS_SHARED_HTDOCS_ALIAS');
+	}
+	else
+	{
+		baseHrf = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'BaseHref');
+		mercCommon = doAction ('DATA_GETLITERAL', 'ObjectName', 'storecfg', 'LiteralID', 'SITEMGR_HTTP_SHARED_HTDOCS_ALIAS');
+	}
+	writeln('<BASE href="'+baseHrf+'">');
+	writeln('<link rel="stylesheet" href="'+mercCommon+'styles/master.css">');
+</script>
+
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+<script runat="merc_server">
+var errno = doAction('ST_GET_STATEDATA', 'SECERRNO', 'SECERRNO');
+doAction('ST_DELETE_STATEDATA', 'SECERRNO', 'SECERRNO');
+writeln('<SCRIPT LANGUAGE="JavaScript">');
+
+if (errno)
+	writeln('var errno='+errno+';');
+else
+	writeln('var errno=-1;');
+
+<merc_embed>
+if (errno == 1)
+	alert("Your password has been changed");
+else if (errno == 2)
+	alert("You did not enter the correct 'Old Password'");
+else if (errno == 3)
+	alert("The new password and the confirmation password must match");
+else if (errno == 4)
+	alert("Permission denied");
+else if (errno == 5)
+	alert("The new password you entered does not contain at least 8 characters, at least one digit, and at least one special character (punctuation or symbol). Your password has not been changed.");
+
+function submitForm()
+{
+	var oldlen = document.security.oldpswd.value.length;
+	var newlen = document.security.newpswd.value.length;
+	var verifylen = document.security.verifypswd.value.length;
+	if (oldlen == 0 || newlen == 0 || verifylen == 0)
+		alert("Please fill in all the fields");
+	if (oldlen == 0)
+		document.security.oldpswd.focus();
+	else if (newlen == 0)
+		document.security.newpswd.focus();
+	else if (verifylen == 0)
+		document.security.verifypswd.focus();
+	else if (document.security.newpswd.value != document.security.verifypswd.value)
+	{
+		alert("The new password and the confirmation password must match");
+		document.security.newpswd.focus();
+	}
+	else
+		parent.SubmitForm ('SEC_ChangePassword', 'bm_security.htm', 'mainFrame', document.security);
+}
+</merc_embed>
+writeln('</script>');
+
+</script>
+</head>
+
+<body class="bkgrd-main-items" onLoad="document.security.oldpswd.focus();">
+<p>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SEC_PSWD+SoftCart+{helpversion}+
+en-us', 'Alane'));">
+<script runat="merc_server">
+	write('<img src="'+mercCommon+'images/help2x.gif" border="0" name="help" alt="Help" align="right">');
+</script>
+</a>
+<!--END HELP WINDOW LINK-->
+<span class="header">&nbsp;Security
+</span>
+</p>
+<br>
+<script runat="merc_server">
+	// Verify commerce is installed
+    var sndRegJs = doActionEx ('DATA_READFILE','sendreg.js', 'FileName', 'sendreg.js',
+                               'ObjectName','JS_SRC', 'FileType', 'txt');
+	eval (sndRegJs);
+	var prodObj = getProdInfo();
+
+	if (prodObj.POWER_RETAIL_LEVEL.Installed)
+	{
+		<merc_embed>
+			<table width="350" border="1" align="center" cellpadding="4" cellspacing="0">
+			<tr class="table-header">
+				<td nowrap height="18" class="table-header" colspan="2">New Encryption Key</td>
+			</tr>
+			<form name="form_genkey" >
+				<tr>
+				<td class="general-label" height="23" nowrap>
+					<merc_dynamic noshow=true name=SC_TabSelected action=REQ_GET_FORMVALUE TabSelected=TabSelected>
+					<script>
+					document.writeln('<input type="hidden" name="BrowserName" value="'+navigator.appName+'">');
+					document.writeln('<input type="hidden" name="BrowserTitle" value="'+document.title+'">');
+					document.writeln('<input type="hidden" name="TabSelected" value="{SC_TabSelected}">');
+					</script>
+					<div align="center">
+		</merc_embed>
+						//
+						// Only one PGP key can be uploaded.  This was done to prevent
+						// encrypting with multiple keys.
+						// If there is a PGP key name set in the "security.cfg" file,
+						// then just display a message indicating that a key has
+						// has alread been generated.
+						//
+						var CheckKeyName = doAction ('DATA_GETCONFIGDATA', 'ObjectName', 'SecurityCfg', 'RowName', 'PGPKeyName', 'ColName', 'Value');
+						if ( (CheckKeyName) && (CheckKeyName.toLowerCase() != "none") )
+						{
+						write('Your encryption key has been generated.');
+						}
+						else
+						{
+						write('<a href=\'javascript:void(parent.SubmitForm("L", "bm_keygen_wait.htm", "mainFrame", document.form_genkey));\'>');
+						write('<img src="'+mercCommon+'images/btnb_gennewkey.gif" width="90" height="21" border="0">');
+						write('</a>');
+						}
+		<merc_embed>
+					</div>
+				</td>
+				</tr>
+			</form>
+			</table>
+		</merc_embed>
+	}
+</script>
+<br>
+<table width="350" border="1" align="center" cellpadding="4" cellspacing="0">
+  <tr class="table-header">
+    <td nowrap height="18" class="table-header" colspan="2">Change Password</td>
+  </tr>
+  <form name="security" action="javascript:void(0);">
+    <tr>
+      <td class="general-label" height="23" nowrap width="153">Old Password:</td>
+        <td class="general-label" height="23" nowrap width="175">
+          <div align="center">
+            <input type="password" name="oldpswd">
+          </div>
+        </td>
+    </tr>
+    <tr>
+      <td class="general-label" height="23" nowrap width="153">
+          <div align="left">New Password:</div>
+      </td>
+      <td class="general-label" height="23" nowrap width="175">
+          <div align="center">
+            <input type="password" name="newpswd">
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="general-label" height="23" nowrap width="153">
+        <div align="left">Confirm New Password:</div>
+      </td>
+      <td class="general-label" height="23" nowrap width="175">
+        <div align="center">
+          <input type="password" name="verifypswd">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="general-label" height="39" nowrap colspan="2">
+        <div align="center"><a href="javascript:submitForm();">
+        <script runat="merc_server">
+          write('<img src="'+mercCommon+'images/btnb_change.gif" width="90" height="21" border="0"></a>');
+        </script>
+        </div>
+      </td>
+    </tr>
+  </form>
+</table>
+<br>
+<div align="center">
+  <p>&nbsp;</p>
+</div>
+</body>
+</html>

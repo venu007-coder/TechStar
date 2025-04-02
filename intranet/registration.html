@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>Time Sheet - Registration Module</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="styles/AltechIntra.css" rel="stylesheet" type="text/css">
+<link href="styles/AltechIntra.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#D1E2FF" link="#000000" vLink="#000066" alink="Blue" leftmargin="0" topmargin=0 bottommargin=0 marginwidth=0 marginheight=0>
+<form name=creg method=post action="pregistration.html">
+  <table border=0 cellspacing=0 cellpadding=0 width="100%" height="30">
+    <tr>       
+      <td width="97%" align=left>&nbsp;<font class="pagetitle">Project Registration</font></td>
+    </tr>
+  </table>
+<!--
+<table border=0 cellspacing=0 cellpadding=0 width="98%">
+      <tr valign=top> 
+        <td width="77%"> <br> <center>
+		-->
+            
+  <table width="750" cellpadding=0 cellspacing=0 bgcolor="#D1E2FF" height="18">
+    <tr> 
+                
+      <td width="125" height="18" align=center><font face="Verdana" size=2 color="Black"><img src="images/projbutton_Tab.jpg" width="125" height="18" border="0"></font></td>
+                <td width="125" height="18" align=center><a href="pregistration.html"><img src="images/clientdetails_tab_normal.jpg" width="125" height="18" border="0"></a></td>
+                
+      <td width="125" height="18" align=center><font face="Verdana" size=2 color="#102F70"><a href="sizeregistration.html"><img src="images/size_tab_normal.jpg" width="125" height="18" border="0"></a></font></td>
+                <td width="125" height="18" align=center><font face="Verdana" size=2 color="#102F70"><a href="ractregistration.html"><img src="images/resource_tab_normal.jpg" width="125" height="18" border="0"></a></font></td>
+                <td width="125" height="18" align=center><font face="Verdana" size=2 color="#102F70"><a href="mileregistration.html"><img src="images/milestone_tab_normal.jpg" width="125" height="18" border="0"></a></font></td>
+                <td width="125" height="18" align=center><font face="Verdana" size=2 color="#102F70"><a href="pcostregistration.html"><img src="images/projectcost_tab_normal.jpg" width="125" height="18" border="0"></a></font></td>
+				<td width="60%"></td>
+              
+              
+              </tr>
+            </table>
+			<!--
+            <table width="95%" height="330"  border="1" cellpadding="0" cellspacing="0" bordercolor="#333399">
+              <tr> 
+                <td><br> 
+				-->
+                  
+  <table clas width="750" height="236" border=1 cellpadding=2 cellspacing=0 bordercolor="#FFFFFF" bgcolor="#DFE0FF">
+    <tr bgcolor="FBE9DD"> 
+      <td width="119" height="39"> <div align="left"><strong><font face="Verdana" size=1 color="#102F70">Project 
+          ID:</font></strong> </div></td>
+      <td width="179"><input name="rtype1" type="text" id="rtype12" value="AL001" size="15"></td>
+      <td width="107"> <div align="left"><strong><font face="Verdana" size=1 color="#102F70">Project 
+          Name:</font></strong> </div></td>
+      <td><input name="rtype12" type="text" id="rtype13" value="TimeSheet" size="15"> 
+      </td>
+    </tr>
+    <tr bgcolor="FBE9DD"> 
+      <td height="31"> <div align="left"><strong><font face="Verdana" size=1 color="#102F70">Start 
+          Date :</font></strong></div></td>
+      <td height="31"><input name="rphno2" type="text" id="rphno22" value="1/3/2004" size="15"> 
+      </td>
+      <td><strong><font face="Verdana" size=1 color="#102F70">End Date :</font></strong></td>
+      <td><input name="rphno" type="text" id="rphno3" value="1/9/2004" size="15"> 
+      </td>
+    </tr>
+    <tr bgcolor="FBE9DD"> 
+      <td height="31"> <div align="left"><strong><font face="Verdana" size=1 color="#102F70">SBU 
+          :</font></strong></div></td>
+      <td height="31"><select name="select2">
+          <option selected>SELECT</option>
+          <option value="sbu1">sbu1</option>
+          <option value="sbu2">sbu2</option>
+        </select> </td>
+      <td rowspan="2"> <div align="left"><strong><font face="Verdana" size=1 color="#102F70">Project 
+          Type :</font></strong> </div></td>
+      <td><select name="select">
+          <option>Application Devt</option>
+          <option>Maintenance</option>
+          <option>Migration</option>
+          <option selected>VI Implementation</option>
+          <option>ERP Implementation</option>
+        </select></td>
+    </tr>
+    <tr bgcolor="FBE9DD"> 
+      <td height="31"><strong><font face="Verdana" size=1 color="#102F70">Project 
+        Description</font></strong></td>
+      <td height="31">&nbsp;</td>
+      <td> <input type="checkbox" name="checkbox" value="checkbox">
+        <strong><font face="Verdana" size=1 color="#102F70">Internal</font></strong></td>
+    </tr>
+    <tr bgcolor="FBE9DD"> 
+      <td height="10" colspan="4" ><textarea name="textarea" cols="70%" rows="5"></textarea></td>
+    </tr>
+    <tr bgcolor="FBE9DD"> 
+      <td height="31"><strong><font face="Verdana" size=1 color="#102F70">Key 
+        Success Factors</font></strong></td>
+      <td height="31" colspan="3">&nbsp;</td>
+    </tr>
+    <tr bgcolor="FBE9DD"> 
+      <td height="31" colspan="4"><textarea name="textarea2" cols="70%" rows="5"></textarea></td>
+    </tr>
+  </table>                  
+  <table width="750"  border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+                      
+      <td align="right"><font face="Verdana" size=2 color="Black"> 
+        <input type=submit name="subreg" value="Save Project Details">
+        </font></td>
+                    </tr>
+                  </table>
+				  <!--
+                  </td>
+              </tr>
+            </table>
+			-->
+			<!--
+           </td>
+      </tr>
+    </table>
+-->
+
+</form>
+</body>
+</html>

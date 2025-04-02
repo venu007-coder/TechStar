@@ -1,0 +1,179 @@
+Return-Path: eAccountNotify@verizonwireless.com
+Received: from mx01.stngva01.us.mxservers.net (204.202.242.3)
+	by mail19i.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 2-0959273372
+	for <ms@altechstar.com>; Fri, 28 Aug 2009 19:49:32 -0400 (EDT)
+Received: from unknown [204.202.242.120] (HELO mail19d.g19.rapidsite.net)
+	by va1-mx01.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with SMTP id c0d689a4.2645298080.203592.00-002.va1-mx01.stngva01.us.mxservers.net (envelope-from <eaccountnotify@verizonwireless.com>);
+	Fri, 28 Aug 2009 19:49:32 -0400 (EDT)
+Received: from mx17.stngva01.us.mxservers.net (204.202.242.70)
+	by mail19d.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 1-0129493371
+	for <anand@altechstar.com>; Fri, 28 Aug 2009 19:49:31 -0400 (EDT)
+Received: from unknown [162.115.228.34] (EHLO pegasus.verizonwireless.com)
+	by va1-mx17.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id b0d689a4.2782903200.643324.00-004.va1-mx17.stngva01.us.mxservers.net (envelope-from <eaccountnotify@verizonwireless.com>);
+	Fri, 28 Aug 2009 19:49:31 -0400 (EDT)
+Received: from cceast-mcs11.odc.vzwcorp.com ([10.170.169.27])
+  by pegasus.verizonwireless.com with ESMTP; 28 Aug 2009 19:49:26 -0400
+MIME-version: 1.0
+Content-Type: multipart/mixed; boundary="=_reb-r27CE4787-t4A986D0B"
+Received: from cceast-mq1.odc.vzwcorp.com ([10.170.169.61])
+ by cceast-mcs1.odc.vzwcorp.com
+ (Sun Java(tm) System Messaging Server 6.3-6.01 (built Dec  5 2007; 64bit))
+ with ESMTP id <0KP400DUX26E9DC0@cceast-mcs1.odc.vzwcorp.com> for
+ anand@altechstar.com; Fri, 28 Aug 2009 19:49:26 -0400 (EDT)
+Date-warning: Date header was inserted by cceast-mcs1.odc.vzwcorp.com
+Date: Fri, 28 Aug 2009 19:49:26 -0400 (EDT)
+Message-id:
+ <31840804.1251503366553.JavaMail.webspher@cceast-mq1.odc.vzwcorp.com>
+From: "AccountNotify@verizonwireless.com" <eAccountNotify@verizonwireless.com>
+To: anand@altechstar.com
+Subject: Important Information Regarding Your Verizon Wireless Account.
+req_id: 777043820
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.0000000000; B=0.500(0); S=0.200(2009071501); MH=0.000(2009082837)]
+X-MAIL-FROM: <eaccountnotify@verizonwireless.com>
+X-SOURCE-IP: [162.115.228.34]
+X-SF-Loop: 1
+X-Spam: [F=0.0000000000; B=0.500(0); S=0.200(2009071501); MH=0.000(2009082837)]
+X-MAIL-FROM: <eaccountnotify@verizonwireless.com>
+X-SOURCE-IP: [204.202.242.120]
+X-Loop-Detect:1
+
+This is a multi-part MIME message.
+
+--=_reb-r27CE4787-t4A986D0B
+Content-type: text/html; charset=utf-8
+Content-transfer-encoding: 7BIT
+
+<html>
+<head>
+
+<title>Verizon Wireless</title>
+</head>
+
+<body>
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+<tr>
+    <td align="center">
+    <table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="521">
+    <tr>
+        <td style="border: 1px solid #353535;">
+            <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td style="font: 16px Arial; color:#000000;"><a target="_blank" href="http://www.verizonwireless.com"><img alt="Verizon Wireless" border="0" height="49" width="210" src="http://download.vzwshop.com.edgesuite.net/vzw/ecrm/2006_unique/020701_myaccnt/vlogo_tab.jpg"></a></td>
+                <td><img alt="" height="49" width="311" src="http://download.vzwshop.com.edgesuite.net/vzw/ecrm/2006_unique/020701_myaccnt/top_border.jpg"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><img alt="" border="0" height="43" width="521" src="http://download.vzwshop.com.edgesuite.net/vzw/ecrm/2006_unique/020701_myaccnt/redline.jpg"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <!-- BODY CONTENT START -->
+                <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td valign="top">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td style="font: 16px Arial; color:#D6001C; text-align:left;padding-top:7px; font-weight:bold;padding-top:17px; padding-left:20px;padding-right:40px;">Your Verizon Wireless Account Number ending with 2839-00001</td>
+                        </tr>
+                        <tr>
+                            <td style="font: 12px Arial; color:#000000; text-align:left;padding-top:17px;padding-left:20px;padding-right:20px;">
+                                <p>Your current Verizon Wireless bill statement is now available for online viewing. The current balance due is $556.23.You can conveniently view your bill statement at <a href="http://www.verizonwireless.com">www.verizonwireless.com</a>. The online bill is a restatement of your paper bill.</p>
+
+                                <p>It's easy to pay your Verizon Wireless bill. On the web, go to My Verizon at <a href="http://www.verizonwireless.com">www.verizonwireless.com</a>. On your cellular phone, you can access account information by dialing #PMT (airtime free).</p>
+
+                                <p>Auto Bill Pay is Available!</p>
+
+                                
+<ul><li>
+Automatically pay your bill, in full, each month by signing up for Auto Bill Pay using your checking account or debit/credit card. For more information or to change your current payment method, go to My Verizon at <a href="http://www.verizonwireless.com">www.verizonwireless.com</a> and select Auto Bill Pay. 
+</li>
+<li>Or, call us at 1-866-868-3882 to enroll.</li></ul>
+                                
+                                <p>Thank you for using Verizon Wireless.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                        <td style="font: 11px Arial; font-weight:bold; color:#000000; text-align:left;padding-top:17px;padding-left:15px;padding-right:15px;">
+                            <p>If you are not the intended recipient and feel you have received this email in error, please <a target="_blank" href="http://support.vzw.com/">click here</a> to notify us.<br><br></td>
+                        </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                        <!-- PERSON IMAGE START -->
+                        <tr>
+                            <td style="font: 16px Arial; color:#D6001C; text-align:left; border: 1px solid #cccccc;"><img alt="" height="167" width="167" src="http://download.vzwshop.com.edgesuite.net/vzw/ecrm/2006_unique/020701_myaccnt/person.jpg"></td>
+                        </tr>
+                        <!-- PERSON IMAGE STOP -->
+                        <tr><td><img alt="" height="2" width="2" src="http://download.vzwshop.com.edgesuite.net/vzw/ecrm/2006_unique/020701_myaccnt/space.gif"></td></tr>
+                        <!-- MORE QUESTIONS POD START -->
+                        <tr>
+                            <td style="font: 11px Arial; color:#000000;padding-top:5px;border: 1px solid #cccccc" width="167" bgcolor="#EFEFEF" align="center">
+                            <font style="font-size:13px; font-family:Arial; font-weight:bold; color:D6001C">Have More Questions?</font><br>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="font: 11px Arial; color:#000000;padding-right:11px;padding-left:13px;padding-top:7px;padding-bottom:7px;">
+                                        Visit <a style=" color:#0000FF" target="_blank" href="http://www.verizonwireless.com">VerizonWireless.com</a> for all your wireless service needs.<br></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- MORE QUESTIONS POD STOP -->
+                        <tr><td><img alt="" height="4" width="2" src="http://download.vzwshop.com.edgesuite.net/vzw/ecrm/2006_unique/020701_myaccnt/space.gif"></td></tr>
+                        <!-- MANAGE YOUR ACCOUNT POD START -->
+                        <tr>
+                            <td style="font: 11px Arial; color:#000000;padding-top:5px;border: 1px solid #cccccc;" width="167" bgcolor="#EFEFEF" align="center">
+                            <font style="font-size:13px; font-family:Arial; font-weight:bold; color:D6001C">Manage Your Account</font><br>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="font: 11px Arial; color:#000000;padding-right:7px;padding-left:13px;padding-top:7px;">
+                                        View your account balance, pay your bills, upgrade to a new phone, and much more.
+                                        <br></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font: 11px Arial; color:#000000;padding-right:15px;padding-top:7px;padding-bottom:7px;" align="right"><a style=" color:#0000FF" target="_blank" href=" http://www.verizonwireless.com/b2c/index.html?tab=myaccountoverview">Sign In to My Verizon</a></td>
+                                    </tr>
+                                </table></td>
+                        </tr>
+                        <!-- MANAGE YOUR ACCOUNT POD STOP -->
+
+                        <tr><td><img alt="" height="22" width="2" src="http://download.vzwshop.com.edgesuite.net/vzw/ecrm/2006_unique/020701_myaccnt/space.gif"></td></tr>
+                        </table>
+                    </td>
+                </tr>
+                </table>
+                <!-- BODY CONTENT STOP -->
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><img alt="" height="10" width="521" src="http://download.vzwshop.com.edgesuite.net/vzw/ecrm/2006_unique/020701_myaccnt/redline_ftr.jpg"></td>
+            </tr>
+
+
+
+
+            </table>
+        </td>
+    </tr>
+    <!-- footer text start here -->
+
+    <tr>
+        <td style="font: 11px Arial; color:#000000; text-align:center;padding-top:7px;" align="center">
+        <A target="_blank" HREF="http://www.verizonwireless.com/b2c/globalText?textName=CUSTOMER_AGREEMENT&jspName=footer/customerAgreement.jsp">View Terms &amp; Conditions</a><br><br>
+        Verizon Wireless | One Verizon Way | Basking Ridge, NJ 07920-1097<br><br>
+
+        To review our Privacy Policy, <a style="color:#000000;" target="_blank" href="http://www.verizonwireless.com/b2c/footer/privacy.jsp">click here</a>.<br>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+</body>
+</html>
+
+--=_reb-r27CE4787-t4A986D0B--
+

@@ -1,0 +1,1101 @@
+<!-- bm_payment.html v 1.0 -->
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+<SCRIPT LANGUAGE=JavaScript>
+
+function paymentsystems(which)
+{
+   if (which == 'no')
+   {
+	alert("You don't have online payment system installed");
+        return false;
+   }
+   else
+   {
+        document.editPayment.NextPage.value = which;
+        document.editPayment.sm_action.value = "L";
+
+	//document.editPayment.submit();
+
+	parent.SubmitForm("L", which, "mainFrame", document.editPayment);
+   }
+}
+
+function EmailEditor(whichrow)
+{
+ var win = parent.OpenWin ("", whichrow, "");
+ document.editPayment.NextPage.value = "bm_emaileditor.html";
+ document.editPayment.sm_action.value = "L";
+ document.editPayment.emailrowname.value = whichrow;
+ var emaileditor = new parent.submitFormObject ("", "", whichrow, document.editPayment);
+ parent.SubmitSubmitFormObject (emaileditor);
+}
+
+function savepaymentoptions()
+{
+	if (validatePmntSelection(document.editPayment))
+		parent.SubmitForm("PAYMENT", "bm_payment.html", "mainFrame", document.editPayment);
+}
+
+//For Email Editor
+function edit_template(whichTemplate)
+{
+	// You need to know the name of your template (see the EmailTemplates table).
+	var args = new Array('TemplateName', whichTemplate);
+
+	// 500 x 700 for Netscape, 450 x 500 for IE
+	if (navigator.appVersion.indexOf('MSIE') != -1) myWin = parent.createSimpleSubmitWindow(450, 500);
+	else myWin = parent.createSimpleSubmitWindow(500, 700);
+
+	// You need to get the base URL for the please_wait.htm file from somewhere. I used a merc_dynamic
+	// tag to fill in a hidden input named BaseURL, in the form named form1.
+	var baseURL = document.forms['editPayment'].elements.BaseURL.value;
+
+	// Now you can actually open the pop-up window.
+	parent.OpenWinSubmitForm(baseURL + 'please_wait.htm', 'EmailTemplateEditor', '', 'EmailTemplateEditor', args, myWin);
+}
+
+</SCRIPT>
+</head>
+<script runat=merc_server>
+function IsTemplateOn(eventName, templateName, paymentType)
+{
+	if (templateName == undefined) return false; // not enough arguments
+	if (eventName == '' || templateName == '') return false;
+
+	paymentType = parseInt(paymentType);
+	if (isNaN(paymentType)) return false;
+
+	var input = GetBDO('Event', eventName, 'Template', templateName, 'PaymentType', paymentType);
+	var output = GetBDO();
+
+	ProcessRequest('PORD_CHECK_EMAIL_TEMPLATE', input, output);
+	if (output['Result'] == true) return true;
+	else return false;
+}
+
+</script>
+
+<body class="bkgrd-main-items">
+
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+<table width="100%" Border=0><tr><td><p align="left"><span class="header">&nbsp;Payment Options</span></p>
+</td><td align="right"> <a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_PAY_METHOD+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" alt="Help on Payment" align="right"></a></td></tr>
+</table>
+<!--END HELP WINDOW-->
+
+
+<table width="500" border="1" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="table-header" nowrap height="17">
+      <div align="center">Credit Cards Accepted</div>
+    </td>
+  </tr>
+  <tr>
+    <td height="55">
+      <table width="75%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+
+
+<FORM action="/cgi-local/mpc/PowerCommerce.cgi" method="post" id = "editPayment" name="editPayment">
+
+<!-- this is needed for calling the EmailEditor pop-up -->
+<merc_dynamic noshow=true name=dyn_BaseHref action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<input type="hidden" name="BaseURL" value=dyn_BaseHref>
+<!-- this is needed for calling the EmailEditor pop-up -->
+
+
+<input type="HIDDEN" NAME="NextPage" VALUE="bm_payment.html">
+<input type="HIDDEN" NAME="sm_action" VALUE="PAYMENT">
+<input type="HIDDEN" NAME="PAYMENT_TASK" VALUE="PaymentEditSave">
+<script runat="merc_server">
+var appid = doAction('REQ_GET_FORMVALUE','AppID','AppID');
+var siteid = doAction('REQ_GET_FORMVALUE','SiteID','SiteID');
+write("\n<input type=HIDDEN NAME=AppID VALUE="+ appid +">\n");
+write("<input type=HIDDEN NAME=SiteID VALUE=" + siteid + ">\n");
+</script>
+<input type="HIDDEN" NAME="ifclickcod" VALUE="NO">
+<input type=hidden name=authmode value="">
+<input type=hidden name=cardtype value=visa>
+<input type=hidden name=cardnumber value=4111111111111111>
+<input type=hidden name=expmonth value=01>
+<input type=hidden name=expyear value=2001>
+<input type=hidden name=billingname value="">
+<input type=hidden name=billingemail value="">
+<input type=hidden name=total value="">
+<input type=hidden name=emailrowname value="">
+<SCRIPT runat="merc_server">
+
+  var output = "";
+  var creditcardtype = "";
+  var defaultcreditcardtypes = "";
+  var defaultcreditcardtypesselected ="";
+  defaultcreditcardtypes   = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','default_credit_card_types');
+  defaultcreditcardtypesselected   = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','default_credit_card_types_selected');
+  var arraydefaultcreditcardtypes    = new Array();
+  arraydefaultcreditcardtypes = defaultcreditcardtypes.split(",");
+  var arraydefaultcreditcardtypesselected   = new Array();
+  arraydefaultcreditcardtypesselected = defaultcreditcardtypesselected.split(",");
+  var len = 0;
+  len = arraydefaultcreditcardtypes.length;
+
+
+	write("<td width=\"53%\" nowrap valign=top>\n");
+
+  if ( (len % 2) == 0)
+  {
+	j = len /2;
+  } else
+  {
+        j = (len+1) /2;
+  }
+   for (i=0; i <j; i++)
+  {
+        if (arraydefaultcreditcardtypes[i] == 'AMEX')
+        {
+          creditcardname = 'American Express';
+        }
+        else if (arraydefaultcreditcardtypes[i] == 'Discover')
+        {
+          creditcardname = 'Discover/NOVUS';
+        }
+        else
+        {
+          creditcardname = arraydefaultcreditcardtypes[i];
+        }
+
+     	write("<input type=checkbox name=\"" + arraydefaultcreditcardtypes[i] + "\" value=\"" + arraydefaultcreditcardtypes[i] + "\"");
+        currentcctype = arraydefaultcreditcardtypes[i];
+	code = ifinarray(arraydefaultcreditcardtypesselected, currentcctype);
+        if  (code > -1)
+        {
+		write(" checked ");
+        }
+        write(">"+"<span class=\"general-label\">"+ creditcardname +"</span>\n");
+        if (i < j-1) write("<br>\n");
+  }
+
+	write("</td>\n");
+
+	write("<td width=\"47%\" nowrap valign=top>\n");
+
+
+
+  for (i=j; i < len; i++)
+  {
+        if (arraydefaultcreditcardtypes[i] == 'AMEX')
+        {
+          creditcardname = 'American Express';
+        }
+        else if (arraydefaultcreditcardtypes[i] == 'Discover')
+        {
+          creditcardname = 'Discover/NOVUS';
+        }
+        else
+        {
+          creditcardname = arraydefaultcreditcardtypes[i];
+        }
+     	write("<input type=checkbox name=\"" + arraydefaultcreditcardtypes[i] + "\" value=\"" + arraydefaultcreditcardtypes[i] + "\"");
+        currentcctype = arraydefaultcreditcardtypes[i];
+	code = ifinarray(arraydefaultcreditcardtypesselected, currentcctype);
+        if  (code > -1)
+        {
+		write(" checked ");
+        }
+        write(">"+"<span class=\"general-label\">"+ creditcardname +"</span>\n");
+        if (i < len-1) write("<br>\n");
+  }
+
+	write("</td>\n");
+
+//functions
+function ifinarray(ary, str)
+{
+  var i;
+  var size = ary.length;
+  for (i = 0; i < size; i++)
+  {
+    if (str == ary[i]) return i;
+  }
+  return -1;
+}
+</SCRIPT>
+
+
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+<table width="500" border="1" align="center" cellpadding="4" cellspacing="0">
+  <tr>
+    <td class="table-header" width="30%" nowrap height="59">
+      <div align="center">Payment Type<br>
+        and Method</div>
+    </td>
+    <td  class="table-header" colspan="3" height="59">
+      <div align="center">Shopper<br>
+        Email<br>
+        Notification</div>
+    </td>
+    <td class="table-header" height="59" width="21%">
+      <div align="center">Owner<br>
+        Email<br>
+        Notification </div>
+    </td>
+    <td class="table-header" height="59" width="29%">
+      <div align="center">Shipment<br>
+        Email<br>
+        Notification </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="general-label" width="30%" nowrap height="72">
+      <p>
+
+
+<SCRIPT runat="merc_server">
+
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','online_credit_card_auth');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccauth\" value=\"onlineccauth\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccauth\" value=\"onlineccauth\">");
+     }
+
+</SCRIPT>
+
+
+
+        <span class="general-label">Accept Credit Cards<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Online</span></p>
+      <p align="center"><span class="general-label">
+
+<script runat="merc_server">
+  var addonmodulesinstalled = "";
+  addonmodulesinstalled  = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','Installed');
+  if (addonmodulesinstalled == "")
+  {
+/*
+      write("<input type=image border=\"0\" src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm100_pmtsys.gif\" width=\"100\" height=\"19\" onClick=paymentsystems('no')>");
+*/
+write("<a href=\"javascript:paymentsystems('no')\"><img border=\"0\" src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm100_pmtsys.gif\" width=\"100\" height=\"19\" alt=\"Payment Systems...\"></a>");
+ }
+  else
+  {
+      addonmodulesinstalled = addonmodulesinstalled.toUpperCase();
+      defaultpage = doActionEx ('DATA_GETCONFIGDATA','Result','ObjectName',addonmodulesinstalled,'ColName','value','RowName','DEFAULTPAGE');
+/*
+      write("<input type=image border=\"0\" src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm100_pmtsys.gif\" width=\"100\" height=\"19\" onClick=\"paymentsystems('" +defaultpage  + "'); return false;\">");
+*/
+write("<a href=\"javascript:paymentsystems('" + defaultpage  + "')\"><img border=\"0\" src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm100_pmtsys.gif\" width=\"100\" height=\"19\" alt=\"Payment Systems...\"></a>");
+
+  }
+</script>
+<!--
+      <input type=image src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm100_pmtsys.gif" width="100" height="19" onClick=paymentsystems()>
+-->
+      </span></p>
+    </td>
+    <td colspan="3" height="72" nowrap>
+      <div align="center">
+
+<!--
+        <input type="checkbox" name="checkbox622" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','onlineccshopperemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccshopperemail\" value=\"onlineccshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccshopperemail\" value=\"onlineccshopperemail\">");
+     }
+*/
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'OnlineCC_OrderConf_Shopper',0))
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccshopperemail\" value=\"onlineccshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccshopperemail\" value=\"onlineccshopperemail\">");
+     }
+</SCRIPT>
+
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+      <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('OnlineCreditCard_Shopper')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('OnlineCC_OrderConf_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template">
+-->
+        </span></div>
+    </td>
+    <td height="72" width="21%" nowrap>
+      <div align="center">
+
+<!--
+        <input type="checkbox" name="checkbox6222" value="checkbox">
+-->
+
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','onlineccowneremail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccowneremail\" value=\"onlineccowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccowneremail\" value=\"onlineccowneremail\">");
+     }
+*/
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'OnlineCC_OrderConf_Merchant',0))
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccowneremail\" value=\"onlineccowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccowneremail\" value=\"onlineccowneremail\">");
+     }
+</SCRIPT>
+
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+      <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('OnlineCreditCard_Owner')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('OnlineCC_OrderConf_Merchant')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template">
+-->
+      </span>
+      </div>
+    </td>
+    <td height="72" width="29%" nowrap>
+      <div align="center">
+
+<!--
+        <input type="checkbox" name="checkbox6223" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','onlineccshipmentemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccshipmentemail\" value=\"onlineccshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccshipmentemail\" value=\"onlineccshipmentemail\">");
+     }
+*/
+     if (!IsTemplateOn('ON_ORDER_SHIPPED', 'OnlineCC_OrderShip_Shopper',0))
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccshipmentemail\" value=\"onlineccshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"onlineccshipmentemail\" value=\"onlineccshipmentemail\">");
+     }
+</SCRIPT>
+
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+      <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('OnlineCreditCard_Shipment')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('OnlineCC_OrderShip_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template">
+-->
+       </span>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="general-label" width="30%" nowrap height="64"><span class="general-label">
+
+<SCRIPT runat="merc_server">
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','offline_credit_card_auth');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccauth\" value=\"offlineccauth\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccauth\" value=\"offlineccauth\">");
+     }
+</SCRIPT>
+      Accept Credit Cards<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offline</span></td>
+    <td colspan="3" height="64" nowrap>
+      <div align="center"><span class="general-label">
+<!--
+        <input type="checkbox" name="checkbox6224" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','offlineccshopperemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccshopperemail\" value=\"offlineccshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccshopperemail\" value=\"offlineccshopperemail\">");
+     }
+*/
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'OfflineCC_OrderConf_Shopper',1))
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccshopperemail\" value=\"offlineccshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccshopperemail\" value=\"offlineccshopperemail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+      <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('OfflineCreditCard_Shopper')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('OfflineCC_OrderConf_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template">
+-->
+        </span></div>
+    </td>
+    <td width="21%" height="64" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="checkbox6225" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','offlineccowneremail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccowneremail\" value=\"offlineccowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccowneremail\" value=\"offlineccowneremail\">");
+     }
+*/
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'OfflineCC_OrderConf_Merchant',1))
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccowneremail\" value=\"offlineccowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccowneremail\" value=\"offlineccowneremail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+      <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('OfflineCheck_Owner')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('OfflineCC_OrderConf_Merchant')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template">
+-->
+        </span> </div>
+    </td>
+    <td width="29%" height="64" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="checkbox6226" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','offlineccshipmentemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccshipmentemail\" value=\"offlineccshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccshipmentemail\" value=\"offlineccshipmentemail\">");
+     }
+*/
+     if (!IsTemplateOn('ON_ORDER_SHIPPED', 'OfflineCC_OrderShip_Shopper',1))
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccshipmentemail\" value=\"offlineccshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlineccshipmentemail\" value=\"offlineccshipmentemail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+      <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('OfflineCheck_Shipment')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('OfflineCC_OrderShip_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template">
+-->
+        </span> </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="general-label" width="30%" height="64" nowrap><span class="general-label">
+
+<SCRIPT runat="merc_server">
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','offline_checks');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"offlinechecks\" value=\"offlinechecks\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlinechecks\" value=\"offlinechecks\">");
+     }
+</SCRIPT>
+     Accept Offline Checks</span></td>
+    <td colspan="3" height="64" nowrap>
+      <div align="center" class="general-label">
+<!--
+        <input type="checkbox" name="checkbox6227" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','offlinecheckshopperemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckshopperemail\" value=\"offlinecheckshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckshopperemail\" value=\"offlinecheckshopperemail\">");
+     }
+*/
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'Check_OrderConf_Shopper',2))
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckshopperemail\" value=\"offlinecheckshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckshopperemail\" value=\"offlinecheckshopperemail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+      <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('OfflineCheck_Shopper')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('Check_OrderConf_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template">
+-->
+      </span></div>
+    </td>
+    <td height="64" width="21%" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="checkbox6228" value="checkbox">
+-->
+
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','offlinecheckowneremail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckowneremail\" value=\"offlinecheckowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckowneremail\" value=\"offlinecheckowneremail\">");
+     }
+*/
+
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'Check_OrderConf_Merchant',2))
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckowneremail\" value=\"offlinecheckowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckowneremail\" value=\"offlinecheckowneremail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+      <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('OfflineCheck_Owner')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('Check_OrderConf_Merchant')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template">
+-->
+	</span> </div>
+    </td>
+    <td height="64" width="29%" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="checkbox6229" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','offlinecheckshipmentemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckshipmentemail\" value=\"offlinecheckshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckshipmentemail\" value=\"offlinecheckshipmentemail\">");
+     }
+*/
+
+     if (!IsTemplateOn('ON_ORDER_SHIPPED', 'Check_OrderShip_Shopper',2))
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckshipmentemail\" value=\"offlinecheckshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"offlinecheckshipmentemail\" value=\"offlinecheckshipmentemail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+       <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('OfflineCheck_Shipment')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('Check_OrderShip_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template">
+-->
+	</span> </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="general-label" width="30%" height="50" nowrap>
+<!--
+<SCRIPT runat="merc_server">
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','cod');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"COD\" value=\"COD\" checked>");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"COD\" value=\"COD\">");
+     }
+</SCRIPT>
+-->
+      C.O.D. Accept:<br>
+      &nbsp;&nbsp;&nbsp;
+<SCRIPT runat="merc_server">
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','cod_creditcard');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"COD_CREDITCARD\" value=\"COD_CREDITCARD\" checked ");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"COD_CREDITCARD\" value=\"COD_CREDITCARD\" ");
+     }
+
+     write (">");
+
+</SCRIPT>
+      Credit Cards<br>
+      &nbsp;&nbsp;&nbsp;
+
+<SCRIPT runat="merc_server">
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','cod_check');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"COD_CHECK\" value=\"COD_CHECK\" checked ");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"COD_CHECK\" value=\"COD_CHECK\" ");
+     }
+
+     write (">");
+</SCRIPT>
+      Checks<br>
+      &nbsp;&nbsp;&nbsp;
+
+<SCRIPT runat="merc_server">
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','cod_cash');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"COD_CASH\" value=\"COD_CASH\" checked ");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"COD_CASH\" value=\"COD_CASH\" ");
+     }
+
+     write (">");
+</SCRIPT>
+      Cash<br>
+      &nbsp;&nbsp;&nbsp;
+<SCRIPT runat="merc_server">
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','cod_moneyorder');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"COD_MONEYORDER\" value=\"COD_MONEYORDER\" checked ");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"COD_MONEYORDER\" value=\"COD_MONEYORDER\" ");
+     }
+
+     write (">");
+</SCRIPT>
+      Money Orders<br>
+      &nbsp;&nbsp;&nbsp;
+<SCRIPT runat="merc_server">
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','cod_cashierscheck');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"COD_CASHIERSCHECK\" value=\"COD_CASHIERSCHECK\" checked ");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"COD_CASHIERSCHECK\" value=\"COD_CASHIERSCHECK\" ");
+     }
+
+     write (">");
+</SCRIPT>
+      Cashier's Checks<br>
+    </td>
+    <td colspan="3" height="50" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="checkbox62210" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','codshopperemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"codshopperemail\" value=\"codshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"codshopperemail\" value=\"codshopperemail\">");
+     }
+*/
+
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'COD_OrderConf_Shopper',3))
+     {
+	write ("<input type=\"checkbox\" name=\"codshopperemail\" value=\"codshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"codshopperemail\" value=\"codshopperemail\">");
+     }
+
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+       <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('COD_Shopper')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('COD_OrderConf_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"> </span>
+-->
+      </div>
+    </td>
+    <td height="50" width="21%" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="checkbox62211" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','codowneremail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"codowneremail\" value=\"codowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"codowneremail\" value=\"codowneremail\">");
+     }
+*/
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'COD_OrderConf_Merchant',3))
+     {
+	write ("<input type=\"checkbox\" name=\"codowneremail\" value=\"codowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"codowneremail\" value=\"codowneremail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+       <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('COD_Owner')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('COD_OrderConf_Merchant')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"> </span>
+-->
+      </div>
+    </td>
+    <td height="50" width="29%" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="checkbox62212" value="checkbox">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','codshipmentemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"codshipmentemail\" value=\"codshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"codshipmentemail\" value=\"codshipmentemail\">");
+     }
+*/
+
+     if (!IsTemplateOn('ON_ORDER_SHIPPED', 'COD_OrderShip_Shopper',3))
+     {
+	write ("<input type=\"checkbox\" name=\"codshipmentemail\" value=\"codshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"codshipmentemail\" value=\"codshipmentemail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+       <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('COD_Shipment')>
+
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('COD_OrderShip_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"> </span>
+-->
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="general-label" width="30%" height="50" nowrap>
+<SCRIPT runat="merc_server">
+     result = "NO";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','purchaseorder');
+     if (result == 'YES')
+     {
+	write ("<input type=\"checkbox\" name=\"PURCHASEORDER\" value=\"PURCHASEORDER\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"PURCHASEORDER\" value=\"PURCHASEORDER\">");
+     }
+</SCRIPT>
+      Purchase Orders</td>
+    <td colspan="3" height="50" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="POShopperEditEmailchkbox" value="NO">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','poshopperemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"poshopperemail\" value=\"poshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"poshopperemail\" value=\"poshopperemail\">");
+     }
+*/
+
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'PO_OrderConf_Shopper',8))
+     {
+	write ("<input type=\"checkbox\" name=\"poshopperemail\" value=\"poshopperemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"poshopperemail\" value=\"poshopperemail\">");
+     }
+
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+        <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('PO_Shopper')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('PO_OrderConf_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+        </span>
+      </div>
+    </td>
+    <td height="50" width="21%" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="POOwnerEditEmailchkbox" value="NO">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','poowneremail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"poowneremail\" value=\"poowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"poowneremail\" value=\"poowneremail\">");
+     }
+*/
+
+     if (!IsTemplateOn('ON_ORDER_CREATED', 'PO_OrderConf_Merchant',8))
+     {
+	write ("<input type=\"checkbox\" name=\"poowneremail\" value=\"poowneremail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"poowneremail\" value=\"poowneremail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+       <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('PO_Owner')>
+
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('PO_OrderConf_Merchant')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"> </span>
+-->
+      </div>
+    </td>
+    <td height="50" width="29%" nowrap>
+      <div align="center">
+<!--
+        <input type="checkbox" name="POShipmentEditEmailchkbox" value="NO">
+-->
+<SCRIPT runat="merc_server">
+/*
+     result = "YES";
+     result = doActionEx('DATA_GETCONFIGDATA','Result','ObjectName','PAYMENT','ColName','value','RowName','poshipmentemail');
+     if (result == 'NO')
+     {
+	write ("<input type=\"checkbox\" name=\"poshipmentemail\" value=\"poshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"poshipmentemail\" value=\"poshipmentemail\">");
+     }
+*/
+
+
+     if (!IsTemplateOn('ON_ORDER_SHIPPED', 'PO_OrderShip_Shopper',8))
+     {
+	write ("<input type=\"checkbox\" name=\"poshipmentemail\" value=\"poshipmentemail\" checked >");
+     }
+     else
+     {
+	write ("<input type=\"checkbox\" name=\"poshipmentemail\" value=\"poshipmentemail\">");
+     }
+</SCRIPT>
+        <span class="general-label">Don't Send<br>
+        <br>
+<!--
+        <img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"> </span>
+-->
+<!--
+       <input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" onClick=EmailEditor('PO_Shipment')>
+-->
+<!-- Test for Email Edutor -->
+<p><a href="javascript:edit_template('PO_OrderShip_Shopper')"><img border=0 src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_editletter.gif" width="90" height="21" alt="Edit Template"></a></p>
+
+
+      </div>
+    </td>
+  </tr>
+</table>
+<br>
+<div align="center">
+<!--
+<p><input type=image border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" width="90" height="21" name=sm_payment_save_btn onClick="savepaymentoptions();return false;"></p>
+  <p>&nbsp; </p>
+-->
+
+<a href="javascript:savepaymentoptions()"><img border="0" src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif" width="90" height="21" name="sm_payment_save_btn" alt="Save"></a>
+</div>
+</FORM>
+</body>
+</html>

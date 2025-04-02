@@ -1,0 +1,354 @@
+<html>
+<head>
+<title>Schedule-Hours of Operation</title>
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+<merc_dynamic noshow=true name=dyn_ImagePath action=DATA_GETLITERAL return=Result ObjectName=storecfg LiteralID=imagepath>
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+<SCRIPT LANGUAGE="JavaScript" src="SiteEditor.js"></SCRIPT>
+<!--bm_schedule-unavailable.htm-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Begin
+var months = new Array("January","February","March","April","May","June",
+		"July","August","September","October","November","December");
+var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+var clickedMonth = -1;
+var clickedDay = -1;
+var clickedYear = -1;
+var clickedDayofWeek = -1;
+
+	function setGridPos(month, day, year)
+	{
+		clickedMonth = month;
+		clickedDay = day;
+		clickedYear = year;
+		// Use date format to determine day of week
+		var date = new Date(); // date
+		date.setYear(clickedYear);
+		date.setMonth(clickedMonth);
+		date.setDate(clickedDay);
+		clickedDayofWeek=date.getDay();
+
+		document.forms[0].selected_date.value = days[clickedDayofWeek] + ", " + months[clickedMonth] + " " + clickedDay + ", " + clickedYear;
+	}
+	function getGridPosition()
+	{
+		if (clickedMonth >= 0 && clickedDay >= 0 && clickedYear >= 0 && clickedDayofWeek >= 0 )
+		{
+			document.forms[0].val1.value = clickedYear;
+			document.forms[0].val2.value = clickedMonth;
+			document.forms[0].val3.value = clickedDay;
+			document.forms[0].val4.value = clickedDayofWeek;
+			document.forms[0].action.value = "ADD";
+			parent.SubmitForm('L','bm_schedule_pr.js','mainFrame', document.calendar );
+		}
+		else
+			alert("You Must select a day from the calendar in order to add the date to the list below");
+	}
+	function setMonth(newValue)
+	{
+		document.forms[0].month1.value = newValue;
+		parent.SubmitForm('L','bm_schedule-unavailable.htm','mainFrame', document.calendar );
+	}
+	function setFindMonth()
+	{
+		// Initialize in case the following IF statements are invalid...
+		document.forms[0].month1.value = "";
+		document.forms[0].year1.value = "";
+
+		var fieldList = document.forms[0].searchmonth;
+		if (document.forms[0].searchmonth.selectedIndex > -1)
+			document.forms[0].month1.value = fieldList.options[document.forms[0].searchmonth.selectedIndex].value; //gets the option value
+		var fieldList = document.forms[0].searchyear;
+		if (document.forms[0].searchyear.selectedIndex > -1)
+			document.forms[0].year1.value = fieldList.options[document.forms[0].searchyear.selectedIndex].value; //gets the option value
+		parent.SubmitForm('L','bm_schedule-unavailable.htm','mainFrame', document.calendar );
+	}
+	function deleteScheduleRow(id)
+	{
+		document.forms[0].val1.value = id;
+		document.forms[0].action.value = "DEL";
+		parent.SubmitForm('L','bm_schedule_pr.js','mainFrame', document.calendar );
+	}
+	function saveForm()
+	{
+		if (!validateTimes('calendar', 'start', 'stop', document.calendar.schedule_array.value.split(",")))
+			return false;
+		document.forms[0].action.value = "SAVE";
+		parent.SubmitForm('L','bm_schedule_pr.js','mainFrame', document.calendar );
+	}
+
+// End -->
+</SCRIPT>
+</head>
+<SCRIPT runat="merc_server">
+
+	var incJsFile = doActionEx('DATA_READFILE','Services.js', 'FileName', 'Services.js','ObjectName','Site','FileType','txt');
+	eval (incJsFile);
+
+</script>
+
+<body class="bkgrd-main-items" onLoad=document.calendar.searchmonth.focus()>
+
+<table width="100%" border="0">
+  <tr>
+    <td><span class="header">Schedule - Hours and Availability</span></td>
+<!--HELP WINDOW LINK-->
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<td align="right">
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SCHD_HOURS_CLOSED+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" name="help" alt="Help" align="right">
+</a>
+</td>
+<!--END HELP WINDOW LINK-->
+	</tr>
+	<tr>
+        <td colspan="5" height="17" class="instr-note">Specific Days Closed
+          (Full or Part - vacation, holidays)</td>
+      </tr>
+
+  </tr>
+</table>
+<br>
+
+<form name="calendar">
+  <div align="center">
+
+<SCRIPT runat="merc_server">
+	writeln("<input type='hidden' name='month1' value='" + dispMonth1 + "'>");
+	writeln("<input type='hidden' name='year1' value='" + dispYear1 + "'>");
+	writeln("<input type='hidden' name='action' value=''>");
+	writeln("<input type='hidden' name='val1' value=''>");
+	writeln("<input type='hidden' name='val2' value=''>");
+	writeln("<input type='hidden' name='val3' value=''>");
+	writeln("<input type='hidden' name='val4' value=''>");
+	writeln("<input type='hidden' name='val5' value=''>");
+</script>
+
+	<table width="640" border="1" cellspacing="0" cellpadding="2" >
+      <tr>
+        <td colspan="5" height="389">
+          <div align="center">
+            <p><span class="general-label">
+<SCRIPT runat="merc_server">
+
+	write("<a href=\"javascript:setMonth('');\">");
+	writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_today.gif\" width=\"90\" height=\"21\" align=\"absmiddle\" border=\"0\" alt=\"Today\"></a>");
+	writeln("&nbsp;&nbsp;&nbsp;&nbsp;Find month/year:</span>");
+
+	var todayDate=new Date();
+	todayYear = todayDate.getYear();
+	todayYear = todayYear % 100;
+	todayYear = ((todayYear < 50) ? (2000 + todayYear) : (1900 + todayYear));
+
+	writeln("<select name='searchmonth'>");
+	for (var i=0; i < 12; i++)
+	{
+		if (i == todayDate.getMonth())
+			writeln("<option value='" + i + "' SELECTED>" + months[i] + "</option>");
+		else
+			writeln("<option value='" + i + "'>" + months[i] + "</option>");
+	}
+	writeln("</select>");
+	writeln("<select name='searchyear'>");
+	for (var i=todayYear; i < todayYear+10; i++)
+	{
+		if (i == todayYear)
+			writeln("<option value='" + i + "' SELECTED>" + i + "</option>");
+		else
+			writeln("<option value='" + i + "'>" + i + "</option>");
+	}
+	writeln("</select>");
+
+	write("<a href=\"javascript:setFindMonth();\">");
+	writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_find.gif\" width=\"90\" height=\"21\" align=\"absmiddle\" border=\"0\" alt=\"Find\"></a>");
+
+	writeln("            </p>\n\
+            <table width='70%' border='0'>\n\
+              <tr>\n\
+                <td nowrap align='center'>");
+
+	write("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/1x1.gif\" width=\"20\" height=\"1\">");
+	write("<a href=\"javascript:setMonth(" + eval(dispMonth1 - 1) + ");\">");
+	writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btn_nav_back.gif\" width=\"26\" height=\"21\" align=\"absmiddle\" border=\"0\" alt=\"Back\"></a>");
+	writeln("</td>");
+
+	writeln("<td>");
+	var cal = GetCalendar(dispMonth1, dispYear1);
+	write(cal);
+	writeln("</td>\n<td>");
+
+	var cal = GetCalendar(dispMonth2, dispYear2);
+	write(cal);
+	writeln("</td>");
+
+	write("<td nowrap align='left'><a href=\"javascript:setMonth(" + eval(dispMonth1 + 1) + ");\">");
+	writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btn_nav_next.gif\" width=\"26\" height=\"21\" align=\"absmiddle\" border=\"0\" alt=\"Next\"></a>");
+
+	writeln("</td>\n</tr><tr><td colspan=5>&nbsp;</td></tr><tr>\n<td colspan=3 align=center valign=center>\n\
+<p><input type='text' size='29' name='selected_date' value='' onFocus='this.blur()'> &nbsp; &nbsp; \
+<a href='javascript:getGridPosition();'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_addtolist.gif' width='90' height='21' align='absbottom' border='0' alt='Add To List'></a>");
+
+	writeln("		</td><td colspan=2><table>\n\
+					<tr><td bgcolor='#CC6666' width='15' nowrap>&nbsp</td>\n\
+						<td>&nbsp</td>\n\
+						<td>Closed</td></tr>\n\
+					<tr><td bgcolor='#33FF00' width='15'>&nbsp</td>\n\
+						<td>&nbsp</td>\n\
+						<td>Today</td></tr>\n\
+						\n</table>\n");
+
+</script>
+                </td>
+              </tr>
+			  <tr><td colspan=5>&nbsp;</td></tr>
+            </table>
+            <table width="93%" border="1" cellpadding="0" cellspacing="0">
+              <tr class="subheader">
+                <td width="28%" class="subheader">
+                  <div align="center">Day</div>
+                </td>
+                <td width="11%" class="subheader">
+                  <div align="center">Closed<br>
+                    All Day</div>
+                </td>
+                <td width="23%" class="subheader">
+                  <div align="center">Unavailable From</div>
+                </td>
+                <td width="24%" class="subheader">
+                  <div align="center">Unavailable To</div>
+                </td>
+                <td width="14%">&nbsp;</td>
+              </tr>
+<SCRIPT runat="merc_server">
+
+	// write the array of ids into a hidden field
+	write("<input type='hidden' name='schedule_array' value='");
+	for (var i=0; i < ScheduleCount; i++)
+	{
+		if ( i > 0 )
+			write(",",theSchedule[i].ID);
+		else
+			write(theSchedule[i].ID);
+	}
+	writeln("'>\n");
+
+	for (i=0; i < ScheduleCount; i++)
+	{
+		write("<input type='hidden' name='month_" + theSchedule[i].ID + "' value='"+theSchedule[i].month+"'>");
+		write("<input type='hidden' name='year_" + theSchedule[i].ID + "' value='"+theSchedule[i].year+"'>");
+		write("<input type='hidden' name='date_" + theSchedule[i].ID + "' value='"+theSchedule[i].date+"'>");
+		write("	<tr>\n\
+	<td width='28%' nowrap height='24'>\n\
+	  <div align='left'>");
+
+		writeln(theSchedule[i].ClosedDate,"</div>\n\
+<input type='hidden' name='text_date_",theSchedule[i].ID, "' value='", theSchedule[i].ClosedDate, "'>\n\
+	</td>\n	<td width='11%' nowrap height='24'>\n\
+	  <div align='center'>");
+
+		if (theSchedule[i].AllDay == 'Y')
+			writeln("		<input type='checkbox' name='closed_allday_", theSchedule[i].ID, "' value='Y' checked>");
+		else
+			writeln("		<input type='checkbox' name='closed_allday_", theSchedule[i].ID, "' value='Y'>");
+
+		writeln("	  </div>\n\
+	</td>\n\
+	<td width='23%' nowrap height='24'>\n\
+	  <div align='center'>\n\
+	<select name='start_hours_", theSchedule[i].ID, "'>\n\
+		<option> </option>");
+
+		for (var j=0; j < 12; j++)
+		{
+			if (theSchedule[i].OpenHour == parseInt(hours[j]))
+				writeln("		<option value='" + hours[j] + "' selected>" + hours[j] + "</option>");
+			else
+				writeln("		<option value='" + hours[j] + "'>" + hours[j] + "</option>");
+		}
+
+		writeln("		</select>");
+		writeln("	<select name='start_minutes_", theSchedule[i].ID, "'>\n\
+		<option> </option>");
+
+		for (var j=0; j < 12; j++)
+		{
+			if (theSchedule[i].OpenMin == parseInt(minutes2[j]) && theSchedule[i].AllDay != 'Y' && theSchedule[i].OpenHour != '0')
+				writeln("		<option value='" + minutes[j] + "'selected>" + minutes[j] + "</option>");
+			else
+				writeln("		<option value='" + minutes[j] + "'>" + minutes[j] + "</option>");
+
+		}
+		writeln("		</select>\n\	<select name='start_ampm_", theSchedule[i].ID, "'>");
+
+		if (theSchedule[i].OpenAMPM == 'PM')
+			writeln("		<option value='AM'>AM</option>\n		<option  value='PM' selected>PM</option>");
+		else
+			writeln("		<option value='AM' selected>AM</option>\n		<option value='PM'>PM</option>");
+
+		writeln("		</select>\n\
+		</div>\n\
+	</td>\n\
+	<td width='24%' nowrap height='24'>\n\
+	<div align='center'>\n\
+	<select name='stop_hours_", theSchedule[i].ID, "'>\n\
+		<option> </option>");
+
+		for (var j=0; j < 12; j++)
+		{
+			if (theSchedule[i].CloseHour == parseInt(hours[j]))
+				writeln("		<option value='" + hours[j] + "' selected>" + hours[j] + "</option>");
+			else
+				writeln("		<option value='" + hours[j] + "'>" + hours[j] + "</option>");
+		}
+
+		writeln("		</select>");
+		writeln("	<select name='stop_minutes_", theSchedule[i].ID, "'>\n\
+		<option> </option>");
+
+		for (var j=0; j < 12; j++)
+		{
+			if (theSchedule[i].CloseMin == parseInt(minutes2[j]) && theSchedule[i].AllDay != 'Y' && theSchedule[i].CloseHour != '0')
+				writeln("		<option value='" + minutes[j] + "' selected>" + minutes[j] + "</option>");
+			else
+				writeln("		<option value='" + minutes[j] + "'>" + minutes[j] + "</option>");
+
+		}
+		writeln("		</select>\n\	<select name='stop_ampm_", theSchedule[i].ID, "'>");
+
+		if (theSchedule[i].CloseAMPM == 'PM')
+			writeln("		<option value='AM'>AM</option>\n		<option value='PM' selected>PM</option>");
+		else
+			writeln("		<option value='AM' selected>AM</option>\n		<option value='PM'>PM</option>");
+
+		writeln("		</select>\n\
+		</div>\n\
+	</td>");
+
+		writeln("	<td width='14%' nowrap height='24'>\n\
+		<a href='javascript:deleteScheduleRow(", theSchedule[i].ID,");'><div align='center'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_delete.gif' width='60' height='19' border='0' alt='Delete'></a></div>\n\
+	</td>\n\
+	</tr>");
+
+	} // End of loop
+
+	writeln("	<tr>\n\
+	<td colspan='5' nowrap height='27'>\n\
+	<div align='center'><a href='javascript:void(saveForm());'><img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif' width='90' height='21' border='0' alt='Save'></a></div>\n\
+	</td>\n\
+	</tr>");
+
+</script>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <br>
+  </div>
+</form>
+</body>
+
+</html>

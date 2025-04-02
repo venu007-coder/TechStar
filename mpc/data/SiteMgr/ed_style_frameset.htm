@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Edit Style</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<merc_dynamic noshow=true name=SC_UseStyle action=REQ_GET_FORMVALUE UseStyle=UseStyle>
+<merc_dynamic noshow=true name=SC_LinkToPage action=REQ_GET_FORMVALUE LinkToPage=LinkToPage>
+<BASE href="{SC_BaseUrl}">
+<script language="JavaScript">
+<!--
+	var master_js = opener;
+//-->
+</script>
+
+</head>
+
+<frameset cols="500,200*" frameborder="YES" border="2" framespacing="0" onLoad = "
+var args = new Array ('UseStyle', 
+					'{SC_UseStyle}',
+					'LinkToPage',
+					'{SC_LinkToPage}');
+master_js.SubmitForm ('L', 'ed_style_left.htm', 'styleLeftFrame', args);"> 
+    <frame name="styleLeftFrame" src="blank2.htm" scrolling="NO" noresize marginwidth=0 marginheight=0>
+    <frame name="styleRightFrame" src="blank2.htm" marginwidth=0 marginheight=0>
+  </frameset>
+<noframes><body bgcolor="#FFFFFF">
+
+</body></noframes>
+</html>

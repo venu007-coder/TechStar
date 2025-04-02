@@ -1,0 +1,384 @@
+Return-Path: sameer@xperttech.com
+Received: from mx44.stngva01.us.mxservers.net (204.202.242.13)
+	by mail19b.g19.rapidsite.net (RS ver 1.0.95vs) with SMTP id 4-0950603139
+	for <abhra@altechstar.com>; Fri, 22 Apr 2011 10:38:59 -0400 (EDT)
+Received: from unknown [76.74.252.24] (EHLO rs78.luxhv.com)
+	by va1-mx44.stngva01.us.mxservers.net (mxl_mta-3.1.0-05)
+	with ESMTP id 30391bd4.916409248.982465.00-005.va1-mx44.stngva01.us.mxservers.net (envelope-from <sameer@xperttech.com>);
+	Fri, 22 Apr 2011 10:38:59 -0400 (EDT)
+Received: from ip-10-196-81-219.ec2.internal (ec2-184-72-246-77.compute-1.amazonaws.com [184.72.246.77])
+	(authenticated bits=0)
+	by rs78.luxhv.com (8.13.8/8.13.8) with ESMTP id p3MEchMX014922;
+	Fri, 22 Apr 2011 09:38:43 -0500
+Date: Fri, 22 Apr 2011 09:38:43 -0500 (GMT-05:00)
+From: Sameer Maharana <sameer@xperttech.com>
+To: sameer@xperttech.com
+Message-ID: <1303483123231.9355769849994384.sameer@xperttech.com>
+Subject: Business Objects reports developer // Madison, WI // 3 years //
+ Locals Preferred
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="=_reb-r7AA56F8A-t4DB19303"
+Importance: High
+X-Lux-Comment: Message p3MEchMX014922 sent by user #68993; report Spam, UCE, or Abuse to abuse@luxsci.us
+X-Lux-Comment: LuxSci High Volume Email: http://luxhv.com
+X-Processed-By: Rebuild v2.0-0
+X-Spam: [F=0.2000000000; B=0.500(0); S=0.200(2010122901); MH=0.500(2011042213)]
+X-MAIL-FROM: <sameer@xperttech.com>
+X-SOURCE-IP: [76.74.252.24]
+X-SF-Loop: 1
+
+This is a multi-part MIME message.
+
+--=_reb-r7AA56F8A-t4DB19303
+Content-Type: text/html; charset=ANSI_X3.4-1968
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"padding:3px" width=3D"100%" align=3D"right" id=3D"removeTopLi=
+nk"><a href=3D"http://portal.zoniacswift.com//servlet/ZoniacServlet?api=3Dg=
+etOutsideUnsubscribeContact&e66Ve62i57=3Dtrue&m9UCc1ucRi=3D540&h2BNp44yL7=
+=3D108734&h5p8pKsyMi8l0=3D0&h2ZNp64yM8=3Dnull&h2TNp86wP9=3D5&h2GQy54sI2=3D1=
+746" style=3D"font: 11px verdana;"><font style=3D"font: 11px verdana;" colo=
+r=3D"blue">Click here </font></a><span style=3D"font: 11px verdana;">to uns=
+ubscribe.</span></div>
+
+
+<style type=3D"text/css">
+
+		.font11 {color: black; font: 11px verdana}
+		.font11bold {color: black; font: bold 11px verdana}=09
+		TABLE {font: 12px verdana}
+	</style><br>
+<table border=3D"1" align=3D"center" width=3D"100%" cellpadding=3D"10" cell=
+spacing=3D"0" style=3D"border-left-color: #006aaf; border-bottom-color: #00=
+6aaf; border-top-color: #006aaf; border-collapse: collapse; border-right-co=
+lor: #006aaf">
+    <tbody>
+        <tr>
+            <td width=3D"100%">
+            <div id=3D"customerLogo"><img alt=3D"" border=3D"0" src=3D"cid:=
+GT47JPsQEu"></div>
+            <div style=3D"font: 12px verdana" id=3D"messagebody">&nbsp;</di=
+v>
+            <div style=3D"font: 12px verdana" id=3D"Signature">
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3" face=3D"Cal=
+ibri">Hi, </font></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3" face=3D"Cal=
+ibri">I have an immediate requirement opening for a <strong><span style=3D"=
+background: yellow">Business Objects reports developer position in Madison,=
+ WI for 3 years contract</span></strong>. <font style=3D"background-color: =
+#ffffff">I would appreciate if you could please send your updated word form=
+at resume along with best contact details ASAP.</font></font></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><font size=3D"3" fac=
+e=3D"Calibri">Here are the requirement details:</font></strong></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><span style=3D"color=
+: blue"><font size=3D"3" face=3D"Calibri">Position &nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Business Objects r=
+eports developer</font></span></strong></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><span style=3D"color=
+: blue"><font size=3D"3" face=3D"Calibri">Duration &nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 3 years </font></span></=
+strong></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><span style=3D"color=
+: blue"><font size=3D"3" face=3D"Calibri">Location &nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Madison, WI</font>=
+</span></strong></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3" face=3D"Cal=
+ibri">Location: Madison, WI. Note, candidates ideally need to be currently =
+in the upper mid-west for consideration (WI, IL, IA, MN, etc).</font></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><u><font size=3D"3" =
+face=3D"Calibri">SKILLS:</font></u></strong></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Excellent oral and written communi=
+cation skills</font></font></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Business Objects XI Release 2 and =
+Crystal Reports XI Release 2 ; Experience in Business Objects XI Release 2 =
+and Crystal Reports XI Release 2</font></font></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Ability to navigate and query a re=
+lational database (Oracle) to both develop reports and to perform data vali=
+dation using common tools including SQL/PLSQL.</font></font></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Crystal Reports</font></font></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Java Development with Eclipse</fon=
+t></font></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Web programming</font></font></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Experience with Oracle PL/SQL</fon=
+t></font></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Analysis and Design of Application=
+s</font></font></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><u><font size=3D"3" =
+face=3D"Calibri">NICE TO HAVE SKILLS:</font></u></strong></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Government domain</font></font></d=
+iv>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Government domain - State of Wisco=
+nsin</font></font></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><u><font size=3D"3" =
+face=3D"Calibri">OVERVIEW: </font></u></strong></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">This role is focused on complex re=
+port development in the business objects framework.</font></font></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Plans, develops, tests, and docume=
+nts computer programs, applying knowledge of programming techniques and com=
+puter systems. Evaluates user request for new or modified program, such as =
+for financial or human resource management systems, clinical research trial=
+ results, statistical study of traffic patterns, or analyzing and developin=
+g specifications for bridge design, to determine feasibility, cost and time=
+ required, compatibility with current system, and computer capabilities. Co=
+nsults with user to identify current operating procedures and clarify progr=
+am objectives. Formulates plan outlining steps required to develop program,=
+ using methodologies such as structured analysis and design or object-orien=
+ted development. Captures requirements using industry standard development =
+frameworks and tools. Designs reports, forms and letters along with compute=
+r terminal screen displays to accomplish goals of user request. Reviews scr=
+eens, reports, forms and letters designs with users. Converts project speci=
+fications, using industry standard tools, such as object-oriented tools and=
+ code generation, into sequence of detailed instructions and logical steps =
+for coding into language process able by computer, applying knowledge of co=
+mputer programming techniques and computer languages. </font></font></div>
+            <div style=3D"margin: 0in 0in 0pt 0.5in; text-indent: -0.25in">=
+<font size=3D"3"><span style=3D"font-family: Symbol">&middot;<span style=3D=
+"font: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; </span></span><font face=3D"Calibri">Enters program codes into computer=
+ system. Enters commands into computer to run and test program. Reads compu=
+ter printouts or observes display screen to detect syntax or logic errors d=
+uring program test, or uses diagnostic software to detect errors. Replaces,=
+ deletes, or modifies codes to correct errors. Analyzes, reviews and alters=
+ program to increase operating efficiency or adapt to new requirements. Wri=
+tes documentation to describe program development, logic, coding, and corre=
+ctions. Writes manual for users to describe installation and operating proc=
+edures. Assists users to solve operating problems. Programmer-Analyst capab=
+ilities with 8 or more years of experience. </font></font></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><a name=3D"_MailAutoSig"><sp=
+an style=3D"font-size: 10pt; color: black; font-family: 'Cambria','serif'">=
+<font size=3D"3">Thanks/Regards,</font></span></a></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><span style=3D"font-=
+size: 16pt; color: green; font-family: 'Trebuchet MS','sans-serif'"><font s=
+ize=3D"3">SAMEER</font></span><span style=3D"color: navy; font-family: 'Cam=
+bria','serif'"><font size=3D"3">,</font></span><span style=3D"color: navy; =
+font-family: 'Cambria','serif'"><br>
+            </span></strong></div>
+            <div style=3D"margin: 0in 0in 0pt"><span style=3D"font-size: 10=
+pt; color: black; font-family: 'Cambria','serif'"><font size=3D"3">400 W Cu=
+mmings Park,</font></span></div>
+            <div style=3D"margin: 0in 0in 0pt"><span style=3D"font-size: 10=
+pt; color: black; font-family: 'Cambria','serif'"><font size=3D"3">Suite # =
+2850</font></span></div>
+            <div style=3D"margin: 0in 0in 0pt"><span style=3D"font-size: 10=
+pt; color: black; font-family: 'Cambria','serif'"><font size=3D"3">Woburn, =
+MA-01801</font></span></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3"><span style=
+=3D"font-size: 10pt; color: black; font-family: 'Cambria','serif'">Email:</=
+span><u><span style=3D"font-size: 10pt; color: blue; font-family: 'Cambria'=
+,'serif'">sameer@xperttech.com</span></u></font></div>
+            <div style=3D"margin: 0in 0in 0pt"><span style=3D"font-size: 10=
+pt; color: black; font-family: 'Cambria','serif'"><font size=3D"3">Ph# 781-=
+399-4354 | Fax # 781 207 0709 | </font></span><a href=3D"http://www.xpertte=
+ch.com/" title=3D"blocked::http://www.xperttech.com/"><span style=3D"font-s=
+ize: 10pt; color: blue; font-family: 'Cambria','serif'"><font size=3D"3">ww=
+w.xperttech.com</font></span></a></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><font size=3D"3">&nb=
+sp;</font></strong></div>
+            <div style=3D"margin: 0in 0in 0pt"><strong><span style=3D"font-=
+size: 8pt; color: #1f497d; font-family: 'Arial','sans-serif'"><font size=3D=
+"3">IMPORTANT NOTE</font></span><font size=3D"3"><span style=3D"font-size: =
+8pt; color: #1f497d; font-family: 'Arial','sans-serif'">: If you have recei=
+ved this email in error or prefer not to receive such emails in future, ple=
+ase reply with &quot;&quot;</span><span style=3D"font-size: 8pt; color: red=
+; font-family: 'Arial','sans-serif'">Remove</span><span style=3D"font-size:=
+ 8pt; color: #1f497d; font-family: 'Arial','sans-serif'">&quot;&quot; in th=
+e subject line and the email-id(s) to be removed. All removal requests will=
+ be honored ASAP.</span></font></strong></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3"><span style=
+=3D"font-size: 8pt; color: green; font-family: Webdings">P </span><font fac=
+e=3D"Calibri"><span style=3D"font-size: 8pt; color: green">Please consider =
+the environment - do you really need to print this email?</span></font></fo=
+nt></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            <div style=3D"margin: 0in 0in 0pt"><font size=3D"3">&nbsp;</fon=
+t></div>
+            </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style=3D"padding:3px" width=3D"100%" align=3D"center" id=3D"removeLink=
+"><a href=3D"http://portal.zoniacswift.com//servlet/ZoniacServlet?api=3Dget=
+OutsideUnsubscribeContact&e66Ve62i57=3Dtrue&m9UCc1ucRi=3D540&h2BNp44yL7=3D1=
+08734&h5p8pKsyMi8l0=3D0&h2ZNp64yM8=3Dnull&h2TNp86wP9=3D5&h2GQy54sI2=3D1746"=
+ class=3D"font10"><font color=3D"blue">Click here </font></a><span class=3D=
+"font10">to unsubscribe from our mailing list.</span><br><span class=3D"fon=
+t10">XPERTTECH  Inc, 400 W Cummings Park, Suite #2850, Woburn, Massachusett=
+s, 01801      Phone: 781 935 3775 Fax: 978-405-5040</span></div>
+<div style=3D"display:block;" width=3D"100%" align=3D"center"><table width=
+=3D"100%" align=3D"center"><tr><td align=3D"right" width=3D"55%"><a target=
+=3D"_new" href=3D"http://www.zoniac.com" style=3D"vertical-align: text-top;=
+"><font style=3D"vertical-align: text-top;">Powered by Zoniac</font></a></t=
+d><td align=3D"left" width=3D"45%"><IMG align=3D"bottom" height=3D"20" widt=
+h=3D"20" border=3D"0" SRC=3D"cid:tZA1yssGmL"></td></tr></table></div><div i=
+d=3D"removeLinkDummy1"></div><div id=3D"removeLinkDummy2"></div><div id=3D"=
+removeLinkDummy3"></div><div id=3D"removeLinkDummy4"></div><div id=3D"remov=
+eLinkDummy5"></div><div id=3D"removeLinkDummy6"></div>
+
+--=_reb-r7AA56F8A-t4DB19303
+Content-Type: image/gif; name="/Companies/540/custom/customerLogo.gif"
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; 
+	filename="/Companies/540/custom/customerLogo.gif"
+Content-ID: <GT47JPsQEu>
+
+R0lGODlh0AA7APcAAAAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABV
+MwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADV
+MwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMr
+MzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOq
+MzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYA
+M2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaA
+M2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/
+M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlV
+M5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnV
+M5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwr
+M8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyq
+M8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8A
+M/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+A
+M/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//
+M///Zv//mf//zP///wAAAAAAAAAAAAAAACH5BAEAAPwALAAAAADQADsAAAj/APcJHEiwoMGB
+mQ4qXJhwocOHECNKnEixosWLGA1mSiMp475MYsR4HEmypMmTKAlulJQmDUaQaNCITEmzps2b
+GTNNmpQG0yQ0FkGmQTNGJs6jSJPe3NgzzU+eFDWJQcNoaMyZSrNq3RpR5yRMTt/wZCmRWEyr
+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
+9eeFZFiGBxgQADs=
+
+--=_reb-r7AA56F8A-t4DB19303
+Content-Type: image/gif; name="/custom/UnsubscribedPoweredByImg.gif"
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename="/custom/UnsubscribedPoweredByImg.gif"
+Content-ID: <tZA1yssGmL>
+
+R0lGODlhJgAlAPcAAAAAAP///yRfkfDw8FFARGliZSgnQhgYGUBAQbKys6CgoZycnQABEgIG
+ICBAkCFCkiNDkiNBkCRCkCRAgyFDkCBGkSBChiBAgpqgqNXa4ZufpLG5wgFAgQQIDA4SFhIU
+FmVwe7C0uDQ1NouNj4CBgtna28XGxyJHaC9KYjNNZUlecQVAdCFfkxtNeCNiliNglCNgkyJc
+jyFbjCVkmyNfkiNekSFaiSRgkyViliVhlSdkmCdjlidilCZhkSlklipmmSljlSlikSdciSlg
+jyFNciVVfipfjCxchCZOcSVLbDNolC1ZfixWei1TdCpMaSdGYRovQS9RbiE3SiY+UztZczdT
+az1TZSk0PUlZZlFhbl1qdXB8hiBfkSRag0RXZkxdamt1fbzEymtyd5KVlwBAaBhQcCFghIaR
+l7S5vCFQaRIiKiBMYCFSZQFUcARVZsLLzGtsbPP09O/w8DSEghlSQUFYUQRAIgAYBAZADICE
+gMDBwAghACBVAyFAESBCCCFAAhQkACpACMTFwjExJdjY0EJCQIqKiGJiYeXl5JiYlyYeA0pJ
+R/b18+zq5yUjIWBdWi4tLIaEgrKwrv/9++nn5eXj4fv6+d3c25iVk8jEwnVzcrq4t/37+vr4
+9/n39uLg39za2dnX1vXy8UACARQSEisqKoaEhOLg4Pf29vb19dnY2NTT09HQ0P7+/vz8/Pv7
++/j4+PT09PLy8vHx8e/v7+3t7evr6+jo6Obm5uLi4uDg4N7e3tzc3Nvb29bW1s7Ozs3NzcnJ
+ycbGxsXFxcLCwr29vbm5ubW1tbGxsa6urqqqqqenp6KiopaWlpKSkpGRkY6OjoeHh4SEhH5+
+fnp6enV1dXFxcW9vb2xsbGtra2hoaGZmZmRkZGJiYmBgYF9fX1dXV1VVVVNTU1BQUExMTEhI
+SEZGRkVFRUNDQz8/Pzw8PDs7OzY2NjU1NTMzMzExMS8vLywsLCkpKScnJyUlJSIiIiAgIB4e
+HhYWFhISEgoKCgYGBgQEBAICAgEBAf///yH5BAEAAP8ALAAAAAAmACUAAAj/AAMIHEiwoMGD
+CBMqXMhQgMOHEB3imKLGiIuIGDMOzAixhhIs6aQEocGx5MaSXMyQiTTIABs/FEpqFChTApEz
+n1hFwwQGj0yMJzl2UWECUTBf3zK0efETYtCMF8Qw2iUswLZNdIYwbSrgKUY+klz1qooMzjEU
+MW5w9doRz61UvYYFuHUI2JkTN2o0ZfvQRQdUscYKlGZowBYmO/TK5CvgAZ5RsuIEI4bKWCEA
+sE4RcHOBy2KaGWtQQeNqwDJx6u7NowdrlqUNVYJ45siXhg0Qb6atowdv3LV2+4bBGtBJgxMI
+GT3zdRElHCl45Lxd4/YOH4lpr2bFEUXiT8YKPNh6/1TjCEG2bNrKyQMwrsQ3XqgGxGq0YqsA
+Gjl0KCrC1gWTD4togw049JQDDQDRBGANM8MN4EkdRuRQwww+HAFFAzGwBQQV1ZSiDTvxUCPM
+NvnIVQw3tMwywAB6WBHDD0lI4QEUZtzgVQRlqEFJPwCE88sp/OTzjkCtHHBOLIjMcg4DgOyx
+xx2BUOBAV6A9JMMXucRBSy6yWIKMPPToMdAu3+RiCzbvmAOJCETM4FSVArDAxDOwpDiAduPA
+kw4tA7WyDTO7zIPAOwuAgkULFzkUFBc+oMBKKisO8MoypbBDzUC5UFMPN4iMo48qrXASRgpC
+kERlAA85UMQWtMgSqS3noP8TDzICmfKOO9+k84svy6BCixyThJACEMpVKUEUCVhyp4rLyDMO
+ArkEkEw94XgDTz3TBBBLpLJ0MoYTUwbFgRaVQLqiLuWYc443wYhzTzkI0CPNKuLwEukAtGi5
+RR+nPvTHGeeuCMAB2vizjz3xAkBOMaiggo4+uuhyisS63JIHvyexwAcj97ZSijfaWIPNOvNI
+UwtBlmiDzL2oqPLFBf3WoIMd8d3ZsnnZjPMOOMActIA1stByp7dISNDvC10UsK2Wv1RjTzfv
+lNKMKwW1IhAt42w7ACqheDFEsaju0AQGs6ByijHCwFtPNbYsRIIlQnsyAhKJDnSDDVkQIgsr
+CeBxckw+BxRzkNUEjWOLLJ68UUUPig3EwhLS2KJHMbMEkA4+zjAkEDbKtIIKGC3YN9AEaWSi
+ADCvBICKMqdoLpAC3ggyxxoWzHaqE9BcQrjrBiVyyBM6RDTQFY8k8szxyCev/PLHa3LFETAI
+z/v01FevUEAAOw==
+
+--=_reb-r7AA56F8A-t4DB19303--
+

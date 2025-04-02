@@ -1,0 +1,543 @@
+<script runat="merc_server">
+
+	var DestinationHTML = "zoneshipping.html";
+	var InWizard = false; // innocent until proven guilty
+	var CommerceWizPage = doAction('DATA_GETCONFIGDATA', 'ObjectName', 'CommerceWizCfg', 'RowName', 'WizardState', 'ColName', 'Value');
+	if (CommerceWizPage < 9)
+	{
+		// Must be in commerce Wizard.
+		DestinationHTML = "comwiz_" + CommerceWizPage + ".htm";
+		InWizard = true;
+	}
+
+//include Formatting Library
+	var cs_inc = doActionEx ('DATA_READFILE','FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName',
+		    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc)
+
+//inlcude ZoneShippingLib.js file
+	var cs_inc2 = doActionEx ('DATA_READFILE','ZoneShippingLib.js', 'FileName', 'ZoneShippingLib.js','ObjectName',
+		    'JS_SRC', 'FileType', 'txt');
+	eval (cs_inc2);
+		
+		
+//var LOCALE_STRING="en";
+var LOCALE_STRING=getBrowserLocale();
+var PRECISION = getDefaultPrecision();
+var g_MAX_VALUE = -1;
+
+	//DEFINE CONSTANT for Threshold Model
+	var THRESHOLD_ID = '1';
+
+	var mode= doAction('REQ_GET_FORMVALUE', "mode", "mode");
+	var zoneID= doAction('REQ_GET_FORMVALUE', "zoneID", "zoneID");
+	
+	if (mode =='changeZone')
+	{
+		var zoneID=doAction('REQ_GET_FORMVALUE', "zoneID", "zoneID");
+	} 
+	else if (mode=='delete_threshold')
+	{
+		var rowID= doAction('REQ_GET_FORMVALUE', "deleteThresholdID", "deleteThresholdID");
+	
+		if (rowID) 
+		{
+			var success = ss_deleteThreshold(rowID);	
+		}
+		
+	} 
+	else if ((mode=='edit_threshold') || (mode =='add_another_range'))
+	{
+			//Save the base price
+			var basePrice = parseFloat(doAction('REQ_GET_FORMVALUE', "zoneBasePrice", "zoneBasePrice"));
+			
+			if ((basePrice != undefined) && (zoneID > 0)) 
+			{	if(basePrice < 0)
+					basePrice = 0;
+				var updateBase = doActionEx("SHIP_SET_ZONEBASEPRICE","Success","Zone",parseInt(zoneID),"BasePrice",basePrice,"ChargeType",'F');
+			}
+			
+			//build threshold values array from inputs
+			
+			var thresholdArray = buildThresholdArray();
+			// Now update the database with values
+			
+			if (thresholdArray.length > 1)
+			{
+				for (var j=1; j < thresholdArray.length; j++)
+				{
+				//start at 1 because 0 row is the MAX values;
+					var addNew=false;
+					if (thresholdArray[j])
+					{
+						if ((parseInt(thresholdArray[j][0]) < 0))
+						{
+							//any new rows would have ID -1
+							
+							var qID1 = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_THRESHOLD");
+							var addNew = doActionEx("DATA_ADDNEW", "Success","ObjectName", "SHIP_THRESHOLD", "QueryID", qID1);
+							
+							if (addNew)
+							{
+								var NextID = doActionEx("DATA_GENERATEID","ID","ObjectName","GENERATE_ID","IdType","TBL_SHIP_THRESHOLD");
+								var result1 = doActionEx("DATA_SETFIELDDATA", "Success", "ObjectName", "SHIP_THRESHOLD","QueryID",qID1,"FieldName","ID","FieldVal",NextID.toString());
+								var result2 = doActionEx("DATA_SETFIELDDATA", "Success", "ObjectName", "SHIP_THRESHOLD","QueryID",qID1,"FieldName","ZONE_ID","FieldVal",zoneID);
+								var result3 = doActionEx("DATA_SETFIELDDATA", "Success", "ObjectName", "SHIP_THRESHOLD","QueryID",qID1,"FieldName","SHIP_METHOD_ID","FieldVal",THRESHOLD_ID);
+							
+							}
+							else
+							{
+								//writeln("<br>AddRow FAILED <br>");
+							}
+							
+						}
+						else
+						{
+							
+							temp = "ID=" + thresholdArray[j][0];
+							var qID1 = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_THRESHOLD", "Filter", temp);
+							var addNew=true;
+							
+						}
+						
+						//if (addNew && (!doActionEx("DATA_ISEOF","Result","QueryID",qID1, "ObjectName", "SHIP_THRESHOLD")))
+						if (addNew)
+						{					
+							var limitString = thresholdArray[j][1];
+							var limit = 0.0;
+							if(limitString == "MAX")
+								limit = g_MAX_VALUE;
+							else
+							{
+								limit = parseFloat(limitString);
+
+								if(limit<0)
+									limit = 0;
+							}
+
+							var result = doActionEx("DATA_SETFIELDDATA", "Success", "ObjectName", "SHIP_THRESHOLD","QueryID",qID1,"FieldName","THRESHOLD","FieldVal", limit.toString());
+
+							var amt = thresholdArray[j][2];
+							if (amt < 0)
+								amt = 0;
+							result = doActionEx("DATA_SETFIELDDATA", "Success", "ObjectName", "SHIP_THRESHOLD","QueryID",qID1,"FieldName","CHARGE","FieldVal",amt);
+						
+							var chrgType = thresholdArray[j][3];
+							result = doActionEx("DATA_SETFIELDDATA", "Success", "ObjectName", "SHIP_THRESHOLD","QueryID",qID1,"FieldName","CHARGE_TYPE","FieldVal",chrgType);
+							
+							var msgID = thresholdArray[j][4];
+							var msgText = thresholdArray[j][5];
+						
+							if (!msgID)
+							{
+								//NO msgID passed, need to insert new message (if any)
+								if (msgText) 
+								{
+									msgID = doActionEx("DATA_SETLOCALESTRING", "LiteralID", "ObjectName", "SHIP_LITERALS","Locale",LOCALE_STRING, "LiteralValue", msgText);
+									
+								}
+								else 
+									msgID=0;
+							} 
+							else 
+							{
+								var MSG_TEXT = doActionEx("DATA_GETLOCALESTRING", "LiteralValue", "ObjectName", "SHIP_LITERALS","Locale",LOCALE_STRING,"LiteralID",parseInt(msgID));
+								if (msgText.toString() != MSG_TEXT.toString()) 
+								{	//CHANGED EXISTING MSG TEXT
+									if (parseInt(msgID) == 0) 
+									{
+										msgID = doActionEx("DATA_SETLOCALESTRING", "LiteralID", "ObjectName", "SHIP_LITERALS","Locale",LOCALE_STRING, "LiteralValue", msgText.toString());
+									
+									} 
+									else 
+									{
+										if (msgText.toString() == '') 
+										{
+											var deleteLocale = 	doAction("DATA_DELETELOCALESTRING","ObjectName", "SHIP_LITERALS", "LiteralID", parseInt(msgID));
+											msgID=0;
+										}
+										else 
+											msgID = doActionEx("DATA_SETLOCALESTRING", "LiteralID", "ObjectName", "SHIP_LITERALS","Locale",LOCALE_STRING, "LiteralValue", msgText.toString(), "LiteralID",parseInt(msgID));
+									
+									}
+								}
+							}
+											
+							result = doActionEx("DATA_SETFIELDDATA", "Success", "ObjectName", "SHIP_THRESHOLD","QueryID",qID1,"FieldName","MSG_LIT_ID","FieldVal",msgID.toString());
+						}
+						
+						var result = doActionEx("DATA_UPDATE", "Success", "ObjectName", "SHIP_THRESHOLD","QueryID",qID1);
+						var closeConn = doAction("DATA_CLOSEQUERY","QueryID",qID1,"ObjectName", "SHIP_THRESHOLD");
+						
+					}
+				}
+			}
+	} 
+	else
+	{
+		if ((zoneID<0) || !zoneID)
+		{
+		//zone ID was not passed in, so just get the first one.
+			var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_ZONE","Sort", "ID");
+			
+			if(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "SHIP_ZONE"))
+			{
+				var resultset=doActionBDO("DATA_GETFIELDDATA", "ObjectName", "SHIP_ZONE","QueryID",qID, "FieldName", "ID");
+				var zoneID=resultset.ID;
+			}
+			else
+			{
+				var zoneID=0;
+			}
+			var closeConn = doAction("DATA_CLOSEQUERY","QueryID",qID,"ObjectName", "SHIP_ZONE");
+			
+		}
+	}
+</script>
+
+<html>
+<head>
+<title>mainFrame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<merc_dynamic noshow=true name=SC_BaseUrl action=DATA_GETLITERAL ObjectName=storecfg LiteralID=BaseHref>
+<BASE href="{SC_BaseUrl}">
+
+<link rel="stylesheet" href="/cgi-docs/Mercantec/PC_F_6.6.1/styles/master.css">
+
+<script language="javascript" SRC="ZoneShippingClientSide.js"></script>
+
+</head>
+<body class="bkgrd-main-items" onLoad=changeZone.zoneID.focus()>
+<merc_dynamic noshow=true name=helpdomain action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpdomain' ColName='Domain'>
+<merc_dynamic noshow=true name=helpversion action=DATA_GETCONFIGDATA ObjectName=HelpCfg RowName='helpversion' ColName='Domain'>
+
+<div align="center"> 
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" align="left">
+    <tr> 
+<script runat="merc_server">
+	if (InWizard)
+	{
+		writeln("<td width=\"\" align=\"center\"><span class=\"general-label\">&nbsp;Selected Model: Price Threshold</span> &nbsp; &nbsp;");
+		writeln("<a href=\"javascript:void(parent.OpenWinSubmitForm('','L','bm_shpg_chgmodel.htm','newWin','',parent.createSimpleSubmitWindow(180,400)));\">");
+		writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_chgshpgmodel.gif\" alt=\"Change Shipping Model\" width=\"160\" height=\"21\" border=\"0\"></a>\n\
+      </td>");
+	}
+	else
+	{
+		writeln("	<td width=\"\"><span class=\"header\">Shipping - Price Threshold Model</span></td>");
+		writeln("	<td width=\"\">\n\
+        <div align=\"right\"><span class=\"header\"><a href=\"javascript:void(parent.OpenWinSubmitForm('','L','bm_shpg_chgmodel.htm','newWin','',parent.createSimpleSubmitWindow(180,400)));\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_chgshpgmodel.gif\" alt=\"Change Shipping Model\" width=\"160\" height=\"21\" border=\"0\"></a> </span></div>\n\
+      </td>");
+
+<merc_embed>
+        <td align="right">
+<!--HELP WINDOW LINK-->
+<a href="javascript:void(parent.openHelpWindow('http://{helpdomain}/cgi-bin/helpsrvr.exe?R+helpsrvr+OH_SHIPZ_PRICE+SoftCart+{helpversion}+en-us', 'Alane'));">
+<img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/help2x.gif" border="0" alt="Help" align="right"></a>
+<!--END HELP WINDOW--></td>
+</merc_embed>
+
+	}
+
+</script>
+    </tr>
+  </table>
+  <p><br>
+    <br>
+  </p>
+    
+	<script runat="merc_server">
+		writeln("<form name=\"changeZone\" action=\"\" onSubmit=\"javascript:void(parent.SubmitForm('L','" + DestinationHTML + "','mainFrame',document.changeZone));return false;\">");
+	</script>
+
+  <input type="hidden" name="mode" value="changeZone"> 
+  <span class="general-label">Charges for Shipping Zone: </span> 
+   
+    <script runat="merc_server">
+		buildZoneSelectList(zoneID,'true','L',DestinationHTML,'mainFrame','document.changeZone');
+	</script>
+	
+    &nbsp;&nbsp;<a href="javascript:void(changeZoneInfo());"><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_shpgzones.gif" alt="Manage Shipping Zones" width="120" height="21" align="absmiddle" border=0></a><br>
+  </form>
+  
+  <form name="saveThreshold" action="" onSubmit="javascript:void(parent.SubmitForm('L','bm_shpg_price.htm','mainFrame',document.saveThreshold));">
+  <input type="hidden" name="mode" value="edit_threshold">
+  <input type="hidden" name="deleteThresholdID" value="">
+  <p><span class="general-label">Base Charge: </span>
+	<script runat="merc_server">
+		if(zoneID>=0)
+		{
+			writeln("<input type=\"hidden\" name=\"zoneID\" value=\""+ zoneID.toString() +"\">");
+		}
+		var idString="ID="+zoneID.toString();
+		//writebr("idString:"+idString);
+		var qID2 = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_ZONE", "Filter", idString);
+		if(!doActionEx("DATA_ISEOF","Result","QueryID",qID2, "ObjectName", "SHIP_ZONE"))
+		{
+			var rs2 = doActionBDO("DATA_GETFIELDDATA", "ObjectName", "SHIP_ZONE","QueryID",qID2,"FieldName","BASE_PRICE");
+		}
+		else
+		{
+			//Error no row with that ID
+			//writebr("EOF");
+		}
+		var closeConn2=doAction("DATA_CLOSEQUERY","QueryID",qID2,"ObjectName", "SHIP_ZONE");
+		
+		
+		if(!rs2.BASE_PRICE)
+			basePrice=0;
+		else 
+			basePrice=rs2.BASE_PRICE;
+		
+		writeln("<input type=\"text\" name=\"zoneBasePrice\" maxlength=\"10\" size=\"8\" value=\""+ formatDouble(basePrice, PRECISION) +"\">");
+		
+	</script>
+	<br>
+  </p>
+<script runat="merc_server">
+	var szTemp = 'ZONE_ID='+zoneID+' AND SHIP_METHOD_ID='+THRESHOLD_ID;
+	//writebr(szTemp);
+	var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "SHIP_THRESHOLD", "Filter", szTemp, "Sort", "THRESHOLD");
+	//writebr("opened connection:", qID);
+	
+	var dA = new Array();
+	var numThresholds=0;
+	while(!doActionEx("DATA_ISEOF","Result","QueryID",qID, "ObjectName", "SHIP_THRESHOLD")){
+		var resultset=doActionBDO("DATA_GETROWDATA", "ObjectName", "SHIP_THRESHOLD","QueryID",qID);
+		var LIT_TEXT = doActionEx("DATA_GETLOCALESTRING", "LiteralValue", "ObjectName", "SHIP_LITERALS","Locale", LOCALE_STRING, "LiteralID", resultset.MSG_LIT_ID);
+		dA[numThresholds]=new Array(resultset.ID,resultset.ZONE_ID, resultset.THRESHOLD, resultset.CHARGE_TYPE, resultset.CHARGE, resultset.MSG_LIT_ID,LIT_TEXT);
+		var movednext=doActionEx("DATA_MOVENEXT","Result","ObjectName","SHIP_THRESHOLD","QueryID",qID);
+		numThresholds++;
+	}	
+	
+	//CLOSE QUERY
+	var closeConn = doAction("DATA_CLOSEQUERY","QueryID",qID, "ObjectName", "SHIP_THRESHOLD");
+	//writebr("closed connection");
+	// Check for missing data. If no threshold vales have been set, then set to Nulls for viewing.
+	if (numThresholds==0)
+	{
+		//Array(resultset.ID,resultset.ZONE_ID, resultset.THRESHOLD, resultset.CHARGE_FLAG, resultset.CHARGE, LIT_TEXT);
+		dA[0] = new Array("-1",zoneID,"0","F","0","","");
+		dA[1] = new Array("-1",zoneID,"0","F","0","","");
+		numThresholds=2;
+	}
+		
+	//set a flag to determine if column for delete button should exist
+	if ((dA.length>2) || (mode=="add_another_range"))
+		var generateColumn = true;
+	else 
+		var generateColumn = false;
+		
+		
+	if (dA[1][3] == 'P') 
+	{
+		var pcheck="CHECKED"
+		var fcheck="";
+	} else 
+	{
+		var pcheck=""
+		var fcheck="CHECKED";
+	}
+// From ZERO to (FIRST) HTML
+	writeln("<table width=\"521\" border=\"1\" cellspacing=\"0\" cellpadding=\"2\">\n\
+		    <tr class=\"table-header\">\n\
+		      <td width=\"42%\" nowrap class=\"table-header\">\n\
+		        <div align=\"center\" class=\"table-header\">Price Range</div>\n\
+		      </td>\n\
+		      <td width=\"23%\" nowrap class=\"table-header\">\n\
+		        <div align=\"center\">Charge</div>\n\
+		      </td>\n\
+		      <td width=\"23%\"> \n\
+		        <div align=\"center\" class=\"table-header\">Message</div>\n\
+		      </td>\n");
+	if (generateColumn)
+		      write("<td width=\"12%\" class=\"table-header\">&nbsp;</td>\n");
+		     
+	writeln("</tr>\n\
+		    <tr>\n\
+		      <td width=\"42%\" nowrap height=\"50\">\n\
+		        <div align=\"left\"><font face=\"Arial, Helvetica, sans-serif\" size=\"2\">From\n\
+		          <b>0</b> up to and including </font>\n\
+		          <input type=\"hidden\" name=\"threshold_1_id\" maxlength=\"8\" size=\"8\" value=\""+ dA[1][0]+ "\">\n\
+				  <input type=\"text\" name=\"threshold_1_val\" maxlength=\"8\" size=\"8\" value=\""+ formatDouble(dA[1][2], PRECISION)+ "\">\n\
+		        </div>\n\
+		      </td>\n\
+		      <td width=\"23%\" nowrap height=\"50\"> <span class=\"general-label\"> </span>\n\
+		        <table width=\"96%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"23\">\n\
+		          <tr>\n\
+		            <td height=\"41\" width=\"51%\">\n\
+						<input type=\"text\" name=\"threshold_1_charge\" maxlength=\"8\" size=\"8\" value=\""+ formatDouble(dA[1][4], PRECISION)+ "\">\n\
+		            </td>\n\
+		            <td nowrap height=\"41\" width=\"49%\">\n\
+		              <input type=\"radio\" name=\"threshold_1_chargetype\" value=\"P\" " + pcheck + ">\n\
+		              <span class=\"general-label\"> %<br>\n\
+		              <input type=\"radio\" name=\"threshold_1_chargetype\" value=\"F\" " + fcheck + ">\n\
+		              Amt</span></td>\n\
+		          </tr>\n\
+		        </table>\n\
+		          <span class=\"general-label\"> </span>\n\
+		      </td>\n\
+		      <td width=\"23%\" height=\"50\"> \n\
+		        <div align=\"center\"> \n\
+					<input type=\"hidden\" name=\"threshold_1_msg_id\" value=\""+ dA[1][5] +"\">\n\
+					<input type=\"text\" name=\"threshold_1_msg\" maxlength=\"100\" size=\"24\" value=\""+ dA[1][6] +"\">\n\
+		          </div>\n\
+		      </td>\n");
+	if (generateColumn)
+		      write("<td width=\"12%\">&nbsp;</td>\n");
+		     
+	writeln("</tr>");
+	
+// LOOP THROUGH " FROM ABOVE VALUE TO (i) "  HTML
+	for (var j=2; j < numThresholds; j++)
+	{
+		if (dA[j][3] == 'P') 
+		{
+			var pcheck="CHECKED"
+			var fcheck="";
+		} else 
+		{
+			var pcheck=""
+			var fcheck="CHECKED";
+		}
+	
+		write("<tr> \n\
+				  <td width=\"42%\" nowrap height=\"39\"> \n\
+				    <table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n\
+				      <tr>\n\
+				          <td><font face=\"Arial, Helvetica, sans-serif\" size=\"2\">From last \n\
+				            value above<br>\n\
+				            up to and including</font> </td>\n\
+				          <td>\n\
+				            <input type=\"hidden\" name=\"threshold_" + j + "_id\" maxlength=\"8\" size=\"8\" value=\""+ dA[j][0]+ "\">\n\
+				            <input type=\"text\" name=\"threshold_" + j + "_val\" maxlength=\"8\" size=\"8\" value=\""+ formatDouble(dA[j][2], PRECISION)+ "\">\n\
+				          </td>\n\
+				        </tr>\n\
+				      </table>\n\
+				  </td>\n\
+				  <td width=\"23%\" nowrap height=\"39\"> \n\
+				    <table width=\"96%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"23\">\n\
+				        <tr>\n\
+				          <td height=\"41\" width=\"51%\">\n\
+				            <input type=\"text\" name=\"threshold_" + j + "_charge\" maxlength=\"8\" size=\8\" value=\""+ formatDouble(dA[j][4], PRECISION)+ "\">\n\
+				          </td>\n\
+				          <td nowrap height=\"41\" width=\"49%\"> \n\
+				            <input type=\"radio\" name=\"threshold_" + j + "_chargetype\" value=\"P\" " + pcheck + ">\n\
+				            <span class=\"general-label\"> %<br>\n\
+				            <input type=\"radio\" name=\"threshold_" + j + "_chargetype\" value=\"F\" " + fcheck + ">\n\
+				            Amt</span></td>\n\
+				        </tr></table>\n\
+				  </td>\n\
+				  <td width=\"23%\" height=\"39\"> \n\
+				    <div align=\"center\">\n\
+					  <input type=\"hidden\" name=\"threshold_" + j + "_msg_id\" value=\""+ dA[j][5] +"\">\n\
+					  <input type=\"text\" name=\"threshold_" + j + "_msg\" maxlength=\"100\" size=\"24\" value=\""+ dA[j][6] +"\">\n\
+		          </div>\n\
+				  </td>\n\
+				  <td width=\"12%\" height=\"39\"> \n\
+				    <div align=\"center\"><a href=\"javascript:deleteThreshold(" + dA[j][0] + ", '" + DestinationHTML + "');\"><img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnbsm_delete.gif\" alt=\"Delete Threshold\" width=\"60\" height=\"19\" border=\"0\"></a></div>\n\
+				  </td>\n\
+				</tr>\n\
+		")
+	}
+	
+	//ADD ANOTHER RANGE WAS SELECTED
+	
+	if (mode=="add_another_range") 
+	{
+	writeln("<tr> \n\
+		      <td width=\"42%\" nowrap> \n\
+		         <table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n\
+				      <tr>\n\
+				          <td><font face=\"Arial, Helvetica, sans-serif\" size=\"2\">From last \n\
+				            value above<br>\n\
+				            up to and including</font> </td>\n\
+				          <td>\n\
+				            <input type=\"hidden\" name=\"threshold_NEW_id\" maxlength=\"8\" size=\"8\" value=\"NEW\">\n\
+				            <input type=\"text\" name=\"threshold_NEW_val\" maxlength=\"8\" size=\"8\" value=\"\">\n\
+				          </td>\n\
+				        </tr>\n\
+				      </table>\n\
+		      </td>\n\
+		      <td width=\"23%\" nowrap><span class=\"general-label\"> </span> \n\
+		            <table width=\"96%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"23\">\n\
+		              <tr>\n\
+		                <td height=\"41\" width=\"51%\">\n\
+		                <input type=\"text\" name=\"threshold_NEW_charge\" maxlength=\"8\" size=\"8\" value=\"\">\n\
+		             </td>\n\
+		                <td nowrap height=\"41\" width=\"49%\"> \n\
+		                  <input type=\"radio\" name=\"threshold_NEW_chargetype\" value=\"P\">\n\
+		                  <span class=\"general-label\"> %<br>\n\
+		                  <input type=\"radio\" name=\"threshold_NEW_chargetype\" value=\"F\" CHECKED>\n\
+		                  Amt</span></td>\n\
+		              </tr>\n\
+		            </table>\n\
+			      </td>\n\
+		      <td width=\"23%\"> \n\
+		        <div align=\"center\">\n\
+		          <input type=\"hidden\" name=\"threshold_NEW_msg_id\" value=\"NEW\">\n\
+		          <input type=\"text\" name=\"threshold_NEW_msg\" maxlength=\"100\" size=\"24\" value=\"\">\n\
+		        </div>\n\
+		      </td>\n\
+		      <td width=\"12%\" height=\"39\"> \n\
+				    <div align=\"center\">\n\
+				    </div>\n\
+                      </td>\n\
+		    </tr>");
+	
+	}
+	
+	//var lastRow = eval(numThresholds - 1);
+	var lastRow=0; // we are now flagging the max with a -1 value to ensure its the first row
+	if (dA[lastRow][3] == 'P') 
+	{
+		var pcheck="CHECKED"
+		var fcheck="";
+	} else 
+	{
+		var pcheck=""
+		var fcheck="CHECKED";
+	}
+// MAX VALUE HTML
+	write("<tr> \n\
+		      <td width=\"42%\" nowrap> \n\
+		        <div align=\"left\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\">Higher \n\
+		          than last value above</font></div>\n\
+		      </td>\n\
+		      <td width=\"23%\" nowrap><span class=\"general-label\"> </span> \n\
+		            <table width=\"96%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"23\">\n\
+		              <tr>\n\
+		                <td height=\"41\" width=\"51%\">\n\
+		                <input type=\"hidden\" name=\"threshold_max_id\" maxlength=\"8\" size=\"8\" value=\""+ dA[lastRow][0]+ "\">\n\
+						<input type=\"text\" name=\"threshold_max_charge\" maxlength=\"8\" size=\"8\" value=\""+ formatDouble(dA[lastRow][4], PRECISION)+ "\">\n\
+		              </td>\n\
+		                <td nowrap height=\"41\" width=\"49%\"> \n\
+		                  <input type=\"radio\" name=\"threshold_max_chargetype\" value=\"P\" " + pcheck + ">\n\
+		                  <span class=\"general-label\"> %<br>\n\
+		                  <input type=\"radio\" name=\"threshold_max_chargetype\" value=\"F\" " + fcheck + ">\n\
+		                  Amt</span></td>\n\
+		              </tr>\n\
+		            </table>\n\
+			      </td>\n\
+		      <td width=\"23%\"> \n\
+		        <div align=\"center\">\n\
+		          <input type=\"hidden\" name=\"threshold_max_msg_id\" value=\""+ dA[lastRow][5] +"\">\n\
+		          <input type=\"text\" name=\"threshold_max_msg\" maxlength=\"100\" size=\"24\" value=\""+ dA[lastRow][6] +"\">\n\
+		          </div>\n\
+		      </td>\n");
+	if (generateColumn)
+		      write("<td width=\"12%\">&nbsp;</td>\n");
+		     
+	writeln("</tr>\n\
+		  </table>\n<p>"); 
+
+	write  ("<a href=\"#\" onClick=\"javascript:addAnotherRange('" + DestinationHTML + "'); return false;\">");
+	write  ("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_addanotherrange.gif\" alt=\"Add Another Range\" width=\"120\" height=\"21\" border=\"0\"></a>");
+	write  ("&nbsp;&nbsp;<a href=\"#\" onClick=\"javascript:saveThresholds('" + DestinationHTML + "'); return false;\">");
+	writeln("<img src=\"/cgi-docs/Mercantec/PC_F_6.6.1/images/btnb_save.gif\" alt=\"Save\" width=\"90\" height=\"21\" border=0></a>");
+</script>
+	 </p>
+	 </form>
+	</div>
+</body>
+</html>

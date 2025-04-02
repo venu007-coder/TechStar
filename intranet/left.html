@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>left</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="styles/AltechIntra.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" >
+var count=0;
+function addthis(mystyle)
+{
+  count++;
+  sel.style.background="#D1E2FF";
+
+  document.all.sel.id = "sel1";
+  mystyle.style.background = "#4b6b9f";
+
+  mystyle.id = "sel";
+ 
+ // if(count>1)
+  //  toggle(sel1,0);
+  
+}
+function toggle(spar,mypar)
+{ 
+  if(mypar=='0' && spar.id != "sel")
+   {
+     spar.style.color="#D1E2FF";
+     spar.style.background="#4b6b9f"; 
+    // spar.style.cursor="hand"; 
+   }
+  else if(spar.id != "sel")
+   {
+     spar.style.color="#D1E2FF";
+     spar.style.background="#D1E2FF";
+   }
+}
+</script>
+<style type="text/css">
+<!--
+
+
+-->
+</style>
+<style type="text/css">
+<!--
+.mydiv {
+	
+}
+-->
+</style>
+<style type="text/css">
+<!--
+a:hover {
+	color: #FFFFFF;
+}
+-->
+</style>
+</head>
+<body leftmargin="0" topmargin="0" bgcolor="#D1E2FF" >
+  <div id="leftMenu" style="position:absolute; width:210px; height:100%; z-index:2; left: 1px; top: 0px;"> 
+  <table width="99%" height="557" align="left" cellpadding=0 cellspacing=0 bgcolor="#D1E2FF" class="rightCell" >
+    <tr>
+  <td valign="top">
+  <table width="100%" cellpadding=5 cellspacing=0 bgcolor="#D1E2FF">
+          <tr>
+<!--            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')" >&nbsp;</td> -->
+<td height="20" >&nbsp;</td> 
+          </tr>
+          <tr> 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')" ><a href="registration.html" target="mainFrame">Project 
+              Registration</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)"onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="projapp.html" target="mainFrame">Project 
+              Approval</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="projphini.html" target="mainFrame">Proj 
+              Ph/Sub Ph Initialization</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')" ><a href="projphallo.html"target="mainFrame">Proj 
+              Ph/Sub Ph Allocation</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="timerec.html" target="mainFrame" >TimeSheet 
+              Recording</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="timeapp.html" target="mainFrame">TimeSheet 
+              Approval</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="tracmoni.html" target="mainFrame">Tracking 
+              & Monitoring</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="projclosure.html" target="mainFrame">Project 
+              Closure</a></td>
+          </tr>
+          
+        </table>
+  
+        <table width="100%" border="0" cellspacing="0" cellpadding="5">
+          <tr>
+            <td><div align="left"><font color="#FF9900" size="2" face="Verdana"><strong>Admin 
+                </strong></font> </div></td>
+  </tr>
+
+          <tr> 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')" ><a href="precompanymaster.html" target="mainFrame" style="text-decoration:none;">Company</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)"onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="presbumaster.html" target="mainFrame">SBU</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="preclientmaster.html" target="mainFrame">Client</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')" ><a href="prephasesubmaster.html"target="mainFrame">Phase/Sub 
+              Phase</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="projmaster.html" target="mainFrame" >Project 
+              Type</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="preresourcemaster.html" target="mainFrame">Resource 
+              Type</a></td>
+          </tr>
+          <tr > 
+            <td height="20" onClick="addthis(this)" onMouseOver="toggle(this,'0')" onMouseOut="toggle(this,'1')"><a href="preemployeemaster.html" target="mainFrame">Employee</a></td>
+          </tr>
+        
+           <tr> 
+      <td id=sel height="25%" ><font face="Verdana, Arial, Helvetica, sans-serif">&nbsp;</font> 
+      </td>
+    </tr>
+        </table>
+   
+  
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <tr> 
+      <td height="10"><FONT color=#333333 size="1" face="Verdana, Arial, Helvetica, sans-serif"> 
+        &nbsp; © 2004, Altech Star Solutions</FONT></td>
+    </tr>
+</table>
+
+  
+  
+  
+  
+  
+    </td>
+  </tr>
+  </table> 
+</div>
+<!--
+<div id="Layer1" style="position:absolute; width:100%; height:65px; z-index:5; left: 0px; top: 488px;"> 
+  <hr width="100%" size="1" noshade>
+  -->
+
+
+</body>
+
+</html>

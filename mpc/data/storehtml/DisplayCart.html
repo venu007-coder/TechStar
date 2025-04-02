@@ -1,0 +1,577 @@
+<!-- Default DisplayCart HTML fragment Copyright (c) Mercantec, Inc. 2001 -->
+<script runat=merc_server>
+var mySession = doAction('ST_GET_STATEDATA', 'SessionID', 'SessionID');
+var mySiteID = doAction('REQ_GET_FORMVALUE', 'SiteID', 'SiteID');
+var myAppID = doAction('REQ_GET_FORMVALUE', 'AppID', 'AppID');
+var urlpath = doActionEx("DATA_GETLITERAL", "Result", "ObjectName", "storecfg", "LiteralID", "SiteUrl");
+var secureurl = doActionEx("DATA_GETLITERAL", "Result", "ObjectName", "storecfg", "LiteralID", "SecureSiteUrl");
+
+// turn on or off the sku in the shopcart
+var dispSku = false;
+
+if (ShowCartMode == "confirmcart")
+	writeln('<form name=modcart METHOD=POST action="'+secureurl+'">');
+else
+	writeln('<form name=modcart METHOD=POST action="'+urlpath+'">');
+if (OutputMode == "PE_PreviewMode")
+	writeln('<input type=hidden name=Preview value=1>');
+writeln('<input type="hidden" name="SessionID" value='+mySession+'>')
+writeln('<input type="hidden" name="sh_action" value=modifyCart>');
+writeln('<input type="hidden" name="SiteID" value='+mySiteID+'>');
+writeln('<input type="hidden" name="AppID" value='+myAppID+'>');
+writeln('<input type="hidden" name="Remove" value="">');
+</script>
+
+<!-- DISPLAY THE CART -->
+<table width="531" border="0" align="center" height="423">
+  <tr>
+    <td height="472">
+      <table width="97%" border="0" cellpadding="2" cellspacing="0" align="center" height="96">
+        <tr valign="top">
+          <td height="454">
+            <table width="100%" border="1" cellpadding="1" cellspacing="1">
+              <tr bgcolor="#CCCCCC">
+                <td width="15%">
+                  <div align="center"></div>
+                </td>
+                <td width="13%">
+                  <div align="center"><b>Qty</b><br>
+<script runat=merc_server>
+if (ShowCartMode == "modcart")
+	writeln('                    <font size="1">Use update button below</font>');
+</script>
+		   </div>
+                </td>
+<script runat=merc_server>
+	if(dispSku)
+	{
+		writeln("<td>"); 
+                writeln("  <div align='center'><b>Sku</b></div>");
+                writeln("</td>");
+	}
+</script>
+                <td>
+                  <div align="center"><b>Description</b></div>
+                </td>
+		<td>
+                  <div align="center"><b>Price</b></div>
+                </td>
+		<td>
+                  <div align="center"><b>Discount Per Item</b></div>
+                </td>
+                <td>
+                  <div align="center"><b>Item Total</b></div>
+                </td>
+              </tr>
+
+<script runat=merc_server>
+	//include Formatting Library
+	var cs_inc = doActionEx ('DATA_READFILE','FormattingLib.js', 'FileName', 'FormattingLib.js','ObjectName','JS_SRC', 'FileType', 'txt');
+	eval (cs_inc);
+
+	//include tax_pr Library
+        var cs_inc = doActionEx ('DATA_READFILE','tax_pr.js', 'FileName', 'tax_pr.js','ObjectName', 'JS_SRC', 'FileType', 'txt');
+        eval (cs_inc);
+
+	var LOCALE_STRING=getBrowserLocale();
+	var PRECISION = getDefaultPrecision();
+	var billToRowName = doActionEx('SC_GET_FIRST_ROW', 'RowName','TableName', 'BillTo');
+	var shipToRowName = doActionEx('SC_GET_FIRST_ROW', 'RowName','TableName', 'ShipTo');
+	var hasServices = false;
+	var hasProducts = false;
+	var itemCount = 0;
+
+	for (var currentShipTo = MERC_SHOPCART.GetFirstRow("ShipTo"); currentShipTo != "END_OF_TABLE"; currentShipTo = MERC_SHOPCART.GetNextRow("ShipTo",currentShipTo))
+	{
+		// Check to see if the row was removed.
+		var del_row=doAction("REQ_GET_FORMVALUE", "Remove", "Remove");
+		if (del_row)
+		{
+			// Now delete from the shopping cart
+			var result = doActionBDO("SC_DELETE_ROW", "TableName", "Items", "RowName", del_row);
+		}
+
+		// Check to see if the amount was updated. If so, update the cart
+		var temp = "Update_Qty";
+		var update_item= doAction('REQ_GET_FORMVALUE', 'Submit', 'Submit');
+		if (update_item == temp)
+		{
+			for (var itemID = MERC_SHOPCART.GetFirstRow("Items","ShipTo",currentShipTo); itemID != "END_OF_TABLE"; itemID = MERC_SHOPCART.GetNextRow("Items",itemID,"ShipTo",currentShipTo) )
+			{
+				var temp = "qty_" + itemID;
+				var qty= doAction('REQ_GET_FORMVALUE', temp, temp);
+				//writebr("Found item to Update! qty=" + qty);
+				var result = doActionBDO("SC_SET_FIELD", "TableName", "Items", "RowName", itemID, "FieldName", "Quantity", "Value", parseInt(qty));
+			}
+		}
+		// default price precision
+		var priceprec = 2;
+		for (var itemID = MERC_SHOPCART.GetFirstRow("Items","ShipTo",currentShipTo); itemID != "END_OF_TABLE"; itemID = MERC_SHOPCART.GetNextRow("Items",itemID,"ShipTo",currentShipTo))
+		{
+			q = MERC_SHOPCART.GetField("Items",itemID,"Quantity");
+			descid = MERC_SHOPCART.GetField("Items",itemID,"NameID");
+			sku = MERC_SHOPCART.GetField("Items", itemID, "Key");
+			priceprec = MERC_SHOPCART.GetField("Items",itemID,"PricePrecision");
+			var description = '';
+			if (descid != undefined)
+				description = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",descid,"Locale","en");
+			var price = MERC_SHOPCART.GetField("Items",itemID,"Price");
+			var discount = MERC_SHOPCART.GetField("Items",itemID,"Discount");
+			var total = MERC_SHOPCART.GetField("Items",itemID,"Total");
+			var Type4Attr = MERC_SHOPCART.GetField("Items",itemID,"Type4Attr");
+			if (Type4Attr == 'SUB')
+				continue;
+			var ItemType = MERC_SHOPCART.GetField('Items', itemID, 'Type');
+			if (ItemType == 1)
+			{
+				hasServices = true;
+				description += '<br>' + MERC_SHOPCART.GetField('Items', itemID, 'ApptDay') + '/';
+				description += MERC_SHOPCART.GetField('Items', itemID, 'ApptMonth') + '/';
+				description += MERC_SHOPCART.GetField('Items', itemID, 'ApptYear');
+				description += ' ' + MERC_SHOPCART.GetField('Items', itemID, 'ApptHour') + ':' + MERC_SHOPCART.GetField('Items', itemID, 'ApptMinute') + ' ' + MERC_SHOPCART.GetField('Items', itemID, 'ApptAMPM');
+			}
+			else if (ItemType == 0)
+			{
+				hasProducts = true;
+				name = description;
+				var key = MERC_SHOPCART.GetField("Items", itemID, "Key");
+				description = "<a href='" + urlpath + "?sh_action=viewitem&ItemType=product&SessionID=" + mySession + "&SiteID=" + mySiteID + "&AppID=" + myAppID + "&ItemKey=" + key;
+				if (OutputMode == "PE_PreviewMode")
+					description += "&Preview=1";
+				description += "'>" + name + "</a>";
+			}
+
+			if (Type4Attr == 'MAIN')
+			{
+				for (var attrRow = MERC_SHOPCART.GetFirstRow("Items","AttributeOf",itemID); attrRow != "END_OF_TABLE"; attrRow = MERC_SHOPCART.GetNextRow("Items",attrRow,"AttributeOf",itemID))
+				{
+					nameid = MERC_SHOPCART.GetField("Items",attrRow,"NameID");
+
+					if (descid != undefined)
+					{
+						var temp = doActionEx("DATA_GETLOCALESTRING","LiteralValue","ObjectName","CAT_Literals","LiteralID",nameid,"Locale","en");
+						if (temp)
+							description += ', ' + temp;
+					}
+
+					attrdiscount = MERC_SHOPCART.GetField("Items",attrRow,"Discount");
+					if (attrdiscount != undefined)
+						discount += attrdiscount;
+
+					attrprice = MERC_SHOPCART.GetField("Items",attrRow,"Price");
+					if (attrprice != undefined)
+						price += attrprice;
+
+					attrtotal = MERC_SHOPCART.GetField("Items",attrRow,"Total");
+					if (attrtotal != undefined)
+						total += attrtotal;
+				}
+			}
+
+			writeln("<tr>");
+			if (ShowCartMode == "modcart")
+			{
+				// no buttons in showcart mode
+				// write the "remove" button
+				writeln("<td width='15%'>");
+				writeln("<div align='center'>");
+				writeln('	<table border=0 cellspacing=0 cellpadding=0><tr>');
+				writeln('	<td align=right valign=middle>');
+				writeln('	<a href="#" onClick="document.modcart.Remove.value=\''+itemID+'\';document.modcart.submit();return false;">');
+				writeln('	<center><img src="/cgi-docs/Mercantec/PC_F_6.6.1/images/remove_cart.gif" border=0></center></a>');
+				writeln("	</td></tr></table>");
+				writeln("</div>");
+				writeln("</td>");
+			}
+			else
+				writeln("<td>&nbsp;</td>");
+			// write the quantity
+			writeln("<td width='13%'>");
+			writeln("<div align='center'>");
+			if (q != undefined)
+			{
+				if (ShowCartMode == "modcart")
+					writeln("<input type=text size=4 name='qty_" + itemID + "' value=" + q + ">");
+				else
+					writeln(q);
+			}
+			writeln("</div>");
+			writeln("</td>");
+			
+
+			// write the sku
+			if(dispSku)
+			{
+				writeln("<td width='20%'>");
+				writeln("<div align='center'>");
+				writeln(sku);
+				writeln("</div>");
+				writeln("</td>");
+			}
+
+			// write the description
+			writeln("<td width='50%'>");
+			writeln("<div align='center'>");
+			writeln(description);
+			writeln("</div>");
+			writeln("</td>");
+
+			// write the price
+			writeln("<td width='10%'>");
+			writeln("<div align='center'>");
+			var FormattedPrice = formatCurrency(price,LOCALE_STRING,priceprec);
+			writeln(FormattedPrice);
+			writeln("</div>");
+			writeln("</td>");
+
+			// write the discount
+			writeln("<td width='10%'>");
+			writeln("<div align='center'>");
+			var FormattedPrice = formatCurrency(discount,LOCALE_STRING,PRECISION);
+			writeln(FormattedPrice);
+			writeln("</div>");
+			writeln("</td>");
+
+			// write the total
+			writeln("<td width='10%'>");
+			writeln("<div align='center'>");
+			var FormattedPrice = formatCurrency(total,LOCALE_STRING,PRECISION);
+			writeln(FormattedPrice);
+			writeln("</div>");
+			writeln("</td>");
+			writeln("</tr>");
+			// increase count of items in the cart
+			itemCount++;
+		}
+
+		writeln("<tr height=8 bgcolor='#CCCCCC'>");
+		if(dispSku)
+			writeln("<td colspan=7>");
+		else
+			writeln("<td colspan=6>");
+
+		writeln("<img src='/cgi-docs/Mercantec/PC_F_6.6.1/images/1x1.gif' width=1 height=1></td>");
+		writeln("</tr>");
+
+		// display the subtotal
+		if (itemCount && hasServices == true)
+		{
+			writeln("<tr>");
+			if(dispSku)
+				writeln("<td colspan=6>");
+			else	
+				writeln("<td colspan=5>");
+			
+			
+			writeln("<div align='right'><b>Total</b></div></td>");
+			var TotalValue = formatCurrency(MERC_SHOPCART.GetField("TotalItems"), LOCALE_STRING,PRECISION);
+			writeln("<td width='18%' height='2'><div align='center'>" + TotalValue + "</div>");
+			writeln("</td>");
+			writeln("</tr>");
+		}
+
+		if (itemCount && hasServices == false)
+		{
+			// get the first tax zone
+			var taxZoneRowName = doActionEx('SC_GET_FIRST_ROW', 'RowName','TableName', 'ZONE_TAX_ZONE_TOTALS');
+			var zoneID = MERC_SHOPCART.GetField("ZONE_TAX_ZONE_TOTALS",taxZoneRowName,"ZONE_ID");
+			var zoneTax = MERC_SHOPCART.GetField("ZONE_TAX_ZONE_TOTALS",taxZoneRowName,"ZONE_TOTAL");
+			// display sales tax for each tax zone
+			while((taxZoneRowName !="END_OF_TABLE") && (taxZoneRowName))
+			{
+				if (!isNaN(zoneTax))
+				{
+					if(zoneTax > 0)
+					{
+						taxZoneInfo = lookupTaxZoneLiteral(zoneID);
+						writeln("<tr>");
+						if(dispSku)
+							writeln("<td colspan=6>");
+						else
+							writeln("<td colspan=5>");
+						writeln("<div align='right'><b>");
+						if(taxZoneInfo.subregion)
+							writeln(taxZoneInfo.subregion + ", ");
+						if(taxZoneInfo.region)
+							writeln(taxZoneInfo.region + ", ");
+						if(taxZoneInfo.country)
+							writeln(taxZoneInfo.country + " ");
+						writeln(" TAX");
+						writeln("</b></div></td>");
+						var zoneTaxValue = formatCurrency(zoneTax,LOCALE_STRING,PRECISION);
+						writeln("<td width='18%' height='2'><div align='center'>" + zoneTaxValue + "</div>");
+						writeln("</td>");
+						writeln("</tr>");
+					}
+				}// end if
+
+				// get the next tax zone
+				var taxZoneRowName = doActionEx('SC_GET_NEXT_ROW', 'RowName','CurrentRow', taxZoneRowName,'TableName', 'ZONE_TAX_ZONE_TOTALS');
+				var zoneID = MERC_SHOPCART.GetField("ZONE_TAX_ZONE_TOTALS",taxZoneRowName,"ZONE_ID");
+				var zoneTax = MERC_SHOPCART.GetField("ZONE_TAX_ZONE_TOTALS",taxZoneRowName,"ZONE_TOTAL");
+
+			} // end display tax
+
+			// display shipping cost
+			var price = MERC_SHOPCART.GetField("TotalShipping");
+			var shipFieldLabel = "Shipping";
+			var shipMsg = MERC_SHOPCART.GetField("ShippingMessage");
+			if (shipMsg && shipMsg != "")
+				shipFieldLabel += " (" + shipMsg + ")";
+			if (!isNaN(price))
+			{
+				writeln("<tr>");
+				if(dispSku)
+					writeln("<td colspan=6>");
+				else
+					writeln("<td colspan=5>");
+				writeln("<div align='right'><b>"+shipFieldLabel+":</b></div></td>");
+				var TotalShipping = formatCurrency(price,LOCALE_STRING,PRECISION);
+				writeln("<td width='18%' height='2'><div align='center'>" + TotalShipping + "</div>");
+				writeln("</td>");
+				writeln("</tr>");
+			}// end if
+
+			// display grand total
+			var price = MERC_SHOPCART.GetField("GrandTotal");
+			if (!isNaN(price))
+			{
+				writeln("<tr>");
+				if(dispSku)
+					writeln("<td colspan=6>");
+				else
+					writeln("<td colspan=5>");
+				writeln("<div align='right'><b>Grand Total:</b></div></td>");
+				writeln("<td width='18%' height='7' bgcolor='#333333'><div align='center'>");
+				writeln("<font color='#FFFFFF'><b>");
+				var GrandTotal = formatCurrency(price,LOCALE_STRING,PRECISION);
+				writeln(GrandTotal);
+				writeln("</b></font></div>");
+				writeln("</td>");
+				writeln("</tr>");
+			}// end if
+
+		}//has services false
+	}
+
+	if (itemCount == 0)
+		writeln('<tr><td colspan=6><div align=center><b>Your cart is empty</b></div></td></tr>');
+	if (hasProducts)
+		writeln('<input type=hidden name="hasProducts" value=YES>');
+	else
+		writeln('<input type=hidden name="hasProducts" value=NO>');
+
+	if (hasServices)
+		writeln('<input type=hidden name="hasServices" value=YES>');
+	else
+		writeln('<input type=hidden name="hasServices" value=NO>');
+
+	writeln('</table>');
+
+	if (itemCount && ShowCartMode != "showcart")
+	{
+		writeln('<!-- DISPLAY THE CART BUTTONS -->');
+		writeln(' <div align="center">');
+		if (ShowCartMode == "confirmcart")
+		{
+			// forward po info
+			var ponum = doActionEx("REQ_GET_FORMVALUE","Result","ponum","ponum");
+			if (ponum)
+			{
+				writeln('	<input type=hidden name=ponum value="'+ponum+'">');
+			}
+			writeln('	<br>');
+			writeln('	<table border=0 cellspacing=0 cellpadding=0><tr>');
+			writeln('	<td align=right valign=middle width=120 height=22 class="'+btnstyle+'">');
+			var type = parseInt(doAction("REQ_GET_FORMVALUE","paymentType","paymentType"));
+			writeln('	<input type=hidden name=paymentType value="'+type+'">');
+			writeln('	<a href="#" onClick="document.modcart.sh_action.value=\'takeorder\';document.modcart.submit();return false;">');
+			writeln('	<center><span class="'+btntextstyle+'">Submit Order</span></center></a>');
+			writeln("	</td></tr></table>");
+		}
+		else
+		{
+			writeln('	<input type="hidden" name="Submit" value="Update_Qty">');
+			writeln('	<br>');
+			writeln('	<table border=0 cellspacing=0 cellpadding=0><tr>');
+			writeln('	<td align=right valign=middle width=120 height=22 class="'+btnstyle+'">');
+			writeln('	<a href="#" onClick="document.modcart.submit();return false;">');
+			writeln('	<center><span class="'+btntextstyle+'">Update Quantity</span></center></a>');
+			writeln("	</td>");
+			writeln('	<td>&nbsp;</td>');
+			writeln('	<td align=right valign=middle width=120 height=22 class="'+btnstyle+'">');
+			writeln('	<a href="#" onClick="document.modcart.Submit.value=\'Check_Out\';document.modcart.submit();return false;">');
+			writeln('	<center><span class="'+btntextstyle+'">Check Out</span></center></a>');
+			writeln("	</td>");
+			writeln('	<td>&nbsp;</td>');
+			writeln('	<td align=right valign=middle width=120 height=22 class="'+btnstyle+'">');
+			writeln('	<a href="#" onClick="document.modcart.Submit.value=\'Continue_Shopping\';document.modcart.submit();return false;">');
+			writeln('	<center><span class="'+btntextstyle+'">Continue Shopping</span></center></a>');
+			writeln("	</td></tr></table>");
+			writeln('              <br>');
+		}
+		writeln(' </div>');
+		writeln('</form>');
+
+		if (hasServices == false && (!billToRowName || !MERC_SHOPCART.GetField("BillTo",billToRowName,"BillToName")) && (!shipToRowName || !MERC_SHOPCART.GetField("ShipTo",shipToRowName,"ShipToName")) )
+		{
+			writeln('	<div align="center">');
+			writeln('	<form name=billto1 METHOD=POST action="'+urlpath+'">');
+			if (OutputMode == "PE_PreviewMode")
+				writeln('<input type=hidden name=Preview value=1>');
+			writeln('	<input type=hidden name=SessionID value='+mySession+'>');
+			writeln("	<input type=hidden name=sh_action value='displayBillToShipTo'>");
+			writeln('	<input type=hidden name=SiteID value='+mySiteID+'>');
+			writeln('	<input type=hidden name=AppID value='+myAppID+'>');
+			writeln("	<input type=hidden name='Caller' value='ModCart'>");
+
+			writeln('	<table border=0 cellspacing=0 cellpadding=0><tr>');
+			writeln('	<td align=right valign=middle width=120 height=22 class=\''+btnstyle+'\'>');
+			writeln('	<a href="#" onClick="document.billto1.submit();return false;">');
+			writeln('	<center><span class="'+btntextstyle+'">Billing &amp; Shipping</span></center></a>');
+			writeln("	</td></tr></table></form>");
+			writeln('	</div>');
+		}
+
+		writeln('<!-- DISPLAY THE ADDRESSES -->');
+
+		if ((hasProducts && shipToRowName && MERC_SHOPCART.GetField("ShipTo",shipToRowName,"ShipToName")) || (billToRowName && MERC_SHOPCART.GetField("BillTo",billToRowName,"BillToName")))
+		{
+			writeln('	<form name=billto2 METHOD=POST action="'+urlpath+'">');
+			if (OutputMode == "PE_PreviewMode")
+				writeln('<input type=hidden name=Preview value=1>');
+			writeln('	<input type=hidden name=SessionID value='+mySession+'>');
+			writeln("	<input type=hidden name=sh_action value='displayBillToShipTo'>");
+			writeln('	<input type=hidden name=SiteID value='+mySiteID+'>');
+			writeln('	<input type=hidden name=AppID value='+myAppID+'>');
+			writeln("	<input type=hidden name='Caller' value='ModCart'>");
+
+			writeln("<table width='100%' border=0 cellpadding='2' cellspacing='0'><tr>");
+			writeln("<td width='50%' height='144' valign='top'>");
+			writeln("<!-- DISPLAY BILL-TO ADDRESS -->");
+			if (billToRowName)
+			{
+				writeln('                  <table width="240" border="1">');
+				writeln('                    <tr bgcolor="#CCCCCC">');
+				writeln('                      <td><b>Bill to:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>');
+				writeln('	</td><td>');
+				writeln('	<table border=0 cellspacing=0 cellpadding=0><tr>');
+				writeln('	<td align=right valign=middle width=120 height=22 class="'+btnstyle+'">');
+				writeln('	<a href="#" onClick="document.billto2.submit();return false;">');
+				writeln('	<center><span class="'+btntextstyle+'">Edit Address</span></center></a>');
+				writeln('	</td></tr></table>');
+				writeln('                        </td>');
+				writeln('                    </tr>');
+				writeln('                    <tr>');
+				writeln('                      <td colspan=2 height="64">');
+
+				writeln(MERC_SHOPCART.GetField("BillTo",billToRowName,"BillToName") + "<BR>");
+				writeln(MERC_SHOPCART.GetField("BillTo",billToRowName,"Address1") + "<BR>");
+				if (MERC_SHOPCART.GetField("BillTo",billToRowName,"Address2"))
+					writeln(MERC_SHOPCART.GetField("BillTo",billToRowName,"Address2") + "<BR>");
+				writeln(MERC_SHOPCART.GetField("BillTo",billToRowName,"SubRegion") + ",&nbsp");
+
+				/*
+				** Get the actual Region ShortName to display
+				*/
+
+				var filter = "ID=" + MERC_SHOPCART.GetField("BillTo",billToRowName,"Region");
+				var regionShortName = "N/A";
+				var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_REGION", "Filter", filter);
+				if(qID > 0)
+				{
+					var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "TAX_REGION", "QueryID",qID);
+					if (resultset && resultset.SHORTNAME)
+						regionShortName = resultset.SHORTNAME;
+
+					var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "TAX_REGION");
+				}
+				writeln(regionShortName + "&nbsp");
+
+				var postalcode = MERC_SHOPCART.GetField("BillTo",billToRowName,"PostalCode");
+				if(postalcode!=undefined)
+					writeln(postalcode + "<BR>");
+
+				writeln('                      </td>');
+				writeln('                    </tr>');
+				writeln('                  </table>');
+				writeln('				</td>');
+				writeln('                <td width="50%" height="144" valign="top">');
+				writeln('                  <div align="right"></div>');
+				writeln('			<!-- DISPLAY SHIP-TO ADDRESS -->');
+			}
+
+			if (shipToRowName && MERC_SHOPCART.GetField("ShipTo",shipToRowName,"ShipToName"))
+			{
+				if (!billToRowName)
+					writeln("<table width='240' border='1' align='left'>");
+				else
+					writeln("<table width='240' border='1' align='right'>");
+
+				writeln('                    <tr bgcolor="#CCCCCC">');
+				writeln('                      <td><b>Ship to: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>');
+				writeln('	</td><td>');
+				writeln('	<table border=0 cellspacing=0 cellpadding=0><tr>');
+				writeln('	<td align=right valign=middle width=120 height=22 class="'+btnstyle+'">');
+				writeln('	<a href="#" onClick="document.billto2.submit();return false;">');
+				writeln('	<center><span class="'+btntextstyle+'">Edit Address</span></center></a>');
+				writeln('	</td></tr></table>');
+				writeln('                        </td>');
+				writeln('                    </tr>');
+				writeln('                    <tr>');
+				writeln('                      <td colspan=2 height="64">');
+
+				writeln(MERC_SHOPCART.GetField("ShipTo",shipToRowName,"ShipToName") + "<BR>");
+				writeln(MERC_SHOPCART.GetField("ShipTo",shipToRowName,"Address1") + "<BR>");
+				if (MERC_SHOPCART.GetField("ShipTo",shipToRowName,"Address2"))
+					writeln(MERC_SHOPCART.GetField("ShipTo",shipToRowName,"Address2") + "<BR>");
+				writeln(MERC_SHOPCART.GetField("ShipTo",shipToRowName,"SubRegion") + ",&nbsp");
+
+				/* Get the actual Region ShortName to display */
+				var filter = "ID=" + MERC_SHOPCART.GetField("ShipTo",shipToRowName,"Region");
+				var regionShortName = "N/A";
+				var qID = doActionEx("DATA_OPENQUERY", "QueryID","ObjectName", "TAX_REGION", "Filter", filter);
+				if(qID > 0)
+				{
+					var resultset = doActionBDO("DATA_GETROWDATA","ObjectName", "TAX_REGION", "QueryID",qID);
+					if (resultset && resultset.SHORTNAME)
+						regionShortName = resultset.SHORTNAME;
+
+					var closeConn = doAction("DATA_CLOSEQUERY", "QueryID",qID,"ObjectName", "TAX_REGION");
+				}
+				writeln(regionShortName + "&nbsp");
+
+				var postalcode2 = MERC_SHOPCART.GetField("ShipTo",shipToRowName,"PostalCode");
+				if(postalcode2!=undefined)
+					writeln(postalcode2 + "<BR>");
+
+				var special = MERC_SHOPCART.GetField("ShipTo",shipToRowName,"Special");
+				if(special!=undefined && special !='')
+				{
+					writeln("<BR>Special instructions:<BR>");
+					writeln(special);
+				}
+
+				writeln('                      </td>');
+				writeln('                    </tr>');
+				writeln('                  </table>');
+
+			}
+
+			writeln('                </td>');
+			writeln('              </tr>');
+			writeln('            </table>');
+			writeln('		</form>');
+
+		}
+
+	}
+	else
+		writeln('</form>');
+</script>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

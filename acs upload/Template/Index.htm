@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Form 4 Mathematics</title>
+<meta http-equiv="Lesson01-Type" Content="text/html; charset=iso-8859-1">
+</head>
+
+<script language="javascript" src="Content/install/plugins.js"></script>
+
+<script language="javascript">
+
+<!--
+var flash       = "";
+var acrobat     = "";
+var shockwave   = "yes";
+
+var platform = "";
+var browser  = "";
+var pos      = 0;
+
+// detect platform
+if (windows)
+    platform = "win";
+else if (macintosh)
+    platform = "mac";
+else
+    platform = "other";
+
+
+// detect browser
+if (iexplore)
+    browser = "iexplore"; 
+else if (firefox)
+    browser = "firefox";  
+else if (netscape)
+    browser = "netscape";
+else
+    browser = "notSupported";
+
+if (browser == "iexplore")  {
+    // detect plugins
+    if (pluginlist.indexOf("Acrobat Reader") == -1)
+        acrobat = "false";
+    else
+        acrobat = "true";
+
+
+    if (pluginlist.indexOf("Shockwave Flash") == -1)
+        flash = "false";
+    else
+        flash = "true";
+}
+
+if (browser == "netscape") {
+    // detect plugins
+    if (pluginlist.indexOf("Acrobat Reader") == -1)
+        acrobat = "false";
+    else
+        acrobat = "true";
+
+
+    if (pluginlist.indexOf("Shockwave Flash") == -1)
+        flash = "false";
+    else
+      { 
+ <!-- attempt to detect at least Flash 5 -->
+
+    if (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"] 
+    && navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) 
+		{
+	
+		if (navigator.plugins && navigator.plugins["Shockwave Flash"] 
+		&& (versionIndex = navigator.plugins["Shockwave Flash"].description.indexOf(".")) 
+		!= - 1) {
+	
+			var versionString = navigator.plugins["Shockwave Flash"].description.substring(versionIndex-1, versionIndex);
+		
+			versionIndex = parseInt( versionString );
+		
+			if ( versionIndex >= 6 ) {
+		
+		flash = "true";
+	
+				}
+				else{
+		flash = "false";
+				}
+		
+			}
+	
+		}
+ <!-- end attempt to detect at least Flash 5 -->
+	  
+	  
+	  }
+}
+
+if (browser == "firefox") {
+    // detect plugins
+    if (pluginlist.indexOf("Acrobat Reader") == -1)
+        acrobat = "true";
+    else
+        acrobat = "true";
+
+
+    if (pluginlist.indexOf("Shockwave Flash") == -1)
+        flash = "false";
+    else
+      { 
+ <!-- attempt to detect at least Flash 5 -->
+
+    if (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"] 
+    && navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) 
+		{
+	
+		if (navigator.plugins && navigator.plugins["Shockwave Flash"] 
+		&& (versionIndex = navigator.plugins["Shockwave Flash"].description.indexOf(".")) 
+		!= - 1) {
+	
+			var versionString = navigator.plugins["Shockwave Flash"].description.substring(versionIndex-1, versionIndex);
+		
+			versionIndex = parseInt( versionString );
+		
+			if ( versionIndex >= 6 ) {
+		
+		flash = "true";
+	
+				}
+				else{
+		flash = "false";
+				}
+		
+			}
+	
+		}
+ <!-- end attempt to detect at least Flash 5 -->
+	  
+	  
+	  }
+}
+
+if (browser == "notSupported") {            // tell them they have an unsupported browser
+    document.write("<p>This software is optimized for Internet Explorer 5.0+ or Netscape 6.1+.</p>");
+    document.write("<p>As are using a another browser, you may experience problems.</p>");
+    document.write("<p>We recommend that you install the most recent version of either Internet Explorer, Netscape or any Mozilla-based browser.</p>");
+    document.write("<p>Please see the <a href=\"README\">README file</a> for further information.</p>");
+}
+else {
+    switch (platform) {
+        case ("win") :                        // windows
+            if (browser == "iexplore") {       // Internet Explorer : link them to the installer
+                if (acrobat == "false") {
+					location.href="Content/install/in_acro.htm";
+                }
+
+                 if (flash == "false") {
+					location.href="Content/install/in_flash.htm";
+                }
+                if (flash == "true"  && acrobat == "true") {
+							location.href="Content/Montage.htm";
+                }
+            }
+            else if (browser == "netscape") {  // Netscape : tell them about having to save the file first
+                if (acrobat == "false") {
+					location.href="Content/install/in_acro.htm";
+                }
+
+                if (flash == "false") {
+					location.href="Content/install/in_flash.htm";
+                }
+                if (flash == "true" && acrobat == "true") {
+						location.href="Content/Montage.htm";
+                }
+            }
+            else if (browser == "firefox") {  // Firefox : tell them about having to save the file first
+                if (acrobat == "false") {
+					location.href="Content/install/in_acro.htm";
+                }
+                if (flash == "false") {
+					location.href="Content/install/ff_flash.htm";
+                }
+                if (flash == "true" && acrobat == "true") {
+						location.href="Content/Montage.htm";
+                }
+            }
+            break;
+
+       case ("mac") :                    // macintosh (we aren't testing for Acrobat on mac)
+            if (browser == "iexplore") {   // give them a choice depending on OS
+                if (acrobat == "false") {
+					location.href="Content/install/in_acro.htm";
+            }
+                if (flash == "false") {
+					location.href="Content/install/in_flash.htm";
+                }
+                if (flash == "true" ) {
+					location.href="Content/Montage.htm";
+                }
+            }
+            else {                         // tell them to copy the installer from the cd and launch it or
+                if (acrobat == "false") {
+					location.href="Content/install/in_acro.htm";
+            }
+                if (flash == "false") {
+					location.href="Content/install/in_flash.htm";
+                }
+                if (flash == "true" ) {
+					location.href="Content/Montage.htm";
+                }
+            }
+            break;
+
+        case ("other") :                 // linux etc...
+            if (acrobat == "false") {
+					location.href="Content/install/in_acrol.htm";
+            }
+            
+            if (flash == "false") {
+					location.href="Content/install/in_flashl.htm";
+            }
+            if (flash == "true" && acrobat == "true") {
+					location.href="Content/Montage.htm";
+            }
+            break;
+    }
+}
+-->
+</script>
+<BODY   STYLE="overflow:hidden" bgcolor="#F7F7F7">
+<div align="center">
+</div>
+</body>
+</html>

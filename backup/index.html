@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="Websitename" />
+<meta name="Keywords" content="Websitename" />
+<meta name="Description" content="Websitename" />
+<meta name="language" content="English" />
+<title>Welcome to Altech Star</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.js"></script>
+<script type="text/javascript" src="js/rotator.js"></script>
+<script type="text/javascript" src="js/jqfade.js"></script>
+<script type="text/javascript">
+$(document).ready(
+	function(){
+		$('#news').innerfade({
+			animationtype: 'slide',
+			speed: 1000,
+			timeout: 5000,
+			type: 'random'
+			
+		});
+		$(".btn-slide").click(function(){
+		$("#newslettersignup").slideDown("slow");
+	});
+	$('.close-icon').click(function()
+	{
+	$("#newslettersignup").slideUp("slow");
+	});
+	});
+</script>
+<!--[if IE 6]>
+	<style type="text/css">
+		img, div, p, span, { behavior: url(iepngfix.htc) }
+	</style>
+    <script type="text/javascript" language="javascript" src="js/iepngfix.js"></script>
+<![endif]-->
+</head>
+<body>
+<!--Header Starts Here-->
+<div id="header">
+  <div class="container">
+  	<div id="logo"><a href="index.html"><img src="images/logo.png" alt="" width="222" height="96" /></a></div>
+    <div id="header-rgt">
+    	<div class="clear1">&nbsp;</div>
+		<ul id="menu">
+			<li class="inpage"><a href="index.html">Home</a></li>
+			<li><a href="#">Company</a>
+				<ul>
+					<li><a href="aboutus.html">About Us</a></li>
+					<li><a href="philosophy.html">Philosophy</a></li>
+					<li><a href="csr.html">CSR</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Services</a>
+				<ul>
+					<li><a href="services-healthcare.html">Healthcare</a></li>
+					<li><a href="services-it.html">IT</a></li>
+					<li><a href="services-staffing.html">Staffing</a></li>
+					<li><a href="services-bpo.html">BPO</a></li>
+				</ul>
+			</li>
+			<li><a href="career.php">Career</a></li>
+			<li class="last"><a href="contactus.php">Contact&nbsp;Us</a></li>
+		</ul>
+    </div>
+  </div>
+</div>
+<!--Header Ends Here-->
+<!--Home Banner Start Here-->
+<div id="home-banner">
+	<div class="rotator">
+      <ul>
+        <li style="opacity: 1;" class="show slide-1"></li>
+        <li class="slide-2" style="opacity: 0; "></li>
+        <li class="slide-3" style="opacity: 0; "></li>
+        <li class="slide-4" style="opacity: 0; "></li>
+      </ul>
+</div>
+</div>
+<!--Home Banner end Here-->
+<!--Content Starts Here-->
+<div id="wrapper" class="home-wrp">
+  <div class="container">
+  	<div id="news-section">
+		<p class="newstitle">Latest News &amp; Events</p>
+		<div class="news-content">
+			<ul id="news">
+				<li class="newsid">
+				  <p></p>
+				</li>
+				<li class="newsid">
+				  <p></p>
+				</li>
+				<li class="newsid">
+				  <p></p>
+				</li>
+				</li>
+		  </ul>
+		  <p class="news-more"><a href="news-events.html">More &raquo;</a></p>
+		</div>
+	</div>
+  	<div id="home-widgets">
+		<div class="widget1">
+			<h2>Healthcare</h2>
+			<img src="images/healthcare-it-img.png" alt="" width="206" height="74" />
+			<p class="clear">Altech Star Inc has invaluable experience in Healthcare IT in Project Management...<br /><a href="services-healthcare.html">Readmore</a></p>
+		</div>
+		<div class="widget2">
+			<h2><span>IT</span></h2>
+			<img src="images/it-img.png" alt="" width="226" height="74" />
+			<p class="clear">Altech Star Inc. has developed technologically superior IT products that enable organizations...<br /><a href="services-it.html">Readmore</a></p>
+		</div>
+		<div class="widget3">
+			<h2>Staffing</h2>
+			<img src="images/staffing-img.png" alt="" width="226" height="74" />
+			<p class="clear">Altech Star Inc., is a leading provider of IT professionals on a project  and full-time basis...<br /> <a href="services-staffing.html">Readmore</a></p>
+		</div>
+		<div class="widget4">
+			<h2><span>BPO</span></h2>
+			<img src="images/bpo-img.png" alt="" width="206" height="73" />
+			<p class="clear">Altech Star offers premium offshore BPO services with high quality inbound and outbound...<br /><a href="services-bpo.html">Readmore</a></p>
+		</div>
+	</div>
+  </div>
+</div>
+<!--Content Ends Here-->
+<!--Footer Starts Here-->
+<div id="footer">
+  <div class="container">
+  	<div class="fltlft">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li>|</li>
+			<li><a href="aboutus.html">About Us</a></li>
+			<li>|</li>
+			<li><a href="services-healthcare.html">Services</a></li>
+			<li>|</li>
+			<li><a href="philosophy.html">Philosophy</a></li>
+			<li>|</li>
+			<li><a href="news-events.html">News &amp; Events</a></li>
+			<li>|</li>
+			<li><a href="career.php">Career</a></li>
+			<li>|</li>
+			<li><a href="contactus.php">Contact Us</a></li>
+		</ul>
+		<p>Copyright &copy; 2011. Altechstar. All rights reserved</p>
+    </div>
+	<p class="designby">Design &amp; Developed by <a href="http://www.acedezines.com/" target="_blank">ACEDEZINES</a></p>
+  </div>
+</div>
+<!--Footer Ends Here-->
+</body>
+</html>
